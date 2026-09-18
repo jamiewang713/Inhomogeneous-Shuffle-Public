@@ -1,0 +1,9 @@
+import EdgeLocalization.Overlap.Edges
+
+#print axioms EdgeLocalization.FiniteLaw.prod_expectation
+#print axioms EdgeLocalization.FiniteLaw.prod_probability
+#print axioms EdgeLocalization.FiniteLaw.expected_card_intersection
+#print axioms EdgeLocalization.edgeDensity_eq_expected_shared_internal_edges
+#print axioms EdgeLocalization.matrix_expected_shared_internal_edges_le_mean_tail_fourth
+#print axioms EdgeLocalization.matrix_expected_shared_internal_edges_le_prefixMean
+#print axioms EdgeLocalization.FiniteLaw.prod

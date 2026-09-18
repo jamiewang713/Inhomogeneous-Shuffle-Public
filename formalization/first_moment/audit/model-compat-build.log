@@ -1,0 +1,73 @@
+Checking FirstMomentModel/BoundaryEncoding.lean on Lean 4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/BoundaryEncoding.lean:105:75: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [decodeBoundary, encodeBoundary, hiw, boundaryPositions, hwi, hout, Riffle.digit]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/BoundaryEncoding.lean:121:28: warning: This simp argument is unused:
+  htaglt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [decodeBoundary, encodeBoundary, hiw, boundaryPositions, hwi, hj, hout, hilast, htag, hei, Riffle.digit,
+    hdi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/BoundaryEncoding.lean:126:46: warning: This simp argument is unused:
+  Riffle.Cross
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [outward, Riffle.crossDigit] at hout hnotcross ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/BoundaryEncoding.lean:140:44: warning: This simp argument is unused:
+  Riffle.Cross
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [outward, Riffle.crossDigit] at hout hnotcross ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/BoundaryEncoding.lean:156:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/BoundaryEncoding.lean:181:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Checking FirstMomentModel/ProfileClasses.lean on Lean 4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/ProfileClasses.lean:16:26: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/ProfileClasses.lean:22:20: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/ProfileClasses.lean:31:23: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/FirstMomentModel/ProfileClasses.lean:141:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @LE.le ℕ instLENat (Nat.card { x // x ∈ Set.range (encodeProfile A cell good alpha route) })
+    (profileCountBound D.K D.k (boundaryBudget A) (exceptionalBudget A alpha) (c * D.k))
+but is expected to have type
+  @LE.le ℕ instLENat (Nat.card (ProfileClass A cell good alpha route))
+    (profileCountBound D.K D.k (boundaryBudget A) (exceptionalBudget A alpha) (c * D.k))

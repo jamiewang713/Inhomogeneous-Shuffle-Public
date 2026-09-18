@@ -1,0 +1,44 @@
+Checking ProfileFibreAudit.lean
+@InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts_encode : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (p : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha),
+  InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts
+      (InhomogeneousShuffle.FirstMoment.Model.encodeProfile A cell good alpha route p) =
+    InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good (↑p).1 (↑p).2.1 (↑p).2.2
+'InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts_encode' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileFibre_finite : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (key :
+    InhomogeneousShuffle.FirstMoment.ProfileKey D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)),
+  Finite (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A cell good alpha route key)
+'InhomogeneousShuffle.FirstMoment.Model.profileFibre_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_exp_entropy : ∀ {D : Riffle.Model} {c : ℕ}
+  (A : Riffle.Setup D) (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (key :
+    InhomogeneousShuffle.FirstMoment.ProfileKey D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)),
+  ↑(Nat.card (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A cell good alpha route key)) ≤
+    Real.exp
+      (InhomogeneousShuffle.FirstMoment.typeEntropy (InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts key))
+'InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_exp_entropy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy : ∀ {D : Riffle.Model} {c : ℕ}
+  (A : Riffle.Setup D) (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (key :
+    InhomogeneousShuffle.FirstMoment.ProfileKey D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)),
+  ↑(Nat.card (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A cell good alpha route key)) ≤
+    ↑D.N ^
+      (InhomogeneousShuffle.FirstMoment.typeEntropy (InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts key) /
+        Real.log ↑D.N)
+'InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

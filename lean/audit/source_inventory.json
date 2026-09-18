@@ -1,0 +1,1137 @@
+[
+  {
+    "kind": "theorem",
+    "title": "Upper critical-time theorem, reduced form",
+    "label": "thm:upper-critical-reduced",
+    "line": 235,
+    "statement": "\\label{thm:upper-critical-reduced}\nLet $(\\mu_t)_{t\\ge0}$ be the time profile, and suppose the deterministic cut sequence is almost-$\\mu_\\bullet$-like on every compact time interval and satisfies the local good-shuffle condition. Then, for every fixed $T>T_{\\UB}^{\\mathrm{red}}$,\n\\[\n  \\dTV(P(n,\\lfloor T\\log N\\rfloor),\\nuUnif)\\longrightarrow0.\n\\]\nEquivalently, for every fixed $\\varepsilon\\in(0,1)$,\n\\[\n  \\limsup_{N\\to\\infty}\\frac{t_{\\mathrm{mix}}^{(N)}(\\varepsilon)}{\\log N}\n  \\le T_{\\UB}^{\\mathrm{red}}.\n\\]\nThis remains the upper half of cutoff. A full cutoff theorem also requires matching lower-bound obstructions before $T_{\\UB}^{\\mathrm{red}}$.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "cor:full-margin-critical-upper-bound",
+      "thm:dominance-reduction"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Almost time-profile-like cuts",
+    "label": "def:almost-time-profile-like-cuts",
+    "line": 249,
+    "statement": "\\label{def:almost-time-profile-like-cuts}\nFix a finite measurable partition $D_k=D_0\\cup\\cdots\\cup D_m$. The deterministic cuts are $(\\rho,\\varphi)$-almost-$\\mu_\\bullet$-like on $[0,T]$ if, for every positive-length grid interval\n\\[\n  I=[a,\\min(a+\\rho,T)]\\subset[0,T],\n  \\qquad a\\in\\rho\\Z,\n\\]\nand every cell $D_i$,\n\\[\n  \\left|\n  \\frac1{\\log N}\\#\\{j:j/\\log N\\in I,\\ p^{(j)}\\in D_i\\}\n  -\\int_I\\mu_t(D_i)\\,dt\n  \\right|\\le \\varphi |I|+\\frac1{\\log N}.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "simplex",
+      "profile",
+      "time grid",
+      "finite partition"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Randomized time-profile-like cuts",
+    "label": "def:randomized-time-profile-like-cuts",
+    "line": 265,
+    "statement": "\\label{def:randomized-time-profile-like-cuts}\nLet $X=(X^{(j)})_{1\\le j\\le K}$ be a random pile sequence, where each\n$X^{(j)}=(X^{(j)}_0,\\ldots,X^{(j)}_{k-1})$ has nonnegative entries summing to\n$N$. We call $X$ randomized-$\\mu_\\bullet$-like if, with probability $1-o(1)$,\nits realized deterministic pile sequence is $(\\rho,\\varphi)$-almost-\n$\\mu_\\bullet$-like for the finite partition and parameters fixed in the\napplication. In this case $P(X,K)$ denotes the mixture law obtained by first\nsampling $X$ and then performing the associated inverse $K$-shuffle.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:almost-time-profile-like-cuts",
+      "pile-sequence mixing law"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "$\\chi$-regular partitions",
+    "label": "def:chi-regular-partitions",
+    "line": 276,
+    "statement": "\\label{def:chi-regular-partitions}\nA finite Borel partition $D_k=D_0\\cup\\cdots\\cup D_m$, with representatives $p^{(i)}\\in D_i$, is $\\chi$-regular if\n\\[\n  \\sup_{p,p'\\in D_i}\\sup_{\\theta\\in[2,4]}\n  |\\psi_p(\\theta)-\\psi_{p'}(\\theta)|\\le C\\chi,\n  \\qquad\n  \\sup_{p,p'\\in D_i}\n  \\left|\\log\\frac1{p_{\\max}(p)}-\\log\\frac1{p_{\\max}(p')}\\right|\n  \\le C\\chi,\n\\]\nand if each coordinate satisfies\n\\[\n  p_\\ell^{(i)}>2\\chi,\\ p\\in D_i\n  \\quad\\Longrightarrow\\quad\n  p_\\ell>\\chi,\n  \\qquad\n  \\left|\\log\\frac1{p_\\ell}-\\log\\frac1{p^{(i)}_\\ell}\\right|\\le C\\chi,\n\\]\nwhile\n\\[\n  p_\\ell^{(i)}\\le2\\chi,\n  \\ p\\in D_i\n  \\quad\\Longrightarrow\\quad\n  p_\\ell\\le3\\chi .\n\\]\nFor fixed $\\chi$, such a partition is obtained by refining the simplex at mesh $O(\\chi^2)$ and inserting coordinate threshold cuts near $\\chi,2\\chi,3\\chi$.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "simplex",
+      "one-column costs",
+      "coordinate thresholds"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Good columns",
+    "label": "def:good-columns",
+    "line": 305,
+    "statement": "\\label{def:good-columns}\nA column $j$ is $\\chi$-good if $p^{(j)}$ has at least two coordinates at least $\\chi$. The sequence satisfies the local $(\\chi,\\gamma,\\rho)$-good-shuffle condition on $[r,T]$ if every macroscopic interval $I\\subset[r,T]$ of length $\\rho$ contains at least $\\gamma\\rho\\log N$ indices $j$ with $j/\\log N\\in I$ that are $\\chi$-good.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "pile proportions",
+      "time grid"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "First-moment margin",
+    "label": "def:first-moment-margin",
+    "line": 331,
+    "statement": "\\label{def:first-moment-margin}\nFor an ambient block $(r,b)$, define\n\\[\n  \\beta_{r,b}(s)=b-A(r,s).\n\\]\nFor $r\\le s\\le u\\le T$, set\n\\[\n  N_1(r,s,u;b)=\\inf_{\\theta\\in[3,4]}\n  \\left\\{\\frac{\\theta+3}{2}\\beta_{r,b}(s)-B_\\theta(s,u)-2B_2(u,T)\\right\\},\n\\]\n\\[\n  N_2(r,s,u;b)=\\inf_{\\theta\\in[3,4]}\n  \\left\\{\\frac{\\theta-1}{2}\\beta_{r,b}(s)-B_\\theta(s,u)-2B_2(u,T)\\right\\},\n\\]\nand\n\\[\n  N_3(r,s;b)=\\beta_{r,b}(s)-B_2(s,T).\n\\]\nWe say $\\FM(r,b,T,\\eta)$ holds if\n\\[\n  \\beta_{r,b}(T)\\le-\\eta,\n\\]\n\\[\n  N_1(r,s,u;b)\\le-\\eta,\n  \\qquad\n  N_2(r,s,u;b)\\le-\\eta\n\\]\nfor all $r\\le s\\le u\\le T$, and\n\\[\n  N_3(r,s;b)\\le-\\eta\n\\]\nfor all $r\\le s\\le T$. Write $\\FM(T,\\eta)=\\FM(0,1,T,\\eta)$.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "ambient size exponent",
+      "integrated costs",
+      "global margins"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Recursive first-moment margin",
+    "label": "def:recursive-first-moment-margin",
+    "line": 366,
+    "statement": "\\label{def:recursive-first-moment-margin}\nAn ambient block is accessible if it can arise either from the original deck or from the conditional forward/backward exploration used in the exponential-moment proof. We say $\\RFM(T,\\eta)$ holds if $\\FM(r,b,T,\\eta)$ holds for every accessible ambient block $(r,b)$. A convenient sufficient condition is\n\\[\n  \\FM(r,1-A(0,r),T,\\eta)\\qquad\\hbox{for all }r\\in[0,T],\n\\]\nbecause accessible block sizes satisfy $b\\le1-A(0,r)+o(1)$.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:first-moment-margin",
+      "exploration-accessible blocks"
+    ]
+  },
+  {
+    "kind": "theorem",
+    "title": "Deterministic time-inhomogeneous upper bound",
+    "label": "thm:deterministic-upper-bound",
+    "line": 377,
+    "statement": "\\label{thm:deterministic-upper-bound}\nAssume the cuts are $(\\rho,\\varphi)$-almost-$\\mu_\\bullet$-like, satisfy the local $(\\chi,\\gamma,\\rho)$-good-shuffle condition on every relevant tail interval, and the profile satisfies $\\RFM(T,\\eta)$. Then\n\\[\n  \\dTV(P(n,K),\\nuUnif)\\to0.\n\\]\nThe convergence is uniform over deterministic cut sequences satisfying these hypotheses.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-graph-representation",
+      "lem:ub-truncated-chi-square",
+      "lem:ub-sparse-factorial",
+      "lem:ub-shared-edge-exponential-moment",
+      "lem:ub-regularity-sparsity"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Graph representation",
+    "label": "lem:ub-graph-representation",
+    "line": 402,
+    "statement": "\\label{lem:ub-graph-representation}\nLet $\\pi\\sim\\nuUnif$ and let $G$ be the shuffle graph generated by the deterministic cut sequence. Then the inverse $K$-shuffle has the same law as $\\pi_G$, obtained by sorting $\\pi$ increasingly inside each connected component of $G$.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "independent uniform fixed-count columns",
+      "independent uniform permutation",
+      "shuffle graph"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Truncated chi-square bound",
+    "label": "lem:ub-truncated-chi-square",
+    "line": 410,
+    "statement": "\\label{lem:ub-truncated-chi-square}\nLet $S_1$ be a typical set of shuffle matrices. Then\n\\[\n  \\dTV(P(n,K),\\nuUnif)\n  \\le\n  \\frac12\\left(\\E[(f_{G,G'}-1)\\1_{\\{S,S'\\in S_1\\}}]\\right)^{1/2}\n  +\\Pp(S\\notin S_1).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-graph-representation",
+      "density",
+      "independent graph copy",
+      "Cauchy–Schwarz"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Local sparsity",
+    "label": "def:local-sparsity",
+    "line": 424,
+    "statement": "\\label{def:local-sparsity}\nFor $L\\ge10$, a shuffle graph is $L$-sparse if every interval of $L$ consecutive vertices contains at most $L/3$ graph edges.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "shuffle graph",
+      "path intervals"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Sparse factorial bound",
+    "label": "lem:ub-sparse-factorial",
+    "line": 429,
+    "statement": "\\label{lem:ub-sparse-factorial}\nIf $G,G'$ are $L$-sparse, then\n\\[\n  f_{G,G'}\\le (L!)^{|E(G)\\cap E(G')|}.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:local-sparsity",
+      "component density"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Ambient block and size exponent",
+    "label": "def:ambient-block-size-exponent",
+    "line": 490,
+    "statement": "\\label{def:ambient-block-size-exponent}\nAn ambient block is a fixed legal prefix block \\(B_w\\) with\n\\(M_w=|w|\\), \\(M_w/\\log N=r+o(1)\\), and expected size\n\\[\n    \\E|\\cI(B_w)|=N^{b+o(1)}.\n\\]\nThe whole deck corresponds to \\(r=0\\), \\(b=1\\), and \\(w=\\varnothing\\). For any legal extension prefix \\(x\\supseteq w\\), with absolute length \\(M_x\\), define\n\\[\n    t_x=\\frac{M_x}{\\log N},\n\\]\nand\n\\[\n    c_L^{r,b}(x)\n    =\n    b-\\frac1{\\log N}\\sum_{M_w<j\\le M_x}\n    \\log\\frac{N}{n_{x[j]}^{(j)}} .\n\\]\nThus \\(c_L^{r,b}(x)=\\log_N\\E|\\cI(B_x)|+o(1)\\) inside the ambient block.\nWhen an argument is carried out inside \\(B_w\\), interval endpoints and\nedge locations are recentered at the left endpoint of \\(\\cI(B_w)\\);\ntranslating the whole ambient block is irrelevant for internal edge\ncounts.\nAlso define the tail edge exponent, for every legal prefix \\(x\\supseteq w\\), by\n\\[\n    c_E(x)=-\\frac1{\\log N}\\sum_{M_x<j\\le K}\\psi_{p^{(j)}}(2).\n\\]\nAll quantities carrying only the superscript \\((r,b)\\) in this section are\nunderstood to be relative to this fixed ambient prefix \\(w\\).",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "legal words",
+      "prefix intervals",
+      "independent columns",
+      "expectation"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Stable blocks",
+    "label": "def:boundary-pairs-stable-blocks",
+    "line": 521,
+    "statement": "\\label{def:boundary-pairs-stable-blocks}\nFix \\(0<\\chi<1/k\\) and a large constant \\(\\mathsf C\\). For each shuffle time \\(j\\), the sets below are nonempty, and we set\n\\[\n    \\ileft^{(j)}=\\inf\\{\\ell:\\ n_\\ell^{(j)}/N\\ge\\chi\\},\n    \\qquad\n    \\iright^{(j)}=\\sup\\{\\ell:\\ n_\\ell^{(j)}/N\\ge\\chi\\}.\n\\]\nThe left boundary-prefix family inside \\(B_w\\) is\n\\[\n    \\begin{aligned}\n    \\cA_{\\rm left}^{r,b}\n    &=\n    \\left[\\bigcup_{M_w<M\\le K}\n    \\left\\{x\\in\\cT:\n    \\begin{array}{l}\n    x\\supseteq w,\\ |x|=M,\\ x[M]>\\ileft^{(M)},\\\\\n    x[j]\\le\\ileft^{(j)}\\text{ for }M_w<j<M\n    \\end{array}\\right\\}\\right]\n    \\\\\n    &\\quad\\cup\n    \\left\\{x\\in\\cT:\n    \\begin{array}{l}\n    x\\supseteq w,\\ |x|=K,\\\\\n    x[j]\\le\\ileft^{(j)}\\text{ for all }M_w<j\\le K\n    \\end{array}\\right\\}.\n    \\end{aligned}\n \\]\nSimilarly, the right boundary-prefix family is\n\\[\n    \\begin{aligned}\n    \\cA_{\\rm right}^{r,b}\n    &=\n    \\left[\\bigcup_{M_w<M\\le K}\n    \\left\\{x\\in\\cT:\n    \\begin{array}{l}\n    x\\supseteq w,\\ |x|=M,\\ x[M]<\\iright^{(M)},\\\\\n    x[j]\\ge\\iright^{(j)}\\text{ for }M_w<j<M\n    \\end{array}\\right\\}\\right]\n    \\\\\n    &\\quad\\cup\n    \\left\\{x\\in\\cT:\n    \\begin{array}{l}\n    x\\supseteq w,\\ |x|=K,\\\\\n    x[j]\\ge\\iright^{(j)}\\text{ for all }M_w<j\\le K\n    \\end{array}\\right\\}.\n    \\end{aligned}\n \\]\n\nFor every full legal string \\(\\omega\\in B_w\\), let \\(L(\\omega)\\) be the\nshortest prefix of \\(\\omega\\) belonging to\n\\(\\cA_{\\rm left}^{r,b}\\), and let \\(R(\\omega)\\) be the shortest prefix\nbelonging to \\(\\cA_{\\rm right}^{r,b}\\). These prefixes are unique because\nthe definitions stop at the first genuine crossing of the left or right\nlarge-pile boundary, with the terminal word at time \\(K\\) used when no\ncrossing occurs. Thus every full string in \\(B_w\\) is assigned a unique\nboundary pair \\((L(\\omega),R(\\omega))\\).\n\nThe admissible boundary families are the truncations\n\\[\n    \\widetilde\\cA_{\\rm left}^{r,b}\n    =\n    \\left\\{y\\in\\cA_{\\rm left}^{r,b}:\\\n    \\#\\{M_w<j\\le M_y:\\ y[j]<\\ileft^{(j)}\\}\n    \\le \\frac{\\mathsf C}{\\log(1/\\chi)}\\log N\\right\\},\n\\]\n\\[\n    \\widetilde\\cA_{\\rm right}^{r,b}\n    =\n    \\left\\{z\\in\\cA_{\\rm right}^{r,b}:\\\n    \\#\\{M_w<j\\le M_z:\\ z[j]>\\iright^{(j)}\\}\n    \\le \\frac{\\mathsf C}{\\log(1/\\chi)}\\log N\\right\\}.\n\\]\n\nFor \\(y\\in\\widetilde\\cA_{\\rm left}^{r,b}\\) and \\(z\\in\\widetilde\\cA_{\\rm right}^{r,b}\\), define\n\\[\n    A_{y,z}^{r,b}=\\{x\\in\\cT:\\ x\\supseteq w,\\ x\\text{ has both }y\\text{ and }z\\text{ as prefixes}\\}.\n\\]\nWhen this is nonempty, one of \\(y,z\\) extends the other. Write \\(y\\vee z\\) for the longer of \\(y,z\\), and set\n\\[\n    s=s_{y,z}=t_{y\\vee z}.\n\\]\nFor \\(x\\in A_{y,z}^{r,b}\\), let \\(M_x,M_y,M_z\\) be the absolute lengths\nof \\(x,y,z\\), and put \\(M_\\vee=|y\\vee z|\\). Define the left\nlexicographic pieces inside the ambient block by\n\\[\n    P_{x,i}^{r,b}\n    =\n    \\{\\sigma\\in\\cT:\\ |\\sigma|=M_x,\\ \\sigma \\text{ extends }w,\\ \n    \\sigma[j]=x[j]\\text{ for }M_w<j<i,\\ \\sigma[i]<x[i]\\},\n\\]\nfor \\(M_w<i\\le M_x\\). Similarly define the right pieces\n\\[\n    Q_{x,i}^{r,b}\n    =\n    \\{\\sigma\\in\\cT:\\ |\\sigma|=M_x,\\ \\sigma \\text{ extends }w,\\ \n    \\sigma[j]=x[j]\\text{ for }M_w<j<i,\\ \\sigma[i]>x[i]\\}.\n\\]\nAll expectations below are for the random strings generated inside the ambient block \\(B_w\\), and for a family of prefixes we use the interval convention above. Set\n\\[\n    \\mathrm{Fluc}_{\\rm left}^{r,b}(x;y)\n    =\n    \\left(\\max_{M_w<i\\le M_\\vee}\\E |\\cI(P_{x,i}^{r,b})|\\right)^{1/2},\n\\]\n\\[\n    \\mathrm{Fluc}_{\\rm right}^{r,b}(x;z)\n    =\n    \\left(\\max_{M_w<i\\le M_\\vee}\\E |\\cI(Q_{x,i}^{r,b})|\\right)^{1/2},\n\\]\nand\n\\[\n    c_F^{r,b}(x;y,z)\n    =\n    \\min\\left(\n    \\log_N \\mathrm{Fluc}_{\\rm left}^{r,b}(x;y),\n    \\log_N \\mathrm{Fluc}_{\\rm right}^{r,b}(x;z)\n    \\right).\n\\]\nThe maximum over an empty index set is \\(0\\), and \\(\\log_N0=-\\infty\\).\nBecause \\(x\\) has both \\(y\\) and \\(z\\) as prefixes, the quantities above\ndepend only on the boundary pair \\((y,z)\\), not on the continuation beyond\n\\(y\\vee z\\). We use the representative value\n\\(c_F^{r,b}(y\\vee z;y,z)\\) below.\n\nCall a pair \\((y,z)\\) terminal if \\(M_y=K\\) or \\(M_z=K\\). A pair is\nretained if \\(A_{y,z}^{r,b}\\ne\\varnothing\\) and either it is terminal or\n\\(c_F^{r,b}(y\\vee z;y,z)>-\\infty\\). A nonterminal retained pair is called\nfluctuation-regular when\n\\[\n    c_F^{r,b}(\\xi;y,z)\\ge \\frac12c_L^{r,b}(\\xi)-o(1)\n\\]\nholds uniformly for all continuations \\(\\xi\\in A_{y,z}^{r,b}\\). This is\nproved in the profile-estimates lemma below from the genuine left and\nright boundary crossings:\nat the crossing time for \\(y\\) there is at least \\(\\chi N\\) mass on the\nleft side, and at the crossing time for \\(z\\) there is at least\n\\(\\chi N\\) mass on the right side. Terminal retained pairs are not\ndiscarded; their stable family is the singleton \\(\\{y\\vee z\\}\\) and they\nare handled by the terminal/tail estimate.\n\nFor fixed \\(\\delta>0\\), define the first-crossing and terminal-fallback sets\n\\[\n    \\Gamma_{y,z}^{r,b}\n    =\n    \\{x\\in A_{y,z}^{r,b}:\\\n    c_L^{r,b}(x)-c_F^{r,b}(y\\vee z;y,z)<\\delta,\\\n    c_L^{r,b}(\\mathcal F x)-c_F^{r,b}(y\\vee z;y,z)\\ge\\delta\\},\n\\]\n\\[\n    \\Lambda_{y,z}^{r,b}\n    =\n    \\{x\\in A_{y,z}^{r,b}:\\ |x|=K,\\\n    c_L^{r,b}(x)-c_F^{r,b}(y\\vee z;y,z)\\ge\\delta\\}.\n\\]\nHere \\(\\mathcal F x\\) is the parent of \\(x\\), used only in \\(\\Gamma_{y,z}^{r,b}\\). Now set\n\\[\n    A_{y,z}^{\\stable,r,b}\n    =\n    \\begin{cases}\n    \\{y\\vee z\\},\n    & \\text{\\((y,z)\\) terminal},\\\\[4pt]\n    \\{y\\vee z\\},\n    & c_L^{r,b}(y\\vee z)-c_F^{r,b}(y\\vee z;y,z)<\\delta,\\\\[4pt]\n    \\Gamma_{y,z}^{r,b}\\cup\\Lambda_{y,z}^{r,b},\n    & c_L^{r,b}(y\\vee z)-c_F^{r,b}(y\\vee z;y,z)\\ge\\delta,\n    \\end{cases}\n\\]\nFor stable \\(x\\), set \\(u=t_x\\). Thus every stable block has times\n\\[\n    r\\le s\\le u\\le T.\n\\]\nThe set \\(\\Lambda_{y,z}^{r,b}\\) is included only to make the stopping\nrule total before applying the tail-size margin; in the first-moment\napplication, the tail-size part of \\(\\FM(r,b,T,\\eta)\\) excludes\nnonterminal fallback blocks, while terminal singleton pairs are estimated\ndirectly by the same tail-size margin.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "legal prefix tree",
+      "def:ambient-block-size-exponent",
+      "good pile thresholds",
+      "side pieces P,Q",
+      "expected-size exponents"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Space-time digit profile",
+    "label": "def:space-time-digit-profile",
+    "line": 699,
+    "statement": "\\label{def:space-time-digit-profile}\nFix the \\(\\chi\\)-regular partition\n\\(D_k=D_0\\cup\\cdots\\cup D_m\\) from the almost-like condition, with\nrepresentatives \\(p^{(i)}\\in D_i\\), and choose a time mesh\n\\[\n    0=t_0<t_1<\\cdots<t_R=T,\\qquad J_q=[t_q,t_{q+1})\\ (q<R-1),\\quad J_{R-1}=[t_{R-1},T]\n\\]\nwith mesh size at most \\(\\Delta\\). Thus \\(q\\in\\{0,\\ldots,R-1\\}\\) is only the time-cell index. Let \\((y,z)\\) be a retained boundary pair, let \\(x\\in A_{y,z}^{\\stable,r,b}\\), and put \\(s=s_{y,z}\\), \\(u=t_x\\).\n\nFor a shuffle time \\(j\\) with \\(s\\log N<j\\le u\\log N\\), let \\(q(j)\\) and \\(i(j)\\) be the unique indices such that\n\\[\n    j/\\log N\\in J_{q(j)},\\qquad p^{(j)}\\in D_{i(j)}.\n\\]\nCall the pair \\((j,x[j])\\) good if \\(p_{x[j]}^{(i(j))}>2\\chi\\), and exceptional otherwise.\n\nDefine\n\\[\n    c_\\ell^{(q,i)}(x)\n    =\n    \\frac1{\\log N}\n    \\#\\{j:\\ s\\log N<j\\le u\\log N,\\ q(j)=q,\\ i(j)=i,\\ x[j]=\\ell,\\ (j,x[j])\\text{ is good}\\}.\n\\]\nThe full profile consists of the counts \\(c_\\ell^{(q,i)}(x)\\), together with the exceptional set\n\\[\n    \\mathsf Q_x=\\{j:\\ s\\log N<j\\le u\\log N,\\ (j,x[j])\\text{ is exceptional}\\}.\n\\]\nDefine\n\\[\n    S_x=\\sum_{q=0}^{R-1}\\sum_{i=0}^m\\sum_{\\ell=0}^{k-1}\n    c_\\ell^{(q,i)}(x)\\log\\frac1{p_\\ell^{(i)}},\n\\]\n\\[\n    Q_x=\\frac1{\\log N}\\sum_{j\\in\\mathsf Q_x}\n    \\log\\frac{N}{n_{x[j]}^{(j)}}\\ge0,\n    \\qquad\n    R_x=\\frac{|\\mathsf Q_x|}{\\log N}.\n\\]\nFor \\(c_{\\rm tot}^{(q,i)}=\\sum_\\ell c_\\ell^{(q,i)}\\), define\n\\[\n    H_x\n    =\n    \\sum_{q,i:\\ c_{\\rm tot}^{(q,i)}>0}\n    c_{\\rm tot}^{(q,i)}\n    \\sum_{\\ell:\\ c_\\ell^{(q,i)}>0}\n    \\frac{c_\\ell^{(q,i)}}{c_{\\rm tot}^{(q,i)}}\n    \\log\\frac{c_{\\rm tot}^{(q,i)}}{c_\\ell^{(q,i)}} .\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:chi-regular-partitions",
+      "def:boundary-pairs-stable-blocks",
+      "time partition"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Numerical first-moment margin",
+    "label": "def:numerical-first-moment-margin",
+    "line": 749,
+    "statement": "\\label{def:numerical-first-moment-margin}\nFor an ambient block \\((r,b)\\), set\n\\[\n    \\beta_{r,b}(s)=b-A(r,s).\n\\]\nFor \\(r\\le s\\le u\\le T\\), define\n\\[\n    \\mathcal N_1(r,s,u;b)\n    =\n    \\inf_{\\theta\\in[3,4]}\n    \\left\\{\\frac{\\theta+3}{2}\\beta_{r,b}(s)-B_\\theta(s,u)-2B_2(u,T)\\right\\},\n\\]\n\\[\n    \\mathcal N_2(r,s,u;b)\n    =\n    \\inf_{\\theta\\in[3,4]}\n    \\left\\{\\frac{\\theta-1}{2}\\beta_{r,b}(s)-B_\\theta(s,u)-2B_2(u,T)\\right\\},\n\\]\nand\n\\[\n    \\mathcal N_3(r,s;b)=\\beta_{r,b}(s)-B_2(s,T).\n\\]\nWe say \\(\\FM(r,b,T,\\eta)\\) holds if\n\\[\n    \\beta_{r,b}(T)\\le -\\eta,\n\\]\nand\n\\[\n    \\mathcal N_1(r,s,u;b)\\le-\\eta,\\qquad\n    \\mathcal N_2(r,s,u;b)\\le-\\eta\n\\]\nfor all \\(r\\le s\\le u\\le T\\), and\n\\[\n    \\mathcal N_3(r,s;b)\\le-\\eta\n\\]\nfor all \\(r\\le s\\le T\\). Write \\(\\FM(T,\\eta)=\\FM(0,1,T,\\eta)\\).",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "integrated costs",
+      "def:ambient-block-size-exponent",
+      "repeats def:first-moment-margin"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Stable partition",
+    "label": "lem:ub-stable-partition",
+    "line": 788,
+    "statement": "\\label{lem:ub-stable-partition}\nFor every retained boundary pair \\((y,z)\\), the stable blocks \\(B_x\\),\n\\(x\\in A_{y,z}^{\\stable,r,b}\\), partition the strings in\n\\(B_{y\\vee z}\\). The intervals \\(\\cI(B_x)\\) partition\n\\(\\cI(B_{y\\vee z})\\).",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:boundary-pairs-stable-blocks",
+      "total terminal fallback"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Global boundary decomposition",
+    "label": "lem:ub-global-boundary-decomposition",
+    "line": 828,
+    "statement": "\\label{lem:ub-global-boundary-decomposition}\nBefore the admissibility truncation, the maps \\(L(\\omega)\\) and\n\\(R(\\omega)\\) assign every full legal string \\(\\omega\\in B_w\\) to a\nunique boundary pair. Consequently\n\\[\n    B_w=\n    \\bigsqcup_{(y,z)}\n    B_{\\{\\,\\omega:\\ L(\\omega)=y,\\ R(\\omega)=z\\,\\}},\n\\]\nwhere the disjoint union is over boundary pairs from\n\\(\\cA_{\\rm left}^{r,b}\\times\\cA_{\\rm right}^{r,b}\\). For every admissible\nretained pair \\((y,z)\\), the stable cylinders\n\\(\\{B_x:x\\in A_{y,z}^{\\stable,r,b}\\}\\) partition the corresponding\nsubfamily \\(B_{y\\vee z}\\). The only strings not represented by retained\nadmissible stable cylinders are those for which \\(L(\\omega)\\) or\n\\(R(\\omega)\\) lies outside the admissible truncation.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:boundary-pairs-stable-blocks",
+      "lem:ub-stable-partition"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Regular partition and interval blocking",
+    "label": "lem:ub-regular-partition-interval-blocking",
+    "line": 857,
+    "statement": "\\label{lem:ub-regular-partition-interval-blocking}\nAssume the cuts are \\((\\rho,\\varphi)\\)-almost-\\(\\mu_\\cdot\\)-like for the\nchosen \\(\\chi\\)-regular partition. Then the representative replacements\nused in the profile estimates have error \\(O(\\chi)\\), good digits have\nactual pile mass at least \\(\\chi\\), and exceptional digits have actual\npile mass at most \\(3\\chi+o(1)\\). Moreover, the \\(\\rho\\)-grid\nalmost-like condition implies the same cell-count estimates on arbitrary\nsubintervals of \\([0,T]\\), with error \\(O(\\rho+\\varphi)+o(1)\\).",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:chi-regular-partitions",
+      "def:almost-time-profile-like-cuts"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Profile estimates",
+    "label": "lem:ub-profile-estimates",
+    "line": 898,
+    "statement": "\\label{lem:ub-profile-estimates}\nUniformly over retained boundary pairs and stable\n\\(x\\in A_{y,z}^{\\stable,r,b}\\),\n\\[\n    c_L^{r,b}(x)=c_L^{r,b}(y\\vee z)-S_x-Q_x\n    +O(\\Delta+\\chi+\\rho+\\varphi)+o(1),\n\\]\n\\[\n    c_E(x)=-B_2(u,T)+O(\\Delta+\\chi+\\rho+\\varphi)+o(1),\n\\]\n\\[\n    c_L^{r,b}(y\\vee z)\\le\n    \\beta_{r,b}(s)+O(\\Delta+\\chi+\\rho+\\varphi)+o(1).\n\\]\nWith \\(\\alpha_\\chi=(\\log(1/\\chi))^{-1/2}\\), every continuation\n\\(\\xi\\in A_{y,z}^{r,b}\\) of a nonterminal fluctuation-regular retained\npair satisfies\n\\[\n    c_F^{r,b}(\\xi;y,z)\\ge \\frac12 c_L^{r,b}(\\xi)-o(1).\n\\]\nIf \\(x\\in A_{y,z}^{\\stable,r,b}\\) is in the non-singleton first-crossing\ncase, then\n\\[\n    S_x\\le c_L^{r,b}(y\\vee z)-c_F^{r,b}(y\\vee z;y,z)\n    +O(\\Delta+\\chi+\\rho+\\varphi+\\alpha_\\chi)+o(1).\n\\]\nAfter discarding profiles with \\(R_x>\\alpha_\\chi\\), for every\n\\(\\theta\\in[3,4]\\),\n\\[\n    H_x\\le \\theta S_x-B_\\theta(s,u)\n    +O(\\Delta+\\chi+\\rho+\\varphi+\\alpha_\\chi)+o(1).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:space-time-digit-profile",
+      "lem:ub-regular-partition-interval-blocking",
+      "one-column entropy calculations",
+      "boundary crossings"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Bad-profile reduction",
+    "label": "lem:ub-bad-profile-reduction",
+    "line": 1039,
+    "statement": "\\label{lem:ub-bad-profile-reduction}\nFor every fixed target \\(\\mathsf C_0\\), the admissibility truncation above\nand the bad-profile truncation can be chosen so that the total\ncontribution of non-admissible boundary pairs and profiles with\n\\(R_x>\\alpha_\\chi\\) is \\(N^{-\\mathsf C_0}\\). Empty boundary pairs\ncontribute zero, and terminal retained pairs are kept as singleton\nclasses. Moreover, for every \\(\\varepsilon>0\\), after choosing \\(\\chi\\)\nsmall and then \\(N\\) large, the number of remaining\nboundary-pair/profile classes is at most \\(N^\\varepsilon\\).",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:boundary-pairs-stable-blocks",
+      "def:space-time-digit-profile",
+      "exceptional-coordinate bounds",
+      "labelled-row first moments",
+      "combinatorial union bounds"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Hypergeometric estimates",
+    "label": "lem:ub-hypergeometric-estimates",
+    "line": 1121,
+    "statement": "\\label{lem:ub-hypergeometric-estimates}\nLet \\(Y\\sim\\operatorname{Hyp}(n_1,n,m)\\), the size of the intersection\nof a uniformly chosen \\(n_1\\)-set and a uniformly chosen \\(m\\)-set in an\n\\(n\\)-point population. Put\n\\[\n    \\mu=\\E Y=\\frac{n_1m}{n},\n    \\qquad\n    \\sigma^2=\n    \\frac{n_1m(n-n_1)(n-m)}{n^2(n-1)} .\n\\]\nThere are absolute constants \\(c,C>0\\) such that, for every \\(t\\ge0\\),\n\\begin{equation}\n\\label{eq:hypergeom-concentration}\n    \\Pp(|Y-\\mu|\\ge t)\n    \\le\n    2\\exp\\left\\{-c\\min\\left(\\frac{t^2}{\\mu+t},t\\right)\\right\\},\n\\end{equation}\nand, whenever \\(\\sigma>0\\),\n\\[\n    \\sup_q \\Pp(Y=q)\\le \\frac{C}{\\sigma}.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "finite uniform sampling",
+      "feasibility",
+      "first and second factorial moments",
+      "without-replacement exponential transform",
+      "unimodal/log-concave mass function"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Ambient conditioning transfer",
+    "label": "lem:ub-ambient-conditioning-transfer",
+    "line": 1154,
+    "statement": "\\label{lem:ub-ambient-conditioning-transfer}\nFix an admissible nonterminal retained boundary pair \\((y,z)\\), and let\n\\(\\xi\\in A_{y,z}^{r,b}\\). On an event of probability\n\\(1-\\exp(-N^{\\delta-o(1)})\\), uniformly over all prefix families appearing\nin the endpoint decompositions below, the random counts inside the ambient\nblock differ from their conditional means by at most a factor\n\\(N^{O(\\delta)+o(1)}\\) whenever the mean is at least\n\\(N^{\\delta-o(1)}\\), and are at most \\(N^{O(\\delta)+o(1)}\\) otherwise.\nConsequently, if \\(a,b\\le M_{y\\vee z}\\) realize the left and right\nfluctuation scales,\n\\[\n    \\E|\\cI(P_{\\xi,a}^{r,b})|,\n    \\E|\\cI(Q_{\\xi,b}^{r,b})|\n    \\ge N^{2c_F^{r,b}(\\xi;y,z)-o(1)},\n\\]\nthen every conditional hypergeometric variable \\(Y\\) constructed from\nthese two pieces in the anti-concentration proof, with \\(\\mathcal G\\) denoting\nits revealing sigma-field, satisfies\n\\[\n    \\E(Y\\mid\\mathcal G)\\ge\n    N^{2c_F^{r,b}(\\xi;y,z)-O(\\delta)-o(1)}\n\\]\nand both complementary population fractions in its variance formula are\nat least \\(N^{-O(\\delta)-o(1)}\\).",
+    "cited_labels": [
+      "lem:ub-hypergeometric-estimates"
+    ],
+    "semantic_dependencies": [
+      "lem:ub-hypergeometric-estimates",
+      "explicitly specified reveal sigma-field",
+      "conditioned residual column law",
+      "positive mean",
+      "population reserves [FALSE AS STATED]"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Ambient concentration and anti-concentration",
+    "label": "lem:ub-ambient-concentration-anti-concentration",
+    "line": 1202,
+    "statement": "\\label{lem:ub-ambient-concentration-anti-concentration}\nLet \\((y,z)\\) be a nonterminal retained fluctuation-regular pair and let\n\\(x\\in A_{y,z}^{r,b}\\). Put \\(M_\\vee=|y\\vee z|\\). Write\n\\[\n    \\cI(B_x)=[\\iota_x,\\tau_x)\n\\]\nfor the random lexicographic interval occupied by \\(B_x\\), and let\n\\(\\mathcal U_x\\) be the internal information consisting of the rows whose\nstrings have prefix \\(x\\), together with their continuation strings after\ntime \\(M_x\\). On an event \\(\\mathcal S_x\\) with\n\\[\n    \\Pp(\\mathcal S_x^c)\\le \\exp(-N^{\\delta-o(1)}),\n\\]\nthe following estimates hold uniformly over the remaining retained\nprofiles:\n\\[\n    |\\cI(B_x)|\\le N^{c_L^{r,b}(x)+O(\\delta)+o(1)}\n    \\qquad\\text{if }c_L^{r,b}(x)\\ge 2\\delta,\n\\]\n\\[\n    |\\cI(B_x)|\\le N^{O(\\delta)+o(1)}\n    \\qquad\\text{if }c_L^{r,b}(x)<2\\delta,\n\\]\nand\n\\[\n    \\max_j \\Pp(\\iota_x=j,\\mathcal S_x\\mid\\mathcal U_x)\n    +\n    \\max_j \\Pp(\\tau_x=j,\\mathcal S_x\\mid\\mathcal U_x)\n    \\le\n    N^{-M_x^*+O(\\delta)+o(1)},\n\\]\nwhere\n\\[\n    M_x^*=\\max(c_F^{r,b}(x;y,z),\\delta).\n\\]\nMoreover, there are deterministic centers\n\\(\\bar\\iota_x=\\E\\iota_x\\) and \\(\\bar\\tau_x=\\E\\tau_x\\) such that, on\n\\(\\mathcal S_x\\),\n\\[\n    |\\iota_x-\\bar\\iota_x|+|\\tau_x-\\bar\\tau_x|\n    \\le\n    N^{M_x^*+O(\\delta)+o(1)} .\n\\]",
+    "cited_labels": [
+      "lem:ub-hypergeometric-estimates"
+    ],
+    "semantic_dependencies": [
+      "lem:ub-hypergeometric-estimates",
+      "lem:ub-ambient-conditioning-transfer",
+      "side-piece decomposition",
+      "fine-to-coarse conditional tower [BLOCKED]"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Per-edge stable localization",
+    "label": "lem:ub-per-edge-stable-localization",
+    "line": 1436,
+    "statement": "\\label{lem:ub-per-edge-stable-localization}\nFor each \\(m\\in\\{1,\\ldots,N-1\\}\\) and each retained admissible boundary\npair \\((y,z)\\), define\n\\[\n    A_{y,z,m}^{\\stable,r,b}\n    =\n    \\left\\{\n    x\\in A_{y,z}^{\\stable,r,b}:\n    \\Pp(m\\in\\cI(B_x))\\ge \\exp(-N^\\delta)\n    \\right\\}.\n\\]\nThen \\(|A_{y,z,m}^{\\stable,r,b}|\\le 2Kk\\). Moreover,\n\\[\n    \\Pp\\left[\n    m\\notin\n    \\bigcup_{(y,z)}\\ \\bigcup_{x\\in A_{y,z,m}^{\\stable,r,b}}\n    \\cI(B_x)\n    \\right]\n    \\le \\exp(-N^{\\delta-o(1)}),\n\\]\nwhere the union is over retained admissible boundary pairs. If\n\\((m,m+1)\\in E(G)\\), then the two endpoint rows have the same full string,\nso any stable block containing \\(m\\) also contains the edge.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-global-boundary-decomposition",
+      "lem:ub-bad-profile-reduction",
+      "lem:ub-ambient-concentration-anti-concentration",
+      "union bound"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Edge-density bounds",
+    "label": "lem:ub-edge-density-bounds",
+    "line": 1486,
+    "statement": "\\label{lem:ub-edge-density-bounds}\nLet \\((y,z)\\) be a nonterminal retained fluctuation-regular pair and let\n\\(x\\in A_{y,z}^{\\stable,r,b}\\setminus\\Lambda_{y,z}^{r,b}\\). The\nfollowing bounds hold:\n\\[\n    \\sum_{m=1}^{N-1}\\Pp((m,m+1)\\in E(G_{B_x}))^2\n    \\le N^{4c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+2c_E(x)+O(\\delta)+o(1)}\n\\]\nin the large-block case \\(c_L^{r,b}(x)\\ge2\\delta\\);\n\\[\n    \\sum_{m=1}^{N-1}\\Pp((m,m+1)\\in E(G_{B_x}))^2\n    \\le N^{-c_F^{r,b}(x;y,z)+2c_E(x)+O(\\delta)+o(1)}\n\\]\nin the small non-singleton case\n\\(c_L^{r,b}(x)<2\\delta\\),\n\\(c_F^{r,b}(x;y,z)\\ge\\delta-(\\log N)^{-1/2}\\), and\n\\(A_{y,z}^{\\stable,r,b}\\ne\\{y\\vee z\\}\\). If\n\\(c_L^{r,b}(x)<2\\delta\\) and\n\\(c_F^{r,b}(x;y,z)<\\delta-(\\log N)^{-1/2}\\), then \\(x=y\\vee z\\) and\n\\(A_{y,z}^{\\stable,r,b}=\\{y\\vee z\\}\\). If\n\\(c_L^{r,b}(x)<2\\delta\\) and\n\\(A_{y,z}^{\\stable,r,b}=\\{y\\vee z\\}\\), then\n\\[\n    \\sum_{m=1}^{N-1}\\Pp((m,m+1)\\in E(G_{B_x}))^2\n    \\le N^{2c_L^{r,b}(x)+2c_E(x)+O(\\delta)+o(1)}.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-ambient-concentration-anti-concentration",
+      "internal equal-string pair probabilities",
+      "stable stopping rule"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Terminal singleton bound",
+    "label": "lem:ub-terminal-singleton-bound",
+    "line": 1640,
+    "statement": "\\label{lem:ub-terminal-singleton-bound}\nLet \\((y,z)\\) be a terminal retained admissible pair and\n\\(x=y\\vee z\\), so \\(A_{y,z}^{\\stable,r,b}=\\{x\\}\\) and \\(M_x=K\\). Then\n\\[\n    \\sum_{m=1}^{N-1}\\Pp((m,m+1)\\in E(G_{B_x}))^2\n    \\le N^{c_L^{r,b}(x)+c_E(x)+O(\\delta)+o(1)} .\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-hypergeometric-estimates",
+      "terminal singleton",
+      "prefix mean bound"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Numerical lemma",
+    "label": "lem:ub-numerical-lemma",
+    "line": 1662,
+    "statement": "\\label{lem:ub-numerical-lemma}\nAssume \\(\\FM(r,b,T,\\eta)\\). After choosing\n\\(\\Delta,\\chi,\\rho,\\varphi\\) and the stability threshold sufficiently\nsmall, there is \\(\\delta_1>0\\) such that every stable profile remaining\nafter the admissibility and exceptional-profile truncations satisfies\n\\[\n    4c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+2c_E(x)+H_x\\le-\\delta_1\n\\]\nin the nonterminal large-block case. In the nonterminal small\nnon-singleton case,\n\\[\n    -c_F^{r,b}(x;y,z)+2c_E(x)+H_x\\le-\\delta_1.\n\\]\nEvery singleton stable profile, including terminal retained pairs,\nsatisfies\n\\[\n    c_L^{r,b}(y\\vee z)+c_E(y\\vee z)\\le-\\delta_1.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:numerical-first-moment-margin",
+      "lem:ub-profile-estimates",
+      "stable stopping rule",
+      "tilted entropy"
+    ]
+  },
+  {
+    "kind": "proposition",
+    "title": "First moment",
+    "label": "prop:ub-first-moment",
+    "line": 1817,
+    "statement": "\\label{prop:ub-first-moment}\nFix \\(\\eta>0\\), then choose\n\\(\\chi,\\Delta,\\rho,\\varphi,\\delta\\) according to the parameter hierarchy\nabove, with the almost-like condition imposed for the chosen\n\\(\\chi\\)-regular partition. Fix an ambient block \\(B_w\\) with parameters\n\\((r,b)\\). Assume the deterministic tail pile sequence\n\\((n^{(j)})_{M_w<j\\le K}\\), viewed at macroscopic times\n\\([r,T]\\), is almost-\\(\\mu_\\cdot\\)-like, satisfies the local\n\\((\\chi,\\gamma,\\rho)\\)-good-shuffle condition on \\([r,T]\\), and satisfies\n\\(\\FM(r,b,T,\\eta)\\). Then two independent shuffle graphs\nrestricted to the ambient block satisfy\n\\[\n    \\E |E(G,G')|\\le N^{-\\delta_*}.\n\\]\nHere \\(E(G,G')\\) is the set of common adjacent edges,\n\\(\\delta_*=\\delta_*(\\eta,\\gamma,k,T)>0\\), and the whole deck is\n\\(r=0,b=1\\).",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-global-boundary-decomposition",
+      "lem:ub-bad-profile-reduction",
+      "lem:ub-per-edge-stable-localization",
+      "lem:ub-edge-density-bounds",
+      "lem:ub-terminal-singleton-bound",
+      "lem:ub-numerical-lemma",
+      "independent graph copies"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Conditional preservation",
+    "label": "lem:ub-conditional-preservation",
+    "line": 1923,
+    "statement": "\\label{lem:ub-conditional-preservation}\nWith probability $1-\\exp(-N^c)$ at each exploration step, every large unrevealed ambient block produced by conditioning on explored strings is almost-$\\mu_\\bullet$-like and has an accessible exponent $b$.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-hypergeometric-estimates",
+      "explicit exploration reveal law",
+      "accessible-block size bound [INTERFACE UNRESOLVED]"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Conditional first moment during exploration",
+    "label": "lem:ub-conditional-first-moment",
+    "line": 1931,
+    "statement": "\\label{lem:ub-conditional-first-moment}\nOn the regular event, let \\(\\mathcal F_{\\mathrm{explored}}\\) be the sigma-field\ngenerated by all information revealed before a given forward or backward\nexploration step. Then\n\\[\n  \\E[\\#\\{\\hbox{unrevealed shared edges}\\}\\mid\\mathcal F_{\\mathrm{explored}}]\n  \\le N^{-\\delta}.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-conditional-preservation",
+      "prop:ub-first-moment",
+      "def:recursive-first-moment-margin",
+      "regular exploration"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Portenko exponential moment",
+    "label": "lem:ub-portenko-exponential-moment",
+    "line": 1949,
+    "statement": "\\label{lem:ub-portenko-exponential-moment}\nFor each fixed directional exploration and each fixed $t>0$,\n\\[\n  \\E\\left[\\exp(t|E_{\\mathrm{dir}}(G,G')|)\\1_{\\{S,S'\\ \\mathrm{regular}\\}}\\right]\n  \\le1+O(N^{-\\delta}).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-conditional-first-moment",
+      "directional exploration",
+      "conditional Laplace iteration"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Shared-edge exponential moment",
+    "label": "lem:ub-shared-edge-exponential-moment",
+    "line": 1961,
+    "statement": "\\label{lem:ub-shared-edge-exponential-moment}\nFor $t=2k\\log(L!)$,\n\\[\n  \\E\\left[((L!)^{|E(G)\\cap E(G')|}-1)\\1_{\\{S,S'\\in S_1\\}}\\right]\n  =O(N^{-\\delta}),\n\\]\nwhere $S_1$ is the event that both matrices are regular and both graphs are $L$-sparse.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-portenko-exponential-moment",
+      "2k directional cover",
+      "convexity"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Regularity and sparsity",
+    "label": "lem:ub-regularity-sparsity",
+    "line": 1974,
+    "statement": "\\label{lem:ub-regularity-sparsity}\nFor $L$ sufficiently large,\n\\[\n  \\Pp(S\\notin S_1)=O(N^{-1}).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "lem:ub-hypergeometric-estimates",
+      "stable-block estimates",
+      "interval union bounds"
+    ]
+  },
+  {
+    "kind": "corollary",
+    "title": "Random time-profile upper bound",
+    "label": "cor:random-time-profile-upper-bound",
+    "line": 1999,
+    "statement": "\\label{cor:random-time-profile-upper-bound}\nLet \\(X\\) be a random pile sequence. If \\(X\\) is randomized-$\\mu_\\bullet$-like in\nthe sense of Definition~\\ref{def:randomized-time-profile-like-cuts}, satisfies\nthe local good-shuffle condition with probability \\(1-o(1)\\), and the profile\nsatisfies \\(\\RFM(T,\\eta)\\) from Definition~\\ref{def:recursive-first-moment-margin}, then\n\\[\n  \\dTV(P(X,K),\\nuUnif)\\to0.\n\\]",
+    "cited_labels": [
+      "cor:full-margin-critical-upper-bound",
+      "def:first-moment-margin",
+      "def:randomized-time-profile-like-cuts",
+      "def:recursive-first-moment-margin",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "sec:dominance-upper-margins",
+      "thm:deterministic-upper-bound"
+    ],
+    "semantic_dependencies": [
+      "def:randomized-time-profile-like-cuts",
+      "thm:deterministic-upper-bound",
+      "mixture total-variation upper inequality",
+      "uniform deterministic convergence"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Buffered pointwise upper bound",
+    "label": "lem:buffered-pointwise-upper-bound",
+    "line": 2029,
+    "statement": "\\label{lem:buffered-pointwise-upper-bound}\nAssume that the deterministic cuts are almost-$\\mu_\\bullet$-like in the\nsense of \\Cref{def:almost-time-profile-like-cuts} and satisfy the local\ngood-shuffle condition in \\Cref{def:good-columns}, with parameters as\nrequired by \\Cref{thm:deterministic-upper-bound}.  Fix $T>0$.  If there\nexists $\\eta>0$ such that\n\\begin{equation}\n\\label{eq:buffered-global-upper-margin}\n  \\Lambda_{\\UB}(T)\\le-\\eta,\n\\end{equation}\nthen\n\\[\n  \\dTV(P(n,\\lfloor T\\log N\\rfloor),\\nuUnif)\\longrightarrow0.\n\\]",
+    "cited_labels": [
+      "def:almost-time-profile-like-cuts",
+      "def:first-moment-margin",
+      "def:good-columns",
+      "def:recursive-first-moment-margin",
+      "eq:accessible-beta-error",
+      "eq:accessible-exponent-error",
+      "eq:accessible-margin-errors",
+      "eq:all-four-global-margins-buffered",
+      "eq:buffered-global-upper-margin",
+      "eq:global-beta",
+      "eq:global-lambda-one",
+      "eq:global-lambda-three",
+      "eq:global-lambda-two",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:local-global-beta-identity",
+      "eq:local-n-three-bound",
+      "eq:terminal-local-margin-bound",
+      "thm:deterministic-upper-bound"
+    ],
+    "semantic_dependencies": [
+      "def:recursive-first-moment-margin",
+      "thm:deterministic-upper-bound",
+      "global negative margins",
+      "accessible exponent domination"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Monotonicity of the upper margins",
+    "label": "lem:upper-margin-monotonicity",
+    "line": 2159,
+    "statement": "\\label{lem:upper-margin-monotonicity}\nEach function $\\Lambda_i(T)$, $0\\le i\\le3$, is nonincreasing in $T$.\nConsequently, the full margin $\\Lambda_{\\UB}(T)$ in\n\\eqref{eq:global-upper-margin} is nonincreasing.",
+    "cited_labels": [
+      "eq:beta-monotonicity",
+      "eq:global-beta",
+      "eq:global-lambda-one",
+      "eq:global-lambda-three",
+      "eq:global-lambda-two",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:lambda-three-new-times",
+      "eq:lambda-three-old-times",
+      "eq:one-column-costs",
+      "eq:profile-costs",
+      "eq:upper-margin-as-supremum",
+      "eq:upper-margin-case-one",
+      "eq:upper-margin-case-three",
+      "eq:upper-margin-coefficients",
+      "eq:upper-margin-integrand"
+    ],
+    "semantic_dependencies": [
+      "one-column cost/entropy inequalities",
+      "time-integral definitions",
+      "optimization over s,u,theta"
+    ]
+  },
+  {
+    "kind": "corollary",
+    "title": "Four-margin critical-time upper bound",
+    "label": "cor:full-margin-critical-upper-bound",
+    "line": 2291,
+    "statement": "\\label{cor:full-margin-critical-upper-bound}\nLet $(\\mu_t)_{t\\ge0}$ be the time profile.  Suppose the deterministic cut\nsequence is almost-$\\mu_\\bullet$-like on every compact interval in the\nsense of \\Cref{def:almost-time-profile-like-cuts} and satisfies the local\ngood-shuffle condition in \\Cref{def:good-columns}.  Then, for every fixed\n$T>T_{\\UB}$,\n\\[\n  \\dTV(P(n,\\lfloor T\\log N\\rfloor),\\nuUnif)\\longrightarrow0.\n\\]",
+    "cited_labels": [
+      "cor:buffered-consequence",
+      "cor:full-margin-critical-upper-bound",
+      "def:almost-time-profile-like-cuts",
+      "def:good-columns",
+      "eq:buffered-global-upper-margin",
+      "eq:full-upper-threshold",
+      "eq:global-beta",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:one-column-costs",
+      "eq:probability-simplex",
+      "eq:profile-costs",
+      "eq:reduced-upper-threshold",
+      "eq:upper-threshold-identity",
+      "lem:buffered-pointwise-upper-bound",
+      "lem:upper-margin-monotonicity",
+      "sec:buffered-upper-bound-derivation",
+      "thm:dominance-reduction"
+    ],
+    "semantic_dependencies": [
+      "lem:upper-margin-monotonicity",
+      "lem:buffered-pointwise-upper-bound",
+      "threshold definition"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "The basic one-column inequality",
+    "label": "lem:basic-one-column-inequality",
+    "line": 2349,
+    "statement": "\\label{lem:basic-one-column-inequality}\nFor every $p\\in D_k$ and every $\\theta\\ge1$,\n\\begin{equation}\n\\label{eq:one-column-dominance}\n  \\psi_p(\\theta)\\ge(\\theta-1)a_p.\n\\end{equation}\nConsequently,\n\\begin{equation}\n\\label{eq:integrated-one-column-dominance}\n  B_\\theta(r,s)\\ge(\\theta-1)A(r,s).\n\\end{equation}\nIn particular,\n\\begin{equation}\n\\label{eq:basic-b-two-three-dominance}\n  B_2(r,s)\\ge A(r,s),\n  \\qquad\n  B_3(r,s)\\ge2A(r,s).\n\\end{equation}",
+    "cited_labels": [
+      "eq:integrated-profile-costs",
+      "eq:one-column-costs",
+      "eq:probability-simplex",
+      "eq:profile-costs"
+    ],
+    "semantic_dependencies": [
+      "simplex",
+      "max pile",
+      "power-sum bound",
+      "integration"
+    ]
+  },
+  {
+    "kind": "theorem",
+    "title": "Reduction to $\\Lambda_0$ and $\\Lambda_1$",
+    "label": "thm:dominance-reduction",
+    "line": 2397,
+    "statement": "\\label{thm:dominance-reduction}\nFor every $T>0$,\n\\begin{equation}\n\\label{eq:auxiliary-margin-dominance}\n  \\Lambda_2(T)\\le\\Lambda_0(T),\n  \\qquad\n  \\Lambda_3(T)\\le\\Lambda_0(T).\n\\end{equation}\nTherefore\n\\begin{equation}\n\\label{eq:two-margin-reduction}\n  \\Lambda_{\\UB}(T)=\\max\\{\\Lambda_0(T),\\Lambda_1(T)\\}.\n\\end{equation}",
+    "cited_labels": [
+      "eq:auxiliary-margin-dominance",
+      "eq:basic-b-two-three-dominance",
+      "eq:global-beta",
+      "eq:global-lambda-three",
+      "eq:global-lambda-two",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:probability-simplex",
+      "eq:two-margin-reduction",
+      "lem:basic-one-column-inequality"
+    ],
+    "semantic_dependencies": [
+      "lem:basic-one-column-inequality",
+      "global margin definitions"
+    ]
+  },
+  {
+    "kind": "corollary",
+    "title": "Buffered consequence",
+    "label": "cor:buffered-consequence",
+    "line": 2471,
+    "statement": "\\label{cor:buffered-consequence}\nIf for some $T>0$ and $\\eta>0$,\n\\[\n  \\Lambda_0(T)\\le-\\eta,\n  \\qquad\n  \\Lambda_1(T)\\le-\\eta,\n\\]\nthen automatically\n\\[\n  \\Lambda_2(T)\\le-\\eta,\n  \\qquad\n  \\Lambda_3(T)\\le-\\eta,\n\\]\nand hence\n\\[\n  \\Lambda_{\\UB}(T)\\le-\\eta.\n\\]",
+    "cited_labels": [
+      "cor:full-margin-critical-upper-bound",
+      "eq:auxiliary-margin-dominance",
+      "eq:full-upper-threshold",
+      "eq:global-lambda-two",
+      "eq:global-upper-margin",
+      "eq:mixing-time-definition",
+      "eq:one-column-costs",
+      "eq:reduced-upper-pointwise-convergence",
+      "eq:reduced-upper-threshold",
+      "eq:two-margin-reduction",
+      "eq:upper-threshold-identity",
+      "thm:dominance-reduction",
+      "thm:upper-critical-reduced"
+    ],
+    "semantic_dependencies": [
+      "thm:dominance-reduction"
+    ]
+  },
+  {
+    "kind": "theorem",
+    "title": "Buffered reduced lower bound",
+    "label": "thm:buffered-reduced-lower-bound",
+    "line": 2812,
+    "statement": "\\label{thm:buffered-reduced-lower-bound}\nFix \\(T>0\\) and \\(\\eta>0\\), under the standing almost-$\\mu_\\bullet$-like\nand local good-shuffle hypotheses.  If\n\\[\n  \\max\\{\\Lambda_0(T),\\Lambda_1(T)\\}\\ge \\eta,\n\\]\nthen\n\\[\n  d_{\\TV}\\bigl(P_N^{K_T},\\nu_{\\Unif}\\bigr)\\longrightarrow 1.\n\\]",
+    "cited_labels": [
+      "cor:iterated-hypergeom",
+      "def:collision-likely-prefixes",
+      "def:full-collision-likely-strings",
+      "lem:cold-witness",
+      "lem:fixed-column-factorial",
+      "lem:successive-thinning-tail",
+      "lem:tail-types",
+      "lem:type-estimates",
+      "lem:ub-graph-representation",
+      "lem:ub-hypergeometric-estimates",
+      "lem:ub-profile-estimates",
+      "lem:ub-regular-partition-interval-blocking",
+      "prop:cold-lower",
+      "prop:largest-prefix",
+      "sec:completion-matching-lower-bound",
+      "thm:buffered-reduced-lower-bound",
+      "thm:dominance-reduction"
+    ],
+    "semantic_dependencies": [
+      "prop:largest-prefix",
+      "lem:cold-witness",
+      "prop:cold-lower"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Successive thinning lower tail",
+    "label": "lem:successive-thinning-tail",
+    "line": 3018,
+    "statement": "\\label{lem:successive-thinning-tail}\nConsider the labelled-row thinning process\n\\eqref{eq:labelled-survivor-sets}--\\eqref{eq:survivor-hypergeometric-transition}\nwith \\(M\\le N\\) initial rows and \\(m\\le K_T\\) columns.  Let\n\\(q_t=m_t/M\\), \\(X_0=M\\), and\n\\[\n  \\mu=M\\prod_{t=1}^m q_t .\n\\]\nThere is an absolute constant \\(c_{\\rm Ch}>0\\) such that\n\\[\n  \\Pp(X_m\\le \\mu/2)\\le \\exp(-c_{\\rm Ch}\\mu).\n\\]\n\nMore precisely, fix \\(r_0<\\infty\\).  Let \\(\\mathcal C\\subset[N]\\) contain\n\\(r\\le r_0\\) labelled rows, and prescribe symbols\n\\(b_{i,t}\\in[k]_0\\) for \\(i\\in\\mathcal C\\) and \\(1\\le t\\le m\\).  Assume the\nprescription is admissible, and put\n\\begin{equation}\n\\label{eq:conditioned-residual-counts}\n  r_{t,\\ell}:=\\#\\{i\\in\\mathcal C:b_{i,t}=\\ell\\},\n  \\qquad\n  M_{\\mathcal C}:=N-r,\n  \\qquad\n  m_{t,\\mathcal C}:=n_{a_t}^{(t)}-r_{t,a_t}.\n\\end{equation}\nHere admissibility means\n\\(r_{t,\\ell}\\le n_\\ell^{(t)}\\) for every \\(t\\le m\\) and\n\\(\\ell\\in[k]_0\\).\nFor the unconditioned labelled rows, define\n\\begin{equation}\n\\label{eq:conditioned-thinning-mean}\n  q_{t,\\mathcal C}:=\\frac{m_{t,\\mathcal C}}{M_{\\mathcal C}},\n  \\qquad\n  \\mu_{\\mathcal C}:=\n  M_{\\mathcal C}\\prod_{t=1}^m q_{t,\\mathcal C},\n\\end{equation}\nand let \\(X_{m,\\mathcal C}\\) be their final survivor count for the target\nword \\(a\\).  Thus the conditioned rows are not included in\n\\(X_{m,\\mathcal C}\\); the total number of rows carrying \\(a\\) is\n\\[\n  X_{m,\\mathcal C}\n  +\n  \\#\\{i\\in\\mathcal C:b_{i,t}=a_t\\text{ for every }t\\le m\\}.\n\\]\nConditional on\n\\(\\zeta_{i,t}=b_{i,t}\\) for every \\(i\\in\\mathcal C\\) and \\(t\\le m\\),\n\\begin{equation}\n\\label{eq:conditioned-thinning-bound}\n  \\Pp\\left(\n    X_{m,\\mathcal C}\\le\\frac12\\mu_{\\mathcal C}\n    \\mathrel{\\Big|}\n    \\zeta_{i,t}=b_{i,t}\\ (i\\in\\mathcal C,\\ t\\le m)\n  \\right)\n  \\le \\exp(-c_{\\rm Ch}\\mu_{\\mathcal C}).\n\\end{equation}\nThe bound is uniform over all admissible prescriptions with\n\\(r\\le r_0\\).  Thus \\(m_t\\) does change under the conditioning: it is\nreplaced by the residual target-pile size \\(m_{t,\\mathcal C}\\) in\n\\eqref{eq:conditioned-residual-counts}.",
+    "cited_labels": [
+      "eq:conditioned-residual-counts",
+      "eq:conditioned-thinning-bound",
+      "eq:labelled-survivor-sets",
+      "eq:survivor-hypergeometric-transition"
+    ],
+    "semantic_dependencies": [
+      "independent selected subsets",
+      "exact one-column conditional hypergeometric law",
+      "Laplace-transform comparison",
+      "Markov inequality",
+      "admissible fixed-row prescription",
+      "residual-column independence"
+    ]
+  },
+  {
+    "kind": "corollary",
+    "title": "Iterated hypergeometric thinning",
+    "label": "cor:iterated-hypergeom",
+    "line": 3169,
+    "statement": "\\label{cor:iterated-hypergeom}\nLet \\(\\mathcal F_N\\) be a deterministic family of prefixes of length at most\n\\(K_T\\), together with all of their ancestors, and suppose\n\\(|\\mathcal F_N|\\le N^D\\) for some fixed \\(D\\).  For every fixed\n\\(\\varepsilon>0\\), with probability \\(1-o(1)\\),\n\\[\n  |C(v)-N\\lambda_v|\n  \\le\n  N^\\varepsilon\\bigl(\\sqrt{N\\lambda_v}+1\\bigr)\n  \\qquad(v\\in\\mathcal F_N).\n\\]\nMoreover, for a fixed word \\(w\\) of length at most \\(K_T\\), if\n\\(\\mu=N\\lambda_w\\ge L\\log N\\), then\n\\[\n  \\Pp(C(w)<2)\\le \\exp(-c_{\\rm Ch}\\mu)+o(N^{-D})\n\\]\nwhere \\(c_{\\rm Ch}>0\\) is the absolute constant from\n\\Cref{lem:successive-thinning-tail}.",
+    "cited_labels": [
+      "eq:cor-all-edges",
+      "eq:cor-edge-failure",
+      "eq:cor-hypergeom-transition",
+      "eq:cor-inductive-error",
+      "eq:cor-word-lower-tail",
+      "eq:hypergeom-concentration",
+      "eq:labelled-survivor-sets",
+      "eq:survivor-hypergeometric-transition",
+      "lem:successive-thinning-tail",
+      "lem:ub-hypergeometric-estimates"
+    ],
+    "semantic_dependencies": [
+      "lem:ub-hypergeometric-estimates",
+      "exact prefix transition",
+      "deterministic error recursion",
+      "ancestor-closed finite family",
+      "union bound",
+      "lem:successive-thinning-tail"
+    ]
+  },
+  {
+    "kind": "proposition",
+    "title": "Largest-prefix lower bound",
+    "label": "prop:largest-prefix",
+    "line": 3377,
+    "statement": "\\label{prop:largest-prefix}\nIf \\(\\Lambda_0(T)=\\beta(T)\\ge\\eta\\), then\n\\[\n  d_{\\TV}(P_N^{K_T},\\nu_{\\Unif})\\to 1.\n\\]",
+    "cited_labels": [
+      "cor:iterated-hypergeom"
+    ],
+    "semantic_dependencies": [
+      "cor:iterated-hypergeom",
+      "maximal-digit product mean",
+      "lem:ub-graph-representation",
+      "uniform permutation increasing-run test"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "One-column entropy inequalities",
+    "label": "lem:entropy-ineq",
+    "line": 3498,
+    "statement": "\\label{lem:entropy-ineq}\nFor every profile \\(p\\) and every \\(\\theta\\ge1\\),\n\\[\n  H_p(\\theta)\\le I_p(\\theta).\n\\]\nMoreover \\(I_p(\\theta)\\) is nonincreasing in \\(\\theta\\), and\n\\[\n  \\psi_p(4)\\ge 2\\psi_p(2).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "tilted law",
+      "entropy",
+      "monotonicity of tilted mean",
+      "power-sum inequality"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Buffered bridge window",
+    "label": "lem:bridge-window",
+    "line": 3540,
+    "statement": "\\label{lem:bridge-window}\nFix the local \\((\\chi,\\gamma,\\rho)\\)-good-shuffle condition from the\nupper-bound hypotheses after the scale hierarchy above has been chosen.  Let\n\\(m_b\\ge2\\) and \\(\\rho_b=m_b\\rho<T/2\\) be as fixed above. For every\n\\(v\\in[0,T]\\) there is\n\\[\n  u\\in[\\max\\{0,v-\\rho_b\\},v]\n\\]\nsuch that \\([u,u+\\rho_b]\\subset[0,T]\\) and the columns with\n\\[\n  u\\log N<j\\le (u+\\rho_b)\\log N\n\\]\ncontain at least two \\(\\chi\\)-good columns for all large \\(N\\).  Moreover, if\nan exponent functional is obtained by integrating one of the bounded\none-column functions \\(a,\\psi_2,\\psi_\\theta,I_2,I_\\theta,H_2,H_\\theta\\) over\nan interval endpoint involving \\(v\\), then replacing \\(v\\) by \\(u\\) changes the\nfunctional by at most \\(C\\rho_b+o(1)\\), with \\(C\\) depending only on\n\\(\\chi,k,T\\) and the regular partition.",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:good-columns",
+      "bounded one-column functions",
+      "time-integral estimates"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Cold-witness reduction from \\(\\Lambda_1\\)",
+    "label": "lem:cold-witness",
+    "line": 3583,
+    "statement": "\\label{lem:cold-witness}\nFor every fixed \\(\\eta>0\\) there is \\(\\kappa_0=\\kappa_0(\\eta)\\in(0,\\eta)\\)\nwith the\nfollowing property.  If\n\\[\n  \\Lambda_1(T)\\ge\\eta,\n  \\qquad\n  \\Lambda_0(T)<\\kappa_0,\n\\]\nthen there are \\(0\\le s\\le u\\le T\\), \\(\\theta\\in[3,4]\\), and\n\\(\\kappa=\\kappa(\\eta)>0\\), with \\(\\kappa_0\\le\\kappa/10\\), such that\n\\[\n  F_\\theta(s,u;T)\\ge\\eta/2,\n\\]\n\\[\n  J_\\theta(s,u)\\le \\frac12\\beta(s)-3\\kappa,\n\\]\nand either \\(\\theta=3\\), or\n\\[\n  J_\\theta(s,u)\\ge \\frac12\\beta(s)-5\\kappa.\n\\]\nFurthermore\n\\[\n  \\Gamma(s,u,\\theta;T)-\\frac12h(s,u,\\theta)\\ge\\kappa,\n\\]\n\\[\n  \\Hh_\\theta(s,u)\\le \\beta(s)-J_\\theta(s,u)-\\kappa,\n\\]\n\\[\n  h(s,u,\\theta)\\ge\\kappa,\n\\]\nand\n\\[\n  \\beta(s)-J_\\theta(s,u)-J_2(u,T)\\le\\kappa_0.\n\\]\nMoreover a bridge window of \\(\\rho_b\\log N+O(1)\\) columns immediately after\n\\(u\\) contains two \\(\\chi\\)-good columns, where \\(\\rho_b=\\rho_b(\\eta)\\) is\nchosen so small that all \\(C\\rho_b\\) bridge losses are below \\(\\kappa/100\\).",
+    "cited_labels": [
+      "lem:bridge-window",
+      "lem:cold-witness",
+      "lem:entropy-ineq"
+    ],
+    "semantic_dependencies": [
+      "global margins",
+      "lem:entropy-ineq",
+      "lem:bridge-window",
+      "compact optimization and buffering"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Collision-likely prefixes",
+    "label": "def:collision-likely-prefixes",
+    "line": 3847,
+    "statement": "\\label{def:collision-likely-prefixes}\n\\(\\PreCL_\\theta(s,u)\\) is the set of all words\n\\[\n  x=(x_{K_s+1},\\ldots,x_{K_u})\n\\]\nwhose digit counts in every regular cell \\(R\\) agree with\n\\(q_{\\theta,R}^\\chi\\) up to the prescribed rounding error. For such suffix\nwords, put\n\\[\n  \\lambda_x=\\prod_{K_s<t\\le K_u}p_t(x_t),\n  \\qquad\n  t_x^{\\mathrm{rel}}\n  =\\sum_{\\substack{v\\in[k]_0^{K_u-K_s}\\\\v<_{\\mathrm{lex}}x}}\\lambda_v,\n\\]\nand define the relative interval\n\\[\n  J_x^{\\mathrm{rel}}\n  =\n  \\left[\n  t_x^{\\mathrm{rel}},\n  t_x^{\\mathrm{rel}}+\\lambda_x\n  \\right).\n\\]\nThe relative cold set inside the ambient block is\n\\[\n  H_{\\mathrm{rel}}=H_{\\mathrm{rel}}(s,u,\\theta)\n  =\n  \\Z\\cap\n  \\bigcup_{x\\in\\PreCL_\\theta(s,u)}\n  N\\lambda_{a_s}J_x^{\\mathrm{rel}}.\n\\]\nFor \\(0\\le q\\le N\\), define the deterministic translate\n\\[\n  H_q=(q+H_{\\mathrm{rel}})\\cap[N].\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "regular cells",
+      "truncated tilted law",
+      "maximal prefix a_s",
+      "relative product intervals"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Type estimates",
+    "label": "lem:type-estimates",
+    "line": 3885,
+    "statement": "\\label{lem:type-estimates}\nUniformly over \\(x\\in\\PreCL_\\theta(s,u)\\),\n\\[\n  \\lambda_x=N^{-J_\\theta^\\chi(s,u)+o(1)}\n  =\n  N^{-J_\\theta(s,u)+O(\\varepsilon_\\chi)+o(1)},\n\\]\nand\n\\[\n  |\\PreCL_\\theta(s,u)|\n  =\n  N^{\\Hh_\\theta^\\chi(s,u)+o(1)}\n  =\n  N^{\\Hh_\\theta(s,u)+O(\\varepsilon_\\chi)+o(1)}.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:collision-likely-prefixes",
+      "lem:ub-regular-partition-interval-blocking",
+      "lem:ub-profile-estimates",
+      "multinomial type counts"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Relative cold-set geometry",
+    "label": "lem:cold-geometry",
+    "line": 3928,
+    "statement": "\\label{lem:cold-geometry}\nThe set \\(H_{\\mathrm{rel}}\\) satisfies\n\\[\n  |H_{\\mathrm{rel}}|=N^{h_\\chi(s,u,\\theta)+o(1)},\n  \\qquad\n  |H_{\\mathrm{rel}}|\\ge N^{\\kappa/2}\n\\]\nand\n\\[\n  |\\partial H_{\\mathrm{rel}}|=O(|H_{\\mathrm{rel}}|^{1/2}).\n\\]\nMoreover, uniformly in \\(q\\), \\(H_q\\) has\n\\[\n  |H_q|\\le |H_{\\mathrm{rel}}|,\n  \\qquad\n  |\\partial H_q|=O(|H_{\\mathrm{rel}}|^{1/2}).\n\\]",
+    "cited_labels": [
+      "lem:bridge-window",
+      "lem:cold-witness",
+      "lem:type-estimates"
+    ],
+    "semantic_dependencies": [
+      "lem:type-estimates",
+      "lem:cold-witness",
+      "relative cold-set definition",
+      "interval rounding"
+    ]
+  },
+  {
+    "kind": "definition",
+    "title": "Full collision-likely strings",
+    "label": "def:full-collision-likely-strings",
+    "line": 4080,
+    "statement": "\\label{def:full-collision-likely-strings}\n\\[\n  \\CL_\\theta(s,u,T)\n  =\n  \\{\\,y=a_sxbz:\n  x\\in\\PreCL_\\theta(s,u),\\ z\\in\\mathcal T_2(u,T)\\,\\}.\n\\]\nFor \\(y\\in\\CL_\\theta(s,u,T)\\), let \\(N_y\\) be the number of rows equal to\n\\(y\\), let \\(A_y=\\{N_y\\ge2\\}\\), and set\n\\[\n  Z_\\theta(s,u,T)=\\sum_{y\\in\\CL_\\theta(s,u,T)}\\1_{A_y}.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "def:collision-likely-prefixes",
+      "two reserved bridge columns",
+      "tail type family",
+      "occupancy event"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Tail type estimates",
+    "label": "lem:tail-types",
+    "line": 4095,
+    "statement": "\\label{lem:tail-types}\nUniformly over \\(z\\in\\mathcal T_2(u,T)\\),\n\\[\n  \\lambda_z=N^{-J_2^{\\chi,\\mathcal R}(u,T)+o(1)}\n  =\n  N^{-J_2^{\\mathcal R}(u,T)+O(\\varepsilon_\\chi)+o(1)},\n\\]\nand\n\\[\n|\\mathcal T_2(u,T)|=\n  N^{\\Hh_2^{\\chi,\\mathcal R}(u,T)+o(1)}\n  =\n  N^{\\Hh_2^{\\mathcal R}(u,T)+O(\\varepsilon_\\chi)+o(1)}.\n\\]",
+    "cited_labels": [
+      "lem:type-estimates"
+    ],
+    "semantic_dependencies": [
+      "def:full-collision-likely-strings",
+      "lem:type-estimates",
+      "remaining-tail cost bookkeeping"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Relative endpoint theorem for cold prefix families",
+    "label": "lem:uniform-endpoint-theorem",
+    "line": 4123,
+    "statement": "\\label{lem:uniform-endpoint-theorem}\nLet \\(q_*=L_{a_s}\\).  For \\(x\\in\\PreCL_\\theta(s,u)\\), define the relative\nendpoints inside the realized ambient block \\(B_{a_s}\\) by\n\\[\n  L_x^{\\mathrm{rel}}\n  =\n  \\#\\{i:s_i\\hbox{ has prefix }a_s\n        \\hbox{ and suffix }<_{\\mathrm{lex}}x\\},\n\\]\n\\[\n  U_x^{\\mathrm{rel}}\n  =\n  \\#\\{i:s_i\\hbox{ has prefix }a_s\n        \\hbox{ and suffix }\\le_{\\mathrm{lex}}x\\}.\n\\]\nThen, with probability \\(1-o(1)\\), simultaneously for all\n\\(x\\in\\PreCL_\\theta(s,u)\\),\n\\[\n  |L_x^{\\mathrm{rel}}-N\\lambda_{a_s}t_x^{\\mathrm{rel}}|\n  +\n  |U_x^{\\mathrm{rel}}\n      -N\\lambda_{a_s}(t_x^{\\mathrm{rel}}+\\lambda_x)|\n  \\le N^{\\beta(s)/2+\\kappa+o(1)}.\n\\]\nConsequently\n\\[\n  I(B_{a_sx})\n  =\n  q_*+N\\lambda_{a_s}J_x^{\\mathrm{rel}}\n  +O(N^{\\beta(s)/2+\\kappa+o(1)})\n\\]\nuniformly over \\(x\\in\\PreCL_\\theta(s,u)\\).",
+    "cited_labels": [
+      "cor:iterated-hypergeom"
+    ],
+    "semantic_dependencies": [
+      "cor:iterated-hypergeom",
+      "deterministic side-prefix family",
+      "Cauchy–Schwarz",
+      "random ambient translation retained"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Cold-prefix endpoint control",
+    "label": "lem:endpoint-control",
+    "line": 4226,
+    "statement": "\\label{lem:endpoint-control}\nFor the witness supplied by Lemma~\\ref{lem:cold-witness}, with probability\n\\(1-o(1)\\), uniformly over \\(x\\in\\PreCL_\\theta(s,u)\\),\n\\[\n  I(B_{a_sx})\n  =\n  L_{a_s}+N\\lambda_{a_s}J_x^{\\mathrm{rel}}\n  +O(N^{\\beta(s)/2+\\kappa+o(1)}).\n\\]",
+    "cited_labels": [
+      "lem:cold-witness",
+      "lem:uniform-endpoint-theorem"
+    ],
+    "semantic_dependencies": [
+      "lem:uniform-endpoint-theorem",
+      "lem:cold-witness"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Bridge buffers",
+    "label": "lem:bridge-buffers",
+    "line": 4242,
+    "statement": "\\label{lem:bridge-buffers}\nUniformly over \\(x\\in\\PreCL_\\theta(s,u)\\), the two good bridge columns create\nleft and right subcylinders\n\\[\n  B^-_x=\\{a_sxb^-z:z\\hbox{ arbitrary on }\\mathcal R\\},\n  \\qquad\n  B^+_x=\\{a_sxb^+z:z\\hbox{ arbitrary on }\\mathcal R\\}\n\\]\ninside \\(B_{a_sx}\\) whose expected sizes are at\nleast\n\\[\n  N^{\\beta(s)/2+2\\kappa+o(1)}.\n\\]",
+    "cited_labels": [
+      "lem:cold-witness"
+    ],
+    "semantic_dependencies": [
+      "lem:cold-witness",
+      "lem:type-estimates",
+      "reserved bridge words",
+      "explicit bridge mass lower bounds"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Localization",
+    "label": "lem:localization",
+    "line": 4282,
+    "statement": "\\label{lem:localization}\nWith probability \\(1-o(1)\\), on one event uniform over all\n\\(x\\in\\PreCL_\\theta(s,u)\\) and all \\(z\\in\\mathcal T_2(u,T)\\), every occurring\nstring\n\\[\n  y\\in\\CL_\\theta(s,u,T)\n\\]\nhas all of its row positions inside \\(H_{L_{a_s}}\\).  Consequently, if\n\\(A_y\\) occurs, then \\(E(G)\\cap E(H_{L_{a_s}})\\) contains at least one edge\ngenerated by the copies of \\(y\\).",
+    "cited_labels": [
+      "cor:iterated-hypergeom",
+      "lem:bridge-buffers",
+      "lem:endpoint-control"
+    ],
+    "semantic_dependencies": [
+      "lem:endpoint-control",
+      "lem:bridge-buffers",
+      "cor:iterated-hypergeom",
+      "common high-probability event"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Fixed-column factorial moments",
+    "label": "lem:fixed-column-factorial",
+    "line": 4340,
+    "statement": "\\label{lem:fixed-column-factorial}\nLet \\(w_1,\\ldots,w_q\\) be distinct full words in the fixed-column shuffle\nmodel.  Suppose every digit requested by these words in a nonbridge column has\npile size at least \\(\\chi N\\), and every digit requested in a bridge column has\npile size at least \\(\\chi N\\) or is one of the fixed bridge digits with pile\nsize at least \\(N/k\\).  Put \\(\\mu_i=N\\lambda_{w_i}\\).  If\n\\[\n  r_1+\\cdots+r_q=R\\le N^{1/5},\n\\]\nthen\n\\[\n  \\E\\prod_{i=1}^q (N_{w_i})_{r_i}\n  =\n  \\prod_{i=1}^q\\mu_i^{r_i}\n  \\left(1+O_{\\chi,k,T}\\!\\left(\\frac{K_TR^2}{N}\\right)\\right).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "uniform fixed-count column assignments",
+      "independent columns",
+      "labelled-row falling-factorial enumeration",
+      "large requested piles"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Conditional fixed-column factorial moments",
+    "label": "lem:conditional-factorial",
+    "line": 4400,
+    "statement": "\\label{lem:conditional-factorial}\nFix \\(b=O(1)\\) labelled rows and force them to carry a word \\(w_0\\).  In the\nremaining \\(N-b\\) rows, let \\(\\widetilde N_w\\) count rows carrying another word\n\\(w\\).  Suppose every digit selected by \\(w\\) has original pile size at least\n\\(\\chi N\\) in nonbridge columns, and at least \\(\\chi N\\) or \\(N/k\\) in bridge\ncolumns.  Let\n\\[\n  \\widetilde\\mu_w\n  =\n  (N-b)\n  \\prod_{t\\le K_T}\n  \\frac{n_{w_t}^{(t)}-b\\1_{\\{w_t=(w_0)_t\\}}}{N-b}.\n\\]\nThen, uniformly for \\(r\\le N^{1/5}\\),\n\\[\n  \\E\\bigl[(\\widetilde N_w)_r\\mid\n     \\hbox{the fixed rows carry }w_0\\bigr]\n  =\n  \\widetilde\\mu_w^r\n  \\left(1+O_{\\chi,k,T}\\!\\left(\\frac{K_Tr^2}{N}\\right)\\right).\n\\]\nMoreover, if \\(\\mu_w=N\\lambda_w\\), then\n\\[\n  \\frac{\\widetilde\\mu_w}{\\mu_w}\n  =\n  1+O_{\\chi,k,T}(K_Tb/N)\n  =\n  1+o(1).\n\\]",
+    "cited_labels": [
+      "lem:fixed-column-factorial"
+    ],
+    "semantic_dependencies": [
+      "lem:fixed-column-factorial",
+      "residual-count conditional law",
+      "admissible prescription [ADMISSIBILITY OMITTED IN STATEMENT]"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Central-window factorial comparison",
+    "label": "lem:central-window",
+    "line": 4454,
+    "statement": "\\label{lem:central-window}\nFix \\(a_0>0\\) and \\(L_*>0\\). Let \\(X,Y\\) be nonnegative integer variables with means \\(\\mu,\\nu\\), and let\n\\(P_\\mu,P_\\nu\\) be independent Poisson variables with those means.  Suppose\nthat for\n\\[\n  R_N=\\lfloor N^{4a_0}\\rfloor\n\\]\nand every \\(r+s\\le R_N\\),\n\\[\n  \\E (X)_r(Y)_s=\\mu^r\\nu^s(1+\\Delta_{r,s}),\n  \\qquad\n  |\\Delta_{r,s}|\\le\\epsilon_N,\n\\]\nwhere \\(\\epsilon_N N^{2L_*}=o(N^{-4a_0})\\).  If\n\\[\n  N^{-a_0}\\le\\mu,\\nu\\le L_*\\log N,\n\\]\nthen\n\\[\n  \\Pp(X\\ge2,Y\\ge2)\n  =\n  \\Pp(P_\\mu\\ge2)\\Pp(P_\\nu\\ge2)+o(N^{-4a_0}).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "factorial-moment comparison assumption",
+      "binomial inversion",
+      "justified truncation and tail bounds [TRUNCATION NEEDS AUDIT]"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Fixed-column two-category Poisson bound",
+    "label": "lem:two-category-poisson",
+    "line": 4536,
+    "statement": "\\label{lem:two-category-poisson}\nLet \\(\\mathcal W\\) be a family of full words in the fixed-column model such\nthat every selected nonbridge digit has pile size at least \\(\\chi N\\), every\nselected bridge digit has pile size at least \\(\\chi N\\) or \\(N/k\\), and\n\\[\n  \\lambda_w\\le N^{-1+2\\kappa_0+o(1)}\n  \\qquad (w\\in\\mathcal W),\n\\]\nwith \\(\\kappa_0<1/20\\).  Put \\(\\mu_w=N\\lambda_w\\) and\n\\(A_w=\\{N_w\\ge2\\}\\).  Then, uniformly over \\(w,w'\\in\\mathcal W\\),\n\\[\n  \\Pp(A_w)\\asymp \\min\\{\\mu_w^2,1\\},\n\\]\nand\n\\[\n  \\sum_{\\substack{w,w'\\in\\mathcal W\\\\w\\ne w'}}\n  \\operatorname{Cov}(\\1_{A_w},\\1_{A_{w'}})\n  =\n  o\\!\\left(\\left(\\sum_{w\\in\\mathcal W}\\Pp(A_w)\\right)^2\\right).\n\\]",
+    "cited_labels": [
+      "cor:iterated-hypergeom",
+      "lem:central-window",
+      "lem:conditional-factorial",
+      "lem:fixed-column-factorial"
+    ],
+    "semantic_dependencies": [
+      "lem:fixed-column-factorial",
+      "lem:conditional-factorial",
+      "lem:central-window",
+      "cor:iterated-hypergeom",
+      "small/central/large mean split"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Fixed-column occupancy approximation",
+    "label": "lem:occupancy",
+    "line": 4738,
+    "statement": "\\label{lem:occupancy}\nLet\n\\[\n  m_{\\chi,\\mathcal R}\n  =\n  \\beta(s)-J_\\theta^\\chi(s,u)-J_2^{\\chi,\\mathcal R}(u,T)-\\ell_b.\n\\]\nFor \\(y\\in\\CL_\\theta(s,u,T)\\), let\n\\(\\mu_y=N\\lambda_y\\).  Uniformly over the cold family,\n\\[\n  \\mu_y=N^{m_{\\chi,\\mathcal R}+o(1)}\n\\]\nand\n\\[\n  \\Pp(A_y)\\asymp \\min\\{\\mu_y^2,1\\},\n\\]\nMoreover,\n\\[\n  \\sum_{\\substack{y,y'\\in\\CL_\\theta(s,u,T)\\\\y\\ne y'}}\n  \\operatorname{Cov}(\\1_{A_y},\\1_{A_{y'}})\n  =\n  o\\!\\left(\\left(\\sum_{y\\in\\CL_\\theta(s,u,T)}\\Pp(A_y)\\right)^2\\right).\n\\]\nConsequently\n\\[\n  \\E Z_\\theta(s,u,T)\n  \\ge\n  N^{\\Gamma_{\\chi,\\mathcal R}(s,u,\\theta;T)-2\\ell_b-4\\kappa_0\n    +o(1)}\n\\]\nand \\(\\Var(Z_\\theta)=o((\\E Z_\\theta)^2)\\).",
+    "cited_labels": [
+      "lem:cold-witness",
+      "lem:two-category-poisson"
+    ],
+    "semantic_dependencies": [
+      "lem:two-category-poisson",
+      "lem:type-estimates",
+      "lem:tail-types",
+      "lem:cold-witness"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Cold collision count",
+    "label": "lem:cold-collision-count",
+    "line": 4832,
+    "statement": "\\label{lem:cold-collision-count}\nWith probability \\(1-o(1)\\),\n\\[\n  Z_\\theta(s,u,T)\\ge |H_{\\mathrm{rel}}|^{1/2}N^{\\kappa/4+o(1)}.\n\\]",
+    "cited_labels": [
+      "lem:cold-geometry",
+      "lem:cold-witness",
+      "lem:occupancy"
+    ],
+    "semantic_dependencies": [
+      "lem:occupancy",
+      "lem:cold-geometry",
+      "lem:cold-witness",
+      "Chebyshev"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Many cold edges",
+    "label": "lem:many-edges",
+    "line": 4866,
+    "statement": "\\label{lem:many-edges}\nThere is \\(\\delta=\\delta(\\eta)>0\\) such that\n\\[\n  \\Pp\\left(\n  |E(G)\\cap E(H_{L_{a_s}})|\n  \\ge |H_{\\mathrm{rel}}|^{1/2+\\delta}\n  \\right)\\to1.\n\\]",
+    "cited_labels": [
+      "lem:cold-collision-count",
+      "lem:localization"
+    ],
+    "semantic_dependencies": [
+      "lem:cold-collision-count",
+      "lem:localization",
+      "distinct equal-string blocks"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Uniform translate-scan ascent bound",
+    "label": "lem:uniform-ascent",
+    "line": 4899,
+    "statement": "\\label{lem:uniform-ascent}\nLet \\(H_0\\subset\\Z\\) be deterministic, put \\(M=|H_0|\\), and assume\n\\[\n  M\\ge N^a\n\\]\nfor some fixed \\(a>0\\).  For \\(0\\le q\\le N\\), let\n\\[\n  H_q=(q+H_0)\\cap[N],\n\\]\nand assume\n\\[\n  |\\partial H_q|=O(M^{1/2})\n  \\qquad\\hbox{uniformly in }q.\n\\]\nFor fixed \\(\\delta>0\\) and \\(\\sigma\\sim\\nu_{\\Unif}\\), define\n\\[\n  \\mathcal A_{\\mathrm{scan}}=\n  \\left\\{\n  \\exists q\\in\\{0,\\ldots,N\\}:\n  \\#\\{i:(i,i+1)\\in E(H_q),\\ \\sigma(i)<\\sigma(i+1)\\}\n  >\n  |E(H_q)|/2+M^{1/2+\\delta/2}\n  \\right\\}.\n\\]\nThen\n\\[\n  \\nu_{\\Unif}(\\mathcal A_{\\mathrm{scan}})\\to0.\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "uniform permutation",
+      "disjoint-pair order independence",
+      "Bernoulli concentration",
+      "translate union bound"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Block value-set bounded differences",
+    "label": "lem:block-bd",
+    "line": 4951,
+    "statement": "\\label{lem:block-bd}\nLet deterministic blocks \\(C_1,\\ldots,C_m\\) have prescribed sizes, and assign\ndisjoint value sets \\(V_1,\\ldots,V_m\\), together with a reservoir\n\\(V_0\\), by a uniformly random partition of \\([N]\\) with those sizes.  Let\n\\(f=f(V_1,\\ldots,V_m)\\).  Suppose that for each \\(j\\), after all other\nrelevant blocks \\(V_i\\), \\(i\\ne j\\), are fixed, changing \\(V_j\\) and adjusting\nonly the reservoir can change \\(f\\) by at most \\(L_j\\).  Then\n\\[\n  \\Pp(|f-\\E f|\\ge t)\n  \\le\n  2\\exp\\left(-\\frac{2t^2}{\\sum_{j=1}^mL_j^2}\\right).\n\\]",
+    "cited_labels": [],
+    "semantic_dependencies": [
+      "uniform partition of value sets",
+      "coordinate oscillation",
+      "claimed Doob range coupling [NEEDS AUDIT]"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Component-value bounded differences for component sorting",
+    "label": "lem:permutation-bd",
+    "line": 4979,
+    "statement": "\\label{lem:permutation-bd}\nFix a deterministic path subgraph \\(G\\), deterministic \\(H\\subset[N]\\), and a\nnumber \\(M\\) such that \\(|H|\\le M\\) and \\(|\\partial H|=O(M^{1/2})\\).\nLet\n\\[\n  X(\\pi)=\\#\\{i\\in E(H):\\pi_G(i)<\\pi_G(i+1)\\},\n\\]\nwhere \\(\\pi_G\\) is obtained from \\(\\pi\\) by sorting values increasingly on\ncomponents of \\(G\\).  For \\(\\pi\\sim\\nu_{\\Unif}\\),\n\\[\n  \\Pp_\\pi(|X-\\E_\\pi X|\\ge t)\n  \\le\n  2\\exp\\left(-\\frac{c t^2}{M}\\right)\n\\]\nfor an absolute constant \\(c>0\\).",
+    "cited_labels": [
+      "lem:block-bd"
+    ],
+    "semantic_dependencies": [
+      "lem:block-bd",
+      "component boundary comparison structure [INHERITS COUPLING OBLIGATION]"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Lalley component comparison",
+    "label": "lem:lalley-comparison",
+    "line": 5026,
+    "statement": "\\label{lem:lalley-comparison}\nLet \\(H\\subset[N]\\) be deterministic and let \\(M\\to\\infty\\) satisfy\n\\[\n  |H|\\le M,\\qquad |\\partial H|=O(M^{1/2}).\n\\]\nLet \\(G\\) be a deterministic subgraph of the path and let\n\\[\n  r=|E(G)\\cap E(H)|.\n\\]\nIf \\(r\\ge M^{1/2+\\delta}\\), then for \\(\\pi\\sim\\nu_{\\Unif}\\) and\n\\(\\pi_G\\) obtained by sorting \\(\\pi\\) increasingly on every component of\n\\(G\\),\n\\[\n  \\Pp_\\pi\\left(\n  \\#\\{i\\in E(H):\\pi_G(i)<\\pi_G(i+1)\\}\n  >\n  |E(H)|/2+M^{1/2+\\delta/2}\n  \\right)=1-o(1).\n\\]",
+    "cited_labels": [
+      "lem:permutation-bd"
+    ],
+    "semantic_dependencies": [
+      "deterministic ascent expectation bound",
+      "lem:permutation-bd",
+      "boundary control"
+    ]
+  },
+  {
+    "kind": "lemma",
+    "title": "Lalley cold-spot test",
+    "label": "lem:lalley",
+    "line": 5115,
+    "statement": "\\label{lem:lalley}\nLet \\(H_0\\subset\\Z\\) be deterministic, put \\(M=|H_0|\\), and assume\n\\[\n  M\\ge N^a,\\qquad |\\partial ((q+H_0)\\cap[N])|=O(M^{1/2})\n\\]\nuniformly in \\(0\\le q\\le N\\).  If\n\\[\n  \\Pp\\left\\{\\exists q\\in\\{0,\\ldots,N\\}:\n  |E(G)\\cap E((q+H_0)\\cap[N])|\\ge M^{1/2+\\delta}\\right\\}\\to1\n\\]\nfor some fixed \\(a,\\delta>0\\), then\n\\[\n  d_{\\TV}(P_N^{K_T},\\nu_{\\Unif})\\to1.\n\\]",
+    "cited_labels": [
+      "lem:lalley-comparison",
+      "lem:uniform-ascent"
+    ],
+    "semantic_dependencies": [
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:ub-graph-representation",
+      "deterministic translate scan test"
+    ]
+  },
+  {
+    "kind": "proposition",
+    "title": "Cold-spot lower bound",
+    "label": "prop:cold-lower",
+    "line": 5167,
+    "statement": "\\label{prop:cold-lower}\nIf \\(\\Lambda_1(T)\\ge\\eta\\) and \\(\\Lambda_0(T)<\\kappa_0(\\eta)\\), then\n\\[\n  d_{\\TV}(P_N^{K_T},\\nu_{\\Unif})\\to1.\n\\]",
+    "cited_labels": [
+      "lem:cold-geometry",
+      "lem:cold-witness",
+      "lem:lalley",
+      "lem:many-edges",
+      "prop:cold-lower",
+      "prop:largest-prefix",
+      "thm:buffered-reduced-lower-bound"
+    ],
+    "semantic_dependencies": [
+      "lem:cold-witness",
+      "lem:many-edges",
+      "lem:lalley"
+    ]
+  }
+]

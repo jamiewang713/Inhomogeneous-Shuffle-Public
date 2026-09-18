@@ -1,0 +1,28 @@
+{
+  "verifiedAtUTC": "2026-09-17T22:32:25.732798+00:00",
+  "lean": "Lean (version 4.24.0, arm64-apple-darwin23.6.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "mathlibRevision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "frozenContractsAndSourcesUnchanged": true,
+  "parentImplementationsUnchanged": true,
+  "independentReviewsUnchanged": true,
+  "frozenTheoremsChecked": 18,
+  "definitionsAudited": [
+    "EdgeLocalization.relativeInternalEdges",
+    "EdgeLocalization.relativeEdgeDensity",
+    "EdgeLocalization.ambientLeft"
+  ],
+  "logicalDependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "buildPassed": true,
+  "prohibitedProofTokensAbsent": true,
+  "projectSourceSHA256": {
+    "EdgeLocalization/Relative/Deck.lean": "edd06dd450e248362feadca74887198f3dd4e90ec844eb5c7ab610209527d3a4",
+    "EdgeLocalization/Relative/Density.lean": "774163841c68a9da6de8f5f0a27c1d03a09c18302b7e251a1e4625acbab93637",
+    "EdgeLocalization/Relative/Estimates.lean": "10df361c6a48b88bad4595aca97460eedd86af9b9c62f052ec52e932de348a40",
+    "EdgeLocalization/Relative/Model.lean": "6c1007fde849fbaed20505e4583cb3e66c184709855ed6ea495579980545822b"
+  },
+  "scope": "Exact ambient-relative coordinate, count, overlap, and density dependencies; full original goal remains incomplete."
+}

@@ -1,0 +1,31 @@
+import FirstMoment
+
+#print axioms InhomogeneousShuffle.FirstMoment.le_thetaInf_add
+#print axioms InhomogeneousShuffle.FirstMoment.variational_margin
+#print axioms InhomogeneousShuffle.FirstMoment.large_exponent_pointwise
+#print axioms InhomogeneousShuffle.FirstMoment.small_exponent_pointwise
+#print axioms InhomogeneousShuffle.FirstMoment.singleton_exponent
+#print axioms InhomogeneousShuffle.FirstMoment.large_exponent_variational
+#print axioms InhomogeneousShuffle.FirstMoment.small_exponent_variational
+#print axioms InhomogeneousShuffle.FirstMoment.large_exponent_negative
+#print axioms InhomogeneousShuffle.FirstMoment.small_exponent_negative
+#print axioms InhomogeneousShuffle.FirstMoment.singleton_exponent_negative
+#print axioms InhomogeneousShuffle.FirstMoment.card_sparseAssignment
+#print axioms InhomogeneousShuffle.FirstMoment.sparseCount_weighted
+#print axioms InhomogeneousShuffle.FirstMoment.sparseCount_le
+#print axioms InhomogeneousShuffle.FirstMoment.card_profileKey
+#print axioms InhomogeneousShuffle.FirstMoment.profile_card_le_of_injective
+#print axioms InhomogeneousShuffle.FirstMoment.sparseCount_exp_bound
+#print axioms InhomogeneousShuffle.FirstMoment.profileCount_exp_bound
+#print axioms InhomogeneousShuffle.FirstMoment.profileCount_eventually
+#print axioms InhomogeneousShuffle.FirstMoment.word_mass_sum
+#print axioms InhomogeneousShuffle.FirstMoment.card_mul_mass_le_one
+#print axioms InhomogeneousShuffle.FirstMoment.card_le_exp_of_mass
+#print axioms InhomogeneousShuffle.FirstMoment.type_class_card_le_exp_entropy
+#print axioms InhomogeneousShuffle.FirstMoment.expectedCommonEdges_eq_sum_sq
+#print axioms InhomogeneousShuffle.FirstMoment.localized_sum_sq
+#print axioms InhomogeneousShuffle.FirstMoment.localized_sum_sq_bound
+#print axioms InhomogeneousShuffle.FirstMoment.expectedCommonEdges_bound
+#print axioms InhomogeneousShuffle.FirstMoment.profileClass_sum_bound
+#print axioms InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound
+#print axioms InhomogeneousShuffle.FirstMoment.two_power_terms_eventually

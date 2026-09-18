@@ -1,0 +1,30 @@
+{
+  "verifiedAtUTC": "2026-09-17T22:11:38.346165+00:00",
+  "lean": "Lean (version 4.24.0, arm64-apple-darwin23.6.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "mathlibRevision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "frozenContractsAndSourcesUnchanged": true,
+  "parentImplementationsUnchanged": true,
+  "independentReviewsUnchanged": true,
+  "frozenTheoremsChecked": 15,
+  "definitionsAudited": [
+    "EdgeLocalization.legalPrefix",
+    "EdgeLocalization.ambientSizeExponent",
+    "EdgeLocalization.ambientMeanError",
+    "EdgeLocalization.columnPsiTwo",
+    "EdgeLocalization.tailEdgeExponent"
+  ],
+  "logicalDependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "buildPassed": true,
+  "prohibitedProofTokensAbsent": true,
+  "projectSourceSHA256": {
+    "EdgeLocalization/Exponent/Estimates.lean": "9926b173940a45c43c50684311a7de2af938917338f96a9c60b88a75e0d75bd3",
+    "EdgeLocalization/Exponent/Mean.lean": "81990e2b66d7904b76e1a50ee29e4bd77e02380db81520c9a0a36542c482c968",
+    "EdgeLocalization/Exponent/Model.lean": "db39dbcc02675a03461380ce8afdbc2c798268285ceb52e9f2401fbd55869106",
+    "EdgeLocalization/Exponent/Tail.lean": "d90467dc983d54befe7a75ec2e09cc147b0caf96f2311720e166324153fdf24d"
+  },
+  "scope": "Exact source-defined finite size and tail exponent conversion; full original goal remains incomplete."
+}

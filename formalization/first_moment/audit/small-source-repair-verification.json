@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-09-17T22:51:41.669727+00:00",
+  "sourceSha256": "89c230436a8ec9a18d619acaf3e891ee81d62c08244c48dca1e2695895e2734e",
+  "contractSha256": "9eba1c2ac88c67e6b0c56fe5bf6d799fa9e380f3ce100843d9ed778ad0579818",
+  "lean": "4.33.1",
+  "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "theorems": [
+    "InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_core",
+    "InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_infimum",
+    "InhomogeneousShuffle.FirstMoment.Model.source_small_coarse_margin",
+    "InhomogeneousShuffle.FirstMoment.Model.exists_uniform_source_margins_with_small_coarse"
+  ],
+  "definitions": [],
+  "axiomDependencies": {
+    "InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_core": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_infimum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.source_small_coarse_margin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.exists_uniform_source_margins_with_small_coarse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "standardFoundationsOnly": true,
+  "earlierFreezesUnchanged": true
+}

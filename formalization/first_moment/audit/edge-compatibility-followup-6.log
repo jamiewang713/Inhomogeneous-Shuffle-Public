@@ -1,0 +1,74 @@
+Checking EdgeLocalization/Conditional/Model.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:42:6: error: Tactic `rfl` failed: The left-hand side
+  ↑(if hj : ↑j < M then ⟨↑(ω (Fin.castLE hM ⟨↑j, hj⟩)), ⋯⟩ else ⟨↑(ω ⟨M + (↑j - M), ⋯⟩), ⋯⟩) i
+is not definitionally equal to the right-hand side
+  ↑(ω j) i
+
+case pos
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hM : M ≤ K
+ω : FixedMatrix N n
+j : Fin K
+i : Fin N
+hj : ↑j < M
+⊢ ↑(if hj : ↑j < M then ⟨↑(ω (Fin.castLE hM ⟨↑j, hj⟩)), ⋯⟩ else ⟨↑(ω ⟨M + (↑j - M), ⋯⟩), ⋯⟩) i = ↑(ω j) i
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:48:6: error: Type mismatch
+  congrArg (fun r => ↑(ω r) i) he
+has type
+  ↑(ω ⟨M + (↑j - M), ⋯⟩) i = ↑(ω j) i
+but is expected to have type
+  ↑(if hj : ↑j < M then ⟨↑(ω (Fin.castLE hM ⟨↑j, hj⟩)), ⋯⟩ else ⟨↑(ω ⟨M + (↑j - M), ⋯⟩), ⋯⟩) i = ↑(ω j) i
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:56:6: error: Tactic `rfl` failed: The left-hand side
+  ↑(if hj : ↑(Fin.castLE hM t) < M then ⟨↑(pt.1 ⟨↑(Fin.castLE hM t), hj⟩), ⋯⟩
+      else ⟨↑(pt.2 ⟨↑(Fin.castLE hM t) - M, ⋯⟩), ⋯⟩)
+    i
+is not definitionally equal to the right-hand side
+  ↑(pt.1 t) i
+
+case fst
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hM : M ≤ K
+pt : FixedMatrix N (prefixCounts n hM) × FixedMatrix N (suffixCounts n hM)
+t : Fin M
+i : Fin N
+ht : ↑(Fin.castLE hM t) < M
+⊢ ↑(if hj : ↑(Fin.castLE hM t) < M then ⟨↑(pt.1 ⟨↑(Fin.castLE hM t), hj⟩), ⋯⟩
+        else ⟨↑(pt.2 ⟨↑(Fin.castLE hM t) - M, ⋯⟩), ⋯⟩)
+      i =
+    ↑(pt.1 t) i
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:66:6: error: Type mismatch
+  congrArg (fun r => ↑(pt.2 r) i) he
+has type
+  ↑(pt.2 ⟨M + ↑t - M, ⋯⟩) i = ↑(pt.2 t) i
+but is expected to have type
+  ↑(if hj : M + ↑t < M then ⟨↑(pt.1 ⟨M + ↑t, hj⟩), ⋯⟩ else ⟨↑(pt.2 ⟨M + ↑t - M, ⋯⟩), ⋯⟩) i = ↑(pt.2 t) i
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:41:17: warning: This simp argument is unused:
+  dif_pos hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:43:17: warning: This simp argument is unused:
+  dif_neg hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:55:17: warning: This simp argument is unused:
+  dif_pos ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Conditional/Model.lean:61:17: warning: This simp argument is unused:
+  dif_neg ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

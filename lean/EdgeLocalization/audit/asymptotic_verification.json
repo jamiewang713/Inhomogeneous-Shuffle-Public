@@ -1,0 +1,25 @@
+{
+  "verifiedAtUTC": "2026-09-17T22:47:36.282055+00:00",
+  "lean": "Lean (version 4.24.0, arm64-apple-darwin23.6.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "mathlibRevision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "frozenContractsAndSourcesUnchanged": true,
+  "parentImplementationsUnchanged": true,
+  "independentReviewsUnchanged": true,
+  "frozenTheoremsChecked": 7,
+  "definitionsAudited": [
+    "EdgeLocalization.HasSizeExponent"
+  ],
+  "logicalDependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "buildPassed": true,
+  "prohibitedProofTokensAbsent": true,
+  "projectSourceSHA256": {
+    "EdgeLocalization/Asymptotic/Error.lean": "0f119e3a9896944719fcd5c717bb9466c4fd30c7ceed5d9c1a97f4565a03533d",
+    "EdgeLocalization/Asymptotic/Estimates.lean": "0b1db2065de328d80b16e4cb7bac2446da31a658d05f0c857a494ff89186a0fe",
+    "EdgeLocalization/Asymptotic/Model.lean": "920def79ccd1b8d88d233f1bd7b814358543353eed1440634358a77b3eec0b66"
+  },
+  "scope": "Uniform asymptotic ambient-error and relative-density consequences of actual expected size; full original goal remains incomplete."
+}

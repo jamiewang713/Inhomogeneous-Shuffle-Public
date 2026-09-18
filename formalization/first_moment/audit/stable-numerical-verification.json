@@ -1,0 +1,135 @@
+{
+  "verifiedAt": "2026-09-17T22:14:47.429450+00:00",
+  "sourceSha256": "a1485441183054eba94a887919725e6da0bba49f549500a540c24526d4b3de7f",
+  "contractSha256": "35ad29f0a886382ab06ca49e752fb854a2e702f5edc61f7a5d499b97f408980f",
+  "lean": "4.33.1",
+  "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "theorems": [
+    "InhomogeneousShuffle.FirstMoment.Model.asProfile_prob",
+    "InhomogeneousShuffle.FirstMoment.Model.legalVector_digit",
+    "InhomogeneousShuffle.FirstMoment.Model.legalVector_legal",
+    "InhomogeneousShuffle.FirstMoment.Model.cL_prefix_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.cL_parent_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.sampleRow_full",
+    "InhomogeneousShuffle.FirstMoment.Model.expectedCount_eq_integral",
+    "InhomogeneousShuffle.FirstMoment.Model.expectedCount_cylinder_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.expectedCount_piece_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.sideMaximum_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.cFAt_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.cF_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.rawPair_crossings",
+    "InhomogeneousShuffle.FirstMoment.Model.stop_stableAt",
+    "InhomogeneousShuffle.FirstMoment.Model.gamma_parentCrossing",
+    "InhomogeneousShuffle.FirstMoment.Model.ambientApproximation_iff"
+  ],
+  "definitions": [
+    "InhomogeneousShuffle.FirstMoment.Model.asCuts",
+    "InhomogeneousShuffle.FirstMoment.Model.asProfile",
+    "InhomogeneousShuffle.FirstMoment.Model.legalVector",
+    "InhomogeneousShuffle.FirstMoment.Model.sideProbability"
+  ],
+  "axiomDependencies": {
+    "InhomogeneousShuffle.FirstMoment.Model.asCuts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.asProfile": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.legalVector": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.sideProbability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.asProfile_prob": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.legalVector_digit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.legalVector_legal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.cL_prefix_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.cL_parent_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.sampleRow_full": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.expectedCount_eq_integral": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.expectedCount_cylinder_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.expectedCount_piece_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.sideMaximum_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.cFAt_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.cF_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.rawPair_crossings": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.stop_stableAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.gamma_parentCrossing": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.ambientApproximation_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "standardFoundationsOnly": true,
+  "earlierFreezesUnchanged": true
+}

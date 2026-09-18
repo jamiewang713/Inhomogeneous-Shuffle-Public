@@ -1,0 +1,193 @@
+@EdgeLocalization.FiniteLaw.uniform_probability : ∀ {Ω : Type u_1} [inst : Fintype Ω] [inst_1 : Nonempty Ω]
+  (A : Ω → Prop),
+  (EdgeLocalization.FiniteLaw.uniform Ω).probability A = ↑(Finset.filter A Finset.univ).card / ↑(Fintype.card Ω)
+@EdgeLocalization.FiniteLaw.uniform_probability_reindex : ∀ {Ω : Type u_1} [inst : Fintype Ω] [inst_1 : Nonempty Ω]
+  (e : Ω ≃ Ω) (A : Ω → Prop),
+  ((EdgeLocalization.FiniteLaw.uniform Ω).probability fun ω => A (e ω)) =
+    (EdgeLocalization.FiniteLaw.uniform Ω).probability A
+@EdgeLocalization.FiniteLaw.pi_probability : ∀ {ι : Type u_1} [inst : Fintype ι] {Ω : ι → Type u_2}
+  [inst_1 : (j : ι) → Fintype (Ω j)] (w : (j : ι) → EdgeLocalization.FiniteLaw (Ω j)) (A : (j : ι) → Ω j → Prop),
+  ((EdgeLocalization.FiniteLaw.pi w).probability fun ω => ∀ (j : ι), A j (ω j)) = ∏ j, (w j).probability (A j)
+@EdgeLocalization.FiniteLaw.pi_probability_on_finset : ∀ {ι : Type u_1} [inst : Fintype ι] {Ω : ι → Type u_2}
+  [inst_1 : (j : ι) → Fintype (Ω j)] (w : (j : ι) → EdgeLocalization.FiniteLaw (Ω j)) (s : Finset ι)
+  (A : (j : ι) → Ω j → Prop),
+  ((EdgeLocalization.FiniteLaw.pi w).probability fun ω => ∀ j ∈ s, A j (ω j)) = ∏ j ∈ s, (w j).probability (A j)
+@EdgeLocalization.FiniteLaw.probability_disjoint_indexed_union : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  (w : EdgeLocalization.FiniteLaw Ω) {α : Type u_2} [inst_1 : Fintype α] (A : α → Ω → Prop),
+  (∀ (ω : Ω) (a b : α), A a ω → A b ω → a = b) → (w.probability fun ω => ∃ a, A a ω) = ∑ a, w.probability (A a)
+@EdgeLocalization.fixedColumn_nonempty : ∀ {N k : ℕ} (n : Fin k → ℕ),
+  ∑ a, n a = N → Nonempty (EdgeLocalization.FixedColumn N k n)
+@EdgeLocalization.pile_count_le_total : ∀ {N k : ℕ} (n : Fin k → ℕ), ∑ a, n a = N → ∀ (a : Fin k), n a ≤ N
+@EdgeLocalization.column_count_reindex : ∀ {N k : ℕ} (c : Fin N → Fin k) (π : Equiv.Perm (Fin N)) (a : Fin k),
+  {i | c (π i) = a}.card = {i | c i = a}.card
+EdgeLocalization.ordered_distinct_pair_card : ∀ (N : ℕ), {p ∈ Finset.univ ×ˢ Finset.univ | p.1 ≠ p.2}.card = N * (N - 1)
+@EdgeLocalization.column_ordered_fiber_pair_card : ∀ {N k : ℕ} {n : Fin k → ℕ} (c : EdgeLocalization.FixedColumn N k n)
+  (a b : Fin k),
+  {p ∈ Finset.univ ×ˢ Finset.univ | p.1 ≠ p.2 ∧ ↑c p.1 = a ∧ ↑c p.2 = b}.card =
+    if a = b then n a * (n a - 1) else n a * n b
+@EdgeLocalization.exists_perm_map_pair : ∀ {N : ℕ} (i j i' j' : Fin N), i ≠ j → i' ≠ j' → ∃ π, π i = i' ∧ π j = j'
+@EdgeLocalization.column_probability_reindex : ∀ {N k : ℕ} (n : Fin k → ℕ) (h : ∑ a, n a = N) (π : Equiv.Perm (Fin N))
+  (A : EdgeLocalization.FixedColumn N k n → Prop),
+  ((EdgeLocalization.columnLaw n h).probability fun c => A ((EdgeLocalization.FixedColumn.reindex n π) c)) =
+    (EdgeLocalization.columnLaw n h).probability A
+@EdgeLocalization.column_one_probability : ∀ {N k : ℕ} (n : Fin k → ℕ) (h : ∑ a, n a = N) (i : Fin N) (a : Fin k),
+  ((EdgeLocalization.columnLaw n h).probability fun c => ↑c i = a) = EdgeLocalization.singleFactor N n a
+@EdgeLocalization.column_two_probability : ∀ {N k : ℕ} (n : Fin k → ℕ) (h : ∑ a, n a = N) (i j : Fin N),
+  i ≠ j →
+    ∀ (a b : Fin k),
+      ((EdgeLocalization.columnLaw n h).probability fun c => ↑c i = a ∧ ↑c j = b) = EdgeLocalization.pairFactor N n a b
+@EdgeLocalization.column_equal_probability : ∀ {N k : ℕ} (n : Fin k → ℕ) (h : ∑ a, n a = N) (i j : Fin N),
+  i ≠ j → ((EdgeLocalization.columnLaw n h).probability fun c => ↑c i = ↑c j) = EdgeLocalization.coincidenceFactor N n
+@EdgeLocalization.column_zero_count : ∀ {N k : ℕ} {n : Fin k → ℕ} (c : EdgeLocalization.FixedColumn N k n) (a : Fin k),
+  n a = 0 → ∀ (i : Fin N), ↑c i ≠ a
+@EdgeLocalization.matrixLaw_uniform_weight : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ) (hn : ∀ (j : Fin K), ∑ a, n j a = N)
+  (ω : EdgeLocalization.FixedMatrix N n),
+  (EdgeLocalization.matrixLaw n hn).weight ω = (↑(Fintype.card (EdgeLocalization.FixedMatrix N n)))⁻¹
+@EdgeLocalization.prefixWord_length : ∀ {M k : ℕ} (x : Fin M → Fin k), (EdgeLocalization.prefixWord x).length = M
+@EdgeLocalization.rawRow_length : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ) (ω : EdgeLocalization.FixedMatrix N n)
+  (i : Fin N), (EdgeLocalization.rawRow n ω i).length = K
+@EdgeLocalization.rowsOfLabels_apply : ∀ {N : ℕ} (R : Fin N → List ℕ) (i : Fin N),
+  EdgeLocalization.rowsOfLabels R ↑i = R i
+@EdgeLocalization.rowsOfLabels_outside : ∀ {N : ℕ} (R : Fin N → List ℕ) (t : ℕ),
+  N ≤ t → EdgeLocalization.rowsOfLabels R t = []
+@EdgeLocalization.prefixWord_prefix_rawRow_iff : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K)
+  (x : Fin M → Fin k) (ω : EdgeLocalization.FixedMatrix N n) (i : Fin N),
+  EdgeLocalization.prefixWord x <+: EdgeLocalization.rawRow n ω i ↔ ∀ (t : Fin M), ↑(ω (Fin.castLE hM t)) i = x t
+@EdgeLocalization.rawRow_eq_iff : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ) (ω : EdgeLocalization.FixedMatrix N n)
+  (i j : Fin N), EdgeLocalization.rawRow n ω i = EdgeLocalization.rawRow n ω j ↔ ∀ (t : Fin K), ↑(ω t) i = ↑(ω t) j
+@EdgeLocalization.prefixWord_represents_list : ∀ {k : ℕ} (xList : List ℕ),
+  (∀ a ∈ xList, a < k) → ∃ x, EdgeLocalization.prefixWord x = xList
+@EdgeLocalization.sortedLabels_length : ∀ {N : ℕ} (R : Fin N → List ℕ), (EdgeLocalization.sortedLabels R).length = N
+@EdgeLocalization.sortedLabels_perm : ∀ {N : ℕ} (R : Fin N → List ℕ),
+  (EdgeLocalization.sortedLabels R).Perm (List.finRange N)
+@EdgeLocalization.sortedLabels_nodup_mem : ∀ {N : ℕ} (R : Fin N → List ℕ),
+  (EdgeLocalization.sortedLabels R).Nodup ∧ ∀ (i : Fin N), i ∈ EdgeLocalization.sortedLabels R
+@EdgeLocalization.sortPermutation_monotone_rows : ∀ {N : ℕ} (R : Fin N → List ℕ) (i j : Fin N),
+  i ≤ j → R ((EdgeLocalization.sortPermutation R) i) ≤ R ((EdgeLocalization.sortPermutation R) j)
+@EdgeLocalization.occupied_card_reindex : ∀ {N : ℕ} (R : Fin N → List ℕ) (e : Equiv.Perm (Fin N)) (xList : List ℕ),
+  (EdgeLocalization.occupied N (EdgeLocalization.rowsOfLabels (R ∘ ⇑e)) xList).card =
+    (EdgeLocalization.occupied N (EdgeLocalization.rowsOfLabels R) xList).card
+@EdgeLocalization.collisionPairs_card_reindex : ∀ {N : ℕ} (R : Fin N → List ℕ) (e : Equiv.Perm (Fin N))
+  (xList : List ℕ),
+  (EdgeLocalization.collisionPairs N (EdgeLocalization.rowsOfLabels (R ∘ ⇑e)) xList).card =
+    (EdgeLocalization.collisionPairs N (EdgeLocalization.rowsOfLabels R) xList).card
+@EdgeLocalization.sorted_occupancy_eq_raw : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ) (ω : EdgeLocalization.FixedMatrix N n)
+  (xList : List ℕ),
+  EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows n ω) xList =
+    EdgeLocalization.occupancyCount N (EdgeLocalization.rawRows n ω) xList
+@EdgeLocalization.sorted_collisionPairs_card_eq_raw : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ)
+  (ω : EdgeLocalization.FixedMatrix N n) (xList : List ℕ),
+  (EdgeLocalization.collisionPairs N (EdgeLocalization.sortedRows n ω) xList).card =
+    (EdgeLocalization.collisionPairs N (EdgeLocalization.rawRows n ω) xList).card
+@EdgeLocalization.matrix_prefix_probability : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k) (i : Fin N),
+  ((EdgeLocalization.matrixLaw n hn).probability fun ω =>
+      EdgeLocalization.prefixWord x <+: EdgeLocalization.rawRow n ω i) =
+    EdgeLocalization.prefixMass N n hM x
+@EdgeLocalization.matrix_pair_prefix_probability : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k) (i l : Fin N),
+  i ≠ l →
+    ((EdgeLocalization.matrixLaw n hn).probability fun ω =>
+        EdgeLocalization.rawRow n ω i = EdgeLocalization.rawRow n ω l ∧
+          EdgeLocalization.prefixWord x <+: EdgeLocalization.rawRow n ω i) =
+      EdgeLocalization.prefixPairFactor N n hM x * EdgeLocalization.tailCollisionFactor N n M
+@EdgeLocalization.matrix_expected_raw_occupancy : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+      ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.rawRows n ω) (EdgeLocalization.prefixWord x))) =
+    EdgeLocalization.prefixMean N n hM x
+@EdgeLocalization.matrix_expected_sorted_occupancy : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+      ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x))) =
+    EdgeLocalization.prefixMean N n hM x
+EdgeLocalization.collisionPairs_subset_increasing : ∀ (N : ℕ) (rows : ℕ → List ℕ) (xList : List ℕ),
+  EdgeLocalization.collisionPairs N rows xList ⊆ {p ∈ Finset.range N ×ˢ Finset.range N | p.1 < p.2}
+EdgeLocalization.increasing_pair_card : ∀ (N : ℕ), {p ∈ Finset.range N ×ˢ Finset.range N | p.1 < p.2}.card = N.choose 2
+@EdgeLocalization.matrix_expected_raw_collisionPairs : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+      ↑(EdgeLocalization.collisionPairs N (EdgeLocalization.rawRows n ω) (EdgeLocalization.prefixWord x)).card) =
+    ↑(N.choose 2) * EdgeLocalization.prefixPairFactor N n hM x * EdgeLocalization.tailCollisionFactor N n M
+@EdgeLocalization.matrix_expected_sorted_collisionPairs : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+      ↑(EdgeLocalization.collisionPairs N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x)).card) =
+    ↑(N.choose 2) * EdgeLocalization.prefixPairFactor N n hM x * EdgeLocalization.tailCollisionFactor N n M
+EdgeLocalization.singleFactor_nonneg : ∀ (N : ℕ) {k : ℕ} (n : Fin k → ℕ) (a : Fin k),
+  0 ≤ EdgeLocalization.singleFactor N n a
+EdgeLocalization.pairFactor_nonneg : ∀ (N : ℕ) {k : ℕ} (n : Fin k → ℕ) (a b : Fin k),
+  0 ≤ EdgeLocalization.pairFactor N n a b
+EdgeLocalization.pairFactor_same_le_singleFactor_sq : ∀ (N : ℕ) {k : ℕ} (n : Fin k → ℕ),
+  ∑ a, n a = N → 2 ≤ N → ∀ (a : Fin k), EdgeLocalization.pairFactor N n a a ≤ EdgeLocalization.singleFactor N n a ^ 2
+EdgeLocalization.prefix_factors_nonneg : ∀ (N : ℕ) {K k M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K) (x : Fin M → Fin k),
+  0 ≤ EdgeLocalization.prefixMass N n hM x ∧
+    0 ≤ EdgeLocalization.prefixPairFactor N n hM x ∧ 0 ≤ EdgeLocalization.prefixMean N n hM x
+EdgeLocalization.tail_factors_nonneg : ∀ (N : ℕ) {K k : ℕ} (n : Fin K → Fin k → ℕ) (M : ℕ),
+  0 ≤ EdgeLocalization.tailCollisionFactor N n M ∧ 0 ≤ EdgeLocalization.tailSquareFactor N n M
+@EdgeLocalization.prefixPairFactor_le_prefixMass_sq : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ),
+  (∀ (j : Fin K), ∑ a, n j a = N) →
+    ∀ (hM : M ≤ K) (x : Fin M → Fin k),
+      2 ≤ N → EdgeLocalization.prefixPairFactor N n hM x ≤ EdgeLocalization.prefixMass N n hM x ^ 2
+@EdgeLocalization.tailCollisionFactor_le_tailSquareFactor : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ),
+  (∀ (j : Fin K), ∑ a, n j a = N) →
+    ∀ (M : ℕ), 2 ≤ N → EdgeLocalization.tailCollisionFactor N n M ≤ EdgeLocalization.tailSquareFactor N n M
+@EdgeLocalization.internal_density_le_sq_expected_edges : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  (w : EdgeLocalization.FiniteLaw Ω) (N : ℕ) (R : Ω → ℕ → List ℕ) (xList : List ℕ),
+  EdgeLocalization.edgeDensity w N R xList ≤ (w.expectation fun ω => ↑(EdgeLocalization.edgeCount N (R ω) xList)) ^ 2
+EdgeLocalization.collisionPairs_zero : ∀ (rows : ℕ → List ℕ) (xList : List ℕ),
+  EdgeLocalization.collisionPairs 0 rows xList = ∅
+EdgeLocalization.collisionPairs_one : ∀ (rows : ℕ → List ℕ) (xList : List ℕ),
+  EdgeLocalization.collisionPairs 1 rows xList = ∅
+@EdgeLocalization.matrix_expected_collisionPairs_le_tight_mean_bound : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+      ↑(EdgeLocalization.collisionPairs N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x)).card) ≤
+    ↑(N - 1) / (2 * ↑N) * EdgeLocalization.prefixMean N n hM x ^ 2 * EdgeLocalization.tailCollisionFactor N n M
+@EdgeLocalization.matrix_expected_collisionPairs_le_half_mean_bound : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+      ↑(EdgeLocalization.collisionPairs N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x)).card) ≤
+    EdgeLocalization.prefixMean N n hM x ^ 2 * EdgeLocalization.tailCollisionFactor N n M / 2
+@EdgeLocalization.matrix_expected_internal_edges_le_half_mean_bound : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+      ↑(EdgeLocalization.edgeCount N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x))) ≤
+    EdgeLocalization.prefixMean N n hM x ^ 2 * EdgeLocalization.tailCollisionFactor N n M / 2
+@EdgeLocalization.matrix_internal_density_le_collision_square : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+      (EdgeLocalization.prefixWord x) ≤
+    (↑(N.choose 2) * EdgeLocalization.prefixPairFactor N n hM x * EdgeLocalization.tailCollisionFactor N n M) ^ 2
+@EdgeLocalization.matrix_internal_density_le_mean_tail_fourth : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+      (EdgeLocalization.prefixWord x) ≤
+    EdgeLocalization.prefixMean N n hM x ^ 4 * EdgeLocalization.tailCollisionFactor N n M ^ 2 / 4
+@EdgeLocalization.matrix_internal_density_le_prefixMean : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+      (EdgeLocalization.prefixWord x) ≤
+    EdgeLocalization.prefixMean N n hM x
+EdgeLocalization.tailCollisionFactor_at_full_length : ∀ (N : ℕ) {K k : ℕ} (n : Fin K → Fin k → ℕ),
+  EdgeLocalization.tailCollisionFactor N n K = 1
+EdgeLocalization.prefix_factors_empty : ∀ (N : ℕ) {K k : ℕ} (n : Fin K → Fin k → ℕ) (hM : 0 ≤ K) (x : Fin 0 → Fin k),
+  EdgeLocalization.prefixWord x = [] ∧
+    EdgeLocalization.prefixMass N n hM x = 1 ∧ EdgeLocalization.prefixPairFactor N n hM x = 1
+EdgeLocalization.FiniteLaw.uniform : (Ω : Type u_1) → [inst : Fintype Ω] → [Nonempty Ω] → EdgeLocalization.FiniteLaw Ω
+@EdgeLocalization.FiniteLaw.pi : {ι : Type u_1} →
+  [inst : Fintype ι] →
+    {Ω : ι → Type u_2} →
+      [inst_1 : (j : ι) → Fintype (Ω j)] →
+        ((j : ι) → EdgeLocalization.FiniteLaw (Ω j)) → EdgeLocalization.FiniteLaw ((j : ι) → Ω j)
+EdgeLocalization.fixedColumnFintype : (N k : ℕ) → (n : Fin k → ℕ) → Fintype (EdgeLocalization.FixedColumn N k n)
+@EdgeLocalization.FixedColumn.reindex : {N k : ℕ} →
+  (n : Fin k → ℕ) → Equiv.Perm (Fin N) → EdgeLocalization.FixedColumn N k n ≃ EdgeLocalization.FixedColumn N k n
+@EdgeLocalization.columnLaw : {N k : ℕ} →
+  (n : Fin k → ℕ) → ∑ a, n a = N → EdgeLocalization.FiniteLaw (EdgeLocalization.FixedColumn N k n)
+EdgeLocalization.fixedMatrixFintype : (N : ℕ) →
+  {K k : ℕ} → (n : Fin K → Fin k → ℕ) → Fintype (EdgeLocalization.FixedMatrix N n)
+@EdgeLocalization.matrixLaw : {N K k : ℕ} →
+  (n : Fin K → Fin k → ℕ) →
+    (∀ (j : Fin K), ∑ a, n j a = N) → EdgeLocalization.FiniteLaw (EdgeLocalization.FixedMatrix N n)
+@EdgeLocalization.sortPermutation : {N : ℕ} → (Fin N → List ℕ) → Equiv.Perm (Fin N)

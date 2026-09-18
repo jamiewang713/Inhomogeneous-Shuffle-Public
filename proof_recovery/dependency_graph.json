@@ -1,0 +1,991 @@
+{
+  "meaning": "Semantic dependencies reconstructed from the permitted source. Arrows indicate required proof inputs, not proof certificates or assumed axioms. External generic mathematical estimates still require trusted Lean proofs.",
+  "active_named_statements": 70,
+  "implicit_definition_groups": 14,
+  "nodes": [
+    {
+      "id": "D0:model",
+      "line": 85,
+      "title": "N,k,K; integer pile counts, simplex, deterministic/mixture shuffle law, uniform law, TV, path edges/boundary, factorials, log_N",
+      "depends_on": [],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D1:costs",
+      "line": 127,
+      "title": "Maximum pile, a_p, psi_p, tilted law, I_p,H_p; profile costs and integrals A,B,J",
+      "depends_on": [
+        "D0:model"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D2:margins",
+      "line": 178,
+      "title": "beta, Lambda_0,...,Lambda_3, Lambda_UB; full/reduced thresholds and coefficient integrands",
+      "depends_on": [
+        "D1:costs"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D3:sampling",
+      "line": 386,
+      "title": "Independent uniform fixed-count columns; sorted words, G,G prime, component sorting, f_G and f_GG prime",
+      "depends_on": [
+        "D0:model"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D4:prefixes",
+      "line": 444,
+      "title": "Legal prefix tree, cylinders, antichains, parent, lexicographic pieces, ambient-relative coordinates",
+      "depends_on": [
+        "D3:sampling"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D5:hierarchy",
+      "line": 471,
+      "title": "Order of fixed parameters, small mesh choices and N limit; uniform error conventions",
+      "depends_on": [
+        "D0:model"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D6:thinning",
+      "line": 2934,
+      "title": "Word masses, deterministic intervals, counts/endpoints; labeled survivors, residual populations and hypergeometric transition",
+      "depends_on": [
+        "D3:sampling",
+        "D4:prefixes"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D7:cold-functionals",
+      "line": 3430,
+      "title": "Largest-digit ambient word a_s, F_theta, integrated tilted entropy, h and Gamma",
+      "depends_on": [
+        "D1:costs",
+        "D2:margins",
+        "D6:thinning"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D8:truncated-types",
+      "line": 3800,
+      "title": "Regular-cell truncated tilted law q_theta,R^chi, rounded counts and truncated cost/entropy",
+      "depends_on": [
+        "D1:costs",
+        "D5:hierarchy",
+        "def:chi-regular-partitions"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D9:bridge-tail",
+      "line": 4004,
+      "title": "Two good bridge columns, bridge words b,b_minus,b_plus, bridge loss ell_b, remaining tail and 2-tilted tail types",
+      "depends_on": [
+        "D7:cold-functionals",
+        "D8:truncated-types",
+        "lem:bridge-window"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D10:scan-statistic",
+      "line": 4899,
+      "title": "Translate H_q, number of ascents, uniform and shuffled scan events",
+      "depends_on": [
+        "D0:model",
+        "D3:sampling"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D11:block-partitions",
+      "line": 4951,
+      "title": "Fixed-size labeled value-set partition, final reservoir, function f and coordinate oscillation",
+      "depends_on": [
+        "D0:model"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D12:exploration",
+      "line": 1923,
+      "title": "Accessible blocks, regular events, directional explorations and filtration: constructions not fully specified in source",
+      "depends_on": [
+        "D3:sampling",
+        "D4:prefixes"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "D13:component-statistic",
+      "line": 4979,
+      "title": "Deterministic path components, sorted permutation, relevant component family and ascent count X",
+      "depends_on": [
+        "D3:sampling",
+        "D10:scan-statistic"
+      ],
+      "status": "source definition; not a Lean declaration"
+    },
+    {
+      "id": "thm:upper-critical-reduced",
+      "line": 235,
+      "title": "Upper critical-time theorem, reduced form",
+      "depends_on": [
+        "cor:full-margin-critical-upper-bound",
+        "thm:dominance-reduction",
+        "D0:model",
+        "D2:margins"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "def:almost-time-profile-like-cuts",
+      "line": 249,
+      "title": "Almost time-profile-like cuts",
+      "depends_on": [
+        "D0:model",
+        "D1:costs"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:randomized-time-profile-like-cuts",
+      "line": 265,
+      "title": "Randomized time-profile-like cuts",
+      "depends_on": [
+        "D0:model",
+        "def:almost-time-profile-like-cuts"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:chi-regular-partitions",
+      "line": 276,
+      "title": "$\\chi$-regular partitions",
+      "depends_on": [
+        "D0:model",
+        "D1:costs"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:good-columns",
+      "line": 305,
+      "title": "Good columns",
+      "depends_on": [
+        "D0:model"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:first-moment-margin",
+      "line": 331,
+      "title": "First-moment margin",
+      "depends_on": [
+        "D1:costs",
+        "D2:margins",
+        "def:ambient-block-size-exponent"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:recursive-first-moment-margin",
+      "line": 366,
+      "title": "Recursive first-moment margin",
+      "depends_on": [
+        "def:first-moment-margin",
+        "D12:exploration"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "thm:deterministic-upper-bound",
+      "line": 377,
+      "title": "Deterministic time-inhomogeneous upper bound",
+      "depends_on": [
+        "def:almost-time-profile-like-cuts",
+        "def:good-columns",
+        "def:recursive-first-moment-margin",
+        "lem:ub-graph-representation",
+        "lem:ub-truncated-chi-square",
+        "lem:ub-sparse-factorial",
+        "lem:ub-shared-edge-exponential-moment",
+        "lem:ub-regularity-sparsity"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-graph-representation",
+      "line": 402,
+      "title": "Graph representation",
+      "depends_on": [
+        "D3:sampling"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-truncated-chi-square",
+      "line": 410,
+      "title": "Truncated chi-square bound",
+      "depends_on": [
+        "D3:sampling",
+        "lem:ub-graph-representation"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "def:local-sparsity",
+      "line": 424,
+      "title": "Local sparsity",
+      "depends_on": [
+        "D3:sampling"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "lem:ub-sparse-factorial",
+      "line": 429,
+      "title": "Sparse factorial bound",
+      "depends_on": [
+        "D3:sampling",
+        "def:local-sparsity"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "def:ambient-block-size-exponent",
+      "line": 490,
+      "title": "Ambient block and size exponent",
+      "depends_on": [
+        "D4:prefixes",
+        "D1:costs"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:boundary-pairs-stable-blocks",
+      "line": 521,
+      "title": "Stable blocks",
+      "depends_on": [
+        "def:ambient-block-size-exponent",
+        "D4:prefixes",
+        "D5:hierarchy"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:space-time-digit-profile",
+      "line": 699,
+      "title": "Space-time digit profile",
+      "depends_on": [
+        "def:boundary-pairs-stable-blocks",
+        "def:chi-regular-partitions",
+        "def:almost-time-profile-like-cuts",
+        "D5:hierarchy"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "def:numerical-first-moment-margin",
+      "line": 749,
+      "title": "Numerical first-moment margin",
+      "depends_on": [
+        "def:first-moment-margin"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "lem:ub-stable-partition",
+      "line": 788,
+      "title": "Stable partition",
+      "depends_on": [
+        "def:boundary-pairs-stable-blocks"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-global-boundary-decomposition",
+      "line": 828,
+      "title": "Global boundary decomposition",
+      "depends_on": [
+        "def:boundary-pairs-stable-blocks",
+        "lem:ub-stable-partition"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-regular-partition-interval-blocking",
+      "line": 857,
+      "title": "Regular partition and interval blocking",
+      "depends_on": [
+        "def:chi-regular-partitions",
+        "def:almost-time-profile-like-cuts",
+        "D5:hierarchy"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-profile-estimates",
+      "line": 898,
+      "title": "Profile estimates",
+      "depends_on": [
+        "def:space-time-digit-profile",
+        "def:boundary-pairs-stable-blocks",
+        "lem:ub-regular-partition-interval-blocking"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-bad-profile-reduction",
+      "line": 1039,
+      "title": "Bad-profile reduction",
+      "depends_on": [
+        "def:boundary-pairs-stable-blocks",
+        "def:space-time-digit-profile",
+        "lem:ub-regular-partition-interval-blocking",
+        "D5:hierarchy"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-hypergeometric-estimates",
+      "line": 1121,
+      "title": "Hypergeometric estimates",
+      "depends_on": [
+        "D3:sampling"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-ambient-conditioning-transfer",
+      "line": 1154,
+      "title": "Ambient conditioning transfer",
+      "depends_on": [
+        "def:ambient-block-size-exponent",
+        "def:boundary-pairs-stable-blocks",
+        "lem:ub-hypergeometric-estimates",
+        "lem:ub-profile-estimates"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-ambient-concentration-anti-concentration",
+      "line": 1202,
+      "title": "Ambient concentration and anti-concentration",
+      "depends_on": [
+        "lem:ub-ambient-conditioning-transfer",
+        "lem:ub-hypergeometric-estimates",
+        "lem:ub-profile-estimates",
+        "def:ambient-block-size-exponent"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-per-edge-stable-localization",
+      "line": 1436,
+      "title": "Per-edge stable localization",
+      "depends_on": [
+        "lem:ub-global-boundary-decomposition",
+        "lem:ub-stable-partition",
+        "lem:ub-bad-profile-reduction",
+        "lem:ub-ambient-concentration-anti-concentration"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-edge-density-bounds",
+      "line": 1486,
+      "title": "Edge-density bounds",
+      "depends_on": [
+        "lem:ub-ambient-concentration-anti-concentration",
+        "lem:ub-profile-estimates",
+        "def:boundary-pairs-stable-blocks",
+        "D3:sampling"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-terminal-singleton-bound",
+      "line": 1640,
+      "title": "Terminal singleton bound",
+      "depends_on": [
+        "def:boundary-pairs-stable-blocks",
+        "def:ambient-block-size-exponent",
+        "D3:sampling"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-numerical-lemma",
+      "line": 1662,
+      "title": "Numerical lemma",
+      "depends_on": [
+        "def:numerical-first-moment-margin",
+        "lem:ub-profile-estimates",
+        "def:boundary-pairs-stable-blocks"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "prop:ub-first-moment",
+      "line": 1817,
+      "title": "First moment",
+      "depends_on": [
+        "lem:ub-bad-profile-reduction",
+        "lem:ub-per-edge-stable-localization",
+        "lem:ub-edge-density-bounds",
+        "lem:ub-terminal-singleton-bound",
+        "lem:ub-numerical-lemma",
+        "lem:ub-profile-estimates"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-conditional-preservation",
+      "line": 1923,
+      "title": "Conditional preservation",
+      "depends_on": [
+        "D12:exploration",
+        "lem:ub-hypergeometric-estimates",
+        "def:almost-time-profile-like-cuts"
+      ],
+      "status": "sketch; precise exploration/filtration input missing"
+    },
+    {
+      "id": "lem:ub-conditional-first-moment",
+      "line": 1931,
+      "title": "Conditional first moment during exploration",
+      "depends_on": [
+        "D12:exploration",
+        "lem:ub-conditional-preservation",
+        "prop:ub-first-moment",
+        "def:recursive-first-moment-margin"
+      ],
+      "status": "sketch; precise exploration/filtration input missing"
+    },
+    {
+      "id": "lem:ub-portenko-exponential-moment",
+      "line": 1949,
+      "title": "Portenko exponential moment",
+      "depends_on": [
+        "D12:exploration",
+        "lem:ub-conditional-first-moment"
+      ],
+      "status": "sketch; precise exploration/filtration input missing"
+    },
+    {
+      "id": "lem:ub-shared-edge-exponential-moment",
+      "line": 1961,
+      "title": "Shared-edge exponential moment",
+      "depends_on": [
+        "D12:exploration",
+        "lem:ub-portenko-exponential-moment",
+        "def:local-sparsity"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:ub-regularity-sparsity",
+      "line": 1974,
+      "title": "Regularity and sparsity",
+      "depends_on": [
+        "D12:exploration",
+        "lem:ub-hypergeometric-estimates",
+        "lem:ub-profile-estimates",
+        "lem:ub-edge-density-bounds",
+        "def:local-sparsity"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "cor:random-time-profile-upper-bound",
+      "line": 1999,
+      "title": "Random time-profile upper bound",
+      "depends_on": [
+        "def:randomized-time-profile-like-cuts",
+        "def:good-columns",
+        "def:recursive-first-moment-margin",
+        "thm:deterministic-upper-bound"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:buffered-pointwise-upper-bound",
+      "line": 2029,
+      "title": "Buffered pointwise upper bound",
+      "depends_on": [
+        "D2:margins",
+        "def:first-moment-margin",
+        "def:recursive-first-moment-margin",
+        "D12:exploration",
+        "thm:deterministic-upper-bound"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:upper-margin-monotonicity",
+      "line": 2159,
+      "title": "Monotonicity of the upper margins",
+      "depends_on": [
+        "D1:costs",
+        "D2:margins"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "cor:full-margin-critical-upper-bound",
+      "line": 2291,
+      "title": "Four-margin critical-time upper bound",
+      "depends_on": [
+        "D2:margins",
+        "lem:upper-margin-monotonicity",
+        "lem:buffered-pointwise-upper-bound"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:basic-one-column-inequality",
+      "line": 2349,
+      "title": "The basic one-column inequality",
+      "depends_on": [
+        "D0:model",
+        "D1:costs"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "thm:dominance-reduction",
+      "line": 2397,
+      "title": "Reduction to $\\Lambda_0$ and $\\Lambda_1$",
+      "depends_on": [
+        "D2:margins",
+        "lem:basic-one-column-inequality"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "cor:buffered-consequence",
+      "line": 2471,
+      "title": "Buffered consequence",
+      "depends_on": [
+        "D2:margins",
+        "thm:dominance-reduction"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "thm:buffered-reduced-lower-bound",
+      "line": 2812,
+      "title": "Buffered reduced lower bound",
+      "depends_on": [
+        "D2:margins",
+        "lem:cold-witness",
+        "prop:largest-prefix",
+        "prop:cold-lower"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:successive-thinning-tail",
+      "line": 3018,
+      "title": "Successive thinning lower tail",
+      "depends_on": [
+        "D6:thinning"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "cor:iterated-hypergeom",
+      "line": 3169,
+      "title": "Iterated hypergeometric thinning",
+      "depends_on": [
+        "D6:thinning",
+        "lem:successive-thinning-tail",
+        "lem:ub-hypergeometric-estimates"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "prop:largest-prefix",
+      "line": 3377,
+      "title": "Largest-prefix lower bound",
+      "depends_on": [
+        "D2:margins",
+        "D6:thinning",
+        "cor:iterated-hypergeom",
+        "lem:ub-graph-representation",
+        "lem:ub-regular-partition-interval-blocking"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:entropy-ineq",
+      "line": 3498,
+      "title": "One-column entropy inequalities",
+      "depends_on": [
+        "D1:costs"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:bridge-window",
+      "line": 3540,
+      "title": "Buffered bridge window",
+      "depends_on": [
+        "def:good-columns",
+        "D5:hierarchy",
+        "lem:ub-regular-partition-interval-blocking"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:cold-witness",
+      "line": 3583,
+      "title": "Cold-witness reduction from \\(\\Lambda_1\\)",
+      "depends_on": [
+        "D7:cold-functionals",
+        "lem:entropy-ineq",
+        "lem:bridge-window"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "def:collision-likely-prefixes",
+      "line": 3847,
+      "title": "Collision-likely prefixes",
+      "depends_on": [
+        "D7:cold-functionals",
+        "D8:truncated-types",
+        "D6:thinning"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "lem:type-estimates",
+      "line": 3885,
+      "title": "Type estimates",
+      "depends_on": [
+        "def:collision-likely-prefixes",
+        "D8:truncated-types",
+        "lem:ub-regular-partition-interval-blocking",
+        "lem:ub-profile-estimates"
+      ],
+      "status": "fixed-mesh versus little-o exponent issue flagged by reconstruction review"
+    },
+    {
+      "id": "lem:cold-geometry",
+      "line": 3928,
+      "title": "Relative cold-set geometry",
+      "depends_on": [
+        "def:collision-likely-prefixes",
+        "lem:type-estimates",
+        "lem:cold-witness",
+        "D0:model"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "def:full-collision-likely-strings",
+      "line": 4080,
+      "title": "Full collision-likely strings",
+      "depends_on": [
+        "def:collision-likely-prefixes",
+        "D9:bridge-tail",
+        "D3:sampling"
+      ],
+      "status": "definition"
+    },
+    {
+      "id": "lem:tail-types",
+      "line": 4095,
+      "title": "Tail type estimates",
+      "depends_on": [
+        "D9:bridge-tail",
+        "lem:type-estimates"
+      ],
+      "status": "fixed-mesh versus little-o exponent issue flagged by reconstruction review"
+    },
+    {
+      "id": "lem:uniform-endpoint-theorem",
+      "line": 4123,
+      "title": "Relative endpoint theorem for cold prefix families",
+      "depends_on": [
+        "D6:thinning",
+        "def:collision-likely-prefixes",
+        "cor:iterated-hypergeom",
+        "lem:cold-witness"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:endpoint-control",
+      "line": 4226,
+      "title": "Cold-prefix endpoint control",
+      "depends_on": [
+        "lem:uniform-endpoint-theorem",
+        "lem:cold-witness"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:bridge-buffers",
+      "line": 4242,
+      "title": "Bridge buffers",
+      "depends_on": [
+        "D9:bridge-tail",
+        "lem:cold-witness",
+        "lem:type-estimates"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:localization",
+      "line": 4282,
+      "title": "Localization",
+      "depends_on": [
+        "lem:endpoint-control",
+        "lem:bridge-buffers",
+        "cor:iterated-hypergeom",
+        "def:full-collision-likely-strings"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:fixed-column-factorial",
+      "line": 4340,
+      "title": "Fixed-column factorial moments",
+      "depends_on": [
+        "D3:sampling",
+        "D0:model"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:conditional-factorial",
+      "line": 4400,
+      "title": "Conditional fixed-column factorial moments",
+      "depends_on": [
+        "D3:sampling",
+        "lem:fixed-column-factorial"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:central-window",
+      "line": 4454,
+      "title": "Central-window factorial comparison",
+      "depends_on": [
+        "D0:model"
+      ],
+      "status": "proof has missing quantitative error and weighted-tail estimates; statement not refuted"
+    },
+    {
+      "id": "lem:two-category-poisson",
+      "line": 4536,
+      "title": "Fixed-column two-category Poisson bound",
+      "depends_on": [
+        "lem:fixed-column-factorial",
+        "lem:conditional-factorial",
+        "lem:central-window",
+        "lem:successive-thinning-tail",
+        "cor:iterated-hypergeom"
+      ],
+      "status": "proof contains false Bonferroni inequalities; statement not refuted"
+    },
+    {
+      "id": "lem:occupancy",
+      "line": 4738,
+      "title": "Fixed-column occupancy approximation",
+      "depends_on": [
+        "def:full-collision-likely-strings",
+        "lem:two-category-poisson",
+        "lem:type-estimates",
+        "lem:tail-types",
+        "lem:cold-witness",
+        "D9:bridge-tail"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:cold-collision-count",
+      "line": 4832,
+      "title": "Cold collision count",
+      "depends_on": [
+        "lem:occupancy",
+        "lem:cold-geometry",
+        "lem:cold-witness"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:many-edges",
+      "line": 4866,
+      "title": "Many cold edges",
+      "depends_on": [
+        "lem:cold-collision-count",
+        "lem:localization",
+        "D3:sampling"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:uniform-ascent",
+      "line": 4899,
+      "title": "Uniform translate-scan ascent bound",
+      "depends_on": [
+        "D10:scan-statistic"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:block-bd",
+      "line": 4951,
+      "title": "Block value-set bounded differences",
+      "depends_on": [
+        "D11:block-partitions"
+      ],
+      "status": "FALSE: exact finite counterexamples verified"
+    },
+    {
+      "id": "lem:permutation-bd",
+      "line": 4979,
+      "title": "Component-value bounded differences for component sorting",
+      "depends_on": [
+        "D13:component-statistic",
+        "lem:block-bd"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:lalley-comparison",
+      "line": 5026,
+      "title": "Lalley component comparison",
+      "depends_on": [
+        "D13:component-statistic",
+        "lem:permutation-bd"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "lem:lalley",
+      "line": 5115,
+      "title": "Lalley cold-spot test",
+      "depends_on": [
+        "D10:scan-statistic",
+        "lem:uniform-ascent",
+        "lem:lalley-comparison",
+        "lem:ub-graph-representation"
+      ],
+      "status": "source claim; not Lean-verified"
+    },
+    {
+      "id": "prop:cold-lower",
+      "line": 5167,
+      "title": "Cold-spot lower bound",
+      "depends_on": [
+        "lem:cold-witness",
+        "lem:cold-geometry",
+        "lem:many-edges",
+        "lem:lalley"
+      ],
+      "status": "source claim; not Lean-verified"
+    }
+  ],
+  "topological_order": [
+    "D0:model",
+    "D1:costs",
+    "D2:margins",
+    "D3:sampling",
+    "D4:prefixes",
+    "D5:hierarchy",
+    "D6:thinning",
+    "D7:cold-functionals",
+    "def:chi-regular-partitions",
+    "D8:truncated-types",
+    "def:good-columns",
+    "def:almost-time-profile-like-cuts",
+    "lem:ub-regular-partition-interval-blocking",
+    "lem:bridge-window",
+    "D9:bridge-tail",
+    "D10:scan-statistic",
+    "D11:block-partitions",
+    "D12:exploration",
+    "D13:component-statistic",
+    "lem:upper-margin-monotonicity",
+    "def:ambient-block-size-exponent",
+    "def:first-moment-margin",
+    "def:recursive-first-moment-margin",
+    "lem:ub-graph-representation",
+    "lem:ub-truncated-chi-square",
+    "def:local-sparsity",
+    "lem:ub-sparse-factorial",
+    "lem:ub-hypergeometric-estimates",
+    "lem:ub-conditional-preservation",
+    "def:boundary-pairs-stable-blocks",
+    "def:space-time-digit-profile",
+    "lem:ub-bad-profile-reduction",
+    "lem:ub-stable-partition",
+    "lem:ub-global-boundary-decomposition",
+    "lem:ub-profile-estimates",
+    "lem:ub-ambient-conditioning-transfer",
+    "lem:ub-ambient-concentration-anti-concentration",
+    "lem:ub-per-edge-stable-localization",
+    "lem:ub-edge-density-bounds",
+    "lem:ub-terminal-singleton-bound",
+    "def:numerical-first-moment-margin",
+    "lem:ub-numerical-lemma",
+    "prop:ub-first-moment",
+    "lem:ub-conditional-first-moment",
+    "lem:ub-portenko-exponential-moment",
+    "lem:ub-shared-edge-exponential-moment",
+    "lem:ub-regularity-sparsity",
+    "thm:deterministic-upper-bound",
+    "lem:buffered-pointwise-upper-bound",
+    "cor:full-margin-critical-upper-bound",
+    "lem:basic-one-column-inequality",
+    "thm:dominance-reduction",
+    "thm:upper-critical-reduced",
+    "def:randomized-time-profile-like-cuts",
+    "cor:random-time-profile-upper-bound",
+    "cor:buffered-consequence",
+    "lem:entropy-ineq",
+    "lem:cold-witness",
+    "lem:successive-thinning-tail",
+    "cor:iterated-hypergeom",
+    "prop:largest-prefix",
+    "def:collision-likely-prefixes",
+    "lem:type-estimates",
+    "lem:cold-geometry",
+    "def:full-collision-likely-strings",
+    "lem:fixed-column-factorial",
+    "lem:conditional-factorial",
+    "lem:central-window",
+    "lem:two-category-poisson",
+    "lem:tail-types",
+    "lem:occupancy",
+    "lem:cold-collision-count",
+    "lem:uniform-endpoint-theorem",
+    "lem:endpoint-control",
+    "lem:bridge-buffers",
+    "lem:localization",
+    "lem:many-edges",
+    "lem:uniform-ascent",
+    "lem:block-bd",
+    "lem:permutation-bd",
+    "lem:lalley-comparison",
+    "lem:lalley",
+    "prop:cold-lower",
+    "thm:buffered-reduced-lower-bound"
+  ]
+}

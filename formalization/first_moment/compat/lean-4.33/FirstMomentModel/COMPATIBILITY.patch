@@ -1,0 +1,55 @@
+--- original/BoundaryEncoding.lean
++++ compatibility/BoundaryEncoding.lean
+@@ -1,6 +1,6 @@
+ import Riffle.Boundary
+ import FirstMoment.Counting
+-import Mathlib.Data.Finite.Card
++import Mathlib.SetTheory.Cardinal.Finite
+ 
+ /-!
+ Actual admissible-boundary encodings from the frozen supplemental contract.
+@@ -156,7 +156,7 @@
+   letI : Fintype (BoundaryCode D.K D.k (boundaryBudget A)) := by
+     unfold BoundaryCode
+     infer_instance
+-  have h := Finite.card_le_of_injective (encodeBoundary A s) (encodeBoundary_injective A s)
++  have h := Nat.card_le_card_of_injective (encodeBoundary A s) (encodeBoundary_injective A s)
+   simpa only [Nat.card_eq_fintype_card, BoundaryCode, Fintype.card_prod,
+     Fintype.card_fin, card_sparseAssignment, mul_assoc] using h
+ 
+@@ -181,7 +181,7 @@
+   letI : Fintype (BoundaryCode D.K D.k (boundaryBudget A)) := by
+     unfold BoundaryCode
+     infer_instance
+-  have h := Finite.card_le_of_injective (encodePair A) (encodePair_injective A)
++  have h := Nat.card_le_card_of_injective (encodePair A) (encodePair_injective A)
+   simpa only [Nat.card_eq_fintype_card, BoundaryCode, Fintype.card_prod,
+     Fintype.card_fin, card_sparseAssignment, pow_two, mul_assoc] using h
+ 
+--- original/ProfileClasses.lean
++++ compatibility/ProfileClasses.lean
+@@ -134,11 +134,11 @@
+     (route : ProfileWord A good alpha → Fin 4) :
+     Nat.card (ProfileClass A cell good alpha route) ≤
+       profileCountBound D.K D.k (boundaryBudget A) (exceptionalBudget A alpha) (c * D.k) := by
+-  have h := Finite.card_le_of_injective
++  have h := Nat.card_le_card_of_injective
+     (Subtype.val : ProfileClass A cell good alpha route →
+       ProfileKey D.K D.k (boundaryBudget A) (exceptionalBudget A alpha) (c * D.k))
+     Subtype.val_injective
+-  simpa only [Nat.card_eq_fintype_card, card_profileKey] using h
++  simpa only [ProfileClass, Nat.card_eq_fintype_card, card_profileKey] using h
+ 
+ end
+ 
+--- original/ProfileFibreEntropy.lean
++++ compatibility/ProfileFibreEntropy.lean
+@@ -208,7 +208,7 @@
+       intro p q h
+       exact hinj (congrArg Subtype.val h)
+     have hcard : Nat.card F ≤ (typeClass cellJ (profileKeyCounts (c := c) key)).card := by
+-      have h := Finite.card_le_of_injective f hf
++      have h := Nat.card_le_card_of_injective f hf
+       have hright : Nat.card ↥(typeClass cellJ (profileKeyCounts (c := c) key)) =
+           (typeClass cellJ (profileKeyCounts (c := c) key)).card := by
+         rw [Nat.card_eq_fintype_card, Fintype.card_coe]

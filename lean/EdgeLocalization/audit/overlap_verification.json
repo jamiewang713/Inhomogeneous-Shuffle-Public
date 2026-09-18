@@ -1,0 +1,24 @@
+{
+  "verifiedAtUTC": "2026-09-17T21:57:27.555010+00:00",
+  "lean": "Lean (version 4.24.0, arm64-apple-darwin23.6.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "mathlibRevision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "frozenContractsAndSourcesUnchanged": true,
+  "parentImplementationsUnchanged": true,
+  "independentReviewsUnchanged": true,
+  "frozenTheoremsChecked": 6,
+  "definitionsAudited": [
+    "EdgeLocalization.FiniteLaw.prod"
+  ],
+  "logicalDependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "buildPassed": true,
+  "prohibitedProofTokensAbsent": true,
+  "projectSourceSHA256": {
+    "EdgeLocalization/Overlap/Edges.lean": "50dff4e8d0c991c0fe3c4ca944bf45563738f44eda3b6797f7a4caaa790fd467",
+    "EdgeLocalization/Overlap/FiniteLaw.lean": "a96d3d64856b6844cf177c960176f08fa361000eb648d0d8cca25da5223eec4d"
+  },
+  "scope": "Exact independent-copy shared-edge identities and finite bounds; full original goal remains incomplete."
+}

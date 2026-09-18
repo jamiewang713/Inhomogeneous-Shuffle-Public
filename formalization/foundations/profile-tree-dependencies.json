@@ -1,0 +1,868 @@
+{
+  "scope": "Frozen P01-P14, W01-W14, T01-T15 and their project definitions",
+  "edge_semantics": "Direct project lemma names explicitly invoked in final source proofs; separate definition edges include constructor proof dependencies. Trusted library constants are summarized, not exhaustively enumerated. These are implementation dependencies, not the broader sufficient dependencies in prereview proof sketches.",
+  "contract_sha256": "2d48b42c85f7946ddb308efc21d47a4e6b596b497d5c8e447f4ae9ac1062dfd0",
+  "file_sha256": {
+    "RiffleShuffle/Basic.lean": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+    "RiffleShuffle/Profiles.lean": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+    "RiffleShuffle/Words.lean": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+    "RiffleShuffle/PrefixTree.lean": "535f8ec3a90b375b66b5277b02373efff29f7e54b9af9214d927ead65176070f"
+  },
+  "counts": {
+    "lemma_ids": 43,
+    "definition_nodes": 26
+  },
+  "definitions": [
+    {
+      "name": "RiffleShuffle.PileProfile",
+      "dependencies": []
+    },
+    {
+      "name": "RiffleShuffle.NormalizedProfile",
+      "dependencies": []
+    },
+    {
+      "name": "RiffleShuffle.PileProfile.countAt",
+      "dependencies": [
+        "RiffleShuffle.PileProfile"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.PileProfile.probAt",
+      "dependencies": [
+        "RiffleShuffle.PileProfile.countAt"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Word",
+      "dependencies": []
+    },
+    {
+      "name": "RiffleShuffle.wordLinearOrder",
+      "dependencies": [
+        "RiffleShuffle.Word"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Prefix",
+      "dependencies": [
+        "RiffleShuffle.Word"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.emptyWord",
+      "dependencies": [
+        "RiffleShuffle.Word"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.truncate",
+      "dependencies": [
+        "RiffleShuffle.Word"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.appendDigit",
+      "dependencies": [
+        "RiffleShuffle.Word"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Legal",
+      "dependencies": [
+        "RiffleShuffle.Word",
+        "RiffleShuffle.PileProfile.countAt"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.mass",
+      "dependencies": [
+        "RiffleShuffle.Word",
+        "RiffleShuffle.PileProfile.probAt"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.RawPrefix",
+      "dependencies": [
+        "RiffleShuffle.Word"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Node",
+      "dependencies": [
+        "RiffleShuffle.RawPrefix",
+        "RiffleShuffle.Legal"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.FullWord",
+      "dependencies": [
+        "RiffleShuffle.Word",
+        "RiffleShuffle.Legal"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Node.depth",
+      "dependencies": [
+        "RiffleShuffle.Node"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Node.word",
+      "dependencies": [
+        "RiffleShuffle.Node",
+        "RiffleShuffle.Node.depth"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Node.toList",
+      "dependencies": [
+        "RiffleShuffle.Node.word"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Node.IsPrefix",
+      "dependencies": [
+        "RiffleShuffle.Node.toList"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Child",
+      "dependencies": [
+        "RiffleShuffle.Node.IsPrefix",
+        "RiffleShuffle.Node.depth"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.cylinder",
+      "dependencies": [
+        "RiffleShuffle.Node.toList",
+        "RiffleShuffle.FullWord"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.PrefixAntichain",
+      "dependencies": [
+        "RiffleShuffle.Node.IsPrefix"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.Covers",
+      "dependencies": [
+        "RiffleShuffle.cylinder",
+        "RiffleShuffle.FullWord"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.PileProfile.normalized",
+      "dependencies": [
+        "RiffleShuffle.NormalizedProfile",
+        "RiffleShuffle.PileProfile.probAt",
+        "P04",
+        "P05",
+        "P07"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.root",
+      "dependencies": [
+        "RiffleShuffle.Node",
+        "RiffleShuffle.emptyWord",
+        "W12"
+      ]
+    },
+    {
+      "name": "RiffleShuffle.parent",
+      "dependencies": [
+        "RiffleShuffle.Node",
+        "RiffleShuffle.Node.depth",
+        "RiffleShuffle.Node.word",
+        "RiffleShuffle.truncate",
+        "W11"
+      ]
+    }
+  ],
+  "lemmas": [
+    {
+      "id": "P01",
+      "declaration": "RiffleShuffle.PileProfile.countAt_of_lt",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 15,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "PileProfile.countAt"
+      ],
+      "trusted_library_inputs": "conditional simplification and proof irrelevance"
+    },
+    {
+      "id": "P02",
+      "declaration": "RiffleShuffle.PileProfile.countAt_of_ge",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 19,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "PileProfile.countAt"
+      ],
+      "trusted_library_inputs": "natural order and conditional simplification"
+    },
+    {
+      "id": "P03",
+      "declaration": "RiffleShuffle.PileProfile.count_le_deck",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 23,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "PileProfile"
+      ],
+      "trusted_library_inputs": "finite sum term bound"
+    },
+    {
+      "id": "P04",
+      "declaration": "RiffleShuffle.PileProfile.prob_nonneg",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 29,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "PileProfile.probAt"
+      ],
+      "trusted_library_inputs": "natural casts and nonnegative division"
+    },
+    {
+      "id": "P05",
+      "declaration": "RiffleShuffle.PileProfile.prob_le_one",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 32,
+      "direct_project_lemma_dependencies": [
+        "P01",
+        "P03"
+      ],
+      "definition_dependencies": [
+        "PileProfile.probAt",
+        "PileProfile.countAt"
+      ],
+      "trusted_library_inputs": "natural casts and division by positive real"
+    },
+    {
+      "id": "P06",
+      "declaration": "RiffleShuffle.PileProfile.prob_pos_iff",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 40,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "PileProfile.probAt"
+      ],
+      "trusted_library_inputs": "cast positivity and positive denominator equivalence"
+    },
+    {
+      "id": "P07",
+      "declaration": "RiffleShuffle.PileProfile.prob_sum",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 46,
+      "direct_project_lemma_dependencies": [
+        "P01"
+      ],
+      "definition_dependencies": [
+        "PileProfile.probAt"
+      ],
+      "trusted_library_inputs": "finite sum/division distributivity and natural cast sum"
+    },
+    {
+      "id": "P08",
+      "declaration": "RiffleShuffle.PileProfile.exists_positive_digit",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 51,
+      "direct_project_lemma_dependencies": [
+        "P01"
+      ],
+      "definition_dependencies": [
+        "PileProfile.countAt"
+      ],
+      "trusted_library_inputs": "classical contradiction and natural order"
+    },
+    {
+      "id": "P09",
+      "declaration": "RiffleShuffle.mass_empty",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 73,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "mass",
+        "emptyWord"
+      ],
+      "trusted_library_inputs": "empty finite product"
+    },
+    {
+      "id": "P10",
+      "declaration": "RiffleShuffle.mass_nonneg",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 76,
+      "direct_project_lemma_dependencies": [
+        "P04"
+      ],
+      "definition_dependencies": [
+        "mass"
+      ],
+      "trusted_library_inputs": "Finset.prod_nonneg"
+    },
+    {
+      "id": "P11",
+      "declaration": "RiffleShuffle.mass_le_one",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 79,
+      "direct_project_lemma_dependencies": [
+        "P04",
+        "P05"
+      ],
+      "definition_dependencies": [
+        "mass"
+      ],
+      "trusted_library_inputs": "Finset.prod_le_one"
+    },
+    {
+      "id": "P12",
+      "declaration": "RiffleShuffle.mass_pos_iff_legal",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 84,
+      "direct_project_lemma_dependencies": [
+        "P04",
+        "P06"
+      ],
+      "definition_dependencies": [
+        "mass",
+        "Legal"
+      ],
+      "trusted_library_inputs": "Finset.prod_ne_zero_iff and Finset.prod_pos"
+    },
+    {
+      "id": "P13",
+      "declaration": "RiffleShuffle.mass_sum",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 96,
+      "direct_project_lemma_dependencies": [
+        "P07"
+      ],
+      "definition_dependencies": [
+        "mass"
+      ],
+      "trusted_library_inputs": "Equiv.vectorEquivFin, Fintype.sum_equiv, Fintype.prod_sum"
+    },
+    {
+      "id": "P14",
+      "declaration": "RiffleShuffle.mass_append",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Profiles.lean",
+      "line": 110,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "mass",
+        "appendDigit"
+      ],
+      "trusted_library_inputs": "Fin.prod_univ_castSucc and list append indexing"
+    },
+    {
+      "id": "W01",
+      "declaration": "RiffleShuffle.prefix_refl",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 10,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Prefix"
+      ],
+      "trusted_library_inputs": "List.prefix_refl"
+    },
+    {
+      "id": "W02",
+      "declaration": "RiffleShuffle.prefix_trans",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 13,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Prefix"
+      ],
+      "trusted_library_inputs": "List.IsPrefix.trans"
+    },
+    {
+      "id": "W03",
+      "declaration": "RiffleShuffle.prefix_length_le",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 17,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Prefix"
+      ],
+      "trusted_library_inputs": "List.IsPrefix.length_le"
+    },
+    {
+      "id": "W04",
+      "declaration": "RiffleShuffle.prefix_eq_of_length_eq",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 22,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Prefix"
+      ],
+      "trusted_library_inputs": "List.IsPrefix.eq_of_length"
+    },
+    {
+      "id": "W05",
+      "declaration": "RiffleShuffle.empty_prefix",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 27,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Prefix",
+        "emptyWord"
+      ],
+      "trusted_library_inputs": "List.nil_prefix"
+    },
+    {
+      "id": "W06",
+      "declaration": "RiffleShuffle.truncate_prefix",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 30,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Prefix",
+        "truncate"
+      ],
+      "trusted_library_inputs": "List.take_prefix"
+    },
+    {
+      "id": "W07",
+      "declaration": "RiffleShuffle.prefix_iff_truncate",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 34,
+      "direct_project_lemma_dependencies": [
+        "W06"
+      ],
+      "definition_dependencies": [
+        "Prefix",
+        "truncate"
+      ],
+      "trusted_library_inputs": "List.prefix_iff_eq_take"
+    },
+    {
+      "id": "W08",
+      "declaration": "RiffleShuffle.prefix_comparable",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 46,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Prefix"
+      ],
+      "trusted_library_inputs": "List.prefix_or_prefix_of_prefix"
+    },
+    {
+      "id": "W09",
+      "declaration": "RiffleShuffle.take_lex_monotone",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 51,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [],
+      "trusted_library_inputs": "induction, List.Lex, and List.cons_le_cons"
+    },
+    {
+      "id": "W10",
+      "declaration": "RiffleShuffle.prefix_lex_convex",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 80,
+      "direct_project_lemma_dependencies": [
+        "W09"
+      ],
+      "definition_dependencies": [],
+      "trusted_library_inputs": "List.prefix_iff_eq_take and order antisymmetry"
+    },
+    {
+      "id": "W11",
+      "declaration": "RiffleShuffle.legal_truncate",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 90,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Legal",
+        "truncate"
+      ],
+      "trusted_library_inputs": "list take indexing"
+    },
+    {
+      "id": "W12",
+      "declaration": "RiffleShuffle.legal_empty",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 98,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Legal",
+        "emptyWord"
+      ],
+      "trusted_library_inputs": "Fin.elim0"
+    },
+    {
+      "id": "W13",
+      "declaration": "RiffleShuffle.legal_append_iff",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 104,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Legal",
+        "appendDigit"
+      ],
+      "trusted_library_inputs": "list append indexing and natural arithmetic"
+    },
+    {
+      "id": "W14",
+      "declaration": "RiffleShuffle.legal_full_extension",
+      "kind": "theorem",
+      "file": "RiffleShuffle/Words.lean",
+      "line": 127,
+      "direct_project_lemma_dependencies": [
+        "P08",
+        "W07"
+      ],
+      "definition_dependencies": [
+        "Legal",
+        "Prefix",
+        "truncate"
+      ],
+      "trusted_library_inputs": "Classical.choose, List.Vector.ofFn, and vector extensionality"
+    },
+    {
+      "id": "T01",
+      "declaration": "RiffleShuffle.node_prefix_refl",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 19,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Node.IsPrefix"
+      ],
+      "trusted_library_inputs": "List.prefix_refl"
+    },
+    {
+      "id": "T02",
+      "declaration": "RiffleShuffle.node_prefix_trans",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 22,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Node.IsPrefix"
+      ],
+      "trusted_library_inputs": "List.IsPrefix.trans"
+    },
+    {
+      "id": "T03",
+      "declaration": "RiffleShuffle.node_prefix_antisymm",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 26,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Node.IsPrefix",
+        "Node.toList"
+      ],
+      "trusted_library_inputs": "List.IsPrefix.eq_of_length_le and dependent subtype extensionality"
+    },
+    {
+      "id": "T04",
+      "declaration": "RiffleShuffle.root_prefix",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 40,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "root",
+        "Node.IsPrefix"
+      ],
+      "trusted_library_inputs": "List.nil_prefix"
+    },
+    {
+      "id": "T05",
+      "declaration": "RiffleShuffle.parent_prefix",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 43,
+      "direct_project_lemma_dependencies": [
+        "W06"
+      ],
+      "definition_dependencies": [
+        "parent",
+        "Node.IsPrefix"
+      ],
+      "trusted_library_inputs": "definitional reduction"
+    },
+    {
+      "id": "T06",
+      "declaration": "RiffleShuffle.parent_depth",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 47,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "parent",
+        "Node.depth"
+      ],
+      "trusted_library_inputs": "reflexivity"
+    },
+    {
+      "id": "T07",
+      "declaration": "RiffleShuffle.parent_strict",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 50,
+      "direct_project_lemma_dependencies": [
+        "T06"
+      ],
+      "definition_dependencies": [
+        "Node.depth"
+      ],
+      "trusted_library_inputs": "natural arithmetic"
+    },
+    {
+      "id": "T08",
+      "declaration": "RiffleShuffle.exists_child",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 55,
+      "direct_project_lemma_dependencies": [
+        "P08",
+        "W13"
+      ],
+      "definition_dependencies": [
+        "Node",
+        "Child",
+        "appendDigit"
+      ],
+      "trusted_library_inputs": "explicit appended suffix and natural arithmetic"
+    },
+    {
+      "id": "T09",
+      "declaration": "RiffleShuffle.cylinder_nonempty",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 64,
+      "direct_project_lemma_dependencies": [
+        "W14"
+      ],
+      "definition_dependencies": [
+        "cylinder",
+        "FullWord"
+      ],
+      "trusted_library_inputs": "subtype construction"
+    },
+    {
+      "id": "T10",
+      "declaration": "RiffleShuffle.cylinder_mono",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 69,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "cylinder",
+        "Node.IsPrefix"
+      ],
+      "trusted_library_inputs": "List.IsPrefix.trans"
+    },
+    {
+      "id": "T11",
+      "declaration": "RiffleShuffle.cylinders_overlap_iff",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 74,
+      "direct_project_lemma_dependencies": [
+        "T09",
+        "T10"
+      ],
+      "definition_dependencies": [
+        "cylinder",
+        "Node.IsPrefix"
+      ],
+      "trusted_library_inputs": "List.prefix_or_prefix_of_prefix"
+    },
+    {
+      "id": "T12",
+      "declaration": "RiffleShuffle.antichain_disjoint",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 86,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "PrefixAntichain",
+        "cylinder"
+      ],
+      "trusted_library_inputs": "Set.disjoint_left and List.prefix_or_prefix_of_prefix"
+    },
+    {
+      "id": "T13",
+      "declaration": "RiffleShuffle.antichain_cover_unique",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 96,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "PrefixAntichain",
+        "Covers",
+        "cylinder"
+      ],
+      "trusted_library_inputs": "unique existence and List.prefix_or_prefix_of_prefix"
+    },
+    {
+      "id": "T14",
+      "declaration": "RiffleShuffle.cylinder_children",
+      "kind": "theorem",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 106,
+      "direct_project_lemma_dependencies": [
+        "W06",
+        "W11"
+      ],
+      "definition_dependencies": [
+        "Child",
+        "cylinder",
+        "truncate",
+        "Node"
+      ],
+      "trusted_library_inputs": "List.prefix_of_prefix_length_le and List.IsPrefix.trans"
+    },
+    {
+      "id": "T15",
+      "declaration": "RiffleShuffle.tree_finite",
+      "kind": "instance",
+      "file": "RiffleShuffle/PrefixTree.lean",
+      "line": 123,
+      "direct_project_lemma_dependencies": [],
+      "definition_dependencies": [
+        "Node",
+        "RawPrefix",
+        "Legal"
+      ],
+      "trusted_library_inputs": "finite dependent sums, finite vectors, and finite subtypes"
+    }
+  ],
+  "lemma_edges": [
+    {
+      "dependency": "P01",
+      "dependent": "P05"
+    },
+    {
+      "dependency": "P03",
+      "dependent": "P05"
+    },
+    {
+      "dependency": "P01",
+      "dependent": "P07"
+    },
+    {
+      "dependency": "P01",
+      "dependent": "P08"
+    },
+    {
+      "dependency": "P04",
+      "dependent": "P10"
+    },
+    {
+      "dependency": "P04",
+      "dependent": "P11"
+    },
+    {
+      "dependency": "P05",
+      "dependent": "P11"
+    },
+    {
+      "dependency": "P04",
+      "dependent": "P12"
+    },
+    {
+      "dependency": "P06",
+      "dependent": "P12"
+    },
+    {
+      "dependency": "P07",
+      "dependent": "P13"
+    },
+    {
+      "dependency": "W06",
+      "dependent": "W07"
+    },
+    {
+      "dependency": "W09",
+      "dependent": "W10"
+    },
+    {
+      "dependency": "P08",
+      "dependent": "W14"
+    },
+    {
+      "dependency": "W07",
+      "dependent": "W14"
+    },
+    {
+      "dependency": "W06",
+      "dependent": "T05"
+    },
+    {
+      "dependency": "T06",
+      "dependent": "T07"
+    },
+    {
+      "dependency": "P08",
+      "dependent": "T08"
+    },
+    {
+      "dependency": "W13",
+      "dependent": "T08"
+    },
+    {
+      "dependency": "W14",
+      "dependent": "T09"
+    },
+    {
+      "dependency": "T09",
+      "dependent": "T11"
+    },
+    {
+      "dependency": "T10",
+      "dependent": "T11"
+    },
+    {
+      "dependency": "W06",
+      "dependent": "T14"
+    },
+    {
+      "dependency": "W11",
+      "dependent": "T14"
+    }
+  ],
+  "notes": [
+    "P13 uses a vector/function equivalence and product-of-sums, so it does not call P09 or P14 in its final proof.",
+    "W14 fills all remaining columns by choosing positive digits; it does not use the alternative iterative append proof.",
+    "T12 and T13 invoke trusted common-prefix comparability directly rather than invoking T11.",
+    "The root and parent constructor proofs use W12 and W11 respectively; these dependencies are represented on definitions.",
+    "T15 is the exact frozen permitted Finite instance; no Fintype hypothesis is added."
+  ]
+}

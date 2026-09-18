@@ -1,0 +1,832 @@
+[
+  {
+    "label": "thm:upper-critical-reduced",
+    "kind": "theorem",
+    "title": "Upper critical-time theorem, reduced form",
+    "line": 235,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:almost-time-profile-like-cuts",
+    "kind": "definition",
+    "title": "Almost time-profile-like cuts",
+    "line": 249,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:randomized-time-profile-like-cuts",
+    "kind": "definition",
+    "title": "Randomized time-profile-like cuts",
+    "line": 265,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:chi-regular-partitions",
+    "kind": "definition",
+    "title": "$\\chi$-regular partitions",
+    "line": 276,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:good-columns",
+    "kind": "definition",
+    "title": "Good columns",
+    "line": 305,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:first-moment-margin",
+    "kind": "definition",
+    "title": "First-moment margin",
+    "line": 331,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:recursive-first-moment-margin",
+    "kind": "definition",
+    "title": "Recursive first-moment margin",
+    "line": 366,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "thm:deterministic-upper-bound",
+    "kind": "theorem",
+    "title": "Deterministic time-inhomogeneous upper bound",
+    "line": 377,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-graph-representation",
+    "kind": "lemma",
+    "title": "Graph representation",
+    "line": 402,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-truncated-chi-square",
+    "kind": "lemma",
+    "title": "Truncated chi-square bound",
+    "line": 410,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:local-sparsity",
+    "kind": "definition",
+    "title": "Local sparsity",
+    "line": 424,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-sparse-factorial",
+    "kind": "lemma",
+    "title": "Sparse factorial bound",
+    "line": 429,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:ambient-block-size-exponent",
+    "kind": "definition",
+    "title": "Ambient block and size exponent",
+    "line": 490,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:boundary-pairs-stable-blocks",
+    "kind": "definition",
+    "title": "Stable blocks",
+    "line": 521,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:space-time-digit-profile",
+    "kind": "definition",
+    "title": "Space-time digit profile",
+    "line": 699,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "def:numerical-first-moment-margin",
+    "kind": "definition",
+    "title": "Numerical first-moment margin",
+    "line": 749,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-stable-partition",
+    "kind": "lemma",
+    "title": "Stable partition",
+    "line": 788,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-global-boundary-decomposition",
+    "kind": "lemma",
+    "title": "Global boundary decomposition",
+    "line": 828,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-regular-partition-interval-blocking",
+    "kind": "lemma",
+    "title": "Regular partition and interval blocking",
+    "line": 857,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-profile-estimates",
+    "kind": "lemma",
+    "title": "Profile estimates",
+    "line": 898,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-bad-profile-reduction",
+    "kind": "lemma",
+    "title": "Bad-profile reduction",
+    "line": 1039,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-hypergeometric-estimates",
+    "kind": "lemma",
+    "title": "Hypergeometric estimates",
+    "line": 1121,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-ambient-conditioning-transfer",
+    "kind": "lemma",
+    "title": "Ambient conditioning transfer",
+    "line": 1154,
+    "historical": false,
+    "explicit_references": [
+      "lem:ub-hypergeometric-estimates"
+    ]
+  },
+  {
+    "label": "lem:ub-ambient-concentration-anti-concentration",
+    "kind": "lemma",
+    "title": "Ambient concentration and anti-concentration",
+    "line": 1202,
+    "historical": false,
+    "explicit_references": [
+      "lem:ub-hypergeometric-estimates"
+    ]
+  },
+  {
+    "label": "lem:ub-per-edge-stable-localization",
+    "kind": "lemma",
+    "title": "Per-edge stable localization",
+    "line": 1436,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-edge-density-bounds",
+    "kind": "lemma",
+    "title": "Edge-density bounds",
+    "line": 1486,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-terminal-singleton-bound",
+    "kind": "lemma",
+    "title": "Terminal singleton bound",
+    "line": 1640,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-numerical-lemma",
+    "kind": "lemma",
+    "title": "Numerical lemma",
+    "line": 1662,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "prop:ub-first-moment",
+    "kind": "proposition",
+    "title": "First moment",
+    "line": 1817,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-conditional-preservation",
+    "kind": "lemma",
+    "title": "Conditional preservation",
+    "line": 1923,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-conditional-first-moment",
+    "kind": "lemma",
+    "title": "Conditional first moment during exploration",
+    "line": 1931,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-portenko-exponential-moment",
+    "kind": "lemma",
+    "title": "Portenko exponential moment",
+    "line": 1949,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-shared-edge-exponential-moment",
+    "kind": "lemma",
+    "title": "Shared-edge exponential moment",
+    "line": 1961,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:ub-regularity-sparsity",
+    "kind": "lemma",
+    "title": "Regularity and sparsity",
+    "line": 1974,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "cor:random-time-profile-upper-bound",
+    "kind": "corollary",
+    "title": "Random time-profile upper bound",
+    "line": 1999,
+    "historical": false,
+    "explicit_references": [
+      "cor:full-margin-critical-upper-bound",
+      "def:first-moment-margin",
+      "def:randomized-time-profile-like-cuts",
+      "def:recursive-first-moment-margin",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "sec:dominance-upper-margins",
+      "thm:deterministic-upper-bound"
+    ]
+  },
+  {
+    "label": "lem:buffered-pointwise-upper-bound",
+    "kind": "lemma",
+    "title": "Buffered pointwise upper bound",
+    "line": 2029,
+    "historical": false,
+    "explicit_references": [
+      "def:almost-time-profile-like-cuts",
+      "def:first-moment-margin",
+      "def:good-columns",
+      "def:recursive-first-moment-margin",
+      "eq:accessible-beta-error",
+      "eq:accessible-exponent-error",
+      "eq:accessible-margin-errors",
+      "eq:all-four-global-margins-buffered",
+      "eq:global-beta",
+      "eq:global-lambda-one",
+      "eq:global-lambda-three",
+      "eq:global-lambda-two",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:local-global-beta-identity",
+      "eq:local-n-three-bound",
+      "eq:terminal-local-margin-bound",
+      "thm:deterministic-upper-bound"
+    ]
+  },
+  {
+    "label": "lem:upper-margin-monotonicity",
+    "kind": "lemma",
+    "title": "Monotonicity of the upper margins",
+    "line": 2159,
+    "historical": false,
+    "explicit_references": [
+      "eq:beta-monotonicity",
+      "eq:global-beta",
+      "eq:global-lambda-one",
+      "eq:global-lambda-three",
+      "eq:global-lambda-two",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:lambda-three-new-times",
+      "eq:lambda-three-old-times",
+      "eq:one-column-costs",
+      "eq:profile-costs",
+      "eq:upper-margin-as-supremum",
+      "eq:upper-margin-case-one",
+      "eq:upper-margin-case-three",
+      "eq:upper-margin-coefficients",
+      "eq:upper-margin-integrand"
+    ]
+  },
+  {
+    "label": "cor:full-margin-critical-upper-bound",
+    "kind": "corollary",
+    "title": "Four-margin critical-time upper bound",
+    "line": 2291,
+    "historical": false,
+    "explicit_references": [
+      "cor:buffered-consequence",
+      "def:almost-time-profile-like-cuts",
+      "def:good-columns",
+      "eq:buffered-global-upper-margin",
+      "eq:full-upper-threshold",
+      "eq:global-beta",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:one-column-costs",
+      "eq:probability-simplex",
+      "eq:profile-costs",
+      "eq:reduced-upper-threshold",
+      "eq:upper-threshold-identity",
+      "lem:buffered-pointwise-upper-bound",
+      "lem:upper-margin-monotonicity",
+      "sec:buffered-upper-bound-derivation",
+      "thm:dominance-reduction"
+    ]
+  },
+  {
+    "label": "lem:basic-one-column-inequality",
+    "kind": "lemma",
+    "title": "The basic one-column inequality",
+    "line": 2349,
+    "historical": false,
+    "explicit_references": [
+      "eq:integrated-profile-costs",
+      "eq:one-column-costs",
+      "eq:probability-simplex",
+      "eq:profile-costs"
+    ]
+  },
+  {
+    "label": "thm:dominance-reduction",
+    "kind": "theorem",
+    "title": "Reduction to $\\Lambda_0$ and $\\Lambda_1$",
+    "line": 2397,
+    "historical": false,
+    "explicit_references": [
+      "eq:basic-b-two-three-dominance",
+      "eq:global-beta",
+      "eq:global-lambda-three",
+      "eq:global-lambda-two",
+      "eq:global-lambda-zero",
+      "eq:global-upper-margin",
+      "eq:integrated-profile-costs",
+      "eq:probability-simplex",
+      "lem:basic-one-column-inequality"
+    ]
+  },
+  {
+    "label": "cor:buffered-consequence",
+    "kind": "corollary",
+    "title": "Buffered consequence",
+    "line": 2471,
+    "historical": false,
+    "explicit_references": [
+      "cor:full-margin-critical-upper-bound",
+      "eq:auxiliary-margin-dominance",
+      "eq:full-upper-threshold",
+      "eq:global-lambda-two",
+      "eq:global-upper-margin",
+      "eq:mixing-time-definition",
+      "eq:one-column-costs",
+      "eq:reduced-upper-pointwise-convergence",
+      "eq:reduced-upper-threshold",
+      "eq:two-margin-reduction",
+      "eq:upper-threshold-identity",
+      "thm:dominance-reduction",
+      "thm:upper-critical-reduced"
+    ]
+  },
+  {
+    "label": "def:lb-overview-largest-prefix-obstruction",
+    "kind": "definition",
+    "title": "Largest-prefix obstruction",
+    "line": 2570,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "prop:lb-overview-largest-prefix-lower-bound",
+    "kind": "proposition",
+    "title": "Largest-prefix lower bound",
+    "line": 2586,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "def:lb-overview-cold-spot-obstruction",
+    "kind": "definition",
+    "title": "Cold-spot obstruction",
+    "line": 2635,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "def:lb-overview-collision-likely-prefixes-cold-set",
+    "kind": "definition",
+    "title": "Collision-likely prefixes and cold set",
+    "line": 2653,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:lb-overview-cold-set-geometry",
+    "kind": "lemma",
+    "title": "Cold-set geometry",
+    "line": 2663,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "def:lb-overview-collision-likely-full-strings",
+    "kind": "definition",
+    "title": "Collision-likely full strings",
+    "line": 2684,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:lb-overview-localization",
+    "kind": "lemma",
+    "title": "Localization",
+    "line": 2690,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:lb-overview-cold-collision-count",
+    "kind": "lemma",
+    "title": "Cold collision count",
+    "line": 2698,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:lb-overview-lalley-cold-spot-test",
+    "kind": "lemma",
+    "title": "Lalley cold-spot test",
+    "line": 2714,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "prop:lb-overview-cold-spot-lower-bound",
+    "kind": "proposition",
+    "title": "Cold-spot lower bound",
+    "line": 2726,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "thm:lower-bound-blueprint",
+    "kind": "theorem",
+    "title": "Lower-bound blueprint",
+    "line": 2737,
+    "historical": true,
+    "explicit_references": []
+  },
+  {
+    "label": "thm:buffered-reduced-lower-bound",
+    "kind": "theorem",
+    "title": "Buffered reduced lower bound",
+    "line": 2812,
+    "historical": false,
+    "explicit_references": [
+      "cor:iterated-hypergeom",
+      "def:collision-likely-prefixes",
+      "def:full-collision-likely-strings",
+      "lem:cold-witness",
+      "lem:fixed-column-factorial",
+      "lem:successive-thinning-tail",
+      "lem:tail-types",
+      "lem:type-estimates",
+      "lem:ub-graph-representation",
+      "lem:ub-hypergeometric-estimates",
+      "lem:ub-profile-estimates",
+      "lem:ub-regular-partition-interval-blocking",
+      "prop:cold-lower",
+      "prop:largest-prefix",
+      "sec:completion-matching-lower-bound",
+      "thm:dominance-reduction"
+    ]
+  },
+  {
+    "label": "lem:successive-thinning-tail",
+    "kind": "lemma",
+    "title": "Successive thinning lower tail",
+    "line": 3018,
+    "historical": false,
+    "explicit_references": [
+      "eq:labelled-survivor-sets",
+      "eq:survivor-hypergeometric-transition"
+    ]
+  },
+  {
+    "label": "cor:iterated-hypergeom",
+    "kind": "corollary",
+    "title": "Iterated hypergeometric thinning",
+    "line": 3169,
+    "historical": false,
+    "explicit_references": [
+      "eq:cor-all-edges",
+      "eq:cor-edge-failure",
+      "eq:cor-hypergeom-transition",
+      "eq:cor-inductive-error",
+      "eq:cor-word-lower-tail",
+      "eq:hypergeom-concentration",
+      "eq:labelled-survivor-sets",
+      "eq:survivor-hypergeometric-transition",
+      "lem:successive-thinning-tail",
+      "lem:ub-hypergeometric-estimates"
+    ]
+  },
+  {
+    "label": "prop:largest-prefix",
+    "kind": "proposition",
+    "title": "Largest-prefix lower bound",
+    "line": 3377,
+    "historical": false,
+    "explicit_references": [
+      "cor:iterated-hypergeom"
+    ]
+  },
+  {
+    "label": "lem:entropy-ineq",
+    "kind": "lemma",
+    "title": "One-column entropy inequalities",
+    "line": 3498,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:bridge-window",
+    "kind": "lemma",
+    "title": "Buffered bridge window",
+    "line": 3540,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:cold-witness",
+    "kind": "lemma",
+    "title": "Cold-witness reduction from \\(\\Lambda_1\\)",
+    "line": 3583,
+    "historical": false,
+    "explicit_references": [
+      "lem:bridge-window",
+      "lem:entropy-ineq"
+    ]
+  },
+  {
+    "label": "def:collision-likely-prefixes",
+    "kind": "definition",
+    "title": "Collision-likely prefixes",
+    "line": 3847,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:type-estimates",
+    "kind": "lemma",
+    "title": "Type estimates",
+    "line": 3885,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:cold-geometry",
+    "kind": "lemma",
+    "title": "Relative cold-set geometry",
+    "line": 3928,
+    "historical": false,
+    "explicit_references": [
+      "lem:bridge-window",
+      "lem:cold-witness",
+      "lem:type-estimates"
+    ]
+  },
+  {
+    "label": "def:full-collision-likely-strings",
+    "kind": "definition",
+    "title": "Full collision-likely strings",
+    "line": 4080,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:tail-types",
+    "kind": "lemma",
+    "title": "Tail type estimates",
+    "line": 4095,
+    "historical": false,
+    "explicit_references": [
+      "lem:type-estimates"
+    ]
+  },
+  {
+    "label": "lem:uniform-endpoint-theorem",
+    "kind": "lemma",
+    "title": "Relative endpoint theorem for cold prefix families",
+    "line": 4123,
+    "historical": false,
+    "explicit_references": [
+      "cor:iterated-hypergeom"
+    ]
+  },
+  {
+    "label": "lem:endpoint-control",
+    "kind": "lemma",
+    "title": "Cold-prefix endpoint control",
+    "line": 4226,
+    "historical": false,
+    "explicit_references": [
+      "lem:cold-witness",
+      "lem:uniform-endpoint-theorem"
+    ]
+  },
+  {
+    "label": "lem:bridge-buffers",
+    "kind": "lemma",
+    "title": "Bridge buffers",
+    "line": 4242,
+    "historical": false,
+    "explicit_references": [
+      "lem:cold-witness"
+    ]
+  },
+  {
+    "label": "lem:localization",
+    "kind": "lemma",
+    "title": "Localization",
+    "line": 4282,
+    "historical": false,
+    "explicit_references": [
+      "cor:iterated-hypergeom",
+      "lem:bridge-buffers",
+      "lem:endpoint-control"
+    ]
+  },
+  {
+    "label": "lem:fixed-column-factorial",
+    "kind": "lemma",
+    "title": "Fixed-column factorial moments",
+    "line": 4340,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:conditional-factorial",
+    "kind": "lemma",
+    "title": "Conditional fixed-column factorial moments",
+    "line": 4400,
+    "historical": false,
+    "explicit_references": [
+      "lem:fixed-column-factorial"
+    ]
+  },
+  {
+    "label": "lem:central-window",
+    "kind": "lemma",
+    "title": "Central-window factorial comparison",
+    "line": 4454,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:two-category-poisson",
+    "kind": "lemma",
+    "title": "Fixed-column two-category Poisson bound",
+    "line": 4536,
+    "historical": false,
+    "explicit_references": [
+      "cor:iterated-hypergeom",
+      "lem:central-window",
+      "lem:conditional-factorial",
+      "lem:fixed-column-factorial"
+    ]
+  },
+  {
+    "label": "lem:occupancy",
+    "kind": "lemma",
+    "title": "Fixed-column occupancy approximation",
+    "line": 4738,
+    "historical": false,
+    "explicit_references": [
+      "lem:cold-witness",
+      "lem:two-category-poisson"
+    ]
+  },
+  {
+    "label": "lem:cold-collision-count",
+    "kind": "lemma",
+    "title": "Cold collision count",
+    "line": 4832,
+    "historical": false,
+    "explicit_references": [
+      "lem:cold-geometry",
+      "lem:cold-witness",
+      "lem:occupancy"
+    ]
+  },
+  {
+    "label": "lem:many-edges",
+    "kind": "lemma",
+    "title": "Many cold edges",
+    "line": 4866,
+    "historical": false,
+    "explicit_references": [
+      "lem:cold-collision-count",
+      "lem:localization"
+    ]
+  },
+  {
+    "label": "lem:uniform-ascent",
+    "kind": "lemma",
+    "title": "Uniform translate-scan ascent bound",
+    "line": 4899,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:block-bd",
+    "kind": "lemma",
+    "title": "Block value-set bounded differences",
+    "line": 4951,
+    "historical": false,
+    "explicit_references": []
+  },
+  {
+    "label": "lem:permutation-bd",
+    "kind": "lemma",
+    "title": "Component-value bounded differences for component sorting",
+    "line": 4979,
+    "historical": false,
+    "explicit_references": [
+      "lem:block-bd"
+    ]
+  },
+  {
+    "label": "lem:lalley-comparison",
+    "kind": "lemma",
+    "title": "Lalley component comparison",
+    "line": 5026,
+    "historical": false,
+    "explicit_references": [
+      "lem:permutation-bd"
+    ]
+  },
+  {
+    "label": "lem:lalley",
+    "kind": "lemma",
+    "title": "Lalley cold-spot test",
+    "line": 5115,
+    "historical": false,
+    "explicit_references": [
+      "lem:lalley-comparison",
+      "lem:uniform-ascent"
+    ]
+  },
+  {
+    "label": "prop:cold-lower",
+    "kind": "proposition",
+    "title": "Cold-spot lower bound",
+    "line": 5167,
+    "historical": false,
+    "explicit_references": [
+      "lem:cold-geometry",
+      "lem:cold-witness",
+      "lem:lalley",
+      "lem:many-edges",
+      "prop:largest-prefix",
+      "thm:buffered-reduced-lower-bound"
+    ]
+  }
+]

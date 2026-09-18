@@ -1,0 +1,75 @@
+{
+  "verifiedAt": "2026-09-17T22:30:34.085741+00:00",
+  "sourceSha256": "9bc0039bbdbe5f970ad07bdcf8063c5c2bb46067a80d35fd53e9f60c64f73971",
+  "contractSha256": "a8e994b8628e96ceae51a10dd8fc30bb7c771b16f4c14429acc01807a781c49c",
+  "lean": "4.33.1",
+  "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "theorems": [
+    "InhomogeneousShuffle.FirstMoment.Model.sourceGood_fin_iff",
+    "InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions_source_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.digitCount_source_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.profileR_source_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.profileH_source_eq",
+    "InhomogeneousShuffle.FirstMoment.Model.profileWord_profileR_le",
+    "InhomogeneousShuffle.FirstMoment.Model.profileWord_profileH_key",
+    "InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_profileH"
+  ],
+  "definitions": [
+    "InhomogeneousShuffle.FirstMoment.Model.sourceCell",
+    "InhomogeneousShuffle.FirstMoment.Model.sourceGood"
+  ],
+  "axiomDependencies": {
+    "InhomogeneousShuffle.FirstMoment.Model.sourceCell": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.sourceGood": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.sourceGood_fin_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions_source_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.digitCount_source_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.profileR_source_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.profileH_source_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.profileWord_profileR_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.profileWord_profileH_key": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_profileH": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "standardFoundationsOnly": true,
+  "earlierFreezesUnchanged": true
+}

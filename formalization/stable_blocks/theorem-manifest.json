@@ -1,0 +1,616 @@
+{
+  "theorems": [
+    {
+      "name": "Riffle.count_le",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.exists_positive_digit",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.prob_pos_iff",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.prob_le_one",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.sum_prob",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.largeDigits_nonempty",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.leftIndex_mem",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.rightIndex_mem",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.leftIndex_legal",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.rightIndex_legal",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.leftIndex_le_rightIndex",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.prob_lt_chi_of_lt_left",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.prob_lt_chi_of_right_lt",
+      "module": "Model"
+    },
+    {
+      "name": "Riffle.digit_prefix",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.digit_take",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.legal_prefix",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.legal_take",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.prefixes_comparable",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.prefix_of_prefix_length_le",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.parent_prefix",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.parent_length",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.parent_legal",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.prefix_parent",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.join_properties",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.pairDesc_eq",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.join_legal",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.join_ambient",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.terminal_iff_join_length",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.cylinder_mono",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.cylinder_inter_eq_join",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.cylinder_disjoint",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.antichain_cylinder_disjoint",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.full_cylinder",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.fullList_length",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.fullList_digit",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.fullList_bounded",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.fullList_injective",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.fullList_existsUnique",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.fullList_of_full",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.legal_append_singleton_iff",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.full_extension",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.cylinder_nonempty_iff",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.compatible_iff_comparable",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.lexLE_iff_le",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.lexLE_take",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.cylinder_convex",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.lex_full_extensions",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.rankSet_cylinder_convex",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.rankSet_disjoint",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.rankSet_iUnion",
+      "module": "Words"
+    },
+    {
+      "name": "Riffle.boundaryCut_mem_desc",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundaryCut_nonterminal",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundaryCut_antichain",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selectCut_spec",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundaryCut_unique_prefix",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundaryCut_existsUnique",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selectCut_eq_of_no_cross",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selectCut_first_crossing",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundary_mem_desc",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundary_nonterminal",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundary_antichain",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.admissible_mem_boundary",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.admissible_antichain",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.admissiblePair_rawPair",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selected_spec",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selected_unique",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selected_existsUnique",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selected_eq_iff",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.rawPair_join_desc",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.rawPair_prefix_join",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundary_pair_fiber",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.incompatible_boundary_fiber_empty",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.rawPair_join_antichain",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.rawPair_cylinders_disjoint",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selected_rawPair",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.raw_boundary_cover",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.raw_boundary_union",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.boundary_ambient_terminal",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.selected_ambient_terminal",
+      "module": "Boundary"
+    },
+    {
+      "name": "Riffle.weight_pos",
+      "module": "Mass"
+    },
+    {
+      "name": "Riffle.weight_eq_zero_of_not_legal",
+      "module": "Mass"
+    },
+    {
+      "name": "Riffle.expectedCount_pos",
+      "module": "Mass"
+    },
+    {
+      "name": "Riffle.sum_weight",
+      "module": "Mass"
+    },
+    {
+      "name": "Riffle.expectedCount_full",
+      "module": "Mass"
+    },
+    {
+      "name": "Riffle.take_eq_of_prefix",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.piece_antichain",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.pieceEvent_iff",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.pieceEvent_continuation",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.sideMaximum_continuation",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.sideFluctuation_continuation",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.cFAt_continuation",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.pieceEvent_disjoint_of_lt",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.pieceEvent_disjoint",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.lex_iff_first_difference",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.pieceEvent_union",
+      "module": "Pieces"
+    },
+    {
+      "name": "Riffle.legal_cost_nonneg",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.cL_antitone",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.stop_persistent",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.stop_iff_sub_lt",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.not_stop_iff_sub_ge",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.not_stop_of_bottom",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.extendedLog_zero",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.extendedLog_of_pos",
+      "module": "Cost"
+    },
+    {
+      "name": "Riffle.genericCut_of_root",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_of_not_root",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_desc",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_antichain",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_exists_prefix",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_existsUnique_prefix",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_cover",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_cylinder_disjoint",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_crossing_minimal",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.genericCut_fallback_iff",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.gamma_lambda_disjoint",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.stable_terminal",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.stable_stopped",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.stable_eq_genericCut",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.stable_desc",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.stable_exists_prefix",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.stable_cover",
+      "module": "Stopping"
+    },
+    {
+      "name": "Riffle.crossing_replacement_mem",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.crossing_piece_positive",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.rawPair_nonterminal_lengths",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.rawPair_sideMaximum_pos",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.rawPair_sideFluctuation_pos",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.rawPair_cF_ne_bot",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.rawPair_retained",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.admissiblePair_retained",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.retained_nonterminal_finite",
+      "module": "Retention"
+    },
+    {
+      "name": "Riffle.stop_join_persistent",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_antichain",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_existsUnique_prefix",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_cylinder_disjoint",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.gamma_first_crossing",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.lambda_no_crossing_iff",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.lambda_full",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.gamma_no_later_stable",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_ambient_terminal",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_partition",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_rankSet_cover",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_intervals_partition",
+      "module": "SourceStable"
+    },
+    {
+      "name": "Riffle.stable_cylinder_fiber",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.retained_stable_coverage_iff",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.stable_index_unique",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.retained_stable_existsUnique",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.global_boundary_decomposition",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.global_stable_disjoint",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.omitted_iff_inadmissible",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.global_raw_stable_decomposition",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.global_boundary_rankSet",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.global_stable_intervals_disjoint",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.global_stable_intervals_convex",
+      "module": "Global"
+    },
+    {
+      "name": "Riffle.omitted_rank_iff_inadmissible",
+      "module": "Global"
+    }
+  ]
+}

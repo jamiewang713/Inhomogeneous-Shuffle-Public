@@ -1,0 +1,8 @@
+import FirstMomentModel.ProfileCountLimit
+
+#check @InhomogeneousShuffle.FirstMoment.Model.profileCount_uniform_eventually
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileCount_uniform_eventually
+#check @InhomogeneousShuffle.FirstMoment.Model.profileCount_small_chi
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileCount_small_chi
+#check @InhomogeneousShuffle.FirstMoment.Model.profileClass_small_chi
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileClass_small_chi

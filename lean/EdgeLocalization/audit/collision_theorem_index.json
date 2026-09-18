@@ -1,0 +1,292 @@
+[
+  {
+    "id": "C.01",
+    "declaration": "EdgeLocalization.FiniteLaw.uniform_probability",
+    "file": "EdgeLocalization/Collision/FiniteLaw.lean"
+  },
+  {
+    "id": "C.02",
+    "declaration": "EdgeLocalization.FiniteLaw.uniform_probability_reindex",
+    "file": "EdgeLocalization/Collision/FiniteLaw.lean"
+  },
+  {
+    "id": "C.03",
+    "declaration": "EdgeLocalization.FiniteLaw.pi_probability",
+    "file": "EdgeLocalization/Collision/FiniteLaw.lean"
+  },
+  {
+    "id": "C.04",
+    "declaration": "EdgeLocalization.FiniteLaw.pi_probability_on_finset",
+    "file": "EdgeLocalization/Collision/FiniteLaw.lean"
+  },
+  {
+    "id": "C.05",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_disjoint_indexed_union",
+    "file": "EdgeLocalization/Collision/FiniteLaw.lean"
+  },
+  {
+    "id": "C.06",
+    "declaration": "EdgeLocalization.fixedColumn_nonempty",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.07",
+    "declaration": "EdgeLocalization.pile_count_le_total",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.08",
+    "declaration": "EdgeLocalization.column_count_reindex",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.09",
+    "declaration": "EdgeLocalization.ordered_distinct_pair_card",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.10",
+    "declaration": "EdgeLocalization.column_ordered_fiber_pair_card",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.11",
+    "declaration": "EdgeLocalization.exists_perm_map_pair",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.12",
+    "declaration": "EdgeLocalization.column_probability_reindex",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.13",
+    "declaration": "EdgeLocalization.column_one_probability",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.14",
+    "declaration": "EdgeLocalization.column_two_probability",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.15",
+    "declaration": "EdgeLocalization.column_equal_probability",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.16",
+    "declaration": "EdgeLocalization.column_zero_count",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.17",
+    "declaration": "EdgeLocalization.matrixLaw_uniform_weight",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.18",
+    "declaration": "EdgeLocalization.prefixWord_length",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.19",
+    "declaration": "EdgeLocalization.rawRow_length",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.20a",
+    "declaration": "EdgeLocalization.rowsOfLabels_apply",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.20b",
+    "declaration": "EdgeLocalization.rowsOfLabels_outside",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.21",
+    "declaration": "EdgeLocalization.prefixWord_prefix_rawRow_iff",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.22",
+    "declaration": "EdgeLocalization.rawRow_eq_iff",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.23",
+    "declaration": "EdgeLocalization.prefixWord_represents_list",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.24",
+    "declaration": "EdgeLocalization.sortedLabels_length",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.25",
+    "declaration": "EdgeLocalization.sortedLabels_perm",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.26",
+    "declaration": "EdgeLocalization.sortedLabels_nodup_mem",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.27",
+    "declaration": "EdgeLocalization.sortPermutation_monotone_rows",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.28",
+    "declaration": "EdgeLocalization.occupied_card_reindex",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.29",
+    "declaration": "EdgeLocalization.collisionPairs_card_reindex",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.30",
+    "declaration": "EdgeLocalization.sorted_occupancy_eq_raw",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.31",
+    "declaration": "EdgeLocalization.sorted_collisionPairs_card_eq_raw",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.32",
+    "declaration": "EdgeLocalization.matrix_prefix_probability",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.33",
+    "declaration": "EdgeLocalization.matrix_pair_prefix_probability",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.34",
+    "declaration": "EdgeLocalization.matrix_expected_raw_occupancy",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.35",
+    "declaration": "EdgeLocalization.matrix_expected_sorted_occupancy",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.36",
+    "declaration": "EdgeLocalization.collisionPairs_subset_increasing",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.37",
+    "declaration": "EdgeLocalization.increasing_pair_card",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.38",
+    "declaration": "EdgeLocalization.matrix_expected_raw_collisionPairs",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.39",
+    "declaration": "EdgeLocalization.matrix_expected_sorted_collisionPairs",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.40",
+    "declaration": "EdgeLocalization.singleFactor_nonneg",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.41",
+    "declaration": "EdgeLocalization.pairFactor_nonneg",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.42",
+    "declaration": "EdgeLocalization.pairFactor_same_le_singleFactor_sq",
+    "file": "EdgeLocalization/Collision/Column.lean"
+  },
+  {
+    "id": "C.43",
+    "declaration": "EdgeLocalization.prefix_factors_nonneg",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.44",
+    "declaration": "EdgeLocalization.tail_factors_nonneg",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.45",
+    "declaration": "EdgeLocalization.prefixPairFactor_le_prefixMass_sq",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.46",
+    "declaration": "EdgeLocalization.tailCollisionFactor_le_tailSquareFactor",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.47",
+    "declaration": "EdgeLocalization.internal_density_le_sq_expected_edges",
+    "file": "EdgeLocalization/Collision/Estimates.lean"
+  },
+  {
+    "id": "C.48",
+    "declaration": "EdgeLocalization.collisionPairs_zero",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.49",
+    "declaration": "EdgeLocalization.collisionPairs_one",
+    "file": "EdgeLocalization/Collision/Rows.lean"
+  },
+  {
+    "id": "C.50",
+    "declaration": "EdgeLocalization.matrix_expected_collisionPairs_le_tight_mean_bound",
+    "file": "EdgeLocalization/Collision/Estimates.lean"
+  },
+  {
+    "id": "C.51",
+    "declaration": "EdgeLocalization.matrix_expected_collisionPairs_le_half_mean_bound",
+    "file": "EdgeLocalization/Collision/Estimates.lean"
+  },
+  {
+    "id": "C.52",
+    "declaration": "EdgeLocalization.matrix_expected_internal_edges_le_half_mean_bound",
+    "file": "EdgeLocalization/Collision/Estimates.lean"
+  },
+  {
+    "id": "C.53",
+    "declaration": "EdgeLocalization.matrix_internal_density_le_collision_square",
+    "file": "EdgeLocalization/Collision/Estimates.lean"
+  },
+  {
+    "id": "C.54",
+    "declaration": "EdgeLocalization.matrix_internal_density_le_mean_tail_fourth",
+    "file": "EdgeLocalization/Collision/Estimates.lean"
+  },
+  {
+    "id": "C.55",
+    "declaration": "EdgeLocalization.matrix_internal_density_le_prefixMean",
+    "file": "EdgeLocalization/Collision/Estimates.lean"
+  },
+  {
+    "id": "C.56",
+    "declaration": "EdgeLocalization.tailCollisionFactor_at_full_length",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  },
+  {
+    "id": "C.57",
+    "declaration": "EdgeLocalization.prefix_factors_empty",
+    "file": "EdgeLocalization/Collision/Matrix.lean"
+  }
+]

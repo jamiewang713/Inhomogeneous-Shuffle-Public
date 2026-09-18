@@ -1,0 +1,34 @@
+{
+  "verifiedAtUTC": "2026-09-17T21:19:03.383551+00:00",
+  "lean": "Lean (version 4.24.0, arm64-apple-darwin23.6.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "mathlibRevision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "frozenContractsAndSourcesUnchanged": true,
+  "independentReviewsUnchanged": true,
+  "frozenTheoremsChecked": 58,
+  "constructorsAudited": [
+    "EdgeLocalization.FiniteLaw.uniform",
+    "EdgeLocalization.FiniteLaw.pi",
+    "EdgeLocalization.fixedColumnFintype",
+    "EdgeLocalization.FixedColumn.reindex",
+    "EdgeLocalization.columnLaw",
+    "EdgeLocalization.fixedMatrixFintype",
+    "EdgeLocalization.matrixLaw",
+    "EdgeLocalization.sortPermutation"
+  ],
+  "logicalDependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "buildPassed": true,
+  "prohibitedProofTokensAbsent": true,
+  "projectSourceSHA256": {
+    "EdgeLocalization/Collision/Column.lean": "78d500654fa4b6cdc752a9ac1e6ad5309770b662fb21c47290b7325b4e8c20d2",
+    "EdgeLocalization/Collision/Estimates.lean": "5410dde8575943d9a74512d64b761b1f33efadd7d7a750da4d011b16eb0fa6f4",
+    "EdgeLocalization/Collision/FiniteLaw.lean": "a4e97e40ed417cfccda5e80a9b6251a9d947c4787bd9135f4e54b4844d2ec7e2",
+    "EdgeLocalization/Collision/Matrix.lean": "358458300020fac171ed5741e65551c807e6f98e13729dc6e6b6d9542d184d24",
+    "EdgeLocalization/Collision/Model.lean": "43c19b97e925dee9186d496560cdf143c89b76279ba4f36420e84401a4b4e3dd",
+    "EdgeLocalization/Collision/Rows.lean": "296505ea22d178a66248d7d40651ead865db2a991bd11c38fd65b0a3ecd69829"
+  },
+  "scope": "Exact unconditional fixed-column collision addendum only; full original goal remains incomplete."
+}

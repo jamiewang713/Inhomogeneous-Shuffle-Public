@@ -1,0 +1,35 @@
+import EdgeLocalization
+
+#print axioms EdgeLocalization.FiniteLaw.expectation_nonneg
+#print axioms EdgeLocalization.FiniteLaw.expectation_mono
+#print axioms EdgeLocalization.FiniteLaw.expectation_const
+#print axioms EdgeLocalization.FiniteLaw.probability_nonneg
+#print axioms EdgeLocalization.FiniteLaw.probability_le_one
+#print axioms EdgeLocalization.FiniteLaw.probability_true
+#print axioms EdgeLocalization.FiniteLaw.probability_false
+#print axioms EdgeLocalization.FiniteLaw.probability_congr
+#print axioms EdgeLocalization.FiniteLaw.probability_sq_le
+#print axioms EdgeLocalization.FiniteLaw.probability_of_forall
+#print axioms EdgeLocalization.FiniteLaw.probability_event_of_constant
+#print axioms EdgeLocalization.FiniteLaw.sum_probabilities_eq_expected_card
+#print axioms EdgeLocalization.FiniteLaw.sum_sq_probabilities_le_expected_card
+#print axioms EdgeLocalization.internalEdges_subset_occupied
+#print axioms EdgeLocalization.internalEdges_subset_range
+#print axioms EdgeLocalization.internalEdges_card_le_occupancy
+#print axioms EdgeLocalization.internalEdges_zero
+#print axioms EdgeLocalization.internalEdges_one
+#print axioms EdgeLocalization.equal_rows_prefix_transfer
+#print axioms EdgeLocalization.localize_internal_edge
+#print axioms EdgeLocalization.internalEdges_card_le_collisionPairs
+#print axioms EdgeLocalization.internal_density_le_expected_edges
+#print axioms EdgeLocalization.internal_density_le_expected_occupancy
+#print axioms EdgeLocalization.internal_expected_edges_le_expected_collisionPairs
+#print axioms EdgeLocalization.internal_density_le_expected_collisionPairs
+#print axioms EdgeLocalization.balanced_column_exists
+#print axioms EdgeLocalization.balanced_left_endpoint
+#print axioms EdgeLocalization.balanced_right_endpoint
+#print axioms EdgeLocalization.balanced_endpoint_atom
+#print axioms EdgeLocalization.balanced_endpoint_good_event
+#print axioms EdgeLocalization.positive_side_mass_no_sampling_slack
+#print axioms EdgeLocalization.full_sample_variance_numerator_zero
+#print axioms EdgeLocalization.no_atom_bound_below_good_mass

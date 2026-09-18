@@ -1,0 +1,15 @@
+import FirstMoment
+import FirstMomentModel
+import Riffle.Global
+import Riffle.Pieces
+import RiffleTimeProfile.SourceNumerical
+import RiffleTimeProfile.ExpectedMass
+
+#check Riffle.gamma_first_crossing
+#check Riffle.pieceEvent_iff
+#check TimeProfile.expected_box_count
+#check TimeProfile.expected_prefix_count
+#check TimeProfile.expected_cF_eq
+#check TimeProfile.exists_uniform_source_margins
+#check InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound
+#check InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy

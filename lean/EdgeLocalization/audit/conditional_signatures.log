@@ -1,0 +1,63 @@
+@EdgeLocalization.matrix_expectation_split : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (f : EdgeLocalization.FixedMatrix N n → ℝ),
+  (EdgeLocalization.matrixLaw n hn).expectation f =
+    (EdgeLocalization.matrixLaw (EdgeLocalization.prefixCounts n hM) ⋯).expectation fun p =>
+      (EdgeLocalization.matrixLaw (EdgeLocalization.suffixCounts n hM) ⋯).expectation fun t =>
+        f ((EdgeLocalization.splitMatrix N n hM).symm (p, t))
+EdgeLocalization.tailCollisionFactor_suffix : ∀ (N : ℕ) {K k M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K),
+  EdgeLocalization.tailCollisionFactor N (EdgeLocalization.suffixCounts n hM) 0 =
+    EdgeLocalization.tailCollisionFactor N n M
+@EdgeLocalization.prefix_occupancy_glue : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K) (x : Fin M → Fin k)
+  (p : EdgeLocalization.FixedMatrix N (EdgeLocalization.prefixCounts n hM))
+  (t : EdgeLocalization.FixedMatrix N (EdgeLocalization.suffixCounts n hM)),
+  EdgeLocalization.occupancyCount N (EdgeLocalization.rawRows n ((EdgeLocalization.splitMatrix N n hM).symm (p, t)))
+      (EdgeLocalization.prefixWord x) =
+    EdgeLocalization.occupancyCount N (EdgeLocalization.rawRows (EdgeLocalization.prefixCounts n hM) p)
+      (EdgeLocalization.prefixWord x)
+EdgeLocalization.increasing_pairs_in_finset_card : ∀ (s : Finset ℕ), {p ∈ s ×ˢ s | p.1 < p.2}.card = s.card.choose 2
+@EdgeLocalization.tail_expected_collisionPairs_given_prefix_array : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k)
+  (p : EdgeLocalization.FixedMatrix N (EdgeLocalization.prefixCounts n hM)),
+  ((EdgeLocalization.matrixLaw (EdgeLocalization.suffixCounts n hM) ⋯).expectation fun t =>
+      ↑(EdgeLocalization.collisionPairs N
+            (EdgeLocalization.sortedRows n ((EdgeLocalization.splitMatrix N n hM).symm (p, t)))
+            (EdgeLocalization.prefixWord x)).card) =
+    ↑((EdgeLocalization.occupancyCount N (EdgeLocalization.rawRows (EdgeLocalization.prefixCounts n hM) p)
+              (EdgeLocalization.prefixWord x)).choose
+          2) *
+      EdgeLocalization.tailCollisionFactor N n M
+@EdgeLocalization.matrix_collisionPairs_occupancy_slice : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N),
+  M ≤ K →
+    ∀ (x : Fin M → Fin k) (q : ℕ),
+      ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+          if
+              EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x) =
+                q then
+            ↑(EdgeLocalization.collisionPairs N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x)).card
+          else 0) =
+        ↑(q.choose 2) * EdgeLocalization.tailCollisionFactor N n M *
+          (EdgeLocalization.matrixLaw n hn).probability fun ω =>
+            EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x) = q
+@EdgeLocalization.matrix_internal_edges_occupancy_slice : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N),
+  M ≤ K →
+    ∀ (x : Fin M → Fin k) (q : ℕ),
+      ((EdgeLocalization.matrixLaw n hn).expectation fun ω =>
+          if
+              EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x) =
+                q then
+            ↑(EdgeLocalization.edgeCount N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x))
+          else 0) ≤
+        ↑(q.choose 2) * EdgeLocalization.tailCollisionFactor N n M *
+          (EdgeLocalization.matrixLaw n hn).probability fun ω =>
+            EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord x) = q
+@EdgeLocalization.prefixCounts : {K k M : ℕ} → (Fin K → Fin k → ℕ) → M ≤ K → Fin M → Fin k → ℕ
+@EdgeLocalization.suffixCounts : {K k M : ℕ} → (Fin K → Fin k → ℕ) → M ≤ K → Fin (K - M) → Fin k → ℕ
+EdgeLocalization.splitMatrix : (N : ℕ) →
+  {K k M : ℕ} →
+    (n : Fin K → Fin k → ℕ) →
+      (hM : M ≤ K) →
+        EdgeLocalization.FixedMatrix N n ≃
+          EdgeLocalization.FixedMatrix N (EdgeLocalization.prefixCounts n hM) ×
+            EdgeLocalization.FixedMatrix N (EdgeLocalization.suffixCounts n hM)

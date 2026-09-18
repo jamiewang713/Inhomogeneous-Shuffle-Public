@@ -1,0 +1,110 @@
+EdgeLocalization.relativeInternalEdges_subset_range : ∀ (N : ℕ) (rows : ℕ → List ℕ) (xList : List ℕ) (s : ℕ),
+  EdgeLocalization.relativeInternalEdges N rows xList s ⊆ Finset.range (N - 1)
+EdgeLocalization.relativeInternalEdges_zero_shift : ∀ (N : ℕ) (rows : ℕ → List ℕ) (xList : List ℕ),
+  EdgeLocalization.relativeInternalEdges N rows xList 0 = EdgeLocalization.internalEdges N rows xList
+EdgeLocalization.relativeInternalEdges_card_le : ∀ (N : ℕ) (rows : ℕ → List ℕ) (xList : List ℕ) (s : ℕ),
+  (EdgeLocalization.relativeInternalEdges N rows xList s).card ≤ (EdgeLocalization.internalEdges N rows xList).card
+EdgeLocalization.ambientLeft_le_deck_size : ∀ (N : ℕ) (rows : ℕ → List ℕ) (wList : List ℕ),
+  EdgeLocalization.ambientLeft N rows wList ≤ N
+EdgeLocalization.ambientLeft_nil : ∀ (N : ℕ) (rows : ℕ → List ℕ), EdgeLocalization.ambientLeft N rows [] = 0
+@EdgeLocalization.matrix_ambientLeft_le_internal_edge : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ)
+  (ω : EdgeLocalization.FixedMatrix N n) (wList xList : List ℕ),
+  wList <+: xList →
+    ∀ i ∈ EdgeLocalization.internalEdges N (EdgeLocalization.sortedRows n ω) xList,
+      EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows n ω) wList ≤ i
+@EdgeLocalization.matrix_relativeInternalEdges_card_eq : ∀ {N K k : ℕ} (n : Fin K → Fin k → ℕ)
+  (ω : EdgeLocalization.FixedMatrix N n) (wList xList : List ℕ),
+  wList <+: xList →
+    (EdgeLocalization.relativeInternalEdges N (EdgeLocalization.sortedRows n ω) xList
+          (EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows n ω) wList)).card =
+      (EdgeLocalization.internalEdges N (EdgeLocalization.sortedRows n ω) xList).card
+@EdgeLocalization.relative_density_le_sq_expected_absolute_edges : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  (w : EdgeLocalization.FiniteLaw Ω) (N : ℕ) (R : Ω → ℕ → List ℕ) (xList : List ℕ) (shift : Ω → ℕ),
+  EdgeLocalization.relativeEdgeDensity w N R xList shift ≤
+    (w.expectation fun ω => ↑(EdgeLocalization.edgeCount N (R ω) xList)) ^ 2
+@EdgeLocalization.relative_density_le_expected_occupancy : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  (w : EdgeLocalization.FiniteLaw Ω) (N : ℕ) (R : Ω → ℕ → List ℕ) (xList : List ℕ) (shift : Ω → ℕ),
+  EdgeLocalization.relativeEdgeDensity w N R xList shift ≤
+    w.expectation fun ω => ↑(EdgeLocalization.occupancyCount N (R ω) xList)
+@EdgeLocalization.relativeEdgeDensity_zero_shift : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  (w : EdgeLocalization.FiniteLaw Ω) (N : ℕ) (R : Ω → ℕ → List ℕ) (xList : List ℕ),
+  (EdgeLocalization.relativeEdgeDensity w N R xList fun x => 0) = EdgeLocalization.edgeDensity w N R xList
+@EdgeLocalization.relativeEdgeDensity_eq_expected_shared_internal_edges : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  (w : EdgeLocalization.FiniteLaw Ω) (N : ℕ) (R : Ω → ℕ → List ℕ) (xList : List ℕ) (shift : Ω → ℕ),
+  EdgeLocalization.relativeEdgeDensity w N R xList shift =
+    (w.prod w).expectation fun z =>
+      ↑(EdgeLocalization.relativeInternalEdges N (R z.1) xList (shift z.1) ∩
+            EdgeLocalization.relativeInternalEdges N (R z.2) xList (shift z.2)).card
+@EdgeLocalization.matrix_relative_density_le_mean_tail_fourth : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k) (shift : EdgeLocalization.FixedMatrix N n → ℕ),
+  EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+      (EdgeLocalization.prefixWord x) shift ≤
+    EdgeLocalization.prefixMean N n hM x ^ 4 * EdgeLocalization.tailCollisionFactor N n M ^ 2 / 4
+@EdgeLocalization.matrix_relative_density_le_prefixMean : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k) (shift : EdgeLocalization.FixedMatrix N n → ℕ),
+  EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+      (EdgeLocalization.prefixWord x) shift ≤
+    EdgeLocalization.prefixMean N n hM x
+@EdgeLocalization.matrix_relative_density_le_ambient_tail_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+            (EdgeLocalization.prefixWord x) fun ω =>
+            EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord w)) ≤
+          (↑N).rpow
+              (4 * (EdgeLocalization.ambientSizeExponent N n hM A b x + EdgeLocalization.ambientMeanError N n ⋯ w b) +
+                2 * EdgeLocalization.tailEdgeExponent N n M) /
+            4
+@EdgeLocalization.matrix_relative_density_le_small_coarse_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        ∀ (δ : ℝ),
+          EdgeLocalization.ambientSizeExponent N n hM A b x < 2 * δ →
+            (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+                (EdgeLocalization.prefixWord x) fun ω =>
+                EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord w)) ≤
+              (↑N).rpow
+                  (2 * EdgeLocalization.tailEdgeExponent N n M + 8 * δ +
+                    4 * EdgeLocalization.ambientMeanError N n ⋯ w b) /
+                4
+@EdgeLocalization.matrix_relative_density_le_small_singleton_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        ∀ (δ : ℝ),
+          EdgeLocalization.ambientSizeExponent N n hM A b x < 2 * δ →
+            (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+                (EdgeLocalization.prefixWord x) fun ω =>
+                EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord w)) ≤
+              (↑N).rpow
+                  (2 * EdgeLocalization.ambientSizeExponent N n hM A b x + 2 * EdgeLocalization.tailEdgeExponent N n M +
+                      4 * δ +
+                    4 * EdgeLocalization.ambientMeanError N n ⋯ w b) /
+                4
+@EdgeLocalization.matrix_relative_density_le_ambient_size_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+            (EdgeLocalization.prefixWord x) fun ω =>
+            EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord w)) ≤
+          (↑N).rpow (EdgeLocalization.ambientSizeExponent N n hM A b x + EdgeLocalization.ambientMeanError N n ⋯ w b)
+@EdgeLocalization.matrix_relative_density_terminal_exponent : ∀ {N K k A : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hA : A ≤ K) (w : Fin A → Fin k) (x : Fin K → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hA t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n ⋯ x →
+        (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+            (EdgeLocalization.prefixWord x) fun ω =>
+            EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows n ω) (EdgeLocalization.prefixWord w)) ≤
+          (↑N).rpow (EdgeLocalization.ambientSizeExponent N n ⋯ A b x + EdgeLocalization.ambientMeanError N n hA w b)
+EdgeLocalization.relativeInternalEdges : ℕ → (ℕ → List ℕ) → List ℕ → ℕ → Finset ℕ
+@EdgeLocalization.relativeEdgeDensity : {Ω : Type u_1} →
+  [inst : Fintype Ω] → EdgeLocalization.FiniteLaw Ω → ℕ → (Ω → ℕ → List ℕ) → List ℕ → (Ω → ℕ) → ℝ
+EdgeLocalization.ambientLeft : ℕ → (ℕ → List ℕ) → List ℕ → ℕ

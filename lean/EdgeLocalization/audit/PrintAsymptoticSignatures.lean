@@ -1,0 +1,10 @@
+import EdgeLocalization.Asymptotic.Estimates
+
+#check @EdgeLocalization.hasSizeExponent_eventually_log_error_le
+#check @EdgeLocalization.ambientMeanError_eventually_abs_le
+#check @EdgeLocalization.matrix_relative_density_eventually_le_ambient_tail_exponent
+#check @EdgeLocalization.matrix_relative_density_eventually_le_small_coarse_exponent
+#check @EdgeLocalization.matrix_relative_density_eventually_le_small_singleton_exponent
+#check @EdgeLocalization.matrix_relative_density_eventually_le_ambient_size_exponent
+#check @EdgeLocalization.matrix_relative_density_eventually_terminal_exponent
+#check @EdgeLocalization.HasSizeExponent

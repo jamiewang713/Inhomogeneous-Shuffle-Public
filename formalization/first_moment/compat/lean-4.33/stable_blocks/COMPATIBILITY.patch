@@ -1,0 +1,42 @@
+--- original/Boundary.lean
++++ compatibility/Boundary.lean
+@@ -201,7 +201,7 @@
+     (hinc : ¬Compatible A y z) :
+     {ω | ω ∈ Cylinder D A.w ∧ selected A .left ω = y ∧
+       selected A .right ω = z} = ∅ := by
+-  apply Set.eq_empty_iff_forall_not_mem.mpr
++  apply Set.eq_empty_iff_forall_notMem.mpr
+   rintro ω ⟨hω, hl, hr⟩
+   have hyl : y <+: ω := hl ▸ (selected_spec .left hω).2
+   have hzr : z <+: ω := hr ▸ (selected_spec .right hω).2
+--- original/Mass.lean
++++ compatibility/Mass.lean
+@@ -43,7 +43,7 @@
+   · apply lt_of_lt_of_le (b := (if fullList ω ∈ E then weight D ω else 0))
+     · simpa only [hω, if_pos hE] using hp
+     · exact Finset.single_le_sum (f := fun θ : FullIndex D =>
+-        if fullList θ ∈ E then weight D θ else 0) (fun _ _ => zero_le _) (Finset.mem_univ ω)
++        if fullList θ ∈ E then weight D θ else 0) (fun _ _ => zero_le) (Finset.mem_univ ω)
+ 
+ theorem sum_weight (D : Model) : ∑ ω : FullIndex D, weight D ω = 1 := by
+   classical
+--- original/Pieces.lean
++++ compatibility/Pieces.lean
+@@ -29,7 +29,7 @@
+     have ht : ω.take i = σ.take i := take_eq_of_prefix hσω.2 (by omega)
+     refine ⟨⟨hσω.1, hσ.1.2.trans hσω.2⟩, ht.trans hσ.2.2.1, ?_⟩
+     have hd := digit_prefix hσω.2 his
+-    simpa only [hd] using hσ.2.2.2
++    cases s <;> simpa only [crossDigit, hd] using hσ.2.2.2
+   · rintro ⟨hω, ht, hd⟩
+     have hm : x.length ≤ ω.length := by have := hx.1.1; have := hω.1.2; omega
+     have hlen : (ω.take x.length).length = x.length := List.length_take_of_le hm
+@@ -39,7 +39,7 @@
+     refine ⟨ω.take x.length, ⟨⟨legal_take hω.1.1 _, hw⟩, hlen, ?_, ?_⟩,
+       ⟨hω.1, hp⟩⟩
+     · simpa only [List.take_take, Nat.min_eq_left (le_of_lt hix)] using ht
+-    · simpa only [digit_take hix] using hd
++    · cases s <;> simpa only [crossDigit, digit_take hix] using hd
+ 
+ theorem pieceEvent_continuation {D : Model} {A : Setup D} (s : Side)
+     {v x : Word} {i : ℕ} (hx : x ∈ Desc D A.w) (hvx : v <+: x)

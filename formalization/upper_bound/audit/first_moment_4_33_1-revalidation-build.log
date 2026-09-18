@@ -1,0 +1,41 @@
+MODULE FirstMoment.Assembly
+FirstMoment/Assembly.lean:202:6: error: Tactic `apply` failed: could not unify the conclusion of `@add_le_add_left`
+  ?b + ?a ≤ ?c + ?a
+with the goal
+  2 * N ^ (-d) + 2 * ↑L * ↑(Fintype.card C) * N ^ (-a) ≤ 2 * N ^ (-d) + 2 * (N ^ ell * N ^ c) * N ^ (-a)
+
+Note: The full type of `@add_le_add_left` is
+  ∀ {α : Type ?u.330} [inst : Add α] [inst_1 : LE α] [i : AddRightMono α] {b c : α}, b ≤ c → ∀ (a : α), b + a ≤ c + a
+
+Ω : Type u_1
+M : Type u_2
+I : Type u_3
+C : Type u_4
+inst✝⁵ : Fintype Ω
+inst✝⁴ : Fintype M
+inst✝³ : Fintype I
+inst✝² : Fintype C
+inst✝¹ : DecidableEq I
+inst✝ : DecidableEq C
+law : FiniteGraphLaw Ω M
+classOf : I → C
+active : M → Finset I
+err : M → ℝ
+q : I → M → ℝ
+L : ℕ
+D U : ℝ
+hd : ∀ (m : M), 0 ≤ err m
+hq : ∀ (i : I) (m : M), 0 ≤ q i m
+hactive : ∀ (m : M), (active m).card ≤ L
+hloc : ∀ (m : M), law.edgeMarginal m ≤ err m + ∑ i ∈ active m, q i m
+hD : ∑ m, err m ^ 2 ≤ D
+hU : ∀ (c : C), ∑ i with classOf i = c, ∑ m, q i m ^ 2 ≤ U
+N d a ell c : ℝ
+hN : 1 < N
+hDpow : D ≤ N ^ (-d)
+hLpow : ↑L ≤ N ^ ell
+hCpow : ↑(Fintype.card C) ≤ N ^ c
+hUpow : U ≤ N ^ (-a)
+hN0 : 0 < N
+hprod : ↑L * ↑(Fintype.card C) ≤ N ^ ell * N ^ c
+⊢ 2 * N ^ (-d) + 2 * ↑L * ↑(Fintype.card C) * N ^ (-a) ≤ 2 * N ^ (-d) + 2 * (N ^ ell * N ^ c) * N ^ (-a)

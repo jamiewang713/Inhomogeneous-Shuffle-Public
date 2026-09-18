@@ -1,0 +1,37 @@
+Checking EdgeLocalization/Collision/Matrix.lean on Lean4.33.1
+Checking EdgeLocalization/Collision/Estimates.lean on Lean4.33.1
+Checking EdgeLocalization/Conditional/Model.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Model.lean:26:8: error: Type mismatch: After simplification, term
+  (pt.1 ⟨↑j, hj⟩).property a
+ has type
+  @Eq ℕ {x | ↑(pt.1 ⟨↑j, hj⟩) x = a}.card (n (Fin.castLE hM ⟨↑j, hj⟩) a)
+but is expected to have type
+  @Eq ℕ {x | ↑(pt.1 ⟨↑j, hj⟩) x = a}.card (n j a)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Model.lean:41:17: warning: This simp argument is unused:
+  dif_pos hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Model.lean:43:17: warning: This simp argument is unused:
+  dif_neg hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Model.lean:55:17: warning: This simp argument is unused:
+  dif_pos ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Model.lean:61:17: warning: This simp argument is unused:
+  dif_neg ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,2851 @@
+[
+  {
+    "name": "Riffle.Word",
+    "dependencies": []
+  },
+  {
+    "name": "Riffle.digit",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.parent",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.join",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.Model",
+    "dependencies": [
+      "Riffle.Model.mk"
+    ]
+  },
+  {
+    "name": "Riffle.Legal",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Model.k",
+      "Riffle.digit",
+      "Riffle.Model.n"
+    ]
+  },
+  {
+    "name": "Riffle.Full",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.Desc",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.Cylinder",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full"
+    ]
+  },
+  {
+    "name": "Riffle.FamilyCylinder",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Cylinder"
+    ]
+  },
+  {
+    "name": "Riffle.Setup",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Setup.mk"
+    ]
+  },
+  {
+    "name": "Riffle.prob",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.N",
+      "Riffle.Model.n"
+    ]
+  },
+  {
+    "name": "Riffle.FullIndex",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Model.k"
+    ]
+  },
+  {
+    "name": "Riffle.fullList",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Model.k",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.weight",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Model.k",
+      "Riffle.prob",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.expectedCount",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.fullList",
+      "Riffle.weight",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.Side",
+    "dependencies": [
+      "Riffle.Side.left",
+      "Riffle.Side.right"
+    ]
+  },
+  {
+    "name": "Riffle.largeDigits",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.k",
+      "Riffle.prob",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.leftIndex",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.largeDigits"
+    ]
+  },
+  {
+    "name": "Riffle.rightIndex",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.largeDigits"
+    ]
+  },
+  {
+    "name": "Riffle.crossDigit",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Side",
+      "Riffle.leftIndex",
+      "Riffle.rightIndex",
+      "Riffle.crossDigit.match_1"
+    ]
+  },
+  {
+    "name": "Riffle.Cross",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.digit",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.BoundaryCut",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.digit"
+    ]
+  },
+  {
+    "name": "Riffle.Boundary",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.BoundaryCut",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.selectCut",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.digit"
+    ]
+  },
+  {
+    "name": "Riffle.selected",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.selectCut",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.violations",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.violations.match_1",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.leftIndex",
+      "Riffle.rightIndex",
+      "Riffle.digit",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.Admissible",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Setup.C",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.Model.N",
+      "Riffle.violations",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.pairDesc",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.Compatible",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.pairDesc"
+    ]
+  },
+  {
+    "name": "Riffle.RawPair",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.Side.right"
+    ]
+  },
+  {
+    "name": "Riffle.AdmissiblePair",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Admissible",
+      "Riffle.Word",
+      "Riffle.Compatible",
+      "Riffle.Side.right"
+    ]
+  },
+  {
+    "name": "Riffle.Terminal",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.Piece",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.digit",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit.match_1"
+    ]
+  },
+  {
+    "name": "Riffle.PieceEvent",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.Piece",
+      "Riffle.FamilyCylinder"
+    ]
+  },
+  {
+    "name": "Riffle.sideMaximum",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.expectedCount",
+      "Riffle.PieceEvent",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.sideFluctuation",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.sideMaximum"
+    ]
+  },
+  {
+    "name": "Riffle.extendedLog",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.N"
+    ]
+  },
+  {
+    "name": "Riffle.cFAt",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.sideFluctuation",
+      "Riffle.Side.right",
+      "Riffle.extendedLog"
+    ]
+  },
+  {
+    "name": "Riffle.cF",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.join",
+      "Riffle.cFAt"
+    ]
+  },
+  {
+    "name": "Riffle.Retained",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Compatible",
+      "Riffle.Terminal",
+      "Riffle.cF"
+    ]
+  },
+  {
+    "name": "Riffle.cL",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Model.N",
+      "Riffle.Setup.b",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.Stop",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Setup.delta",
+      "Riffle.cL",
+      "Riffle.cF"
+    ]
+  },
+  {
+    "name": "Riffle.Gamma",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Stop",
+      "Riffle.parent",
+      "Riffle.pairDesc"
+    ]
+  },
+  {
+    "name": "Riffle.Lambda",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Stop",
+      "Riffle.pairDesc"
+    ]
+  },
+  {
+    "name": "Riffle.Stable",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Gamma",
+      "Riffle.Model",
+      "Riffle.Lambda",
+      "Riffle.Word",
+      "Riffle.Stop",
+      "Riffle.Terminal",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.PrefixAntichain",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.LexLE",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.RankSet",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.SortedRows",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.LexLE"
+    ]
+  },
+  {
+    "name": "Riffle.GenericCut",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.parent"
+    ]
+  },
+  {
+    "name": "Riffle.count_le",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.sum_counts",
+      "Riffle.Model.K",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.Model.n"
+    ]
+  },
+  {
+    "name": "Riffle.exists_positive_digit",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.sum_counts",
+      "Riffle.Model.K",
+      "Riffle.exists_positive_digit._proof_2",
+      "Riffle.Model.one_lt_N",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.Model.n",
+      "Riffle.exists_positive_digit._proof_1"
+    ]
+  },
+  {
+    "name": "Riffle.prob_pos_iff",
+    "dependencies": [
+      "Riffle.prob.eq_1",
+      "Riffle.Model",
+      "Riffle.Model.one_lt_N",
+      "Riffle.Model.N",
+      "Riffle.Model.n",
+      "Riffle.prob"
+    ]
+  },
+  {
+    "name": "Riffle.prob_le_one",
+    "dependencies": [
+      "Riffle.prob.eq_1",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Model.one_lt_N",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.Model.n",
+      "Riffle.count_le",
+      "Riffle.prob"
+    ]
+  },
+  {
+    "name": "Riffle.sum_prob",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.sum_counts",
+      "Riffle.Model.K",
+      "Riffle.Model.one_lt_N",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.Model.n",
+      "Riffle.prob"
+    ]
+  },
+  {
+    "name": "Riffle.largeDigits_nonempty",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Model.two_le_k",
+      "Riffle.largeDigits",
+      "Riffle.sum_prob",
+      "Riffle.Model.k",
+      "Riffle.largeDigits_nonempty._proof_1",
+      "Riffle.Setup.chi_lt",
+      "Riffle.prob",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.leftIndex_mem",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.largeDigits",
+      "Riffle.leftIndex",
+      "Riffle.largeDigits_nonempty"
+    ]
+  },
+  {
+    "name": "Riffle.rightIndex_mem",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.largeDigits",
+      "Riffle.rightIndex",
+      "Riffle.largeDigits_nonempty"
+    ]
+  },
+  {
+    "name": "Riffle.leftIndex_legal",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Setup.chi_pos",
+      "Riffle.leftIndex_mem",
+      "Riffle.prob_pos_iff",
+      "Riffle.Model.k",
+      "Riffle.leftIndex",
+      "Riffle.Model.n",
+      "Riffle.prob",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.rightIndex_legal",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Setup.chi_pos",
+      "Riffle.prob_pos_iff",
+      "Riffle.Model.k",
+      "Riffle.rightIndex",
+      "Riffle.Model.n",
+      "Riffle.rightIndex_mem",
+      "Riffle.prob",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.leftIndex_le_rightIndex",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.largeDigits",
+      "Riffle.leftIndex",
+      "Riffle.rightIndex",
+      "Riffle.rightIndex_mem",
+      "Riffle.largeDigits_nonempty"
+    ]
+  },
+  {
+    "name": "Riffle.prob_lt_chi_of_lt_left",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.largeDigits",
+      "Riffle.Model.k",
+      "Riffle.leftIndex",
+      "Riffle.prob",
+      "Riffle.prob_lt_chi_of_lt_left._proof_1",
+      "Riffle.leftIndex.eq_1",
+      "Riffle.largeDigits_nonempty",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.prob_lt_chi_of_right_lt",
+    "dependencies": [
+      "Riffle.rightIndex.eq_1",
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.largeDigits",
+      "Riffle.Model.k",
+      "Riffle.rightIndex",
+      "Riffle.prob",
+      "Riffle.largeDigits_nonempty",
+      "Riffle.prob_lt_chi_of_right_lt._proof_1",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.digit_prefix",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.digit"
+    ]
+  },
+  {
+    "name": "Riffle.digit_take",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.digit"
+    ]
+  },
+  {
+    "name": "Riffle.legal_prefix",
+    "dependencies": [
+      "Riffle.digit_prefix",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Model.k",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.legal_take",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.legal_prefix",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.prefixes_comparable",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.prefix_of_prefix_length_le",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.parent_prefix",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.parent"
+    ]
+  },
+  {
+    "name": "Riffle.parent_length",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.parent"
+    ]
+  },
+  {
+    "name": "Riffle.parent_legal",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.parent",
+      "Riffle.parent_prefix",
+      "Riffle.legal_prefix",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.prefix_parent",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.prefix_of_prefix_length_le",
+      "Riffle.parent_length",
+      "Riffle.parent",
+      "Riffle.prefix_parent._proof_1",
+      "Riffle.parent_prefix"
+    ]
+  },
+  {
+    "name": "Riffle.join_properties",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.join.eq_1",
+      "Riffle.join",
+      "Riffle.join_properties._proof_1"
+    ]
+  },
+  {
+    "name": "Riffle.pairDesc_eq",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.prefixes_comparable",
+      "Riffle.Compatible",
+      "Riffle.pairDesc",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.join_properties",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.join_legal",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.join",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.join_ambient",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.terminal_iff_join_length",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.terminal_iff_join_length._proof_2",
+      "Riffle.Word",
+      "Riffle.terminal_iff_join_length._proof_1",
+      "Riffle.Model.k",
+      "Riffle.digit",
+      "Riffle.Terminal",
+      "Riffle.Model.n",
+      "Riffle.join",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.cylinder_mono",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Cylinder"
+    ]
+  },
+  {
+    "name": "Riffle.cylinder_inter_eq_join",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Cylinder",
+      "Riffle.join",
+      "Riffle.join_properties"
+    ]
+  },
+  {
+    "name": "Riffle.cylinder_disjoint",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.prefixes_comparable",
+      "Riffle.Cylinder"
+    ]
+  },
+  {
+    "name": "Riffle.antichain_cylinder_disjoint",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.cylinder_disjoint",
+      "Riffle.PrefixAntichain",
+      "Riffle.Cylinder"
+    ]
+  },
+  {
+    "name": "Riffle.full_cylinder",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Cylinder",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.fullList_length",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Model.k",
+      "Riffle.fullList",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.fullList_digit",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Model.k",
+      "Riffle.fullList",
+      "Riffle.digit",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.fullList_bounded",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.fullList_length",
+      "Riffle.Model.k",
+      "Riffle.fullList",
+      "Riffle.digit",
+      "Riffle.fullList_digit",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.fullList_injective",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Model.k",
+      "Riffle.fullList",
+      "Riffle.digit",
+      "Riffle.fullList_digit",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.fullList_existsUnique",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.fullList_length",
+      "Riffle.Model.k",
+      "Riffle.fullList",
+      "Riffle.digit",
+      "Riffle.fullList_digit",
+      "Riffle.fullList_injective",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.fullList_of_full",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Model.k",
+      "Riffle.fullList",
+      "Riffle.fullList_existsUnique",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.FullIndex",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.legal_append_singleton_iff",
+    "dependencies": [
+      "Riffle.digit_prefix",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.legal_append_singleton_iff._proof_1",
+      "Riffle.Word",
+      "Riffle.Model.k",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.full_extension",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.exists_positive_digit",
+      "Riffle.Model.K",
+      "Riffle.full_extension._proof_1",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Model.k",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.legal_append_singleton_iff",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.cylinder_nonempty_iff",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Cylinder",
+      "Riffle.full_extension",
+      "Riffle.legal_prefix",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.compatible_iff_comparable",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.join_ambient",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.prefixes_comparable",
+      "Riffle.Compatible",
+      "Riffle.pairDesc",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.join_properties"
+    ]
+  },
+  {
+    "name": "Riffle.lexLE_iff_le",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.LexLE"
+    ]
+  },
+  {
+    "name": "Riffle.lexLE_take",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.LexLE"
+    ]
+  },
+  {
+    "name": "Riffle.cylinder_convex",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.lexLE_iff_le",
+      "Riffle.Full",
+      "Riffle.LexLE",
+      "Riffle.Cylinder",
+      "Riffle.lexLE_take"
+    ]
+  },
+  {
+    "name": "Riffle.lex_full_extensions",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.lexLE_iff_le",
+      "Riffle.LexLE",
+      "Riffle.lexLE_take"
+    ]
+  },
+  {
+    "name": "Riffle.rankSet_cylinder_convex",
+    "dependencies": [
+      "Riffle.cylinder_convex",
+      "Riffle.Model",
+      "Riffle.RankSet",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.SortedRows",
+      "Riffle.Cylinder"
+    ]
+  },
+  {
+    "name": "Riffle.rankSet_disjoint",
+    "dependencies": [
+      "Riffle.RankSet",
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.rankSet_iUnion",
+    "dependencies": [
+      "Riffle.RankSet",
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.boundaryCut_mem_desc",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.BoundaryCut",
+      "Riffle.digit"
+    ]
+  },
+  {
+    "name": "Riffle.boundaryCut_nonterminal",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.BoundaryCut",
+      "Riffle.digit"
+    ]
+  },
+  {
+    "name": "Riffle.boundaryCut_antichain",
+    "dependencies": [
+      "Riffle.boundaryCut_antichain._proof_5",
+      "Riffle.boundaryCut_antichain._proof_1",
+      "Riffle.digit_prefix",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.PrefixAntichain",
+      "Riffle.boundaryCut_antichain._proof_3",
+      "Riffle.Model.k",
+      "Riffle.BoundaryCut",
+      "Riffle.boundaryCut_antichain._proof_6",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.boundaryCut_antichain._proof_2",
+      "Riffle.boundaryCut_antichain._proof_4",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.selectCut_spec",
+    "dependencies": [
+      "Riffle.selectCut_spec._proof_6",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.selectCut_spec._proof_5",
+      "Riffle.selectCut",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Desc",
+      "Riffle.legal_take",
+      "Riffle.digit_take",
+      "Riffle.selectCut_spec._proof_1",
+      "Riffle.BoundaryCut",
+      "Riffle.digit",
+      "Riffle.Cylinder",
+      "Riffle.selectCut.eq_1",
+      "Riffle.selectCut_spec._proof_2",
+      "Riffle.Legal",
+      "Riffle.selectCut_spec._proof_3",
+      "Riffle.selectCut_spec._proof_4"
+    ]
+  },
+  {
+    "name": "Riffle.boundaryCut_unique_prefix",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.selectCut",
+      "Riffle.Word",
+      "Riffle.selectCut_spec",
+      "Riffle.BoundaryCut",
+      "Riffle.Cylinder",
+      "Riffle.boundaryCut_antichain"
+    ]
+  },
+  {
+    "name": "Riffle.boundaryCut_existsUnique",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.selectCut",
+      "Riffle.Word",
+      "Riffle.selectCut_spec",
+      "Riffle.BoundaryCut",
+      "Riffle.Cylinder",
+      "Riffle.boundaryCut_unique_prefix"
+    ]
+  },
+  {
+    "name": "Riffle.selectCut_eq_of_no_cross",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.selectCut",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.digit",
+      "Riffle.Cylinder",
+      "Riffle.selectCut.eq_1",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.selectCut_first_crossing",
+    "dependencies": [
+      "Riffle.selectCut_first_crossing._proof_1",
+      "Riffle.Model",
+      "Riffle.selectCut_first_crossing._proof_3",
+      "Riffle.Model.K",
+      "Riffle.selectCut",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.selectCut_first_crossing._proof_2",
+      "Riffle.digit",
+      "Riffle.Cylinder",
+      "Riffle.selectCut.eq_1",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.boundary_mem_desc",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.digit",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.boundary_nonterminal",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.Setup.w",
+      "Riffle.boundaryCut_nonterminal",
+      "Riffle.Cross",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.boundary_antichain",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Boundary",
+      "Riffle.PrefixAntichain",
+      "Riffle.Side",
+      "Riffle.Setup.w",
+      "Riffle.boundaryCut_antichain",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.admissible_mem_boundary",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Setup.C",
+      "Riffle.Admissible",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.Model.N",
+      "Riffle.violations",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.admissible_antichain",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Setup.C",
+      "Riffle.Admissible",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.PrefixAntichain",
+      "Riffle.Side",
+      "Riffle.Model.N",
+      "Riffle.violations",
+      "Riffle.boundary_antichain",
+      "Riffle.Setup.chi"
+    ]
+  },
+  {
+    "name": "Riffle.admissiblePair_rawPair",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Setup.C",
+      "Riffle.Admissible",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Model.N",
+      "Riffle.Compatible",
+      "Riffle.Side.right",
+      "Riffle.violations",
+      "Riffle.Setup.chi",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.selected_spec",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.selectCut_spec",
+      "Riffle.selected",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.selected_unique",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.selected",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.boundaryCut_unique_prefix",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.selected_existsUnique",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.boundaryCut_existsUnique",
+      "Riffle.Side",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.selected_eq_iff",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.selected_spec",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.selected",
+      "Riffle.selected_unique",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_join_desc",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.boundary_mem_desc",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.Side.right",
+      "Riffle.Setup.w",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_prefix_join",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.rawPair_prefix_join._proof_1",
+      "Riffle.Desc",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.pairDesc",
+      "Riffle.Side.right",
+      "Riffle.Setup.w",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.boundary_pair_fiber",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.rawPair_prefix_join",
+      "Riffle.join",
+      "Riffle.Legal",
+      "Riffle.selected_eq_iff"
+    ]
+  },
+  {
+    "name": "Riffle.incompatible_boundary_fiber_empty",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.selected_spec",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Desc",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.selected",
+      "Riffle.pairDesc",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_join_antichain",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.Side.right",
+      "Riffle.rawPair_prefix_join",
+      "Riffle.join",
+      "Riffle.boundary_antichain"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_cylinders_disjoint",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.boundary_pair_fiber",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.selected_rawPair",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.selected_spec",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Desc",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.selected",
+      "Riffle.pairDesc",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.raw_boundary_cover",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.boundary_pair_fiber",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.selected_rawPair"
+    ]
+  },
+  {
+    "name": "Riffle.raw_boundary_union",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.raw_boundary_cover",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.boundary_ambient_terminal",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Setup.w_legal",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Boundary",
+      "Riffle.Side",
+      "Riffle.boundary_ambient_terminal._proof_1",
+      "Riffle.digit",
+      "Riffle.Setup.w",
+      "Riffle.Legal",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.selected_ambient_terminal",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Side",
+      "Riffle.selected",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.boundary_ambient_terminal",
+      "Riffle.selected_eq_iff"
+    ]
+  },
+  {
+    "name": "Riffle.weight_pos",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.fullList_length",
+      "Riffle.prob_pos_iff",
+      "Riffle.Model.k",
+      "Riffle.fullList",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.fullList_digit",
+      "Riffle.weight",
+      "Riffle.prob",
+      "Riffle.FullIndex",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.weight_eq_zero_of_not_legal",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.fullList_length",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.fullList",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.fullList_digit",
+      "Riffle.weight",
+      "Riffle.prob",
+      "Riffle.FullIndex",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.expectedCount_pos",
+    "dependencies": [
+      "Riffle.expectedCount",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Model.one_lt_N",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.fullList",
+      "Riffle.weight",
+      "Riffle.FullIndex",
+      "Riffle.weight_pos",
+      "Riffle.fullList_of_full",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.sum_weight",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.sum_prob",
+      "Riffle.Model.k",
+      "Riffle.weight",
+      "Riffle.prob",
+      "Riffle.FullIndex"
+    ]
+  },
+  {
+    "name": "Riffle.expectedCount_full",
+    "dependencies": [
+      "Riffle.weight_eq_zero_of_not_legal",
+      "Riffle.expectedCount",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.expectedCount.eq_1",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.fullList_length",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.fullList",
+      "Riffle.sum_weight",
+      "Riffle.weight",
+      "Riffle.FullIndex",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.take_eq_of_prefix",
+    "dependencies": [
+      "Riffle.Word"
+    ]
+  },
+  {
+    "name": "Riffle.piece_antichain",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.PrefixAntichain",
+      "Riffle.Side",
+      "Riffle.digit",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit.match_1",
+      "Riffle.Piece"
+    ]
+  },
+  {
+    "name": "Riffle.pieceEvent_iff",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.digit_prefix",
+      "Riffle.PieceEvent",
+      "Riffle.Model",
+      "Riffle.pieceEvent_iff.match_1",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.pieceEvent_iff._proof_1",
+      "Riffle.Desc",
+      "Riffle.legal_take",
+      "Riffle.Side",
+      "Riffle.take_eq_of_prefix",
+      "Riffle.Model.k",
+      "Riffle.digit_take",
+      "Riffle.pieceEvent_iff._proof_2",
+      "Riffle.digit",
+      "Riffle.Cylinder",
+      "Riffle.Model.n",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit.match_1",
+      "Riffle.Piece",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.pieceEvent_continuation",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.digit_prefix",
+      "Riffle.PieceEvent",
+      "Riffle.pieceEvent_iff",
+      "Riffle.Model",
+      "Riffle.pieceEvent_iff.match_1",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.take_eq_of_prefix",
+      "Riffle.pieceEvent_continuation._proof_1",
+      "Riffle.digit",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.legal_prefix",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.sideMaximum_continuation",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.expectedCount",
+      "Riffle.PieceEvent",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.pieceEvent_continuation",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.sideMaximum",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.sideFluctuation_continuation",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.sideMaximum_continuation",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.sideFluctuation",
+      "Riffle.sideFluctuation.eq_1",
+      "Riffle.sideMaximum",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.cFAt_continuation",
+    "dependencies": [
+      "Riffle.sideFluctuation_continuation",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.sideFluctuation",
+      "Riffle.Side.right",
+      "Riffle.Setup.w",
+      "Riffle.cFAt",
+      "Riffle.extendedLog"
+    ]
+  },
+  {
+    "name": "Riffle.pieceEvent_disjoint_of_lt",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.PieceEvent",
+      "Riffle.pieceEvent_iff",
+      "Riffle.Model",
+      "Riffle.pieceEvent_iff.match_1",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.digit_take",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.Side.casesOn",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.pieceEvent_disjoint",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.PieceEvent",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.pieceEvent_disjoint_of_lt",
+      "Riffle.Setup.w"
+    ]
+  },
+  {
+    "name": "Riffle.lex_iff_first_difference",
+    "dependencies": [
+      "Riffle.Word",
+      "Riffle.digit"
+    ]
+  },
+  {
+    "name": "Riffle.pieceEvent_union",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.digit_prefix",
+      "Riffle.PieceEvent",
+      "Riffle.pieceEvent_iff",
+      "Riffle.Model",
+      "Riffle.pieceEvent_iff.match_1",
+      "Riffle.Model.K",
+      "Riffle.lex_iff_first_difference",
+      "Riffle.pieceEvent_union._proof_1",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.Model.k",
+      "Riffle.digit_take",
+      "Riffle.pieceEvent_union._proof_3",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.Side.casesOn",
+      "Riffle.Cylinder",
+      "Riffle.Model.n",
+      "Riffle.Setup.w",
+      "Riffle.pieceEvent_union._proof_2",
+      "Riffle.pieceEvent_union._proof_4",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.legal_cost_nonneg",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Model.k",
+      "Riffle.Model.N",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.count_le",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.cL_antitone",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.digit_prefix",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.legal_cost_nonneg",
+      "Riffle.Desc",
+      "Riffle.Model.one_lt_N",
+      "Riffle.Model.N",
+      "Riffle.Setup.b",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.Setup.w",
+      "Riffle.cL",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.stop_persistent",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Setup.delta",
+      "Riffle.Stop",
+      "Riffle.cL_antitone",
+      "Riffle.Setup.w",
+      "Riffle.cL",
+      "Riffle.cF"
+    ]
+  },
+  {
+    "name": "Riffle.stop_iff_sub_lt",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Setup.delta",
+      "Riffle.Stop",
+      "Riffle.cL",
+      "Riffle.cF",
+      "Riffle.stop_iff_sub_lt._proof_2"
+    ]
+  },
+  {
+    "name": "Riffle.not_stop_iff_sub_ge",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Setup.delta",
+      "Riffle.Stop",
+      "Riffle.stop_iff_sub_lt",
+      "Riffle.cL",
+      "Riffle.cF"
+    ]
+  },
+  {
+    "name": "Riffle.not_stop_of_bottom",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Setup.delta",
+      "Riffle.Stop",
+      "Riffle.cL",
+      "Riffle.cF"
+    ]
+  },
+  {
+    "name": "Riffle.extendedLog_zero",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.N",
+      "Riffle.extendedLog"
+    ]
+  },
+  {
+    "name": "Riffle.extendedLog_of_pos",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.N",
+      "Riffle.extendedLog"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_of_root",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.parent"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_of_not_root",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.parent"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_desc",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.parent",
+      "Riffle.genericCut_of_root",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_antichain",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.prefix_parent",
+      "Riffle.Word",
+      "Riffle.genericCut_antichain._proof_3",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.PrefixAntichain",
+      "Riffle.parent",
+      "Riffle.Model.k",
+      "Riffle.genericCut_of_root",
+      "Riffle.digit",
+      "Riffle.Model.n",
+      "Riffle.parent_legal",
+      "Riffle.genericCut_antichain._proof_2",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_exists_prefix",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.genericCut_exists_prefix._proof_1",
+      "Riffle.Word",
+      "Riffle.genericCut_exists_prefix._proof_3",
+      "Riffle.Full",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.legal_take",
+      "Riffle.genericCut_exists_prefix._proof_4",
+      "Riffle.parent",
+      "Riffle.Model.k",
+      "Riffle.genericCut_of_root",
+      "Riffle.genericCut_exists_prefix._proof_6",
+      "Riffle.genericCut_exists_prefix._proof_7",
+      "Riffle.digit",
+      "Riffle.genericCut_exists_prefix._proof_2",
+      "Riffle.Cylinder",
+      "Riffle.Model.n",
+      "Riffle.genericCut_exists_prefix._proof_5",
+      "Riffle.genericCut_of_not_root",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_existsUnique_prefix",
+    "dependencies": [
+      "Riffle.genericCut_exists_prefix",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.genericCut_antichain",
+      "Riffle.PrefixAntichain",
+      "Riffle.Cylinder",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_cover",
+    "dependencies": [
+      "Riffle.genericCut_exists_prefix",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.GenericCut",
+      "Riffle.Cylinder",
+      "Riffle.FamilyCylinder",
+      "Riffle.genericCut_desc",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_cylinder_disjoint",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.genericCut_antichain",
+      "Riffle.Cylinder",
+      "Riffle.antichain_cylinder_disjoint",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_crossing_minimal",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.genericCut_crossing_minimal._proof_1",
+      "Riffle.Model.K",
+      "Riffle.prefix_parent",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Desc",
+      "Riffle.parent",
+      "Riffle.parent_legal",
+      "Riffle.genericCut_of_not_root",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.genericCut_fallback_iff",
+    "dependencies": [
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc"
+    ]
+  },
+  {
+    "name": "Riffle.gamma_lambda_disjoint",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Gamma",
+      "Riffle.Model",
+      "Riffle.Lambda",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Stop",
+      "Riffle.parent",
+      "Riffle.pairDesc"
+    ]
+  },
+  {
+    "name": "Riffle.stable_terminal",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Gamma",
+      "Riffle.Model",
+      "Riffle.Lambda",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.Stop",
+      "Riffle.Terminal",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.stable_stopped",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Gamma",
+      "Riffle.Model",
+      "Riffle.Lambda",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.Stop",
+      "Riffle.Terminal",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.stable_eq_genericCut",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Gamma",
+      "Riffle.Model",
+      "Riffle.Lambda",
+      "Riffle.Model.K",
+      "Riffle.terminal_iff_join_length",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Stable",
+      "Riffle.Desc",
+      "Riffle.Stop",
+      "Riffle.Boundary",
+      "Riffle.parent",
+      "Riffle.Compatible",
+      "Riffle.pairDesc",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.Terminal",
+      "Riffle.stable_eq_genericCut._proof_1",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.pairDesc_eq",
+      "Riffle.Legal",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.stable_desc",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.stable_eq_genericCut",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Stable",
+      "Riffle.Desc",
+      "Riffle.Stop",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.genericCut_desc",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.stable_exists_prefix",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.genericCut_exists_prefix",
+      "Riffle.Model",
+      "Riffle.stable_eq_genericCut",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Stable",
+      "Riffle.Stop",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.stable_cover",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.stable_eq_genericCut",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Stable",
+      "Riffle.Stop",
+      "Riffle.genericCut_cover",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.FamilyCylinder",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.crossing_replacement_mem",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.PieceEvent",
+      "Riffle.leftIndex_legal",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.prefix_of_prefix_length_le",
+      "Riffle.Desc",
+      "Riffle.legal_take",
+      "Riffle.Side",
+      "Riffle.Model.k",
+      "Riffle.digit_take",
+      "Riffle.leftIndex",
+      "Riffle.rightIndex",
+      "Riffle.instDecidableEqSide",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.rightIndex_legal",
+      "Riffle.Side.casesOn",
+      "Riffle.Cylinder",
+      "Riffle.Model.n",
+      "Riffle.Setup.w",
+      "Riffle.crossDigit.match_1",
+      "Riffle.Side.noConfusion",
+      "Riffle.Cross",
+      "Riffle.Piece",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.crossing_piece_positive",
+    "dependencies": [
+      "Riffle.expectedCount_pos",
+      "Riffle.Setup",
+      "Riffle.expectedCount",
+      "Riffle.Side.left",
+      "Riffle.PieceEvent",
+      "Riffle.crossing_replacement_mem",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Desc",
+      "Riffle.Side",
+      "Riffle.leftIndex",
+      "Riffle.rightIndex",
+      "Riffle.instDecidableEqSide",
+      "Riffle.full_extension",
+      "Riffle.Setup.w",
+      "Riffle.Cross",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_nonterminal_lengths",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.Side.right",
+      "Riffle.Terminal",
+      "Riffle.Setup.w",
+      "Riffle.boundary_nonterminal",
+      "Riffle.Cross"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_sideMaximum_pos",
+    "dependencies": [
+      "Riffle.rawPair_sideMaximum_pos._proof_3",
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.expectedCount",
+      "Riffle.Side.left",
+      "Riffle.digit_prefix",
+      "Riffle.PieceEvent",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Boundary",
+      "Riffle.crossing_piece_positive",
+      "Riffle.Compatible",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.Terminal",
+      "Riffle.sideMaximum",
+      "Riffle.rawPair_join_desc",
+      "Riffle.rawPair_sideMaximum_pos._proof_4",
+      "Riffle.Setup.w",
+      "Riffle.rawPair_prefix_join",
+      "Riffle.join",
+      "Riffle.rawPair_sideMaximum_pos._proof_2",
+      "Riffle.rawPair_sideMaximum_pos._proof_1",
+      "Riffle.boundary_nonterminal",
+      "Riffle.Cross",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_sideFluctuation_pos",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.sideFluctuation",
+      "Riffle.Side.right",
+      "Riffle.Terminal",
+      "Riffle.sideMaximum",
+      "Riffle.rawPair_sideMaximum_pos",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_cF_ne_bot",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.rawPair_cF_ne_bot._proof_2",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.extendedLog_of_pos",
+      "Riffle.rawPair_sideFluctuation_pos",
+      "Riffle.Model.N",
+      "Riffle.sideFluctuation",
+      "Riffle.Side.right",
+      "Riffle.Terminal",
+      "Riffle.join",
+      "Riffle.cF",
+      "Riffle.extendedLog"
+    ]
+  },
+  {
+    "name": "Riffle.rawPair_retained",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.Side.right",
+      "Riffle.Terminal",
+      "Riffle.Retained",
+      "Riffle.cF",
+      "Riffle.rawPair_cF_ne_bot"
+    ]
+  },
+  {
+    "name": "Riffle.admissiblePair_retained",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.admissiblePair_rawPair",
+      "Riffle.Word",
+      "Riffle.Retained",
+      "Riffle.rawPair_retained",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.retained_nonterminal_finite",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Compatible",
+      "Riffle.Terminal",
+      "Riffle.Retained",
+      "Riffle.cF"
+    ]
+  },
+  {
+    "name": "Riffle.stop_join_persistent",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.stop_persistent",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Stop",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.stable_antichain",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.stable_eq_genericCut",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Stable",
+      "Riffle.genericCut_antichain",
+      "Riffle.Stop",
+      "Riffle.PrefixAntichain",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.stop_join_persistent",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.stable_existsUnique_prefix",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.stable_eq_genericCut",
+      "Riffle.Word",
+      "Riffle.GenericCut",
+      "Riffle.Stable",
+      "Riffle.Stop",
+      "Riffle.rawPair_join_desc",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.genericCut_existsUnique_prefix",
+      "Riffle.stop_join_persistent",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.stable_cylinder_disjoint",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.stable_antichain",
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.Cylinder",
+      "Riffle.antichain_cylinder_disjoint"
+    ]
+  },
+  {
+    "name": "Riffle.gamma_first_crossing",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Gamma",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.prefix_parent",
+      "Riffle.Word",
+      "Riffle.gamma_first_crossing._proof_1",
+      "Riffle.Desc",
+      "Riffle.Stop",
+      "Riffle.Boundary",
+      "Riffle.parent",
+      "Riffle.Compatible",
+      "Riffle.pairDesc",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.rawPair_join_desc",
+      "Riffle.parent_legal",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.pairDesc_eq",
+      "Riffle.stop_join_persistent",
+      "Riffle.Legal",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.lambda_no_crossing_iff",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.genericCut_fallback_iff",
+      "Riffle.Lambda",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Desc",
+      "Riffle.Stop",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.pairDesc",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.pairDesc_eq",
+      "Riffle.stop_join_persistent",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.lambda_full",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.Lambda",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Desc",
+      "Riffle.Stop",
+      "Riffle.pairDesc",
+      "Riffle.Setup.w",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.gamma_no_later_stable",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.stable_antichain",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Gamma",
+      "Riffle.Model",
+      "Riffle.Lambda",
+      "Riffle.gamma_first_crossing",
+      "Riffle.Model.K",
+      "Riffle.terminal_iff_join_length",
+      "Riffle.Word",
+      "Riffle.gamma_no_later_stable._proof_2",
+      "Riffle.Stable",
+      "Riffle.Desc",
+      "Riffle.Stop",
+      "Riffle.Boundary",
+      "Riffle.gamma_no_later_stable._proof_1",
+      "Riffle.parent",
+      "Riffle.Model.k",
+      "Riffle.Compatible",
+      "Riffle.pairDesc",
+      "Riffle.Side.right",
+      "Riffle.digit",
+      "Riffle.Terminal",
+      "Riffle.Model.n",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.Legal",
+      "Riffle.crossDigit"
+    ]
+  },
+  {
+    "name": "Riffle.stable_ambient_terminal",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Model.K",
+      "Riffle.Word",
+      "Riffle.selected_ambient_terminal",
+      "Riffle.Stable",
+      "Riffle.stable_terminal",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join"
+    ]
+  },
+  {
+    "name": "Riffle.stable_partition",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.stable_antichain",
+      "Riffle.Setup",
+      "Riffle.stable_cover",
+      "Riffle.stable_cylinder_disjoint",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.PrefixAntichain",
+      "Riffle.Cylinder",
+      "Riffle.Retained",
+      "Riffle.join",
+      "Riffle.stable_existsUnique_prefix",
+      "Riffle.FamilyCylinder"
+    ]
+  },
+  {
+    "name": "Riffle.stable_rankSet_cover",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.stable_cover",
+      "Riffle.Model",
+      "Riffle.RankSet",
+      "Riffle.stable_rankSet_cover._proof_1",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.stable_rankSet_cover._proof_2",
+      "Riffle.Cylinder",
+      "Riffle.join",
+      "Riffle.stable_rankSet_cover._proof_3",
+      "Riffle.FamilyCylinder"
+    ]
+  },
+  {
+    "name": "Riffle.stable_intervals_partition",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.stable_cylinder_disjoint",
+      "Riffle.Model",
+      "Riffle.RankSet",
+      "Riffle.rankSet_cylinder_convex",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.SortedRows",
+      "Riffle.Stable",
+      "Riffle.stable_rankSet_cover",
+      "Riffle.Cylinder",
+      "Riffle.Retained",
+      "Riffle.join",
+      "Riffle.rankSet_disjoint"
+    ]
+  },
+  {
+    "name": "Riffle.stable_cylinder_fiber",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.boundary_pair_fiber",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Stable",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.join",
+      "Riffle.stable_desc",
+      "Riffle.Legal"
+    ]
+  },
+  {
+    "name": "Riffle.retained_stable_coverage_iff",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.boundary_pair_fiber",
+      "Riffle.Model",
+      "Riffle.Admissible",
+      "Riffle.admissiblePair_rawPair",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Stable",
+      "Riffle.Boundary",
+      "Riffle.Compatible",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Retained",
+      "Riffle.join",
+      "Riffle.stable_cylinder_fiber",
+      "Riffle.stable_exists_prefix",
+      "Riffle.rawPair_retained",
+      "Riffle.selected_rawPair",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.stable_index_unique",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.stable_antichain",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Stable",
+      "Riffle.prefixes_comparable",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.stable_cylinder_fiber"
+    ]
+  },
+  {
+    "name": "Riffle.retained_stable_existsUnique",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.retained_stable_coverage_iff",
+      "Riffle.Model",
+      "Riffle.Admissible",
+      "Riffle.stable_index_unique",
+      "Riffle.admissiblePair_rawPair",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Retained",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.global_boundary_decomposition",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.retained_stable_coverage_iff",
+      "Riffle.Model",
+      "Riffle.Admissible",
+      "Riffle.admissiblePair_rawPair",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Retained",
+      "Riffle.stable_cylinder_fiber",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.global_stable_disjoint",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.stable_index_unique",
+      "Riffle.admissiblePair_rawPair",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.Cylinder",
+      "Riffle.Retained",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.omitted_iff_inadmissible",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.retained_stable_coverage_iff",
+      "Riffle.Model",
+      "Riffle.Admissible",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Retained",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.global_raw_stable_decomposition",
+    "dependencies": [
+      "Riffle.RawPair",
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.raw_boundary_cover",
+      "Riffle.Model",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.Stable",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Retained",
+      "Riffle.join",
+      "Riffle.stable_cylinder_fiber",
+      "Riffle.stable_exists_prefix",
+      "Riffle.rawPair_retained"
+    ]
+  },
+  {
+    "name": "Riffle.global_boundary_rankSet",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.RankSet",
+      "Riffle.Admissible",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.global_boundary_decomposition",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Retained",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.global_stable_intervals_disjoint",
+    "dependencies": [
+      "Riffle.global_stable_disjoint",
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.RankSet",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.Cylinder",
+      "Riffle.Retained",
+      "Riffle.rankSet_disjoint",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.global_stable_intervals_convex",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Model",
+      "Riffle.RankSet",
+      "Riffle.rankSet_cylinder_convex",
+      "Riffle.Word",
+      "Riffle.Full",
+      "Riffle.SortedRows",
+      "Riffle.Stable",
+      "Riffle.Cylinder",
+      "Riffle.Retained",
+      "Riffle.AdmissiblePair"
+    ]
+  },
+  {
+    "name": "Riffle.omitted_rank_iff_inadmissible",
+    "dependencies": [
+      "Riffle.Setup",
+      "Riffle.Side.left",
+      "Riffle.Model",
+      "Riffle.RankSet",
+      "Riffle.omitted_iff_inadmissible",
+      "Riffle.Admissible",
+      "Riffle.Word",
+      "Riffle.Stable",
+      "Riffle.selected",
+      "Riffle.Side.right",
+      "Riffle.Cylinder",
+      "Riffle.Setup.w",
+      "Riffle.Retained",
+      "Riffle.AdmissiblePair"
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+# Root comparison of the exponent implementation reviews
+
+The independently reviewed exponent contract was frozen at 22:07:11 UTC on 17 September 2026, before the four implementation modules were written. The contract hash is `7f3dcbd0c6e99538300bbfe307c2516440647ebd3999e28285439024c8b3a848`. The successful verification at 22:11:38 UTC checks all fifteen theorem statements and five definitions against that contract, preserves every parent implementation and permitted mathematical source, and permits only `propext`, `Classical.choice`, and `Quot.sound` as logical dependencies.
+
+The reconstruction reviewer inspected Tail and Estimates, the assumptions reviewer independently rebuilt and audited Model and Mean, and the statements reviewer compared all fifteen actual proof bodies and compiled signatures with the freeze. All three accept the final verified versions. Their scope distinctions agree: these are exact finite conversions for the existing absolute-coordinate density, not a proof of spatial smoothing or the entire assigned collection.
+
+The reviews specifically confirm that the ambient size exponent remains the source's extension-cost expression. The separate error is computed as `log_N μ_w - b`, retains its sign, and cancels algebraically in `μ_x = N^(c_L + ε_w)`. Positivity is proved from legality or the column totals where applicable. No mean identity, positive error allowance, nonempty alphabet, or asymptotic rate is supplied as an assumption.
+
+The tail square-proportion product equals `N^c_E`; the exact without-replacement collision factor is only bounded above by it and may be zero. The final density bounds retain their denominator four and exact error coefficients. The small-branch premise is precisely `c_L < 2δ`, with arbitrary real δ, and the terminal bound is the full-length specialization. The purely empty-tail identity also covers N=0/1; logarithmic interpretations keep the frozen N≥2 domain.
+
+The only implementation corrections exposed definitionally identical real-power notation and explicitly invoked already proved mean positivity. They changed proof elaboration, not a signature or definition. No additional named helper or proof placeholder was introduced.
+
+The accepted modules establish fifteen further finite theorems, bringing the cumulative verified inventory to 119. The next independent review addresses the source's random ambient recentering. The full goal remains active: source-relative bounds, entropy summation, stable localization/cardinality, endpoint windows, large-block estimates, and exploration-conditioned laws are not certified by this exponent addendum.

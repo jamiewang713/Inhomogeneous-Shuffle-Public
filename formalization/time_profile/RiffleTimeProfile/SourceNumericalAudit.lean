@@ -1,0 +1,9 @@
+import RiffleTimeProfile.SourceNumerical
+
+#print axioms TimeProfile.profile_cost_replacement_horizon
+#print axioms TimeProfile.profile_parent_crossing_horizon
+#print axioms TimeProfile.source_large_margin
+#print axioms TimeProfile.source_small_margin
+#print axioms TimeProfile.source_singleton_margin
+#print axioms TimeProfile.source_no_terminal_fallback
+#print axioms TimeProfile.exists_uniform_source_margins

@@ -1,0 +1,22 @@
+import EdgeLocalization.Exponent.Estimates
+
+#print axioms EdgeLocalization.legalPrefix_of_prefix
+#print axioms EdgeLocalization.prefixMean_pos_of_legal
+#print axioms EdgeLocalization.log_prefixMean_of_legal
+#print axioms EdgeLocalization.log_prefixMean_extension
+#print axioms EdgeLocalization.prefixMean_eq_rpow_ambientSizeExponent
+#print axioms EdgeLocalization.column_square_sum_pos
+#print axioms EdgeLocalization.tailSquareFactor_eq_rpow_tailEdgeExponent
+#print axioms EdgeLocalization.tailCollisionFactor_le_rpow_tailEdgeExponent
+#print axioms EdgeLocalization.matrix_internal_density_le_ambient_tail_exponent
+#print axioms EdgeLocalization.matrix_internal_density_le_small_coarse_exponent
+#print axioms EdgeLocalization.matrix_internal_density_le_small_singleton_exponent
+#print axioms EdgeLocalization.matrix_internal_density_le_ambient_size_exponent
+#print axioms EdgeLocalization.tailEdgeExponent_at_full_length
+#print axioms EdgeLocalization.matrix_internal_density_terminal_exponent
+#print axioms EdgeLocalization.ambientMeanError_root
+#print axioms EdgeLocalization.legalPrefix
+#print axioms EdgeLocalization.ambientSizeExponent
+#print axioms EdgeLocalization.ambientMeanError
+#print axioms EdgeLocalization.columnPsiTwo
+#print axioms EdgeLocalization.tailEdgeExponent

@@ -1,0 +1,22 @@
+import EdgeLocalization.Exponent.Estimates
+
+#check @EdgeLocalization.legalPrefix_of_prefix
+#check @EdgeLocalization.prefixMean_pos_of_legal
+#check @EdgeLocalization.log_prefixMean_of_legal
+#check @EdgeLocalization.log_prefixMean_extension
+#check @EdgeLocalization.prefixMean_eq_rpow_ambientSizeExponent
+#check @EdgeLocalization.column_square_sum_pos
+#check @EdgeLocalization.tailSquareFactor_eq_rpow_tailEdgeExponent
+#check @EdgeLocalization.tailCollisionFactor_le_rpow_tailEdgeExponent
+#check @EdgeLocalization.matrix_internal_density_le_ambient_tail_exponent
+#check @EdgeLocalization.matrix_internal_density_le_small_coarse_exponent
+#check @EdgeLocalization.matrix_internal_density_le_small_singleton_exponent
+#check @EdgeLocalization.matrix_internal_density_le_ambient_size_exponent
+#check @EdgeLocalization.tailEdgeExponent_at_full_length
+#check @EdgeLocalization.matrix_internal_density_terminal_exponent
+#check @EdgeLocalization.ambientMeanError_root
+#check @EdgeLocalization.legalPrefix
+#check @EdgeLocalization.ambientSizeExponent
+#check @EdgeLocalization.ambientMeanError
+#check @EdgeLocalization.columnPsiTwo
+#check @EdgeLocalization.tailEdgeExponent

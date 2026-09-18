@@ -1,0 +1,61 @@
+Checking EdgeLocalization/Collision/Matrix.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Matrix.lean:157:73: error: unsolved goals
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hn : ∀ (j : Fin K), ∑ a, n j a = N
+hM : M ≤ K
+x : Fin M → Fin k
+hsum :
+  (∑ i ∈ range N, (matrixLaw n hn).probability fun ω => i ∈ occupied N (rawRows n ω) (prefixWord x)) =
+    (matrixLaw n hn).expectation fun ω => ↑(#(occupied N (rawRows n ω) (prefixWord x)))
+j : ℕ
+hj : j ∈ range N
+hjN : j < N
+ω : FixedMatrix N n
+⊢ (prefixWord x <+: if h : True then rawRow n ω ⟨j, ⋯⟩ else []) ↔ prefixWord x <+: rawRow n ω ⟨j, hjN⟩
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Matrix.lean:162:77: warning: This simp argument is unused:
+  dif_pos hjN
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_range, hjN, true_and, rawRows, rowsOfLabels]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Matrix.lean:218:57: error: unsolved goals
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hn : ∀ (j : Fin K), ∑ a, n j a = N
+hM : M ≤ K
+x : Fin M → Fin k
+hzero : ¬N = 0
+hone : ¬N = 1
+s : Finset (ℕ × ℕ) := {p ∈ range N ×ˢ range N | p.1 < p.2}
+hsum :
+  (∑ i ∈ s, (matrixLaw n hn).probability fun ω => i ∈ collisionPairs N (rawRows n ω) (prefixWord x)) =
+    (matrixLaw n hn).expectation fun ω => ↑(#(collisionPairs N (rawRows n ω) (prefixWord x)))
+p : ℕ × ℕ
+hp : p ∈ s
+hpN : p ∈ range N ×ˢ range N
+hpLt : p.1 < p.2
+hi : p.1 ∈ range N
+hj : p.2 ∈ range N
+hiN : p.1 < N
+hjN : p.2 < N
+hij : ⟨p.1, hiN⟩ ≠ ⟨p.2, hjN⟩
+ω : FixedMatrix N n
+⊢ (((if h : True then rawRow n ω ⟨p.1, ⋯⟩ else []) = if h : True then rawRow n ω ⟨p.2, ⋯⟩ else []) ∧
+      prefixWord x <+: if h : True then rawRow n ω ⟨p.1, ⋯⟩ else []) ↔
+    rawRow n ω ⟨p.1, hiN⟩ = rawRow n ω ⟨p.2, hjN⟩ ∧ prefixWord x <+: rawRow n ω ⟨p.1, hiN⟩
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Matrix.lean:224:45: warning: This simp argument is unused:
+  dif_pos hiN
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_product, Finset.mem_range, hiN, hjN, hpLt, true_and, rawRows, rowsOfLabels, dif_pos hjN]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Matrix.lean:224:58: warning: This simp argument is unused:
+  dif_pos hjN
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_product, Finset.mem_range, hiN, hjN, hpLt, true_and, rawRows, rowsOfLabels, dif_pos hiN]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

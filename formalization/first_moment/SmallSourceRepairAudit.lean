@@ -1,0 +1,10 @@
+import FirstMomentModel.SmallSourceRepair
+
+#check @InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_core
+#print axioms InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_core
+#check @InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_infimum
+#print axioms InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_infimum
+#check @InhomogeneousShuffle.FirstMoment.Model.source_small_coarse_margin
+#print axioms InhomogeneousShuffle.FirstMoment.Model.source_small_coarse_margin
+#check @InhomogeneousShuffle.FirstMoment.Model.exists_uniform_source_margins_with_small_coarse
+#print axioms InhomogeneousShuffle.FirstMoment.Model.exists_uniform_source_margins_with_small_coarse

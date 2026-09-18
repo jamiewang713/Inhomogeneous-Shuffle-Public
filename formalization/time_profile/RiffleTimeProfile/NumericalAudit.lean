@@ -1,0 +1,19 @@
+import RiffleTimeProfile.Numerical
+
+#print axioms TimeProfile.large_numerical_core
+#print axioms TimeProfile.small_numerical_core
+#print axioms TimeProfile.singleton_numerical_core
+#print axioms TimeProfile.numerical_le_infimum_add
+#print axioms TimeProfile.large_numerical_margin
+#print axioms TimeProfile.small_numerical_margin
+#print axioms TimeProfile.singleton_numerical_margin
+#print axioms TimeProfile.no_terminal_fallback
+#print axioms TimeProfile.large_loss_of_common_error
+#print axioms TimeProfile.small_loss_of_common_error
+#print axioms TimeProfile.singleton_loss_of_common_error
+#print axioms TimeProfile.large_numerical_margin_of_common_error
+#print axioms TimeProfile.small_numerical_margin_of_common_error
+#print axioms TimeProfile.singleton_numerical_margin_of_common_error
+#print axioms TimeProfile.large_numerical_margin_uniform
+#print axioms TimeProfile.small_numerical_margin_uniform
+#print axioms TimeProfile.singleton_numerical_margin_uniform

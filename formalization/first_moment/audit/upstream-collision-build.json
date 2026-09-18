@@ -1,0 +1,26 @@
+[
+  {
+    "module": "lean/EdgeLocalization/EdgeLocalization/Collision/FiniteLaw.lean",
+    "sourceSha256": "a4e97e40ed417cfccda5e80a9b6251a9d947c4787bd9135f4e54b4844d2ec7e2",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "module": "lean/EdgeLocalization/EdgeLocalization/Collision/Column.lean",
+    "sourceSha256": "78d500654fa4b6cdc752a9ac1e6ad5309770b662fb21c47290b7325b4e8c20d2",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "module": "lean/EdgeLocalization/EdgeLocalization/Collision/Model.lean",
+    "sourceSha256": "43c19b97e925dee9186d496560cdf143c89b76279ba4f36420e84401a4b4e3dd",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "module": "lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean",
+    "sourceSha256": "296505ea22d178a66248d7d40651ead865db2a991bd11c38fd65b0a3ecd69829",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:37:6: error: unknown constant 'List.prefix_iff_getElem'\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:36:56: error: unsolved goals\nN K k M : \u2115\nn : Fin K \u2192 Fin k \u2192 \u2115\nhM : M \u2264 K\nx : Fin M \u2192 Fin k\n\u03c9 : FixedMatrix N n\ni : Fin N\n\u22a2 prefixWord x <+: rawRow n \u03c9 i \u2194 \u2200 (t : Fin M), \u2191(\u03c9 (Fin.castLE hM t)) i = x t\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:267:39: error: unsolved goals\nrows : \u2115 \u2192 List \u2115\nxList : List \u2115\n\u22a2 {p \u2208 {0} | p.1 < p.2 \u2227 rows p.1 = rows p.2 \u2227 xList <+: rows p.1} = \u2205\n"
+  }
+]

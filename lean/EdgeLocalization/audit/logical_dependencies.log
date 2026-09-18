@@ -1,0 +1,41 @@
+'EdgeLocalization.FiniteLaw.expectation_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.expectation_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.expectation_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_of_forall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.probability_event_of_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.FiniteLaw.sum_probabilities_eq_expected_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'EdgeLocalization.FiniteLaw.sum_sq_probabilities_le_expected_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'EdgeLocalization.internalEdges_subset_occupied' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internalEdges_subset_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internalEdges_card_le_occupancy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internalEdges_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internalEdges_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.equal_rows_prefix_transfer' does not depend on any axioms
+'EdgeLocalization.localize_internal_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internalEdges_card_le_collisionPairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internal_density_le_expected_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internal_density_le_expected_occupancy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.internal_expected_edges_le_expected_collisionPairs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'EdgeLocalization.internal_density_le_expected_collisionPairs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'EdgeLocalization.balanced_column_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.balanced_left_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.balanced_right_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.balanced_endpoint_atom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.balanced_endpoint_good_event' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.positive_side_mass_no_sampling_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EdgeLocalization.full_sample_variance_numerator_zero' depends on axioms: [propext]
+'EdgeLocalization.no_atom_bound_below_good_mass' depends on axioms: [propext, Classical.choice, Quot.sound]

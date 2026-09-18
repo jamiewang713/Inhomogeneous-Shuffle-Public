@@ -1,0 +1,50 @@
+MODULE FirstMoment.Assembly
+
+MODULE FirstMoment.Counting
+
+MODULE FirstMoment.Entropy
+
+MODULE FirstMoment.Numerical
+
+MODULE FirstMoment
+
+MODULE Audit
+'InhomogeneousShuffle.FirstMoment.le_thetaInf_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.variational_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.large_exponent_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.small_exponent_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.singleton_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.large_exponent_variational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.small_exponent_variational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.large_exponent_negative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.small_exponent_negative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.singleton_exponent_negative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_sparseAssignment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.sparseCount_weighted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.sparseCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_profileKey' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profile_card_le_of_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.sparseCount_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profileCount_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profileCount_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.word_mass_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_mul_mass_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_le_exp_of_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.type_class_card_le_exp_entropy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_eq_sum_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.localized_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.localized_sum_sq_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profileClass_sum_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.two_power_terms_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]

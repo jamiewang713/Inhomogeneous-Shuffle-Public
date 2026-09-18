@@ -1,0 +1,826 @@
+{
+  "lean": "4.33.1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "public_theorems_checked": 158,
+  "new_axioms": [],
+  "foundations_used": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "frozen_contract_and_original_sources_unchanged": true,
+  "module_sha256": {
+    "Base.lean": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+    "Analysis.lean": "6cb844a02817905bc2e87f57277b23e68c2040dd2b1be6509d4b4320eeb3ac30",
+    "Ambient.lean": "75d4558ff24fa1fc18cd09b0b1c2d0ea33140195317686e963b36038226eeea8",
+    "SideMass.lean": "719d46aa7f127a96ef0643776db9347b20dc28afc9291e9e3961cd9bc5e94e14",
+    "Digits.lean": "003eaf611730d63c89ed9363454af2f5d35709efaf34122f94a10ec509f9609e",
+    "DigitEstimates.lean": "e7a434c6aaaa1d5c32bfcfc1e26fd8bfe48d1be6ee0e0dcc34bec75375b8f9dd",
+    "Crossing.lean": "00f9f471eb810f135adce126b6957c1afb00cf505c46ecaa98a5c6db9b17c917",
+    "Numerical.lean": "e547560cddc2abeb682aa429d5bda463288d22ca401fc16c0fe991a534554437",
+    "Source.lean": "e64b621ed38eb95edc3c5998791ce8136b2d675d05d7920a0646cfc03479fd82",
+    "AnalyticParameters.lean": "fa82137739888ac1731858ac3b8ab65adef1d9a8a2d0ed943d5225d74fcaf1f6",
+    "IntegralEnvelope.lean": "aee7d4d77c460e60e0f27921f805467f3ee109973665434183786274569b5b9c",
+    "LatticeCounts.lean": "7b2e19acfe289380f5d97ef32be6537ea863112fc4bab4e204335c2980266f0b",
+    "GridQuadrature.lean": "4eea67379fd91b79e44c0272ed91baf358c31825740d4a8e46d6520b0f668777",
+    "IntegratedBounds.lean": "1d766f299f30b8e40b98ea5a70275f7a0eabfd70a5b0a02fd1291cc0f229fba2",
+    "SourceNumerical.lean": "190e4abcbd6e64f8abed48122cf90ea799dcc2e21672bb087eeff90c5b9ebafc",
+    "FixedCountModel.lean": "d5c7cd27f01d77063de5a5dee6f0764e36620cfa997f1660f27c3982e71fde4e",
+    "FixedCountMoments.lean": "decabd66587709ac6a5321147463b6e6646fc5901340907220013c9d4eddda0e",
+    "ExpectedMass.lean": "16067d2f0b61638741dde329d0aa9d642c20801473ec31101e54da6c31289f6f",
+    "RowReindex.lean": "9f7073453e52d856146e13fbe0b73c60b16904cfe02930913947f75a89d5bcaf"
+  },
+  "axiom_dependencies": {
+    "TimeProfile.prob_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.prob_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sum_prob": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_prob_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.prob_le_pileMax": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.pileMax_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.pileMax_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.pileMax_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.inv_card_le_pileMax": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.Cuts.profile_prob": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.Cuts.profile_pos_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.logScale_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.horizonDepth_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.horizonDepth_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.IsRegular.good_prob_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.IsRegular.good_actual_gt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.IsRegular.good_digitCost_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.IsRegular.exceptional_actual_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.IsRegular.maxCost_rep_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.IsRegular.psi_rep_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.TimeMesh.cells_disjoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.TimeMesh.existsUnique_mem_cell": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.TimeMesh.cellIndex_mem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.TimeMesh.column_cellIndex_mem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.powerSum_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.powerSum_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.maxCost_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.psi_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.finite_gibbs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_regular_partition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.prefixWeight_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.prefixWeight_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.prefixWeight_extension_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.prefixMass_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cL_split": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cL_extension_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cL_exact_mass_exponent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cE_nonpos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cE_terminal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sideMass_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sideMass_prefix_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sideMaximum_self": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cF_prefix_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cF_eq_bot_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cF_self": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cF_eq_coe_of_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cF_lower_bound_of_crossings": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.digitCount_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.digitTotal_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profileR_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.positive_count_support": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profile_count_partition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profileS_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profileQ_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profileH_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profile_cost_replacement": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profile_entropy_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.same_profile_S_H_R": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profileH_source_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exceptional_psi_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profileS_append": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profileS_append_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profile_parent_crossing_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.large_numerical_core": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.small_numerical_core": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.singleton_numerical_core": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.numerical_le_infimum_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.large_numerical_margin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.small_numerical_margin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.singleton_numerical_margin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.no_terminal_fallback": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.large_loss_of_common_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.small_loss_of_common_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.singleton_loss_of_common_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.large_numerical_margin_of_common_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.small_numerical_margin_of_common_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.singleton_numerical_margin_of_common_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.large_numerical_margin_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.small_numerical_margin_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.singleton_numerical_margin_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.quadratureError_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exceptionalAllowance_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_logScale_threshold": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_small_chi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_small_rho": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_small_phi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_error_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.numerical_budgets_of_common_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_source_parameter_thresholds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.uniformly_vanishing_ambient_budgets": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.measurableSet_cell": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.cell_mass_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.BorelPartition.sum_cell_mass": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cellMass_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sum_cellMass": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.probability_integral_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.probability_integral_le_cell_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.finite_integral_envelope": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.finite_integral_envelope_of_counts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.interval_integral_envelope_of_counts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.mem_timePositions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.mem_timePositions_iff_floor": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.timePositions_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.timePositions_count_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sum_timeCellCount": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sum_timeCellCount_real": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.timeCellCount_weighted_sum_raw": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.timeCellCount_weighted_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.columnTime_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.timeCellCount_closed_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.timeCellCount_closed_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.AlmostLike.timeCellCount_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.one_sided_quadrature_representative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.one_sided_quadrature": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_tail_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_entropy_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_prefix_max_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_terminal_max_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profile_cost_replacement_horizon": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.profile_parent_crossing_horizon": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_large_margin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_small_margin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_singleton_margin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.source_no_terminal_fallback": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.exists_uniform_source_margins": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.columnAssignments_nonempty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.columnAssignments_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sample_column_counts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sample_entry_count_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sample_row_legal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.uniform_integrable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.uniform_integral_eq_average": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.column_integrable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.fixedCount_integrable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.column_integral_eq_average": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.fixedCount_integral_eq_average": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.columnReindex_entry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.uniform_integral_equiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.column_integral_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.column_sum_eval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.column_marginal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.column_product_factorization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sample_marginal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.column_digit_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sample_digit_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_box_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_prefix_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.cL_expected_mass_exponent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_left_side_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_right_side_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_side_maxima_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_cF_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.rowCount_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.sample_rowCount_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_rowCount_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_prefix_count_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_left_side_count_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "TimeProfile.expected_right_side_count_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "scope": "Assigned time/digit-profile layer: finite foundations, one-sided quadrature, quantified source numerical margins and exact fixed-count expected-mass interpretation. Whole shuffle mixing theorems and source two-sided/anti-concentration claims are not certified."
+}

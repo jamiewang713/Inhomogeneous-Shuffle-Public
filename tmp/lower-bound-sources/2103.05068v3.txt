@@ -1,0 +1,2564 @@
+
+--- PDF PAGE 1 ---
+                               Cutoﬀ for the Asymmetric Riﬄe Shuﬄe
+
+                                                                   Mark Sellke∗
+
+
+
+
+                                                                      Abstract
+        In the Gilbert-Shannon-Reeds shuﬄe, a deck ofN cards is cut into two approximately equal parts which
+        are riﬄed together uniformly at random. Bayer and Diaconis [BD92] famously showed that this Markov
+        chain undergoes cutoﬀ in total variation after  3log(N)2log(2)  shuﬄes. We establish cutoﬀ for the more general
+        asymmetric riﬄe shuﬄes in which one cuts the deck into diﬀerently sized parts. The value of the cutoﬀ
+        point conﬁrms a conjecture of [Lal00].  Some appealing consequences are that asymmetry always slows
+        mixing and that total variation mixing is strictly faster than separation andL∞ mixing.
+
+Contents
+
+1  Introduction                                                                                                                                    2
+    1.1   Main Result . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    2
+
+2  Preliminaries                                                                                                                                   5
+    2.1   Intuition Based on an Independent Point Process . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    6
+    2.2   Notation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    8
+
+3  Upper Bound Approach                                                                                                                  9
+    3.1   High-Level Approach . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    9
+    3.2   Proof of Lemmas 3.1 and 3.5   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  14
+
+4  Upper Bounding the Expected Shared Edges                                                                               15
+    4.1   Preparation for the Upper Bound Proof  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  16
+    4.2   Proof Outline for Proposition 4.1  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  18
+    4.3   The Partition into Stable Blocks   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  19
+    4.4   No Edge Intersections in Expectation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  22
+    4.5   Informal Derivation of the ValueCp   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  28
+
+5  Proof of Lemma 3.8                                                                                                                       29
+    5.1   Preparatory Lemmas . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  29
+    5.2   The Edge-Exploration Process   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  30
+    5.3   Proof of Lemma 3.8   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  34
+
+6  Proof of the Mixing Time Lower Bound                                                                                       36
+    6.1   Preparation and Proof Idea  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  37
+    6.2   Lower Bounding the Number ofG-Edges InsideH   . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  40
+
+   ∗Department of Mathematics, Stanford University.
+
+
+
+                                                                            1
+
+--- PDF PAGE 2 ---
+1   Introduction
+
+Theriﬄeshuﬄeisamongthemostcommonmethodstorandomizeadeckofcards. Westudyaparameterized
+model for riﬄe shuﬄes called p-shuﬄes, deﬁned as follows for any p∈ (0,1). From a sorted deck of N cards,
+ﬁrstremovethetopBin(N,p)cardstocreateatopandabottompile. Next,interleavethetwopilesaccording
+to the following rule. If the piles currently have sizes A and B, the next card is dropped from the ﬁrst pile
+with probability    AA+B. Conditioned on the pile sizes, this rule gives a uniformly random interleaving.
+    The case p = 12, known as the Gilbert-Shannon-Reeds (GSR) shuﬄe, is perhaps the most natural model
+for riﬄe shuﬄing.  It was analyzed by Bayer and Diaconis in [BD92] following work of Aldous ([Ald83,()
+Example 4.17]); they proved that             3              log(N) shuﬄes are necessary and suﬃcient to randomize
+                                          2log(2)±o(1)
+a deck.  More precisely for any ε > 0, as N→∞ the total variation distance of the deck from a uniform⌊()⌋⌊(         )          ⌋
+permutation tends to 1 after              3          log(N)     shuﬄes, and tends to 0 after               3          log(N)
+                                       2log(2)−ε                                                        2log(2) +ε
+shuﬄes.  In fact they showed that the total variation distance decays exponentially in C after  3log(N)2log(2) +C
+shuﬄes.
+    By contrast, determining the mixing time for general p-shuﬄes has remained open. This discrepancy is
+because of a special property underpining the analysis in [BD92]:  the deck order after a ﬁxed number of
+GSR shuﬄes is uniformly random conditioned on its number of rising sequences. Therefore to understand
+themixingtimeitsuﬃcestounderstandhowthenumberofrisingsequencesisdistributed. Thisdistribution
+turns out to admit a simple closed form, which enables explicit analysis and a sharp understanding of the
+rate of convergence. When p̸= 12 this conditional uniformity no longer holds and the problem becomes more
+complicated.
+    p-shuﬄes were introduced in [DFP92, Example 7] and further studied in [Lal96, Ful98, Lal00].  These
+works established upper and lower bounds of order log(N) on the mixing time, but with diﬀering constant
+factors.  Interestingly the eigenvalues of the p-shuﬄe chain are given explicitly by certain power sum sym-
+metric functions. This follows from general results regarding random walks on hyperplane arrangements —
+see [BHR99, BD98, Sta01] or the survey [Zha09].
+    Several aspects of riﬄe shuﬄes are surveyed in [Dia03].  Other interesting models arise from modifying
+the interleaving probabilities, such as the Thorpe shuﬄe [Tho73, Mor09, Mor13] and clumpy shuﬄe [JM15].
+
+1.1   Main Result
+
+In this paper we prove that all p-shuﬄes exhibit cutoﬀ. More generally, let p = (p0,...,pk−1) be a discrete
+probability distribution with pi > 0 for each i.   We show cutoﬀ for the more general p-shuﬄes, which
+were also introduced in [DFP92].  To deﬁne such a shuﬄe, one ﬁrst generates a multinomial (N,p) vector
+(n0,...,nk−1) so that each ni has marginal distribution ni∼ Bin(N,pi) and ∑k−1i=0 ni = N holds almost
+surely. One then splits the N cards into k piles by taking the top n0 cards oﬀ the top to form the ﬁrst pile,
+the next n1 cards to form the second pile, and so on.
+    Interleaving the k piles into a single pile is done similarly to the k = 2 case.  Namely, if the current
+remaining pile sizes are A0,...,Ak−1, then the next card is dropped from pile i with probability
+
+                                                              Ai
+                                                  A0+A1+···+Ak−1.                                                           (1.1)
+
+This latter phase is again equivalent to interleaving the k piles uniformly at random conditioned on their
+sizes.  Note that the asymmetry of p appears only in the ﬁrst phase to determine the pile sizes and does), we recover the k-shuﬄe which is the k-partite
+not directly enter the second phase. When p =(1k, 1k,..., 1k
+analog of the GSR shuﬄe. k-shuﬄes exhibit cutoﬀ after  3log(N)2logk±O(1) steps by the same rising sequence
+analysis as in the k = 2 case ([BD92]).
+    To state our main result for general p-shuﬄes, we must deﬁne several constants.  With arbitrary tie-
+breaking, set imax = argmaxi∈{0,1,...,k−1}(pi) and pmax = pimax.  Similarly deﬁne imin and pmin.  Deﬁne the
+
+
+                                                               2
+
+--- PDF PAGE 3 ---
+functions
+                                                   k−1∑
+                                         φp(t) =        pti,       ψp(t) =−logφp(t).
+                                                    i=0
+Deﬁne the positive constant θp by the identity ψp(θp) = 2ψp(2), i.e.
+
+                                                    k−1∑         (k−1∑    )2
+                                        φp(θp) =         pθpi   =       p2i   =φp(2)2.
+                                                     i=0           i=0
+This uniquely determines θp because φp and ψp are strictly monotone. Finally deﬁne the constants Cp,˜Cp,
+and  Cp as follows.
+
+                                                  Cp = 3+θp4ψp(2) =  3+θp2ψp(θp),
+
+                                                  ˜Cp =         1
+                                                         log(1/pmax),
+                                                  Cp = max(˜Cp,Cp).
+We can now state our main result.
+Theorem 1. The p-shuﬄes undergo total variation cutoﬀ after                    Cplog(N) steps. That is, for any ε> 0,
+
+                                            N→∞dN(⌊(1−ε)lim       Cplog(N)⌋) = 1,                                                  (1.2)
+
+                                            N→∞dN(⌊(1+ε)lim       Cplog(N)⌋) = 0.                                                  (1.3)
+
+Here dN(K) denotes the total variation distance from uniform after p-shuﬄing K times.
+
+    It is easy to see that     Cp is symmetric and continuous in the entries of p.  In the next proposition we
+show that for any k, the fastest possible mixing for any p = (p0,...,pk−1) occurs in the symmetric case).
+p =(1k, 1k,..., 1k
+Proposition 1.1. For any k,          Cp has minimum value      3                                                         ). More-
+                                                                   2logk achieved uniquely at p =(1k, 1k,..., 1k
+over for any p,                      [     3              )                    [    1            )
+                              Cp∈      2ψp(2),     74ψp(2)      and   ˜Cp∈       ψp(2),    2ψp(2)   .
+
+    It also follows from Proposition 1.1 that for any p, cutoﬀ occurs in total variation occurs strictly sooner
+than in the L∞ and separation distances.  Quite precise results for these alternative notions of mixing are
+shown in [ADS12] by diﬀerent methods, for the same asymmetric riﬄe shuﬄes that we study. In particular,
+cutoﬀ occurs in both of these distances after 2log(N)ψp(2)±O(1) shuﬄes. Recall that separation and L∞ distance
+always upper-bound total variation distance, so only the strictness of the resulting inequality
+                                                             2       Cp
+                                                          ψp(2) >
+between mixing time growth rates is non-trivial.
+Proof of Proposition 1.1. When p =(1                       )it is easy to see that θp = 3 and φp(2) = 1
+                                               k, 1k,..., 1k                                                     k. Therefore
+
+                                                 Cp =     32logk >    1logk = ˜Cp.
+The valueφp(2) is symmetric and strictly convex inp, hence achieves unique minimum atp =(1                                       ).
+                                                                                                                    k, 1k,..., 1k
+Moreover θp≥ 3 always holds as Cauchy–Schwarz implies
+                                       (k−1∑     )2     (k−1∑    )    (k−1∑    )     k−1∑
+                           φp(2)2 =           p2i    ≤         p3i  ·       pi    =      p3i =φp(3).
+                                          i=0             i=0           i=0          i=0
+
+                                                                 3
+
+--- PDF PAGE 4 ---
+Therefore Cp achieves unique minimum at p =(1                        ), hence the ﬁrst result.  Moreover θp < 4 also
+                                                         k, 1k,..., 1k
+holds because                                     (k−1∑    )2
+                                                                  k−1∑
+                                       φp(2)2 =         p2i    >      p4i =φp(4).
+                                                    i=0           i=0
+                           [               )
+This shows that Cp∈            3             .  It remains to estimate ˜Cp, and the claimed bounds amount to
+                             2ψp(2),     74ψp(2)
+showing                                                          √
+                                               k−1∑                 k−1∑
+                                                   p2i≤pmax <           p2i.
+                                               i=0                  i=0
+The left inequality holds because
+                                              k−1∑       k−1∑
+                                                   p2i≤      pipmax =pmax
+                                               i=0       i=0
+and the right inequality is clear.
+
+   The primary focus of this paper is showing the upper bound (1.3), i.e. that the mixing time is at most
+Cplog(N). In Section 3 we reduce (1.3) to the estimation of a certain exponential moment, which occupies
+Sections 4 and 5.  In the other direction, Lalley showed mixing time lower bounds of both ˜Cplog(N) and)to be close to uniform. ([Lal00]
+Cplog(N) in [Lal00]. However the latter result required p≈(1k, 1k,..., 1k
+only considered the case k = 2, but the arguments work identically for larger k.) In Section 6 we generalize
+theCplog(N)lowerboundtoallp = (p0,...,pk−1)byreﬁningLalley’sapproach. Forthesakeofcontinuity,
+several of our notational choices, such as the constants Cp and ˜Cp, are adopted from [Lal00]. However we
+reversed the sign of ψp from [Lal00] so that ψp(t)> 0 for all t> 1.
+
+                           Approximate Mixing Times              CplogN for p-Shuﬄes
+       Deck Size        p = 0.5         p = 0.6         p = 0.7        p = 0.8        p = 0.9         p = 0.95
+       52               8.6             9.2             11.3           18             37              77
+       104              10.1            10.8            13.3           21             44              90
+       208              11.6            12.4            15.3           24             51              104
+       520              13.5            14.5            17.9           28             59              122
+       N                2.16logN        2.32logN        2.86logN       4.5logN        9.5logN         19.5logN
+
+Table 1: The values       CplogN are shown for varying deck sizes N and p = (p,1−p). These
+values should be taken as a rough guide because our results are asymptotic in N.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                            4
+
+--- PDF PAGE 5 ---
+Figure 1: The values     Cp for p = (p,1−p) are shown. The blue and red depict the transitions between Cp
+and ˜Cp, which occur at p≈ 0.28 and p≈ 0.72. As p→ 0, the divergence is                  Cp =          1log(1/(1−p)) = 1p +O(1).
+
+2   Preliminaries
+
+Let Pp denote the probability measure on the symmetric group SN given by applying a p-shuﬄe to the
+identity.   Given two discrete probability vectors p = (p0,...,pk−1) and q = (q0,...,qℓ−1) deﬁne their
+convolution
+                                 p∗q≡ (p0q0,p0q1,...,p0qℓ−1,p1q0,...,pk−1qℓ−1).
+This convolution turns out to correspond to shuﬄe composition.
+
+Proposition 2.1 ([DFP92, Example 7]).  Performing a q-shuﬄe followed by a p-shuﬄe is equivalent to
+performing a (p∗q)-shuﬄe. That is,
+                                                     Pp∗Pq =Pp∗q.
+
+    Proposition 2.1 yields an explicit description for the distribution Pp∗K of a deck after K shuﬄes.  For
+instance in the “symmetric” setting of [BD92], it implies that composing a k1-shuﬄe and a k2-shuﬄe results
+in a k1k2-shuﬄe. It will actually be more convenient for us to work with the inverse permutations. We now
+explain how to do this, following [Lal00]. First deﬁne a distribution on sequences
+
+                                                      S = (s1,...,sN)
+
+of length K strings as follows. Generate N strings of length K, all with i.i.d. p-random digits in
+
+                                                   [k]0 ={0,...,k−1}.
+
+
+
+                                                               5
+
+--- PDF PAGE 6 ---
+Figure2: InthisexamplewithN = 10stringsin[k]K0  = [2]30,thelexiographicallysortedsequenceofstringsS
+leadstotheshuﬄegraphG =G(S). Thepermutationπ∈SN isthentransformedintoπG bysortingwithin
+each G-component.  By Proposition 2.2, the inverse (πG)−1 of the resulting permutation has distribution
+Pp∗K.
+
+
+S is obtained by sorting these strings into increasing lexicographic order
+
+                                               s1≤lex s2≤lex···≤lex sN.
+
+Recall that the lexicographic order on strings of the same length is just given by comparing their base k
+values. In general, the lexicographically smaller of two diﬀerent [k]0-strings is the one with the smaller digit
+at the ﬁrst place where their digits diﬀer, or is the shorter string if one string is a preﬁx of the other.
+    Next deﬁne the associated shuﬄe graph G =G(S) on vertex set
+
+                                                    [N] ={1,2,...,N}
+
+in which i,i + 1∈ V(G) are neighbors if and only if si = si+1, and no other edges are in G.  Hence G
+is a union of disjoint paths, which we call G-components.  (We say S and G = G(S) are p-random when
+they are constructed in this way.)  Finally choose a uniformly random permutation π∈SN and deﬁne its
+G-modiﬁcation πG by, within each G-component, sorting the values π(i) into increasing order.  The next
+proposition states that πG is exactly the inverse permutation of a p∗K-shuﬄed deck.
+Proposition 2.2 ([Lal00, Lemma 3]).  Let π∈SN  be uniformly random and G = G(S) be p-random as
+deﬁned above, for some ﬁxed positive integers N and K.  Then the distribution of (πG)−1 is exactly Pp∗K.
+In particular, the total variation distance of πG from uniform equals dN(K).
+
+    In other words, the inverse permutation of a shuﬄed deck can be generated by starting with a uniformly
+random permutation π, and then modifying π to create πG which is increasing on an independently random
+set of subintervals in [N].  After more and more shuﬄes, these subintervals shrink in distribution, leading
+eventually to mixing. In fact, L∞ and separation mixing both correspond to G having no edges with high
+probability, see [Lal00, Corollary 3] and [ADS12]. However because G is random, total variation mixing can
+anddoesoccursooner. Wereferthereaderto[Lal00,Section2]formoreexplanationandexamplesregarding
+Proposition 2.2. In brief, the N sequences si∈ [k]K0  correspond to the sequences of pile-types that each of
+the N cards in the deck appears in during the shuﬄes. The sorting within G-components corresponds to the
+fact that if two cards are in the same pile during all K of the riﬄe shuﬄes, then their relative order must
+be preserved.
+    Throughout the remainder of this paper, we work entirely with this transformed problem. Namely we
+will show that for K≥ (1+ε)CplogN the permutation πG has total variation distance o(1) from uniform,
+while for K≤ (1−ε)CplogN this distance is 1−o(1).
+
+2.1   Intuition Based on an Independent Point Process
+
+There are two main obstructions to mixing which lead to the separate lower bounds of ˜Cp and Cp.  The
+simpler obstruction is that if K≤ (˜Cp− ε)log(N), then some strings will typically occur many times,
+
+
+                                                              6
+
+--- PDF PAGE 7 ---
+so πG will contain an abnormally long increasing substring of length NΩ(1).  Indeed, from the deﬁnition
+˜Cp =         1log(1/pmax)  it follows that after K≤ (˜Cp− ε)log(N) shuﬄes, the expected number of strings with
+sj =iKmax is
+
+                                   E⏐⏐{j∈ [N] :sj =iKmax}⏐⏐ =pKmaxN
+                                                                ≥N−(˜Cp−ε)log(1/pmax)+1
+                                                                ≥NΩε(1).
+
+Sincethenumberofsuchstringsisbinomiallydistributed, itiswell-concentratedarounditsmean. Therefore
+with probability 1−o(1) the p-random shuﬄe graph G contains a length NΩε(1) path, and so πG contains
+an increasing contiguous substring of the same length. However in a uniformly random permutation π, the
+probability to have an increasing substring of length ℓ≥ logN is at most N/(ℓ!) =o(1). Therefore the total
+variation distance from uniform is 1−o(1) when K≤ (˜Cp−ε)log(N).
+    The more complicated obstruction to mixing comes from a fractal set of predictable locations (referred to
+as “cold spots” in [Lal00]) which tend to contain many G-edges. This obstruction, as well as our approach
+to the upper bound, can be motivated by an independent point process heuristic. (See also the last section
+of [Lal00].)  Suppose we observe σ∈ SN  which is generated by either σ = π or σ = πG for uniformly
+random π∈SN and p-random G.  Since the transformation π→ πG simply arranges small subintervals
+into increasing order, let us suppose that we observe only the ascent set A(σ) ={i : σ(i) < σ(i+1)}.  As
+a heuristic, we may treat A(σ) as an independent point process on edges in both the uniform σ = π and
+shuﬄed σ =πG distributions. Speciﬁcally, for each i∈ [N−1] let
+
+                                                ηi≡P[(i,i+1)∈E(G)].
+
+be the probability for (i,i+1) to be an edge in G. Then
+
+                                                 P[(i,i+1)∈A(π)] = 12
+
+while, roughly speaking,
+                                             P[(i,i+1)∈A(πG)]≈ 1+ηi2   .
+
+(TechnicallyP[(i,i+1)∈ A(πG)] should also depend on ηi−1 and ηi+1 but we will ignore this point.) This
+heuristic suggests that the likelihood ratio
+                                                      Pπ∈SN[πG =σ]
+                                                       Pπ∈SN[π =σ]
+evaluated at a uniformly random σ∈SN behaves like the random product
+                                                         ∏     (1±ηi)
+
+
+                                                       i∈[N−1]
+where the± signs are i.i.d. uniform. This product is close to 0 in probability (so mixing has not occured) if
+∑
+  iη2i≫ 1, and is close to 1 in probability (so mixing has occured) if∑iη2i≪ 1.
+    Next observe that even without heuristic assumptions,
+                                                   ∑   η2i =E[E(G,G′)]
+
+
+                                                    i
+is the expected size of the edge-intersection
+
+                                                E(G,G′)≡E(G)∩E(G′)
+
+of two independent p-random shuﬄe graphs G and G′. Therefore it is natural to guess that mixing occurs
+once|E(G,G′)| is typically small. Indeed, the quantity|E(G,G′)| will be crucial throughout. Let us ﬁnally
+summarize how it and related quantities appear in the proofs.
+
+                                                              7
+
+--- PDF PAGE 8 ---
+    To lower bound the mixing time, one identiﬁes deterministic “cold spot” sets H⊆ [N] which typically
+                       1
+contain at least|H|    2+δ G-edges and shows that this implies non-mixing (see Proposition 6.1). The existence
+of such sets H implies in general that E[|E(G,G′)|]≫ 1 (Remark 6.1). Moreover in the independent point
+processmodel,theexistenceofsuchsetsH isessentiallyequivalentto∑iη2i≫ 1. Indeed,if∑iη2i≫Nδ then
+by the dyadic pigeonhole principle it follows that for some positive integer n there are at least Ω(22nNδ/3)
+values i∈ [N−1] with ηi∈ [2−n,2−n+1]. These values of i can be taken for the set H.
+    On the other hand, it can happen thatE[|E(G,G′)|]≪ 1 holds strictly before the onset of total variation
+mixing.  This requires that pmax > max(p0,pk−1) and in particular k≥ 3 — see Remark 5.1.  Instead as
+explained in Section 3, we reduce the mixing time upper bound (1.3) to showing that suitably truncated
+exponential moments of|E(G,G′)| are small.  Estimating these exponential moments is rather involved.
+Our strategy is outlined just before the start of Subsection 3.2, and the proof occupies Sections 4 and 5.
+    These exponential moments arise naturally from considering (after some truncation) a chi-squared upper
+bound for total variation distance (see Lemma 3.3). In fact this seems to be a generally applicable method
+to upper-bound the total variation distance from a mixture of distributions with “random hidden structure”
+to a “null distribution” by controlling the interaction between two independent copies of the “structure” (in
+our setting, the graph G). For instance, a related observation was made in [MP12, Proposition 3.2] and later
+exploited in [LS16, LS17] to analyze information percolation for the Ising model (see also [LS15]).
+
+2.2   Notation
+
+For any M≥ 1 the set [k]M0  consists of all length M strings with digits in [k]0. (All strings throughout the
+paper will have digits in [k]0.) Let
+                                                          S⊆ ([k]K0 )N
+denote the set of all lexicographically non-decreasing sequences S = (s1,...,sN) of N strings with length K
+each. LetG denote the set of all shuﬄe graphs, i.e. subgraphs of the path graph on N vertices. For G∈G,
+letC(G) be the set of G-components, i.e. connected components of G.
+    Deﬁneµp,M, oftenabbreviatedasjustµp, tobetheprobabilitymeasureon[k]M0  witheachdigitindepen-
+dently p-random. By abuse of notation, we also use µp,M or simply µp to denote the associated p-random
+distributions onS orG. We sometimes use square brackets to denote strings written out by their digits. For
+instance [(k−1)(k−1)] indicates the string with two digits of (k−1) while [(k−1)(k−1)0K−2] denotes
+the string with two initial (k−1)-digits followed by K−2 ﬁnal 0-digits. We also occasionally use brackets
+to denote digits of a string, so for instance the digit expansion of a string x may be written
+
+                                                x =x[1]x[2]...x[M]∈ [k]M0 .
+
+    We write Eσ,Eπ,Pσ, and Pπ to denote expectations or probabilities taken over uniformly random per-
+mutations σ or π inSN. We similarly writeES to indicate expectation over S∼µp,K. We will continue to
+use E(G,G′) = E(G)∩E(G′) to denote the edge-intersection of G,G′∈G. S′ and G′ = G(S′) will always
+denote independent copies of S and G.
+    The following deﬁnitions are used to prove Lemma 3.9 at the end of Section 3, and otherwise do not
+appear until Section 4. For each string
+
+                                                x =x[1]x[2]...x[M]∈ [k]M0
+
+with M≥ 1 a positive integer, deﬁne
+
+                                               tx≡Py∼µp,M[y <lex x],                                                                (2.1)
+                                                                            M∏
+                                              λx≡Py∼µp,M[y =x] =               px[i],                                                    (2.2)
+                                                                           i=1
+                                              Jx≡ [tx,tx+λx).                                                                         (2.3)
+
+
+
+                                                                 8
+
+--- PDF PAGE 9 ---
+Hence the intervals (Jx)x∈[k]M0  partition [0,1) for any ﬁxed M. Note that
+
+                                             tx+λx =Py∼µp,M[y≤lex x].
+
+It will often be useful to observe that to sample a p-random string x∈ [k]M0 , one may equivalently sample a
+uniform random variable a∈ [0,1] and take the unique x with a∈Jx. Similarly to sample (s1,...,sN)∈S,
+one may instead sample uniform i.i.d.
+                                                   a′1,...,a′N∈ [0,1],
+sort them into increasing order
+                                                 0≤a1≤···≤aN≤ 1,
+and ﬁnally choose si∈ [k]K0  such that ai∈Jsi for each i∈ [N].
+
+
+
+
+
+
+
+
+             Figure 3: The partition [0,1) =⋃                                                                ).
+                                                    x∈[k]M0  Jx with k = 2,M = 2, and (p0,p1) =(13, 23
+
+
+3   Upper Bound Approach
+
+Here we explain some of the ingredients used to prove the mixing time upper bound (1.3). In Subsection 3.1
+we present the more conceptual parts, ultimately reducing (1.3) to a certain exponential moment estimate.
+In Subsection 3.2 we prove a few other lemmas used in Subsection 3.1. This section might be viewed as an
+extended setup for the more diﬃcult parts of the proof.  For instance the constant Cp does not explicitly
+enter until the next section. However we emphasize that the results of this section are both speciﬁc to the
+particular problem considered and essential to understand the remainder of the paper.
+
+3.1   High-Level Approach
+
+WebeginbycarefullyexaminingtheRadon–NikodymderivativebetweenthedistributionsofπG andπ where
+π is a uniformly random permutation. For each G∈G, letC(G) ={G1,...,Gj} be the G-components, and
+suppose that each Gi contains vi vertices. Then it is easy to see that the mapSN→SN given by π→πG(∏j)
+is    i=1vi!    to 1. Moreover its image consists of those σ with σG =σ. Therefore
+                                                               ∏j
+                                     Pπ[πG =σ] = 1σ=σG·           i=1vi!
+                                                                  N!    ,   σ∈SN.
+As a consequence, for ﬁxed G∈G the Radon–Nikodym derivative fG,σ of πG with respect to π is given by
+
+                                                 fG,σ≡ Pπ[πG =σ]Pπ[π =σ]
+
+                                                      =N!·Pπ[πG =σ]
+                                                                   j∏
+                                                      = 1σG=σ·        vi!
+                                                                  i=1
+                                                      =     1σG=σPπ[πG =π].
+
+
+                                                             9
+
+--- PDF PAGE 10 ---
+Observe that for ﬁxed G∈G,
+                                                         Eσ[fG,σ] = 1.                                                                  (3.1)
+On the other hand for ﬁxed σ and µp,K-random G = G(S), we may apply the law of total expectation to
+the second deﬁnition of fG,σ above. This implies that for ﬁxed σ,
+
+                                              Pπ,S[πG(S) =σ] = ES[fG(S),σ]N!      .
+
+Therefore the total variation distance to uniform after K shuﬄes is given by
+
+                                            dN(K) = 12·Eσ⏐⏐ES[fG(S),σ−1]⏐⏐.
+
+Next, we use a chi-squared upper bound for total variation distance after removing exceptional sequences
+fromS. To carry this out, given a partitionS =S1∪S0 (whereS1 consists of “typical” sequences), write
+
+                Eσ⏐⏐ES[fG(S),σ−1]⏐⏐≤Eσ⏐⏐ES[(fG(S),σ−1)1S∈S1]⏐⏐+Eσ⏐⏐ES[(fG(S),σ−1)1S∈S0]⏐⏐
+                                         ≤Eσ⏐⏐ES[(fG(S),σ−1)1S∈S1]⏐⏐+Eσ,S[(fG(S),σ +1)1S∈S0]
+
+                                         (3.1)= Eσ⏐⏐ES[(fG(S),σ−1)1S∈S1]⏐⏐+2µp(S0).                                        (3.2)
+
+Take S′ to be an independent copy of S and deﬁne for any shuﬄe graphs G,G′∈G
+
+                                                    fG,G′≡Eσ[fG,σfG′,σ].
+
+We now use the Cauchy–Schwarz inequality to upper-bound the main term of (3.2) via
+                  (Eσ⏐⏐ES[(fG(S),σ−1)1S∈S1]⏐⏐)2≤Eσ[(ES[(fG(S),σ−1)1S∈S1])2]
+
+                                                        =EσES,S′[(fG(S),σ−1)(fG(S′),σ−1)1S,S′∈S1]
+                                                        =EσES,S′[(fG(S),σfG(S′),σ−1)1S,S′∈S1]
+                                                        =ES,S′[(fG,G′−1)1S,S′∈S1].                                          (3.3)
+
+    The second equality holds by switching the order of expectation and using (3.1). Starting from (3.3) and
+throughout the remainder of the paper, we set G = G(S),G′ = G(S′). Based on (3.3), to establish mixing
+it remains to show that fG,G′ rarely exceeds 1 in an L1 sense (modulo choosingS1 andS0).
+    We will upper-bound fG,G′ using the number|E(G,G′)| of edges shared by G and G′. As motivation for
+why such a relationship should exist, observe that if no vertex i∈ [N] is incident to both a G-edge and a
+G′-edge, then fG,σ and fG′,σ areexactly independent for σ∈SN uniformly random. Hence in this case we
+have the exact equality
+                                   fG,G′ =Eσ[fG,σfG′,σ] =Eσ[fG,σ]Eσ[fG′,σ] (3.1)=  1.
+In fact Lemma 3.1 below implies that fG,G′≤ 1 holds whenever|E(G,G′)| = 0.  In essence, incident but
+non-overlapping edges only reduce fG,G′. It is now unsurprising that fG,G′ can be bounded above by some
+function of|E(G,G′)|. We show in Lemma 3.3 that this dependence is at most exponential when a condition
+called L-sparsity holds for both G and G′.   The requirement of L-sparsity will be part of the eventual
+deﬁnition ofS1.
+    In general, for any shuﬄe graphs G and G′, deﬁne the new shuﬄe graph U to be their edge-union with
+U-componentsC(U). The next lemma shows how to estimate fG,G′ based on the intersection structure of G
+and G′. The proof is deferred to the next subsection.
+
+Lemma 3.1. Suppose the U-components have vertex-sizes (u1,...,uc). Then
+
+                                                fG,G′≤       ∏              (ui!).                                                      (3.4)
+                                                               1≤i≤c,
+                                                          E(Ui)∩E(G,G′)̸=∅
+
+                                                                10
+
+--- PDF PAGE 11 ---
+    We now deﬁne the ﬁrst condition that “typical” sequences inS1 must satisfy. The objective is to ensure
+that the ui in Lemma 3.1 are uniformly bounded by some constant L = L(p,ε). Let us point out that it is
+not enough to argue that maxi(ui)≤ L holds with high probability over random pairs (S,S′). Indeed, the
+truncation step (3.2) was used to removeS0 before applying Cauchy–Schwarz to introduce S′. There is no
+analogous way to remove an arbitrary low-probability subset of pairs (S,S′)∈S. It is therefore important
+that the deﬁnition of L-sparsity below implies maxi(ui)≤L via separate restrictions on G and G′.
+
+Deﬁnition 3.2. For L≥ 10 a positive integer, a shuﬄe graph G isL-sparse if within any discrete interval
+{i,i+1,...,i+L−1}⊆ [N] of L consecutive vertices, at most L/3 (of the possible L−1) edges are in E(G).
+
+Lemma 3.3. Suppose G and G′ are L-sparse shuﬄe graphs. Then fG,G′≤ (L!)|E(G,G′)|.
+
+Proof. We claim that maxi(ui)≤ L, i.e.  each U-component contains at most L vertices.  Indeed by L-
+sparsity, U contains at most  2L3  <L−1 edges within each subinterval of L vertices, hence no such interval
+can be a connected subgraph of U. Therefore Lemma 3.1 implies that
+
+                                               fG,G′≤       ∏              (L!).
+                                                              1≤i≤c,
+                                                        E(Ui)∩E(G,G′)̸=∅
+
+By deﬁnition,|E(G,G′)| is at least the number of components Ui satisfying E(Ui)∩E(G,G′)̸=∅.  This
+completes the proof.
+
+    Given Lemma 3.3,  our main remaining task is to control the (truncated) exponential moments of
+|E(G,G′)|. For technical reasons outlined at the end of this subsection, we will cover E(G,G′) by a union
+E(G,G′) =Eforward(G,G′)∪Ebackward(G,G′) of two sets which omit lexicographically late and early strings
+respectively. To ensure that E(G,G′) can be covered in this way for G,G′∈S1, we add a second restriction
+to the deﬁnition ofS1 called regularity. This amounts to requiring that both preﬁxes [00] and [(k−1)(k−1)]
+appear with roughly the expected frequency among the strings (s1,...,sN) of S.
+Deﬁnition 3.4. The sequence S = (s1,...,sN)∈S of strings is regular if at most(p20+ p0pk−1                        )N strings
+                                                                                   )N strings begin with [(k−1)(k−1)]2
+si begin with [00] (two consecutive 0 digits) and at most(p2k−1+ p0pk−12
+(two consecutive (k−1) digits).
+
+Lemma 3.5. For any p and ε> 0 there exist L =L(p,ε)∈Z+ and δ =δ(p,ε)> 0 such that the following
+holds. Consider a p-random sequence S = (s1,...,sN) of strings of length K≥ (˜Cp+ε)log(N). Then with
+probability 1−O(N−δ), S is regular and G(S) is L-sparse.
+
+    The proof is deferred to the next subsection.S1 can now be deﬁned: it consists of the regular sequences
+S for which G(S) is L-sparse for L =L(p,ε) as in Lemma 3.5. Then Lemma 3.5 exactly states that
+
+                                                     µp(S0) =O(N−δ)
+
+for some small δ =δ(p,ε).
+    We remark that the convergence rate O(N−δ) eventually appears as the upper bound for the total
+variation distancetouniformity (see(3.5)andthe nextdisplayed equations inthatproof). Therate O(N−δ)
+seems to be tight in e.g. Proposition 4.1 via Lemma 4.15. As a result we use this rate in the statement of
+Lemma 3.5 although it could be improved. In fact the probability for S to be regular is at least 1−e−Ωp(N).
+The probability for G(S) to be L-sparse can be made at most e−CN for any desired C > 0, if L =L(C,p,ε)
+is taken suﬃciently large.
+    Next we show how to cover E(G,G′) when S and S′ are regular.
+
+Deﬁnition 3.6. Let Eforward(G) consist of all edges (i,i+1)∈E(G) for which the strings si =si+1 do not
+begin with preﬁx [(k−1)(k−1)].  Let Eforward(G,G′) = Eforward(G)∩Eforward(G′).  Deﬁne Ebackward(G,G′)
+in the same way but with [(k−1)(k−1)] replaced by [00].
+
+
+                                                              11
+
+--- PDF PAGE 12 ---
+               Lemma 3.7. If S,S′∈S are regular, then
+
+                                                 |E(G,G′)|≤|Eforward(G,G′)|+|Ebackward(G,G′)|.
+
+               Proof. Regularity implies that Eforward(G,G′) contains all shared edges (i,i+1)∈E(G,G′) with
+
+                                                            i≤ (1−p2k−1−(p0pk−1/2))N,
+
+               and Ebackward(G,G′) contains all shared edges (i,i+1)∈E(G,G′) with
+
+                                                                i≥ (p20+(p0pk−1/2))N.
+
+               Since
+                                                       p20+p0pk−1+p2k−1 < (p0+pk−1)2≤ 1
+               we obtain
+                                                 (p20+(p0pk−1/2))N≤ (1−p2k−1−(p0pk−1/2))N.
+               Therefore
+                                                    Eforward(G,G′)∪Ebackward(G,G′) =E(G,G′)
+               which implies the result.
+
+                   Using symmetry to suppress the identical case of Ebackward, to establish the mixing time upper bound in
+               Theorem 1 it remains to verify the following lemma.
+
+               Lemma 3.8.  For any p and positive reals ε and t, there is δ = δ(p,ε,t) such that if K≥ (Cp +ε)log(N)
+               then
+                                                           E[et·|Eforward(G,G′)|]≤ 1+O(N−δ).
+
+                   Indeed, the mixing time upper bound (1.3) in Theorem 1 easily follows from the results above as we show
+               now.
+
+               Proof of  (1.3). Let δ > 0 be suﬃciently small depending on (p,ε,L,t), some of which are yet to be chosen.
+               By (3.2) and (3.3),
+
+                                                dN(K) = 12·Eσ⏐⏐ES[fG(S),σ]−1⏐⏐
+                                                                √
+                                                         ≤ 12·    ES,S′[(fG,G′−1)1S,S′∈S1]+µp(S0).                                    (3.5)
+
+               (It follows from (3.3) that the expression inside the square-root is non-negative.)  Since µp(S0) = O(N−δ)
+               by Lemma 3.5, it remains to estimateES,S′∈S[(fG,G′−1)1S,S′∈S1]. Using Lemma 3.3 in the ﬁrst step, then
+               Lemma 3.7 and ﬁnally Lemma 3.8 with t = 2log(L!), we obtain
+                                                                     (                    )
+                         ES,S′∈S[(fG,G′−1)1S,S′∈S1]≤ES,S′[             (L!)|E(G,G′)|−1      1S,S′∈S1]
+                                                                 (                                          )
+                                                            ≤E[    (L!)|Eforward(G,G′)|+|Ebackward(G,G′)|−1   1S,S′∈S1]
+
+                                                            ≤E[(L!)|Eforward(G,G′)|+|Ebackward(G,G′)|−1]
+
+                                                            ≤ E[(L!)2|Eforward(G,G′)|]+E[(L!)2|Ebackward(G,G′)|]2        −1
+                                                            ≤O(N−δ).
+
+               Combining the above, we conclude that dN(K)≤O(N−δ) when K≥ (Cp+ε)log(N).
+
+
+
+
+
+                                                                             12
+
+
+
+
+Lemma 3.7
+
+
+
+
+
+Lemma 3.8
+
+--- PDF PAGE 13 ---
+    The above constitutes a complete proof for the upper bound, except that Lemmas 3.1, 3.5 and 3.8 are
+yet to be proved. The ﬁrst two are not diﬃcult and are handled in the next subsection. Lemma 3.8 is more
+challenginganditsproofoccupiesSections4and5. WenowoutlineourapproachtoLemma3.8,whichstarts
+from the following basic fact.  Suppose X∈ N is a non-negative integer-valued random variable satisfying
+the uniform hazard rate bound
+                                            sup
+                                            j≥0P[X≥j +1|X≥j]≤O(N−δ)                                                 (3.6)
+for some δ > 0.  Then X is stochastically dominated by a geometric random variable with mean O(N−δ),
+and thereforeE[etX] = 1+O(etN−δ) = 1+o(1) for any constant t. To prove Lemma 3.8, we will implement
+this idea with X =|Eforward(G,G′)|.  We explore G and G′ by revealing their strings together in order, so
+that
+                                              (s1,...,si)    and    (s′1,...,s′i)
+have been revealed at time i∈ [N]. We show that at any time, the expected number of unrevealed edges in
+Eforward(G,G′) is at most O(N−δ). That is, almost surely,
+                           [⏐⏐Eforward(G,G′)|{i,i+1,...,N}⏐⏐⏐⏐⏐ (s1,...,si,s′1,...,s′i)]
+                         E                                                                  ≤O(N−δ).                        (3.7)
+
+(Here we write Eforward(G,G′)|{i,i+1,...,N} to indicate the set of edges (j,j+1)∈Eforward(G,G′) with j≥i.)
+The estimate (3.7) readily implies Lemma 3.8 analogously to the above discussion on (3.6). See Lemma 5.4
+for a detailed proof.
+    As a ﬁrst step towards establishing (3.7), in Section 4 we prove for K≥ (Cp+ε)log(N) the weaker ﬁrst
+moment bound
+                                                  E[|E(G,G′)|]≤O(N−δ).                                                         (3.8)
+In Section 5 we use (3.8) to show (3.7). The idea is to group the set of possible future strings
+
+                                                    {s∈ [k]K0  :s≥lex si}
+
+into a small number of blocks. Here each block Bx consists of all strings beginning with some preﬁx x∈ [k]M0
+(where M =M(x) depends on x). Such a block Bx is essentially equivalent to a copy of [k]K−M0      . The idea
+is to ﬁrst estimate the left-hand side of (3.7) by a sum over blocks (using Cauchy–Schwarz several times),
+and to then estimate the contribution of each block using (3.8). The total number of blocks will always be
+O(logN)≤No(1). Therefore summing over blocks is no problem (up to adjusting the value of δ slightly) as
+long as the hypothesis of (3.8) applies “within” each block.
+    ToillustratethekeyreasonforintroducingEforward,letusexplainwhy(3.7)canbefalseifEforward(G,G′)
+is replaced by E(G,G′).  Suppose that si = s′i = [(k−1)K] holds for some i∈ [N].  Then conditioning on
+(si,s′i) forces sj = s′j = [(k−1)K] for all j > i.  Hence E(G,G′) must contain all the edges (i,i+1),(i+
+1,i+2),...,(N−1,N) and so
+                              [⏐⏐E(G,G′)|{i,i+1,...,N}⏐⏐⏐⏐⏐ (s1,...,si,s′1,...,s′i)]
+                           E                                                            =N−i+1.
+
+However working with Eforward(G,G′) prevents such situations by halting exploration once either si or s′i
+becomestoolexicographicallylate. Thiscircumventstheaboveobstructionbecausetheleft-handsideof (3.7)
+is trivially 0 unless a lot of “space” in [k]K0  remains available for future strings (si+1,...,sN,s′i+1,...,s′N).
+    In fact, this guaranteed available space is also directly helpful in implementing the block decomposition
+strategy outlined above.  Namely for any preﬁx x∈ [k]M0 , it ensures that the distribution for the number
+of strings (si+1,...,sN) starting with x cannot increase too much from conditioning on (s1,...,si) (see
+Lemma 5.6 for a precise statement). This is important because when applying (3.8) to the block of strings
+starting with some preﬁx x, we replace N by the number of strings starting with x (and also replace K by
+K−M). In short, we must ensure that the hypothesis of (3.8) holds within each block.
+
+
+
+
+
+                                                                13
+
+--- PDF PAGE 14 ---
+3.2   Proof of Lemmas 3.1 and 3.5
+
+Here we prove Lemmas 3.1 and 3.5, thus reducing the proof of the mixing time upper bound (1.3) to
+establishing Lemma 3.8.
+
+Proof of Lemma 3.1. Let(v1,...,va)bethevertex-sizesoftheG-componentsand(w1,...,wb)bethevertex-
+sizes of the G′-components.
+    We ﬁrst claim that                               (∏a
+                                           fG,G′ =        i=1vi!)·(∏b∏c j=1wj!)
+
+                                                                 ℓ=1uℓ!           .                                                   (3.9)
+Indeed this follows by writing
+
+                                fG,G′ =Eσ[fG,σfG′,σ]                                    
+                                                                  ( a∏      )      b∏
+                                       =Eσ   1σG=σ·1σG′=σ·              vi!  ·      wj!
+
+                                                                     i=1          j=1
+                                                        ( a∏     )             
+                                                                         b∏
+                                       =Eσ[1σU=σ]·            vi!   ·      wj!
+
+                                                          i=1           j=1
+                                          (∏a
+                                       =      i=1vi!)·(∏b∏c  j=1wj!)
+
+                                                     ℓ=1uℓ!           .
+Decomposing the product in (3.9) based on the components Ui∈C(U) implies
+
+                                                    fG,G′ =∏     fG,G′,Uℓ                                                            (3.10)
+                                                               ℓ
+where we deﬁne                                    (∏              )  (∏               )
+                                                      i:Gi⊆Uℓvi!    ·     j:G′j⊆Uℓwj!
+                                     fG,G′,Uℓ≡                     uℓ!                      .
+
+Observe that in general, for any positive integers m1,...,mn,M with
+
+                                                   n∑
+                                                      (mi−1)≤M−1,
+                                                  i=1
+one has∏ni=1mi!≤ M!. Indeed both sides can be written as a product of at most M−1 integers at least
+2, and the M−1 numbers appearing in the product for M! are clearly larger. In particular, this holds for
+M = uℓ whenever m1,...,mn are the vertex-sizes of edge-disjoint subinterval graphs of V(Uℓ). It directly
+implies
+                                                        ∏
+                                                               vi!≤uℓ!,
+                                                      i:Gi⊆Uℓ
+                                                       ∏      wj!≤uℓ!
+
+
+                                                     j:G′j⊆Uℓ
+
+from which it follows that fG,G′,Uℓ≤ uℓ! holds. Moreover if Uℓ does not contain any edge in E(G,G′) then
+the G-components and G′-components are collectively edge-disjoint. Hence for such Uℓ,
+                                                                        
+                                            ∏       vi!·    ∏       wj!≤uℓ!
+
+                                            i:Gi⊆Uℓ           j:G′j⊆Uℓ
+
+which implies fG,G′,Uℓ≤ 1. Substituting these estimates into (3.10) implies (3.4).
+
+
+                                                              14
+
+--- PDF PAGE 15 ---
+   The next lemma is used to show Lemma 3.5.
+Lemma 3.9.  For K≥ (˜Cp +ε)log(N), there is δ(p,ε) > 0 so that the following holds.  Conditioned on
+any initial strings s1,s2,...,si, none of which begin with [(k−1)(k−1)], the conditional probability that
+si =si+1 is at most O(N−δ).
+
+Proof. Recall the deﬁnitions (2.1), (2.2), (2.3) and the subsequent discussion.  We use the sampling model
+of N i.i.d.-then-sorted uniform random variables, letting
+                                              0≤a1≤a2≤···≤aN≤ 1
+be uniformly random before being sorted and then choosing sj such that aj∈Jsj for each 1≤j≤N.
+   Recall that we condition on si. Let us now condition further on the value ai∈Jsi. Then the remaining
+numbers aj for j > i are, up to sorting, conditionally i.i.d.  in [ai,1].  The crucial observation is that the
+interval [ai,1] has length lower bounded by 1−ai≥p2k−1≥p2min. Indeed, ai < 1−p2k−1 is equivalent to the
+assumptionthatsi doesnotbeginwith[(k−1)(k−1)]. (Forinstance, notethatJ[(k−1)(k−1)] = [1−p2k−1,1).)
+Meanwhile the length of Jsi is λsi.
+   Combining these observations, it follows that the conditional distribution for the number of j > i with
+sj = si is stochastically dominated by a Bin(N,p−2minλsi) random variable, regardless of the value ai.  Av-
+eraging over the unknown ai, the same stochastic domination holds conditioned on just (s1,...,si).  Since
+K≥ (˜Cp+ε)log(N) was assumed,
+                                                λsi≤ (pmax)K≤N−1−δ.
+The result now follows.
+
+Proof of Lemma 3.5. The regularity readily follows from Chernoﬀ estimates so we focus only on the L-
+sparsity. First, Lemma 3.9 implies thatP[si+1 =si|(s1,...,si)]≤O(N−δ) whenever si <lex [(k−1)(k−1)].
+A simple Markovian coupling now implies that the set of edges formed by strings si <lex [(k−1)(k−1)]
+is stochastically dominated by instead choosing each edge independently with probability O(N−δ).   By
+symmetry the same holds for edges formed by strings starting with [(k−1)(k−1)]. Call these ordinary edges
+and ﬁnal edges, respectively.
+   AsimpleChernoﬀboundimpliesthatforL≥ 1000δ−1,eachinterval{i,i+1,...,i+L−1}ofLconsecutive
+vertices contains at most L/6 ordinary edges and at most L/6 ﬁnal edges with probability 1−OL(1N2).
+Since L/6+L/6 =L/3, union bounding over at most N such length-L intervals shows that L-sparsity holds
+with probability at least 1−O(N−1)≥ 1−O(N−δ).
+
+4   Upper Bounding the Expected Shared Edges
+
+Deﬁne the constant                             (                                )
+                                  Cp≡ max        Cp,       1log(1/p0),         1log(1/pk−1)≤Cp.
+
+The purpose of this section is to prove the following crucial result.
+Proposition 4.1. For any ε> 0, if K≥(Cp+ε)log(N) holds then
+
+                                             E[|E(G,G′)|]≤O(N−Ωp(ε)).
+
+   Weeventuallyneedtocontrolthe(truncated) exponential momentsofE(G,G′). HoweverProposition4.1
+is the most involved part of upper-bounding the mixing time, and the value Cp =   3+θp4ψp(2) emerges naturally
+in its proof.  We note that for our main goal of establishing cutoﬀ, proving Proposition 4.1 only for K≥
+(Cp+ε)log(N)wouldsuﬃcejustaswell. HoweverthereisnoadditionaldiﬃcultyinprovingProposition4.1
+
+as stated. Moreover the case Cp̸=        Cp amounts to an interesting discrepancy between the ﬁrst moment and
+exponential moment behavior of|E(G,G′)|. See Remark 5.1 for more discussion of this point.
+   Let us mention that after further preparation in Subsection 4.1, we provide in Subsection 4.2 a proof
+outline for Proposition 4.1.
+
+
+                                                             15
+
+--- PDF PAGE 16 ---
+4.1   Preparation for the Upper Bound Proof
+
+We now introduce several more technical deﬁnitions. As a convention, p and ε will be treated as ﬁxed, while
+δ =δ(p,ε) will be taken suﬃciently small. As before G and G′ will always be independentp-random shuﬄe
+graphs. Moreover s will denote strings of length K while x will denote strings of arbitrary length M≤K.
+
+
+4.1.1   Lexicographic Subintervals and Blocks
+
+
+
+
+
+
+
+
+
+
+
+                         Figure 4: The blocks B00 and B1 are shown for k = 2 and K = 3.
+
+
+
+For a string x of length M, deﬁne its block Bx⊆ [k]K0  to be the set of strings of length K beginning with x.
+Hence Bx consists of kK−M strings. Given a lexicographically sorted sequence (s1,...,sN)∈S of strings,
+deﬁne the discrete intervalI(Bx)⊆ [N] by
+
+                               I(Bx)≡{i∈ [N] :si∈Bx} ={ι(x),ι(x)+1,...,τ(x)}.
+
+In general, we deﬁne
+
+                 ι(x) =|{i∈ [N] :si <lex x}|+1,       τ(x) =|{i∈ [N] :si <lex x or si∈Bx}|.
+
+This ensures|I(Bx)| =τ(x)−ι(x)+1 even ifI(Bx) is empty. Observe that for ﬁxed x (recall the deﬁnitions
+(2.1) and (2.2)),
+
+                                                 |I(Bx)|∼ Bin(N,λx),                                                               (4.1)
+                                                     ι(x)∼ Bin(N,tx)+1,                                                          (4.2)
+                                                    τ(x)∼ Bin(N,tx+λx).                                                        (4.3)
+
+    Finally deﬁne GBx to be the induced subgraph of G with vertex setI(Bx), which retains the edges
+(i,i+1)∈E(G) such that si =si+1∈Bx. Denote its edge set by E(GBx).
+
+
+4.1.2   Entropy
+
+We will require the entropy function.  Given any k-tuple of non-negative real numbers (a0,...,ak−1) with
+sum atot, let                                                    ∑k−1           (     )
+                                                                                  atot
+                                                                    i=0 ailog      ai
+                                          H(a0,...,ak−1) =                atot
+
+be the entropy of the discrete probability distribution with weights (ai/atot)k−1i=0 . If a0 =··· = ak−1 = 0
+then set H(a0,...,ak−1) = 0.  The following result allows approximation of multinomial coeﬃcients using
+entropy. (The values ailog(N) correspond to the normalization in Deﬁnition 4.3 just below.)
+
+
+
+
+
+                                                                16
+
+--- PDF PAGE 17 ---
+Proposition 4.2 ([CS04, Lemma 2.2]). For ﬁxed A≥ 0 and any non-negative real numbers a0,...,ak−1∈
+[0,A] satisfying ailog(N)∈Z,
+                                                  (           atotlog(N)            )
+                  NatotH(a0,...,ak−1)−oN(1)≤        a0log(N),...,ak−1log(N)            ≤NatotH(a0,...,ak−1).
+
+Here the term oN(1) tends to 0 for any ﬁxed A as N→∞, uniformly in the values a0,...,ak−1∈ [0,A].
+
+    The following special deﬁnitions will also be convenient. For t> 0, let pt be the probability distribution
+on [k]0 given by (pt)i =    pti
+                             φp(t). Deﬁne
+
+                                                             k−1∑                    k−1∑ ptilog(1/pi)
+                   I(p,pt)≡DKL(pt||p)+H(pt) =                    (pt)ilog(1/pi) =             φp(t)     > 0.                 (4.4)
+                                                             i=0                      i=0
+It is not diﬃcult to verify the identity
+                                         H(pt) =t·I(p,pt)−ψp(t),   t∈R+.                                               (4.5)
+
+4.1.3   Digit Proﬁle
+
+Here we deﬁne several notions based on the digit proﬁle of a string, which tracks how many of each digit a
+string contains, as well as initial digits of 0 or k−1.
+Deﬁnition 4.3. For a string x∈ [k]M0 , the digit proﬁle of x is the (k+2)-tuple
+                                  (b0(x),bk−1(x),c0(x),...,ck−1(x))∈ (Z/logN)k+2
+
+of non-negative real numbers summing to b0 +bk−1 +∑k−1i=0 ci =     Mlog(N) deﬁned as follows. b0log(N) is the
+number of initial 0-digits in x and bk−1log(N) is the number of initial (k−1)-digits (so min(b0,bk−1) = 0).
+After the ﬁrst (b0+bk−1)log(N) digits, x contains cilog(N) digits of i for each i∈ [k]0.
+
+    The normalization     1logN above is taken so that the total sum    MlogN is of constant order. We next deﬁne
+constants depending on the digit proﬁle of x. Let
+
+                                                                 k−1∑
+                                                     ctot(x) =        ci(x)
+                                                                 i=0
+be the number of digits in x after the initial 0 or initial (k−1) digits. Also deﬁne
+                                       ( 1   )              (  1    )     k−1∑       (1   )
+                 cL(x)≡ 1−b0log           p0   −bk−1log       pk−1     −      cilog    pi    = 1+logN(λx),
+                                        (   )              (      )       i=0
+                            1−b0log       1    −bk−1log        1
+                                          p0                 pk−1
+                 cF(x)≡                        2                        ,
+                                                            (    )              (      )
+                                                 1−b0log       1   −bk−1log        1        k−1∑       (1   )
+                                                              p0                  pk−1
+                 cD(x)≡cL(x)−cF(x) =                                2       −                    cilog    pi   ,
+                            (M−K       )            (                               )       i=0
+                 cE(x)≡        logN       ψp(2) =     b0+bk−1+ctot−   KlogN            ψp(2)< 0,
+
+                 cX(x)≡ctotH(c0,...,ck−1)+5cL−2cF +2cE.
+Finally say x is δ-stable if
+                                                   cL(x)−cF(x)∈ [δ,2δ].                                                           (4.6)
+The typical size of|I(Bx)| is NcL while NcF is the order of ﬂuctuations for ι(x) and τ(x). cE is related to
+the typical number of G-edges coming from strings in Bx. cX is related to the typical number of G-edges
+coming from strings of the same digit proﬁle as x.  Note that when b0 = bk−1 = 0 we have cF  =  12.  As
+explained in the next subsection, this corresponds to ι(x) and τ(x) having ﬂuctuations of order N1/2.
+
+
+                                                               17
+
+--- PDF PAGE 18 ---
+4.2   Proof Outline for Proposition 4.1
+
+We now outline the proof of Proposition 4.1. Except for the end of this outline we will only consider strings
+x with b0(x) = bk−1(x) = 0 so that the interval Jx∈ [0,1] is a constant distance from the boundary points
+{0,1}. We will take δ≪ ε to be a small constant, and simply write δ when a constant multiple such as 4δ
+would be technically correct. Since we are targeting an upper bound O(N−Ωp(ε))in Proposition 4.1, factors
+of NO(δ) can usually be thought of as small.
+    The ﬁrst idea is to start from the empty block B∅ = [k]K0  and recursively reﬁne the partition of [k]K0  by
+decomposing a block Bx into k smaller blocks via
+
+                                                        Bx = ⋃       Bxi.
+                                                               i∈[k]0
+
+For example when k = 2 such a reﬁnement might proceed as
+
+                                        B∅→B0∪B1→B00∪B01∪B1 = [2]K0 .
+
+We recursively reﬁne the partition B∅ in this way until each block Bx in the partition has size µp(Bx)≈
+N−12+δ; this is formally carried out in Lemma 4.5.  The set of strings x used in the resulting partition is
+denoted byLstable, so that we obtain
+
+                                   [k]K0  =   ⋃      Bx,     and    [N] =   ⋃          I(Bx).                                      (4.7)
+                                            x∈Lstable                        x∈Lstable
+
+as in Lemma 4.6. The ﬁrst and last indices ι(x) and τ(x) ofI(Bx) are (non-independent) binomial random
+variables with N trials, hence each ﬂuctuate by at most O(N1/2) with high probability.
+    The upshot of the above is that the random setI(Bx) agrees with a discrete deterministic interval of
+                       1
+size|NJx∩Z|≈N          2+δ up to boundary ﬂuctuations|ι(x)−Ntx| and|τ(x)−N(tx+λx)| which are smaller
+         1
+than N   2+δ with high probability. Because the random intervalI(Bx) has typical size of larger order than
+the ﬂuctuations of its left and right endpoints, we may think ofI(Bx) as being nearly deterministic. In line
+with this intuition, we show in Lemma 4.10 that given any i∈ [N] there exist adjacent xi,1,xi,2∈Lstable
+such that i∈I(Bxi,1)∪I(Bxi,2) holds with extremely high probability. Combining this with AM-GM, we
+show in Lemma 4.11 thatE[|E(G,G′)|] is upper bounded by the expected number of shared edges from pairs
+(GBx,G′Bx) of matching blocks as follows.
+
+                                  E[|E(G,G′)|]≲  ∑            E[E(GBx,G′Bx)]                                                       (4.8)
+                                                     x∈Lstable
+                                                              N−1∑
+                                                  =  ∑              P[(i,i+1)∈E(GBx)]2.
+                                                     x∈Lstable i=1
+
+Here the informal notation≲ hides a constant factor and a negligible additive term.
+    Our next objective is to upper-bound for each x the probability P[(i,i + 1)∈ E(GBx)] appearing in
+(4.8). We do this by conditioning on the multiset Sx of strings appearing inI(Bx) and averaging over the
+still-random external strings. Although this conditioning determines the size and internal edge-structure of
+I(Bx), the position ofI(Bx) is conditionally random. Indeed the position of the intervalI(Bx) depends on
+the number of external strings lexicographically smaller than x, which we have not conditioned on.  This
+shift is conditionally binomial with order N1/2 ﬂuctuations. Crucially, these ﬂuctuations “homogenize” the
+edge locations within each block Bx. Indeed averaging over these external shifts, it follows that
+
+                                       max
+                                     i∈[N−1]P[(i,i+1)∈E(GBx)|Sx]≲|E(GBx)|N1/2   .                                         (4.9)
+
+It is not diﬃcult to control the typical size|E(GBx)|.   Moreover since the location ofI(Bx) is almost
+                                                                                                              1
+deterministic, the above probability is negligibly small for all but O(E[|I(Bx)|]) = O(N                      2+δ) values of i.
+
+
+                                                               18
+
+--- PDF PAGE 19 ---
+Combining these considerations leads to an upper bound on
+
+                                                N−1∑
+                                                     P[(i,i+1)∈E(GBx)]2.                                                     (4.10)
+                                                 i=1
+The precise bound requires some care to state and is given in Lemma 4.14.
+    The preceding argument allowed us to estimate (4.10) for each x.  In light of (4.8), it remains to sum
+over x∈Lstable.  The last key point is that all x∈Lstable with a given digit proﬁle contribute essentially
+identically. Moreover there are only log(N)O(1)≤No(1) possible digit proﬁles. It therefore suﬃces to count
+the number of x∈Lstable with each digit proﬁle and then determine the maximum total contribution of any
+ﬁxed digit proﬁle. This count is easily approximated using Proposition 4.2. The resulting maximum turns
+out to be achieved when x has digit frequencies approximately given by pθp, which leads to the appearance
+of the constant Cp.
+    So far, this outline considered only blocks Bx with b0(x) = bk−1(x) = 0.  When b0(x) or bk−1(x) is
+large the ﬂuctuations of ι(x) and τ(x) shrink, simply because the variance Np(1−p) of a Bin(N,p) random
+variable shrinks when p is close to 0 or 1. To handle such preﬁxes x requires a slightly revised deﬁnition of
+Lstable. In general the ﬂuctuations of ι(x) and τ(x) should be slightly smaller than the typical size ofI(Bx);
+this is precisely the deﬁnition of δ-stability in (4.6).  It turns out that the resulting maximization problem
+over digit proﬁles nearly reduces to considering those with b0 =bk−1 = 0. Indeed by an elementary linearity
+argument (see (4.18)), the only other digit proﬁles that must be considered are the degenerate cases with
+c0 =c1 =··· =ck−1 = 0 in which x consists of all 0 digits or all (k−1) digits. These cases are much simpler
+and lead to the requirement that
+                                                       (      1                     )
+                                          Cp≥ max        log(1/p0),         1log(1/pk−1).
+
+During a ﬁrst reading of the next subsection it may be easier to focus on the main case b0 = bk−1 = 0 so
+that the proofs match the outline above more closely.
+    Finally, we remark that the estimates outlined after (4.8) lead to the inequality
+
+                                      E[|E(G,G′)|]≲NO(δ)  ∑                E[|E(GBx)|]2
+                                                                 x∈Lstable  E[|I(Bx)|]  .
+
+Hence for the purpose of counting edges in E(G,G′), each block Bx behaves approximately like an i.i.d.
+point process of edges inI(Bx) with x-dependent edge probability  E[|E(GBx)|]E[|I(Bx)|] . In fact (4.9) states that this
+holds more precisely at the level of individual edge probabilities. These hold precisely because the boundary
+ﬂuctuationsofI(Bx)areonlyslightlysmallerthanE[|I(Bx)|], sothatthehomogenizingeﬀectoftherandom
+shifts is near-total. Somewhat fancifully, one might then view the partition (4.7) as analogous to an ergodic
+or pure state decomposition.
+
+4.3   The Partition into Stable Blocks
+
+Wenowturntoatree-basedpartitionof[k]K0  intoblocksBx. Deﬁnethek-aryrootedtreeT =Tk,K ofdepth
+K which consists of all [k]0-strings of length M at each level 0≤M≤K. Here the children of s∈ [k]M0  are
+the concatenations s0,s1,...,s(k−1)∈ [k]M+10     . Hence the leaves ofT  are given by [k]K0  while the root of
+T  is the empty string∅. Recall from Subsection 4.1 the deﬁnition
+                                                            (    )              (      )
+                                                 1−b0log       1   −bk−1log         1       k−1∑        (1   )
+                                                              p0                  pk−1
+                 cD(x) =cL(x)−cF(x) =                               2       −                    cilog    pi   .
+                                                                                             i=0
+Moreover, as in Proposition 4.1, we assume throughout that K≥ (Cp+ε)log(N) holds for some small, ﬁxed
+ε> 0.
+
+
+                                                               19
+
+--- PDF PAGE 20 ---
+Lemma 4.4. Let x be the parent of y inT. Then
+                                                                       (    1    )
+                                          0≤cD(x)−cD(y)≤O                log(N)     .                                               (4.11)
+
+Moreover cD takes value cD(∅) = 12 at the root, while cD(s)≤−Ωp(ε) for any leaf s∈ [k]K0 .
+
+Proof. The values b0,bk−1,c0,...,ck−1 each change by O(1/log(N)) between neighboring vertices inT,
+which shows that                                                     (    1     )
+                                            |cD(x)−cD(y)|≤O            log(N)     .
+
+Moreover sincecD is decreasing in each coordinate of the digit proﬁle it follows that cD(x)−cD(y)≥ 0. This
+concludes the proof of (4.11).
+    When x =∅ is the root, b0 =bk−1 =c0 =··· =ck−1 = 0, and so cD(∅) = 12. Finally for any leaf s∈ [k]K0
+ofT  we have
+                                                            k−1∑
+                                       b0(s)+bk−1(s)+           ci(s) =K≥Cp+ε.
+                                                            i=0
+Since t→ log(1t) is decreasing and positive for t∈ (0,1),
+
+                                                       (   )                (      )
+                                                   log   1              log     1       k−1∑       (1   )
+                                                        p0                    pk−1
+                     cL(s)−cF(s) = 12−b0·              2 −bk−1·              2  −            cilog   pi
+                                                                                        i=0
+                                      ≤ 1        p+ε)min(log(1/p0),log(1/pk−1),2log(1/pmax))
+                                         2− (C                             2
+By deﬁnition Cplog(1/p0)≥ 1 and Cplog(1/pk−1)≥ 1. Moreover Proposition 1.1 implies
+
+                                               2Cplog(1/pmax)≥ 2Cp˜Cp      ≥ 1.
+
+
+Combining yields
+                                  Cp·min(log(1/p0),log(1/pk−1),2log(1/pmax))≥ 1
+which implies the result.
+
+    Deﬁne the subtreeTstable⊆T  to consist of all x∈T  with cD(x)≥ 2δ, as well as all children of such
+x. LetLstable denote the set of leaves ofTstable. We say a ﬁnite rooted tree is a full k-ary tree if all of its
+vertices have either 0 or k children.
+
+Lemma 4.5.Tstable is a full k-ary tree.  MoreoverLstable consists entirely of δ-stable strings.  Finally all
+x∈Lstable are strings of length in [Ωp,δ(logN),K−Ωp,δ(logN)] and satisfy
+
+                                             cF(x)≥δ     and    cL(x)≥ 2δ.
+
+Proof. First we explain whyTstable is a full k-ary tree.  The point is that since cD(x) is decreasing down
+T  by Lemma 4.4, the set of strings x with cD(x)≥ 2δ forms a subtree, and adding all children of such x
+therefore yields a full k-ary subtree.
+    Next, Lemma 4.4 shows cD(∅) = 1()       2 while cD(s)≤−Ωp(ε) for any s of length K, and also shows cD has
+Lipschitz constant O         1      onT. It follows thatTstable contains all of the ﬁrst Ω(log(N)) levels ofT  but
+                           log(N)
+none of the last Ω(log(N)). As a result all x∈Lstable have length in
+
+                                           [Ωp,δ(log(N)),K−Ωp,δ(log(N))].
+
+
+                                                              20
+
+--- PDF PAGE 21 ---
+The fact that all leaves are δ-stable holds because children were added in the deﬁnition ofTstable.  Indeed
+this deﬁnition combined with (4.11) implies that
+
+                                               cD(x)∈ [2δ−O(1/logN),2δ]
+
+for all x∈Lstable. Moreover recalling the deﬁnition (4.6), all x∈Lstable satisfy
+
+                                                      cF(x)+δ≤cL(x).
+
+Finally the inequality cL(x)≤ 2cF(x) holds for any string x. Altogether, these inequalities imply cF(x)≥δ
+and therefore
+                                                   cL(x)≥cF(x)+δ≥ 2δ.
+
+
+Lemma 4.6. The following partitions (i.e. disjoint unions) hold:
+
+                                   [k]K0  =   ⋃       Bx     and    [N] =   ⋃          I(Bx).                                     (4.12)
+                                            x∈Lstable                        x∈Lstable
+
+Proof. The ﬁrst partition clearly implies the second.  The ﬁrst partition holds becauseLstable consists of
+the leaves ofTstable andTstable⊆T  is a full k-ary subtree. Indeed, it simply asserts that the subtrees ofT
+rooted at each x∈Lstable partition the leaves ofT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Figure 5:  The ﬁrst partition in Lemma 4.6 is shown in the case thatLstable ={B00,B01,B1} with
+  (k,K) = (2,3). It states that [k]K0  = [2]30 =B00∪B01∪B1.
+
+
+
+
+
+
+
+                                                                21
+
+--- PDF PAGE 22 ---
+4.4   No Edge Intersections in Expectation
+
+In this subsection we prove Proposition 4.1. As explained in the outline, the idea is to estimateE[|E(G,G′)|]
+by a sum of individual contributions from each x∈Lstable and then control the total contribution from each
+digit proﬁle.
+Lemma 4.7. Let X∼ Bin(N,q) for some q∈ [0,1]. Then for t≤√Nq(1−q),
+                                         [⏐⏐X−E[X]⏐⏐≥t√                    ]
+                                       P                       Nq(1−q)       ≤e−Ω(t2)
+
+holds uniformly over q.
+
+Proof. This follows from Bernstein’s inequality; see for instance [BLM13, Inequality (2.10)].
+
+Lemma 4.8. For any x∈ [k]M0 , either
+                                                     min(tx,1−tx) = 0
+or
+                                              min(tx,1−tx)≍p N−1+2cF(x)
+holds. The same holds for min(tx+λx,1−tx−λx). Here≍p denotes asymptotic equality for large N up to
+p-dependent constant factors.
+
+Proof. We focus on min(tx,1−tx) (as the two statements are symmetric) and assume x has a digit x[i]̸= 0
+so that tx̸= 0. If x[1] = 0 and i> 1 is minimal with x[i]̸= 0, then b0(x)log(N) =i−1 and so
+
+                                              tx≍p pb0(x)log(N)0               =N−1+2cF.
+
+Similarly if x[1]> 0 and i′ > 1 is minimal with x[i′]̸= (k−1), then
+
+                                       1−tx−λx≍p pbk−1(x)log(N)k−1              =N−1+2cF.
+
+
+
+Lemma 4.9. Let x∈Lstable have digit proﬁle (b0,bk−1,c0,...,ck−1). Then
+                                            [⏐⏐⏐⏐|I(Bx)|−NcL⏐⏐⏐⏐≥N          ]
+                                                                       cL+δ
+                                         P                              2     ≤e−Ω(Nδ),                                       (4.13)
+                                               [⏐⏐ι(x)−Ntx]⏐⏐≥NcF+δ
+                                             P                            2]  ≤e−Ω(Nδ)                                        (4.14)
+                                       [⏐⏐τ(x)−N(tx+λx)⏐⏐≥NcF+δ
+                                     P                                    2]  ≤e−Ω(Nδ).                                       (4.15)
+
+
+Proof. First, inequality (4.13) follows immediately from (4.1), by applying Lemma 4.7 with t =Nδ/2.
+    For inequality (4.14) we similarly recall the distribution of ι given by (4.2). From Lemma 4.8 it follows
+that unless tx = 0 (in which case ι(x) = 1 with probability 1),
+
+                                                min(tx,1−tx)≍N−1+2cF.
+
+Then Lemma 4.7 with t =Nδ/2 completes the proof of (4.14) as δ2 < min(cL2 ,cF) by Lemma 4.5. Inequality
+(4.15) is proved identically.
+
+    Thenextlemmashowsthatforanyi∈ [N],thereareatmosttwoblocksBxi,1,Bxi,2 thaticouldplausibly
+appear in.
+
+Lemma 4.10. For each index i∈ [N], there exist xi,1,xi,2∈Lstable with
+
+                                        P[i∈I(Bxi,1)∪I(Bxi,2)]≥ 1−e−Ω(Nδ).
+
+
+                                                              22
+
+--- PDF PAGE 23 ---
+Proof. Choose xi,1∈Lstable so that  iN∈Jx = [txi,1,txi,1 +λxi,1), and without loss of generality assume
+                                           i    [                             )
+                                          N∈      txi,1 + λxi,12  ,txi,1 +λxi,1.
+
+Then we obtain
+
+                                      ι(xi,1)≤Ntxi,1 +⏐⏐ι(xi,1)−Ntxi,1⏐⏐
+
+                                              ≤i− Nλxi,1                          ⏐⏐.
+                                                        2     +⏐⏐ι(xi,1)−Ntxi,1
+
+   As
+                                          Nλxi,1 =NcL(xi,1)≥NcF(xi,1)+δ,
+using inequality (4.14) implies that
+                                             P[ι(xi,1)≤i]≥ 1−e−Ω(Nδ)
+If xi,1 is the lexicographically last element ofLstable then ι(xi,1)≤i already implies i∈I(Bxi,1). Otherwise
+using Lemma 4.6 we take xi,2∈Lstable immediately lexicographically following xi,1, so that txi,1 +λxi,1 =
+txi,2. Reasoning identically to the above shows that
+
+                                             P[τ(xi,2)≥i]≥ 1−e−Ω(Nδ).
+
+If ι(xi,1)≤ i≤ τ(xi,2), then i∈I(Bxi,1)∪I(Bxi,2) holds because xi,1 and xi,2 are consecutive inLstable.
+The result follows.
+
+   Based on the previous lemma, we now upper-bound E[|E(G,G′)|] by a sum over the individual blocks
+Bx. Recall that E(GBx)⊆E(G) is the set of edges (i,i+1)∈E(G) coming from strings si =si+1∈Bx.
+Lemma 4.11. E[|E(G,G′)|]≤e−Ω(Nδ)+4∑                           ∑N−1
+                                                     x∈Lstable   i=1 P[(i,i+1)∈E(GBx)]2.
+
+Proof. Lemma 4.10 and the AM-GM inequality imply
+
+                                     N−1∑
+                   E[|E(G,G′)|]≤          P[(i,i+1)∈E(G,G′)]
+                                      i=1
+                                                  N−1∑    ∑
+                                   ≤e−Ω(Nδ)+                      P[(i,i+1)∈E(GBxi,j1,GBxi,j2)]
+                                                  i=1  j1,j2∈{1,2}
+                                                   N−1∑   ∑
+                                   ≤e−Ω(Nδ)+2                   P[(i,i+1)∈E(GBxi,j)]2
+                                                    i=1 j∈{1,2}
+                                                            N−1∑
+                                   ≤e−Ω(Nδ)+4  ∑                 P[(i,i+1)∈E(GBx)]2.
+                                                   x∈Lstable i=1
+
+
+
+   The next lemma uses the quantity
+                         (M(x)−K        )           (                                        )
+                cE(x) =        logN       ψp(2) =     b0(x)+bk−1(x)+ctot(x)−   KlogN           ψp(2)< 0
+
+deﬁned near the end of Subsubsection 4.1.3.
+
+
+
+                                                            23
+
+--- PDF PAGE 24 ---
+Lemma 4.12. For any x∈T ,
+
+                                      E[|E(GBx)|⏐⏐|I(Bx)|]≤|I(Bx)|2NcE(x).
+
+Proof. The right-hand side upper-bounds the expected number of pairs (i,j) with si =sj and i,j∈I(Bx),
+by summing over the|I(Bx)|2 pairs of pre-sorted strings in Bx. Indeed it is easy to see that for independent
+µp,K-random strings s and s′, and ﬁxed x∈ [k]M0 ,
+
+                                    P[s =s′|s,s′∈Bx] =φp(2)−(K−M) =NcE(x).
+
+
+
+    Thefollowinglemmaupper-boundstheprobabilityforanedge(i,i+1)toappearinE(GBx)asafunction
+ofx,uniformlyoveri∈ [N]. Theideaisthatevenconditionedonthevalue|I(Bx)|andtheinternalstructure
+ofI(Bx), the remaining randomness of the value ι(x) has a “homogenizing” eﬀect.
+
+Lemma 4.13. For any x∈Lstable and index i∈ [N−1],
+
+                           P[(i,i+1)∈E(GBx)]≤ 4N2cL(x)−cF(x)+cE(x)+2δ +e−Ω(Nδ).
+
+Proof. We condition on the multiset of strings Sx≡ [sj|sj∈Bx] appearing in Bx. We will show that if
+
+                                                 |I(Bx)|≤ 2NcL≤N/2                                                         (4.16)
+
+holds, then
+                                P[(i,i+1)∈E(GBx)|Sx]≤ 4N2cL(x)−cF(x)+cE(x)+2δ.
+This implies the desired result since by inequality (4.13),
+
+                                           P[|I(Bx)|≤ 2NcL]≥ 1−e−Ω(Nδ).
+
+    Observe that the multiset Sx determines the values|E(GBx)| and|I(Bx)| =|Sx|, and in fact determines
+the entire set E(GBx) up to shifts. Given Sx, it is easy to see that ι(x) has conditional law
+                                                     (                        )
+                                        ι(x)∼ Bin     N−|I(Bx)|,    tx1−λx       +1.
+
+From (4.16), we have N−|I(Bx)|≥ N/2.  Because any x∈Lstable has length Ω(log(N)) by Lemma 4.5,
+it follows that λx≤  12 for all x∈Lstable when N is large enough.  Therefore Lemma 4.8 gives tx = 0 or
+tx≥ Ω(N−1+2cF). Similarly
+                                      1−    tx1−λx = 1−tx−λx1−λx ≥ Ω(N−1+2cF)
+
+unless 1−tx−λx = 0.
+    Let us now split into two cases, the ﬁrst being that
+
+                                                min(tx,1−tx−λx)> 0.
+
+In this case we conclude thatι(x)−1 is binomial with number of trialsN−|I(Bx)|≥N/2 and total variance
+Ω(N2cF).  Recalling that cF(x)≥ δ for x∈Lstable, the Lindeberg condition implies that conditionally on
+Sx, ι(x) satisﬁes a central limit theorem with standard deviation Ω(NcF(x)). Since ι(x)−1 is binomial, this
+implies a pointwise bound on its probability mass function. Explicitly, we may apply either [Pit97, Equation
+25] or the combination of [Pit97, Equation 24] and [Can80, Theorem B] to obtain
+
+                                           max
+                                           j∈[N]P[ι(x) =j|Sx]≤N−cF(x)+2δ.                                                (4.17)
+
+
+
+                                                             24
+
+--- PDF PAGE 25 ---
+   Next in the second case, assume that
+
+                                               min(tx,1−tx−λx) = 0.
+
+This simply means that x consists of all digits 0 or all digits (k−1). Then ctot(x) = 0 and so cL = 2cF≤
+cF +2δ implies cF≤ 2δ. Hence (4.17) holds in either case. As a result for any i∈ [N−1],
+
+                           P[(i,i+1)∈E(GBx)|Sx]≤|E(GBx)|· max
+                                                                         j∈[N]P[ι(x) =j|Sx]
+                                                          ≤|E(GBx)|·N−cF(x)+2δ.
+
+Applying Lemma 4.12 shows that when (4.16) holds,
+
+                              P[(i,i+1)∈E(GBx)|Sx]≤ 4N2cL(x)−cF(x)+cE(x)+2δ.
+
+
+
+   Using Lemma 4.13, we can estimate each term appearing in Lemma 4.11.
+
+Lemma 4.14. For any x∈Lstable,
+
+                      N−1∑
+                           P[(i,i+1)∈E(GBx)]2≤ 64N5cL(x)−2cF(x)+2cE(x)+4δ +e−Ω(Nδ).
+                      i=1
+
+Proof. For those i∈ [N] with
+                                         [
+                                     i∈   Ntx−NcF+δ2,N(tx+λx)+NcF+δ2]                ,
+
+Lemma 4.13 implies
+
+                           P[(i,i+1)∈E(GBx)]≤ 4N2cL(x)−cF(x)+cE(x)+2δ +e−Ω(Nδ).
+
+   As cF + δ2≤ cL− δ2, the above applies to at most 2NcL values of i. For all other i∈ [N−1], inequal-
+ities (4.14) and (4.15) imply P[(i,i+1)∈ E(GBx)]≤ e−Ω(Nδ). Combining and using (a+b)2≤ 2a2 +2b2
+yields
+
+           N−1∑
+                P[(i,i+1)∈E(GBx)]2≤ 2NcL(4N2cL(x)−cF(x)+cE(x)+2δ +e−Ω(Nδ))2+Ne−Ω(Nδ)
+            i=1
+                                           ≤ 64N5cL(x)−2cF(x)+2cE(x)+4δ +e−Ω(Nδ).
+
+
+
+   Having controlled the individual summands in Lemma 4.11 in terms of the digit proﬁle of x, it remains
+to sum over x∈Lstable.  This amounts to determining the number of x∈Lstable with each possible digit
+proﬁle, and then ﬁnding the maximum possible contribution of each digit proﬁle. Recalling the deﬁnition
+
+                                   cX =ctotH(c0,...,ck−1)+5cL−2cF +2cE,
+
+it follows from Lemma 4.14 and Proposition 4.2 that the contribution of a given digit proﬁle x to the bound
+of Lemma 4.11 is roughly NcX(x). The next lemma shows that cX(x) is uniformly negative over x∈Lstable
+when K≥ (Cp +ε)log(N).  Here we give a concise proof which does not provide much intuition for the
+constants θp and Cp. See Subsection 4.5 for another argument which is longer and less formal but probably
+more enlightening.
+
+
+
+                                                            25
+
+--- PDF PAGE 26 ---
+Lemma 4.15. For δ =δ(p,ε) small enough, if K≥ (Cp+ε)log(N) then
+
+                                   max
+                         (b0,bk−1,c0,...,ck−1) δ-stablecX(b0,bk−1,c0,...,ck−1)≤−Ωp(ε)< 0.
+
+Proof. Let us extend the deﬁnitions of ctot,cF,cL,cE, and cX to be functions of arbitrary (k + 2)-tuples
+(b0,bk−1,c0,...,ck−1)∈ (R+)k+2 which are constrained to satisfy min(b0,bk−1) = 0. Having done this, we
+observe that cX =cX(b0,bk−1,c0,...,ck−1) is aﬃne in t along the paths
+
+                         t∈R→ ((1−tαp)b0,(1−tαp)bk−1,(1+t)c0,...,(1+t)ck−1)                         (4.18)
+
+where αp≥ 0 is chosen so that cL−cF remains constant as t varies.
+   Therefore to conclude we only need to show cX≤−Ω(ε) at the endpoint cases, which take the forms
+(b0,bk−1,0,...,0) and (0,0,c0,...,ck−1) and which continue to satisfy cL−cF∈ [δ,2δ]. As either b0 = 0 or
+bk−1 = 0, we assume without loss of generality that bk−1 = 0. In the case (b0,0,...,0), we get
+                                              ( 1  )               (1   )      (              )
+             cX(b0,0,...,0) = 5−5b0log          p0   −1+b0log        p0   +2     b0−    Klog(N)  ψp(2)+2δ
+                                   (            ( 1  ))       (               )
+                              = 4    1−b0log      p0     +2     b0−    Klog(N)  ψp(2)+2δ
+
+From cL−cF∈ [δ,2δ] we obtain
+                                                                 (   )
+                                                      1−b0log      1
+                                                                   p0
+                                         cL−cF =              2   ∈ [δ,2δ]
+
+and so                                            (1   )
+                                            b0log    p0   ∈ [1−4δ,1−2δ].
+
+Using also that                                   K
+                                          logN≥Cp+ε≥       1log(1/p0) +ε,
+
+we ﬁnd
+                                                                               
+                          cX(b0,0,...,0)≤ 8δ+2          1−2δ(   )−   1+ε(     )ψp(2)+2δ
+                                                         log   1      log    1
+                                                               p0           p0
+                                            ≤−Ωp(ε)+10δ
+                                            ≤−Ωp(ε).
+
+The last inequality above holds because δ = δ(p,ε) is suﬃciently small.  We now turn to the main task of
+estimating cX(0,0,c0,...,ck−1). We use the following identities and inequalities.
+
+   • cL−cF∈ [δ,2δ].
+
+   • cF = 12.
+
+   • H(pθp) =θpI(p,pθp)−ψp(θp).
+
+   • ψp(θp) = 2ψp(2).
+
+
+
+
+
+
+
+
+                                                            26
+
+--- PDF PAGE 27 ---
+To deal with the entropy term in cX, we use the non-negativity of Kullback-Leibler divergence.  For any
+discrete probability distribution q = (q0,...,qk−1) (with∑k−1i=0 qi = 1),
+
+                                                      k−1∑       (    1   )
+                                H(q0,...,qk−1) =          qilog    (pθp)i    −DKL(q,pθp)
+                                                      i=0
+                                                      k−1∑       (    1   )
+                                                   ≤      qilog    (pθp)i
+                                                      i=0
+                                                                      k−1∑       (1   )
+                                                   =−ψp(θp)+θp             qilog    pi   .
+                                                                       i=0
+Using the above estimate with qi =  cictot, we ﬁnd
+
+                   cX(0,0,c0,...,ck−1) =ctotH(c0,...,ck−1)+5(cL−cF)+ 32 +2cE +2δ
+
+                                                                    k−1∑       (1   )
+                                            ≤−ctotψp(θp)+θp             cilog    pi   + 32 +2cE +12δ                 (4.19)
+                                                                    i=0
+                                                  k−1∑       (1   )
+                                            ≤θp        cilog   pi   + 32−2(Cp+ε)ψp(2)+12δ
+                                                  i=0
+                                                  k−1∑       (1   )
+                                            ≤θp        cilog   pi   + 32−2ψp(2)Cp−Ωp(ε).                          (4.20)
+                                                  i=0
+The last line again follows because δ is suﬃciently small. Finally we recall the following:
+
+                     k−1∑       (1   )
+                          cilog   pi    = 1−cL = 12 +O(δ),
+                     i=0                                           (                                 )
+
+                                   Cp = 3+θp4ψp(2)≤Cp = max          Cp,       1log(1/p0),         1log(1/pk−1).
+
+Substituting into the estimate (4.20), we obtain
+
+                     cX(0,0,c0,...,ck−1)≤ 3+θp+O(δ)2   −2ψp(2)Cp−Ωp(ε)≤−Ωp(ε).
+
+This completes the proof.
+
+    Proposition 4.1 readily follows by combining the ingredients just established.
+
+Proof of Proposition 4.1. We start from the upper bound in Lemma 4.11 and group the strings x∈Lstable
+by their digit proﬁle.  For each digit proﬁle (b0,bk−1,c0,c1,...,ck−1), by Proposition 4.2 the number of
+corresponding blocks x∈Lstable is at most
+                                  (           ctotlog(N)          )
+                                    c0log(N),...,ck−1log(N)          ≤NctotH(c0,...,ck−1).
+
+Lemmas 4.14 and 4.15 imply that for each ﬁxed digit proﬁle (b0,bk−1,c0,c1,...,ck−1),
+                ∑               N−1∑
+                                     P[(i,i+1)∈E(GBx)]2≤ 64NctotH(c0,...,ck−1)+5cL−2cF+2cE+2δ +e−Ω(Nδ)
+             x∈Lstable,          i=1
+    Digit Proﬁle(x)=(b0,...,ck−1)
+                                                                 = 64NcX+4δ +e−Ω(Nδ)
+                                                                 ≤ 64N−Ωp(ε)+e−Ω(Nδ).
+
+
+                                                             27
+
+--- PDF PAGE 28 ---
+Since there are at most O(logk+2(N))≤No(1) total digit proﬁles (b0,bk−1,...,ck−1), Lemma 4.11 therefore
+yields the desired estimate
+                                         E[|E(G,G′)|]≤ 256N−Ωp(ε)+e−Ω(Nδ).
+
+
+
+4.5   Informal Derivation of the Value Cp
+
+We saw the constant
+                                                                      k−1∑
+                                                    ψp(2) =−log           p2i
+                                                                      i=0
+arise naturally in Lemma 4.12, expressed via cE.   In this informal subsection, we will explain why the
+constants θp and Cp appeared in the ﬁnal stages of the proof above by determining “straightforwardly” how
+large    KlogN  must be for Lemma 4.15 to hold. We again view cX(c0,...,ck−1) as a continuous function and
+restrict to the main case that b0 =bk−1 = 0. Moreover we will set all O(δ) terms to zero for simplicity. For
+x∈Lstable with b0(x) =bk−1(x) = 0, we have cL(x) =cF(x) = 1/2 which yields the constraint equation
+
+                                                     k−1∑
+                                                         cilog(1/pi) = 12.                                                           (4.21)
+                                                     i=0
+
+Setting C =    KlogN, we ﬁnd from cL(x) =cF(x) = 1/2 that
+
+                               cX =(H(c0,...,ck−1)+2ψp(2))·ctot+ 32−2Cψp(2).
+
+To maximize cX = cX(c0,...,ck−1) given the constraint (4.21), we set the gradient∇cX to be parallel to
+the constraint direction(log(1/p0),log(1/p1),...,log(1/pk−1)). (Without arguing too formally, one expects
+there are no issues of maxima occurring at the boundary because the entropy function is concave and its
+inward-normal derivative diverges when any coordinate approaches 0.)  By writing out the deﬁnition of
+entropy one readily computes that the maximizer (c∗0,...,c∗k−1) satisﬁes
+
+                                  θlog(1/pi) =  ∂∂ci(c∗X)
+                                               = 2ψp(2)+log(c∗tot/c∗i)−1+ ∑                 c∗j
+
+                                                                                    j∈[k]0 c∗tot
+
+                                               = 2ψp(2)+log(c∗tot/c∗i)
+
+for some proportionality constant θ∈R. Recalling that ψp(t) =−logφp(t) for φp(t) =∑k−1i=0 pti, we obtain
+by rearranging
+
+                                                        c∗i
+                                                       c∗tot =e2ψp(2)pθi
+
+                                                             =    pθiφp(2)2.
+
+
+                   c∗                                                                                 (c∗              )
+    Since∑k−1       i                                                                                    0         k−1   =pθp.
+              i=0  c∗tot = 1 it follows that φp(θ) =φp(2)2, i.e. θ =θp. Moreover we ﬁnd                 c∗tot,..., c∗c∗tot
+Solving for c∗tot using (4.21) above yields
+                                        1              k−1∑
+                                      c∗tot =    2φ(θp)    pθpi  log(1/pi) = 2I(p,pθp).
+                                                       i=0
+
+
+
+                                                               28
+
+--- PDF PAGE 29 ---
+Finally plugging back into the deﬁnition of cX and recalling properties of I(p,pt),
+
+                               cX(c∗0,...,c∗k−1) = H(pθp)+2ψp(2)2I(p,pθp)      + 32−2Cψp(2)
+
+                                                  = H(pθp)+ψp(θp)2I(p,pθp)      + 32−2Cψθp(2)
+
+                                                  = 3+θp2 −2Cψp(2).
+
+Rearranging shows that c∗X < 0 is equivalent to
+
+                                            C >Cp = 3+θp4ψp(2) =  3+θp2ψp(θp).
+
+Therefore we have “straightforwardly” recovered the statement of Lemma 4.15. Let us also point out that
+
+                                      ctot =        12I(p,pθp) =              θp2(H(pθp)+ψp(θp))
+
+                                           <     θp2ψp(θp) <  3+θp2ψp(θp)
+
+                                           =Cp≤Cp.
+
+Here we used (4.5) in the ﬁrst line.  Hence the maximizer we found corresponds to “real” blocks Bx with
+length M≈ctotlogN <K.
+   SincethisargumentignoredO(δ)errortermsandsomedetailsonboundaryissues,weveriﬁedLemma4.15
+directly in the previous section instead of making the informal argument rigorous.  The main step of this
+veriﬁcation was to use non-negativity of the Kullback-Leibler divergence DKL(q,pθp) with qi  =    cictot  in
+inequality (4.19).   Given the argument above, this step becomes quite natural.   Indeed cX  is linear in
+(c0,...,ck−1) except for the entropy term, so (4.19) simply linearizes this entropy term around the equality(c∗)
+case     0        k−1   ≈pθp.
+       c∗tot,..., c∗c∗tot
+
+5   Proof of Lemma 3.8
+
+In this section we prove Lemma 3.8, whose statement is recalled now.
+
+Lemma 3.8.  For any p and positive reals ε and t, there is δ = δ(p,ε,t) such that if K≥ (Cp +ε)log(N)
+then
+                                           E[et·|Eforward(G,G′)|]≤ 1+O(N−δ).
+
+   ItwasshowninSection3howtoupper-boundthetotalvariationdistancefromuniformafterK p-shuﬄes
+based on the exponential moment estimate above. Therefore establishing Lemma 3.8 will complete the proof
+of the mixing time upper bound (1.3).
+
+5.1   Preparatory Lemmas
+
+Deﬁne F(a,b) to be the valueE[|E(G,G′)|] for i.i.d. p-random shuﬄe graphs G and G′ on decks of a cards
+with b shuﬄes. Proposition 4.1 provides the main upper bound on F(a,b), stated as a bound on F(N,K).
+The next lemma gives a much easier estimate we will use for small values of a and b.
+
+Lemma 5.1. For any non-negative integers a and b,
+
+                                             F(a,b)≤ min(a,a2·φp(2)b).
+
+
+                                                            29
+
+--- PDF PAGE 30 ---
+Proof. The bound F(a,b)≤a is obvious. The other bound
+
+                                         E[|E(G,G′)|]≤E[|E(G)|]≤a2φp(2)b
+follows by summing over all(a)pairs of strings si,sj as in Lemma 4.12.
+                                   2
+
+    The next two lemmas allow us to upper-bound relatively complicated expected edge intersections based
+on simple expected edge intersections. They will be used below to estimate the left-hand side of (5.2) as a
+sum over the blocks in the decomposition (5.3).
+
+Lemma 5.2.  Let A and B be independent random subsets of a ﬁnite setA.  Let A′ and B′ respectively be
+independent copies of A and B. Then
+
+                                         E[|A∩B|]≤ E[|A∩A′|]+E[|B∩B′|]2                 .
+
+Proof. For each a∈A let Aa = P[a∈ A] and Ba = P[a∈ B].  Then the statement reduces to showing∑
+∑                a(A2a+B2a)
+  aAaBa≤             2         which holds by AM-GM.
+Lemma 5.3. Let A be a random subset of a ﬁnite setA and letF be a σ-algebra. Let A′ be an independent
+copy of A and let AF and A′F be conditionally independent copies of A conditioned onF. Then
+
+                                               E[|A∩A′|]≤E[|AF∩A′F|].                                                       (5.1)
+
+Proof. For each element a∈A, let Qa =P[a∈ A|F]. Let Pa =P[a∈ A] =E[Qa]. Then (5.1) amounts to
+showing                                      ∑
+                                                        P2a≤∑       E[Q2a].
+                                                    a∈A        a∈A
+SinceE[Q2a]−P2a≥ 0 is simply the variance of the random variable Qa for each a, the result follows.
+
+5.2   The Edge-Exploration Process
+
+WenowdeﬁnetheexplorationprocessmentionedattheendofSection3,whichexploresapair(s1,...,sN),(s′1,...,s′N)∈
+S of sorted string sequences in order starting from s1,s′1. At step i, the currently revealed strings are
+
+                                              (s1,...,si)   and   (s′1,...,s′i)
+
+which results in revealed subgraphs
+                                                     Gi⊆G,   G′i⊆G′
+that grow with i.  Explicitly, Gi and G′i are simply the induced subgraphs of G and G′ on the vertex set
+{1,2,...,i}. When either si or s′i begins with the preﬁx [(k−1)(k−1)] we stop the process. Essentially by
+deﬁnition, this process ﬁnds all edges in Eforward(G,G′). As alluded to at the end of Section 3, the following
+lemma shows how to bound the exponential moments of Eforward(G,G′) using this exploration process.
+
+Lemma 5.4. Suppose γ > 0 is such that the conditional expectation estimate
+
+                                         E[Eforward(G,G′)−E(Gi,G′i)|Fi]≤γ                                               (5.2)
+
+holds almost surely withFi≡σ(s1,...,si,s′1,...,s′i) for each i∈ [N]. Then
+
+                                               E[et·Eforward(G,G′)]≤ 1+2etγ
+
+for any t> 0 satisfying etγ≤  110.
+
+
+
+
+                                                              30
+
+--- PDF PAGE 31 ---
+Proof. Deﬁne for simplicity the random variable X  = Eforward(G,G′).   For each j≥ 0 let tj  = inf{i :
+E(Gi,G′i)≥ j}.   Then tj  is an stopping time,  and if tj  <∞ then|E(Gtj,G′tj)|  = j  holds because
+E(Gi+1,G′i+1)−E(Gi,G′i)≤ 1 holds almost surely for each i. Morever when tj <∞ we have
+
+                                                    P[X >j|Ftj]≤γ
+
+due to the assumption (5.2).  Of course the inequality X≥ j implies that tj is ﬁnite.  Hence by optional
+stopping, we may average the above display to conclude that
+
+                                                  P[X >j|X≥j]≤γ.
+
+This means X has hazard rate at least that of a geometric random variable Y  with
+
+                                            P[Y =j] = (1−γ)γj,   j≥ 0.
+
+Therefore X is stochastically dominated by Y. Using the assumption etγ≤  110, we ﬁnd
+
+                                               E[etX]≤E[etY]
+                                                       ≤ (1−γ)∑(etγ)j
+                                                                  j≥0
+
+                                                       ≤      11−etγ
+
+                                                       ≤ 1+2etγ.
+
+
+
+   Toanalyzetheexplorationprocesswegroupthepotentialfuturestringswhicharelexicographicallylarger
+than si. Supposing that si <lex [(k−1)(k−1)] does not begin with [(k−1)(k−1)], set
+
+                                      Blocks(si) = Blocks(si,[(k−1)(k−1)])
+
+in the notation of Lemma 5.5 just below. By construction, Blocks(si) consists of O(logN) blocks and
+
+                           {s∈ [k]K0  :si <lex s<lex [(k−1)(k−1)]} =    ⋃                   Bx.                              (5.3)
+                                                                                x∈Blocks(si)
+
+Thefactthat|Blocks(si)|≤O(logN)≤No(1) willbeusedintheproofofLemma3.8inthenextsubsection.
+It allows us to estimate a sum over x∈ Blocks(si) by its maximum term; see just before the start of Case
+1 therein.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                             31
+
+--- PDF PAGE 32 ---
+  Figure 6: The decomposition of (5.3), guaranteed by Lemma 5.5, is shown when si = 010 with (k,K) =
+  (2,3). It states that{s∈ [2]30 : 010<lex s<lex 11} =B001∪B10.
+
+
+
+Lemma 5.5. Let sa <lex sb be strings each of length at most K. Deﬁne the lexicographic interval
+
+                                          Isa,sb≡{s∈ [k]K0  :sa <lex s<lex sb}.
+
+Then Isa,sb can be written as a disjoint union of blocks
+
+                                                  Isa,sb =      ⋃            Bx
+                                                            x∈Blocks(sa,sb)
+
+for some set Blocks(sa,sb) containing at most 2Kk≤O(logN) strings, each of length at most K.
+
+Proof. For 0≤M≤K, deﬁne
+
+                                     BlocksM(sa,sb) ={x∈ [k]M0  :Bx∩Isa,sb̸=∅}
+
+to be the set of all length-M strings x such that Bx has non-trivial intersection with Isa,sb. Similarly deﬁne
+                                       BlocksM(sa,sb) ={x∈ [k]M0  :Bx⊆Isa,sb}
+
+to be the set of all length-M strings x such that Bx is contained inside Isa,sb.  Clearly BlocksM(sa,sb)⊆
+BlocksM(sa,sb). Moreover the fact that Isa,sb is a lexicographic interval means these sets diﬀer in at most
+2 elements, i.e.                    ⏐⏐
+                                          BlocksM(sa,sb)\BlocksM(sa,sb)⏐⏐≤ 2.                                             (5.4)
+
+
+
+
+
+                                                                32
+
+--- PDF PAGE 33 ---
+Deﬁne
+
+                                       Blocks(sa,sb) =   ⋃          BlocksM(sa,sb),
+                                                           0≤M≤K
+                                       Blocks(sa,sb) =   ⋃          BlocksM(sa,sb).
+
+                                                           0≤M≤K
+
+Next, for any s∈ Isa,sb, note that all ancestors (preﬁxes) of s are contained in                 Blocks(sa,sb), while∅ /∈
+Blocks(sa,sb). Let ys be the longest ancestor string of s with
+
+                                                    ys /∈ Blocks(sa,sb).
+
+By deﬁnition ys̸= s, so ys has a child xs which is also an ancestor of s (possibly xs = s). By deﬁnition of
+ys,
+                                                    xs∈ Blocks(sa,sb)
+and so
+                                                        Bxs⊆Isa,sb.
+We claim the blocks Bxs constructed in this way from s∈Isa,sb are pairwise equal or disjoint. Indeed if
+
+                                                         Bxs ⊊Bxs′
+
+then xs′ is a preﬁx of ys. However
+                                                    ys /∈ Blocks(sa,sb)
+and
+                                                    xs′∈ Blocks(sa,sb)
+which contradicts the fact that Blocks(sa,sb) is descendent-closed.
+    Above, we started from an arbitrary s∈ Isa,sb and found a block Bxs containing s. It follows that the
+distinct blocks Bxs appearing in the above construction form a partition of Isa,sb.  Finally, note that by
+inequality (5.4), and the fact that ys has length at most K−1, ys ranges over a set of size at most 2K.
+Hence xs ranges over a set of size at most 2Kk. This concludes the proof.
+
+    The next lemma shows that conditioning on the exploration process for G up to si with
+
+                                                  si <lex [(k−1)(k−1)]
+
+does not dramatically increase the typical size ofI(Bx) for any x∈ Blocks(si).  The fact that si <lex
+[(k− 1)(k− 1)] is crucial here, as was discussed at the end of Subsection 3.1.   Indeed conditioning on
+si = [(k−1)K] would imply that
+
+                                           si =si+1 =··· =sN = [(k−1)K]
+
+so that E(G) contains all remaining potential edges (i,i+1),(i+1,i+2),...,(N−1,N). However when
+si <lex [(k−1)(k−1)], a constant fraction of the µp,K-measure of [k]K0  remains not yet occupied, which
+prevents such an example from occuring.
+Lemma 5.6.  Conditioned on (s1,...,si) which satisfy si <lex [(k−1)(k−1)], for any x∈ Blocks(si) the
+conditional distribution of|I(Bx)| is stochastically dominated by a Bin(N,p−2minλx) random variable.
+
+Proof. Condition further on the largest value j∈ [N] with si  = sj.   Then we can generate all strings
+(sj+1,...,sN) by sampling i.i.d.  random numbers a′j+1,...,a′N uniformly from [tsi +λsi,1], sorting them
+into increasing order aj+1≤ aj+2≤···≤ aN, and choosing sℓ∈ [k]K0  such that aℓ∈ Jsℓ for ℓ≥ j +1.
+There are N−j≤ N such random numbers aℓ, and 1−(tsi +λsi)≥ p2min because of the assumption that
+si <lex [(k−1)(k−1)]. Therefore conditionally on j, each a′i has probability at most p−2minλx to fall into the
+interval Jx, which completes the proof.
+
+                                                              33
+
+--- PDF PAGE 34 ---
+5.3   Proof of Lemma 3.8
+
+We now complete the proof of Lemma 3.8.  In light of Lemma 5.4 it remains to show that the conditional
+expectation for the number of unrevealed edges in Eforward(G,G′), given by
+
+                                            E[Eforward(G,G′)−E(Gi,G′i)|Fi],
+is almost surely bounded by O(N−δ). The idea is to use Lemmas 5.2 and 5.3 to upper-bound this quantity
+by a sum over the future blocks appearing in (5.3), see Equation (5.6) in the proof below.  Analyzing the
+summand corresponding to a block Bx for x∈ [k]M0  amounts to a smaller version of the problem considered
+in Proposition 4.1 since Bx can be viewed as a copy of [k]K−M0      . As a result, the summand for Bx has value
+F(|IBx|,K−M). This term can be estimated by Lemma 5.1 whenE[|IBx|]≤Nδ is small (Cases 1 and 2 of
+the proof below) and by Proposition 4.1 whenE[|IBx|]≥Nδ is reasonably large (Case 3 of the proof).
+
+Proof of Lemma 3.8. Take δ = δ(p,ε) suﬃciently small, η = η(p,ε,δ) smaller and ζ  = ζ(p,ε,δ,η) yet
+smaller. Deﬁne the following σ-algebras.
+                                  Fi =σ(s1,...,si,s′1,...,s′i),(                           )
+                                   ˜Fi =σ    s1,...,si,s′1,...,s′i,(I(Bx))x∈Blocks(si)       .
+
+(Note that the σ-algebras ˜Fi do not deﬁne a ﬁltration as i varies.) Let
+
+                                                Gu,1 =Eforward(G)\E(Gi)
+consist of all so-far-unrevealed edges which do not involve strings beginning with [(k−1)(k−1)]. LetGu,2 be
+a conditionally independent copy of Gu,1 given ˜Fi - equivalently this means Gu,2 is obtained by resampling
+Gu,1 conditioned to have the same setsI(Bx) for each x∈ Blocks(si). Deﬁne G′u,1,G′u,2 the same way for
+G′. Hence Gu,1,Gu,2,G′u,1,G′u,2 are shuﬄe graphs with all edge-endpoints in{i,i+1,...,N}.
+    We will show that at any time i in the exploration process, the expected number of unrevealed edges in
+Eforward(G,G′) is bounded by
+                                            E[|E(Gu,1,G′u,1)|⏐⏐Fi]≤O(N−ζ).
+By Lemma 5.4, this will complete the proof of Lemma 3.8 up to replacing ζ with δ. First, using Lemmas 5.2
+and 5.3 conditionally onFi, we estimate the expected number of unrevealed edges by
+                                                        [|E(Gu,1,Gu,2)|+|E(G′u,1,G′u,2)|⏐⏐Fi]
+                         E[|E(Gu,1,G′u,1)|⏐⏐Fi]≤E                           2                         .
+
+Therefore by symmetry it suﬃces to show that
+                                            E[|E(Gu,1,Gu,2)|⏐⏐Fi]≤O(N−ζ)
+
+holds almost surely.   By deﬁnition, conditioning on ˜Fi determines the intervalI(Bx) for each such x.
+Moreover the remaining K−M digits of each of the|I(Bx)| random strings in Bx are still i.i.d. p-random.
+As a consequence,
+
+                    E[E(Gu,1,Gu,2)⏐⏐˜Fi] =|{j >i :sj =si}|+    ∑                    F(|I(Bx)|,K−M).                   (5.5)
+                                                                       x∈Blocks(si)
+Indeed recall from the start of Subsection 5.1 that F(a,b) is the expected size of E(G,G′) when there are a
+cards and b shuﬄes. Thus (5.5) essentially holds by deﬁnition.
+    Next, the law of total expectation yields
+                                         [                        ⏐⏐⏐⏐Fi]
+            E[E(Gu,1,Gu,2)⏐⏐Fi] =E        E[E(Gu,1,Gu,2)⏐⏐˜Fi]
+
+                                    =E[|{j >i :sj =si}|⏐⏐Fi]+    ∑                   E[F(|I(Bx)|,K−M)⏐⏐Fi].        (5.6)
+                                                                        x∈Blocks(si)
+
+
+                                                               34
+
+--- PDF PAGE 35 ---
+The ﬁrst term on the right-hand side of (5.6) is controlled by Lemma 3.9, which implies
+
+                                          E[|{j >i :sj =si}|⏐⏐Fi]≤O(N−ζ).
+
+To estimate the other (main) term on the right-hand side of (5.6), we will show for each x∈ Blocks(si) that
+
+                                         E[F(|I(Bx)|,K−M)⏐⏐Fi]≤O(N−ζ).
+
+As|Blocks(si)| =O(logN)≤No(1) this suﬃces to ﬁnish the proof. We now split into three cases depending
+on the size of λx.  In all cases below we let M denote the length of x.  Case 3 (the main one) is where
+Proposition 4.1 is essential.
+    Let us emphasize that|I(Bx)| is still random conditionally onFi.  While we do not have good almost
+sure bounds on|I(Bx)| itself, its conditional distribution is uniformly stochastically bounded by Lemma 5.6.
+SinceweareestimatingaconditionalexpectationgivenFi andnot ˜Fi, thissuﬃcesforanalmostsurebound.
+
+    Case 1: λx≤N−1−δ.   In this case, Lemmas 5.1 and 5.6 imply
+
+                                        E[F(|I(Bx)|,K−M)|Fi]≤E[|I(Bx)|]
+                                                                        ≤O(N−ζ).
+
+    Case 2: N−1−δ≤λx≤N−1+δ.   In this case, Lemmas 5.6 and 4.7 imply that|I(Bx)|≤N2δ holds with
+probability 1−e−Ω(Nδ). The fact λx≤ (pmax)M implies
+
+                                                    M≤ log(λ−1x  )log(p−1
+                                                                 max)
+                                                        ≤ (1+δ)logNlog(p−1
+                                                                   max)
+In particular as δ≪ε is suﬃciently small this implies K−M≥ Ωp(ε)logN. Lemma 5.1 now yields
+
+                              E[F(|I(Bx)|,K−M)|Fi]≤E[|I(Bx)|2]φp(2)Ωp(ε)log(N)(
+                                                             ≤O      N2δ−Ωp(ε))
+                                                             ≤O(N−ζ).
+
+    Case 3: λx≥N−1+δ.   Similarly to the previous case, observe that
+
+
+
+                                                     M≤ log(λ−1x  )log(p−1
+                                                                 max)                                                                     (5.7)
+                                                        ≤  Cplog(λ−1x  ).                                                               (5.8)
+
+    We break into subcases depending on|I(Bx)|.  The ﬁrst subcase is that|I(Bx)|≤ Nη.  Here the lower
+bound K−M≥ Ωp(δlogN) follows from inequality (5.8), and applying Lemma 5.1 yields
+
+                                  F(|I(Bx)|,K−M)≤N2ηφp(2)K−M≤N−Ωp(δ).
+
+    In the main subcase|I(Bx)|∈ [Nη,2p−2minNλx] we obtain:
+
+
+                                          K−M≥ ((Cp+ε)log(Nλx)                                                           (5.9))
+                                                    ≥   Cp+ ε2     log(2p−2minNλx)
+                                                       (         )
+                                                    ≥   Cp+ ε2     log|I(Bx)|.
+
+
+                                                              35
+
+--- PDF PAGE 36 ---
+Since|I(Bx)|≥Nη tends to inﬁnity with N, Proposition 4.1 implies
+
+                                  F(|I(Bx)|,K−M)≤O(|I(Bx)|−δ)≤O(N−ζ).
+
+    Finally the subcase|I(Bx)|≥ 2p−2minNλx occurs with tiny probability e−Ω(Nδ) by Lemmas 5.6 and 4.7.
+In this subcase we use the trivial bound F(|I(Bx)|,K−M)≤N. Combining subcases, we have established
+that whenever Case 3 holds,
+                                        E[F(|I(Bx)|,K−M)|Fi]≤O(N−ζ).
+Combining cases (and substituting δ for ζ at the end) concludes the proof of Lemma 3.8.
+
+Remark 5.1. Recall that throughout Section 4, and in particular in Proposition 4.1, the weaker inequality
+K≥ (Cp+ε)logN suﬃced where
+                                               (                                )
+                                  Cp≡ max        Cp,       1log(1/p0),         1log(1/pk−1)≤Cp.
+
+This means that when k > 2, for some parameter choices such as p = (0.01,0.98,0.01), the expectation
+E[|E(G,G′)|] becomes small before mixing occurs, so the exponential moments of|E(G,G′)| are still large.
+This discrepancy can be explained as follows. When K satisﬁes
+
+                                               Cp+ε<   KlogN <       Cp−ε,
+
+the graph G typically contains NΩ(1)-size connected components coming from strings with nearly all dig-
+its imax.  In such situations E[|E(G,G′)|]≤ o(1) is small by Proposition 4.1.  However an easy pigeonhole
+argument on N copies of G shows that with Ω(1/N2) probability, E(G,G′) contains an NΩ(1)-sized compo-
+nent formed by a large G-component and large G′-component overlapping. As a result|E(G,G′)| has large
+exponentialmoments. (Moreoverthisargumentstillappliesifweinitiallyrequire S,S′∈S1 tobe“typical”.)
+    In upper-bounding the mixing time, the bound K≥ (Cp +ε)logN, as opposed to K≥ (Cp +ε)logN,
+is necessary in two places. The ﬁrst is in Lemma 3.9. The other occurs above in (5.9) where we needed to
+ensure that Proposition 4.1 yields an upper bound for F(|I(Bx)|,K−M). In the worst case, all M of x’s
+digits might be imax. Then typically (at least when the right-hand side below is positive),
+
+                                        log|I(Bx)|≈ log(N)−Mlog(1/pmax).
+
+To apply Proposition 4.1, we thus need
+
+                                        K−M≥Cp(logN−Mlog(1/pmax))
+
+to hold for any M making both sides positive.  In particular, if we continuously increase M the right side
+must reach 0 before the left side, which implies K≥      logNlog(1/pmax). On the other hand, when M  = 0 we
+need K≥ CplogN for Proposition 4.1 to apply.  Hence at least in bounding the exponential moments of()
+|E(G,G′)|, the value     Cp = max      Cp,        1log(1/pmax)arises from the need to apply Proposition 4.1 for all sizes
+of block Bx appearing in the partition (5.3).
+
+6   Proof of the Mixing Time Lower Bound
+
+In this section we take K =⌊(Cp−ε)log(N)⌋ and show that almost no total-variation mixing occurs after
+K shuﬄes.  First, when K≤ (˜Cp−ε)log(N) we previously argued at the start of Subsection 2.1 that the
+total variation distance from uniform is 1−o(1). Hence we may assume that ˜Cp < Cp holds, else there is
+nothing to prove. By taking ε small enough, we may further assume
+
+                                                  K≥ (˜Cp+ε)logN.                                                             (6.1)
+
+
+                                                             36
+
+--- PDF PAGE 37 ---
+    For a set H⊆Z, its boundary ∂H⊆H is deﬁned by
+
+                                       ∂H≡{h∈H :h−1 /∈H or h+1 /∈H}.
+
+Its edge set E(H) is the set of edges with both endpoints in H, i.e. we identify H with the corresponding
+induced subgraph of G. We will verify the following criterion from [Lal00] for non-mixing. The idea of the
+proof is to use the number of ascents of σ∈SN within H to distinguish the uniform distribution σ = π
+from the shuﬄed distribution σ =πG.
+Proposition 6.1 ([Lal00, Proposition 2]).  Let (KN)N≥1 be a deterministic sequence of positive integers.
+Suppose there exist deterministic subsets H  = HN⊆ [N] such that for some δ = δ(p,ε) the following
+properties hold as N→∞, where G is the shuﬄe graph for a deck of N cards undergoing KN p-shuﬄes:
+
+                                                                      |H|→∞                                                       (6.2)
+                                         [                          |∂H| =O(|H|1/2)                                            (6.3)
+
+                                                                     1
+                                       P   |E(G)∩E(H)|≥|H|2+δ]             → 1.                                                        (6.4)
+
+Then asymptotically no total-variation mixing occurs after KN shuﬄes, i.e.
+
+                                                      lim
+                                                     N→∞dN(KN) = 1.
+Remark 6.1. By using AM-GM or Cauchy–Schwarz similarly to the proof of Lemma 5.3, the conditions of
+Proposition 6.1 imply
+
+                                    E[|E(G,G′)|]≥ E[|E(G)∩E(H)|]2|E(H)|  ·(1−o(1))
+
+                                                     ≥ Ω(|H|2δ)
+                                                     ≫ 1.
+
+However it does not follow from what we show that K  = (Cp± o(1))logN  is always the cutoﬀ point
+where the expected number E[|E(G,G′)|] of shared edges in G and G′ transitions from superconstant to
+subconstant. This is because the analysis of this section assumes inequality (6.1).
+
+6.1   Preparation and Proof Idea
+                          ⌊                   ⌋
+Deﬁne αtotlog(N) =            1−δ               , where as usual δ = δ(p,ε) is suﬃciently small. Choose (via some
+                            2I(p,pθp) log(N)
+rounding procedure) positive integers α0log(N),...,αk−1log(N) satisfying
+                              k−1∑                        ⏐⏐⏐⏐⏐αilog(N)− αtotlog(N)pθp      ⏐⏐⏐⏐⏐≤ 1.                                (6.5)
+                                   αi =αtot    and                                       i
+                              i=0                                              φp(θp)
+
+Note that αtot≤ 3Cp
+                       4  ; indeed we showed in Proposition 1.1 that θp≤ 4, hence
+
+                                   αtot+O(δ) =        12I(p,pθp) =              θp2(H(pθp)+ψp(θp))
+
+                                                  <     θp2ψp(θp) <  3+θp3ψp(θp)
+
+                                                  = 2Cp           p
+                                                       3 ≤ 2C3  .
+Wemaythereforetakeβtotlog(N) =K−αtotlog(N)≥ Ω(logN)andchoosepositiveintegers(βilog(N))i∈[k]0
+with                                        k−1∑           ⏐⏐⏐⏐βilog(N)− βtotlog(N)p2i     ⏐⏐⏐⏐≤ 1.
+
+                                   βi =βtot    and                             φp(2)
+                               i=0
+
+                                                               37
+
+--- PDF PAGE 38 ---
+    The numbers just constructed satisfy
+
+                           k−1∑               k−1∑
+                               αilog(N)+           βilog(N) =αtotlog(N)+βtotlog(N) =K.
+                           i=0                i=0
+
+We will consider G-edges coming from strings with αilog(N) digits i in the ﬁrst αtotlog(N) digits, and
+βilog(N) digits i in the last βtotlog(N) digits, for each i∈ [k]0. This is essentially a two-part digit proﬁle.
+Let us point out that strings with many leading 0 or (k−1) digits will not require special care in this part.
+Deﬁnition 6.2.  The length αtotlog(N) string x∈ [k]M0   is a collision-likely preﬁx (we write x∈ PreCL)
+if x contains αilog(N) digits of i for each i∈ [k]0.
+
+Deﬁnition 6.3.  The string s∈ [k]K0   is collision-likely (we write s∈  CL) if s satisﬁes the following
+properties.
+
+    • With M =αtotlog(N), the ﬁrst M digits of s form a collision-likely preﬁx.
+
+    • s[M +1] = 0, s[M +2] = 1.
+
+    • The βtotlog(N) digits s[M +1],s[M +2],...,s[K] consist of βilog(N) digits of i for each i∈ [k]0.
+
+    Recall from (2.3) the deﬁnition Jx = [tx,tx+λx) and set
+                                                             ( ⋃             )
+                                                  H≡Z∩                 NJx     .
+                                                               x∈PreCL
+That is, H consists of the “expected locations” of collision-likely preﬁxes. The set H is essentially the same
+as in the lower bound of [Lal00]. Our analysis diﬀers from Lalley’s in the last part of Deﬁnition 6.3 where
+we consider strings whose later digits have empirical distribution p2.
+    Before proceeding into more technical details, let us give some intuition both for the deﬁnitions above
+and the remainder of the proof. Based on Subsection 4.5, we expect that the bulk of the edges in E(G,G′)
+come from the blocks Bx with digit proﬁle
+
+                                             ci(x)≈c∗i =        1               i
+                                                             2I(p,pθp)·   pθpφp(θp).
+
+Therefore we took αi≈c∗i and deﬁned H so that
+
+                                                      H≈  ⋃         I(Bx).
+                                                            x∈PreCL
+
+    The main diﬃculty in applying Proposition 6.1 is to verify the last condition by lower-bounding the
+number of G-edges appearing in blocks Bx for x∈ PreCL. Intuitively, to count these edges one should simply
+count pairs of strings in Bx as in Lemma 4.12.  However this will overestimate the number of G-edges for
+stringsthat appearmany times. Hence onewouldlike toalso controlfor examplethe numberof equaltriples
+si = si+1 = si+2 = s — this is relevant for obtaining the correct ﬁrst moment and also for controlling the
+variance. Such a strategy was carried out in [Lal00, Lemmas 8 and 9]. However for this approach to work,
+p must be close to a uniform distribution so that the expected number of triples does not overwhelm the
+expected number of pairs.
+    Instead of counting pairs of equal strings si = sj, we consider for each s∈ CL the event Ys that si =
+si+1 =s holds forat least onei∈ [N]. Because of the “extra margin” aﬀorded by the second property of CL
+in Deﬁnition 6.3, it follows that with high probability, all i∈ [N] withsi∈ CL satisfyi∈H (see Lemma 6.6).
+Under this event, we have
+                                                 |E(G)∩E(H)|≥∑              1Ys.                                                        (6.6)
+                                                                       s∈CL
+
+                                                               38
+
+--- PDF PAGE 39 ---
+    The sum∑s∈CL1Ys turns out to concentrate nicely while retaining almost the same expectated value.
+Indeed the indicator functions 1Ys are pairwise anti-correlated as s∈ CL varies.  Therefore whenever the]≥NΩ(1) islarge,Chebychev’sinequalityimmediatelyimpliesahigh-probability
+expectedvalueE[∑s∈CL1Ys
+lower bound of the same order.
+    Since P[Ys] is a function of the digit proﬁle of s, it suﬃces to focus on a single digit proﬁle, keeping in
+mind that the preﬁx should be collision-likely. Restricting the sums above to s∈ CL exactly corresponds to
+such a choice of digit proﬁle. The reason to choosep2 for the distribution of the later digits in the deﬁnition
+of CL is that conditioned on two p-random digits being equal, the distribution of this shared digit is p2.
+Thus we expect most collisions inside a block Bx to have digit distribution p2 in the later K−M digits.
+    In summary, the lower bound (6.6) essentially involves two separate truncation steps.  The ﬁrst step,
+truncating|E(G)∩E(H)| to a sum of indicators 1Ys, is important to obtain control of the second moment.
+The second step, restricting this sum to collision-likely strings s∈ CL, is simply a convenient way to isolate
+the dominant contribution to the sum over all strings s with collision-likely preﬁxes s[1]...s[αtotlog(N)] =
+x∈ PreCL.
+    We conclude this subsection with two lemmas, the second of which veriﬁes the “easy” parts of Proposi-
+tion 6.1.
+
+Lemma 6.4. For suﬃciently large N,
+                                              ∑αilog(pi) =−1+δ
+
+                                               i                     2 ±o(1).
+
+Proof. By the deﬁnition of αi in (6.5) and of I(p,pθp) in (4.4),
+                              ∑                                      pθp                (   1    )
+                                  αilog(pi)≥    (1−δ)                 i  log(pi)
+                                i                 2I(p,pθp)·∑i         φp(θp) −O          logN
+                                                                (   1    )
+                                              =−1+δ2 −O            logN     .                                                             (6.7)
+
+
+
+
+
+
+
+                                                                                   1
+Proposition 6.5. As N→∞ we have|H|→∞ and|∂H| =O(|H|2). More precisely
+
+                                     |H| =N1+∑k−1i=0 αilog(pi)+αtotH(α0,...,αk−1)+o(1).
+
+Proof. For each x∈ PreCL, Lemma 6.4 shows
+
+                                                 ∑k−1                        −1+δ
+                                        λx =N       i=0 αilog(pi)±o(1) =N      2 ±o(1).
+
+Moreover it is easy to see that
+                                              ⌊Nλx⌋≤|Z∩NJx|≤⌈Nλx⌉.                                                     (6.8)
+This immediately implies|H|→∞ as PreCL is non-empty.  For the precise asymptotics, Proposition 4.2
+implies                              (           αtotlog(N)            )
+                         |PreCL| =     α0log(N),...,αk−1log(N)            =NαtotH(α0,...,αk−1)+o(1).
+
+As the discrete sets (Z∩NJx)x∈PreCL are disjoint, they have total size at most N. By (6.8) these sets indi-
+                        1+δ                                1−δ
+vidually have size N     2  +o(1), and so|PreCL|≤N          2  +o(1). This means the number of connected components
+                                                                                    1
+of H is smaller than the size of each component, hence|∂H| =O(|H|2).
+
+
+
+
+
+
+
+                                                               39
+
+--- PDF PAGE 40 ---
+6.2   Lower Bounding the Number of G-Edges Inside H
+
+It remains to show that H contains many G-edges with high probability. The next lemma shows that with
+high probability, all appearances of collision-likely strings are inside H, so that it suﬃces to simply count
+edges(i,i+1)withsi =si+1∈ CL. Thereasonissimplythattherequirementss[M+1] = 0ands[M+2] = 1
+eﬀectively reﬁne collision-likely preﬁxes x∈ PreCL to x01. Bx01 is deep enough inside Bx to overcome the
+small ﬂuctuations ofI(Bx) vs NJx.
+
+Lemma 6.6. With probability 1−o(1), all i∈ [N] with si∈ CL satisfy i∈H.
+
+Proof. The Dvoretzky–Kiefer–Wolfowitz–Massart inequality [DKW56, Mas90] implies that with probability
+1−o(1), all y∈ [k]M0  for 0≤M≤K simultaneously satisfy
+
+
+                                               1                                      1
+                            |ι(y)−Nty|≤N       2+δ10,  |τ(y)−N(ty +λx)|≤N             2+δ10.                               (6.9)
+
+   We assume the inequalities (6.9) hold for all y and show the conclusion under this assumption.  Fixing
+a collision-likely string s with collision-likely preﬁx x, we apply (6.9) with y = x and y = x01.  Here x01
+denotes concatenation. Using (6.7), we obtain
+                                                                        (   −1+δ
+                                    min(λx,λx01,λx1)≥λxp2min≥ Ω           N   2  ).
+
+Therefore
+                                                                             (   1+δ
+                                               N(tx01−tx) =Nλx01≥ Ω           N   2 ),
+                                                                            (   1+δ
+                                N(tx+λx−tx01−λx01)=Nλx1≥ Ω                   N   2 ).
+
+By the triangle inequality,
+
+                                  ι(x01)≥Ntx+N(tx01−tx)−|ι(x01)−tx01|(
+
+                                                           1+δ        1
+                                          ≥Ntx+Ω        N   2 )−N     2+δ10
+
+                                          ≥Ntx
+
+and
+
+                   τ(x01)≤N(tx+λx)+N(tx01+λx01−tx−λx)+|τ(x01)−tx01−λx01|(
+
+                                                    1+δ        1
+                           ≤N(tx+λx)−Ω           N   2 )−N     2+δ10
+
+                           ≤N(tx+λx).
+
+   Altogether if  (6.9) holds for all y, then all x∈ PreCL satisfy
+
+                                       Ntx≤ι(x01)≤τ(x01)≤N(tx+λx).
+
+Therefore si∈Bx01 implies i∈H, which completes the proof.
+
+   Deﬁne the constant
+
+                            k−1∑
+                 γ≡ 2+2         (αi+βi)log(pi)+αtotH(α0,...,αk−1)+βtotH(β0,...,βk−1).
+                            i=0
+
+We next give another important numerical lemma, which up to O(δ) terms will ensure that the number
+Nγ of edges in H is large enough for Proposition 6.1 to apply. (It is only important that  ψp(2)2   ε is positive
+below.)
+
+
+                                                           40
+
+--- PDF PAGE 41 ---
+Lemma 6.7. With αi,βi and γ as deﬁned above,
+                                  (     k−1∑                                       )
+                          γ≥ 12     1+      αilog(pi)+αtotH(α0,...,αk−1)             + ψp(2)2   ε.                           (6.10)
+                                        i=0
+
+Proof of Lemma 6.7. Recall the following deﬁnitions and identities.
+                                      (∑k−1      )
+   • ψp(t) =−logφp(t) =−log               i=0 pti  > 0 for any t> 1.
+
+   • ψp(θp) = 2ψp(2).
+
+   • Cp =  3+θp4ψp(2) =   3+θp2ψp(θp).
+
+   • I(p,pt) =−∑         ptilog(pi)
+                        i  φp(t)  .
+
+   • H(pt) =tI(p,pt)−ψp(t) for any t> 0.
+
+   • αtot =      1−δ2I(p,pθp)±o(1).
+
+   • αtot+βtot≤Cp−ε.
+
+   • αi = (pθp)i·αtot±o(1)
+
+   • βi = (p2)i·βtot±o(1)
+
+   After rearranging (6.10) and multiplying by 2, it suﬃces to show
+
+                  k−1∑                                                                             ?≥ψp(2)ε.
+             3+       (3αi+4βi)log(pi)+αtotH(α0,...,αk−1)+2βtotH(β0,...,βk−1)
+                  i=0
+
+First, replacing both entropy terms using H(pt) =tI(p,pt)−ψp(t) and then substituting ψp(θp) = 2ψp(2)
+reduces us to showing
+
+                   k−1∑
+              3+      (3αi+4βi)log(pi)+αtot(θpI(p,pθp)−2ψp(2))+2βtot(2I(p,p2)−ψp(2))
+                   i=0
+                                                                               ?≥ψp(2)ε.
+
+
+Using αtot+βtot =    KlogN≤Cp−ε, it remains to prove
+
+
+                 k−1∑                                                                            ?≥−ψp(2)ε.
+             3+      (3αi+4βi)log(pi)+θpαtotI(p,pθp)+4βtotI(p,p2)−2ψp(2)Cp
+                  i=0
+
+Substituting Cp =  3+θp4ψp(2) and αtot =      1−δ2I(p,pθp) +o(1) we are reduced to showing
+
+                      3    k−1∑                                         ?≥−ψp(2)ε+O(δ)+o(1).                     (6.11)
+                      2 +      (3αi+4βi)log(pi)+4βtotI(p,p2)
+                           i=0
+
+Now, using I(p,pθp) =−∑           pθpi   log(pi)
+                                i   φp(θp)    allows us to simplify
+
+                           ∑   αilog(pi) =αtot     ∑   pθpi  log(pi)
+
+                             i                      i    φp(θp)   +o(1) =−1−δ2    +o(1).
+
+
+                                                            41
+
+--- PDF PAGE 42 ---
+Furthermore,
+                                                     k−1∑ p2i log(pi)
+                            βtotI(p,p2) =−βtot              φp(2)    =−∑        βilog(pi)+o(1).
+                                                     i=0                     i
+Substituting these near-equalities into (6.11), it suﬃces to show
+
+                                                  ?≥−ψp(2)ε+O(δ)+o(1).
+                                               0
+
+Recalling that δ =δ(p,ε) was chosen suﬃciently small completes the proof.
+
+Lemma6.8. With probability 1−o(1), at leastNγ−δ distincts∈ CL appear 2 or more times in thep-random
+sequence S = (s1,...,sN)∈S.
+
+Proof. By Proposition 4.2, there are
+
+                                     |CL| =NαtotH(α0,...,αk−1)+βtotH(β0,...,βk−1)+o(1)
+                                                             (       ∑k−1
+collision-likely strings,  each of which occurs  Bin          N,N      i=0(αi+βi)log(pi))   times in S.   Because (˜Cp +
+ε)logN≤K holds (recall (6.1)) and log(pi)≤ log(pmax)< 0 for all i, we obtain
+
+                                        k−1∑
+                                            (αi+βi)log(pi)≤ Klog(pmax)logN
+                                        i=0
+                                                                ≤ (˜Cp+ε)log(pmax)
+                                                                ≤−1−δ
+
+for δ =δ(p,ε) suﬃciently small. This implies
+                                          (        ∑k−1
+                                            1−N      i=0(αi+βi)log(pi))N = Ω(1).
+
+Next for eachs∈ CL, letYs denote the event that s appears at least twice in S. By the binomial distribution
+formula, each s∈ CL satisﬁes
+                               (N)
+                     P[Ys]≥      2   N2∑k−1i=0(αi+βi)log(pi)·Ω(1) =N2+2∑k−1i=0(αi+βi)log(pi)+o(1).
+
+
+Letting Ytot =∑s∈CL1Ys and estimating|CL| with Proposition 4.2, we get
+
+                                                     E[Ytot]≥Nγ−o(1).
+
+We claim that the Bernoulli random variables (1Ys)s∈CL are pairwise non-positively correlated, i.e.
+
+                                           P[Ys∩Ys′]≤P[Ys]·P[Ys′],   s̸=s′.
+
+    Indeed for any collision-likely strings s̸=s′, set ns′∈Z≥0 to be the number of i such that si =s′. It is
+easy to see thatP[Ys|ns′] is decreasing in ns′, which implies the claim.
+    From Lemmas 6.4 and 6.7 it follows that γ > 14 for N large enough. Therefore for large N, we have
+
+                                                     E[Ytot]≥ Ω(N1/4).
+
+As argued just above, Ytot is a sum of Bernoulli random variables Ys with pairwise non-positive correlations,
+which implies that Ytot has smaller variance than expectation. In particular
+                                                                       (E[Ytot]2   )
+                                          Var(Ytot)≤E[Ytot]≤O              N1/4      .
+
+
+                                                               42
+
+--- PDF PAGE 43 ---
+Chebychev’s inequality now completes the proof as
+                                                                    [                      ]
+                                         P[Ytot≥Nγ−δ]≥P              Ytot≥ 12·E[Ytot]
+
+                                                              ≥ 1− 4·Var(Ytot)E[Ytot]2
+
+                                                              ≥ 1−O(N−1/4).
+
+
+
+    Basedontheprecedingresultsweﬁnallyestablishthelowerbound(1.2)onthemixingtimeinTheorem1.
+
+
+                                                                                                               1
+Proof of  (1.2). By Lemmas 6.7 and 6.8, with probability 1−o(1) at least Nγ−δ≥|H|                              2+δ strings s∈ CL
+appear at least twice in S. Each such s by deﬁnition results in an edge (i,i+1)∈E(G) with si =si+1 =s.
+Moreover Lemma 6.6 implies that with probability 1−o(1), all of these edges appear inside H.  Then by
+Lemma 6.7,
+                                                                      1                1
+                                           |E(G)∩E(H)|≥|H|            2+Ωp(ε)≥|H|2+δ
+alsoholdswithprobability1−o(1). CombinedwithProposition6.5, itfollowsthat H satisﬁestheconditions
+of Proposition 6.1. This completes the proof.
+
+Acknowledgement
+
+We thank Persi Diaconis, Steve Lalley and the anonymous referee for helpful suggestions.  This work was
+supported by NSF and Stanford graduate fellowships.
+
+References
+
+[ADS12]Sami Assaf, Persi Diaconis, and Kannan Soundararajan. Riﬄe shuﬄes with biased cuts.                Discrete Mathe-
+            matics & Theoretical Computer Science, 2012.
+[Ald83]David Aldous.   Random walks on ﬁnite groups and rapidly mixing markov chains.   In              S´eminaire de
+            Probabilit´es XVII 1981/82, pages 243–297. Springer, 1983.
+[BD92]Dave Bayer and Persi Diaconis.  Trailing the dovetail shuﬄe to its lair.              Annals of Applied Probability,
+            2(2):294–313, 1992.
+[BD98]Kenneth S Brown and Persi Diaconis. Random walks and hyperplane arrangements.             Annals of Probability,
+            pages 1813–1854, 1998.
+[BHR99]Pat Bidigare, Phil Hanlon, and Dan Rockmore. A combinatorial description of the spectrum for the tsetlin
+            library and its generalization to hyperplane arrangements.  Duke Mathematical Journal, 99(1):135–174,
+            1999.
+[BLM13]St´ephane Boucheron, G´abor Lugosi, and Pascal Massart.                 Concentration inequalities:  A nonasymptotic
+            theory of independence. Oxford university press, 2013.
+[Can80]E Rodney Canﬁeld.  Application of the berry-ess´een inequality to combinatorial estimates.                Journal of
+            Combinatorial Theory, Series A, 28(1):17–25, 1980.
+[CS04]I Csiszar and PC Shields.   Information theory and statistics:  a tutorial.              Foundations and Trends in
+            Communications and Information Theory, 1(4):417–417, 2004.
+[DFP92]Persi Diaconis, James Allen Fill, and Jim Pitman.  Analysis of top to random shuﬄes.                 Combinatorics,
+            Probability & Computing, 1:135–155, 1992.
+[Dia03]Persi Diaconis. Mathematical developments from the analysis of riﬄe shuﬄing.              Groups, combinatorics &
+            geometry (Durham, 2001), pages 73–97, 2003.
+[DKW56]Aryeh Dvoretzky, Jack Kiefer, and Jacob Wolfowitz. Asymptotic minimax character of the sample distri-
+            bution function and of the classical multinomial estimator. The Annals of Mathematical Statistics, pages
+            642–669, 1956.
+
+                                                                  43
+
+--- PDF PAGE 44 ---
+[Ful98]Jason Fulman. The combinatorics of biased riﬄe shuﬄes.          Combinatorica, 18(2):173–184, 1998.
+[JM15]Johan Jonasson and Benjamin Morris.  Rapid mixing of dealer shuﬄes and clumpy shuﬄes.              Electronic
+             Communications in Probability, 20:1–11, 2015.
+[Lal96]Steven P Lalley. Cycle structure of riﬄe shuﬄes.             The Annals of Probability, pages 49–73, 1996.
+[Lal00]Steven P Lalley.  On the rate of mixing for p-shuﬄes.              Annals of Applied Probability, pages 1302–1321,
+             2000.
+[LS15]Eyal Lubetzky and Allan Sly. An exposition to information percolation for the ising model. In            Annales de
+             la Facult´e des sciences de Toulouse: Math´ematiques, volume 24, pages 745–761, 2015.
+[LS16]Eyal Lubetzky and Allan Sly. Information percolation for the Ising model: cutoﬀ in three dimensions up
+             to criticality. J Am Math Soc, pages 729–774, 2016.
+[LS17]Eyal Lubetzky and Allan Sly.   Universality of cutoﬀ for the Ising model.              The Annals of Probability,
+             45(6A):3664–3696, 2017.
+[Mas90]Pascal Massart.  The tight constant in the Dvoretzky-Kiefer-Wolfowitz inequality.               The Annals of Proba-
+             bility, pages 1269–1283, 1990.
+[Mor09]Ben Morris.  Improved mixing time bounds for the Thorp shuﬄe and L-reversal chain.                The Annals of
+             Probability, 37(2):453–477, 2009.
+[Mor13]BenMorris. Improvedmixingtimeboundsforthethorpshuﬄe.              Combinatorics, Probability and Computing,
+             22(1):118–132, 2013.
+[MP12]Jason Miller and Yuval Peres. Uniformity of the uncovered set of random walk and cutoﬀ for lamplighter
+             chains. The Annals of Probability, 40(2):535–577, 2012.
+[Pit97]Jim Pitman.  Probabilistic bounds on the coeﬃcients of polynomials with only real zeros.              Journal of
+             Combinatorial Theory, Series A, 77(2):279–303, 1997.
+[Sta01]Richard P Stanley.  Generalized riﬄe shuﬄes and quasisymmetric functions.              Annals of Combinatorics,
+             5(3-4):479–491, 2001.
+[Tho73]Edward O Thorp. Nonrandom shuﬄing with applications to the game of Faro.               Journal of the American
+             Statistical Association, 68(344):842–847, 1973.
+[Zha09]Yufei   Zhao.         Biased   riﬄe   shuﬄes,    quasisymmetric   functions,    and   the   RSK   algorithm.
+             https://yufeizhao.com/research/shuﬄing.pdf, 2009.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                       44

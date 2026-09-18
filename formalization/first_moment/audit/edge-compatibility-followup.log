@@ -1,0 +1,55 @@
+Checking EdgeLocalization/Collision/Column.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Column.lean:163:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Checking EdgeLocalization/Collision/Model.lean on Lean4.33.1
+Checking EdgeLocalization/Collision/Rows.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:42:4: error: Type mismatch: After simplification, term
+  Eq.symm ht
+ has type
+  @Eq ℕ ↑(↑(ω ⟨↑t, ⋯⟩) i) ↑(x t)
+but is expected to have type
+  @Eq ℕ ↑(↑(ω (Fin.castLE hM t)) i) ↑(x t)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:102:9: warning: `IsTotal` has been deprecated: Use `Std.Total` instead
+
+Note: The updated constant has a different type:
+  {α : Sort u} → (α → α → Prop) → Prop
+instead of
+  (α : Sort u_1) → (α → α → Prop) → Prop
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:102:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:103:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:104:9: warning: `IsRefl` has been deprecated: Use `Std.Refl` instead
+
+Note: The updated constant has a different type:
+  {α : Sort u} → (α → α → Prop) → Prop
+instead of
+  (α : Sort u_1) → (α → α → Prop) → Prop
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:104:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:105:12: error(lean.unknownIdentifier): Unknown constant `List.Sorted`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Rows.lean:106:4: error(lean.unknownIdentifier): Unknown constant `List.sorted_mergeSort'`

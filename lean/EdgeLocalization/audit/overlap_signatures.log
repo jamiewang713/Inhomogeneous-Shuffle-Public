@@ -1,0 +1,37 @@
+@EdgeLocalization.FiniteLaw.prod_expectation : ∀ {Ω : Type u_1} {Λ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Λ]
+  (w : EdgeLocalization.FiniteLaw Ω) (v : EdgeLocalization.FiniteLaw Λ) (f : Ω × Λ → ℝ),
+  (w.prod v).expectation f = w.expectation fun ω => v.expectation fun ζ => f (ω, ζ)
+@EdgeLocalization.FiniteLaw.prod_probability : ∀ {Ω : Type u_1} {Λ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Λ]
+  (w : EdgeLocalization.FiniteLaw Ω) (v : EdgeLocalization.FiniteLaw Λ) (A : Ω → Prop) (B : Λ → Prop),
+  ((w.prod v).probability fun z => A z.1 ∧ B z.2) = w.probability A * v.probability B
+@EdgeLocalization.FiniteLaw.expected_card_intersection : ∀ {Ω : Type u_1} {Λ : Type u_2} [inst : Fintype Ω]
+  [inst_1 : Fintype Λ] (w : EdgeLocalization.FiniteLaw Ω) (v : EdgeLocalization.FiniteLaw Λ) {α : Type u_3}
+  [inst_2 : DecidableEq α] (s : Finset α) (H : Ω → Finset α) (J : Λ → Finset α),
+  (∀ (ω : Ω), H ω ⊆ s) →
+    (∀ (ζ : Λ), J ζ ⊆ s) →
+      ((w.prod v).expectation fun z => ↑(H z.1 ∩ J z.2).card) =
+        ∑ i ∈ s, (w.probability fun ω => i ∈ H ω) * v.probability fun ζ => i ∈ J ζ
+@EdgeLocalization.edgeDensity_eq_expected_shared_internal_edges : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  (w : EdgeLocalization.FiniteLaw Ω) (N : ℕ) (R : Ω → ℕ → List ℕ) (xList : List ℕ),
+  EdgeLocalization.edgeDensity w N R xList =
+    (w.prod w).expectation fun z =>
+      ↑(EdgeLocalization.internalEdges N (R z.1) xList ∩ EdgeLocalization.internalEdges N (R z.2) xList).card
+@EdgeLocalization.matrix_expected_shared_internal_edges_le_mean_tail_fourth : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  (((EdgeLocalization.matrixLaw n hn).prod (EdgeLocalization.matrixLaw n hn)).expectation fun z =>
+      ↑(EdgeLocalization.internalEdges N (EdgeLocalization.sortedRows n z.1) (EdgeLocalization.prefixWord x) ∩
+            EdgeLocalization.internalEdges N (EdgeLocalization.sortedRows n z.2)
+              (EdgeLocalization.prefixWord x)).card) ≤
+    EdgeLocalization.prefixMean N n hM x ^ 4 * EdgeLocalization.tailCollisionFactor N n M ^ 2 / 4
+@EdgeLocalization.matrix_expected_shared_internal_edges_le_prefixMean : ∀ {N K k M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (x : Fin M → Fin k),
+  (((EdgeLocalization.matrixLaw n hn).prod (EdgeLocalization.matrixLaw n hn)).expectation fun z =>
+      ↑(EdgeLocalization.internalEdges N (EdgeLocalization.sortedRows n z.1) (EdgeLocalization.prefixWord x) ∩
+            EdgeLocalization.internalEdges N (EdgeLocalization.sortedRows n z.2)
+              (EdgeLocalization.prefixWord x)).card) ≤
+    EdgeLocalization.prefixMean N n hM x
+@EdgeLocalization.FiniteLaw.prod : {Ω : Type u_1} →
+  {Λ : Type u_2} →
+    [inst : Fintype Ω] →
+      [inst_1 : Fintype Λ] →
+        EdgeLocalization.FiniteLaw Ω → EdgeLocalization.FiniteLaw Λ → EdgeLocalization.FiniteLaw (Ω × Λ)

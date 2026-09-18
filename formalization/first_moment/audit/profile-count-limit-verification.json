@@ -1,0 +1,32 @@
+{
+  "verifiedAt": "2026-09-17T22:35:15.654296+00:00",
+  "sourceSha256": "b1d28e2066343c32e1a9c49fea565f4574904fd8bf1394af3c8f7687e1958d29",
+  "contractSha256": "3252bc424f8d01aae30d4abeea57e43afa6cccb2da867df4b0ebf547c5857458",
+  "lean": "4.33.1",
+  "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "theorems": [
+    "InhomogeneousShuffle.FirstMoment.Model.profileCount_uniform_eventually",
+    "InhomogeneousShuffle.FirstMoment.Model.profileCount_small_chi",
+    "InhomogeneousShuffle.FirstMoment.Model.profileClass_small_chi"
+  ],
+  "definitions": [],
+  "axiomDependencies": {
+    "InhomogeneousShuffle.FirstMoment.Model.profileCount_uniform_eventually": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.profileCount_small_chi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "InhomogeneousShuffle.FirstMoment.Model.profileClass_small_chi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "standardFoundationsOnly": true,
+  "earlierFreezesUnchanged": true
+}

@@ -1,0 +1,23 @@
+import EdgeLocalization.Relative.Estimates
+
+#check @EdgeLocalization.relativeInternalEdges_subset_range
+#check @EdgeLocalization.relativeInternalEdges_zero_shift
+#check @EdgeLocalization.relativeInternalEdges_card_le
+#check @EdgeLocalization.ambientLeft_le_deck_size
+#check @EdgeLocalization.ambientLeft_nil
+#check @EdgeLocalization.matrix_ambientLeft_le_internal_edge
+#check @EdgeLocalization.matrix_relativeInternalEdges_card_eq
+#check @EdgeLocalization.relative_density_le_sq_expected_absolute_edges
+#check @EdgeLocalization.relative_density_le_expected_occupancy
+#check @EdgeLocalization.relativeEdgeDensity_zero_shift
+#check @EdgeLocalization.relativeEdgeDensity_eq_expected_shared_internal_edges
+#check @EdgeLocalization.matrix_relative_density_le_mean_tail_fourth
+#check @EdgeLocalization.matrix_relative_density_le_prefixMean
+#check @EdgeLocalization.matrix_relative_density_le_ambient_tail_exponent
+#check @EdgeLocalization.matrix_relative_density_le_small_coarse_exponent
+#check @EdgeLocalization.matrix_relative_density_le_small_singleton_exponent
+#check @EdgeLocalization.matrix_relative_density_le_ambient_size_exponent
+#check @EdgeLocalization.matrix_relative_density_terminal_exponent
+#check @EdgeLocalization.relativeInternalEdges
+#check @EdgeLocalization.relativeEdgeDensity
+#check @EdgeLocalization.ambientLeft

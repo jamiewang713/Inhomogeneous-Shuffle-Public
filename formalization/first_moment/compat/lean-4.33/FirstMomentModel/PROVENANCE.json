@@ -1,0 +1,23 @@
+{
+  "changes": "Proof/import API adaptations only: renamed finite-card import/theorem and explicit ProfileClass unfolding. Definitions and theorem types unchanged.",
+  "files": {
+    "BoundaryEncoding": {
+      "source": "formalization/first_moment/FirstMomentModel/BoundaryEncoding.lean",
+      "sourceSha256": "e880ccb74ee71c0cd0644bb39f5bcdb709cef02c46d43c8ef30b1d73fdc0b31f",
+      "compatibilityCopy": "formalization/first_moment/compat/lean-4.33/FirstMomentModel/BoundaryEncoding.lean",
+      "compatibilitySha256": "357b518a169b7f89eb9bbbac82d35ba2489674664162e43138a082bcf5b79278"
+    },
+    "ProfileClasses": {
+      "source": "formalization/first_moment/FirstMomentModel/ProfileClasses.lean",
+      "sourceSha256": "09ac6696d61400096f60b5ebe168304b672e819e388b18513fa14f6921368887",
+      "compatibilityCopy": "formalization/first_moment/compat/lean-4.33/FirstMomentModel/ProfileClasses.lean",
+      "compatibilitySha256": "97d12a9b16852a5b0632660f3eac3f34bdeab8fd46eb485bf970daaae7becd9c"
+    },
+    "ProfileFibreEntropy": {
+      "source": "formalization/first_moment/FirstMomentModel/ProfileFibreEntropy.lean",
+      "sourceSha256": "afc20a05f07eda489a9219dec9012e815fc1b7a79a1edad3c90a53936843da3f",
+      "compatibilityCopy": "formalization/first_moment/compat/lean-4.33/FirstMomentModel/ProfileFibreEntropy.lean",
+      "compatibilitySha256": "ef0bad95aa2379877c2f3980ee447d5cd5930e455445cef9f6102b3f2eff7e29"
+    }
+  }
+}

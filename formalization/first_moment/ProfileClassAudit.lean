@@ -1,0 +1,10 @@
+import FirstMomentModel.ProfileClasses
+
+#check @InhomogeneousShuffle.FirstMoment.Model.profileWord_exceptional_budget
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileWord_exceptional_budget
+#check @InhomogeneousShuffle.FirstMoment.Model.goodDigitCount_le
+#print axioms InhomogeneousShuffle.FirstMoment.Model.goodDigitCount_le
+#check @InhomogeneousShuffle.FirstMoment.Model.encodeProfile_eq_data
+#print axioms InhomogeneousShuffle.FirstMoment.Model.encodeProfile_eq_data
+#check @InhomogeneousShuffle.FirstMoment.Model.profileClass_card_le
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileClass_card_le

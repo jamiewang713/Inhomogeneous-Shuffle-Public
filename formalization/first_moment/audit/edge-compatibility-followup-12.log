@@ -1,0 +1,9 @@
+Checking EdgeLocalization/Exponent/Mean.lean on Lean4.33.1
+Checking EdgeLocalization/Exponent/Tail.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Exponent/Tail.lean:43:10: error: Function expected at
+  Real.log_prod ?m.170
+but this term has type
+  Real.log (∏ i ∈ ?m.168, ?m.169 i) = ∑ i ∈ ?m.168, Real.log (?m.169 i)
+
+Note: Expected a function because this term is being applied to the argument
+  _

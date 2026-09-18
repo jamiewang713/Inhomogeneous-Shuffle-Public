@@ -1,0 +1,34 @@
+Checking EdgeLocalization/Conditional/Split.lean on Lean4.33.1
+Checking EdgeLocalization/Conditional/Counts.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Counts.lean:121:52: error: unsolved goals
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hn : ∀ (j : Fin K), ∑ a, n j a = N
+hM : M ≤ K
+x : Fin M → Fin k
+p : FixedMatrix N (prefixCounts n hM)
+hN0 : ¬N = 0
+hN1 : ¬N = 1
+np : Fin M → Fin k → ℕ := prefixCounts n hM
+nt : Fin (K - M) → Fin k → ℕ := suffixCounts n hM
+hnt : ∀ (j : Fin (K - M)), ∑ a, nt j a = N :=
+  fun j =>
+    hn
+      ⟨M + ↑j,
+        have hj := j.isLt;
+        Decidable.byContradiction fun a => tail_expected_collisionPairs_given_prefix_array._proof_1 hM j hj a⟩
+Wt : FiniteLaw (FixedMatrix N nt) := matrixLaw nt hnt
+glue : FixedMatrix N nt → FixedMatrix N n := fun t => (splitMatrix N n hM).symm (p, t)
+s : Finset ℕ := occupied N (rawRows np p) (prefixWord x)
+pairs : Finset (ℕ × ℕ) := {ij ∈ s ×ˢ s | ij.1 < ij.2}
+H : FixedMatrix N nt → Finset (ℕ × ℕ) := fun t => collisionPairs N (rawRows n (glue t)) (prefixWord x)
+hpre : ∀ (t : FixedMatrix N nt) (j : Fin M), glue t (Fin.castLE hM j) = p j
+hsuf : ∀ (t : FixedMatrix N nt) (j : Fin (K - M)), glue t ⟨M + ↑j, ⋯⟩ = t j
+hprefix : ∀ (t : FixedMatrix N nt) (i : Fin N), prefixWord x <+: rawRow n (glue t) i ↔ prefixWord x <+: rawRow np p i
+hrows :
+  ∀ (t : FixedMatrix N nt) (i j : Fin N),
+    prefixWord x <+: rawRow np p i →
+      prefixWord x <+: rawRow np p j → (rawRow n (glue t) i = rawRow n (glue t) j ↔ rawRow nt t i = rawRow nt t j)
+i : Fin N
+⊢ ↑i ∈ {i ∈ Finset.range N | prefixWord x <+: if hi : i < N then rawRow np p ⟨i, hi⟩ else []} ↔
+    prefixWord x <+: rawRow np p i

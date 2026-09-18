@@ -1,0 +1,49 @@
+Checking EdgeLocalization/FiniteLaw.lean on Lean4.33.1
+Checking EdgeLocalization/Deck.lean on Lean4.33.1
+Checking EdgeLocalization/FirstColumn.lean on Lean4.33.1
+Checking EdgeLocalization/Density.lean on Lean4.33.1
+Checking EdgeLocalization/EndpointObstruction.lean on Lean4.33.1
+Checking EdgeLocalization/Collision/FiniteLaw.lean on Lean4.33.1
+Checking EdgeLocalization/Collision/Column.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Column.lean:105:2: error: 'change' tactic failed, pattern
+  #univ.offDiag = ?m.44
+is not definitionally equal to target
+  #({p ∈ univ ×ˢ univ | p.1 ≠ p.2}) = N * (N - 1)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Column.lean:159:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Column.lean:171:4: error: Type mismatch: After simplification, term
+  column_probability_reindex n h (Equiv.swap i j) fun c => ↑c i = a
+ has type
+  ((columnLaw n h).probability fun c =>
+      ↑({ toFun := fun c => ⟨fun i_1 => ↑c ((Equiv.swap i j) i_1), ⋯⟩,
+                invFun := fun c => ⟨fun i_1 => ↑c ((Equiv.swap i j) i_1), ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+              c)
+          i =
+        a) =
+    (columnLaw n h).probability fun c => ↑c i = a
+but is expected to have type
+  ((columnLaw n h).probability fun c => ↑c j = a) = (columnLaw n h).probability fun c => ↑c i = a
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Column.lean:214:4: error: Type mismatch: After simplification, term
+  column_probability_reindex n h π fun c => ↑c i = a ∧ ↑c j = b
+ has type
+  ((columnLaw n h).probability fun c =>
+      ↑({ toFun := fun c => ⟨fun i => ↑c (π i), ⋯⟩, invFun := fun c => ⟨fun i => ↑c ((Equiv.symm π) i), ⋯⟩,
+                  left_inv := ⋯, right_inv := ⋯ }
+                c)
+            i =
+          a ∧
+        ↑({ toFun := fun c => ⟨fun i => ↑c (π i), ⋯⟩, invFun := fun c => ⟨fun i => ↑c ((Equiv.symm π) i), ⋯⟩,
+                  left_inv := ⋯, right_inv := ⋯ }
+                c)
+            j =
+          b) =
+    (columnLaw n h).probability fun c => ↑c i = a ∧ ↑c j = b
+but is expected to have type
+  ((columnLaw n h).probability fun c => ↑c r.1 = a ∧ ↑c r.2 = b) =
+    (columnLaw n h).probability fun c => ↑c i = a ∧ ↑c j = b

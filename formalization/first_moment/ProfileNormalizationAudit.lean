@@ -1,0 +1,22 @@
+import FirstMomentModel.ProfileNormalization
+
+#check @InhomogeneousShuffle.FirstMoment.Model.sourceCell
+#print axioms InhomogeneousShuffle.FirstMoment.Model.sourceCell
+#check @InhomogeneousShuffle.FirstMoment.Model.sourceGood
+#print axioms InhomogeneousShuffle.FirstMoment.Model.sourceGood
+#check @InhomogeneousShuffle.FirstMoment.Model.sourceGood_fin_iff
+#print axioms InhomogeneousShuffle.FirstMoment.Model.sourceGood_fin_iff
+#check @InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions_source_eq
+#print axioms InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions_source_eq
+#check @InhomogeneousShuffle.FirstMoment.Model.digitCount_source_eq
+#print axioms InhomogeneousShuffle.FirstMoment.Model.digitCount_source_eq
+#check @InhomogeneousShuffle.FirstMoment.Model.profileR_source_eq
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileR_source_eq
+#check @InhomogeneousShuffle.FirstMoment.Model.profileH_source_eq
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileH_source_eq
+#check @InhomogeneousShuffle.FirstMoment.Model.profileWord_profileR_le
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileWord_profileR_le
+#check @InhomogeneousShuffle.FirstMoment.Model.profileWord_profileH_key
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileWord_profileH_key
+#check @InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_profileH
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_profileH

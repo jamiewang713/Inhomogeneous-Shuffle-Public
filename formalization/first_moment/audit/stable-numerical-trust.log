@@ -1,0 +1,124 @@
+Checking StableNumericalAudit.lean on Lean 4.33.1
+InhomogeneousShuffle.FirstMoment.Model.asCuts : (D : Riffle.Model) → TimeProfile.Cuts D.k D.N D.K
+'InhomogeneousShuffle.FirstMoment.Model.asCuts' depends on axioms: [propext, Classical.choice, Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.asProfile : (D : Riffle.Model) → Fin D.K → TimeProfile.Simplex D.k
+'InhomogeneousShuffle.FirstMoment.Model.asProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.legalVector : {D : Riffle.Model} →
+  (x : Riffle.Word) → Riffle.Legal D x → Fin D.K → Fin D.k
+'InhomogeneousShuffle.FirstMoment.Model.legalVector' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.sideProbability : {k : ℕ} → Riffle.Side → TimeProfile.Simplex k → Fin k → ℝ
+'InhomogeneousShuffle.FirstMoment.Model.sideProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.asProfile_prob : ∀ (D : Riffle.Model) (j : Fin D.K) (l : Fin D.k),
+  TimeProfile.prob (InhomogeneousShuffle.FirstMoment.Model.asProfile D j) l = ↑(Riffle.prob D ↑j ↑l)
+'InhomogeneousShuffle.FirstMoment.Model.asProfile_prob' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.legalVector_digit : ∀ {D : Riffle.Model} (x : Riffle.Word)
+  (hx : Riffle.Legal D x) (j : Fin D.K),
+  ↑j < List.length x → ↑(InhomogeneousShuffle.FirstMoment.Model.legalVector x hx j) = Riffle.digit x ↑j
+'InhomogeneousShuffle.FirstMoment.Model.legalVector_digit' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.legalVector_legal : ∀ {D : Riffle.Model} (x : Riffle.Word)
+  (hx : Riffle.Legal D x),
+  TimeProfile.LegalPrefix (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+    (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) (List.length x)
+'InhomogeneousShuffle.FirstMoment.Model.legalVector_legal' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.cL_prefix_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D) (x : Riffle.Word)
+  (hx : Riffle.Legal D x) (u : Riffle.Word),
+  u <+: x →
+    Riffle.cL A u =
+      TimeProfile.cL D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+        (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) A.b (List.length A.w) (List.length u)
+'InhomogeneousShuffle.FirstMoment.Model.cL_prefix_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.cL_parent_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D) (x : Riffle.Word)
+  (hx : Riffle.Legal D x),
+  Riffle.cL A (Riffle.parent x) =
+    TimeProfile.cL D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) A.b (List.length A.w) (List.length x - 1)
+'InhomogeneousShuffle.FirstMoment.Model.cL_parent_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.sampleRow_full : ∀ (D : Riffle.Model)
+  (sample : TimeProfile.ShuffleSample (InhomogeneousShuffle.FirstMoment.Model.asCuts D)) (i : Fin D.N),
+  Riffle.Full D (Riffle.fullList (TimeProfile.sampleRow sample i))
+'InhomogeneousShuffle.FirstMoment.Model.sampleRow_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.expectedCount_eq_integral : ∀ (D : Riffle.Model) (E : Set Riffle.Word),
+  ↑(Riffle.expectedCount D E) =
+    ∫ (sample : TimeProfile.ShuffleSample (InhomogeneousShuffle.FirstMoment.Model.asCuts D)),
+      ↑(TimeProfile.rowCount (TimeProfile.sampleRow sample) fun row =>
+          Riffle.fullList row ∈ E) ∂TimeProfile.fixedCountMeasure (InhomogeneousShuffle.FirstMoment.Model.asCuts D)
+'InhomogeneousShuffle.FirstMoment.Model.expectedCount_eq_integral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.expectedCount_cylinder_eq : ∀ {D : Riffle.Model} (x : Riffle.Word)
+  (hx : Riffle.Legal D x) (u : Riffle.Word),
+  u <+: x →
+    ↑(Riffle.expectedCount D (Riffle.Cylinder D u)) =
+      TimeProfile.prefixMass D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+        (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) (List.length u)
+'InhomogeneousShuffle.FirstMoment.Model.expectedCount_cylinder_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.expectedCount_piece_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side) (x : Riffle.Word) (hx : x ∈ Riffle.Desc D A.w) (j : Fin D.K),
+  List.length A.w ≤ ↑j →
+    ↑j < List.length x →
+      ↑(Riffle.expectedCount D (Riffle.PieceEvent A s x ↑j)) =
+        TimeProfile.sideMass D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+          (InhomogeneousShuffle.FirstMoment.Model.legalVector x ⋯) (List.length A.w)
+          (InhomogeneousShuffle.FirstMoment.Model.sideProbability s) j
+'InhomogeneousShuffle.FirstMoment.Model.expectedCount_piece_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.sideMaximum_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D) (s : Riffle.Side)
+  (v x : Riffle.Word) (hx : x ∈ Riffle.Desc D A.w),
+  v <+: x →
+    ↑(Riffle.sideMaximum A s v x) =
+      TimeProfile.sideMaximum D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+        (InhomogeneousShuffle.FirstMoment.Model.legalVector x ⋯) (List.length A.w) (List.length v)
+        (InhomogeneousShuffle.FirstMoment.Model.sideProbability s)
+'InhomogeneousShuffle.FirstMoment.Model.sideMaximum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.cFAt_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D) (v x : Riffle.Word)
+  (hx : x ∈ Riffle.Desc D A.w),
+  v <+: x →
+    Riffle.cFAt A v x =
+      TimeProfile.cF D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+        (InhomogeneousShuffle.FirstMoment.Model.legalVector x ⋯) (List.length A.w) (List.length v)
+'InhomogeneousShuffle.FirstMoment.Model.cFAt_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.cF_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D) (y z x : Riffle.Word),
+  Riffle.RawPair A y z →
+    ∀ (hx : x ∈ Riffle.Desc D (Riffle.join y z)),
+      Riffle.cF A y z =
+        TimeProfile.cF D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+          (InhomogeneousShuffle.FirstMoment.Model.legalVector x ⋯) (List.length A.w) (List.length (Riffle.join y z))
+'InhomogeneousShuffle.FirstMoment.Model.cF_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.rawPair_crossings : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (y z x : Riffle.Word),
+  Riffle.RawPair A y z →
+    ¬Riffle.Terminal D y z →
+      ∀ (hx : x ∈ Riffle.Desc D (Riffle.join y z)),
+        TimeProfile.Crossings (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+          (InhomogeneousShuffle.FirstMoment.Model.legalVector x ⋯) (List.length A.w) (List.length (Riffle.join y z))
+          A.chi
+'InhomogeneousShuffle.FirstMoment.Model.rawPair_crossings' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.stop_stableAt : ∀ {D : Riffle.Model} (A : Riffle.Setup D) (y z x : Riffle.Word)
+  (hx : Riffle.Legal D x) (F : ℝ),
+  Riffle.cF A y z = ↑F →
+    Riffle.Stop A y z x →
+      TimeProfile.StableAt D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+        (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) A.b (List.length A.w) (List.length x) F A.delta
+'InhomogeneousShuffle.FirstMoment.Model.stop_stableAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.gamma_parentCrossing : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (y z x : Riffle.Word),
+  Riffle.RawPair A y z →
+    ¬Riffle.Stop A y z (Riffle.join y z) →
+      ∀ (hx : x ∈ Riffle.Gamma A y z) (F : ℝ),
+        Riffle.cF A y z = ↑F →
+          TimeProfile.ParentCrossing D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+            (InhomogeneousShuffle.FirstMoment.Model.legalVector x ⋯) A.b (List.length A.w)
+            (List.length (Riffle.join y z)) (List.length x) F A.delta
+'InhomogeneousShuffle.FirstMoment.Model.gamma_parentCrossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.ambientApproximation_iff : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (x : Riffle.Word) (hx : x ∈ Riffle.Desc D A.w) (r er eb : ℝ),
+  TimeProfile.AmbientApproximation D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector x ⋯) (List.length A.w) r A.b er eb ↔
+    |↑(List.length A.w) / Real.log ↑D.N - r| ≤ er ∧
+      |Real.log ↑(Riffle.expectedCount D (Riffle.Cylinder D A.w)) / Real.log ↑D.N - A.b| ≤ eb
+'InhomogeneousShuffle.FirstMoment.Model.ambientApproximation_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

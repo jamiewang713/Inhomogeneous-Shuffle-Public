@@ -1,0 +1,39 @@
+Checking ProfileClassAudit.lean
+@InhomogeneousShuffle.FirstMoment.Model.profileWord_exceptional_budget : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (good : Fin D.K → ℕ → Prop) (alpha : ℝ) (p : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha),
+  (InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑p).1 (↑p).2.1 (↑p).2.2).card ≤
+    InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha
+'InhomogeneousShuffle.FirstMoment.Model.profileWord_exceptional_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.goodDigitCount_le : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (y z x : Riffle.Word) (a : Fin c) (l : Fin D.k),
+  InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good y z x a l ≤ D.K
+'InhomogeneousShuffle.FirstMoment.Model.goodDigitCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.encodeProfile_eq_data : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (p q : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha),
+  InhomogeneousShuffle.FirstMoment.Model.encodeProfile A cell good alpha route p =
+      InhomogeneousShuffle.FirstMoment.Model.encodeProfile A cell good alpha route q →
+    (↑p).1 = (↑q).1 ∧
+      (↑p).2.1 = (↑q).2.1 ∧
+        List.length (↑p).2.2 = List.length (↑q).2.2 ∧
+          (∀ (a : Fin c) (l : Fin D.k),
+              InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good (↑p).1 (↑p).2.1 (↑p).2.2 a l =
+                InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good (↑q).1 (↑q).2.1 (↑q).2.2 a l) ∧
+            InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑p).1 (↑p).2.1 (↑p).2.2 =
+                InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑q).1 (↑q).2.1 (↑q).2.2 ∧
+              (∀ i ∈ InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑p).1 (↑p).2.1 (↑p).2.2,
+                  Riffle.digit (↑p).2.2 ↑i = Riffle.digit (↑q).2.2 ↑i) ∧
+                route p = route q
+'InhomogeneousShuffle.FirstMoment.Model.encodeProfile_eq_data' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileClass_card_le : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4),
+  Nat.card (InhomogeneousShuffle.FirstMoment.Model.ProfileClass A cell good alpha route) ≤
+    InhomogeneousShuffle.FirstMoment.profileCountBound D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)
+'InhomogeneousShuffle.FirstMoment.Model.profileClass_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]

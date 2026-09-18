@@ -1,0 +1,202 @@
+Checking SmallSourceRepairAudit.lean on Lean 4.33.1
+@InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_core : ∀
+  {Lv F E H S beta Dtail theta eBeta eF eS eH eE : ℝ} {B : ℝ → ℝ},
+  theta ∈ Set.Icc 3 4 →
+    0 ≤ eBeta →
+      0 ≤ eF →
+        0 ≤ eS →
+          0 ≤ eH →
+            0 ≤ eE →
+              0 ≤ S →
+                S ≤ Lv - F + eS →
+                  Lv / 2 - eF ≤ F →
+                    Lv ≤ beta + eBeta →
+                      H ≤ theta * S - B theta + eH →
+                        E ≤ -Dtail + eE →
+                          H + 2 * E ≤
+                            TimeProfile.largeObjective beta B Dtail theta +
+                              (7 / 2 * eBeta + 7 * eF + 7 * eS + eH + 2 * eE)
+'InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_core' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_infimum : ∀ {Lv F E H S beta Dtail eBeta eF eS eH eE : ℝ}
+  {B : ℝ → ℝ},
+  0 ≤ eBeta →
+    0 ≤ eF →
+      0 ≤ eS →
+        0 ≤ eH →
+          0 ≤ eE →
+            0 ≤ S →
+              S ≤ Lv - F + eS →
+                Lv / 2 - eF ≤ F →
+                  Lv ≤ beta + eBeta →
+                    (∀ theta ∈ Set.Icc 3 4, H ≤ theta * S - B theta + eH) →
+                      E ≤ -Dtail + eE →
+                        H + 2 * E ≤
+                          sInf (TimeProfile.largeObjective beta B Dtail '' Set.Icc 3 4) +
+                            (7 / 2 * eBeta + 7 * eF + 7 * eS + eH + 2 * eE)
+'InhomogeneousShuffle.FirstMoment.Model.small_coarse_numerical_infimum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.source_small_coarse_margin : ∀ {k N R : ℕ}
+  {T rho phi chi C r b er eb eta alpha delta : ℝ} (cuts : TimeProfile.Cuts k N (TimeProfile.horizonDepth N T))
+  (hN : 2 ≤ N),
+  2 ≤ k →
+    ∀ (mu : TimeProfile.TimeLaw k) (P : TimeProfile.BorelPartition k),
+      0 ≤ T →
+        0 < rho →
+          0 ≤ phi →
+            chi ∈ Set.Ioo 0 (1 / ↑k) →
+              0 ≤ C →
+                P.IsRegular chi C →
+                  TimeProfile.AlmostLike cuts ⋯ mu P T rho phi →
+                    0 ≤ r →
+                      r ≤ T →
+                        0 ≤ er →
+                          0 ≤ eb →
+                            0 < eta →
+                              0 ≤ alpha →
+                                0 ≤ delta →
+                                  TimeProfile.FirstMomentMargin mu r b T eta →
+                                    ∀ (x : Fin (TimeProfile.horizonDepth N T) → Fin k)
+                                      (timeClass : Fin (TimeProfile.horizonDepth N T) → Fin R) {w v n : ℕ},
+                                      w ≤ v →
+                                        v ≤ n →
+                                          n ≤ TimeProfile.horizonDepth N T →
+                                            TimeProfile.LegalPrefix (cuts.profile ⋯) x n →
+                                              TimeProfile.AmbientApproximation N (cuts.profile ⋯) x w r b er eb →
+                                                TimeProfile.profileR N (cuts.profile ⋯) x P chi v n ≤ alpha →
+                                                  TimeProfile.Crossings (cuts.profile ⋯) x w v chi →
+                                                    (have A := 4 * Real.log ↑k;
+                                                      have Qerr :=
+                                                        TimeProfile.quadratureError N T rho phi P.cellCount A (C * chi);
+                                                      7 / 2 * (Qerr + A * (er + 1 / TimeProfile.logScale N)) +
+                                                                    7 *
+                                                                      ((eb +
+                                                                          Real.log (1 / chi) / TimeProfile.logScale N) /
+                                                                        2) +
+                                                                  7 *
+                                                                    (C * chi * T +
+                                                                      Real.log (1 / chi) / TimeProfile.logScale N) +
+                                                                (Qerr + A * alpha) +
+                                                              2 * Qerr +
+                                                            8 * delta +
+                                                          4 * eb ≤
+                                                        3 * eta / 4) →
+                                                      ∃ F,
+                                                        TimeProfile.cF N (cuts.profile ⋯) x w v = ↑F ∧
+                                                          (TimeProfile.ParentCrossing N (cuts.profile ⋯) x b w v n F
+                                                              delta →
+                                                            TimeProfile.profileH N (cuts.profile ⋯) x P timeClass chi v
+                                                                      n +
+                                                                    2 * TimeProfile.cE N (cuts.profile ⋯) n +
+                                                                  8 * delta +
+                                                                4 * eb ≤
+                                                              -eta / 4)
+'InhomogeneousShuffle.FirstMoment.Model.source_small_coarse_margin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.exists_uniform_source_margins_with_small_coarse : ∀ {k : ℕ},
+  2 ≤ k →
+    ∀ {T eta epsilon : ℝ},
+      0 ≤ T →
+        0 < eta →
+          0 < epsilon →
+            epsilon ≤ eta / 28 →
+              ∃ chi0,
+                0 < chi0 ∧
+                  chi0 ≤ 1 / ↑k ∧
+                    ∀ (chi : ℝ),
+                      0 < chi →
+                        chi < chi0 →
+                          ∃ P,
+                            P.IsRegular chi 1 ∧
+                              ∃ rho0,
+                                0 < rho0 ∧
+                                  ∀ (rho : ℝ),
+                                    0 < rho →
+                                      rho < rho0 →
+                                        ∃ phi0,
+                                          0 < phi0 ∧
+                                            ∀ (phi : ℝ),
+                                              0 ≤ phi →
+                                                phi ≤ phi0 →
+                                                  ∃ N0,
+                                                    ∃ (hN0 : 2 ≤ N0),
+                                                      ∀ (N : ℕ) (hNN : N0 ≤ N)
+                                                        (cuts : TimeProfile.Cuts k N (TimeProfile.horizonDepth N T))
+                                                        (mu : TimeProfile.TimeLaw k),
+                                                        TimeProfile.AlmostLike cuts ⋯ mu P T rho phi →
+                                                          ∀ (r b : ℝ),
+                                                            0 ≤ r →
+                                                              r ≤ T →
+                                                                TimeProfile.FirstMomentMargin mu r b T eta →
+                                                                  (∀ (er : ℝ),
+                                                                      0 ≤ er →
+                                                                        4 * Real.log ↑k * er ≤ epsilon / 4 →
+                                                                          ∀
+                                                                            (x :
+                                                                              Fin (TimeProfile.horizonDepth N T) →
+                                                                                Fin k)
+                                                                            (w v : ℕ),
+                                                                            w ≤ v →
+                                                                              v ≤ TimeProfile.horizonDepth N T →
+                                                                                TimeProfile.LegalPrefix (cuts.profile ⋯)
+                                                                                    x v →
+                                                                                  |↑w / TimeProfile.logScale N - r| ≤
+                                                                                      er →
+                                                                                    TimeProfile.cL N (cuts.profile ⋯) x
+                                                                                          b w v +
+                                                                                        TimeProfile.cE N
+                                                                                          (cuts.profile ⋯) v ≤
+                                                                                      -eta / 2) ∧
+                                                                    (∀ (er eb delta : ℝ),
+                                                                        0 ≤ er →
+                                                                          0 ≤ eb →
+                                                                            4 * Real.log ↑k * er ≤ epsilon / 4 →
+                                                                              eb ≤ epsilon →
+                                                                                delta ∈ Set.Icc 0 epsilon →
+                                                                                  ∀ (R : ℕ)
+                                                                                    (timeClass :
+                                                                                      Fin
+                                                                                          (TimeProfile.horizonDepth N
+                                                                                            T) →
+                                                                                        Fin R)
+                                                                                    (x :
+                                                                                      Fin
+                                                                                          (TimeProfile.horizonDepth N
+                                                                                            T) →
+                                                                                        Fin k)
+                                                                                    (w v n : ℕ),
+                                                                                    w ≤ v →
+                                                                                      v ≤ n →
+                                                                                        n ≤
+                                                                                            TimeProfile.horizonDepth N
+                                                                                              T →
+                                                                                          ⋯) ∧
+                                                                      ∀ (er eb delta : ℝ),
+                                                                        0 ≤ er →
+                                                                          0 ≤ eb →
+                                                                            4 * Real.log ↑k * er ≤ epsilon / 4 →
+                                                                              eb ≤ epsilon →
+                                                                                0 < delta →
+                                                                                  ∀
+                                                                                    (x :
+                                                                                      Fin
+                                                                                          (TimeProfile.horizonDepth N
+                                                                                            T) →
+                                                                                        Fin k)
+                                                                                    (w v : ℕ),
+                                                                                    w ≤ v →
+                                                                                      v ≤ TimeProfile.horizonDepth N T →
+                                                                                        TimeProfile.LegalPrefix
+                                                                                            (cuts.profile ⋯) x
+                                                                                            (TimeProfile.horizonDepth N
+                                                                                              T) →
+                                                                                          TimeProfile.AmbientApproximation
+                                                                                              N (cuts.profile ⋯) x w r b
+                                                                                              er eb →
+                                                                                            ⋯ → ⋯
+'InhomogeneousShuffle.FirstMoment.Model.exists_uniform_source_margins_with_small_coarse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

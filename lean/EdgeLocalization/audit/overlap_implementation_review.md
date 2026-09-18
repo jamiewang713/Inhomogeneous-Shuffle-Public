@@ -1,0 +1,15 @@
+# Root verification of the independent-copy overlap addendum
+
+The single product-law definition and all six frozen overlap statements compile and pass `verify_overlap.py`. The root read both implementation modules and their complete compiled signatures, compared them with the frozen contract, and read the independent implementation audit. The product's weight is literally the product of the two marginal weights; its nonnegativity and normalization are proved in its constructor.
+
+S.01 retains every real-valued integrand. S.02 proves rectangle-event factorization with all four truth-value cases. S.03 derives the expected intersection cardinality on the common finite support from the existing expected-cardinality theorem, then applies that proved factorization. It retains both pointwise support premises and requires no finiteness of the element type beyond that support.
+
+S.04 specializes the identity to identical internal-edge observables under two independently drawn outcomes with the same law. Thus the actual frozen density is proved equal to the expected cardinality of the same-position intersection. The common support is the existing zero-based range of path-edge indices. No independence among different edge locations is assumed. S.05–06 transfer the existing actual-matrix density inequalities through this equality, giving the fourth-power mean/tail bound and the direct mean bound for shared edges.
+
+The independent-copy law is not a diagonal coupling, a pair sharing random cuts, or a jointly conditioned exploration law. The implementation compares absolute positions and does not silently recenter the two samples. Zero and one-card decks are included through the existing empty edge support and all-N bounds. Empty sample types acquire no additional inhabitance premise; the given normalized laws already determine the permitted domain. Zero weights, empty supports, zero piles, and zero collision factors are allowed.
+
+The report notation for the second outcome used the letter lambda. Since that letter is a Lean syntax token, its bound occurrences in the implementation use zeta. This is only a renaming of a bound variable: all types, public arguments, quantifiers, assumptions, and conclusions are unchanged.
+
+The verifier checked all four frozen contracts, the three original source hashes, the pre-code review hashes, and every one of the fifteen parent implementation hashes. It audited all six theorem declarations and the constructed product law, saved their compiled types, and found only `propext`, `Classical.choice`, and `Quot.sound`. The full default project build also passed through the original verifier after importing the overlap modules.
+
+The project now has 104 verified finite theorems. This addendum makes the interpretation requested in the whole-source reread an actual Lean equality. It does not prove the source's negative-power first moment, spatial smoothing, stable localization, or exploration preservation. Exact exponent conversion is the next independent review; none of its new statements has been frozen or implemented at this point.

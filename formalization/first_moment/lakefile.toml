@@ -1,0 +1,10 @@
+name = "firstMoment"
+version = "0.1.0"
+defaultTargets = ["FirstMoment"]
+
+[[require]]
+name = "mathlib"
+path = "../.tooling/mathlib"
+
+[[lean_lib]]
+name = "FirstMoment"

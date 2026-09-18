@@ -1,0 +1,144 @@
+EdgeLocalization.hasSizeExponent_eventually_log_error_le : ∀ (f : ℕ → ℝ) (b : ℝ),
+  EdgeLocalization.HasSizeExponent f b →
+    ∀ (ε : ℝ), 0 < ε → ∃ N0, 2 ≤ N0 ∧ ∀ (N : ℕ), N0 ≤ N → |Real.log (f N) / Real.log ↑N - b| ≤ ε
+EdgeLocalization.ambientMeanError_eventually_abs_le : ∀ (k : ℕ) (K A : ℕ → ℕ) (n : (N : ℕ) → Fin (K N) → Fin k → ℕ)
+  (hn : ∀ (N : ℕ) (j : Fin (K N)), ∑ a, n N j a = N) (hA : ∀ (N : ℕ), A N ≤ K N) (w : (N : ℕ) → Fin (A N) → Fin k)
+  (b : ℝ),
+  EdgeLocalization.HasSizeExponent
+      (fun N =>
+        (EdgeLocalization.matrixLaw (n N) ⋯).expectation fun ω =>
+          ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows (n N) ω)
+              (EdgeLocalization.prefixWord (w N))))
+      b →
+    ∀ (ε : ℝ), 0 < ε → ∃ N0, 2 ≤ N0 ∧ ∀ (N : ℕ), N0 ≤ N → |EdgeLocalization.ambientMeanError N (n N) ⋯ (w N) b| ≤ ε
+EdgeLocalization.matrix_relative_density_eventually_le_ambient_tail_exponent : ∀ (k : ℕ) (K A : ℕ → ℕ)
+  (n : (N : ℕ) → Fin (K N) → Fin k → ℕ) (hn : ∀ (N : ℕ) (j : Fin (K N)), ∑ a, n N j a = N),
+  (∀ (N : ℕ), A N ≤ K N) →
+    ∀ (w : (N : ℕ) → Fin (A N) → Fin k) (b : ℝ),
+      EdgeLocalization.HasSizeExponent
+          (fun N =>
+            (EdgeLocalization.matrixLaw (n N) ⋯).expectation fun ω =>
+              ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows (n N) ω)
+                  (EdgeLocalization.prefixWord (w N))))
+          b →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ N0,
+              2 ≤ N0 ∧
+                ∀ (N : ℕ),
+                  N0 ≤ N →
+                    ∀ (M : ℕ) (hM : M ≤ K N) (hAM : A N ≤ M) (x : Fin M → Fin k),
+                      (∀ (t : Fin (A N)), x (Fin.castLE hAM t) = w N t) →
+                        EdgeLocalization.legalPrefix (n N) hM x →
+                          (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw (n N) ⋯) N
+                              (EdgeLocalization.sortedRows (n N)) (EdgeLocalization.prefixWord x) fun ω =>
+                              EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows (n N) ω)
+                                (EdgeLocalization.prefixWord (w N))) ≤
+                            (↑N).rpow
+                                (4 * EdgeLocalization.ambientSizeExponent N (n N) hM (A N) b x +
+                                    2 * EdgeLocalization.tailEdgeExponent N (n N) M +
+                                  ε) /
+                              4
+EdgeLocalization.matrix_relative_density_eventually_le_small_coarse_exponent : ∀ (k : ℕ) (K A : ℕ → ℕ)
+  (n : (N : ℕ) → Fin (K N) → Fin k → ℕ) (hn : ∀ (N : ℕ) (j : Fin (K N)), ∑ a, n N j a = N),
+  (∀ (N : ℕ), A N ≤ K N) →
+    ∀ (w : (N : ℕ) → Fin (A N) → Fin k) (b : ℝ),
+      EdgeLocalization.HasSizeExponent
+          (fun N =>
+            (EdgeLocalization.matrixLaw (n N) ⋯).expectation fun ω =>
+              ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows (n N) ω)
+                  (EdgeLocalization.prefixWord (w N))))
+          b →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ N0,
+              2 ≤ N0 ∧
+                ∀ (N : ℕ),
+                  N0 ≤ N →
+                    ∀ (δ : ℝ) (M : ℕ) (hM : M ≤ K N) (hAM : A N ≤ M) (x : Fin M → Fin k),
+                      (∀ (t : Fin (A N)), x (Fin.castLE hAM t) = w N t) →
+                        EdgeLocalization.legalPrefix (n N) hM x →
+                          EdgeLocalization.ambientSizeExponent N (n N) hM (A N) b x < 2 * δ →
+                            (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw (n N) ⋯) N
+                                (EdgeLocalization.sortedRows (n N)) (EdgeLocalization.prefixWord x) fun ω =>
+                                EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows (n N) ω)
+                                  (EdgeLocalization.prefixWord (w N))) ≤
+                              (↑N).rpow (2 * EdgeLocalization.tailEdgeExponent N (n N) M + 8 * δ + ε) / 4
+EdgeLocalization.matrix_relative_density_eventually_le_small_singleton_exponent : ∀ (k : ℕ) (K A : ℕ → ℕ)
+  (n : (N : ℕ) → Fin (K N) → Fin k → ℕ) (hn : ∀ (N : ℕ) (j : Fin (K N)), ∑ a, n N j a = N),
+  (∀ (N : ℕ), A N ≤ K N) →
+    ∀ (w : (N : ℕ) → Fin (A N) → Fin k) (b : ℝ),
+      EdgeLocalization.HasSizeExponent
+          (fun N =>
+            (EdgeLocalization.matrixLaw (n N) ⋯).expectation fun ω =>
+              ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows (n N) ω)
+                  (EdgeLocalization.prefixWord (w N))))
+          b →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ N0,
+              2 ≤ N0 ∧
+                ∀ (N : ℕ),
+                  N0 ≤ N →
+                    ∀ (δ : ℝ) (M : ℕ) (hM : M ≤ K N) (hAM : A N ≤ M) (x : Fin M → Fin k),
+                      (∀ (t : Fin (A N)), x (Fin.castLE hAM t) = w N t) →
+                        EdgeLocalization.legalPrefix (n N) hM x →
+                          EdgeLocalization.ambientSizeExponent N (n N) hM (A N) b x < 2 * δ →
+                            (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw (n N) ⋯) N
+                                (EdgeLocalization.sortedRows (n N)) (EdgeLocalization.prefixWord x) fun ω =>
+                                EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows (n N) ω)
+                                  (EdgeLocalization.prefixWord (w N))) ≤
+                              (↑N).rpow
+                                  (2 * EdgeLocalization.ambientSizeExponent N (n N) hM (A N) b x +
+                                        2 * EdgeLocalization.tailEdgeExponent N (n N) M +
+                                      4 * δ +
+                                    ε) /
+                                4
+EdgeLocalization.matrix_relative_density_eventually_le_ambient_size_exponent : ∀ (k : ℕ) (K A : ℕ → ℕ)
+  (n : (N : ℕ) → Fin (K N) → Fin k → ℕ) (hn : ∀ (N : ℕ) (j : Fin (K N)), ∑ a, n N j a = N),
+  (∀ (N : ℕ), A N ≤ K N) →
+    ∀ (w : (N : ℕ) → Fin (A N) → Fin k) (b : ℝ),
+      EdgeLocalization.HasSizeExponent
+          (fun N =>
+            (EdgeLocalization.matrixLaw (n N) ⋯).expectation fun ω =>
+              ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows (n N) ω)
+                  (EdgeLocalization.prefixWord (w N))))
+          b →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ N0,
+              2 ≤ N0 ∧
+                ∀ (N : ℕ),
+                  N0 ≤ N →
+                    ∀ (M : ℕ) (hM : M ≤ K N) (hAM : A N ≤ M) (x : Fin M → Fin k),
+                      (∀ (t : Fin (A N)), x (Fin.castLE hAM t) = w N t) →
+                        EdgeLocalization.legalPrefix (n N) hM x →
+                          (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw (n N) ⋯) N
+                              (EdgeLocalization.sortedRows (n N)) (EdgeLocalization.prefixWord x) fun ω =>
+                              EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows (n N) ω)
+                                (EdgeLocalization.prefixWord (w N))) ≤
+                            (↑N).rpow (EdgeLocalization.ambientSizeExponent N (n N) hM (A N) b x + ε)
+EdgeLocalization.matrix_relative_density_eventually_terminal_exponent : ∀ (k : ℕ) (K A : ℕ → ℕ)
+  (n : (N : ℕ) → Fin (K N) → Fin k → ℕ) (hn : ∀ (N : ℕ) (j : Fin (K N)), ∑ a, n N j a = N) (hA : ∀ (N : ℕ), A N ≤ K N)
+  (w : (N : ℕ) → Fin (A N) → Fin k) (b : ℝ),
+  EdgeLocalization.HasSizeExponent
+      (fun N =>
+        (EdgeLocalization.matrixLaw (n N) ⋯).expectation fun ω =>
+          ↑(EdgeLocalization.occupancyCount N (EdgeLocalization.sortedRows (n N) ω)
+              (EdgeLocalization.prefixWord (w N))))
+      b →
+    ∀ (ε : ℝ),
+      0 < ε →
+        ∃ N0,
+          2 ≤ N0 ∧
+            ∀ (N : ℕ),
+              N0 ≤ N →
+                ∀ (x : Fin (K N) → Fin k),
+                  (∀ (t : Fin (A N)), x (Fin.castLE ⋯ t) = w N t) →
+                    EdgeLocalization.legalPrefix (n N) ⋯ x →
+                      (EdgeLocalization.relativeEdgeDensity (EdgeLocalization.matrixLaw (n N) ⋯) N
+                          (EdgeLocalization.sortedRows (n N)) (EdgeLocalization.prefixWord x) fun ω =>
+                          EdgeLocalization.ambientLeft N (EdgeLocalization.sortedRows (n N) ω)
+                            (EdgeLocalization.prefixWord (w N))) ≤
+                        (↑N).rpow (EdgeLocalization.ambientSizeExponent N (n N) ⋯ (A N) b x + ε)
+EdgeLocalization.HasSizeExponent : (ℕ → ℝ) → ℝ → Prop

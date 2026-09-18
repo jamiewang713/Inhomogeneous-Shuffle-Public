@@ -1,0 +1,49 @@
+{
+  "version": "occupancy-addendum-1",
+  "frozenAtUTC": "2026-09-17T21:30:18.858881+00:00",
+  "contractSHA256": "0790d840b1e1fc25f496672fedf6c68a6e76b99961e0173e6478cc0761e71689",
+  "parentContractSHA256": {
+    "frozen_contract.md": "1c482ed0ca3e2f24396e5e70fe53eb70dcb1ee24ae71adca2ebc19edf85a69a1",
+    "frozen_collision_contract.md": "f69afe0abd0a13ad36fbe8368dcdd3e270ff249d05d7b68e0fd5baf48abc0b9e"
+  },
+  "sources": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "3e6a410de9812e1a46500a9a5f2320008fe666b26ae6dfebf17ebaf753ff32f6",
+    "2103.05068v3.pdf": "58f0b60418d0cdbf339f6440e9ae664ab617b6ab461b5153be63ec6af8d9f97d",
+    "2510.22783v1.pdf": "f66cd955cdb6546d9c118ea8ee22f7e166db55219d6207a3e5e607281e483d42"
+  },
+  "parentImplementationSHA256": {
+    "EdgeLocalization/Deck.lean": "a15057e043d431ae9cef2a7878a1a02c4b74db3356b65dc5e47cb74dde338ce4",
+    "EdgeLocalization/Density.lean": "2fda035c6f504582644c40f037b4207a8649e22ab5a10101ba1c8ed35676ab2b",
+    "EdgeLocalization/EndpointObstruction.lean": "e4f65b5f175c0b88cfd26557d7df750b150fba5ffa081e40bfc9d5bdffabef95",
+    "EdgeLocalization/FiniteLaw.lean": "2f3b3ba7737aacd2ce19790b65030453c88e1101f7b2d9cb20e2b50d01a72f44",
+    "EdgeLocalization/FirstColumn.lean": "84b47e4aea9f37406a9aa7bcbe526f7f3019dc140917fe667f81cd1944e68b11",
+    "EdgeLocalization/Collision/Column.lean": "78d500654fa4b6cdc752a9ac1e6ad5309770b662fb21c47290b7325b4e8c20d2",
+    "EdgeLocalization/Collision/Estimates.lean": "5410dde8575943d9a74512d64b761b1f33efadd7d7a750da4d011b16eb0fa6f4",
+    "EdgeLocalization/Collision/FiniteLaw.lean": "a4e97e40ed417cfccda5e80a9b6251a9d947c4787bd9135f4e54b4844d2ec7e2",
+    "EdgeLocalization/Collision/Matrix.lean": "358458300020fac171ed5741e65551c807e6f98e13729dc6e6b6d9542d184d24",
+    "EdgeLocalization/Collision/Model.lean": "43c19b97e925dee9186d496560cdf143c89b76279ba4f36420e84401a4b4e3dd",
+    "EdgeLocalization/Collision/Rows.lean": "296505ea22d178a66248d7d40651ead865db2a991bd11c38fd65b0a3ecd69829"
+  },
+  "reviewSHA256": {
+    "conditional_contract_reconstruction.md": "a0c844c0830dc30940e1db825ecd70bd040ed6915f4e6aa169321c681ec81ea5",
+    "conditional_contract_statements.md": "e2a5fdb02a45f7b99287921aa0add87824375b1d4a3ebf243190d7615af1cfd2",
+    "conditional_contract_assumptions.md": "5e5122b985a7e0a84b4ad9752d82778712f735b2f5209305742230f28489572f",
+    "conditional_contract_comparison.md": "ddfd14c1f059f76f9f17934cd4acba82f349c815e5503ea8cd7785d179a22f7e"
+  },
+  "plannedDefinitions": [
+    "EdgeLocalization.prefixCounts",
+    "EdgeLocalization.suffixCounts",
+    "EdgeLocalization.splitMatrix"
+  ],
+  "plannedStatementIDs": [
+    "O.01",
+    "O.02",
+    "O.03",
+    "O.04",
+    "O.05",
+    "O.06",
+    "O.07"
+  ],
+  "theoremIndexSHA256": "3e07818964328abc148ed6fc07519019afc9909f6b2c8d86148e68a34c322059",
+  "status": "Frozen before Conditional implementation. Full original goal remains active."
+}

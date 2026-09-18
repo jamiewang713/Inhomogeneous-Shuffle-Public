@@ -1,0 +1,67 @@
+{
+  "version": "exponent-addendum-1",
+  "frozenAtUTC": "2026-09-17T22:07:11.444187+00:00",
+  "contractSHA256": "7f3dcbd0c6e99538300bbfe307c2516440647ebd3999e28285439024c8b3a848",
+  "parentContractSHA256": {
+    "frozen_contract.md": "1c482ed0ca3e2f24396e5e70fe53eb70dcb1ee24ae71adca2ebc19edf85a69a1",
+    "frozen_collision_contract.md": "f69afe0abd0a13ad36fbe8368dcdd3e270ff249d05d7b68e0fd5baf48abc0b9e",
+    "frozen_conditional_contract.md": "0790d840b1e1fc25f496672fedf6c68a6e76b99961e0173e6478cc0761e71689",
+    "frozen_overlap_contract.md": "ae3f99298b49db58e0326baaa5cf49ffc42fbaaa1553fc5288fceb1b0ce8f812"
+  },
+  "sources": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "3e6a410de9812e1a46500a9a5f2320008fe666b26ae6dfebf17ebaf753ff32f6",
+    "2103.05068v3.pdf": "58f0b60418d0cdbf339f6440e9ae664ab617b6ab461b5153be63ec6af8d9f97d",
+    "2510.22783v1.pdf": "f66cd955cdb6546d9c118ea8ee22f7e166db55219d6207a3e5e607281e483d42"
+  },
+  "parentImplementationSHA256": {
+    "EdgeLocalization/Collision/Column.lean": "78d500654fa4b6cdc752a9ac1e6ad5309770b662fb21c47290b7325b4e8c20d2",
+    "EdgeLocalization/Collision/Estimates.lean": "5410dde8575943d9a74512d64b761b1f33efadd7d7a750da4d011b16eb0fa6f4",
+    "EdgeLocalization/Collision/FiniteLaw.lean": "a4e97e40ed417cfccda5e80a9b6251a9d947c4787bd9135f4e54b4844d2ec7e2",
+    "EdgeLocalization/Collision/Matrix.lean": "358458300020fac171ed5741e65551c807e6f98e13729dc6e6b6d9542d184d24",
+    "EdgeLocalization/Collision/Model.lean": "43c19b97e925dee9186d496560cdf143c89b76279ba4f36420e84401a4b4e3dd",
+    "EdgeLocalization/Collision/Rows.lean": "296505ea22d178a66248d7d40651ead865db2a991bd11c38fd65b0a3ecd69829",
+    "EdgeLocalization/Conditional/Counts.lean": "f97c5abefa71d4c34634113e9a0cdba6b9004644a260d0281f45705f2a189991",
+    "EdgeLocalization/Conditional/Estimates.lean": "a67f3ceeb5865f8ec52563712688387e75a8dd5a4693be6bda7a2d84e1e73df6",
+    "EdgeLocalization/Conditional/Model.lean": "3234668ca977af586e5551ad116cc6ef3c3ae63c98846fa35a39a64f11104bc4",
+    "EdgeLocalization/Conditional/Split.lean": "ae25208eab9afd983de656c9dad501baf1cd0744da7829d6ad93b93517b4a989",
+    "EdgeLocalization/Deck.lean": "a15057e043d431ae9cef2a7878a1a02c4b74db3356b65dc5e47cb74dde338ce4",
+    "EdgeLocalization/Density.lean": "2fda035c6f504582644c40f037b4207a8649e22ab5a10101ba1c8ed35676ab2b",
+    "EdgeLocalization/EndpointObstruction.lean": "e4f65b5f175c0b88cfd26557d7df750b150fba5ffa081e40bfc9d5bdffabef95",
+    "EdgeLocalization/FiniteLaw.lean": "2f3b3ba7737aacd2ce19790b65030453c88e1101f7b2d9cb20e2b50d01a72f44",
+    "EdgeLocalization/FirstColumn.lean": "84b47e4aea9f37406a9aa7bcbe526f7f3019dc140917fe667f81cd1944e68b11",
+    "EdgeLocalization/Overlap/Edges.lean": "50dff4e8d0c991c0fe3c4ca944bf45563738f44eda3b6797f7a4caaa790fd467",
+    "EdgeLocalization/Overlap/FiniteLaw.lean": "a96d3d64856b6844cf177c960176f08fa361000eb648d0d8cca25da5223eec4d"
+  },
+  "reviewSHA256": {
+    "exponent_contract_reconstruction.md": "bab1628ba35e24ea87b8172bf1886642ca84e477b23779aade6a05d1ca04df2d",
+    "exponent_contract_statements.md": "cfaf4008197d50d4ce135394bbbe0694e541128bc0842c7a05352987edabfcdb",
+    "exponent_contract_assumptions.md": "fa248f4bd9c69cac566f35fa5377961938e47f06b1aa8dd79a6db40100568dd1",
+    "exponent_contract_comparison.md": "dc91466f2f9b7c21f6c9957198c993ed797e2f75ab6b90faba41ca72138da090"
+  },
+  "plannedDefinitions": [
+    "EdgeLocalization.legalPrefix",
+    "EdgeLocalization.ambientSizeExponent",
+    "EdgeLocalization.ambientMeanError",
+    "EdgeLocalization.columnPsiTwo",
+    "EdgeLocalization.tailEdgeExponent"
+  ],
+  "plannedStatementIDs": [
+    "X.01",
+    "X.02",
+    "X.03",
+    "X.04",
+    "X.05",
+    "X.06",
+    "X.07",
+    "X.08",
+    "X.09",
+    "X.10",
+    "X.11",
+    "X.12",
+    "X.13",
+    "X.14",
+    "X.15"
+  ],
+  "theoremIndexSHA256": "122c0a0325f82f7a5c72370f0b4904d8dbdf17e5c03d381005e5782215209cff",
+  "status": "Frozen before Exponent implementation. Full original goal remains active."
+}

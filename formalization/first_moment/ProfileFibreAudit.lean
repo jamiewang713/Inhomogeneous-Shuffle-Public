@@ -1,0 +1,10 @@
+import FirstMomentModel.ProfileFibreEntropy
+
+#check @InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts_encode
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts_encode
+#check @InhomogeneousShuffle.FirstMoment.Model.profileFibre_finite
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileFibre_finite
+#check @InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_exp_entropy
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_exp_entropy
+#check @InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy
+#print axioms InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy

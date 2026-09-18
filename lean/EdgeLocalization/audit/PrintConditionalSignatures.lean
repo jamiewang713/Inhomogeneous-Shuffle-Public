@@ -1,0 +1,12 @@
+import EdgeLocalization.Conditional.Estimates
+
+#check @EdgeLocalization.matrix_expectation_split
+#check @EdgeLocalization.tailCollisionFactor_suffix
+#check @EdgeLocalization.prefix_occupancy_glue
+#check @EdgeLocalization.increasing_pairs_in_finset_card
+#check @EdgeLocalization.tail_expected_collisionPairs_given_prefix_array
+#check @EdgeLocalization.matrix_collisionPairs_occupancy_slice
+#check @EdgeLocalization.matrix_internal_edges_occupancy_slice
+#check @EdgeLocalization.prefixCounts
+#check @EdgeLocalization.suffixCounts
+#check @EdgeLocalization.splitMatrix

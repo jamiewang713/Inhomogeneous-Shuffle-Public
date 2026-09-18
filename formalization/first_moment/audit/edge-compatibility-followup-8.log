@@ -1,0 +1,39 @@
+Checking EdgeLocalization/Conditional/Model.lean on Lean4.33.1
+Checking EdgeLocalization/Conditional/Split.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Split.lean:110:4: error: Type mismatch
+  hm ⟨i, hi⟩
+has type
+  prefixWord x <+: rawRow n g ⟨i, hi⟩ ↔ prefixWord x <+: rawRow (prefixCounts n hM) p ⟨i, hi⟩
+but is expected to have type
+  i ∈
+      {i ∈ Finset.range N |
+        prefixWord x <+: if hi : i < N then rawRow n ((splitMatrix N n hM).symm (p, t)) ⟨i, hi⟩ else []} ↔
+    i ∈ {i ∈ Finset.range N | prefixWord x <+: if hi : i < N then rawRow (prefixCounts n hM) p ⟨i, hi⟩ else []}
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Split.lean:108:25: warning: This simp argument is unused:
+  Finset.mem_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [occupied, Finset.mem_range, hi, true_and, rawRows, rowsOfLabels]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Split.lean:108:44: warning: This simp argument is unused:
+  Finset.mem_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [occupied, Finset.mem_filter, hi, true_and, rawRows, rowsOfLabels]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Split.lean:108:62: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [occupied, Finset.mem_filter, Finset.mem_range, true_and, rawRows, rowsOfLabels]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Conditional/Split.lean:108:66: warning: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [occupied, Finset.mem_filter, Finset.mem_range, hi, rawRows, rowsOfLabels]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

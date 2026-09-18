@@ -1,0 +1,101 @@
+{
+  "package": "foundations",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "snapshot": "/var/folders/j8/8d3sblhx1ng3dk4dhsf9bskm0000gn/T/upper-input-foundations-ndd1ifjw",
+  "source_files": {
+    "RiffleShuffle/Basic.lean": {
+      "sha256": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+      "unchanged_at_end": true
+    },
+    "RiffleShuffle/Graphs.lean": {
+      "sha256": "d17dc327333df268b84ec9130911bba2d5d16130caaa7ffc8397db20e4601362",
+      "unchanged_at_end": true
+    },
+    "RiffleShuffle/Intervals.lean": {
+      "sha256": "2df06c71376e38ba4ee0c834b6d90d21b87e5b85ab32f1a80886c02aa65d5f6e",
+      "unchanged_at_end": true
+    },
+    "RiffleShuffle/Matrices.lean": {
+      "sha256": "2a674866084434aa87978a35af366251df362fa0f9873b4493c136aa69e3c317",
+      "unchanged_at_end": true
+    },
+    "RiffleShuffle/PrefixTree.lean": {
+      "sha256": "535f8ec3a90b375b66b5277b02373efff29f7e54b9af9214d927ead65176070f",
+      "unchanged_at_end": true
+    },
+    "RiffleShuffle/Profiles.lean": {
+      "sha256": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+      "unchanged_at_end": true
+    },
+    "RiffleShuffle/Words.lean": {
+      "sha256": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+      "unchanged_at_end": true
+    },
+    "RiffleShuffle.lean": {
+      "sha256": "afcab01d68837e64e1d8635fd59c1c0da7c0edfdf1e566c1c140f20fbf4df3a2",
+      "unchanged_at_end": true
+    },
+    "Audit.lean": {
+      "sha256": "9304ad74c5dfe0c893285c7bc1dcb8fdd55f9b0a06f136606a795e4b4a38eb01",
+      "unchanged_at_end": true
+    }
+  },
+  "builds": [
+    {
+      "module": "RiffleShuffle.Basic",
+      "exit_code": 0,
+      "seconds": 12.257
+    },
+    {
+      "module": "RiffleShuffle.Profiles",
+      "exit_code": 0,
+      "seconds": 1.801
+    },
+    {
+      "module": "RiffleShuffle.Intervals",
+      "exit_code": 0,
+      "seconds": 2.201
+    },
+    {
+      "module": "RiffleShuffle.Words",
+      "exit_code": 0,
+      "seconds": 2.064
+    },
+    {
+      "module": "RiffleShuffle.Matrices",
+      "exit_code": 0,
+      "seconds": 2.034
+    },
+    {
+      "module": "RiffleShuffle.PrefixTree",
+      "exit_code": 0,
+      "seconds": 1.886
+    },
+    {
+      "module": "RiffleShuffle.Graphs",
+      "exit_code": 0,
+      "seconds": 2.195
+    },
+    {
+      "module": "RiffleShuffle",
+      "exit_code": 0,
+      "seconds": 1.762
+    },
+    {
+      "module": "Audit",
+      "exit_code": 0,
+      "seconds": 1.858
+    }
+  ],
+  "all_compiled": true,
+  "audited_declarations_expected": 74,
+  "audited_declarations_observed": 74,
+  "axiom_dependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unexpected_axiom_dependencies": [],
+  "log": "formalization/upper_bound/audit/foundations-revalidation-build.log",
+  "scope": "Existing declarations only; no model-first-moment or upper-bound completion inferred."
+}

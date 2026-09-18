@@ -1,0 +1,14 @@
+import RiffleTimeProfile.LatticeCounts
+
+#print axioms TimeProfile.mem_timePositions
+#print axioms TimeProfile.mem_timePositions_iff_floor
+#print axioms TimeProfile.timePositions_card
+#print axioms TimeProfile.timePositions_count_error
+#print axioms TimeProfile.sum_timeCellCount
+#print axioms TimeProfile.sum_timeCellCount_real
+#print axioms TimeProfile.timeCellCount_weighted_sum_raw
+#print axioms TimeProfile.timeCellCount_weighted_sum
+#print axioms TimeProfile.columnTime_injective
+#print axioms TimeProfile.timeCellCount_closed_bounds
+#print axioms TimeProfile.timeCellCount_closed_error
+#print axioms TimeProfile.AlmostLike.timeCellCount_error

@@ -1,0 +1,1053 @@
+{
+  "checked_utc": "2026-09-17T20:17:34.002688+00:00",
+  "purpose": "Read-only inventory of project Lean sources that appeared after the initial review. This is not a successful build, source freeze, or identification of the user target.",
+  "source_files": [
+    {
+      "path": "formalization/Riffle/Mass.lean",
+      "imports": [
+        "Riffle.Model",
+        "Riffle.Words"
+      ],
+      "declarations": [
+        "weight_pos",
+        "weight_eq_zero_of_not_legal",
+        "expectedCount_pos",
+        "sum_weight",
+        "expectedCount_full"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/Riffle/Definitions.lean",
+      "imports": [
+        "Mathlib.Tactic",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.Data.List.Lex",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.WithTop",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Pi"
+      ],
+      "declarations": [
+        "Word",
+        "digit",
+        "parent",
+        "join",
+        "Model",
+        "Legal",
+        "Full",
+        "Desc",
+        "Cylinder",
+        "FamilyCylinder",
+        "Setup",
+        "prob",
+        "FullIndex",
+        "fullList",
+        "weight",
+        "expectedCount",
+        "Side",
+        "largeDigits",
+        "leftIndex",
+        "rightIndex",
+        "crossDigit",
+        "Cross",
+        "BoundaryCut",
+        "Boundary",
+        "selectCut",
+        "selected",
+        "violations",
+        "Admissible",
+        "pairDesc",
+        "Compatible",
+        "RawPair",
+        "AdmissiblePair",
+        "Terminal",
+        "Piece",
+        "PieceEvent",
+        "sideMaximum",
+        "sideFluctuation",
+        "extendedLog",
+        "cFAt",
+        "cF",
+        "Retained",
+        "cL",
+        "Stop",
+        "Gamma",
+        "Lambda",
+        "Stable",
+        "PrefixAntichain",
+        "LexLE",
+        "RankSet",
+        "SortedRows",
+        "GenericCut"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/Riffle/Words.lean",
+      "imports": [
+        "Riffle.Definitions"
+      ],
+      "declarations": [
+        "digit_prefix",
+        "digit_take",
+        "legal_prefix",
+        "legal_take",
+        "prefixes_comparable",
+        "prefix_of_prefix_length_le",
+        "parent_prefix",
+        "parent_length",
+        "parent_legal",
+        "prefix_parent",
+        "join_properties",
+        "pairDesc_eq",
+        "join_legal",
+        "join_ambient",
+        "terminal_iff_join_length",
+        "cylinder_mono",
+        "cylinder_inter_eq_join",
+        "cylinder_disjoint",
+        "antichain_cylinder_disjoint",
+        "full_cylinder",
+        "fullList_length",
+        "fullList_digit",
+        "fullList_bounded",
+        "fullList_injective",
+        "fullList_existsUnique",
+        "fullList_of_full"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/Riffle/Boundary.lean",
+      "imports": [
+        "Riffle.Words"
+      ],
+      "declarations": [
+        "boundaryCut_mem_desc",
+        "boundaryCut_nonterminal",
+        "boundaryCut_antichain",
+        "selectCut_spec",
+        "boundaryCut_unique_prefix",
+        "boundaryCut_existsUnique",
+        "selectCut_eq_of_no_cross",
+        "selectCut_first_crossing",
+        "boundary_mem_desc",
+        "boundary_nonterminal",
+        "boundary_antichain",
+        "admissible_mem_boundary",
+        "admissible_antichain",
+        "admissiblePair_rawPair",
+        "selected_spec",
+        "selected_unique",
+        "selected_existsUnique",
+        "selected_eq_iff",
+        "rawPair_join_desc",
+        "rawPair_prefix_join",
+        "boundary_pair_fiber",
+        "incompatible_boundary_fiber_empty",
+        "rawPair_join_antichain",
+        "rawPair_cylinders_disjoint",
+        "selected_rawPair",
+        "raw_boundary_cover",
+        "raw_boundary_union",
+        "boundary_ambient_terminal",
+        "selected_ambient_terminal"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/Riffle/Stopping.lean",
+      "imports": [
+        "Riffle.Words"
+      ],
+      "declarations": [
+        "genericCut_of_root",
+        "genericCut_of_not_root",
+        "genericCut_desc",
+        "genericCut_antichain",
+        "genericCut_exists_prefix",
+        "genericCut_existsUnique_prefix",
+        "genericCut_cover",
+        "genericCut_cylinder_disjoint",
+        "genericCut_crossing_minimal",
+        "genericCut_fallback_iff",
+        "gamma_lambda_disjoint",
+        "stable_terminal",
+        "stable_stopped",
+        "rawPair_join_desc",
+        "stable_eq_genericCut",
+        "stable_desc",
+        "stable_exists_prefix",
+        "stable_cover"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/Riffle/Model.lean",
+      "imports": [
+        "Riffle.Definitions"
+      ],
+      "declarations": [
+        "count_le",
+        "exists_positive_digit",
+        "prob_pos_iff",
+        "prob_le_one",
+        "sum_prob",
+        "largeDigits_nonempty",
+        "leftIndex_mem",
+        "rightIndex_mem",
+        "leftIndex_legal",
+        "rightIndex_legal",
+        "leftIndex_le_rightIndex"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/first_moment/AuditNumerical.lean",
+      "imports": [
+        "FirstMoment.Numerical"
+      ],
+      "declarations": [],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/first_moment/FirstMoment/Entropy.lean",
+      "imports": [
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "word_mass_sum",
+        "card_mul_mass_le_one",
+        "card_le_exp_of_mass",
+        "typeClass",
+        "typeEntropy",
+        "type_class_card_le_exp_entropy"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/first_moment/FirstMoment/Counting.lean",
+      "imports": [
+        "Mathlib.Data.Finset.Powerset",
+        "Mathlib.Data.Fintype.Card",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "SparseAssignment",
+        "sparseCount",
+        "BoundaryCode",
+        "ProfileKey",
+        "profileCountBound",
+        "card_sparseAssignment",
+        "sparseCount_weighted",
+        "sparseCount_le",
+        "card_profileKey",
+        "profile_card_le_of_injective",
+        "sparseCount_exp_bound",
+        "profileCount_exp_bound",
+        "profileCount_eventually"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/first_moment/FirstMoment/Assembly.lean",
+      "imports": [
+        "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "declarations": [
+        "FiniteGraphLaw",
+        "FiniteGraphLaw.edgeMarginal",
+        "FiniteGraphLaw.expectedCommonEdges",
+        "expectedCommonEdges_eq_sum_sq",
+        "localized_sum_sq",
+        "localized_sum_sq_bound",
+        "expectedCommonEdges_bound",
+        "profileClass_sum_bound",
+        "expectedCommonEdges_power_bound",
+        "two_power_terms_eventually"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/first_moment/FirstMoment/Numerical.lean",
+      "imports": [
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "thetaRange",
+        "largeIntegrand",
+        "smallIntegrand",
+        "thetaInf",
+        "le_thetaInf_add",
+        "variational_margin",
+        "large_exponent_pointwise",
+        "small_exponent_pointwise",
+        "singleton_exponent",
+        "large_exponent_variational",
+        "small_exponent_variational",
+        "large_exponent_negative",
+        "small_exponent_negative",
+        "singleton_exponent_negative"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/time_profile/RiffleTimeProfile/Ambient.lean",
+      "imports": [
+        "RiffleTimeProfile.Base",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset",
+        "Mathlib.Order.WithBot",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "positions",
+        "LegalPrefix",
+        "prefixWeight",
+        "prefixMass",
+        "cL",
+        "cE",
+        "AmbientBlock",
+        "AmbientApproximation",
+        "leftProbability",
+        "rightProbability",
+        "sideMass",
+        "sideMaximum",
+        "logExponent",
+        "cF",
+        "Crossings",
+        "StableAt",
+        "ParentCrossing",
+        "prefixWeight_pos",
+        "prefixWeight_le_one",
+        "prefixWeight_extension_le",
+        "prefixMass_pos",
+        "cL_split",
+        "cL_extension_le",
+        "cL_exact_mass_exponent",
+        "cE_nonpos",
+        "cE_terminal"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/time_profile/RiffleTimeProfile/Base.lean",
+      "imports": [
+        "Mathlib.Analysis.Convex.StdSimplex",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Order.Interval.Set.Union",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "Simplex",
+        "prob",
+        "prob_nonneg",
+        "prob_le_one",
+        "sum_prob",
+        "pileMax",
+        "exists_prob_pos",
+        "prob_le_pileMax",
+        "pileMax_nonneg",
+        "pileMax_pos",
+        "pileMax_le_one",
+        "inv_card_le_pileMax",
+        "digitCost",
+        "maxCost",
+        "powerSum",
+        "psi",
+        "tiltedWeight",
+        "tiltedCost",
+        "shannonEntropy",
+        "tiltedEntropy",
+        "Cuts",
+        "Cuts.profile",
+        "Cuts.profile_prob",
+        "Cuts.profile_pos_iff",
+        "logScale",
+        "columnTime",
+        "horizonDepth",
+        "logScale_pos",
+        "horizonDepth_error",
+        "horizonDepth_zero",
+        "BorelPartition",
+        "BorelPartition.cell",
+        "BorelPartition.IsRegular",
+        "BorelPartition.IsGoodDigit",
+        "BorelPartition.IsRegular.good_prob_pos",
+        "BorelPartition.IsRegular.good_actual_gt",
+        "BorelPartition.IsRegular.good_digitCost_error",
+        "BorelPartition.IsRegular.exceptional_actual_le",
+        "BorelPartition.IsRegular.maxCost_rep_error",
+        "BorelPartition.IsRegular.psi_rep_error",
+        "TimeMesh",
+        "TimeMesh.cell",
+        "TimeMesh.MeshLE",
+        "TimeLaw",
+        "profileMaxCost",
+        "profilePsi",
+        "profileTiltedCost",
+        "profileTiltedEntropy",
+        "integratedMaxCost",
+        "integratedPsi",
+        "integratedTiltedCost",
+        "cellMass",
+        "intervalCount",
+        "AlmostLike",
+        "GoodColumn",
+        "LocalGood"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/time_profile/RiffleTimeProfile/Numerical.lean",
+      "imports": [
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "declarations": [
+        "largeObjective",
+        "smallObjective",
+        "largeLoss",
+        "smallLoss",
+        "large_numerical_core",
+        "small_numerical_core",
+        "singleton_numerical_core",
+        "numerical_le_infimum_add",
+        "large_numerical_margin",
+        "small_numerical_margin",
+        "singleton_numerical_margin",
+        "no_terminal_fallback",
+        "large_loss_of_common_error",
+        "small_loss_of_common_error",
+        "singleton_loss_of_common_error",
+        "large_numerical_margin_of_common_error",
+        "small_numerical_margin_of_common_error",
+        "singleton_numerical_margin_of_common_error"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/foundations/RiffleShuffle/Graphs.lean",
+      "imports": [
+        "RiffleShuffle.Matrices",
+        "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected"
+      ],
+      "declarations": [
+        "shuffleGraph",
+        "blockGraph",
+        "sharedGraph",
+        "graph_adj_iff",
+        "graph_subpath",
+        "adj_same_prefix",
+        "equal_rows_between",
+        "reachable_iff_eq",
+        "block_adj_iff",
+        "shared_adj_iff"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/foundations/RiffleShuffle/Words.lean",
+      "imports": [
+        "RiffleShuffle.Profiles"
+      ],
+      "declarations": [
+        "prefix_refl",
+        "prefix_trans",
+        "prefix_length_le",
+        "prefix_eq_of_length_eq",
+        "empty_prefix",
+        "truncate_prefix",
+        "prefix_iff_truncate",
+        "prefix_comparable",
+        "take_lex_monotone",
+        "prefix_lex_convex",
+        "legal_truncate",
+        "legal_empty",
+        "legal_append_iff",
+        "legal_full_extension"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/foundations/RiffleShuffle/Matrices.lean",
+      "imports": [
+        "RiffleShuffle.Words",
+        "Mathlib.Data.Fin.Tuple.Sort",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Data.Fintype.EquivFin"
+      ],
+      "declarations": [
+        "ShuffleMatrix",
+        "shuffleMatrix_nonempty",
+        "sortPerm",
+        "sortedRows",
+        "row_legal",
+        "reindex_counts",
+        "reindex",
+        "sorted_monotone",
+        "sorted_row_legal",
+        "sort_preserves_count",
+        "rankSet",
+        "lowerEndpoint",
+        "upperEndpoint",
+        "rank_mem_iff",
+        "rank_count",
+        "endpoint_bounds",
+        "rank_convex",
+        "rank_mono",
+        "rank_disjoint"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/foundations/RiffleShuffle/Basic.lean",
+      "imports": [
+        "Mathlib.Data.Vector.Basic",
+        "Mathlib.Data.Fintype.Vector",
+        "Mathlib.Data.List.Lex",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "PileProfile",
+        "NormalizedProfile",
+        "PileProfile.countAt",
+        "PileProfile.probAt",
+        "Word",
+        "Prefix",
+        "emptyWord",
+        "truncate",
+        "appendDigit",
+        "Legal",
+        "mass",
+        "RawPrefix",
+        "Node",
+        "FullWord",
+        "Node.depth",
+        "Node.word",
+        "Node.toList",
+        "Node.IsPrefix",
+        "Child",
+        "cylinder",
+        "PrefixAntichain",
+        "Covers"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/foundations/RiffleShuffle/PrefixTree.lean",
+      "imports": [
+        "RiffleShuffle.Words"
+      ],
+      "declarations": [
+        "root",
+        "parent",
+        "node_prefix_refl",
+        "node_prefix_trans",
+        "node_prefix_antisymm",
+        "root_prefix",
+        "parent_prefix",
+        "parent_depth",
+        "parent_strict",
+        "exists_child",
+        "cylinder_nonempty",
+        "cylinder_mono",
+        "cylinders_overlap_iff",
+        "antichain_disjoint",
+        "antichain_cover_unique",
+        "cylinder_children"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/foundations/RiffleShuffle/Profiles.lean",
+      "imports": [
+        "RiffleShuffle.Basic",
+        "Mathlib.Algebra.BigOperators.Fin",
+        "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset"
+      ],
+      "declarations": [
+        "countAt_of_lt",
+        "countAt_of_ge",
+        "count_le_deck",
+        "prob_nonneg",
+        "prob_le_one",
+        "prob_pos_iff",
+        "prob_sum",
+        "exists_positive_digit",
+        "normalized",
+        "mass_empty",
+        "mass_nonneg",
+        "mass_le_one",
+        "mass_pos_iff_legal",
+        "mass_sum",
+        "mass_append"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "formalization/foundations/RiffleShuffle/Intervals.lean",
+      "imports": [
+        "RiffleShuffle.Profiles",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Order.Interval.Set.Basic"
+      ],
+      "declarations": [
+        "left",
+        "right",
+        "interval",
+        "left_nonneg",
+        "left_le_right",
+        "right_le_one",
+        "right_le_left",
+        "weighted_intervals_disjoint",
+        "weighted_interval_empty_iff",
+        "weighted_interval_length",
+        "weighted_intervals_cover",
+        "wordInterval",
+        "latticeInterval",
+        "lexOpen",
+        "word_interval_empty_iff",
+        "word_intervals_disjoint",
+        "word_intervals_cover",
+        "lexOpen_convex"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean/Shuffle/HypergeometricConcentration.lean",
+      "imports": [
+        "Mathlib.Data.Nat.Choose.Sum",
+        "Mathlib.Data.Nat.Factorial.BigOperators",
+        "Mathlib.Analysis.Complex.Exponential",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean/Shuffle/FiniteLaw.lean",
+      "imports": [
+        "Mathlib.Tactic",
+        "Mathlib.Probability.ProbabilityMassFunction.Integrals"
+      ],
+      "declarations": [
+        "FiniteLaw",
+        "prob",
+        "expect",
+        "variance",
+        "prob_nonneg",
+        "prob_mono",
+        "prob_le_one",
+        "prob_union_le",
+        "expect_nonneg",
+        "expect_mono",
+        "expect_add",
+        "expect_sub",
+        "expect_mul_const",
+        "expect_const_mul",
+        "variance_nonneg",
+        "variance_eq",
+        "markov",
+        "chebyshev"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean/Shuffle/Conditioning.lean",
+      "imports": [
+        "Shuffle.FiniteLaw"
+      ],
+      "declarations": [
+        "conditionalProb",
+        "conditionalExpect",
+        "condition",
+        "condition_prob",
+        "condition_expect",
+        "mass_eq_zero_of_prob_eq_zero",
+        "prob_inter_eq_zero_of_prob_eq_zero",
+        "weighted_conditionalProb",
+        "weighted_conditionalExpect",
+        "total_probability",
+        "total_expectation"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean/Shuffle/HypergeometricMoments.lean",
+      "imports": [
+        "Shuffle.FiniteLaw",
+        "Mathlib.Data.Nat.Choose.Vandermonde",
+        "Mathlib.Data.Nat.Choose.Cast",
+        "Mathlib.Algebra.BigOperators.NatAntidiagonal",
+        "Mathlib.Tactic.Ring"
+      ],
+      "declarations": [],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean/Shuffle/Hypergeometric.lean",
+      "imports": [
+        "Shuffle.FiniteLaw",
+        "Mathlib.Data.Nat.Choose.Vandermonde",
+        "Mathlib.Algebra.BigOperators.NatAntidiagonal"
+      ],
+      "declarations": [
+        "HypergeomParams",
+        "weight",
+        "mean",
+        "varianceFormula",
+        "denominator_pos",
+        "weight_nonneg",
+        "weight_sum",
+        "law",
+        "weight_pos_iff",
+        "pointMass",
+        "pointMass_le_one",
+        "pointMass_eq_zero_of_lt",
+        "mean_nonneg"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean/EdgeLocalization/EdgeLocalization/FiniteLaw.lean",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "FiniteLaw",
+        "expectation",
+        "probability",
+        "expectation_nonneg",
+        "expectation_mono",
+        "expectation_const",
+        "probability_nonneg",
+        "probability_le_one",
+        "probability_true",
+        "probability_false",
+        "probability_congr",
+        "probability_sq_le",
+        "probability_of_forall",
+        "probability_event_of_constant",
+        "sum_probabilities_eq_expected_card",
+        "sum_sq_probabilities_le_expected_card"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean/EdgeLocalization/EdgeLocalization/Deck.lean",
+      "imports": [
+        "Mathlib.Tactic",
+        "Mathlib.Data.List.Infix",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Prod"
+      ],
+      "declarations": [
+        "occupied",
+        "internalEdges",
+        "allEdges",
+        "collisionPairs",
+        "edgeCount",
+        "occupancyCount",
+        "internalEdges_subset_occupied",
+        "internalEdges_subset_range",
+        "internalEdges_card_le_occupancy",
+        "internalEdges_zero",
+        "internalEdges_one",
+        "equal_rows_prefix_transfer",
+        "localize_internal_edge",
+        "internalEdges_card_le_collisionPairs"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean-lower-bound/RiffleLower/UniformPermutation.lean",
+      "imports": [
+        "Mathlib.Data.Fin.Tuple.Sort",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Tactic",
+        "RiffleLower.FiniteProbability",
+        "RiffleLower.Sorting"
+      ],
+      "declarations": [
+        "increasingAlong",
+        "increasingAlongEvent",
+        "windowEmbedding",
+        "windowEvent",
+        "ascentEvent",
+        "ascentCount",
+        "unique_increasing_reordering",
+        "increasing_reordering_card",
+        "increasingAlong_card_mul_factorial",
+        "prob_increasingAlong",
+        "mem_windowEvent_iff",
+        "increasingRun_eq_union",
+        "prob_increasingRun_le",
+        "prob_ascent",
+        "expect_ascentCount"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean-lower-bound/RiffleLower/Sorting.lean",
+      "imports": [
+        "Mathlib.Data.Fin.Tuple.Sort",
+        "Mathlib.Order.Interval.Finset.Fin",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "stableSort",
+        "sortedKey",
+        "keyCount",
+        "lowerRank",
+        "HasIncreasingRun",
+        "sorted_equal_convex",
+        "stable_tie_increasing",
+        "sorted_fiber_interval",
+        "full_word_forces_run"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean-lower-bound/RiffleLower/FixedColumns.lean",
+      "imports": [
+        "RiffleLower.FiniteProbability",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "declarations": [
+        "ColumnArray",
+        "ColumnRandomness",
+        "columnCount",
+        "rowWord",
+        "wordCount",
+        "wordMass",
+        "wordMean",
+        "pairWordMass",
+        "uniform_expect_equiv",
+        "uniform_pi_expect_prod",
+        "uniform_perm_indicator",
+        "uniform_perm_pair_indicator",
+        "indicator_sum_factorial",
+        "columnCount_le",
+        "sum_columnCount",
+        "wordMass_bounds",
+        "wordMean_bounds",
+        "one_column_pair_le_square",
+        "pairWordMass_le_square"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean-lower-bound/RiffleLower/Profiles.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Piecewise",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "digitCount",
+        "cellCount",
+        "digitWordMass",
+        "digitWordCost",
+        "profileMass",
+        "digitCount_cell_sum",
+        "digitCount_total",
+        "profile_product_exact",
+        "legal_word_log_mass",
+        "maximal_digit_word_mass"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean-lower-bound/RiffleLower/FiniteProbability.lean",
+      "imports": [
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Tactic"
+      ],
+      "declarations": [
+        "FiniteLaw",
+        "prob",
+        "expect",
+        "variance",
+        "uniformLaw",
+        "mapLaw",
+        "mixture",
+        "tv",
+        "unionEvents",
+        "prob_nonneg",
+        "prob_mono",
+        "prob_le_one",
+        "prob_compl",
+        "expect_mono",
+        "expect_add",
+        "expect_sub",
+        "expect_mul_const",
+        "expect_const_mul",
+        "expect_sum",
+        "expect_indicator",
+        "prob_uniform",
+        "expect_uniform",
+        "prob_map",
+        "expect_map",
+        "prob_mixture",
+        "expect_mixture"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean_formalization/RiffleProfiles/WordMass.lean",
+      "imports": [
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Data.Fintype.Card",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "declarations": [
+        "wordWeight",
+        "badPositions",
+        "badCount",
+        "badWordMass",
+        "wordWeight_nonneg",
+        "wordWeight_sum",
+        "badCount_generating_product",
+        "wordWeight_generating",
+        "coordinate_generating",
+        "wordWeight_generating_le",
+        "badWordMass_le",
+        "badDigitMass_le",
+        "badWordMass_smallDigits_le",
+        "scaled_badWordMass_le",
+        "sum_edgeProbability_sq_le",
+        "coarse_fibre_card_le",
+        "oneCellCoarseProfile",
+        "coarseProfile_not_injective"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean_formalization/RiffleProfiles/Entropy.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.Algebra.BigOperators.Field",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "declarations": [
+        "profileEntropy",
+        "finite_gibbs_inequality",
+        "profileEntropy_eq_zero_of_sum_eq_zero",
+        "entropy_le_tilted_cost",
+        "profile_entropy_le",
+        "exceptional_cost_identity",
+        "exceptional_cost_bounds",
+        "entropy_error_of_replacement"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean_formalization/RiffleProfiles/Estimates.lean",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "declarations": [
+        "cost",
+        "normalizedSum",
+        "LegalOn",
+        "goodPositions",
+        "exceptionalPositions",
+        "RegularDigits",
+        "goodCost",
+        "exceptionalCost",
+        "lengthExponent",
+        "cost_eq_log_inverse",
+        "cost_nonnegative",
+        "cost_antitone",
+        "good_digit_bounds",
+        "exceptional_digit_bound",
+        "sum_error_bound",
+        "normalized_sum_error_bound",
+        "good_exceptional_split",
+        "exceptional_cost_nonnegative",
+        "profile_cost_decomposition",
+        "length_exponent_split",
+        "length_exponent_profile",
+        "cell_regrouping",
+        "cell_replacement",
+        "interval_blocking",
+        "tail_cell_replacement",
+        "maximal_pile_domination",
+        "maximal_pile_target",
+        "side_mass_ge_continuation",
+        "fluctuation_log_comparison",
+        "parent_crossing_good_cost"
+      ],
+      "contains_incomplete_marker": false
+    },
+    {
+      "path": "lean_formalization/RiffleProfiles/Counting.lean",
+      "imports": [
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Data.Nat.Choose.Sum",
+        "Mathlib.Data.Fintype.Powerset",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Powerset",
+        "Mathlib.Algebra.Order.Field.Basic",
+        "Mathlib.Tactic.Ring"
+      ],
+      "declarations": [
+        "lowCount",
+        "tailWeight",
+        "tailWeight_le",
+        "lowCount_le",
+        "SparsePattern",
+        "sparsePatternForget",
+        "sparsePattern_card",
+        "sparsePattern_forget_image_card_le",
+        "BoundaryDescriptor",
+        "boundaryDescriptor_card_le",
+        "ProfileDescriptor",
+        "profileDescriptor_card_le"
+      ],
+      "contains_incomplete_marker": false
+    }
+  ],
+  "identified_blocked_target": null
+}

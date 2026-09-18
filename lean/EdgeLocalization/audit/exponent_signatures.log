@@ -1,0 +1,95 @@
+@EdgeLocalization.legalPrefix_of_prefix : ∀ {K k A M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K) (hAM : A ≤ M)
+  (w : Fin A → Fin k) (x : Fin M → Fin k),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) → EdgeLocalization.legalPrefix n hM x → EdgeLocalization.legalPrefix n ⋯ w
+EdgeLocalization.prefixMean_pos_of_legal : ∀ (N : ℕ) {K k M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K)
+  (x : Fin M → Fin k), 2 ≤ N → EdgeLocalization.legalPrefix n hM x → 0 < EdgeLocalization.prefixMean N n hM x
+EdgeLocalization.log_prefixMean_of_legal : ∀ (N : ℕ) {K k M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K)
+  (x : Fin M → Fin k),
+  2 ≤ N →
+    EdgeLocalization.legalPrefix n hM x →
+      Real.log (EdgeLocalization.prefixMean N n hM x) = Real.log ↑N - ∑ t, Real.log (↑N / ↑(n (Fin.castLE hM t) (x t)))
+EdgeLocalization.log_prefixMean_extension : ∀ (N : ℕ) {K k A M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K) (hAM : A ≤ M)
+  (w : Fin A → Fin k) (x : Fin M → Fin k),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        Real.log (EdgeLocalization.prefixMean N n hM x) =
+          Real.log (EdgeLocalization.prefixMean N n ⋯ w) - ∑ t with A ≤ ↑t, Real.log (↑N / ↑(n (Fin.castLE hM t) (x t)))
+EdgeLocalization.prefixMean_eq_rpow_ambientSizeExponent : ∀ (N : ℕ) {K k A M : ℕ} (n : Fin K → Fin k → ℕ) (hM : M ≤ K)
+  (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        EdgeLocalization.prefixMean N n hM x =
+          (↑N).rpow (EdgeLocalization.ambientSizeExponent N n hM A b x + EdgeLocalization.ambientMeanError N n ⋯ w b)
+EdgeLocalization.column_square_sum_pos : ∀ (N : ℕ) {k : ℕ} (n : Fin k → ℕ),
+  ∑ a, n a = N → 2 ≤ N → 0 < ∑ a, EdgeLocalization.singleFactor N n a ^ 2
+EdgeLocalization.tailSquareFactor_eq_rpow_tailEdgeExponent : ∀ (N : ℕ) {K k : ℕ} (n : Fin K → Fin k → ℕ),
+  (∀ (j : Fin K), ∑ a, n j a = N) →
+    ∀ (M : ℕ), 2 ≤ N → EdgeLocalization.tailSquareFactor N n M = (↑N).rpow (EdgeLocalization.tailEdgeExponent N n M)
+EdgeLocalization.tailCollisionFactor_le_rpow_tailEdgeExponent : ∀ (N : ℕ) {K k : ℕ} (n : Fin K → Fin k → ℕ),
+  (∀ (j : Fin K), ∑ a, n j a = N) →
+    ∀ (M : ℕ), 2 ≤ N → EdgeLocalization.tailCollisionFactor N n M ≤ (↑N).rpow (EdgeLocalization.tailEdgeExponent N n M)
+@EdgeLocalization.matrix_internal_density_le_ambient_tail_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+            (EdgeLocalization.prefixWord x) ≤
+          (↑N).rpow
+              (4 * (EdgeLocalization.ambientSizeExponent N n hM A b x + EdgeLocalization.ambientMeanError N n ⋯ w b) +
+                2 * EdgeLocalization.tailEdgeExponent N n M) /
+            4
+@EdgeLocalization.matrix_internal_density_le_small_coarse_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        ∀ (δ : ℝ),
+          EdgeLocalization.ambientSizeExponent N n hM A b x < 2 * δ →
+            EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+                (EdgeLocalization.prefixWord x) ≤
+              (↑N).rpow
+                  (2 * EdgeLocalization.tailEdgeExponent N n M + 8 * δ +
+                    4 * EdgeLocalization.ambientMeanError N n ⋯ w b) /
+                4
+@EdgeLocalization.matrix_internal_density_le_small_singleton_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        ∀ (δ : ℝ),
+          EdgeLocalization.ambientSizeExponent N n hM A b x < 2 * δ →
+            EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+                (EdgeLocalization.prefixWord x) ≤
+              (↑N).rpow
+                  (2 * EdgeLocalization.ambientSizeExponent N n hM A b x + 2 * EdgeLocalization.tailEdgeExponent N n M +
+                      4 * δ +
+                    4 * EdgeLocalization.ambientMeanError N n ⋯ w b) /
+                4
+@EdgeLocalization.matrix_internal_density_le_ambient_size_exponent : ∀ {N K k A M : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hM : M ≤ K) (hAM : A ≤ M) (w : Fin A → Fin k) (x : Fin M → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hAM t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n hM x →
+        EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+            (EdgeLocalization.prefixWord x) ≤
+          (↑N).rpow (EdgeLocalization.ambientSizeExponent N n hM A b x + EdgeLocalization.ambientMeanError N n ⋯ w b)
+EdgeLocalization.tailEdgeExponent_at_full_length : ∀ (N : ℕ) {K k : ℕ} (n : Fin K → Fin k → ℕ),
+  EdgeLocalization.tailEdgeExponent N n K = 0
+@EdgeLocalization.matrix_internal_density_terminal_exponent : ∀ {N K k A : ℕ} (n : Fin K → Fin k → ℕ)
+  (hn : ∀ (j : Fin K), ∑ a, n j a = N) (hA : A ≤ K) (w : Fin A → Fin k) (x : Fin K → Fin k) (b : ℝ),
+  (∀ (t : Fin A), x (Fin.castLE hA t) = w t) →
+    2 ≤ N →
+      EdgeLocalization.legalPrefix n ⋯ x →
+        EdgeLocalization.edgeDensity (EdgeLocalization.matrixLaw n hn) N (EdgeLocalization.sortedRows n)
+            (EdgeLocalization.prefixWord x) ≤
+          (↑N).rpow (EdgeLocalization.ambientSizeExponent N n ⋯ A b x + EdgeLocalization.ambientMeanError N n hA w b)
+EdgeLocalization.ambientMeanError_root : ∀ (N : ℕ) {K k : ℕ} (n : Fin K → Fin k → ℕ) (w : Fin 0 → Fin k),
+  2 ≤ N → EdgeLocalization.ambientMeanError N n ⋯ w 1 = 0
+@EdgeLocalization.legalPrefix : {K k M : ℕ} → (Fin K → Fin k → ℕ) → M ≤ K → (Fin M → Fin k) → Prop
+EdgeLocalization.ambientSizeExponent : ℕ → {K k M : ℕ} → (Fin K → Fin k → ℕ) → M ≤ K → ℕ → ℝ → (Fin M → Fin k) → ℝ
+EdgeLocalization.ambientMeanError : ℕ → {K k A : ℕ} → (Fin K → Fin k → ℕ) → A ≤ K → (Fin A → Fin k) → ℝ → ℝ
+EdgeLocalization.columnPsiTwo : ℕ → {k : ℕ} → (Fin k → ℕ) → ℝ
+EdgeLocalization.tailEdgeExponent : ℕ → {K k : ℕ} → (Fin K → Fin k → ℕ) → ℕ → ℝ

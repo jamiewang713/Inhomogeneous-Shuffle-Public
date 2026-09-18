@@ -1,0 +1,108 @@
+Checking ProfileNormalizationAudit.lean on Lean 4.33.1
+InhomogeneousShuffle.FirstMoment.Model.sourceCell : (D : Riffle.Model) →
+  (P : TimeProfile.BorelPartition D.k) → {R : ℕ} → (Fin D.K → Fin R) → Fin D.K → Fin (R * P.cellCount)
+'InhomogeneousShuffle.FirstMoment.Model.sourceCell' depends on axioms: [propext, Classical.choice, Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.sourceGood : (D : Riffle.Model) →
+  TimeProfile.BorelPartition D.k → ℝ → Fin D.K → ℕ → Prop
+'InhomogeneousShuffle.FirstMoment.Model.sourceGood' depends on axioms: [propext, Classical.choice, Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.sourceGood_fin_iff : ∀ (D : Riffle.Model) (P : TimeProfile.BorelPartition D.k)
+  (chi : ℝ) (j : Fin D.K) (l : Fin D.k),
+  InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi j ↑l ↔
+    P.IsGoodDigit chi (InhomogeneousShuffle.FirstMoment.Model.asProfile D j) l
+'InhomogeneousShuffle.FirstMoment.Model.sourceGood_fin_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions_source_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (P : TimeProfile.BorelPartition D.k) (chi : ℝ) (y z x : Riffle.Word) (hx : Riffle.Legal D x),
+  InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A
+      (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi) y z x =
+    TimeProfile.exceptionalPositions (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) P chi (List.length (Riffle.join y z)) (List.length x)
+'InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions_source_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.digitCount_source_eq : ∀ {D : Riffle.Model} {R : ℕ} (A : Riffle.Setup D)
+  (P : TimeProfile.BorelPartition D.k) (timeClass : Fin D.K → Fin R) (chi : ℝ) (y z x : Riffle.Word)
+  (hx : Riffle.Legal D x) (a : Fin R × Fin P.cellCount × Fin D.k),
+  TimeProfile.digitCount D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) P timeClass chi (List.length (Riffle.join y z))
+      (List.length x) a =
+    ↑(InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A
+          (InhomogeneousShuffle.FirstMoment.Model.sourceCell D P timeClass)
+          (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi) y z x (finProdFinEquiv (a.1, a.2.1)) a.2.2) /
+      Real.log ↑D.N
+'InhomogeneousShuffle.FirstMoment.Model.digitCount_source_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileR_source_eq : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (P : TimeProfile.BorelPartition D.k) (chi : ℝ) (y z x : Riffle.Word) (hx : Riffle.Legal D x),
+  TimeProfile.profileR D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) P chi (List.length (Riffle.join y z)) (List.length x) =
+    ↑(InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A
+            (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi) y z x).card /
+      Real.log ↑D.N
+'InhomogeneousShuffle.FirstMoment.Model.profileR_source_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileH_source_eq : ∀ {D : Riffle.Model} {R : ℕ} (A : Riffle.Setup D)
+  (P : TimeProfile.BorelPartition D.k) (timeClass : Fin D.K → Fin R) (chi : ℝ) (y z x : Riffle.Word)
+  (hx : Riffle.Legal D x),
+  TimeProfile.profileH D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector x hx) P timeClass chi (List.length (Riffle.join y z))
+      (List.length x) =
+    InhomogeneousShuffle.FirstMoment.typeEntropy
+        (InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A
+          (InhomogeneousShuffle.FirstMoment.Model.sourceCell D P timeClass)
+          (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi) y z x) /
+      Real.log ↑D.N
+'InhomogeneousShuffle.FirstMoment.Model.profileH_source_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileWord_profileR_le : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (P : TimeProfile.BorelPartition D.k) (chi alpha : ℝ)
+  (p :
+    InhomogeneousShuffle.FirstMoment.Model.ProfileWord A (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi)
+      alpha),
+  TimeProfile.profileR D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector (↑p).2.2 ⋯) P chi (List.length (Riffle.join (↑p).1 (↑p).2.1))
+      (List.length (↑p).2.2) ≤
+    alpha
+'InhomogeneousShuffle.FirstMoment.Model.profileWord_profileR_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileWord_profileH_key : ∀ {D : Riffle.Model} {R : ℕ} (A : Riffle.Setup D)
+  (P : TimeProfile.BorelPartition D.k) (timeClass : Fin D.K → Fin R) (chi alpha : ℝ)
+  (route :
+    InhomogeneousShuffle.FirstMoment.Model.ProfileWord A (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi)
+        alpha →
+      Fin 4)
+  (p :
+    InhomogeneousShuffle.FirstMoment.Model.ProfileWord A (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi)
+      alpha),
+  TimeProfile.profileH D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+      (InhomogeneousShuffle.FirstMoment.Model.legalVector (↑p).2.2 ⋯) P timeClass chi
+      (List.length (Riffle.join (↑p).1 (↑p).2.1)) (List.length (↑p).2.2) =
+    InhomogeneousShuffle.FirstMoment.typeEntropy
+        (InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts
+          (InhomogeneousShuffle.FirstMoment.Model.encodeProfile A
+            (InhomogeneousShuffle.FirstMoment.Model.sourceCell D P timeClass)
+            (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi) alpha route p)) /
+      Real.log ↑D.N
+'InhomogeneousShuffle.FirstMoment.Model.profileWord_profileH_key' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_profileH : ∀ {D : Riffle.Model} {R : ℕ}
+  (A : Riffle.Setup D) (P : TimeProfile.BorelPartition D.k) (timeClass : Fin D.K → Fin R) (chi alpha : ℝ)
+  (route :
+    InhomogeneousShuffle.FirstMoment.Model.ProfileWord A (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi)
+        alpha →
+      Fin 4)
+  (p :
+    InhomogeneousShuffle.FirstMoment.Model.ProfileWord A (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi)
+      alpha),
+  ↑(Nat.card
+        (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A
+          (InhomogeneousShuffle.FirstMoment.Model.sourceCell D P timeClass)
+          (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi) alpha route
+          (InhomogeneousShuffle.FirstMoment.Model.encodeProfile A
+            (InhomogeneousShuffle.FirstMoment.Model.sourceCell D P timeClass)
+            (InhomogeneousShuffle.FirstMoment.Model.sourceGood D P chi) alpha route p))) ≤
+    ↑D.N ^
+      TimeProfile.profileH D.N (InhomogeneousShuffle.FirstMoment.Model.asProfile D)
+        (InhomogeneousShuffle.FirstMoment.Model.legalVector (↑p).2.2 ⋯) P timeClass chi
+        (List.length (Riffle.join (↑p).1 (↑p).2.1)) (List.length (↑p).2.2)
+'InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_profileH' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

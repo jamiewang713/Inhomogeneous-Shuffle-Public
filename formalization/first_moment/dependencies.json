@@ -1,0 +1,303 @@
+{
+  "thm:upper-critical-reduced": [
+    "cor:full-margin-critical-upper-bound",
+    "thm:dominance-reduction"
+  ],
+  "def:almost-time-profile-like-cuts": [
+    "eq:probability-simplex"
+  ],
+  "def:randomized-time-profile-like-cuts": [
+    "def:almost-time-profile-like-cuts"
+  ],
+  "def:chi-regular-partitions": [
+    "eq:one-column-costs"
+  ],
+  "def:good-columns": [
+    "eq:probability-simplex"
+  ],
+  "def:first-moment-margin": [
+    "eq:integrated-profile-costs",
+    "def:ambient-block-size-exponent"
+  ],
+  "def:recursive-first-moment-margin": [
+    "def:first-moment-margin",
+    "def:ambient-block-size-exponent"
+  ],
+  "thm:deterministic-upper-bound": [
+    "lem:ub-graph-representation",
+    "lem:ub-truncated-chi-square",
+    "lem:ub-sparse-factorial",
+    "lem:ub-shared-edge-exponential-moment",
+    "lem:ub-regularity-sparsity",
+    "def:recursive-first-moment-margin"
+  ],
+  "lem:ub-graph-representation": [
+    "sec:common-setup"
+  ],
+  "lem:ub-truncated-chi-square": [
+    "lem:ub-graph-representation"
+  ],
+  "def:local-sparsity": [
+    "sec:common-setup"
+  ],
+  "lem:ub-sparse-factorial": [
+    "def:local-sparsity",
+    "lem:ub-graph-representation"
+  ],
+  "def:ambient-block-size-exponent": [
+    "sec:common-setup",
+    "eq:one-column-costs"
+  ],
+  "def:boundary-pairs-stable-blocks": [
+    "def:ambient-block-size-exponent",
+    "def:good-columns"
+  ],
+  "def:space-time-digit-profile": [
+    "def:chi-regular-partitions",
+    "def:boundary-pairs-stable-blocks"
+  ],
+  "def:numerical-first-moment-margin": [
+    "def:first-moment-margin"
+  ],
+  "lem:ub-stable-partition": [
+    "def:boundary-pairs-stable-blocks"
+  ],
+  "lem:ub-global-boundary-decomposition": [
+    "def:boundary-pairs-stable-blocks",
+    "lem:ub-stable-partition"
+  ],
+  "lem:ub-regular-partition-interval-blocking": [
+    "def:chi-regular-partitions",
+    "def:almost-time-profile-like-cuts",
+    "eq:one-column-costs"
+  ],
+  "lem:ub-profile-estimates": [
+    "def:space-time-digit-profile",
+    "def:boundary-pairs-stable-blocks",
+    "lem:ub-regular-partition-interval-blocking"
+  ],
+  "lem:ub-bad-profile-reduction": [
+    "def:boundary-pairs-stable-blocks",
+    "def:space-time-digit-profile",
+    "def:chi-regular-partitions"
+  ],
+  "lem:ub-hypergeometric-estimates": [
+    "sec:common-setup"
+  ],
+  "lem:ub-ambient-conditioning-transfer": [
+    "lem:ub-hypergeometric-estimates",
+    "def:boundary-pairs-stable-blocks",
+    "lem:ub-bad-profile-reduction"
+  ],
+  "lem:ub-ambient-concentration-anti-concentration": [
+    "lem:ub-hypergeometric-estimates",
+    "lem:ub-ambient-conditioning-transfer",
+    "lem:ub-profile-estimates",
+    "def:boundary-pairs-stable-blocks"
+  ],
+  "lem:ub-per-edge-stable-localization": [
+    "lem:ub-stable-partition",
+    "lem:ub-global-boundary-decomposition",
+    "lem:ub-ambient-concentration-anti-concentration",
+    "lem:ub-bad-profile-reduction"
+  ],
+  "lem:ub-edge-density-bounds": [
+    "lem:ub-ambient-concentration-anti-concentration",
+    "lem:ub-profile-estimates",
+    "def:boundary-pairs-stable-blocks"
+  ],
+  "lem:ub-terminal-singleton-bound": [
+    "def:ambient-block-size-exponent",
+    "def:boundary-pairs-stable-blocks"
+  ],
+  "lem:ub-numerical-lemma": [
+    "lem:ub-profile-estimates",
+    "def:numerical-first-moment-margin",
+    "def:boundary-pairs-stable-blocks"
+  ],
+  "prop:ub-first-moment": [
+    "lem:ub-bad-profile-reduction",
+    "lem:ub-per-edge-stable-localization",
+    "lem:ub-edge-density-bounds",
+    "lem:ub-terminal-singleton-bound",
+    "lem:ub-numerical-lemma",
+    "def:space-time-digit-profile"
+  ],
+  "lem:ub-conditional-preservation": [
+    "lem:ub-hypergeometric-estimates",
+    "def:almost-time-profile-like-cuts",
+    "def:recursive-first-moment-margin"
+  ],
+  "lem:ub-conditional-first-moment": [
+    "lem:ub-conditional-preservation",
+    "prop:ub-first-moment",
+    "def:recursive-first-moment-margin"
+  ],
+  "lem:ub-portenko-exponential-moment": [
+    "lem:ub-conditional-first-moment"
+  ],
+  "lem:ub-shared-edge-exponential-moment": [
+    "lem:ub-portenko-exponential-moment"
+  ],
+  "lem:ub-regularity-sparsity": [
+    "lem:ub-hypergeometric-estimates",
+    "lem:ub-stable-partition",
+    "lem:ub-edge-density-bounds",
+    "def:local-sparsity"
+  ],
+  "cor:random-time-profile-upper-bound": [
+    "def:randomized-time-profile-like-cuts",
+    "thm:deterministic-upper-bound"
+  ],
+  "lem:buffered-pointwise-upper-bound": [
+    "thm:deterministic-upper-bound",
+    "def:first-moment-margin",
+    "def:recursive-first-moment-margin",
+    "eq:global-upper-margin"
+  ],
+  "lem:upper-margin-monotonicity": [
+    "eq:integrated-profile-costs",
+    "eq:global-upper-margin"
+  ],
+  "cor:full-margin-critical-upper-bound": [
+    "lem:upper-margin-monotonicity",
+    "lem:buffered-pointwise-upper-bound",
+    "eq:full-upper-threshold"
+  ],
+  "lem:basic-one-column-inequality": [
+    "eq:one-column-costs",
+    "eq:integrated-profile-costs"
+  ],
+  "thm:dominance-reduction": [
+    "lem:basic-one-column-inequality",
+    "eq:global-upper-margin"
+  ],
+  "cor:buffered-consequence": [
+    "thm:dominance-reduction",
+    "lem:buffered-pointwise-upper-bound"
+  ],
+  "thm:buffered-reduced-lower-bound": [
+    "prop:largest-prefix",
+    "lem:cold-witness",
+    "prop:cold-lower"
+  ],
+  "lem:successive-thinning-tail": [
+    "eq:survivor-hypergeometric-transition"
+  ],
+  "cor:iterated-hypergeom": [
+    "lem:successive-thinning-tail",
+    "lem:ub-hypergeometric-estimates"
+  ],
+  "prop:largest-prefix": [
+    "cor:iterated-hypergeom",
+    "lem:ub-graph-representation",
+    "lem:ub-regular-partition-interval-blocking"
+  ],
+  "lem:entropy-ineq": [
+    "eq:one-column-costs",
+    "eq:profile-costs"
+  ],
+  "lem:bridge-window": [
+    "def:good-columns",
+    "lem:ub-regular-partition-interval-blocking"
+  ],
+  "lem:cold-witness": [
+    "lem:entropy-ineq",
+    "lem:bridge-window",
+    "eq:global-lambda-one",
+    "eq:global-lambda-zero"
+  ],
+  "def:collision-likely-prefixes": [
+    "lem:cold-witness",
+    "def:space-time-digit-profile"
+  ],
+  "lem:type-estimates": [
+    "def:collision-likely-prefixes",
+    "lem:ub-regular-partition-interval-blocking",
+    "lem:ub-profile-estimates"
+  ],
+  "lem:cold-geometry": [
+    "lem:type-estimates",
+    "lem:cold-witness",
+    "def:collision-likely-prefixes"
+  ],
+  "def:full-collision-likely-strings": [
+    "def:collision-likely-prefixes",
+    "lem:bridge-window"
+  ],
+  "lem:tail-types": [
+    "def:full-collision-likely-strings",
+    "lem:type-estimates"
+  ],
+  "lem:uniform-endpoint-theorem": [
+    "cor:iterated-hypergeom",
+    "def:collision-likely-prefixes"
+  ],
+  "lem:endpoint-control": [
+    "lem:uniform-endpoint-theorem",
+    "lem:cold-witness"
+  ],
+  "lem:bridge-buffers": [
+    "lem:bridge-window",
+    "lem:cold-witness",
+    "def:full-collision-likely-strings"
+  ],
+  "lem:localization": [
+    "lem:endpoint-control",
+    "lem:bridge-buffers",
+    "cor:iterated-hypergeom"
+  ],
+  "lem:fixed-column-factorial": [
+    "sec:common-setup"
+  ],
+  "lem:conditional-factorial": [
+    "lem:fixed-column-factorial"
+  ],
+  "lem:central-window": [
+    "eq:conditioned-residual-counts"
+  ],
+  "lem:two-category-poisson": [
+    "lem:fixed-column-factorial",
+    "lem:conditional-factorial",
+    "lem:central-window",
+    "cor:iterated-hypergeom"
+  ],
+  "lem:occupancy": [
+    "lem:two-category-poisson",
+    "lem:cold-witness",
+    "lem:tail-types"
+  ],
+  "lem:cold-collision-count": [
+    "lem:occupancy",
+    "lem:tail-types",
+    "lem:cold-geometry",
+    "lem:cold-witness"
+  ],
+  "lem:many-edges": [
+    "lem:cold-collision-count",
+    "lem:localization"
+  ],
+  "lem:uniform-ascent": [
+    "sec:common-setup"
+  ],
+  "lem:block-bd": [
+    "sec:common-setup"
+  ],
+  "lem:permutation-bd": [
+    "lem:block-bd"
+  ],
+  "lem:lalley-comparison": [
+    "lem:permutation-bd",
+    "lem:ub-graph-representation"
+  ],
+  "lem:lalley": [
+    "lem:uniform-ascent",
+    "lem:lalley-comparison"
+  ],
+  "prop:cold-lower": [
+    "lem:cold-witness",
+    "lem:cold-geometry",
+    "lem:many-edges",
+    "lem:lalley"
+  ]
+}

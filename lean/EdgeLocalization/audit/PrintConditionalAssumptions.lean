@@ -1,0 +1,12 @@
+import EdgeLocalization.Conditional.Estimates
+
+#print axioms EdgeLocalization.matrix_expectation_split
+#print axioms EdgeLocalization.tailCollisionFactor_suffix
+#print axioms EdgeLocalization.prefix_occupancy_glue
+#print axioms EdgeLocalization.increasing_pairs_in_finset_card
+#print axioms EdgeLocalization.tail_expected_collisionPairs_given_prefix_array
+#print axioms EdgeLocalization.matrix_collisionPairs_occupancy_slice
+#print axioms EdgeLocalization.matrix_internal_edges_occupancy_slice
+#print axioms EdgeLocalization.prefixCounts
+#print axioms EdgeLocalization.suffixCounts
+#print axioms EdgeLocalization.splitMatrix

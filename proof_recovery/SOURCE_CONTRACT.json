@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-09-17T20:12:12.157581+00:00",
+  "authorized_mathematical_sources": [
+    {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex",
+      "sha256": "3e6a410de9812e1a46500a9a5f2320008fe666b26ae6dfebf17ebaf753ff32f6"
+    },
+    {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/2103.05068v3.pdf",
+      "sha256": "58f0b60418d0cdbf339f6440e9ae664ab617b6ab461b5153be63ec6af8d9f97d"
+    },
+    {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/2510.22783v1.pdf",
+      "sha256": "f66cd955cdb6546d9c118ea8ee22f7e166db55219d6207a3e5e607281e483d42"
+    }
+  ],
+  "reports_compared_before_lean_writes": true,
+  "independent_reviews": [
+    "mathematical_reconstruction",
+    "lean_encoding_review",
+    "hypothesis_adversary"
+  ],
+  "source_contract_status": "Literal source statements snapshotted for audit, including the false statement. No claim that this collection is a consistent/proved theorem environment.",
+  "implementation_freeze_status": "NOT STARTED: the whole-file context identifies the intended mathematical target as lem:permutation-bd. Its exact Lean declaration has not been frozen. The false general helper lem:block-bd cannot be assumed or used as a proved dependency.",
+  "source_assumptions_changed": false,
+  "lean_files_written": [],
+  "lean_proof_tests_run": 0,
+  "forbidden_proof_features_introduced": [],
+  "identified_false_source_node": "lem:block-bd",
+  "user_blocked_lean_target": null,
+  "requested_stop_rule": "Stop and report the exact missing dependency when frozen assumptions are insufficient. No affirmative proof of the false source node attempted.",
+  "inventory_counts": {
+    "active": 70,
+    "commented_out": 11,
+    "inline_definition_groups": 14
+  },
+  "contextual_clarification_utc": "2026-09-17T20:37:15.518782+00:00",
+  "contextual_mathematical_target": "lem:permutation-bd: concentration of the ascent count after sorting a uniform permutation within deterministic path-graph components"
+}

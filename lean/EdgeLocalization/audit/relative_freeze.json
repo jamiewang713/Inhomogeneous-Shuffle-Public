@@ -1,0 +1,73 @@
+{
+  "version": "relative-addendum-1",
+  "frozenAtUTC": "2026-09-17T22:28:22.582274+00:00",
+  "contractSHA256": "e5c6977f4b448a62ddd54e64893016c2fbfa83c8a9ab34532590db3012fb73f4",
+  "parentContractSHA256": {
+    "frozen_contract.md": "1c482ed0ca3e2f24396e5e70fe53eb70dcb1ee24ae71adca2ebc19edf85a69a1",
+    "frozen_collision_contract.md": "f69afe0abd0a13ad36fbe8368dcdd3e270ff249d05d7b68e0fd5baf48abc0b9e",
+    "frozen_conditional_contract.md": "0790d840b1e1fc25f496672fedf6c68a6e76b99961e0173e6478cc0761e71689",
+    "frozen_overlap_contract.md": "ae3f99298b49db58e0326baaa5cf49ffc42fbaaa1553fc5288fceb1b0ce8f812",
+    "frozen_exponent_contract.md": "7f3dcbd0c6e99538300bbfe307c2516440647ebd3999e28285439024c8b3a848"
+  },
+  "sources": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "3e6a410de9812e1a46500a9a5f2320008fe666b26ae6dfebf17ebaf753ff32f6",
+    "2103.05068v3.pdf": "58f0b60418d0cdbf339f6440e9ae664ab617b6ab461b5153be63ec6af8d9f97d",
+    "2510.22783v1.pdf": "f66cd955cdb6546d9c118ea8ee22f7e166db55219d6207a3e5e607281e483d42"
+  },
+  "parentImplementationSHA256": {
+    "EdgeLocalization/Collision/Column.lean": "78d500654fa4b6cdc752a9ac1e6ad5309770b662fb21c47290b7325b4e8c20d2",
+    "EdgeLocalization/Collision/Estimates.lean": "5410dde8575943d9a74512d64b761b1f33efadd7d7a750da4d011b16eb0fa6f4",
+    "EdgeLocalization/Collision/FiniteLaw.lean": "a4e97e40ed417cfccda5e80a9b6251a9d947c4787bd9135f4e54b4844d2ec7e2",
+    "EdgeLocalization/Collision/Matrix.lean": "358458300020fac171ed5741e65551c807e6f98e13729dc6e6b6d9542d184d24",
+    "EdgeLocalization/Collision/Model.lean": "43c19b97e925dee9186d496560cdf143c89b76279ba4f36420e84401a4b4e3dd",
+    "EdgeLocalization/Collision/Rows.lean": "296505ea22d178a66248d7d40651ead865db2a991bd11c38fd65b0a3ecd69829",
+    "EdgeLocalization/Conditional/Counts.lean": "f97c5abefa71d4c34634113e9a0cdba6b9004644a260d0281f45705f2a189991",
+    "EdgeLocalization/Conditional/Estimates.lean": "a67f3ceeb5865f8ec52563712688387e75a8dd5a4693be6bda7a2d84e1e73df6",
+    "EdgeLocalization/Conditional/Model.lean": "3234668ca977af586e5551ad116cc6ef3c3ae63c98846fa35a39a64f11104bc4",
+    "EdgeLocalization/Conditional/Split.lean": "ae25208eab9afd983de656c9dad501baf1cd0744da7829d6ad93b93517b4a989",
+    "EdgeLocalization/Deck.lean": "a15057e043d431ae9cef2a7878a1a02c4b74db3356b65dc5e47cb74dde338ce4",
+    "EdgeLocalization/Density.lean": "2fda035c6f504582644c40f037b4207a8649e22ab5a10101ba1c8ed35676ab2b",
+    "EdgeLocalization/EndpointObstruction.lean": "e4f65b5f175c0b88cfd26557d7df750b150fba5ffa081e40bfc9d5bdffabef95",
+    "EdgeLocalization/FiniteLaw.lean": "2f3b3ba7737aacd2ce19790b65030453c88e1101f7b2d9cb20e2b50d01a72f44",
+    "EdgeLocalization/FirstColumn.lean": "84b47e4aea9f37406a9aa7bcbe526f7f3019dc140917fe667f81cd1944e68b11",
+    "EdgeLocalization/Overlap/Edges.lean": "50dff4e8d0c991c0fe3c4ca944bf45563738f44eda3b6797f7a4caaa790fd467",
+    "EdgeLocalization/Overlap/FiniteLaw.lean": "a96d3d64856b6844cf177c960176f08fa361000eb648d0d8cca25da5223eec4d",
+    "EdgeLocalization/Exponent/Estimates.lean": "9926b173940a45c43c50684311a7de2af938917338f96a9c60b88a75e0d75bd3",
+    "EdgeLocalization/Exponent/Mean.lean": "81990e2b66d7904b76e1a50ee29e4bd77e02380db81520c9a0a36542c482c968",
+    "EdgeLocalization/Exponent/Model.lean": "db39dbcc02675a03461380ce8afdbc2c798268285ceb52e9f2401fbd55869106",
+    "EdgeLocalization/Exponent/Tail.lean": "d90467dc983d54befe7a75ec2e09cc147b0caf96f2311720e166324153fdf24d"
+  },
+  "reviewSHA256": {
+    "relative_contract_reconstruction.md": "63cf672a865e0569026bc326b9d0c4a0ab48144da43515589be1b80961e2a05f",
+    "relative_contract_statements.md": "163fe18ef588b2f072b648d254fea549ec89401e1fe63b4470bb126e7247a1d9",
+    "relative_contract_assumptions.md": "127b7d7e9d658bc1edccdc234542b91366d09ed18ac0fbc74468931159328039",
+    "relative_contract_comparison.md": "d859a63ff66dfe226dc633b129fe8913ee8bb58dd5b55b357064f74e592e1be1"
+  },
+  "plannedDefinitions": [
+    "EdgeLocalization.relativeInternalEdges",
+    "EdgeLocalization.relativeEdgeDensity",
+    "EdgeLocalization.ambientLeft"
+  ],
+  "plannedStatementIDs": [
+    "R.01",
+    "R.02",
+    "R.03",
+    "R.04",
+    "R.05",
+    "R.06",
+    "R.07",
+    "R.08",
+    "R.09",
+    "R.10",
+    "R.11",
+    "R.12",
+    "R.13",
+    "R.14",
+    "R.15",
+    "R.16",
+    "R.17",
+    "R.18"
+  ],
+  "theoremIndexSHA256": "359b619a33323b84de13daf3bd4e7451dfb96bc82c74945df2557d84936f6209",
+  "status": "Frozen before Relative implementation. Full original goal remains active."
+}

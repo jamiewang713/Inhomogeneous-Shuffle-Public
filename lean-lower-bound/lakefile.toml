@@ -1,0 +1,10 @@
+name = "riffle_lower"
+version = "0.1.0"
+defaultTargets = ["RiffleLower"]
+
+[[require]]
+name = "mathlib"
+path = "../formalization/.tooling/mathlib"
+
+[[lean_lib]]
+name = "RiffleLower"

@@ -1,0 +1,74 @@
+{
+  "package": "first_moment",
+  "lean_version": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)",
+  "snapshot": "/var/folders/j8/8d3sblhx1ng3dk4dhsf9bskm0000gn/T/upper-input-first_moment-o5p6iqqp",
+  "source_files": {
+    "FirstMoment/Assembly.lean": {
+      "sha256": "40affb8d2498afa4915b99d49ccc28118e3d787ac1419ee94c4b105ad5f23d19",
+      "unchanged_at_end": true
+    },
+    "FirstMoment/Counting.lean": {
+      "sha256": "1d0e6f283a4da437d615ae577f1b08ecd96bfa76aa11a1f8294e6bf3dd86a2cb",
+      "unchanged_at_end": true
+    },
+    "FirstMoment/Entropy.lean": {
+      "sha256": "066e6498b8f7e004050e99a72b32721d89cee78c49b4d732ca057735ef880aa3",
+      "unchanged_at_end": true
+    },
+    "FirstMoment/Numerical.lean": {
+      "sha256": "b070f5a87d951c753e1bf2cc5974ca5423d04a66d2cb14174a3715d516a99bbf",
+      "unchanged_at_end": true
+    },
+    "FirstMoment.lean": {
+      "sha256": "d9ac2f671dd6357984bdde3c15c2a6a772f07eb9369a8f768cf7abf056fb343d",
+      "unchanged_at_end": true
+    },
+    "Audit.lean": {
+      "sha256": "25a02ee7fa22af6805d0d61c9715f10b6814948dd02ba691e2bad4310844d80b",
+      "unchanged_at_end": true
+    }
+  },
+  "builds": [
+    {
+      "module": "FirstMoment.Assembly",
+      "exit_code": 0,
+      "seconds": 1.673
+    },
+    {
+      "module": "FirstMoment.Counting",
+      "exit_code": 0,
+      "seconds": 2.714
+    },
+    {
+      "module": "FirstMoment.Entropy",
+      "exit_code": 0,
+      "seconds": 1.646
+    },
+    {
+      "module": "FirstMoment.Numerical",
+      "exit_code": 0,
+      "seconds": 2.341
+    },
+    {
+      "module": "FirstMoment",
+      "exit_code": 0,
+      "seconds": 1.347
+    },
+    {
+      "module": "Audit",
+      "exit_code": 0,
+      "seconds": 5.279
+    }
+  ],
+  "all_compiled": true,
+  "audited_declarations_expected": 29,
+  "audited_declarations_observed": 29,
+  "axiom_dependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unexpected_axiom_dependencies": [],
+  "log": "formalization/upper_bound/audit/first_moment-revalidation-build.log",
+  "scope": "Existing declarations only; no model-first-moment or upper-bound completion inferred."
+}

@@ -1,0 +1,16 @@
+import FirstMomentModel.BoundaryEncoding
+
+#check @InhomogeneousShuffle.FirstMoment.Model.boundaryPositions_card
+#print axioms InhomogeneousShuffle.FirstMoment.Model.boundaryPositions_card
+#check @InhomogeneousShuffle.FirstMoment.Model.admissible_violations_le_budget
+#print axioms InhomogeneousShuffle.FirstMoment.Model.admissible_violations_le_budget
+#check @InhomogeneousShuffle.FirstMoment.Model.decode_encode_boundary
+#print axioms InhomogeneousShuffle.FirstMoment.Model.decode_encode_boundary
+#check @InhomogeneousShuffle.FirstMoment.Model.encodeBoundary_injective
+#print axioms InhomogeneousShuffle.FirstMoment.Model.encodeBoundary_injective
+#check @InhomogeneousShuffle.FirstMoment.Model.admissible_boundary_card_le
+#print axioms InhomogeneousShuffle.FirstMoment.Model.admissible_boundary_card_le
+#check @InhomogeneousShuffle.FirstMoment.Model.encodePair_injective
+#print axioms InhomogeneousShuffle.FirstMoment.Model.encodePair_injective
+#check @InhomogeneousShuffle.FirstMoment.Model.admissible_pair_card_le
+#print axioms InhomogeneousShuffle.FirstMoment.Model.admissible_pair_card_le

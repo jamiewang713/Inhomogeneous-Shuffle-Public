@@ -1,0 +1,26 @@
+{
+  "checked_utc": "2026-09-17T20:19:13.212497+00:00",
+  "goal_turn": 3,
+  "same_blocker": "The exact blocked theorem/declaration has not been identified; the discovered false general lemma is not silently substituted for the user target.",
+  "source_count": 46,
+  "new_source_paths": [
+    "formalization/Riffle/Cost.lean",
+    "formalization/first_moment/Audit.lean",
+    "formalization/first_moment/FirstMoment.lean",
+    "formalization/time_profile/RiffleTimeProfile/Analysis.lean",
+    "formalization/foundations/RiffleShuffle.lean",
+    "formalization/foundations/Audit.lean",
+    "lean/EdgeLocalization/EdgeLocalization/Density.lean",
+    "lean/EdgeLocalization/EdgeLocalization/FirstColumn.lean",
+    "lean-lower-bound/RiffleLower/Cold.lean"
+  ],
+  "explicit_target_matches": [],
+  "user_target_identified": false,
+  "lean_modifications_by_recovery_task": false,
+  "lean_proof_tests_by_recovery_task": 0,
+  "previous_turn_classification": "progress: revalidated newly appearing Lean code and corrected the audit, but the same missing-target blocker persisted",
+  "subsequent_clarification_utc": "2026-09-17T20:37:15.518782+00:00",
+  "subsequent_clarification": "The latest user request prompted a whole-file contextual reading. The mathematical recovery target is now identified as lem:permutation-bd; the historical missing-target explanation above no longer applies at source level. No existing blocked Lean declaration was identified. The false helper remains a mathematical obstruction to the proof as written.",
+  "source_target_identified_by_context": true,
+  "source_target": "lem:permutation-bd"
+}

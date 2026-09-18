@@ -1,0 +1,42 @@
+FILE Riffle/Definitions.lean
+
+EXIT 0
+FILE Riffle/Model.lean
+
+EXIT 0
+FILE Riffle/Words.lean
+Riffle/Words.lean:67:27: warning: unused variable `hz`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+Riffle/Words.lean:161:55: warning: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+EXIT 0
+FILE Riffle/Boundary.lean
+
+EXIT 0
+FILE Riffle/Mass.lean
+Riffle/Mass.lean:13:24: warning: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+EXIT 0
+FILE Riffle/Pieces.lean
+
+EXIT 0
+FILE Riffle/Cost.lean
+
+EXIT 0
+FILE Riffle/Stopping.lean
+
+EXIT 0
+FILE Riffle/Retention.lean
+
+EXIT 0
+FILE Riffle/SourceStable.lean
+
+EXIT 0
+FILE Riffle/Global.lean
+
+EXIT 0
+FILE Riffle.lean
+
+EXIT 0

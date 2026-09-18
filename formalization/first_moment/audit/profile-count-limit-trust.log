@@ -1,0 +1,81 @@
+Checking ProfileCountLimitAudit.lean on Lean 4.33.1
+InhomogeneousShuffle.FirstMoment.Model.profileCount_uniform_eventually : ∀ (k d : ℕ) (T a b tb te : ℝ),
+  0 ≤ T →
+    0 ≤ a →
+      0 ≤ b →
+        0 < tb →
+          tb ≤ 1 →
+            0 < te →
+              te ≤ 1 →
+                ∀ (eps : ℝ),
+                  0 < eps →
+                    ∃ N0,
+                      2 ≤ N0 ∧
+                        ∀ (N K qb qe : ℕ),
+                          N0 ≤ N →
+                            ↑K ≤ T * Real.log ↑N →
+                              ↑qb ≤ a * Real.log ↑N →
+                                ↑qe ≤ b * Real.log ↑N →
+                                  ↑(InhomogeneousShuffle.FirstMoment.profileCountBound K k qb qe d) ≤
+                                    ↑N ^
+                                      (2 * a * Real.log (1 / tb) + b * Real.log (1 / te) + ↑k * T * (2 * tb + te) + eps)
+'InhomogeneousShuffle.FirstMoment.Model.profileCount_uniform_eventually' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.profileCount_small_chi : ∀ (k : ℕ) (T C eps : ℝ),
+  2 ≤ k →
+    0 ≤ T →
+      0 < C →
+        0 < eps →
+          ∃ chi0,
+            0 < chi0 ∧
+              chi0 < min 1 (1 / ↑k) ∧
+                ∀ (chi : ℝ),
+                  0 < chi →
+                    chi < chi0 →
+                      ∀ (d : ℕ),
+                        ∃ N0,
+                          2 ≤ N0 ∧
+                            ∀ (N K : ℕ),
+                              N0 ≤ N →
+                                ↑K ≤ T * Real.log ↑N →
+                                  ↑(InhomogeneousShuffle.FirstMoment.profileCountBound K k
+                                        ⌊C / Real.log (1 / chi) * Real.log ↑N⌋₊
+                                        ⌊TimeProfile.exceptionalAllowance chi * Real.log ↑N⌋₊ d) ≤
+                                    ↑N ^ eps
+'InhomogeneousShuffle.FirstMoment.Model.profileCount_small_chi' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+InhomogeneousShuffle.FirstMoment.Model.profileClass_small_chi : ∀ (k : ℕ) (T C eps : ℝ),
+  2 ≤ k →
+    0 ≤ T →
+      0 < C →
+        0 < eps →
+          ∃ chi0,
+            0 < chi0 ∧
+              chi0 < min 1 (1 / ↑k) ∧
+                ∀ (chi : ℝ),
+                  0 < chi →
+                    chi < chi0 →
+                      ∀ (c : ℕ),
+                        ∃ N0,
+                          2 ≤ N0 ∧
+                            ∀ (D : Riffle.Model),
+                              D.k = k →
+                                N0 ≤ D.N →
+                                  ↑D.K ≤ T * Real.log ↑D.N →
+                                    ∀ (A : Riffle.Setup D),
+                                      A.C = C →
+                                        A.chi = chi →
+                                          ∀ (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop)
+                                            (route :
+                                              InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good
+                                                  (TimeProfile.exceptionalAllowance chi) →
+                                                Fin 4),
+                                            ↑(Nat.card
+                                                  (InhomogeneousShuffle.FirstMoment.Model.ProfileClass A cell good
+                                                    (TimeProfile.exceptionalAllowance chi) route)) ≤
+                                              ↑D.N ^ eps
+'InhomogeneousShuffle.FirstMoment.Model.profileClass_small_chi' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

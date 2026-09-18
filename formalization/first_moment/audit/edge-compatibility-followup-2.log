@@ -1,0 +1,121 @@
+Checking EdgeLocalization/Collision/Rows.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Rows.lean:102:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Rows.lean:103:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/lean-4.33/edge/EdgeLocalization/Collision/Rows.lean:104:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Checking EdgeLocalization/Collision/Matrix.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:38:6: error: Type mismatch: After simplification, term
+  h ⟨↑j, hjM⟩
+ has type
+  @Eq (Fin k) (↑(ω (Fin.castLE hM ⟨↑j, hjM⟩)) i) (x ⟨↑j, hjM⟩)
+but is expected to have type
+  @Eq (Fin k) (↑(ω j) i) (x ⟨↑j, hjM⟩)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:42:6: error: Type mismatch: After simplification, term
+  h (Fin.castLE hM t) hts
+ has type
+  @Eq (Fin k) (↑(ω (Fin.castLE hM t)) i) (x ⟨↑(Fin.castLE hM t), ht⟩)
+but is expected to have type
+  @Eq (Fin k) (↑(ω (Fin.castLE hM t)) i) (x t)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:85:53: error: Type mismatch: After simplification, term
+  hx ⟨↑j, hj⟩
+ has type
+  @Eq (Fin k) (↑(ω (Fin.castLE hM ⟨↑j, hj⟩)) i) (x ⟨↑j, hj⟩)
+but is expected to have type
+  @Eq (Fin k) (↑(ω j) i) (x ⟨↑j, hj⟩)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:100:10: error: Type mismatch: After simplification, term
+  h (Fin.castLE hM t)
+ has type
+  And (↑(ω (Fin.castLE hM t)) i = x ⟨↑(Fin.castLE hM t), ht⟩) (↑(ω (Fin.castLE hM t)) l = x ⟨↑(Fin.castLE hM t), ht⟩)
+but is expected to have type
+  And (↑(ω (Fin.castLE hM t)) i = x t) (↑(ω (Fin.castLE hM t)) l = x t)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:157:73: error: unsolved goals
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hn : ∀ (j : Fin K), ∑ a, n j a = N
+hM : M ≤ K
+x : Fin M → Fin k
+hsum :
+  (∑ i ∈ range N, (matrixLaw n hn).probability fun ω => i ∈ occupied N (rawRows n ω) (prefixWord x)) =
+    (matrixLaw n hn).expectation fun ω => ↑(#(occupied N (rawRows n ω) (prefixWord x)))
+j : ℕ
+hj : j ∈ range N
+hjN : j < N
+ω : FixedMatrix N n
+⊢ j ∈ {i ∈ range N | prefixWord x <+: if hi : i < N then rawRow n ω ⟨i, hi⟩ else []} ↔
+    prefixWord x <+: rawRow n ω ⟨j, hjN⟩
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:160:49: warning: This simp argument is unused:
+  hjN
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [occupied, rawRows, rowsOfLabels]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:216:57: error: unsolved goals
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hn : ∀ (j : Fin K), ∑ a, n j a = N
+hM : M ≤ K
+x : Fin M → Fin k
+hzero : ¬N = 0
+hone : ¬N = 1
+s : Finset (ℕ × ℕ) := {p ∈ range N ×ˢ range N | p.1 < p.2}
+hsum :
+  (∑ i ∈ s, (matrixLaw n hn).probability fun ω => i ∈ collisionPairs N (rawRows n ω) (prefixWord x)) =
+    (matrixLaw n hn).expectation fun ω => ↑(#(collisionPairs N (rawRows n ω) (prefixWord x)))
+p : ℕ × ℕ
+hp : p ∈ s
+hpN : p ∈ range N ×ˢ range N
+hpLt : p.1 < p.2
+hi : p.1 ∈ range N
+hj : p.2 ∈ range N
+hiN : p.1 < N
+hjN : p.2 < N
+hij : ⟨p.1, hiN⟩ ≠ ⟨p.2, hjN⟩
+ω : FixedMatrix N n
+⊢ p ∈
+      {p ∈ range N ×ˢ range N |
+        p.1 < p.2 ∧
+          ((if hi : p.1 < N then rawRow n ω ⟨p.1, hi⟩ else []) = if hi : p.2 < N then rawRow n ω ⟨p.2, hi⟩ else []) ∧
+            prefixWord x <+: if hi : p.1 < N then rawRow n ω ⟨p.1, hi⟩ else []} ↔
+    rawRow n ω ⟨p.1, hiN⟩ = rawRow n ω ⟨p.2, hjN⟩ ∧ prefixWord x <+: rawRow n ω ⟨p.1, hiN⟩
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:219:55: warning: This simp argument is unused:
+  hiN
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [collisionPairs, rawRows, rowsOfLabels, hjN, hpLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:219:60: warning: This simp argument is unused:
+  hjN
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [collisionPairs, rawRows, rowsOfLabels, hiN, hpLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Collision/Matrix.lean:219:65: warning: This simp argument is unused:
+  hpLt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [collisionPairs, rawRows, rowsOfLabels, hiN, hjN]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

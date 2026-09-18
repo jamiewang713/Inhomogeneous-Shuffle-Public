@@ -1,0 +1,46 @@
+Checking ModelAudit.lean
+@InhomogeneousShuffle.FirstMoment.Model.boundaryPositions_card : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side) (x : Riffle.Word),
+  List.length x ≤ D.K → (InhomogeneousShuffle.FirstMoment.Model.boundaryPositions A s x).card = Riffle.violations A s x
+'InhomogeneousShuffle.FirstMoment.Model.boundaryPositions_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.admissible_violations_le_budget : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side) {x : Riffle.Word},
+  x ∈ Riffle.Admissible A s → Riffle.violations A s x ≤ InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A
+'InhomogeneousShuffle.FirstMoment.Model.admissible_violations_le_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.decode_encode_boundary : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side) (x : { x // x ∈ Riffle.Admissible A s }),
+  InhomogeneousShuffle.FirstMoment.Model.decodeBoundary A s
+      (InhomogeneousShuffle.FirstMoment.Model.encodeBoundary A s x) =
+    ↑x
+'InhomogeneousShuffle.FirstMoment.Model.decode_encode_boundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.encodeBoundary_injective : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side), Function.Injective (InhomogeneousShuffle.FirstMoment.Model.encodeBoundary A s)
+'InhomogeneousShuffle.FirstMoment.Model.encodeBoundary_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.admissible_boundary_card_le : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side),
+  Nat.card { x // x ∈ Riffle.Admissible A s } ≤
+    (D.K + 1) * (D.k + 1) *
+      InhomogeneousShuffle.FirstMoment.sparseCount D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+'InhomogeneousShuffle.FirstMoment.Model.admissible_boundary_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.encodePair_injective : ∀ {D : Riffle.Model} (A : Riffle.Setup D),
+  Function.Injective (InhomogeneousShuffle.FirstMoment.Model.encodePair A)
+'InhomogeneousShuffle.FirstMoment.Model.encodePair_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.admissible_pair_card_le : ∀ {D : Riffle.Model} (A : Riffle.Setup D),
+  Nat.card { p // Riffle.AdmissiblePair A p.1 p.2 } ≤
+    ((D.K + 1) * (D.k + 1) *
+        InhomogeneousShuffle.FirstMoment.sparseCount D.K D.k
+          (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)) ^
+      2
+'InhomogeneousShuffle.FirstMoment.Model.admissible_pair_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

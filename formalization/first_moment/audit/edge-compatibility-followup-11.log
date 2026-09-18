@@ -1,0 +1,26 @@
+Checking EdgeLocalization/Conditional/Counts.lean on Lean4.33.1
+Checking EdgeLocalization/Conditional/Estimates.lean on Lean4.33.1
+Checking EdgeLocalization/Overlap/FiniteLaw.lean on Lean4.33.1
+Checking EdgeLocalization/Overlap/Edges.lean on Lean4.33.1
+Checking EdgeLocalization/Exponent/Model.lean on Lean4.33.1
+Checking EdgeLocalization/Exponent/Mean.lean on Lean4.33.1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Exponent/Mean.lean:47:8: error: Function expected at
+  Real.log_prod ?m.178
+but this term has type
+  Real.log (∏ i ∈ ?m.176, ?m.177 i) = ∑ i ∈ ?m.176, Real.log (?m.177 i)
+
+Note: Expected a function because this term is being applied to the argument
+  _
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/EdgeLocalization/EdgeLocalization/Exponent/Mean.lean:45:78: error: unsolved goals
+N K k M : ℕ
+n : Fin K → Fin k → ℕ
+hM : M ≤ K
+x : Fin M → Fin k
+hN : 2 ≤ N
+hx : legalPrefix n hM x
+hNr : 0 < ↑N
+hc : ∀ (t : Fin M), 0 < ↑(n (Fin.castLE hM t) (x t))
+hf : ∀ (t : Fin M), 0 < singleFactor N (n (Fin.castLE hM t)) (x t)
+hp : 0 < prefixMass N n hM x
+⊢ Real.log ↑N + Real.log (∏ t, singleFactor N (n (Fin.castLE hM t)) (x t)) =
+    Real.log ↑N + ∑ t, Real.log (singleFactor N (n (Fin.castLE hM t)) (x t))

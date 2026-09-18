@@ -1,0 +1,13 @@
+# Root comparison before the occupancy-conditioning freeze
+
+The root read all three new independent reports: `conditional_contract_reconstruction.md`, `conditional_contract_statements.md`, and `conditional_contract_assumptions.md`. Each author reread the permitted proof passages and independently checked the three proposed definitions and all seven proposed lemmas. The statement-design report specifies the binding argument order, domains, conclusions, and module allocation.
+
+All reports agree on the actual conditional quantity at TeX 1516–1523. Fixing a prefix array determines an original-label subset; integrating its tail collisions gives `choose(occupancy,2)` times the unchanged full-population tail factor. Averaging over prefix arrays with occupancy q then gives the exact multiplied-indicator identity and the adjacent-edge inequality. No independent-row model, conditional-independence premise, or population q substitution is used.
+
+The comparison identified and resolved a proof-dependency issue: O.03 gives occupancy cardinalities, while O.05 needs actual label membership and equality of the selected rows. The final inventory explicitly requires local proofs of membership under gluing and full-row equality versus suffix-row equality. The literal restriction forward map of `splitMatrix` and its proved inverse law provide their coordinate identities. These are not additional assumed bridges or named helper declarations.
+
+The chosen normalization avoids division by the slice probability. Thus q=0/1, q>N, and null slices stay in the universal theorem domain. O.05 treats N=0/1 before invoking distinct-label probabilities. Empty alphabets and coordinate ranges are covered without choosing a default digit. The two smaller matrix laws retain population N and the original counts on their column intervals.
+
+The exact selected inventory is three definitions (`prefixCounts`, `suffixCounts`, `splitMatrix`) and O.01–O.07. The pure coordinate/count statements O.02–O.04 omit unused feasibility proofs; statements using a law retain the original sum identities. Local finite-sum, uniform-weight, cardinality, and coordinate calculations suffice, so no additional named theorem or probability constructor is selected.
+
+This is a new additive freeze of an original internal-edge dependency that the completed collision contract expressly excluded. It does not edit either earlier contract or any source statement. The source's spatial, stable-profile, and arbitrary-exploration assertions remain outside this finite result and part of the unfinished full goal. Implementation starts only after final comparison acceptances and the new hashed freeze are recorded.

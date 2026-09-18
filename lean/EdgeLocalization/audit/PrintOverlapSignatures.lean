@@ -1,0 +1,9 @@
+import EdgeLocalization.Overlap.Edges
+
+#check @EdgeLocalization.FiniteLaw.prod_expectation
+#check @EdgeLocalization.FiniteLaw.prod_probability
+#check @EdgeLocalization.FiniteLaw.expected_card_intersection
+#check @EdgeLocalization.edgeDensity_eq_expected_shared_internal_edges
+#check @EdgeLocalization.matrix_expected_shared_internal_edges_le_mean_tail_fourth
+#check @EdgeLocalization.matrix_expected_shared_internal_edges_le_prefixMean
+#check @EdgeLocalization.FiniteLaw.prod

@@ -1,0 +1,28 @@
+{
+  "verifiedAtUTC": "2026-09-17T21:43:01.937241+00:00",
+  "lean": "Lean (version 4.24.0, arm64-apple-darwin23.6.0, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "mathlibRevision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "frozenContractsAndSourcesUnchanged": true,
+  "parentImplementationsUnchanged": true,
+  "independentReviewsUnchanged": true,
+  "frozenTheoremsChecked": 7,
+  "definitionsAudited": [
+    "EdgeLocalization.prefixCounts",
+    "EdgeLocalization.suffixCounts",
+    "EdgeLocalization.splitMatrix"
+  ],
+  "logicalDependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "buildPassed": true,
+  "prohibitedProofTokensAbsent": true,
+  "projectSourceSHA256": {
+    "EdgeLocalization/Conditional/Counts.lean": "f97c5abefa71d4c34634113e9a0cdba6b9004644a260d0281f45705f2a189991",
+    "EdgeLocalization/Conditional/Estimates.lean": "a67f3ceeb5865f8ec52563712688387e75a8dd5a4693be6bda7a2d84e1e73df6",
+    "EdgeLocalization/Conditional/Model.lean": "3234668ca977af586e5551ad116cc6ef3c3ae63c98846fa35a39a64f11104bc4",
+    "EdgeLocalization/Conditional/Split.lean": "ae25208eab9afd983de656c9dad501baf1cd0744da7829d6ad93b93517b4a989"
+  },
+  "scope": "Exact occupancy-slice internal-edge dependency only; full original goal remains incomplete."
+}

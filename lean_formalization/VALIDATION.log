@@ -1,0 +1,145 @@
+Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)
+mathlib revision: c44e0c8ee63ca166450922a373c7409c5d26b00b
+Mathematical source hashes verified.
+Frozen contract hash verified.
+Source-adapter contract and reviewed dependency hashes verified.
+Truncation contract, three independent reviews, and dependency hashes verified.
+Forbidden-token scan passed for all proof modules.
+vendor/time_profile/RiffleTimeProfile/Base.lean: exit 0
+
+vendor/time_profile/RiffleTimeProfile/Ambient.lean: exit 0
+
+vendor/stable_blocks/Riffle/Definitions.lean: exit 0
+
+vendor/stable_blocks/Riffle/Model.lean: exit 0
+
+vendor/stable_blocks/Riffle/Words.lean: exit 0
+
+vendor/stable_blocks/Riffle/Boundary.lean: exit 0
+
+vendor/shuffle_law/Shuffle/FiniteLaw.lean: exit 0
+
+vendor/shuffle_law/Shuffle/Conditioning.lean: exit 0
+
+vendor/shuffle_law/Shuffle/FixedColumns.lean: exit 0
+
+RiffleProfiles/Estimates.lean: exit 0
+
+RiffleProfiles/Entropy.lean: exit 0
+
+RiffleProfiles/Counting.lean: exit 0
+
+RiffleProfiles/WordMass.lean: exit 0
+
+RiffleProfiles/SourceReplacement.lean: exit 0
+
+RiffleProfiles/SourceFluctuation.lean: exit 0
+
+RiffleProfiles/ModelWordMass.lean: exit 0
+
+RiffleProfiles/BoundaryTruncation.lean: exit 0
+
+RiffleProfiles/ExceptionalTruncation.lean: exit 0
+
+RiffleProfiles/BoundaryCounting.lean: exit 0
+
+RiffleProfiles/MatrixLaw.lean: exit 0
+
+RiffleProfiles/MatrixTruncation.lean: exit 0
+
+RiffleProfiles.lean: exit 0
+
+'RiffleProfiles.cost_eq_log_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.cost_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.cost_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.good_digit_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exceptional_digit_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.sum_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.normalized_sum_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.good_exceptional_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exceptional_cost_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.profile_cost_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.length_exponent_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.length_exponent_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.cell_regrouping' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.cell_replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.interval_blocking' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.tail_cell_replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.maximal_pile_domination' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.maximal_pile_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.side_mass_ge_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.fluctuation_log_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.parent_crossing_good_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.finite_gibbs_inequality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.profileEntropy_eq_zero_of_sum_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.entropy_le_tilted_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.profile_entropy_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exceptional_cost_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exceptional_cost_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.entropy_error_of_replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.tailWeight_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.lowCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.sparsePattern_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.sparsePattern_forget_image_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.boundaryDescriptor_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.profileDescriptor_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.wordWeight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.wordWeight_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.badCount_generating_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.wordWeight_generating' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.coordinate_generating' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.wordWeight_generating_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.badWordMass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.badDigitMass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.badWordMass_smallDigits_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.scaled_badWordMass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.box_word_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exact_badPositions_mass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.sum_badSet_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.badWordMass_le_tailWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.badWordMass_smallDigits_le_tailWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.scaled_badWordMass_le_tailWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.sum_edgeProbability_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.coarse_fibre_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.coarse_word_fibre_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.coarseProfile_not_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.source_digitCost_eq_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.source_regularDigits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.source_cE_replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.source_cL_maximal_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.source_sideMaximum_ge_prefixMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.source_fluctuation_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.modelDigitProb_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.modelDigitProb_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.modelColumnProfile_prob' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_weight_eq_wordWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_expectedCount_eq_wordMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_expectedCount_le_tailWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_expectedCount_union_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.boundaryThreshold_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.boundaryBadDigits_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.boundary_violations_le_badCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.discardedBoundary_many_badDigits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.discardedBoundary_expectedCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.discardedBoundary_union_expectedCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.sourceExceptionalPositions_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.sourceExceptionalDigits_prob_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exceptionalPrefix_badCount_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exceptionalPrefix_wordMass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.exceptionalPrefix_scaled_wordMass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.admissibleBoundaryDescriptor_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.admissibleBoundary_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.admissiblePair_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.columnLaw_permute_prob' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.columnLaw_row_marginals_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.fixedColumn_sum_indicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.columnLaw_row_marginal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_rowWord_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_expected_row_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_discardedBoundary_expected_rows_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleProfiles.model_discardedBoundary_union_expected_rows_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RiffleProfiles.model_exceptionalPrefix_expected_rows_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Checked 90 public theorems; only standard Lean foundations reported.

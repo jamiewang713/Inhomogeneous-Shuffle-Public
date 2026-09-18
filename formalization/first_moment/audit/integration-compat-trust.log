@@ -1,0 +1,306 @@
+Checking Audit.lean on Lean 4.33.1
+'InhomogeneousShuffle.FirstMoment.le_thetaInf_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.variational_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.large_exponent_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.small_exponent_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.singleton_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.large_exponent_variational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.small_exponent_variational' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.large_exponent_negative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.small_exponent_negative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.singleton_exponent_negative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_sparseAssignment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.sparseCount_weighted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.sparseCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_profileKey' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profile_card_le_of_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.sparseCount_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profileCount_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profileCount_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.word_mass_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_mul_mass_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.card_le_exp_of_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.type_class_card_le_exp_entropy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_eq_sum_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.localized_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.localized_sum_sq_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.profileClass_sum_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'InhomogeneousShuffle.FirstMoment.two_power_terms_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+Checking ModelAudit.lean on Lean 4.33.1
+@InhomogeneousShuffle.FirstMoment.Model.boundaryPositions_card : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side) (x : Riffle.Word),
+  List.length x ≤ D.K → (InhomogeneousShuffle.FirstMoment.Model.boundaryPositions A s x).card = Riffle.violations A s x
+'InhomogeneousShuffle.FirstMoment.Model.boundaryPositions_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.admissible_violations_le_budget : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side) {x : Riffle.Word},
+  x ∈ Riffle.Admissible A s → Riffle.violations A s x ≤ InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A
+'InhomogeneousShuffle.FirstMoment.Model.admissible_violations_le_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.decode_encode_boundary : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side) (x : { x // x ∈ Riffle.Admissible A s }),
+  InhomogeneousShuffle.FirstMoment.Model.decodeBoundary A s
+      (InhomogeneousShuffle.FirstMoment.Model.encodeBoundary A s x) =
+    ↑x
+'InhomogeneousShuffle.FirstMoment.Model.decode_encode_boundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.encodeBoundary_injective : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side), Function.Injective (InhomogeneousShuffle.FirstMoment.Model.encodeBoundary A s)
+'InhomogeneousShuffle.FirstMoment.Model.encodeBoundary_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.admissible_boundary_card_le : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (s : Riffle.Side),
+  Nat.card { x // x ∈ Riffle.Admissible A s } ≤
+    (D.K + 1) * (D.k + 1) *
+      InhomogeneousShuffle.FirstMoment.sparseCount D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+'InhomogeneousShuffle.FirstMoment.Model.admissible_boundary_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.encodePair_injective : ∀ {D : Riffle.Model} (A : Riffle.Setup D),
+  Function.Injective (InhomogeneousShuffle.FirstMoment.Model.encodePair A)
+'InhomogeneousShuffle.FirstMoment.Model.encodePair_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.admissible_pair_card_le : ∀ {D : Riffle.Model} (A : Riffle.Setup D),
+  Nat.card { p // Riffle.AdmissiblePair A p.1 p.2 } ≤
+    ((D.K + 1) * (D.k + 1) *
+        InhomogeneousShuffle.FirstMoment.sparseCount D.K D.k
+          (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)) ^
+      2
+'InhomogeneousShuffle.FirstMoment.Model.admissible_pair_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Checking ProfileClassAudit.lean on Lean 4.33.1
+@InhomogeneousShuffle.FirstMoment.Model.profileWord_exceptional_budget : ∀ {D : Riffle.Model} (A : Riffle.Setup D)
+  (good : Fin D.K → ℕ → Prop) (alpha : ℝ) (p : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha),
+  (InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑p).1 (↑p).2.1 (↑p).2.2).card ≤
+    InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha
+'InhomogeneousShuffle.FirstMoment.Model.profileWord_exceptional_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.goodDigitCount_le : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (y z x : Riffle.Word) (a : Fin c) (l : Fin D.k),
+  InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good y z x a l ≤ D.K
+'InhomogeneousShuffle.FirstMoment.Model.goodDigitCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.encodeProfile_eq_data : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (p q : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha),
+  InhomogeneousShuffle.FirstMoment.Model.encodeProfile A cell good alpha route p =
+      InhomogeneousShuffle.FirstMoment.Model.encodeProfile A cell good alpha route q →
+    (↑p).1 = (↑q).1 ∧
+      (↑p).2.1 = (↑q).2.1 ∧
+        List.length (↑p).2.2 = List.length (↑q).2.2 ∧
+          (∀ (a : Fin c) (l : Fin D.k),
+              InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good (↑p).1 (↑p).2.1 (↑p).2.2 a l =
+                InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good (↑q).1 (↑q).2.1 (↑q).2.2 a l) ∧
+            InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑p).1 (↑p).2.1 (↑p).2.2 =
+                InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑q).1 (↑q).2.1 (↑q).2.2 ∧
+              (∀ i ∈ InhomogeneousShuffle.FirstMoment.Model.exceptionalPositions A good (↑p).1 (↑p).2.1 (↑p).2.2,
+                  Riffle.digit (↑p).2.2 ↑i = Riffle.digit (↑q).2.2 ↑i) ∧
+                route p = route q
+'InhomogeneousShuffle.FirstMoment.Model.encodeProfile_eq_data' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileClass_card_le : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4),
+  Nat.card (InhomogeneousShuffle.FirstMoment.Model.ProfileClass A cell good alpha route) ≤
+    InhomogeneousShuffle.FirstMoment.profileCountBound D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)
+'InhomogeneousShuffle.FirstMoment.Model.profileClass_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Checking ProfileFibreAudit.lean on Lean 4.33.1
+@InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts_encode : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (p : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha),
+  InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts
+      (InhomogeneousShuffle.FirstMoment.Model.encodeProfile A cell good alpha route p) =
+    InhomogeneousShuffle.FirstMoment.Model.goodDigitCount A cell good (↑p).1 (↑p).2.1 (↑p).2.2
+'InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts_encode' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileFibre_finite : ∀ {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (key :
+    InhomogeneousShuffle.FirstMoment.ProfileKey D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)),
+  Finite (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A cell good alpha route key)
+'InhomogeneousShuffle.FirstMoment.Model.profileFibre_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_exp_entropy : ∀ {D : Riffle.Model} {c : ℕ}
+  (A : Riffle.Setup D) (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (key :
+    InhomogeneousShuffle.FirstMoment.ProfileKey D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)),
+  ↑(Nat.card (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A cell good alpha route key)) ≤
+    Real.exp
+      (InhomogeneousShuffle.FirstMoment.typeEntropy (InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts key))
+'InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_exp_entropy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy : ∀ {D : Riffle.Model} {c : ℕ}
+  (A : Riffle.Setup D) (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (key :
+    InhomogeneousShuffle.FirstMoment.ProfileKey D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)),
+  ↑(Nat.card (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A cell good alpha route key)) ≤
+    ↑D.N ^
+      (InhomogeneousShuffle.FirstMoment.typeEntropy (InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts key) /
+        Real.log ↑D.N)
+'InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Checking IntegrationAudit.lean on Lean 4.33.1
+Riffle.gamma_first_crossing {D : Riffle.Model} {A : Riffle.Setup D} {y z x : Riffle.Word} (hp : Riffle.RawPair A y z)
+  (hroot : ¬Riffle.Stop A y z (Riffle.join y z)) (hx : x ∈ Riffle.Gamma A y z) :
+  List.length (Riffle.join y z) < List.length x ∧
+    Riffle.parent x ∈ Riffle.Desc D A.w ∧
+      ¬Riffle.Stop A y z (Riffle.parent x) ∧
+        ∀ u ∈ Riffle.Desc D (Riffle.join y z), u <+: Riffle.parent x → ¬Riffle.Stop A y z u
+Riffle.pieceEvent_iff {D : Riffle.Model} {A : Riffle.Setup D} (s : Riffle.Side) {x ω : Riffle.Word} {i : ℕ}
+  (hx : x ∈ Riffle.Desc D A.w) (_hiw : List.length A.w ≤ i) (hix : i < List.length x) :
+  ω ∈ Riffle.PieceEvent A s x i ↔
+    ω ∈ Riffle.Cylinder D A.w ∧
+      List.take i ω = List.take i x ∧
+        match s with
+        | Riffle.Side.left => Riffle.digit ω i < Riffle.digit x i
+        | Riffle.Side.right => Riffle.digit x i < Riffle.digit ω i
+TimeProfile.expected_box_count {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N) (A : Fin K → Finset (Fin k)) :
+  ∫ (sample : TimeProfile.ShuffleSample cuts),
+      ↑(TimeProfile.boxRows A sample).card ∂TimeProfile.fixedCountMeasure cuts =
+    ↑N * ∏ j, ∑ l ∈ A j, TimeProfile.prob (cuts.profile hN j) l
+TimeProfile.expected_prefix_count {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N) (x : Fin K → Fin k) (M : ℕ)
+  (hMK : M ≤ K) :
+  ∫ (sample : TimeProfile.ShuffleSample cuts),
+      ↑(TimeProfile.prefixRows x M sample).card ∂TimeProfile.fixedCountMeasure cuts =
+    TimeProfile.prefixMass N (cuts.profile hN) x M
+TimeProfile.expected_cF_eq {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 2 ≤ N) (x : Fin K → Fin k) {w v : ℕ}
+  (hwv : w ≤ v) (hvK : v ≤ K) : TimeProfile.expectedCF cuts x w v = TimeProfile.cF N (cuts.profile ⋯) x w v
+TimeProfile.exists_uniform_source_margins {k : ℕ} (hk : 2 ≤ k) {T eta epsilon : ℝ} (hT : 0 ≤ T) (heta : 0 < eta)
+  (hepsilon : 0 < epsilon) (hchoice : epsilon ≤ eta / 28) :
+  ∃ chi0,
+    0 < chi0 ∧
+      chi0 ≤ 1 / ↑k ∧
+        ∀ (chi : ℝ),
+          0 < chi →
+            chi < chi0 →
+              ∃ P,
+                P.IsRegular chi 1 ∧
+                  ∃ rho0,
+                    0 < rho0 ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho < rho0 →
+                            ∃ phi0,
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 ≤ phi →
+                                    phi ≤ phi0 →
+                                      ∃ N0,
+                                        ∃ (hN0 : 2 ≤ N0),
+                                          ∀ (N : ℕ) (hNN : N0 ≤ N)
+                                            (cuts : TimeProfile.Cuts k N (TimeProfile.horizonDepth N T))
+                                            (mu : TimeProfile.TimeLaw k),
+                                            TimeProfile.AlmostLike cuts ⋯ mu P T rho phi →
+                                              ∀ (r b : ℝ),
+                                                0 ≤ r →
+                                                  r ≤ T →
+                                                    TimeProfile.FirstMomentMargin mu r b T eta →
+                                                      (∀ (er : ℝ),
+                                                          0 ≤ er →
+                                                            4 * Real.log ↑k * er ≤ epsilon / 4 →
+                                                              ∀ (x : Fin (TimeProfile.horizonDepth N T) → Fin k)
+                                                                (w v : ℕ),
+                                                                w ≤ v →
+                                                                  v ≤ TimeProfile.horizonDepth N T →
+                                                                    TimeProfile.LegalPrefix (cuts.profile ⋯) x v →
+                                                                      |↑w / TimeProfile.logScale N - r| ≤ er →
+                                                                        TimeProfile.cL N (cuts.profile ⋯) x b w v +
+                                                                            TimeProfile.cE N (cuts.profile ⋯) v ≤
+                                                                          -eta / 2) ∧
+                                                        (∀ (er eb delta : ℝ),
+                                                            0 ≤ er →
+                                                              0 ≤ eb →
+                                                                4 * Real.log ↑k * er ≤ epsilon / 4 →
+                                                                  eb ≤ epsilon →
+                                                                    delta ∈ Set.Icc 0 epsilon →
+                                                                      ∀ (R : ℕ)
+                                                                        (timeClass :
+                                                                          Fin (TimeProfile.horizonDepth N T) → Fin R)
+                                                                        (x : Fin (TimeProfile.horizonDepth N T) → Fin k)
+                                                                        (w v n : ℕ),
+                                                                        w ≤ v →
+                                                                          v ≤ n →
+                                                                            n ≤ TimeProfile.horizonDepth N T →
+                                                                              TimeProfile.LegalPrefix (cuts.profile ⋯) x
+                                                                                  n →
+                                                                                TimeProfile.AmbientApproximation N
+                                                                                    (cuts.profile ⋯) x w r b er eb →
+                                                                                  TimeProfile.profileR N
+                                                                                        (cuts.profile ⋯) x P chi v n ≤
+                                                                                      TimeProfile.exceptionalAllowance
+                                                                                        chi →
+                                                                                    TimeProfile.Crossings
+                                                                                        (cuts.profile ⋯) x w v chi →
+                                                                                      ∃ F, ⋯ = ↑F ∧ ⋯ ∧ ⋯) ∧
+                                                          ∀ (er eb delta : ℝ),
+                                                            0 ≤ er →
+                                                              0 ≤ eb →
+                                                                4 * Real.log ↑k * er ≤ epsilon / 4 →
+                                                                  eb ≤ epsilon →
+                                                                    0 < delta →
+                                                                      ∀ (x : Fin (TimeProfile.horizonDepth N T) → Fin k)
+                                                                        (w v : ℕ),
+                                                                        w ≤ v →
+                                                                          v ≤ TimeProfile.horizonDepth N T →
+                                                                            TimeProfile.LegalPrefix (cuts.profile ⋯) x
+                                                                                (TimeProfile.horizonDepth N T) →
+                                                                              TimeProfile.AmbientApproximation N
+                                                                                  (cuts.profile ⋯) x w r b er eb →
+                                                                                TimeProfile.Crossings (cuts.profile ⋯) x
+                                                                                    w v chi →
+                                                                                  ∃ F,
+                                                                                    TimeProfile.cF N (cuts.profile ⋯) x
+                                                                                          w v =
+                                                                                        ↑F ∧
+                                                                                      TimeProfile.cL N (cuts.profile ⋯)
+                                                                                            x b w
+                                                                                            (TimeProfile.horizonDepth N
+                                                                                              T) -
+                                                                                          F <
+                                                                                        delta
+InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound.{u_1, u_2, u_3, u_4} {Ω : Type u_1} {M : Type u_2}
+  {I : Type u_3} {C : Type u_4} [Fintype Ω] [Fintype M] [Fintype I] [Fintype C] [DecidableEq I] [DecidableEq C]
+  (law : InhomogeneousShuffle.FirstMoment.FiniteGraphLaw Ω M) (classOf : I → C) (active : M → Finset I) (err : M → ℝ)
+  (q : I → M → ℝ) (L : ℕ) (D U : ℝ) (hd : ∀ (m : M), 0 ≤ err m) (hq : ∀ (i : I) (m : M), 0 ≤ q i m)
+  (hactive : ∀ (m : M), (active m).card ≤ L) (hloc : ∀ (m : M), law.edgeMarginal m ≤ err m + ∑ i ∈ active m, q i m)
+  (hD : ∑ m, err m ^ 2 ≤ D) (hU : ∀ (c : C), ∑ i with classOf i = c, ∑ m, q i m ^ 2 ≤ U) (N d a ell c : ℝ) (hN : 1 < N)
+  (hDpow : D ≤ N ^ (-d)) (hLpow : ↑L ≤ N ^ ell) (hCpow : ↑(Fintype.card C) ≤ N ^ c) (hUpow : U ≤ N ^ (-a)) :
+  law.expectedCommonEdges ≤ 2 * N ^ (-d) + 2 * N ^ (ell + c - a)
+InhomogeneousShuffle.FirstMoment.Model.profileFibre_card_le_rpow_entropy {D : Riffle.Model} {c : ℕ} (A : Riffle.Setup D)
+  (cell : Fin D.K → Fin c) (good : Fin D.K → ℕ → Prop) (alpha : ℝ)
+  (route : InhomogeneousShuffle.FirstMoment.Model.ProfileWord A good alpha → Fin 4)
+  (key :
+    InhomogeneousShuffle.FirstMoment.ProfileKey D.K D.k (InhomogeneousShuffle.FirstMoment.Model.boundaryBudget A)
+      (InhomogeneousShuffle.FirstMoment.Model.exceptionalBudget A alpha) (c * D.k)) :
+  ↑(Nat.card (InhomogeneousShuffle.FirstMoment.Model.ProfileFibre A cell good alpha route key)) ≤
+    ↑D.N ^
+      (InhomogeneousShuffle.FirstMoment.typeEntropy (InhomogeneousShuffle.FirstMoment.Model.profileKeyCounts key) /
+        Real.log ↑D.N)

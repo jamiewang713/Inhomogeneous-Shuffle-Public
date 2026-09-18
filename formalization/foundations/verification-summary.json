@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "frozen_results": 74,
+  "theorems": 73,
+  "finite_instances": 1,
+  "lean_version": "4.33.1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "build": "lake build: successful (3033 jobs)",
+  "verification": "scripts/check.sh: exit 0",
+  "contract_hash_unchanged": true,
+  "axiom_audit": "all 74 results use at most propext, Classical.choice, Quot.sound",
+  "public_declarations_with_dependency_export": 116,
+  "kernel_constants_with_dependency_export": 191,
+  "independent_reviews_before_freeze": 3,
+  "frozen_statement_changes_after_freeze": 0,
+  "missing_dependencies_for_frozen_assignment": [],
+  "scope": "finite foundations; complete asymptotic proof structure is mapped, but analytic/probabilistic theorem proofs are outside this assignment"
+}

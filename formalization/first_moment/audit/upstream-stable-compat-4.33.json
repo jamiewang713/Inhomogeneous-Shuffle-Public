@@ -1,0 +1,68 @@
+[
+  {
+    "module": "formalization/stable_blocks/Riffle/Definitions.lean",
+    "sourceSha256": "fd3654e2ba20e1d2b74837e8db0166c78d536cf9ed54efe5afe3562caf8b5647",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Model.lean",
+    "sourceSha256": "08007c4488b4a6503ec3f9d1ae0d626cc1d449431b83b91313170d755dd691dc",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Words.lean",
+    "sourceSha256": "97f017c1fb73f6954e06666b115830d85e9d4692a3425117e7eb788320189fab",
+    "exitCode": 0,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:39:16: warning: This simp argument is unused:\n  Nat.min_eq_left (Nat.sub_le _ _)\n\nHint: Omit it from the simp argument list.\n  [apply] simp [parent]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:67:27: warning: Variable name `hz` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hz\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:161:55: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:181:17: warning: This simp argument is unused:\n  List.getElem?_append_right\n\nHint: Omit it from the simp argument list.\n  [apply] simp [digit]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Pieces.lean",
+    "sourceSha256": "8ed056c33cf3b624facd46b08523e98376fd5855795c6142cb89fbc6572d8be1",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Pieces.lean:32:4: error: Type mismatch: After simplification, term\n  h\u03c3.right.right.right\n has type\n  crossDigit.match_1 (fun s => Prop) s (fun _ => digit \u03c9 i < digit x i) fun _ => digit x i < digit \u03c9 i\nbut is expected to have type\n  pieceEvent_iff.match_1 (fun s => Prop) s (fun _ => digit \u03c9 i < digit x i) fun _ => digit x i < digit \u03c9 i\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Pieces.lean:42:6: error: Type mismatch: After simplification, term\n  hd\n has type\n  pieceEvent_iff.match_1 (fun s => Prop) s (fun _ => digit \u03c9 i < digit x i) fun _ => digit x i < digit \u03c9 i\nbut is expected to have type\n  crossDigit.match_1 (fun s => Prop) s (fun _ => digit \u03c9 i < digit x i) fun _ => digit x i < digit \u03c9 i\n"
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Mass.lean",
+    "sourceSha256": "8bbca1544aeb34a9a44ffb425cd3519a19e14feb55256dfc6c3b7b744e660cab",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Mass.lean:13:24: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Mass.lean:46:62: error: Function expected at\n  zero_le\nbut this term has type\n  0 \u2264 ?m.92\n\nNote: Expected a function because this term is being applied to the argument\n  _\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Mass.lean:64:17: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Mass.lean:65:17: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n"
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Cost.lean",
+    "sourceSha256": "76d3cd411d861266d57195519b11add175b191135d2c400ee05ae7a0757f49e7",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Boundary.lean",
+    "sourceSha256": "2e3f0215a122e4c479b2cd58d03f87a8b92069d39525b84e6fdec8ca555fc996",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Boundary.lean:204:8: error(lean.unknownIdentifier): Unknown constant `Set.eq_empty_iff_forall_not_mem.mpr`\n/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Boundary.lean:205:2: error: No goals to be solved\n"
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Stopping.lean",
+    "sourceSha256": "9a8fc1efd36fda4cecf2ef82864cb0a7a21e2e7bd18b947b732c2313e005d928",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Stopping.lean:1:0: error: object file '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/.lake/compat-4.33/lib/lean/Riffle/Boundary.olean' of module Riffle.Boundary does not exist\n"
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Retention.lean",
+    "sourceSha256": "d44bdafbf07de2abcbfe8897937a06051edaacf92d49597b2c287c89da25e6b4",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Retention.lean:1:0: error: object file '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/.lake/compat-4.33/lib/lean/Riffle/Boundary.olean' of module Riffle.Boundary does not exist\n"
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/SourceStable.lean",
+    "sourceSha256": "56a48f081a8edcadd83a1c44fa0959c9bd515eb3b4425bada5669fa49aacda90",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/SourceStable.lean:1:0: error: object file '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/.lake/compat-4.33/lib/lean/Riffle/Stopping.olean' of module Riffle.Stopping does not exist\n"
+  },
+  {
+    "module": "formalization/stable_blocks/Riffle/Global.lean",
+    "sourceSha256": "eb0549c09f9818c0248cc218b1c24c1a04e5f6129a20920cde539db004890af9",
+    "exitCode": 1,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Global.lean:1:0: error: object file '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/.lake/compat-4.33/lib/lean/Riffle/SourceStable.olean' of module Riffle.SourceStable does not exist\n"
+  }
+]

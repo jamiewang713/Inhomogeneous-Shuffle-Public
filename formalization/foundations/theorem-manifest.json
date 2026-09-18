@@ -1,0 +1,372 @@
+[
+  {
+    "id": "P01",
+    "name": "RiffleShuffle.PileProfile.countAt_of_lt",
+    "module": "Profiles"
+  },
+  {
+    "id": "P02",
+    "name": "RiffleShuffle.PileProfile.countAt_of_ge",
+    "module": "Profiles"
+  },
+  {
+    "id": "P03",
+    "name": "RiffleShuffle.PileProfile.count_le_deck",
+    "module": "Profiles"
+  },
+  {
+    "id": "P04",
+    "name": "RiffleShuffle.PileProfile.prob_nonneg",
+    "module": "Profiles"
+  },
+  {
+    "id": "P05",
+    "name": "RiffleShuffle.PileProfile.prob_le_one",
+    "module": "Profiles"
+  },
+  {
+    "id": "P06",
+    "name": "RiffleShuffle.PileProfile.prob_pos_iff",
+    "module": "Profiles"
+  },
+  {
+    "id": "P07",
+    "name": "RiffleShuffle.PileProfile.prob_sum",
+    "module": "Profiles"
+  },
+  {
+    "id": "P08",
+    "name": "RiffleShuffle.PileProfile.exists_positive_digit",
+    "module": "Profiles"
+  },
+  {
+    "id": "P09",
+    "name": "RiffleShuffle.mass_empty",
+    "module": "Profiles"
+  },
+  {
+    "id": "P10",
+    "name": "RiffleShuffle.mass_nonneg",
+    "module": "Profiles"
+  },
+  {
+    "id": "P11",
+    "name": "RiffleShuffle.mass_le_one",
+    "module": "Profiles"
+  },
+  {
+    "id": "P12",
+    "name": "RiffleShuffle.mass_pos_iff_legal",
+    "module": "Profiles"
+  },
+  {
+    "id": "P13",
+    "name": "RiffleShuffle.mass_sum",
+    "module": "Profiles"
+  },
+  {
+    "id": "P14",
+    "name": "RiffleShuffle.mass_append",
+    "module": "Profiles"
+  },
+  {
+    "id": "W01",
+    "name": "RiffleShuffle.prefix_refl",
+    "module": "Words"
+  },
+  {
+    "id": "W02",
+    "name": "RiffleShuffle.prefix_trans",
+    "module": "Words"
+  },
+  {
+    "id": "W03",
+    "name": "RiffleShuffle.prefix_length_le",
+    "module": "Words"
+  },
+  {
+    "id": "W04",
+    "name": "RiffleShuffle.prefix_eq_of_length_eq",
+    "module": "Words"
+  },
+  {
+    "id": "W05",
+    "name": "RiffleShuffle.empty_prefix",
+    "module": "Words"
+  },
+  {
+    "id": "W06",
+    "name": "RiffleShuffle.truncate_prefix",
+    "module": "Words"
+  },
+  {
+    "id": "W07",
+    "name": "RiffleShuffle.prefix_iff_truncate",
+    "module": "Words"
+  },
+  {
+    "id": "W08",
+    "name": "RiffleShuffle.prefix_comparable",
+    "module": "Words"
+  },
+  {
+    "id": "W09",
+    "name": "RiffleShuffle.take_lex_monotone",
+    "module": "Words"
+  },
+  {
+    "id": "W10",
+    "name": "RiffleShuffle.prefix_lex_convex",
+    "module": "Words"
+  },
+  {
+    "id": "W11",
+    "name": "RiffleShuffle.legal_truncate",
+    "module": "Words"
+  },
+  {
+    "id": "W12",
+    "name": "RiffleShuffle.legal_empty",
+    "module": "Words"
+  },
+  {
+    "id": "W13",
+    "name": "RiffleShuffle.legal_append_iff",
+    "module": "Words"
+  },
+  {
+    "id": "W14",
+    "name": "RiffleShuffle.legal_full_extension",
+    "module": "Words"
+  },
+  {
+    "id": "T01",
+    "name": "RiffleShuffle.node_prefix_refl",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T02",
+    "name": "RiffleShuffle.node_prefix_trans",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T03",
+    "name": "RiffleShuffle.node_prefix_antisymm",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T04",
+    "name": "RiffleShuffle.root_prefix",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T05",
+    "name": "RiffleShuffle.parent_prefix",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T06",
+    "name": "RiffleShuffle.parent_depth",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T07",
+    "name": "RiffleShuffle.parent_strict",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T08",
+    "name": "RiffleShuffle.exists_child",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T09",
+    "name": "RiffleShuffle.cylinder_nonempty",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T10",
+    "name": "RiffleShuffle.cylinder_mono",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T11",
+    "name": "RiffleShuffle.cylinders_overlap_iff",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T12",
+    "name": "RiffleShuffle.antichain_disjoint",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T13",
+    "name": "RiffleShuffle.antichain_cover_unique",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T14",
+    "name": "RiffleShuffle.cylinder_children",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "T15",
+    "name": "RiffleShuffle.tree_finite",
+    "module": "PrefixTree"
+  },
+  {
+    "id": "M01",
+    "name": "RiffleShuffle.shuffleMatrix_nonempty",
+    "module": "Matrices"
+  },
+  {
+    "id": "M02",
+    "name": "RiffleShuffle.ShuffleMatrix.row_legal",
+    "module": "Matrices"
+  },
+  {
+    "id": "M03",
+    "name": "RiffleShuffle.ShuffleMatrix.reindex_counts",
+    "module": "Matrices"
+  },
+  {
+    "id": "M04",
+    "name": "RiffleShuffle.ShuffleMatrix.sorted_monotone",
+    "module": "Matrices"
+  },
+  {
+    "id": "M05",
+    "name": "RiffleShuffle.ShuffleMatrix.sorted_row_legal",
+    "module": "Matrices"
+  },
+  {
+    "id": "M06",
+    "name": "RiffleShuffle.ShuffleMatrix.sort_preserves_count",
+    "module": "Matrices"
+  },
+  {
+    "id": "M07",
+    "name": "RiffleShuffle.ShuffleMatrix.rank_mem_iff",
+    "module": "Matrices"
+  },
+  {
+    "id": "M08",
+    "name": "RiffleShuffle.ShuffleMatrix.rank_count",
+    "module": "Matrices"
+  },
+  {
+    "id": "M09",
+    "name": "RiffleShuffle.ShuffleMatrix.endpoint_bounds",
+    "module": "Matrices"
+  },
+  {
+    "id": "M10",
+    "name": "RiffleShuffle.ShuffleMatrix.rank_convex",
+    "module": "Matrices"
+  },
+  {
+    "id": "M11",
+    "name": "RiffleShuffle.ShuffleMatrix.rank_mono",
+    "module": "Matrices"
+  },
+  {
+    "id": "M12",
+    "name": "RiffleShuffle.ShuffleMatrix.rank_disjoint",
+    "module": "Matrices"
+  },
+  {
+    "id": "G01",
+    "name": "RiffleShuffle.ShuffleMatrix.graph_adj_iff",
+    "module": "Graphs"
+  },
+  {
+    "id": "G02",
+    "name": "RiffleShuffle.ShuffleMatrix.graph_subpath",
+    "module": "Graphs"
+  },
+  {
+    "id": "G03",
+    "name": "RiffleShuffle.ShuffleMatrix.adj_same_prefix",
+    "module": "Graphs"
+  },
+  {
+    "id": "G04",
+    "name": "RiffleShuffle.ShuffleMatrix.equal_rows_between",
+    "module": "Graphs"
+  },
+  {
+    "id": "G05",
+    "name": "RiffleShuffle.ShuffleMatrix.reachable_iff_eq",
+    "module": "Graphs"
+  },
+  {
+    "id": "G06",
+    "name": "RiffleShuffle.ShuffleMatrix.block_adj_iff",
+    "module": "Graphs"
+  },
+  {
+    "id": "G07",
+    "name": "RiffleShuffle.ShuffleMatrix.shared_adj_iff",
+    "module": "Graphs"
+  },
+  {
+    "id": "I01",
+    "name": "RiffleShuffle.WeightedLex.left_nonneg",
+    "module": "Intervals"
+  },
+  {
+    "id": "I02",
+    "name": "RiffleShuffle.WeightedLex.left_le_right",
+    "module": "Intervals"
+  },
+  {
+    "id": "I03",
+    "name": "RiffleShuffle.WeightedLex.right_le_one",
+    "module": "Intervals"
+  },
+  {
+    "id": "I04",
+    "name": "RiffleShuffle.WeightedLex.right_le_left",
+    "module": "Intervals"
+  },
+  {
+    "id": "I05",
+    "name": "RiffleShuffle.WeightedLex.weighted_intervals_disjoint",
+    "module": "Intervals"
+  },
+  {
+    "id": "I06",
+    "name": "RiffleShuffle.WeightedLex.weighted_interval_empty_iff",
+    "module": "Intervals"
+  },
+  {
+    "id": "I07",
+    "name": "RiffleShuffle.WeightedLex.weighted_interval_length",
+    "module": "Intervals"
+  },
+  {
+    "id": "I08",
+    "name": "RiffleShuffle.WeightedLex.weighted_intervals_cover",
+    "module": "Intervals"
+  },
+  {
+    "id": "I09",
+    "name": "RiffleShuffle.word_interval_empty_iff",
+    "module": "Intervals"
+  },
+  {
+    "id": "I10",
+    "name": "RiffleShuffle.word_intervals_disjoint",
+    "module": "Intervals"
+  },
+  {
+    "id": "I11",
+    "name": "RiffleShuffle.word_intervals_cover",
+    "module": "Intervals"
+  },
+  {
+    "id": "I12",
+    "name": "RiffleShuffle.lexOpen_convex",
+    "module": "Intervals"
+  }
+]

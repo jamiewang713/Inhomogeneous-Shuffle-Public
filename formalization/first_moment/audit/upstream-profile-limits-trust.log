@@ -1,0 +1,130 @@
+'RiffleProfiles.chiLog_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.chiLog_pos {χ : ℝ} (hχ : 0 < χ) (hχ1 : χ < 1) : 0 < RiffleProfiles.chiLog χ
+'RiffleProfiles.exceptionalAllowance_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.exceptionalAllowance_pos {χ : ℝ} (hχ : 0 < χ) (hχ1 : χ < 1) : 0 < RiffleProfiles.exceptionalAllowance χ
+'RiffleProfiles.exp_neg_chiLog' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.exp_neg_chiLog {χ : ℝ} (hχ : 0 < χ) : Real.exp (-RiffleProfiles.chiLog χ) = χ
+'RiffleProfiles.exists_chiLog_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.exists_chiLog_cutoff (cap U : ℝ) (hcap : 0 < cap) :
+  ∃ χ0, 0 < χ0 ∧ χ0 < min 1 cap ∧ ∀ (χ : ℝ), 0 < χ → χ < χ0 → max 1 U ≤ RiffleProfiles.chiLog χ
+'RiffleProfiles.scaled_tailWeight_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.scaled_tailWeight_le_rpow (N K : ℕ) (T a β z : ℝ) (hN : 2 ≤ N) (_hT : 0 ≤ T)
+  (hK : ↑K ≤ T * TimeProfile.logScale N) (ha : 0 ≤ a) (_hβ : 0 ≤ β) (hz : 1 ≤ z) :
+  ↑N * RiffleProfiles.tailWeight K (⌊β * TimeProfile.logScale N⌋₊ + 1) a ≤
+    ↑N ^ (1 + T * Real.log (1 + a * z) - β * Real.log z)
+'RiffleProfiles.lowCount_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.lowCount_le_rpow (N K k : ℕ) (T β z : ℝ) (hN : 2 ≤ N) (_hT : 0 ≤ T)
+  (hK : ↑K ≤ T * TimeProfile.logScale N) (hβ : 0 ≤ β) (hz0 : 0 < z) (hz1 : z ≤ 1) :
+  ↑(RiffleProfiles.lowCount K ⌊β * TimeProfile.logScale N⌋₊ k) ≤ ↑N ^ (T * Real.log (1 + ↑k * z) - β * Real.log z)
+'RiffleProfiles.boundary_tailWeight_small_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.boundary_tailWeight_small_chi (k : ℕ) (T C ε : ℝ) (hT : 0 ≤ T) (hC : 0 < C) (hε : 0 < ε) :
+  ∃ χ0,
+    0 < χ0 ∧
+      χ0 < 1 ∧
+        ∀ (χ : ℝ),
+          0 < χ →
+            χ < χ0 →
+              ∀ (N K : ℕ),
+                2 ≤ N →
+                  ↑K ≤ T * TimeProfile.logScale N →
+                    ↑N *
+                        RiffleProfiles.tailWeight K (⌊C / RiffleProfiles.chiLog χ * TimeProfile.logScale N⌋₊ + 1)
+                          (↑k * χ) ≤
+                      ↑N ^ (1 - C + ε)
+'RiffleProfiles.exceptional_tailWeight_small_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.exceptional_tailWeight_small_chi (k : ℕ) (T C₀ : ℝ) (hT : 0 ≤ T) :
+  ∃ χ0,
+    0 < χ0 ∧
+      χ0 < 1 ∧
+        ∀ (χ : ℝ),
+          0 < χ →
+            χ < χ0 →
+              ∀ (N K : ℕ),
+                2 ≤ N →
+                  ↑K ≤ T * TimeProfile.logScale N →
+                    ↑N *
+                        RiffleProfiles.tailWeight K
+                          (⌊RiffleProfiles.exceptionalAllowance χ * TimeProfile.logScale N⌋₊ + 1) (↑k * (3 * χ)) ≤
+                      ↑N ^ (-C₀)
+'RiffleProfiles.exists_boundary_truncation_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.exists_boundary_truncation_parameters (k : ℕ) (T C0 : ℝ) (_hk : 2 ≤ k) (hT : 0 ≤ T) :
+  ∃ C,
+    0 < C ∧
+      ∃ χ0,
+        0 < χ0 ∧
+          ∀ (D : Riffle.Model),
+            D.k = k →
+              2 ≤ D.N →
+                ↑D.K ≤ T * TimeProfile.logScale D.N →
+                  ∀ (A : Riffle.Setup D),
+                    A.C = C →
+                      0 < A.chi →
+                        A.chi < χ0 →
+                          ((Shuffle.fixedMatrixLaw (RiffleProfiles.modelHistogram D)).expect fun matrix =>
+                              ↑{r |
+                                    Riffle.fullList (RiffleProfiles.modelRowWord D matrix r) ∈
+                                      RiffleProfiles.discardedBoundary A Riffle.Side.left ∪
+                                        RiffleProfiles.discardedBoundary A Riffle.Side.right}.card) ≤
+                            ↑D.N ^ (-C0)
+'RiffleProfiles.exists_exceptional_truncation_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.exists_exceptional_truncation_parameters (k : ℕ) (T C0 : ℝ) (_hk : 2 ≤ k) (hT : 0 ≤ T) :
+  ∃ χ0,
+    0 < χ0 ∧
+      χ0 < 1 ∧
+        ∀ (χ : ℝ),
+          0 < χ →
+            χ < χ0 →
+              ∀ (D : Riffle.Model),
+                D.k = k →
+                  ↑D.K ≤ T * TimeProfile.logScale D.N →
+                    ∀ (Creg : ℝ) (P : TimeProfile.BorelPartition D.k),
+                      P.IsRegular χ Creg →
+                        ∀ (v M : Riffle.FullIndex D → ℕ),
+                          ((Shuffle.fixedMatrixLaw (RiffleProfiles.modelHistogram D)).expect fun matrix =>
+                              ↑{r |
+                                    RiffleProfiles.exceptionalAllowance χ <
+                                      ↑(RiffleProfiles.sourceExceptionalPositions (RiffleProfiles.modelColumnProfile D)
+                                              P χ v M (RiffleProfiles.modelRowWord D matrix r)).card /
+                                        TimeProfile.logScale D.N}.card) ≤
+                            ↑D.N ^ (-C0)
+'RiffleProfiles.countErrorExponent_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.countErrorExponent_tendsto (k : ℕ) (T C : ℝ) (_hT : 0 ≤ T) (_hC : 0 < C) :
+  Filter.Tendsto (RiffleProfiles.countErrorExponent k T C) Filter.atTop (nhds 0)
+'RiffleProfiles.exists_countErrorExponent_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.exists_countErrorExponent_cutoff (k : ℕ) (T C η : ℝ) (hT : 0 ≤ T) (hC : 0 < C) (hη : 0 < η) :
+  ∃ U, 1 ≤ U ∧ ∀ (u : ℝ), U ≤ u → RiffleProfiles.countErrorExponent k T C u ≤ η
+'RiffleProfiles.fixed_polynomial_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.fixed_polynomial_le_rpow (c T : ℝ) (m : ℕ) (η : ℝ) (hc : 0 ≤ c) (hT : 0 ≤ T) (hη : 0 < η) :
+  ∃ N0, 2 ≤ N0 ∧ ∀ (N K : ℕ), N0 ≤ N → ↑K ≤ T * TimeProfile.logScale N → c * ↑(K + 1) ^ m ≤ ↑N ^ η
+'RiffleProfiles.common_z_count_product_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.common_z_count_product_le_rpow (N K k : ℕ) (T C u : ℝ) (hN : 2 ≤ N) (hT : 0 ≤ T) (hC : 0 < C)
+  (hu : 1 ≤ u) (hK : ↑K ≤ T * TimeProfile.logScale N) :
+  ↑(RiffleProfiles.lowCount K ⌊C / u * TimeProfile.logScale N⌋₊ k) ^ 2 *
+      ↑(RiffleProfiles.lowCount K ⌊1 / √u * TimeProfile.logScale N⌋₊ k) ≤
+    ↑N ^ (3 * T * Real.log (1 + ↑k / √u) + C * Real.log u / u + Real.log u / (2 * √u))
+'RiffleProfiles.count_product_le_error_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.count_product_le_error_rpow (N K k : ℕ) (T C u : ℝ) (hN : 2 ≤ N) (hT : 0 ≤ T) (hC : 0 < C) (hu : 1 ≤ u)
+  (hK : ↑K ≤ T * TimeProfile.logScale N) :
+  ↑(RiffleProfiles.lowCount K ⌊C / u * TimeProfile.logScale N⌋₊ k) ^ 2 *
+      ↑(RiffleProfiles.lowCount K ⌊1 / √u * TimeProfile.logScale N⌋₊ k) ≤
+    ↑N ^ RiffleProfiles.countErrorExponent k T C u
+'RiffleProfiles.descriptor_count_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleProfiles.descriptor_count_le_rpow (k : ℕ) (T C ε : ℝ) (hk : 2 ≤ k) (hT : 0 ≤ T) (hC : 0 < C) (hε : 0 < ε) :
+  ∃ χ0,
+    0 < χ0 ∧
+      χ0 < min 1 (1 / ↑k) ∧
+        ∀ (χ : ℝ),
+          0 < χ →
+            χ < χ0 →
+              ∀ (d : ℕ),
+                ∃ N0,
+                  2 ≤ N0 ∧
+                    ∀ (N K : ℕ),
+                      N0 ≤ N →
+                        ↑K ≤ T * TimeProfile.logScale N →
+                          ↑(k ^ 2 * (K + 1) ^ (d + 2) *
+                                  RiffleProfiles.lowCount K ⌊C / RiffleProfiles.chiLog χ * TimeProfile.logScale N⌋₊ k ^
+                                    2 *
+                                RiffleProfiles.lowCount K
+                                  ⌊RiffleProfiles.exceptionalAllowance χ * TimeProfile.logScale N⌋₊ k) ≤
+                            ↑N ^ ε

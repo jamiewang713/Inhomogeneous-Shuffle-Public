@@ -1,0 +1,43 @@
+{
+  "toolchain": "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
+  "version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "modules": [
+    {
+      "module": "FirstMoment/Numerical.lean",
+      "sourceSha256": "b070f5a87d951c753e1bf2cc5974ca5423d04a66d2cb14174a3715d516a99bbf",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "module": "FirstMoment/Counting.lean",
+      "sourceSha256": "32f569c056a825ae389cc5d9e5e2104f3701af6b24adce60c3a170f89d515728",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "module": "FirstMoment/Entropy.lean",
+      "sourceSha256": "7989028dd7addb46b87a9176e85560d9c9f5edb3497ede44b7b0ded9964563b2",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "module": "FirstMoment/Assembly.lean",
+      "sourceSha256": "3dccd4c348667ce62b0959f865a38eeea2aec3ec03f2efa2e4397ad4e9ddd3fc",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "module": "FirstMoment.lean",
+      "sourceSha256": "d9ac2f671dd6357984bdde3c15c2a6a772f07eb9369a8f768cf7abf056fb343d",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "module": "Audit.lean",
+      "sourceSha256": "25a02ee7fa22af6805d0d61c9715f10b6814948dd02ba691e2bad4310844d80b",
+      "exitCode": 0,
+      "output": "'InhomogeneousShuffle.FirstMoment.le_thetaInf_add' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.variational_margin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.large_exponent_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.small_exponent_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.singleton_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.large_exponent_variational' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.small_exponent_variational' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.large_exponent_negative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.small_exponent_negative' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.singleton_exponent_negative' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'InhomogeneousShuffle.FirstMoment.card_sparseAssignment' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.sparseCount_weighted' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.sparseCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.card_profileKey' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.profile_card_le_of_injective' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'InhomogeneousShuffle.FirstMoment.sparseCount_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.profileCount_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.profileCount_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.word_mass_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.card_mul_mass_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.card_le_exp_of_mass' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.type_class_card_le_exp_entropy' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_eq_sum_sq' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'InhomogeneousShuffle.FirstMoment.localized_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.localized_sum_sq_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.profileClass_sum_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'InhomogeneousShuffle.FirstMoment.two_power_terms_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ],
+  "mathlibCommit": "0df444a360eaa60ab8c11dca51a86af692955474"
+}

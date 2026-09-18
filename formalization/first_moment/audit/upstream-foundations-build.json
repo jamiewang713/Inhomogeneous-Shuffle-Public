@@ -1,0 +1,14 @@
+[
+  {
+    "module": "RiffleShuffle/Basic.lean",
+    "sourceSha256": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "module": "RiffleShuffle/Profiles.lean",
+    "sourceSha256": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+    "exitCode": 1,
+    "output": "RiffleShuffle/Profiles.lean:1:0: error: object file '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.tooling/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.olean' of module Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset does not exist\n"
+  }
+]

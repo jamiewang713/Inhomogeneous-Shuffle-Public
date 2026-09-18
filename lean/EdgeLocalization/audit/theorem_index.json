@@ -1,0 +1,167 @@
+[
+  {
+    "id": "F01",
+    "declaration": "EdgeLocalization.FiniteLaw.expectation_nonneg",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F02",
+    "declaration": "EdgeLocalization.FiniteLaw.expectation_mono",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F03",
+    "declaration": "EdgeLocalization.FiniteLaw.expectation_const",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F04",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_nonneg",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F05",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_le_one",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F06",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_true",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F07",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_false",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F08",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_congr",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F09",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_sq_le",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F10",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_of_forall",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F11",
+    "declaration": "EdgeLocalization.FiniteLaw.probability_event_of_constant",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F12",
+    "declaration": "EdgeLocalization.FiniteLaw.sum_probabilities_eq_expected_card",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F13",
+    "declaration": "EdgeLocalization.FiniteLaw.sum_sq_probabilities_le_expected_card",
+    "file": "EdgeLocalization/FiniteLaw.lean"
+  },
+  {
+    "id": "F14",
+    "declaration": "EdgeLocalization.internalEdges_subset_occupied",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F15",
+    "declaration": "EdgeLocalization.internalEdges_subset_range",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F16",
+    "declaration": "EdgeLocalization.internalEdges_card_le_occupancy",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F17",
+    "declaration": "EdgeLocalization.internalEdges_zero",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F18",
+    "declaration": "EdgeLocalization.internalEdges_one",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F19",
+    "declaration": "EdgeLocalization.equal_rows_prefix_transfer",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F20",
+    "declaration": "EdgeLocalization.localize_internal_edge",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F21",
+    "declaration": "EdgeLocalization.internalEdges_card_le_collisionPairs",
+    "file": "EdgeLocalization/Deck.lean"
+  },
+  {
+    "id": "F22",
+    "declaration": "EdgeLocalization.internal_density_le_expected_edges",
+    "file": "EdgeLocalization/Density.lean"
+  },
+  {
+    "id": "F23",
+    "declaration": "EdgeLocalization.internal_density_le_expected_occupancy",
+    "file": "EdgeLocalization/Density.lean"
+  },
+  {
+    "id": "F24",
+    "declaration": "EdgeLocalization.internal_expected_edges_le_expected_collisionPairs",
+    "file": "EdgeLocalization/Density.lean"
+  },
+  {
+    "id": "F25",
+    "declaration": "EdgeLocalization.internal_density_le_expected_collisionPairs",
+    "file": "EdgeLocalization/Density.lean"
+  },
+  {
+    "id": "F26",
+    "declaration": "EdgeLocalization.balanced_column_exists",
+    "file": "EdgeLocalization/FirstColumn.lean"
+  },
+  {
+    "id": "F27",
+    "declaration": "EdgeLocalization.balanced_left_endpoint",
+    "file": "EdgeLocalization/FirstColumn.lean"
+  },
+  {
+    "id": "F28",
+    "declaration": "EdgeLocalization.balanced_right_endpoint",
+    "file": "EdgeLocalization/FirstColumn.lean"
+  },
+  {
+    "id": "F29",
+    "declaration": "EdgeLocalization.balanced_endpoint_atom",
+    "file": "EdgeLocalization/EndpointObstruction.lean"
+  },
+  {
+    "id": "F30",
+    "declaration": "EdgeLocalization.balanced_endpoint_good_event",
+    "file": "EdgeLocalization/EndpointObstruction.lean"
+  },
+  {
+    "id": "F31",
+    "declaration": "EdgeLocalization.positive_side_mass_no_sampling_slack",
+    "file": "EdgeLocalization/FirstColumn.lean"
+  },
+  {
+    "id": "F32",
+    "declaration": "EdgeLocalization.full_sample_variance_numerator_zero",
+    "file": "EdgeLocalization/FirstColumn.lean"
+  },
+  {
+    "id": "F33",
+    "declaration": "EdgeLocalization.no_atom_bound_below_good_mass",
+    "file": "EdgeLocalization/EndpointObstruction.lean"
+  }
+]

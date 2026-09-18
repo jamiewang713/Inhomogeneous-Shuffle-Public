@@ -1,0 +1,42 @@
+Both freeze records and all three source digests match; proof-source token scan passed.
+Indexed 17 implementation modules; 207 public definitions/theorems to audit.
+Checked Shuffle.FiniteLaw
+Checked Shuffle.FiniteLawExtras
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/Conditioning.lean:168:0: warning: automatically included section variable(s) unused in theorem 'Shuffle.FiniteLaw.coarse_total_probability':
+  [Fintype Δ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Δ] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/Conditioning.lean:387:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Checked Shuffle.Conditioning
+Checked Shuffle.Hypergeometric
+Checked Shuffle.HypergeometricMoments
+Checked Shuffle.HypergeometricBoundary
+Checked Shuffle.HypergeometricConcentration
+Checked Shuffle.HypergeometricAntiConcentration
+Checked Shuffle.SubsetSampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/ResidualSampling.lean:102:24: warning: unused variable `hres`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+Checked Shuffle.ResidualSampling
+Checked Shuffle.FixedColumns
+Checked Shuffle.FiniteMixture
+Checked Shuffle.RandomColumns
+Checked Shuffle.ConditionalHypergeometric
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/NonExhaustion.lean:9:17: warning: unused variable `hu`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/NonExhaustion.lean:31:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/NonExhaustion.lean:52:5: warning: unused variable `hN`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/NonExhaustion.lean:53:5: warning: unused variable `hm`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/NonExhaustion.lean:64:31: warning: unused variable `he`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/NonExhaustion.lean:70:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Checked Shuffle.NonExhaustion
+Checked Shuffle.AmbientCounterexample
+Checked Shuffle.AmbientMatrixCounterexample
+Dependency audit passed for 207 public declarations across 17 modules.
+Both freeze records and all three source digests match; proof-source token scan passed.

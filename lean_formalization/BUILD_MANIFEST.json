@@ -1,0 +1,187 @@
+{
+  "lean": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)",
+  "mathlib_revision": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "frozen_contract_sha256": "57e99a121acc710e6fddc392204626640fe50167c0cb3279b4feaa950de1daf5",
+  "source_adapter_contract_sha256": "33de1f7762aae8ce60136965cf4d37d4028f33a4d9cc5dfbc348f95d8f21e006",
+  "truncation_contract_sha256": "d1cd3287aa31cb0b3236c9cf811399a63a648b435d299cfaa0dbd789e2406a66",
+  "reviewed_dependency_snapshots": {
+    "Base": {
+      "original": "formalization/time_profile/RiffleTimeProfile/Base.lean",
+      "original_sha256": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+      "snapshot": "vendor/time_profile/RiffleTimeProfile/Base.lean",
+      "snapshot_sha256": "f76007aefd9c4c0176b41454e975c1192dd00240c3148dd101a8bebe118d12aa"
+    },
+    "Ambient": {
+      "original": "formalization/time_profile/RiffleTimeProfile/Ambient.lean",
+      "original_sha256": "75d4558ff24fa1fc18cd09b0b1c2d0ea33140195317686e963b36038226eeea8",
+      "snapshot": "vendor/time_profile/RiffleTimeProfile/Ambient.lean",
+      "snapshot_sha256": "329493e3ef2d0b03a12c1beba07117e93383cbe572984bf79f323866b7c507d2"
+    }
+  },
+  "truncation_dependency_snapshots": {
+    "stable_blocks": {
+      "Riffle/Definitions": {
+        "source": "formalization/stable_blocks/Riffle/Definitions.lean",
+        "source_sha256": "fd3654e2ba20e1d2b74837e8db0166c78d536cf9ed54efe5afe3562caf8b5647",
+        "snapshot": "vendor/stable_blocks/Riffle/Definitions.lean",
+        "snapshot_sha256": "fd3654e2ba20e1d2b74837e8db0166c78d536cf9ed54efe5afe3562caf8b5647"
+      },
+      "Riffle/Model": {
+        "source": "formalization/stable_blocks/Riffle/Model.lean",
+        "source_sha256": "08007c4488b4a6503ec3f9d1ae0d626cc1d449431b83b91313170d755dd691dc",
+        "snapshot": "vendor/stable_blocks/Riffle/Model.lean",
+        "snapshot_sha256": "08007c4488b4a6503ec3f9d1ae0d626cc1d449431b83b91313170d755dd691dc"
+      },
+      "Riffle/Words": {
+        "source": "formalization/stable_blocks/Riffle/Words.lean",
+        "source_sha256": "97f017c1fb73f6954e06666b115830d85e9d4692a3425117e7eb788320189fab",
+        "snapshot": "vendor/stable_blocks/Riffle/Words.lean",
+        "snapshot_sha256": "97f017c1fb73f6954e06666b115830d85e9d4692a3425117e7eb788320189fab"
+      },
+      "Riffle/Boundary": {
+        "source": "formalization/stable_blocks/Riffle/Boundary.lean",
+        "source_sha256": "2e3f0215a122e4c479b2cd58d03f87a8b92069d39525b84e6fdec8ca555fc996",
+        "snapshot": "vendor/stable_blocks/Riffle/Boundary.lean",
+        "snapshot_sha256": "2e3f0215a122e4c479b2cd58d03f87a8b92069d39525b84e6fdec8ca555fc996"
+      }
+    },
+    "shuffle_law": {
+      "Shuffle/FiniteLaw": {
+        "source": "lean/Shuffle/FiniteLaw.lean",
+        "source_sha256": "f5dcbcfa6908503696d6edaa363a8a0919a22aabd8e01e9819e6f13d20baff17",
+        "snapshot": "vendor/shuffle_law/Shuffle/FiniteLaw.lean",
+        "snapshot_sha256": "f5dcbcfa6908503696d6edaa363a8a0919a22aabd8e01e9819e6f13d20baff17"
+      },
+      "Shuffle/Conditioning": {
+        "source": "lean/Shuffle/Conditioning.lean",
+        "source_sha256": "d38948fc44f5a107aa3aff794ffd20db7f87d901bc8c104eff4486e9937730b4",
+        "snapshot": "vendor/shuffle_law/Shuffle/Conditioning.lean",
+        "snapshot_sha256": "d38948fc44f5a107aa3aff794ffd20db7f87d901bc8c104eff4486e9937730b4"
+      },
+      "Shuffle/FixedColumns": {
+        "source": "lean/Shuffle/FixedColumns.lean",
+        "source_sha256": "5d0a7f87ba58d7533044f2081fd5b2be636cb3d784a578cfe6366eb82f3ec6b5",
+        "snapshot": "vendor/shuffle_law/Shuffle/FixedColumns.lean",
+        "snapshot_sha256": "5d0a7f87ba58d7533044f2081fd5b2be636cb3d784a578cfe6366eb82f3ec6b5"
+      }
+    }
+  },
+  "mathematical_sources": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "3e6a410de9812e1a46500a9a5f2320008fe666b26ae6dfebf17ebaf753ff32f6",
+    "2103.05068v3.pdf": "58f0b60418d0cdbf339f6440e9ae664ab617b6ab461b5153be63ec6af8d9f97d",
+    "2510.22783v1.pdf": "f66cd955cdb6546d9c118ea8ee22f7e166db55219d6207a3e5e607281e483d42"
+  },
+  "modules": {
+    "RiffleProfiles/Estimates.lean": "7c0f131c9c56a89c6fc2a2bb65b25ebc4636cd7b1a931bae2534a57970166824",
+    "RiffleProfiles/Entropy.lean": "25c1351a62e4eaa5622597846ca48f9fc09ade34ac3d4fd18a8798d87fbfce0a",
+    "RiffleProfiles/Counting.lean": "f211d8799943aede21e2ca36395b96d8cec349f3c2d34cfa7087423eaa555797",
+    "RiffleProfiles/WordMass.lean": "d7cebbc71fb68bc6e186576c90e13494d91c252c819f48b8c4c02c8590a4331b",
+    "RiffleProfiles/SourceReplacement.lean": "4e53f1b74e161d7d3c5144d7ac60aea12fd8fb7832265826321dd12ccb99ed09",
+    "RiffleProfiles/SourceFluctuation.lean": "625487cf482a35c6d1f23ed2f1323bbca21ba53324de8d2e7ee3d98bd495c17e",
+    "RiffleProfiles/ModelWordMass.lean": "e8c01f12b085b3d878b8199b42a8ee3fde5e951a5a253976af83b8cda8852e7d",
+    "RiffleProfiles/BoundaryTruncation.lean": "d3f58a42930c6afcbe523bef628522a3df8bd5b5949dd05ca1f27d4ff8805cd6",
+    "RiffleProfiles/ExceptionalTruncation.lean": "073c5b711c8c94e08fc06b0a87d1d734db22c38890fc911a1720a7851b9cd84f",
+    "RiffleProfiles/BoundaryCounting.lean": "c6eedca5ba8c37701aa3d7318f567c10956f8b79cd5972bf9a87fe3dabf3c4dc",
+    "RiffleProfiles/MatrixLaw.lean": "0a054b43828a0c9c7d0a6051525c9957be2abac39e8691ec33aa6d95f443da60",
+    "RiffleProfiles/MatrixTruncation.lean": "912f22e1e76ef279a5c7fce351d1dac41d2d64b0c152ccef4be7890117ce0859",
+    "RiffleProfiles.lean": "6f6aeb59f3017d18236cceb396def25efc7f96ad618bfa2b78a52c294e37686f"
+  },
+  "public_theorem_count": 90,
+  "public_theorems": [
+    "cost_eq_log_inverse",
+    "cost_nonnegative",
+    "cost_antitone",
+    "good_digit_bounds",
+    "exceptional_digit_bound",
+    "sum_error_bound",
+    "normalized_sum_error_bound",
+    "good_exceptional_split",
+    "exceptional_cost_nonnegative",
+    "profile_cost_decomposition",
+    "length_exponent_split",
+    "length_exponent_profile",
+    "cell_regrouping",
+    "cell_replacement",
+    "interval_blocking",
+    "tail_cell_replacement",
+    "maximal_pile_domination",
+    "maximal_pile_target",
+    "side_mass_ge_continuation",
+    "fluctuation_log_comparison",
+    "parent_crossing_good_cost",
+    "finite_gibbs_inequality",
+    "profileEntropy_eq_zero_of_sum_eq_zero",
+    "entropy_le_tilted_cost",
+    "profile_entropy_le",
+    "exceptional_cost_identity",
+    "exceptional_cost_bounds",
+    "entropy_error_of_replacement",
+    "tailWeight_le",
+    "lowCount_le",
+    "sparsePattern_card",
+    "sparsePattern_forget_image_card_le",
+    "boundaryDescriptor_card_le",
+    "profileDescriptor_card_le",
+    "wordWeight_nonneg",
+    "wordWeight_sum",
+    "badCount_generating_product",
+    "wordWeight_generating",
+    "coordinate_generating",
+    "wordWeight_generating_le",
+    "badWordMass_le",
+    "badDigitMass_le",
+    "badWordMass_smallDigits_le",
+    "scaled_badWordMass_le",
+    "box_word_mass",
+    "exact_badPositions_mass_le",
+    "sum_badSet_weights",
+    "badWordMass_le_tailWeight",
+    "badWordMass_smallDigits_le_tailWeight",
+    "scaled_badWordMass_le_tailWeight",
+    "sum_edgeProbability_sq_le",
+    "coarse_fibre_card_le",
+    "coarse_word_fibre_card_le",
+    "coarseProfile_not_injective",
+    "source_digitCost_eq_cost",
+    "source_regularDigits",
+    "source_cE_replacement",
+    "source_cL_maximal_target",
+    "source_sideMaximum_ge_prefixMass",
+    "source_fluctuation_comparison",
+    "modelDigitProb_nonneg",
+    "modelDigitProb_sum",
+    "modelColumnProfile_prob",
+    "model_weight_eq_wordWeight",
+    "model_expectedCount_eq_wordMass",
+    "model_expectedCount_le_tailWeight",
+    "model_expectedCount_union_le",
+    "boundaryThreshold_pos",
+    "boundaryBadDigits_small",
+    "boundary_violations_le_badCount",
+    "discardedBoundary_many_badDigits",
+    "discardedBoundary_expectedCount_le",
+    "discardedBoundary_union_expectedCount_le",
+    "sourceExceptionalPositions_subset",
+    "sourceExceptionalDigits_prob_le",
+    "exceptionalPrefix_badCount_ge",
+    "exceptionalPrefix_wordMass_le",
+    "exceptionalPrefix_scaled_wordMass_le",
+    "admissibleBoundaryDescriptor_injective",
+    "admissibleBoundary_card_le",
+    "admissiblePair_card_le",
+    "columnLaw_permute_prob",
+    "columnLaw_row_marginals_eq",
+    "fixedColumn_sum_indicator",
+    "columnLaw_row_marginal",
+    "model_rowWord_probability",
+    "model_expected_row_count",
+    "model_discardedBoundary_expected_rows_le",
+    "model_discardedBoundary_union_expected_rows_le",
+    "model_exceptionalPrefix_expected_rows_le"
+  ],
+  "allowed_foundational_dependencies": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

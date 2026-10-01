@@ -1,0 +1,47 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Error.lean:13:30: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Error.lean:13:43: warning: Variable name `hD` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hD
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Error.lean:44:71: error: unsolved goals
+k N K l m : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+a : Word k K
+hlm : l ≤ m
+hm : m ≤ K
+x : WordOn k (columnSet K l m)
+omega : Sample cuts
+A : ℝ
+hA : 0 < A
+hconc : ∀ (v : Prefix k K), |↑(prefixCount v omega) - prefixMean cuts v| ≤ A * (√(prefixMean cuts v) + 1)
+R : Fin k → Fin k → Prop
+hR : ∀ (d e : Fin k), R d e → d ≠ e
+S : Finset (↥(columnSet K l m) × Fin k) := Finset.univ.biUnion fun j => Finset.image (fun d => (j, d)) {d | R d (x j)}
+p : ↥(columnSet K l m) × Fin k
+⊢ (∃ a, ∃ (b : a ∈ columnSet K l m), ∃ a_1, R a_1 (x ⟨a, b⟩) ∧ (⟨a, b⟩, a_1) = p) ↔ R p.2 (x p.1)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Error.lean:58:12: error: Type mismatch: After simplification, term
+  Nat.mul_le_mul_right k h2
+ has type
+  (columnSet K l m).card * k ≤ K * k
+but is expected to have type
+  (columnSet K l m).card * k ≤ k * K
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Endpoints/Error.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Error.lean']' returned non-zero exit status 1.

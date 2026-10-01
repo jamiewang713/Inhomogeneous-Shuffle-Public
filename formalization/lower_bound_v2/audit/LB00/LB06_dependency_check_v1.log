@@ -1,0 +1,34 @@
+TimeProfile.exists_regular_partition {k : ℕ} (_hk : 2 ≤ k) {chi : ℝ} (hchi : 0 < chi) (_hchiK : chi < 1 / ↑k) :
+  ∃ P, P.IsRegular chi 1
+Nat.multinomial.{u_1} {α : Type u_1} (s : Finset α) (f : α → ℕ) : ℕ
+Nat.multinomial_spec.{u_1} {α : Type u_1} (s : Finset α) (f : α → ℕ) :
+  (∏ i ∈ s, (f i).factorial) * Nat.multinomial s f = (∑ i ∈ s, f i).factorial
+Stirling.log_stirlingSeq_formula (n : ℕ) :
+  Real.log (Stirling.stirlingSeq n) =
+    Real.log ↑n.factorial - 1 / 2 * Real.log (2 * ↑n) - ↑n * Real.log (↑n / Real.exp 1)
+Stirling.log_stirlingSeq'_antitone : Antitone (Real.log ∘ Stirling.stirlingSeq ∘ Nat.succ)
+Stirling.log_stirlingSeq_bounded_by_constant (n : ℕ) :
+  1 - 12⁻¹ - Real.log 2 / 2 ≤ Real.log (Stirling.stirlingSeq (n + 1))
+RiffleLowerV2.Targets.RoundedTypeTarget : Prop
+audit/LB00/LB06DependencyCheck_v1.lean:21:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+audit/LB00/LB06DependencyCheck_v1.lean:37:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+audit/LB00/LB06DependencyCheck_v1.lean:37:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LT MessageData
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+audit/LB00/LB06DependencyCheck_v1.lean:36:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd MessageData ℕ MessageData
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

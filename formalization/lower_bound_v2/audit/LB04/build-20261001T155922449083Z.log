@@ -1,0 +1,26 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.RelativeOrder.Check']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+RiffleLowerV2.Ascent.relativeOrderIndependence : RiffleLowerV2.Targets.RelativeOrderIndependence
+RiffleLowerV2.Ascent.boundaryAscentProbability : RiffleLowerV2.Targets.BoundaryAscentProbability
+RiffleLowerV2.Ascent.relativeOrder_expect.{u_1} {N : ℕ} {I : Type u_1} [Fintype I] [DecidableEq I]
+  (A : I → Finset (Fin N)) (hA : ∀ (i j : I), i ≠ j → Disjoint (A i) (A j))
+  (F : ((i : I) → Equiv.Perm (Fin (A i).card)) → ℝ) :
+  (RiffleLowerV2.expect (RiffleLowerV2.uniformPermutation N) fun π =>
+      F fun i => RiffleLowerV2.Ascent.relativeOrder (A i) π) =
+    RiffleLowerV2.expect (PMF.uniformOfFintype ((i : I) → Equiv.Perm (Fin (A i).card))) F
+RiffleLowerV2.Ascent.expect_prod_of_relativeOrder.{u_1} {N : ℕ} {I : Type u_1} [Fintype I] [DecidableEq I]
+  (A : I → Finset (Fin N)) (hA : ∀ (i j : I), i ≠ j → Disjoint (A i) (A j)) (f : I → RiffleLowerV2.Permutation N → ℝ)
+  (hf : ∀ (i : I) (π σ : RiffleLowerV2.Permutation N), (∀ x ∈ A i, ∀ y ∈ A i, π x < π y ↔ σ x < σ y) → f i π = f i σ) :
+  (RiffleLowerV2.expect (RiffleLowerV2.uniformPermutation N) fun π => ∏ i, f i π) =
+    ∏ i, RiffleLowerV2.expect (RiffleLowerV2.uniformPermutation N) (f i)
+RiffleLowerV2.Ascent.relativeOrder_fiber_card_mul.{u_1} {N : ℕ} {I : Type u_1} [Fintype I] [DecidableEq I]
+  (A : I → Finset (Fin N)) (hA : ∀ (i j : I), i ≠ j → Disjoint (A i) (A j))
+  (η : (i : I) → Equiv.Perm (Fin (A i).card)) :
+  Nat.card { π // (fun i => RiffleLowerV2.Ascent.relativeOrder (A i) π) = η } * ∏ i, (A i).card.factorial = N.factorial
+'RiffleLowerV2.Ascent.relativeOrderIndependence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Ascent.boundaryAscentProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Ascent.expect_prod_of_relativeOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Ascent.relativeOrder_fiber_card_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Ascent.relativeOrder_weighted_expect' depends on axioms: [propext, Classical.choice, Quot.sound]
+LB04 BUILD_OK

@@ -1,0 +1,152 @@
+{
+  "status": "COMPLETED_INPUT",
+  "lane": "LB04",
+  "released_at_utc": "2026-10-01T16:08:34.849457+00:00",
+  "contract_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "upstream_receipts": [
+    "audit/LB00/CONTRACT_READY.md",
+    "audit/LB00/LB04_INTERFACE_ACK_v1.md",
+    "audit/LB00/LB04_DEPENDENCIES_READY_v1.md"
+  ],
+  "dependency_receipt_checks": [
+    "LB01-v1",
+    "LB04-v1"
+  ],
+  "imports": [
+    "RiffleLowerV2.Ascent.Main"
+  ],
+  "required_exports": [
+    {
+      "name": "RiffleLowerV2.Ascent.componentConcentration",
+      "type": "RiffleLowerV2.Targets.ComponentConcentration",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.componentExpectation",
+      "type": "RiffleLowerV2.Targets.ComponentExpectation",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.uniformScan",
+      "type": "RiffleLowerV2.Targets.UniformScan",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.componentComparison",
+      "type": "RiffleLowerV2.Targets.ComponentComparison",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.uniformGraphScan",
+      "type": "RiffleLowerV2.Targets.UniformGraphScan",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.relativeOrderIndependence",
+      "type": "RiffleLowerV2.Targets.RelativeOrderIndependence",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.boundaryAscentProbability",
+      "type": "RiffleLowerV2.Targets.BoundaryAscentProbability",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.bernoulliMGF",
+      "type": "RiffleLowerV2.Targets.BernoulliMGF",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.leastSuccessfulTranslate",
+      "type": "RiffleLowerV2.Targets.LeastSuccessfulTranslate",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Ascent.componentConcentrationTwoSided",
+      "type": "RiffleLowerV2.Targets.ComponentConcentrationTwoSided",
+      "status": "PROVED"
+    }
+  ],
+  "additional_exports": [
+    "RiffleLowerV2.Ascent.relativeOrder_fiber_card_mul",
+    "RiffleLowerV2.Ascent.expect_prod_of_relativeOrder",
+    "RiffleLowerV2.Ascent.chosenTranslate",
+    "RiffleLowerV2.Ascent.chosenTranslate_measurable",
+    "RiffleLowerV2.Ascent.conditionalLalleyTest",
+    "RiffleLowerV2.Ascent.conditionalLalleyTendsto"
+  ],
+  "pending_LB04_obligations": [],
+  "actual_shuffle_representation": "Explicit conditional input to generic mixture test; downstream LB10 must discharge from LB01; not asserted by LB04",
+  "build_command": "python3 audit/LB04/compile_lane.py RiffleLowerV2.Ascent.Main",
+  "underlying_lane_command": "python3 scripts/lane.py LB04 RiffleLowerV2.Ascent.Main",
+  "build_log": "audit/LB04/build-20261001T160330161378Z.log",
+  "build_result": "LB04 BUILD_OK; exit 0; no warnings",
+  "axiom_audit_command": "python3 audit/LB04/check_compiled.py",
+  "axiom_audit_log": "audit/LB04/compiled-audit-v1.log",
+  "axiom_audit_result": "LB04_AUDIT_OK; exit 0; warnings treated as errors",
+  "declarations_checked": 269,
+  "public_exports": 163,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "independent_reviews": "Three pre-proof reviews resolved; four independent final reviews PASS on exact final hashes",
+  "source_files": {
+    "RiffleLowerV2/Ascent/Asymptotic.lean": "3eec5f1f3635bbe18e2e1074a29790f05e95ee2a6ea2938f10058ab4ecfba13a",
+    "RiffleLowerV2/Ascent/Components/Charging.lean": "5cf45d89fa9be8ee6db8e00b9200a5709d1a0be50b844d927bdd31661fe2c1ea",
+    "RiffleLowerV2/Ascent/Components/Clipping.lean": "f91ff7b097575b4ffbfb7337aadce667fd78bb04f6ae6494d584618809e8ed18",
+    "RiffleLowerV2/Ascent/Components.lean": "d2aa1eafa280844418c84250f1d709fc8ed9db057010826ad0647e6581905fc0",
+    "RiffleLowerV2/Ascent/Concentration.lean": "6852a9d8411462557f30b8cd400cced25cc111fd4bc91a72969c002ad8381178",
+    "RiffleLowerV2/Ascent/Expectation.lean": "cfb7e67022e62bbce9a8f843d80a632f0030ff17499de4093e6fea93787d496e",
+    "RiffleLowerV2/Ascent/FiniteConsequences.lean": "e3368fc0ea4dac663a18272963396712cb4b41c7a68fd364e3e4732af327abd3",
+    "RiffleLowerV2/Ascent/FiniteProbability.lean": "00d82b310825842653daaedb9ed6b9f846c13057c5e4808b7d8f4ea91bbc9b76",
+    "RiffleLowerV2/Ascent/MGF.lean": "3fa1bbd161af04b5b6bcda57f8f1e528f5e341e002a5a7bb8c27ac1b9a52d9e1",
+    "RiffleLowerV2/Ascent/Main.lean": "a76031e74e2408913208733112e0a0ad4f0617cd437bb01d4be9a4a514a7e74a",
+    "RiffleLowerV2/Ascent/Mixture.lean": "242db008170a8dbc82d139f6e249366e8bfca9577da78bb4431e0fa7feba0aff",
+    "RiffleLowerV2/Ascent/Quantitative.lean": "de4a60ba3ffd75c775bfcf73d73c60e61b4ba939f4b5cbee134f419eb09cafb3",
+    "RiffleLowerV2/Ascent/RelativeOrder/Basic.lean": "d596bfbce4b0508971c5dba88f1ab78fbf48e082765f1b881d3bd9b28b29313b",
+    "RiffleLowerV2/Ascent/RelativeOrder/Boundary.lean": "a859124dc2a9ceae47518aacf9d037b948eb59cfcc78cd840384f2ed2a236aec",
+    "RiffleLowerV2/Ascent/RelativeOrder/Check.lean": "d98650ca8cd66c9cf7120ad290f7f8a0fcdc20d001dc54e61a65c5d141226fc6",
+    "RiffleLowerV2/Ascent/RelativeOrder/Law.lean": "1dbf422d393a480741f3bcf89315a3482d7d6cf7d6f54cf9e2a7c33a31f39a99",
+    "RiffleLowerV2/Ascent/RelativeOrder/Weighted.lean": "b6d69a3fa315b507f5daabe8675bf1591eac0da8e1f02f84b03f8f052e2523e0",
+    "RiffleLowerV2/Ascent/RelativeOrder.lean": "dcc9a0127f4eed17d35bb830d04bea1d539beaca6a93f0a3b4bf7aad3624ecc9",
+    "RiffleLowerV2/Ascent/Selection.lean": "58b18d155344fcb302b408a082aa8beb0cdd6b35bcd5114d576ffe541afd8d29",
+    "RiffleLowerV2/Ascent/Test.lean": "2f522c2944102b010c22153754d8a12af63d6f1c73e318bccbd6d445090e1da2",
+    "RiffleLowerV2/Ascent/UniformBaseline.lean": "f94147e58d7e30dea8251e16b02267c56ac9fe186d37b17cfd9d24472fe5586d"
+  },
+  "artifact_sha256": {
+    "audit/LB04/Check_v1.lean": "2862df543eb517915b4bfbb17dc03b51cb5d6dc885e0a79a8b7d1235682159de",
+    "audit/LB04/check_compiled.py": "663c9abcafd917679a2f8a91b74691e8c369d2360a5af20a0e0e6e4a4083a73d",
+    "audit/LB04/compile_lane.py": "520d485ca5162b0450a33e4500bcf8d08628d6364a9b1d7d8c57b36baf98648c",
+    "audit/LB04/compiled-audit-v1.log": "d84ec88ae1f2b705fd218be2c4bfd22e20763a7149aa434839aa4a22073cb704",
+    "audit/LB04/compiled-declarations-v1.json": "6a69a40696dfcb1f72785e3cb06fda6aa93ae8451e35ec299ddf193cb3ebe8ca",
+    "audit/LB04/public-exports-v1.json": "6774c960a220b6c9fb81d9c1ea0671f46dd1317586c3e6b964c30fa27063f081",
+    "audit/LB04/EXPORTS_v1.md": "1127fc685bf5f107cd66276e67e38194b0fb841f03bd1e077a16cc12b00af299",
+    "audit/LB04/VERIFICATION_v1.json": "9857bca5cd01a804fd80c6f670383a119834e549469387a9ee18d6d3174c04e1",
+    "audit/LB04/DEPENDENCY_LEDGER_v1.md": "cdcaab286034a33047dd704ae99cd4f98a41393885374851437bf5e6917361cf",
+    "audit/LB04/provenance_v1.md": "d620e36287256f61a855344edbdfd1239172d9c94ff9a44870ed8cdb6f93b2b3",
+    "audit/LB04/INTERFACE_PROPOSAL_v1.md": "a948194b22ecb3e874123788938ba6af800083facbefea899efc4e0713cfb519",
+    "audit/LB04/REVIEW_RESOLUTION_v1.md": "5072b925209d2f4c0756ab1fd8d9e2bf139e64290726007132e2915c62ee29d1",
+    "audit/LB04/math_review_v1.md": "f6fe3d9b0ca425c3790af894bb2d42a5fce683565d11e00df64c358ddb339dc1",
+    "audit/LB04/representation_review_v1.md": "259ea4e149b5ff04665c1124df61cd90574b47ec98158150ad57691520b6b026",
+    "audit/LB04/hypotheses_review_v1.md": "eb1ba0fd33849caf8285e7378d51f6de29e09ec7e43feb3251b1f32b54eb7298",
+    "audit/LB04/component_proof_receipt_v1.md": "70073ed4ffd59b89a570efc5865f5a968373998b4203180176fbe92b34c92d83",
+    "audit/LB04/relative_order_implementation_v1.md": "f2d54946eb42203363a1679a577e2beb9a0a096fefa103ec0a5cc9b013809658",
+    "audit/LB04/mgf_delivery_v1.md": "964716634e22a632c028adadb45bc109d5e02dc22fb5f9ff447eb6afb6d4c21a",
+    "audit/LB04/mgf_receipt_v1.json": "9c2bad6fa7fee004470a5cd27e9af05252d5f8fd741373147207dac72265db73",
+    "audit/LB04/mgf_axioms_v1.log": "1cec19c59bf9027ce6f79e3846dce775de0bfb7c49a86aa39c5de5b8292c3431",
+    "audit/LB04/asymptotic_delivery_v1.md": "44b2006ef83ae535f8ef65ce10981263c5d7f4d67ad4d375265da9cb7278bd75",
+    "audit/LB04/asymptotic_receipt_v1.json": "abdf3353046668e5048158266d2231886472c9fd73632b501fa7962941506c84",
+    "audit/LB04/asymptotic_axioms_v1.log": "74d3b660fce1de228bb41c57ced5ccf932afc8f5c89e3bed9e91750d7d91b005",
+    "audit/LB04/relative_order_final_review_v1.md": "bbe2ecc87fe5e8ff4d77d9d21e64428c4c19e4d2d35253590e122c4d90768435",
+    "audit/LB04/expectation_final_review_v1.md": "1a64c098c131296a27272782898e68df97344c26b0588aba1129c68a548f2d00",
+    "audit/LB04/analytic_final_review_v1.md": "1a20617fb59d6363230fd71bf28388cb8c6216f21f7f78051a5ac2926fed90ce",
+    "audit/LB04/concentration_final_review_v1.md": "d66baa406bbd639ea0485fd830a4932c4ae9c90863c6befef1e63b9ac3ddc7dc",
+    "audit/LB04/build-20261001T160330161378Z.log": "9268966fa693f4307e92f72bc13be970096f3f740aedd7021e22587779faa5bf",
+    "audit/LB04/source_inputs_v1.json": "da36fa777f2274091e6d44f06faebab01eacb50f9d4e50aa74621805e7e4d1da"
+  },
+  "ownership_preserved": true,
+  "full_lower_bound_endpoints": "Outside LB04; not claimed"
+}

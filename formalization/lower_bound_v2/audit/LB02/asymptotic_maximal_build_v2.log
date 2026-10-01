@@ -1,0 +1,92 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:57:65: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:57:67: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:58:12: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:55:6: error: mod_cast has type
+  Finset.univ.sup ?m.97 ≤ ?m.98
+but is expected to have type
+  ↑(Finset.univ.sup fun l => ⟨prob (cuts.profile hN j) l, ⋯⟩) ≤ ↑(cuts.count j (List.Vector.get w j)) / ↑N
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:68:22: error: Function expected at
+  deckPos
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  hN
+
+Hint: The identifier `deckPos` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:69:28: error: Function expected at
+  deckPos
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  hN
+
+Hint: The identifier `deckPos` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:70:47: error: Function expected at
+  deckPos
+but this term has type
+  x✝
+
+Note: Expected a function because this term is being applied to the argument
+  hN
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:72:44: error: Function expected at
+  deckPos
+but this term has type
+  x✝
+
+Note: Expected a function because this term is being applied to the argument
+  hN
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:74:20: error: Function expected at
+  deckPos
+but this term has type
+  x✝
+
+Note: Expected a function because this term is being applied to the argument
+  hN
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:75:35: error: Function expected at
+  deckPos
+but this term has type
+  x✝
+
+Note: Expected a function because this term is being applied to the argument
+  hN
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:77:39: error: Function expected at
+  deckPos
+but this term has type
+  x✝
+
+Note: Expected a function because this term is being applied to the argument
+  hN
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:81:20: error: Failed to rewrite using equation theorems for `maximalMean`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:92:50: error(lean.unknownIdentifier): Unknown identifier `deckPos`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:93:44: error(lean.unknownIdentifier): Unknown identifier `deckPos`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:90:61: error: unsolved goals
+k N K : ℕ
+a✝ : 2 ≤ k
+hN : 2 ≤ N
+cuts : Cuts k N K
+w : Word k K
+hw : IsCanonicalMaxWord cuts w
+⊢ ∃ w,
+    IsCanonicalMaxWord cuts w ∧
+      ↑N * wordMass cuts w = maximalMean cuts ⋯ ∧ maximalMean cuts ⋯ = ↑N ^ beta cuts ⋯ (horizon N K)
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB02/lib/lean/RiffleLowerV2/Thinning/MaximalWord.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean']' returned non-zero exit status 1.

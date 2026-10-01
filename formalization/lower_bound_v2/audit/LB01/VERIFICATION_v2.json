@@ -1,0 +1,75 @@
+{
+  "checked_at_utc": "2026-10-01T15:35:12.890877+00:00",
+  "status": "VERIFIED",
+  "lean": "4.33.1",
+  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "source_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "contract_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "source_files": {
+    "RiffleLowerV2/Model/ComponentFibers.lean": "ca0b61143fb2aaa5ac68a868185449d4c5ef2b3800cbad971e041b01ecdd482a",
+    "RiffleLowerV2/Model/FiberCounts.lean": "a047c4cda586bacc6c19fec75e9a4905097860fa7f075917bcb213c7d6aad349",
+    "RiffleLowerV2/Model/FiniteLaws.lean": "cc5abe4ecf21f682658ca77e7a867368a4f1f8c4ab0b9d70eba79a9041772a06",
+    "RiffleLowerV2/Model/GraphLaw.lean": "9a15859e7f7b9be119b534ff177f4ce65d75ac88df779148c8cbaa27935a7103",
+    "RiffleLowerV2/Model/GraphSorting.lean": "66201c1a8aa75da4d0fd5855ab251d3cded0e3fb90e5df734c6c95862be880f0",
+    "RiffleLowerV2/Model/Main.lean": "3300883af41f03098138ce53c49eb5a547cb7c247448cd8ee32abc0d838a0822",
+    "RiffleLowerV2/Model/Physical.lean": "f28ece509eee906fe8d1bc5bd20d2a8a9aeaf883fb817364b4ff168ed25cc493",
+    "RiffleLowerV2/Model/Sorting.lean": "ab2e2fd9f105ab4fac52f6764d731aad7a93a34f5cb6cd85660b67eacd595a54"
+  },
+  "elaborated_declarations_checked": 162,
+  "public_declarations": 162,
+  "required_targets_checked": [
+    {
+      "name": "RiffleLowerV2.Model.columnIndependence",
+      "type": "RiffleLowerV2.Targets.ColumnIndependence",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Model.graphRepresentation",
+      "type": "RiffleLowerV2.Targets.GraphRepresentation",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Model.graphEventIdentity",
+      "type": "RiffleLowerV2.Targets.GraphEventIdentity",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Model.physicalMatrixBridge",
+      "type": "RiffleLowerV2.Targets.PhysicalMatrixBridge",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Model.inversionTV",
+      "type": "RiffleLowerV2.Targets.InversionTV",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Model.rowRelabeling",
+      "type": "RiffleLowerV2.Targets.RowRelabeling",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Model.stableTie",
+      "type": "RiffleLowerV2.Targets.StableTie",
+      "status": "PROVED"
+    },
+    {
+      "name": "RiffleLowerV2.Model.prefixRanks",
+      "type": "RiffleLowerV2.Targets.PrefixRanks",
+      "status": "PROVED"
+    }
+  ],
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "lane_build_log_sha256": "78eb1f070f60ea188487f300b9b27c5c5dfc67b9e6b502e391efd4403069b0fc",
+  "compiled_audit_log_sha256": "544cd37b2e0a382754b0b2d67a5244277d6c930e429a0a2862b35cf2e153b585",
+  "no_shared_or_frozen_file_changed": true,
+  "no_manuscript_change": true,
+  "verification_revision": 2,
+  "previous_verification_sha256": "09f456b6a4ec192b1403a465508018edba46b134a5ad2bef3a96e9c58843fddc",
+  "revision_note": "Metadata-only correction: v1 copied the PENDING status strings from frozen OWNERSHIP.json into required_targets_checked after independently checking all eight actual theorem declarations and exact types. They are PROVED. No source, theorem, build output, axiom closure, or existing record changed.",
+  "revision_recorded_at_utc": "2026-10-01T15:40:01.061909+00:00"
+}

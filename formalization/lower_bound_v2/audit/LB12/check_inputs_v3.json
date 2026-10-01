@@ -1,0 +1,13 @@
+{
+  "modules": [
+    "RiffleLowerV2.MacroscopicLower.Main"
+  ],
+  "required_exports": {
+    "RiffleLowerV2.EmpiricalLower.largestOnly": "RiffleLowerV2.Targets.LargestOnlyTarget",
+    "RiffleLowerV2.EmpiricalLower.coldOnly": "RiffleLowerV2.Targets.ColdOnlyTarget",
+    "RiffleLowerV2.EmpiricalLower.empiricalCombined": "RiffleLowerV2.Targets.EmpiricalCombinedTarget",
+    "RiffleLowerV2.EmpiricalLower.finiteLargestWordTV": "RiffleLowerV2.Targets.FiniteLargestWordTV",
+    "RiffleLowerV2.EmpiricalLower.manyEdges": "RiffleLowerV2.Targets.ManyEdgesTarget",
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget"
+  }
+}

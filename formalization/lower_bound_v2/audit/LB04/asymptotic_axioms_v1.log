@@ -1,0 +1,39 @@
+RiffleLowerV2.Ascent.graph_scan_ge_of_comparison (hc : RiffleLowerV2.Targets.ComponentComparison) {N : ℕ}
+  (H0 : Finset ℤ) (G : RiffleLowerV2.PathEdges N) {D δ : ℝ} (hM : 0 < ↑H0.card) (hsize : 576 ≤ ↑H0.card ^ δ)
+  (hD : 24 * D ≤ ↑H0.card ^ δ)
+  (hd : ∀ (q : Fin (N + 1)), ↑(RiffleLowerV2.boundary (RiffleLowerV2.clipTranslate N H0 ↑↑q)).card ≤ D * √↑H0.card)
+  (hr :
+    ∃ q,
+      ↑(Finset.card (G ∩ RiffleLowerV2.internalEdges (RiffleLowerV2.clipTranslate N H0 ↑↑q))) ≥
+        ↑H0.card ^ (1 / 2 + δ)) :
+  1 - Real.exp (-↑H0.card ^ (2 * δ) / 144) ≤
+    RiffleLowerV2.probability (RiffleLowerV2.uniformPermutation N) fun π =>
+      RiffleLowerV2.scan H0 (↑H0.card ^ (1 / 2 + δ / 2)) (RiffleLowerV2.componentSort G π)
+'RiffleLowerV2.Ascent.graph_scan_ge_of_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.failure_envelope_tendsto_zero {a δ : ℝ} (ha : 0 < a) (hδ : 0 < δ) :
+  Filter.Tendsto (fun N => Real.exp (-↑N ^ (a * (2 * δ)) / 144)) Filter.atTop (nhds 0)
+'RiffleLowerV2.Ascent.failure_envelope_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.uniformGraphScan_of_comparison (hc : RiffleLowerV2.Targets.ComponentComparison) :
+  RiffleLowerV2.Targets.UniformGraphScan
+'RiffleLowerV2.Ascent.uniformGraphScan_of_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.scan_threshold_sq_div {M δ : ℝ} (hM : 0 < M) : (M ^ (1 / 2 + δ / 2)) ^ 2 / M = M ^ δ
+'RiffleLowerV2.Ascent.scan_threshold_sq_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.null_scan_envelope_tendsto_zero {β : ℝ} (hβ : 0 < β) :
+  Filter.Tendsto (fun N => (↑N + 1) * Real.exp (-↑N ^ β)) Filter.atTop (nhds 0)
+'RiffleLowerV2.Ascent.null_scan_envelope_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.uniform_null_scan_bound (hs : RiffleLowerV2.Targets.UniformScan) {N : ℕ} (hN : 0 < N)
+  (H0 : Finset ℤ) {a δ : ℝ} (_ha : 0 < a) (hδ : 0 < δ) (hNM : ↑N ^ a ≤ ↑H0.card) :
+  RiffleLowerV2.probability (RiffleLowerV2.uniformPermutation N) (RiffleLowerV2.scan H0 (↑H0.card ^ (1 / 2 + δ / 2))) ≤
+    (↑N + 1) * Real.exp (-↑N ^ (a * δ))
+'RiffleLowerV2.Ascent.uniform_null_scan_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.uniform_null_scan_eventually (hs : RiffleLowerV2.Targets.UniformScan) (a δ ε : ℝ) (ha : 0 < a)
+  (hδ : 0 < δ) (hε : 0 < ε) :
+  ∃ N0,
+    1 ≤ N0 ∧
+      ∀ N ≥ N0,
+        ∀ (H0 : Finset ℤ),
+          ↑N ^ a ≤ ↑H0.card →
+            RiffleLowerV2.probability (RiffleLowerV2.uniformPermutation N)
+                (RiffleLowerV2.scan H0 (↑H0.card ^ (1 / 2 + δ / 2))) ≤
+              ε
+'RiffleLowerV2.Ascent.uniform_null_scan_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]

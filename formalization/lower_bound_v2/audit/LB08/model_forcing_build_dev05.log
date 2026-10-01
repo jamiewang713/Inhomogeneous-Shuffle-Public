@@ -1,0 +1,24 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean:113:2: error: Type mismatch: After simplification, term
+  Factorial.expect_sum (fixedCountPMF cuts) Finset.univ fun e ω =>
+    if A ω ∧ prescriptionEvent (sameWordPrescription w e) ω then 1 else 0
+ has type
+  (expect (fixedCountPMF cuts) fun ω => ∑ i, if A ω ∧ prescriptionEvent (sameWordPrescription w i) ω then 1 else 0) =
+    ∑ i,
+      expect (fixedCountPMF cuts) fun ω =>
+        @ite ℝ (A ω ∧ prescriptionEvent (sameWordPrescription w i) ω) instDecidableAnd 1 0
+but is expected to have type
+  (expect (fixedCountPMF cuts) fun ω => ∑ e, if A ω ∧ prescriptionEvent (sameWordPrescription w e) ω then 1 else 0) =
+    ∑ e,
+      expect (fixedCountPMF cuts) fun ω =>
+        @ite ℝ (A ω ∧ prescriptionEvent (sameWordPrescription w e) ω)
+          (Classical.propDecidable ((fun ω => A ω ∧ prescriptionEvent (sameWordPrescription w e) ω) ω)) 1 0
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB08/lib/lean/RiffleLowerV2/Occupancy/Forcing.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean']' returned non-zero exit status 1.

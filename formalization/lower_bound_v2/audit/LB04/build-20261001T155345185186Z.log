@@ -1,0 +1,66 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.Components.Clipping']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:87:8: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:95:74: error: unsolved goals
+N : ℕ
+G : PathEdges N
+H : Finset (Fin N)
+e : Fin (N - 1)
+he : e ∈ ↑(crossingEdges G H)
+hx : ¬(edgeLeft e ∈ H ↔ edgeRight e ∈ H)
+⊢ (∃ a ∈ H, ↑a = ↑(edgeLeft e)) ↔ edgeLeft e ∈ H
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:104:80: error: No goals to be solved
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:106:4: error: Tactic `constructor` failed: target is not an inductive datatype
+
+case hf
+N : ℕ
+G : PathEdges N
+H : Finset (Fin N)
+e : Fin (N - 1)
+he : e ∈ ↑(crossingEdges G H)
+hx : ¬(edgeLeft e ∈ H ↔ edgeRight e ∈ H)
+hl : manuscriptRank (edgeLeft e) ∈ rankSet H ↔ edgeLeft e ∈ H
+hr : manuscriptRank (edgeLeft e) + 1 ∈ rankSet H ↔ edgeRight e ∈ H
+⊢ manuscriptRank (edgeLeft e) ∈
+    ↑({z ∈ rankSet H ∪ Finset.image (fun z => z - 1) (rankSet H) |
+        z ∈ rankSet H ∧ z + 1 ∉ rankSet H ∨ z ∉ rankSet H ∧ z + 1 ∈ rankSet H})
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:105:42: warning: This simp argument is unused:
+  Finset.mem_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [boundary, integerBoundary, Finset.mem_union]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:105:61: warning: This simp argument is unused:
+  Finset.mem_union
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [boundary, integerBoundary, Finset.mem_filter]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:137:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  componentIndex G (edgeRight e)
+in the target expression
+  (fun e => componentIndex G (edgeRight e)) e = (fun e => componentIndex G (edgeRight e)) f
+
+N : ℕ
+G : PathEdges N
+e : Fin (N - 1)
+he : e ∈ {e | e ∉ G}
+f : Fin (N - 1)
+hf : f ∈ {e | e ∉ G}
+h : (fun e => componentIndex G (edgeRight e)) e = (fun e => componentIndex G (edgeRight e)) f
+⊢ (fun e => componentIndex G (edgeLeft e)) e = (fun e => componentIndex G (edgeLeft e)) f
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/Components/Clipping.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean']' returned non-zero exit status 1.

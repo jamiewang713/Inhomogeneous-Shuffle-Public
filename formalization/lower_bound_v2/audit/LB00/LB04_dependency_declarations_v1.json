@@ -1,0 +1,3225 @@
+[
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_eq_ofReal_integral_cgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} [MeasureTheory.SFinite \u03bc]\n  (s : Set \u03a9),\n  MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc \u2192\n    (\u03bc.tilted fun x => t * X x) s = ENNReal.ofReal (\u222b (a : \u03a9) in s, Real.exp (t * X a - ProbabilityTheory.cgf X \u03bc t) \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.ae_trim_condExp_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasCondSubgaussianMGF m hm X c \u03bc \u2192\n    \u2200 (t : \u211d), \u2200\u1d50 (\u03c9' : \u03a9) \u2202\u03bc.trim hm, \u03bc[fun \u03c9 => Real.exp (t * X \u03c9) | m] \u03c9' \u2264 Real.exp (\u2191c * t ^ 2 / 2)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  ProbabilityTheory.HasSubgaussianMGF 0 0 \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_monotone",
+    "type": "\u2200 {N : \u2115} (G : RiffleLowerV2.PathEdges N), Monotone (RiffleLowerV2.componentIndex G)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_univ_le_one",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, (\u03ba \u03c9') Set.univ \u2264 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_apply_eq_ofReal_integral'",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {s : Set \u03b1} (f : \u03b1 \u2192 \u211d),\n  MeasurableSet s \u2192 (\u03bc.tilted f) s = ENNReal.ofReal (\u222b (a : \u03b1) in s, Real.exp (f a) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_lt_of_missing._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u_1} {p : \u03b1 \u2192 Prop} [inst : DecidablePred p] {s : Finset \u03b1} {a : \u03b1}, (a \u2208 Finset.filter p s) = (a \u2208 s \u2227 p a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.tilted_tilted._simp_1_6",
+    "type": "\u2200 {G\u2080 : Type u_3} [inst : GroupWithZero G\u2080] {a : G\u2080} (n : \u2124), a \u2260 0 \u2192 (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.fun_zero._simp_1_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc =\n    ProbabilityTheory.Kernel.HasSubgaussianMGF X c (ProbabilityTheory.Kernel.const Unit \u03bc)\n      (MeasureTheory.Measure.dirac ())"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.mk._flat_ctor",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9}\n  {\u03bd : autoParam (MeasureTheory.Measure \u03a9') ProbabilityTheory.Kernel.HasSubgaussianMGF._auto_1},\n  (\u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03bd.bind \u21d1\u03ba)) \u2192\n    (\u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), ProbabilityTheory.mgf X (\u03ba \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192\n      ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.add",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X Y : \u03a9 \u2192 \u211d} {cX cY : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X cX \u03ba \u03bd \u2192\n    ProbabilityTheory.Kernel.HasSubgaussianMGF Y cY \u03ba \u03bd \u2192\n      ProbabilityTheory.Kernel.HasSubgaussianMGF (fun \u03c9 => X \u03c9 + Y \u03c9) ((NNReal.sqrt cX + NNReal.sqrt cY) ^ 2) \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.uniform_pi_expect_prod",
+    "type": "\u2200 {T : Type u_1} [inst : Fintype T] {A : T \u2192 Type u_2} [inst_1 : (t : T) \u2192 Fintype (A t)]\n  [inst_2 : \u2200 (t : T), Nonempty (A t)] (f : (t : T) \u2192 A t \u2192 \u211d),\n  (RiffleLowerV2.expect (PMF.uniformOfFintype ((t : T) \u2192 A t)) fun \u03c9 => \u220f t, f t (\u03c9 t)) =\n    \u220f t, RiffleLowerV2.expect (PMF.uniformOfFintype (A t)) (f t)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.integrable_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03bc : autoParam (MeasureTheory.Measure \u03a9) ProbabilityTheory.HasSubgaussianMGF._auto_1},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.trim",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal} (hm : m \u2264 m\u03a9),\n  Measurable X \u2192 ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 ProbabilityTheory.HasSubgaussianMGF X c (\u03bc.trim hm)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.shuffle_componentIndex_eq_iff",
+    "type": "\u2200 {N k K : \u2115} {cuts : TimeProfile.Cuts k N K} (\u03c9 : RiffleLowerV2.Sample cuts) (i j : Fin N),\n  RiffleLowerV2.componentIndex (RiffleLowerV2.shuffleEdges \u03c9) i =\n      RiffleLowerV2.componentIndex (RiffleLowerV2.shuffleEdges \u03c9) j \u2194\n    RiffleLowerV2.sortedWord \u03c9 i = RiffleLowerV2.sortedWord \u03c9 j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_eq_zero_of_hasSubgaussianMGF_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X 0 \u03ba \u03bd \u2192 \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, X =\u1d50[\u03ba \u03c9'] 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.sampleRelabel_uniform",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (\u03c3 : RiffleLowerV2.Permutation N),\n  PMF.map (\u21d1(RiffleLowerV2.Model.sampleRelabel cuts \u03c3)) (TimeProfile.fixedCountPMF cuts) =\n    TimeProfile.fixedCountPMF cuts"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.integrable_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasCondSubgaussianMGF m hm X c \u03bc \u2192\n    \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le._simp_1_5",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : MonoidWithZero M\u2080] {a : M\u2080} [IsReduced M\u2080] (n : \u2115), a \u2260 0 \u2192 (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.integrable_tilted_iff",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {E : Type u_2} [inst : NormedAddCommGroup E]\n  [inst_1 : NormedSpace \u211d E] {f : \u03b1 \u2192 \u211d},\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192\n    \u2200 (g : \u03b1 \u2192 E), MeasureTheory.Integrable g (\u03bc.tilted f) \u2194 MeasureTheory.Integrable (fun x => Real.exp (f x) \u2022 g x) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_keyEdges_eq_iff",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} [inst : PartialOrder \u03b1] (f : Fin N \u2192 \u03b1),\n  Monotone f \u2192\n    \u2200 (i j : Fin N),\n      RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) i =\n          RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) j \u2194\n        f i = f j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_of_not_aemeasurable",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d}, \u00acAEMeasurable f \u03bc \u2192 \u03bc.tilted f = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "TimeProfile.ShuffleSample.eq_1",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K),\n  TimeProfile.ShuffleSample cuts = ((j : Fin K) \u2192 TimeProfile.ColumnAssignments cuts j)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.toReal_rnDeriv_tilted_right._simp_1_2",
+    "type": "\u2200 {a : \u211d}, ((ENNReal.ofReal a).toReal = a) = (0 \u2264 a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_3",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (d : \u2115) (a b : Fin N), 0 < \u2191b \u2192 \u00ac\u2191b - 1 < N \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le._simp_1_6",
+    "type": "\u2200 {G\u2080 : Type u_3} [inst : GroupWithZero G\u2080] {a : G\u2080} (n : \u2124), a \u2260 0 \u2192 (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnRelabel",
+    "type": "{k N K : \u2115} \u2192\n  (cuts : TimeProfile.Cuts k N K) \u2192\n    (j : Fin K) \u2192\n      RiffleLowerV2.Permutation N \u2192 TimeProfile.ColumnAssignments cuts j \u2192 TimeProfile.ColumnAssignments cuts j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.lintegral_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} (f : \u03b1 \u2192 \u211d) (g : \u03b1 \u2192 ENNReal),\n  \u222b\u207b (x : \u03b1), g x \u2202\u03bc.tilted f = \u222b\u207b (x : \u03b1), ENNReal.ofReal (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) * g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.sum_of_hasCondSubgaussianMGF._proof_1_5",
+    "type": "\u2200 (n m : \u2115), m < n + 1 \u2192 m \u2264 n"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.integrable_exp_add_compProd",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal} {\u03a9'' : Type u_3} {m\u03a9'' : MeasurableSpace \u03a9''}\n  {Y : \u03a9'' \u2192 \u211d} {cY : NNReal} [MeasureTheory.SFinite \u03bd] {\u03b7 : ProbabilityTheory.Kernel (\u03a9' \u00d7 \u03a9) \u03a9''}\n  [ProbabilityTheory.IsZeroOrMarkovKernel \u03b7],\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    ProbabilityTheory.Kernel.HasSubgaussianMGF Y cY \u03b7 (\u03bd.compProd \u03ba) \u2192\n      \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * (X \u03c9.1 + Y \u03c9.2))) (\u03bd.bind \u21d1(\u03ba.compProd \u03b7))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.stableSort_relabel",
+    "type": "\u2200 {N k K : \u2115} (cuts : TimeProfile.Cuts k N K) (\u03c1 : RiffleLowerV2.Permutation N) (\u03c9 : RiffleLowerV2.Sample cuts),\n  RiffleLowerV2.stableSort ((RiffleLowerV2.Model.sampleRelabel cuts \u03c1) \u03c9) =\n    RiffleLowerV2.componentSort (RiffleLowerV2.shuffleEdges \u03c9) (Equiv.trans (RiffleLowerV2.stableSort \u03c9) (Equiv.symm \u03c1))"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero._simp_1_3",
+    "type": "\u2200 {b a : Prop}, (\u2203 (_ : a), b) = (a \u2227 b)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.expect_uniform",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : Fintype \u03b1] [inst_1 : Nonempty \u03b1] (f : \u03b1 \u2192 \u211d),\n  RiffleLowerV2.expect (PMF.uniformOfFintype \u03b1) f = (\u2211 a, f a) / \u2191(Fintype.card \u03b1)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.neg._simp_1_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc =\n    ProbabilityTheory.Kernel.HasSubgaussianMGF X c (ProbabilityTheory.Kernel.const Unit \u03bc)\n      (MeasureTheory.Measure.dirac ())"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.rnDeriv_tilted_right._simp_1_1",
+    "type": "\u2200 {p : \u211d}, (ENNReal.ofReal p = 0) = (p \u2264 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_eq_zero_of_hasSubgaussianMGF_zero_of_measurable",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d},\n  Measurable X \u2192 ProbabilityTheory.Kernel.HasSubgaussianMGF X 0 \u03ba \u03bd \u2192 X =\u1d50[\u03bd.bind \u21d1\u03ba] 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.add_of_indepFun",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X Y : \u03a9 \u2192 \u211d} {cX cY : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X cX \u03bc \u2192\n    ProbabilityTheory.HasSubgaussianMGF Y cY \u03bc \u2192\n      ProbabilityTheory.IndepFun X Y \u03bc \u2192 ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => X \u03c9 + Y \u03c9) (cX + cY) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.congr",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal} {Y : \u03a9 \u2192 \u211d},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    X =\u1d50[\u03bd.bind \u21d1\u03ba] Y \u2192 ProbabilityTheory.Kernel.HasSubgaussianMGF Y c \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_eq_zero_of_hasSubgaussianMGF_zero._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u} [inst : AddGroup \u03b1] [inst_1 : LT \u03b1] [AddLeftStrictMono \u03b1] {a : \u03b1}, (0 < -a) = (a < 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.add_comp",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal} {\u03a9'' : Type u_3} {m\u03a9'' : MeasurableSpace \u03a9''}\n  {Y : \u03a9'' \u2192 \u211d} {cY : NNReal} [MeasureTheory.SFinite \u03bd] {\u03b7 : ProbabilityTheory.Kernel \u03a9 \u03a9''}\n  [ProbabilityTheory.IsZeroOrMarkovKernel \u03b7],\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    ProbabilityTheory.Kernel.HasSubgaussianMGF Y cY \u03b7 (\u03bd.bind \u21d1\u03ba) \u2192\n      ProbabilityTheory.Kernel.HasSubgaussianMGF (fun p => X p.1 + Y p.2) (c + cY)\n        (\u03ba.compProd (ProbabilityTheory.Kernel.prodMkLeft \u03a9' \u03b7)) \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.integral_exp_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} (f g : \u03b1 \u2192 \u211d),\n  \u222b (x : \u03b1), Real.exp (g x) \u2202\u03bc.tilted f = (\u222b (x : \u03b1), Real.exp ((f + g) x) \u2202\u03bc) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.sum_of_iIndepFun_of_forall_aemeasurable._simp_1_1",
+    "type": "\u2200 {\u03b9 : Type u_1} {\u03b1 : Type u_7} {M : \u03b1 \u2192 Type u_8} [inst : (a : \u03b1) \u2192 AddCommMonoid (M a)] (a : \u03b1) (s : Finset \u03b9)\n  (g : \u03b9 \u2192 (a : \u03b1) \u2192 M a), \u2211 c \u2208 s, g c a = (\u2211 c \u2208 s, g c) a"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.setIntegral_tilted'",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {E : Type u_2} [inst : NormedAddCommGroup E]\n  [inst_1 : NormedSpace \u211d E] (f : \u03b1 \u2192 \u211d) (g : \u03b1 \u2192 E) {s : Set \u03b1},\n  MeasurableSet s \u2192\n    \u222b (x : \u03b1) in s, g x \u2202\u03bc.tilted f = \u222b (x : \u03b1) in s, (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) \u2022 g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnRelabel._proof_1",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (\u03c3 : RiffleLowerV2.Permutation N)\n  (a : TimeProfile.ColumnAssignments cuts j) (l : Fin k), {i | \u2191a (\u03c3 i) = l}.card = cuts.count j l"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.tilted_tilted._simp_1_3",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 4] [NeZero 4], (4 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.measureReal_le_le_exp._proof_1_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X Y : \u03a9 \u2192 \u211d} (\u03c9 : \u03a9),\n  X \u03c9 \u2264 Y \u03c9 \u2194 \u222b (x : \u03a9), X x \u2202\u03bc - \u222b (x : \u03a9), Y x \u2202\u03bc \u2264 Y \u03c9 - \u222b (x : \u03a9), Y x \u2202\u03bc - (X \u03c9 - \u222b (x : \u03a9), X x \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_lt_of_missing._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : Fintype \u03b1] (x : \u03b1), (x \u2208 Finset.univ) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_of_not_integrable",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d},\n  \u00acMeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192 \u03bc.tilted f = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.id_map_iff",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  Measurable X \u2192\n    (ProbabilityTheory.Kernel.HasSubgaussianMGF id c (\u03ba.map X) \u03bd \u2194 ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.setLIntegral_tilted'",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} (f : \u03b1 \u2192 \u211d) (g : \u03b1 \u2192 ENNReal) {s : Set \u03b1},\n  MeasurableSet s \u2192\n    \u222b\u207b (x : \u03b1) in s, g x \u2202\u03bc.tilted f =\n      \u222b\u207b (x : \u03b1) in s, ENNReal.ofReal (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) * g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.absolutelyContinuous_tilted._simp_1_1",
+    "type": "\u2200 {p : \u211d}, (ENNReal.ofReal p = 0) = (p \u2264 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.isProbabilityMeasure_tilted._simp_1_1",
+    "type": "\u2200 {p : \u211d}, (ENNReal.ofReal p = 0) = (p \u2264 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.mgf_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasCondSubgaussianMGF m hm X c \u03bc \u2192\n    \u2200\u1d50 (\u03c9' : \u03a9) \u2202\u03bc.trim hm,\n      \u2200 (t : \u211d), ProbabilityTheory.mgf X ((ProbabilityTheory.condExpKernel \u03bc m) \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.componentSort.eq_1",
+    "type": "\u2200 {N : \u2115} (G : RiffleLowerV2.PathEdges N) (\u03c0 : RiffleLowerV2.Permutation N),\n  RiffleLowerV2.componentSort G \u03c0 = Equiv.trans (Tuple.sort fun i => toLex (RiffleLowerV2.componentIndex G i, \u03c0 i)) \u03c0"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_7",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : Mul M\u2080] [inst_1 : Zero M\u2080] [NoZeroDivisors M\u2080] {a b : M\u2080}, a \u2260 0 \u2192 b \u2260 0 \u2192 (a * b = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_neg_same'",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d},\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192 (\u03bc.tilted f).tilted (-f) = (\u03bc Set.univ)\u207b\u00b9 \u2022 \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.rec",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {\u03a9' : Type u_2} \u2192\n    {m\u03a9 : MeasurableSpace \u03a9} \u2192\n      {m\u03a9' : MeasurableSpace \u03a9'} \u2192\n        {X : \u03a9 \u2192 \u211d} \u2192\n          {c : NNReal} \u2192\n            {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} \u2192\n              {\u03bd : MeasureTheory.Measure \u03a9'} \u2192\n                {motive : ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 Sort u} \u2192\n                  ((integrable_exp_mul :\n                        \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03bd.bind \u21d1\u03ba)) \u2192\n                      (mgf_le :\n                          \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), ProbabilityTheory.mgf X (\u03ba \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192\n                        motive \u22ef) \u2192\n                    (t : ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd) \u2192 motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.sampleRelabel",
+    "type": "{k N K : \u2115} \u2192\n  (cuts : TimeProfile.Cuts k N K) \u2192 RiffleLowerV2.Permutation N \u2192 RiffleLowerV2.Sample cuts \u2243 RiffleLowerV2.Sample cuts"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.mgf_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03bc : autoParam (MeasureTheory.Measure \u03a9) ProbabilityTheory.HasSubgaussianMGF._auto_1},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 \u2200 (t : \u211d), ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp (\u2191c * t ^ 2 / 2)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF_iff_kernel.match_1_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  (motive : ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 Prop) (x : ProbabilityTheory.HasSubgaussianMGF X c \u03bc),\n  (\u2200 (h1 : \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc)\n      (h2 : \u2200 (t : \u211d), ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp (\u2191c * t ^ 2 / 2)), motive \u22ef) \u2192\n    motive x"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.rnDeriv_tilted_right._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : LinearOrder \u03b1] {a b : \u03b1}, (\u00aca \u2264 b) = (b < a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.expect_singleton",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : Fintype \u03b1] (P : PMF \u03b1) (a : \u03b1),\n  (RiffleLowerV2.expect P fun b => if b = a then 1 else 0) = (P a).toReal"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_absolutelyContinuous",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) (f : \u03b1 \u2192 \u211d), (\u03bc.tilted f).AbsolutelyContinuous \u03bc"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF._auto_1",
+    "type": "Syntax"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnEquiv_apply_val",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (\u03c3 : RiffleLowerV2.Permutation N)\n  (a : TimeProfile.ColumnAssignments cuts j) (i : Fin N), \u2191((RiffleLowerV2.Model.columnEquiv cuts j \u03c3) a) i = \u2191a (\u03c3 i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_eq_of_key_eq._proof_1_4",
+    "type": "\u2200 {N : \u2115} (a b : Fin N) (e : Fin (N - 1)), \u00ac\u2191e \u2264 \u2191e + 1 \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.aestronglyMeasurable",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 MeasureTheory.AEStronglyMeasurable X \u03bc"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le._simp_1_7",
+    "type": "\u2200 {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] (n : \u2115), (\u2191n + 1 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.measureReal_le_le_exp._proof_1_2",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X Y : \u03a9 \u2192 \u211d},\n  \u222b (x : \u03a9), Y x \u2202\u03bc \u2264 \u222b (x : \u03a9), X x \u2202\u03bc \u2192 0 \u2264 \u222b (x : \u03a9), X x \u2202\u03bc - \u222b (x : \u03a9), Y x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.isProbabilityMeasure_tilted._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : LinearOrder \u03b1] {a b : \u03b1}, (\u00aca \u2264 b) = (b < a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.absolutelyContinuous_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d},\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192 \u03bc.AbsolutelyContinuous (\u03bc.tilted f)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.Measure.tilted",
+    "type": "{\u03b1 : Type u_1} \u2192 {m\u03b1 : MeasurableSpace \u03b1} \u2192 MeasureTheory.Measure \u03b1 \u2192 (\u03b1 \u2192 \u211d) \u2192 MeasureTheory.Measure \u03b1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.hasSubgaussianMGF_of_mem_Icc_of_integral_eq_zero.match_1_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {X : \u03a9 \u2192 \u211d} {a b : \u211d} (\u03c9 : \u03a9) (motive : X \u03c9 \u2208 Set.Icc a b \u2192 Prop) (h : X \u03c9 \u2208 Set.Icc a b),\n  (\u2200 (hl : a \u2264 X \u03c9) (hr : X \u03c9 \u2264 b), motive \u22ef) \u2192 motive h"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.measure_sum_ge_le_of_HasCondSubgaussianMGF",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [inst : StandardBorelSpace \u03a9] {Y : \u2115 \u2192 \u03a9 \u2192 \u211d}\n  {cY : \u2115 \u2192 NNReal} {\u2131 : MeasureTheory.Filtration \u2115 m\u03a9} [inst_1 : MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  MeasureTheory.StronglyAdapted \u2131 Y \u2192\n    ProbabilityTheory.HasSubgaussianMGF (Y 0) (cY 0) \u03bc \u2192\n      \u2200 (n : \u2115),\n        (\u2200 i < n - 1, ProbabilityTheory.HasCondSubgaussianMGF (\u2191\u2131 i) \u22ef (Y (i + 1)) (cY (i + 1)) \u03bc) \u2192\n          \u2200 {\u03b5 : \u211d},\n            0 \u2264 \u03b5 \u2192\n              \u03bc.real {\u03c9 | \u03b5 \u2264 \u2211 i \u2208 Finset.range n, Y i \u03c9} \u2264 Real.exp (-\u03b5 ^ 2 / (2 * \u2191(\u2211 i \u2208 Finset.range n, cY i)))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF_add_of_HasCondSubgaussianMGF",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} [inst : StandardBorelSpace \u03a9]\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {Y : \u03a9 \u2192 \u211d} {cX cY : NNReal} (hm : m \u2264 m\u03a9),\n  ProbabilityTheory.HasSubgaussianMGF X cX (\u03bc.trim hm) \u2192\n    ProbabilityTheory.HasCondSubgaussianMGF m hm Y cY \u03bc \u2192 ProbabilityTheory.HasSubgaussianMGF (X + Y) (cX + cY) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.toReal_rnDeriv_tilted_right._simp_1_1",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : MulZeroClass M\u2080] [IsRightCancelMulZero M\u2080] {a b c : M\u2080}, (a * c = b * c) = (a = b \u2228 c = 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.sort_relabel_componentSort",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} [inst : LinearOrder \u03b1] (f : Fin N \u2192 \u03b1) (\u03c1 : RiffleLowerV2.Permutation N),\n  Tuple.sort (f \u2218 \u21d1\u03c1) =\n    RiffleLowerV2.componentSort (RiffleLowerV2.Model.keyEdges (f \u2218 \u21d1(Tuple.sort f)))\n      (Equiv.trans (Tuple.sort f) (Equiv.symm \u03c1))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero.match_1_4",
+    "type": "\u2200 {\u03a9 : Type u_1} {X : \u03a9 \u2192 \u211d} (\u03c9 : \u03a9) (motive : (\u2203 a, 0 < a \u2227 \u2191a \u2264 X \u03c9) \u2192 Prop) (h : \u2203 a, 0 < a \u2227 \u2191a \u2264 X \u03c9),\n  (\u2200 (q : \u211a) (h1 : 0 < q) (h2 : \u2191q \u2264 X \u03c9), motive \u22ef) \u2192 motive h"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_10",
+    "type": "\u2200 {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] (n : \u2115), (\u2191n + 1 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentSort_increasing",
+    "type": "\u2200 {N : \u2115} (G : RiffleLowerV2.PathEdges N) (\u03c0 : RiffleLowerV2.Permutation N) {i j : Fin N},\n  i < j \u2192\n    RiffleLowerV2.componentIndex G i = RiffleLowerV2.componentIndex G j \u2192\n      (RiffleLowerV2.componentSort G \u03c0) i < (RiffleLowerV2.componentSort G \u03c0) j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_8",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (d : \u2115) (a b : Fin N), 0 < \u2191b \u2192 \u00ac\u2191b - 1 + 1 = \u2191b \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.sort_pair_second_strict",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} [inst : LinearOrder \u03b1] (c : Fin N \u2192 \u03b1) (\u03c0 : RiffleLowerV2.Permutation N),\n  Monotone c \u2192\n    \u2200 {i j : Fin N},\n      i < j \u2192 c i = c j \u2192 \u03c0 ((Tuple.sort fun q => toLex (c q, \u03c0 q)) i) < \u03c0 ((Tuple.sort fun q => toLex (c q, \u03c0 q)) j)"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.tilted_tilted._simp_1_5",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : MonoidWithZero M\u2080] {a : M\u2080} [IsReduced M\u2080] (n : \u2115), a \u2260 0 \u2192 (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.congr",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 \u2200 {Y : \u03a9 \u2192 \u211d}, X =\u1d50[\u03bc] Y \u2192 ProbabilityTheory.HasSubgaussianMGF Y c \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.integrable_tilted_iff._simp_1_2",
+    "type": "\u2200 {G\u2080 : Type u_2} [inst : GroupWithZero G\u2080] {a : G\u2080}, (a\u207b\u00b9 = 0) = (a = 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.cgf_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasCondSubgaussianMGF m hm X c \u03bc \u2192\n    \u2200\u1d50 (\u03c9' : \u03a9) \u2202\u03bc.trim hm,\n      \u2200 (t : \u211d), ProbabilityTheory.cgf X ((ProbabilityTheory.condExpKernel \u03bc m) \u03c9') t \u2264 \u2191c * t ^ 2 / 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.add_compProd",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal} {\u03a9'' : Type u_3} {m\u03a9'' : MeasurableSpace \u03a9''}\n  {Y : \u03a9'' \u2192 \u211d} {cY : NNReal} [MeasureTheory.SFinite \u03bd] {\u03b7 : ProbabilityTheory.Kernel (\u03a9' \u00d7 \u03a9) \u03a9''}\n  [ProbabilityTheory.IsZeroOrMarkovKernel \u03b7],\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    ProbabilityTheory.Kernel.HasSubgaussianMGF Y cY \u03b7 (\u03bd.compProd \u03ba) \u2192\n      ProbabilityTheory.Kernel.HasSubgaussianMGF (fun p => X p.1 + Y p.2) (c + cY) (\u03ba.compProd \u03b7) \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.const_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192\n    \u2200 (r : \u211d), ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => r * X \u03c9) (\u27e8r ^ 2, \u22ef\u27e9 * c) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.measure_ge_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 \u2200 {\u03b5 : \u211d}, 0 \u2264 \u03b5 \u2192 \u03bc.real {\u03c9 | \u03b5 \u2264 X \u03c9} \u2264 Real.exp (-\u03b5 ^ 2 / (2 * \u2191c))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_apply'",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) (f : \u03b1 \u2192 \u211d) {s : Set \u03b1},\n  MeasurableSet s \u2192 (\u03bc.tilted f) s = \u222b\u207b (a : \u03b1) in s, ENNReal.ofReal (Real.exp (f a) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_eq_of_key_eq._proof_1_3",
+    "type": "\u2200 {N : \u2115} (a b : Fin N) (e : Fin (N - 1)), \u00ac\u2191e < \u2191a \u2192 \u00ac\u2191a \u2264 \u2191e \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.integral_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {E : Type u_2} [inst : NormedAddCommGroup E]\n  [inst_1 : NormedSpace \u211d E] (f : \u03b1 \u2192 \u211d) (g : \u03b1 \u2192 E),\n  \u222b (x : \u03b1), g x \u2202\u03bc.tilted f = \u222b (x : \u03b1), (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) \u2022 g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_eq_ofReal_integral_mgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} [MeasureTheory.SFinite \u03bc]\n  (s : Set \u03a9),\n  (\u03bc.tilted fun x => t * X x) s = ENNReal.ofReal (\u222b (a : \u03a9) in s, Real.exp (t * X a) / ProbabilityTheory.mgf X \u03bc t \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_apply_eq_ofReal_integral",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} [MeasureTheory.SFinite \u03bc] (f : \u03b1 \u2192 \u211d)\n  (s : Set \u03b1), (\u03bc.tilted f) s = ENNReal.ofReal (\u222b (a : \u03b1) in s, Real.exp (f a) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.sub_of_indepFun",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X Y : \u03a9 \u2192 \u211d} {cX cY : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X cX \u03bc \u2192\n    ProbabilityTheory.HasSubgaussianMGF Y cY \u03bc \u2192\n      ProbabilityTheory.IndepFun X Y \u03bc \u2192 ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => X \u03c9 - Y \u03c9) (cX + cY) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.toReal_rnDeriv_tilted_left._simp_1_2",
+    "type": "\u2200 {a : \u211d}, ((ENNReal.ofReal a).toReal = a) = (0 \u2264 a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.zero_kernel",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {X : \u03a9 \u2192 \u211d} {c : NNReal}, ProbabilityTheory.Kernel.HasSubgaussianMGF X c 0 \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.integrableExpSet_eq_univ",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 ProbabilityTheory.integrableExpSet X \u03bc = Set.univ"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.absolutelyContinuous_tilted._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : LinearOrder \u03b1] {a b : \u03b1}, (\u00aca \u2264 b) = (b < a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "name": "PMF.integral_eq_tsum",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : MeasurableSpace \u03b1] [MeasurableSingletonClass \u03b1] {E : Type u_2} [inst_2 : NormedAddCommGroup E]\n  [inst_3 : NormedSpace \u211d E] [CompleteSpace E] (p : PMF \u03b1) (f : \u03b1 \u2192 E),\n  MeasureTheory.Integrable f p.toMeasure \u2192 \u222b (a : \u03b1), f a \u2202p.toMeasure = \u2211' (a : \u03b1), (p a).toReal \u2022 f a"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.isFiniteMeasure._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u_1} {\u03b2 : Type u_2} {m : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} [inst : NormedAddCommGroup \u03b2]\n  {c : \u03b2}, MeasureTheory.Integrable (fun x => c) \u03bc = (c = 0 \u2228 MeasureTheory.IsFiniteMeasure \u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_1",
+    "type": "\u2200 (x y : \u211d), Real.exp x ^ y = Real.exp (x * y)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_zero",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) [MeasureTheory.IsProbabilityMeasure \u03bc],\n  \u03bc.tilted 0 = \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.of_map",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {c : NNReal} {\u03a9' : Type u_2} {m\u03a9' : MeasurableSpace \u03a9'}\n  {\u03bc : MeasureTheory.Measure \u03a9'} {Y : \u03a9' \u2192 \u03a9} {X : \u03a9 \u2192 \u211d},\n  AEMeasurable Y \u03bc \u2192\n    ProbabilityTheory.HasSubgaussianMGF X c (MeasureTheory.Measure.map Y \u03bc) \u2192\n      ProbabilityTheory.HasSubgaussianMGF (X \u2218 Y) c \u03bc"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_eq_zero_of_hasSubgaussianMGF_zero._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : LinearOrder \u03b1] {a b : \u03b1}, (a \u2260 b) = (a < b \u2228 b < a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.rnDeriv_tilted_left",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) {f : \u03b1 \u2192 \u211d} {\u03bd : MeasureTheory.Measure \u03b1}\n  [MeasureTheory.SigmaFinite \u03bc] [MeasureTheory.SigmaFinite \u03bd],\n  AEMeasurable f \u03bd \u2192\n    (\u03bc.tilted f).rnDeriv \u03bd =\u1d50[\u03bd] fun x => ENNReal.ofReal (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) * \u03bc.rnDeriv \u03bd x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d},\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192 \u2200 (g : \u03b1 \u2192 \u211d), (\u03bc.tilted f).tilted g = \u03bc.tilted (f + g)"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero._simp_1_8",
+    "type": "\u2200 {\u03b1 : Sort u} {p : \u03b1 \u2192 Prop} {q : { a // p a } \u2192 Prop}, (\u2200 (x : { a // p a }), q x) = \u2200 (a : \u03b1) (b : p a), q \u27e8a, b\u27e9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.zero_measure",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9}\n  {X : \u03a9 \u2192 \u211d} {c : NNReal}, ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.fun_zero._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc], ProbabilityTheory.HasCondSubgaussianMGF m hm (fun x => 0) 0 \u03bc = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_neg_same",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d}\n  [MeasureTheory.IsProbabilityMeasure \u03bc],\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192 (\u03bc.tilted f).tilted (-f) = \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.zero_measure._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9}\n  {X : \u03a9 \u2192 \u211d} {c : NNReal}, ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba 0 = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_apply",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) [MeasureTheory.SFinite \u03bc] (f : \u03b1 \u2192 \u211d)\n  (s : Set \u03b1), (\u03bc.tilted f) s = \u222b\u207b (a : \u03b1) in s, ENNReal.ofReal (Real.exp (f a) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.id_map_iff",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  AEMeasurable X \u03bc \u2192\n    (ProbabilityTheory.HasSubgaussianMGF id c (MeasureTheory.Measure.map X \u03bc) \u2194\n      ProbabilityTheory.HasSubgaussianMGF X c \u03bc)"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le._simp_1_4",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : Mul M\u2080] [inst_1 : Zero M\u2080] [NoZeroDivisors M\u2080] {a b : M\u2080}, a \u2260 0 \u2192 b \u2260 0 \u2192 (a * b = 0) = False"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.inversionEquiv",
+    "type": "(N : \u2115) \u2192 RiffleLowerV2.Permutation N \u2243 RiffleLowerV2.Permutation N"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF_sum_of_HasCondSubgaussianMGF",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [inst : StandardBorelSpace \u03a9] {Y : \u2115 \u2192 \u03a9 \u2192 \u211d}\n  {cY : \u2115 \u2192 NNReal} {\u2131 : MeasureTheory.Filtration \u2115 m\u03a9} [inst_1 : MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  MeasureTheory.StronglyAdapted \u2131 Y \u2192\n    ProbabilityTheory.HasSubgaussianMGF (Y 0) (cY 0) \u03bc \u2192\n      \u2200 (n : \u2115),\n        (\u2200 i < n - 1, ProbabilityTheory.HasCondSubgaussianMGF (\u2191\u2131 i) \u22ef (Y (i + 1)) (cY (i + 1)) \u03bc) \u2192\n          ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => \u2211 i \u2208 Finset.range n, Y i \u03c9) (\u2211 i \u2208 Finset.range n, cY i) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.recOn",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {m\u03a9 : MeasurableSpace \u03a9} \u2192\n    {X : \u03a9 \u2192 \u211d} \u2192\n      {c : NNReal} \u2192\n        {\u03bc : MeasureTheory.Measure \u03a9} \u2192\n          {motive : ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 Sort u} \u2192\n            (t : ProbabilityTheory.HasSubgaussianMGF X c \u03bc) \u2192\n              ((integrable_exp_mul : \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc) \u2192\n                  (mgf_le : \u2200 (t : \u211d), ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192 motive \u22ef) \u2192\n                motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnEquiv",
+    "type": "{k N K : \u2115} \u2192\n  (cuts : TimeProfile.Cuts k N K) \u2192\n    (j : Fin K) \u2192\n      RiffleLowerV2.Permutation N \u2192 TimeProfile.ColumnAssignments cuts j \u2243 TimeProfile.ColumnAssignments cuts j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.zero._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc], ProbabilityTheory.HasCondSubgaussianMGF m hm 0 0 \u03bc = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_lt_of_missing._proof_1_3",
+    "type": "\u2200 {N : \u2115} (G : RiffleLowerV2.PathEdges N) (e : Fin (N - 1)) \u2983a : Fin (N - 1)\u2984, \u2191a < \u2191e \u2227 a \u2209 G \u2192 \u00ac\u2191a < \u2191e + 1 \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_cgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} [MeasureTheory.SFinite \u03bc]\n  (s : Set \u03a9),\n  MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc \u2192\n    (\u03bc.tilted fun x => t * X x) s =\n      \u222b\u207b (a : \u03a9) in s, ENNReal.ofReal (Real.exp (t * X a - ProbabilityTheory.cgf X \u03bc t)) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.shuffleEdges_relabel",
+    "type": "\u2200 {N k K : \u2115} (cuts : TimeProfile.Cuts k N K) (\u03c1 : RiffleLowerV2.Permutation N) (\u03c9 : RiffleLowerV2.Sample cuts),\n  RiffleLowerV2.shuffleEdges ((RiffleLowerV2.Model.sampleRelabel cuts \u03c1) \u03c9) = RiffleLowerV2.shuffleEdges \u03c9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_eq_of_key_eq",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} [inst : PartialOrder \u03b1] (f : Fin N \u2192 \u03b1),\n  Monotone f \u2192\n    \u2200 {i j : Fin N},\n      f i = f j \u2192\n        RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) i =\n          RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) j"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero._simp_1_2",
+    "type": "\u2200 {\u03b1 : Sort u} {p : \u03b1 \u2192 Prop} {q : { a // p a } \u2192 Prop}, (\u2203 x, q x) = \u2203 a, \u2203 (b : p a), q \u27e8a, b\u27e9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_2",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (d : \u2115) (a b : Fin N), \u2191b - \u2191a = d + 1 \u2192 a \u2264 b \u2192 \u00ac0 < \u2191b \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_eq_of_key_eq._proof_1_5",
+    "type": "\u2200 {N : \u2115} (a b : Fin N) (e : Fin (N - 1)), \u2191e < \u2191b \u2192 \u00ac\u2191e + 1 \u2264 \u2191b \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.expect_map",
+    "type": "\u2200 {\u03b1 : Type u_1} {\u03b2 : Type u_2} [inst : Fintype \u03b1] [inst_1 : Fintype \u03b2] (P : PMF \u03b1) (g : \u03b1 \u2192 \u03b2) (f : \u03b2 \u2192 \u211d),\n  RiffleLowerV2.expect (PMF.map g P) f = RiffleLowerV2.expect P fun a => f (g a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.congr_identDistrib",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal} {\u03a9' : Type u_2}\n  {m\u03a9' : MeasurableSpace \u03a9'} {\u03bc' : MeasureTheory.Measure \u03a9'} {Y : \u03a9' \u2192 \u211d},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192\n    ProbabilityTheory.IdentDistrib X Y \u03bc \u03bc' \u2192 ProbabilityTheory.HasSubgaussianMGF Y c \u03bc'"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_eq_withDensity_nnreal",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) (f : \u03b1 \u2192 \u211d),\n  \u03bc.tilted f = \u03bc.withDensity fun x => \u2191(NNReal.mk (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) \u22ef)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_mgf'",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {s : Set \u03a9},\n  MeasurableSet s \u2192\n    (\u03bc.tilted fun x => t * X x) s =\n      \u222b\u207b (a : \u03a9) in s, ENNReal.ofReal (Real.exp (t * X a) / ProbabilityTheory.mgf X \u03bc t) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {m\u03a9 : MeasurableSpace \u03a9} \u2192\n    (\u03a9 \u2192 \u211d) \u2192 NNReal \u2192 autoParam (MeasureTheory.Measure \u03a9) ProbabilityTheory.HasSubgaussianMGF._auto_1 \u2192 Prop"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.fun_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc], ProbabilityTheory.HasCondSubgaussianMGF m hm (fun x => 0) 0 \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.add._simp_1_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc =\n    ProbabilityTheory.Kernel.HasSubgaussianMGF X c (ProbabilityTheory.Kernel.const Unit \u03bc)\n      (MeasureTheory.Measure.dirac ())"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.measure_sum_range_ge_le_of_iIndepFun._simp_1_1",
+    "type": "\u2200 {G : Type u_1} [inst : Semigroup G] (a b c : G), a * (b * c) = a * b * c"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF_congr",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal} {Y : \u03a9 \u2192 \u211d},\n  X =\u1d50[\u03bd.bind \u21d1\u03ba] Y \u2192\n    (ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2194 ProbabilityTheory.Kernel.HasSubgaussianMGF Y c \u03ba \u03bd)"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 3] [NeZero 3], (3 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.sum_of_hasCondSubgaussianMGF._proof_1_3",
+    "type": "\u2200 (n : \u2115), n < n + 1 + 1 - 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.variance_tilted_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d},\n  t \u2208 interior (ProbabilityTheory.integrableExpSet X \u03bc) \u2192\n    ProbabilityTheory.variance X (\u03bc.tilted fun x => t * X x) = iteratedDeriv 2 (ProbabilityTheory.cgf X \u03bc) t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.expect_const",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : Fintype \u03b1] (P : PMF \u03b1) (c : \u211d), (RiffleLowerV2.expect P fun x => c) = c"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.aestronglyMeasurable",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 MeasureTheory.AEStronglyMeasurable X (\u03bd.bind \u21d1\u03ba)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.keyEdges.eq_1",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1),\n  RiffleLowerV2.Model.keyEdges f = {e | f (RiffleLowerV2.edgeLeft e) = f (RiffleLowerV2.edgeRight e)}"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.expect_bind",
+    "type": "\u2200 {\u03b1 : Type u_1} {\u03b2 : Type u_2} [inst : Fintype \u03b1] [inst_1 : Fintype \u03b2] (P : PMF \u03b1) (Q : \u03b1 \u2192 PMF \u03b2) (f : \u03b2 \u2192 \u211d),\n  RiffleLowerV2.expect (P.bind Q) f = RiffleLowerV2.expect P fun a => RiffleLowerV2.expect (Q a) f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.fun_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} [MeasureTheory.IsFiniteMeasure \u03bd] [ProbabilityTheory.IsZeroOrMarkovKernel \u03ba],\n  ProbabilityTheory.Kernel.HasSubgaussianMGF (fun x => 0) 0 \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.neg",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 ProbabilityTheory.HasSubgaussianMGF (-X) c \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_eq_of_key_eq._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u_1} {p : \u03b1 \u2192 Prop} [inst : DecidablePred p] {s : Finset \u03b1} {a : \u03b1}, (a \u2208 Finset.filter p s) = (a \u2208 s \u2227 p a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.prodMkLeft_compProd",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {\u03a9'' : Type u_3} {m\u03a9'' : MeasurableSpace \u03a9''} {Y : \u03a9'' \u2192 \u211d} {cY : NNReal}\n  {\u03b7 : ProbabilityTheory.Kernel \u03a9 \u03a9''},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF Y cY \u03b7 (\u03bd.bind \u21d1\u03ba) \u2192\n    ProbabilityTheory.Kernel.HasSubgaussianMGF Y cY (ProbabilityTheory.Kernel.prodMkLeft \u03a9' \u03b7) (\u03bd.compProd \u03ba)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.zero_kernel._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {X : \u03a9 \u2192 \u211d} {c : NNReal}, ProbabilityTheory.Kernel.HasSubgaussianMGF X c 0 \u03bd = True"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF._auto_1",
+    "type": "Syntax"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.memLp",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 \u2200 (p : NNReal), MeasureTheory.MemLp X (\u2191p) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.integral_tilted_mul_eq_cgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {E : Type u_2}\n  [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] (g : \u03a9 \u2192 E),\n  MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc \u2192\n    (\u222b (\u03c9 : \u03a9), g \u03c9 \u2202\u03bc.tilted fun x => t * X x) = \u222b (\u03c9 : \u03a9), Real.exp (t * X \u03c9 - ProbabilityTheory.cgf X \u03bc t) \u2022 g \u03c9 \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.ae_condExp_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasCondSubgaussianMGF m hm X c \u03bc \u2192\n    \u2200 (t : \u211d), \u2200\u1d50 (\u03c9' : \u03a9) \u2202\u03bc, \u03bc[fun \u03c9 => Real.exp (t * X \u03c9) | m] \u03c9' \u2264 Real.exp (\u2191c * t ^ 2 / 2)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.Measure.tilted.eq_1",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) (f : \u03b1 \u2192 \u211d),\n  \u03bc.tilted f = \u03bc.withDensity fun x => ENNReal.ofReal (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "name": "PMF.bernoulli_expectation",
+    "type": "\u2200 {p : NNReal} (h : p \u2264 1), \u222b (b : Bool), bif b then 1 else 0 \u2202(PMF.bernoulli p h).toMeasure = \u2191p"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "name": "PMF.integral_eq_sum",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : MeasurableSpace \u03b1] [MeasurableSingletonClass \u03b1] {E : Type u_2} [inst_2 : NormedAddCommGroup E]\n  [inst_3 : NormedSpace \u211d E] [CompleteSpace E] [inst_5 : Fintype \u03b1] (p : PMF \u03b1) (f : \u03b1 \u2192 E),\n  \u222b (a : \u03b1), f a \u2202p.toMeasure = \u2211 a, (p a).toReal \u2022 f a"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_lt_of_missing",
+    "type": "\u2200 {N : \u2115} (G : RiffleLowerV2.PathEdges N),\n  \u2200 e \u2209 G,\n    RiffleLowerV2.componentIndex G (RiffleLowerV2.edgeLeft e) <\n      RiffleLowerV2.componentIndex G (RiffleLowerV2.edgeRight e)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_6",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (d : \u2115) (a b : Fin N),\n  \u2191b - \u2191a = d + 1 \u2192 a \u2264 b \u2192 0 < \u2191b \u2192 \u00ac\u2191b - 1 - \u2191a = d \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.add_of_hasCondSubgaussianMGF",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} [inst : StandardBorelSpace \u03a9]\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {Y : \u03a9 \u2192 \u211d} {cX cY : NNReal} (hm : m \u2264 m\u03a9),\n  ProbabilityTheory.HasSubgaussianMGF X cX (\u03bc.trim hm) \u2192\n    ProbabilityTheory.HasCondSubgaussianMGF m hm Y cY \u03bc \u2192 ProbabilityTheory.HasSubgaussianMGF (X + Y) (cX + cY) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.fun_zero._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  ProbabilityTheory.HasSubgaussianMGF (fun x => 0) 0 \u03bc = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_1",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (a b : Fin N), \u2191b - \u2191a = 0 \u2192 a \u2264 b \u2192 \u00ac\u2191a = \u2191b \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.tilted_tilted._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 2] [NeZero 2], (2 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.mk",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9}\n  {\u03bd : autoParam (MeasureTheory.Measure \u03a9') ProbabilityTheory.Kernel.HasSubgaussianMGF._auto_1},\n  (\u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03bd.bind \u21d1\u03ba)) \u2192\n    (\u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), ProbabilityTheory.mgf X (\u03ba \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192\n      ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.rowWord_relabel",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (\u03c3 : RiffleLowerV2.Permutation N) (\u03c9 : RiffleLowerV2.Sample cuts)\n  (i : Fin N), RiffleLowerV2.rowWord ((RiffleLowerV2.Model.sampleRelabel cuts \u03c3) \u03c9) i = RiffleLowerV2.rowWord \u03c9 (\u03c3 i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.fun_zero._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} [MeasureTheory.IsFiniteMeasure \u03bd] [ProbabilityTheory.IsZeroOrMarkovKernel \u03ba],\n  ProbabilityTheory.Kernel.HasSubgaussianMGF (fun x => 0) 0 \u03ba \u03bd = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.sum_of_hasCondSubgaussianMGF._proof_1_2",
+    "type": "\u2200 (n i : \u2115), i < n + 1 - 1 \u2192 i < n + 1 + 1 - 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_3",
+    "type": "\u2200 {x y : \u211d}, (Real.exp x = Real.exp y) = (x = y)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.zero._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  ProbabilityTheory.HasSubgaussianMGF 0 0 \u03bc = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.integral_tilted_mul_self",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d},\n  t \u2208 interior (ProbabilityTheory.integrableExpSet X \u03bc) \u2192\n    (\u222b (x : \u03a9), X x \u2202\u03bc.tilted fun x => t * X x) = deriv (ProbabilityTheory.cgf X \u03bc) t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.shuffle_componentIndex_lt_iff",
+    "type": "\u2200 {N k K : \u2115} {cuts : TimeProfile.Cuts k N K} (\u03c9 : RiffleLowerV2.Sample cuts) (i j : Fin N),\n  RiffleLowerV2.componentIndex (RiffleLowerV2.shuffleEdges \u03c9) i <\n      RiffleLowerV2.componentIndex (RiffleLowerV2.shuffleEdges \u03c9) j \u2194\n    RiffleLowerV2.sortedWord \u03c9 i < RiffleLowerV2.sortedWord \u03c9 j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.measure_sum_ge_le_of_hasCondSubgaussianMGF",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [inst : StandardBorelSpace \u03a9] {Y : \u2115 \u2192 \u03a9 \u2192 \u211d}\n  {cY : \u2115 \u2192 NNReal} {\u2131 : MeasureTheory.Filtration \u2115 m\u03a9} [inst_1 : MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  MeasureTheory.StronglyAdapted \u2131 Y \u2192\n    ProbabilityTheory.HasSubgaussianMGF (Y 0) (cY 0) \u03bc \u2192\n      \u2200 (n : \u2115),\n        (\u2200 i < n - 1, ProbabilityTheory.HasCondSubgaussianMGF (\u2191\u2131 i) \u22ef (Y (i + 1)) (cY (i + 1)) \u03bc) \u2192\n          \u2200 {\u03b5 : \u211d},\n            0 \u2264 \u03b5 \u2192\n              \u03bc.real {\u03c9 | \u03b5 \u2264 \u2211 i \u2208 Finset.range n, Y i \u03c9} \u2264 Real.exp (-\u03b5 ^ 2 / (2 * \u2191(\u2211 i \u2208 Finset.range n, cY i)))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_mgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} [MeasureTheory.SFinite \u03bc]\n  (s : Set \u03a9),\n  (\u03bc.tilted fun x => t * X x) s = \u222b\u207b (a : \u03a9) in s, ENNReal.ofReal (Real.exp (t * X a) / ProbabilityTheory.mgf X \u03bc t) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnRelabel.eq_1",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (\u03c3 : RiffleLowerV2.Permutation N)\n  (a : TimeProfile.ColumnAssignments cuts j), RiffleLowerV2.Model.columnRelabel cuts j \u03c3 a = \u27e8fun i => \u2191a (\u03c3 i), \u22ef\u27e9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.casesOn",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {m\u03a9 : MeasurableSpace \u03a9} \u2192\n    {X : \u03a9 \u2192 \u211d} \u2192\n      {c : NNReal} \u2192\n        {\u03bc : MeasureTheory.Measure \u03a9} \u2192\n          {motive : ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 Sort u} \u2192\n            (t : ProbabilityTheory.HasSubgaussianMGF X c \u03bc) \u2192\n              ((integrable_exp_mul : \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc) \u2192\n                  (mgf_le : \u2200 (t : \u211d), ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192 motive \u22ef) \u2192\n                motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.setIntegral_tilted_mul_eq_cgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {E : Type u_2}\n  [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] [MeasureTheory.SFinite \u03bc] (g : \u03a9 \u2192 E) (s : Set \u03a9),\n  MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc \u2192\n    (\u222b (x : \u03a9) in s, g x \u2202\u03bc.tilted fun x => t * X x) =\n      \u222b (x : \u03a9) in s, Real.exp (t * X x - ProbabilityTheory.cgf X \u03bc t) \u2022 g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.sort_pair_preserves_first",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} {\u03b2 : Type u_2} [inst : LinearOrder \u03b1] [inst_1 : LinearOrder \u03b2] (c : Fin N \u2192 \u03b1) (v : Fin N \u2192 \u03b2),\n  Monotone c \u2192 \u2200 (i : Fin N), c ((Tuple.sort fun j => toLex (c j, v j)) i) = c i"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.memLp_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192\n    \u2200 (t : \u211d) (p : NNReal), MeasureTheory.MemLp (fun \u03c9 => Real.exp (t * X \u03c9)) (\u2191p) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero._simp_1_7",
+    "type": "\u2200 {\u03b1 : Type u_1} {F : Type u_3} [inst : FunLike F (Set \u03b1) ENNReal] [MeasureTheory.OuterMeasureClass F \u03b1] {\u03bc : F}\n  {\u03b9 : Sort u_4} [Countable \u03b9] {s : \u03b9 \u2192 Set \u03b1}, (\u03bc (\u22c3 i, s i) = 0) = \u2200 (i : \u03b9), \u03bc (s i) = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.sampleRow_relabel",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (\u03c3 : RiffleLowerV2.Permutation N) (\u03c9 : RiffleLowerV2.Sample cuts)\n  (i : Fin N), TimeProfile.sampleRow ((RiffleLowerV2.Model.sampleRelabel cuts \u03c3) \u03c9) i = TimeProfile.sampleRow \u03c9 (\u03c3 i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.setLIntegral_tilted._simp_1_2",
+    "type": "\u2200 {r : \u211d}, (ENNReal.ofReal r < \u22a4) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.integral_tilted_mul_eq_mgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {E : Type u_2}\n  [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] (g : \u03a9 \u2192 E),\n  (\u222b (\u03c9 : \u03a9), g \u03c9 \u2202\u03bc.tilted fun x => t * X x) = \u222b (\u03c9 : \u03a9), (Real.exp (t * X \u03c9) / ProbabilityTheory.mgf X \u03bc t) \u2022 g \u03c9 \u2202\u03bc"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF._auto_1",
+    "type": "Syntax"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200 {\u03b5 : \u211d}, 0 \u2264 \u03b5 \u2192 \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, (\u03ba \u03c9').real {\u03c9 | \u03b5 \u2264 X \u03c9} \u2264 Real.exp (-\u03b5 ^ 2 / (2 * \u2191c))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.hasSubgaussianMGF_of_mem_Icc",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d}\n  [MeasureTheory.IsProbabilityMeasure \u03bc] {a b : \u211d},\n  AEMeasurable X \u03bc \u2192\n    (\u2200\u1d50 (\u03c9 : \u03a9) \u2202\u03bc, X \u03c9 \u2208 Set.Icc a b) \u2192\n      ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => X \u03c9 - \u222b (x : \u03a9), X x \u2202\u03bc) ((\u2016b - a\u2016\u208a / 2) ^ 2) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_9",
+    "type": "\u2200 {G\u2080 : Type u_3} [inst : GroupWithZero G\u2080] {a : G\u2080} (n : \u2124), a \u2260 0 \u2192 (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le._simp_1_3",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 4] [NeZero 4], (4 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.setIntegral_tilted_mul_eq_cgf'",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {E : Type u_2}\n  [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] (g : \u03a9 \u2192 E) {s : Set \u03a9},\n  MeasurableSet s \u2192\n    MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc \u2192\n      (\u222b (x : \u03a9) in s, g x \u2202\u03bc.tilted fun x => t * X x) =\n        \u222b (x : \u03a9) in s, Real.exp (t * X x - ProbabilityTheory.cgf X \u03bc t) \u2022 g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_4",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (d : \u2115) (a b : Fin N),\n  \u2191b - \u2191a = d + 1 \u2192 a \u2264 b \u2192 0 < \u2191b \u2192 \u00ac\u2191a \u2264 \u2191b - 1 \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_eq_of_key_eq._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : Fintype \u03b1] (x : \u03b1), (x \u2208 Finset.univ) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.measureReal_le_le_exp",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X Y : \u03a9 \u2192 \u211d} {cX cY : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => X \u03c9 - \u222b (x : \u03a9), X x \u2202\u03bc) cX \u03bc \u2192\n    ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => Y \u03c9 - \u222b (x : \u03a9), Y x \u2202\u03bc) cY \u03bc \u2192\n      ProbabilityTheory.IndepFun X Y \u03bc \u2192\n        \u222b (x : \u03a9), Y x \u2202\u03bc \u2264 \u222b (x : \u03a9), X x \u2202\u03bc \u2192\n          \u03bc.real {\u03c9 | X \u03c9 \u2264 Y \u03c9} \u2264 Real.exp (-(\u222b (x : \u03a9), Y x \u2202\u03bc - \u222b (x : \u03a9), X x \u2202\u03bc) ^ 2 / (2 * (\u2191cX + \u2191cY)))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.memLp_tilted_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d},\n  t \u2208 interior (ProbabilityTheory.integrableExpSet X \u03bc) \u2192\n    \u2200 (p : NNReal), MeasureTheory.MemLp X (\u2191p) (\u03bc.tilted fun x => t * X x)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_zero'",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1), \u03bc.tilted 0 = (\u03bc Set.univ)\u207b\u00b9 \u2022 \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.isZeroOrProbabilityMeasure_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d},\n  MeasureTheory.IsZeroOrProbabilityMeasure (\u03bc.tilted f)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.isFiniteMeasure",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, MeasureTheory.IsFiniteMeasure (\u03ba \u03c9')"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.zero._simp_1",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} [MeasureTheory.IsFiniteMeasure \u03bd] [ProbabilityTheory.IsZeroOrMarkovKernel \u03ba],\n  ProbabilityTheory.Kernel.HasSubgaussianMGF 0 0 \u03ba \u03bd = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_aestronglyMeasurable",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, MeasureTheory.AEStronglyMeasurable X (\u03ba \u03c9')"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X 0 \u03ba \u03bd \u2192 \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, (\u03ba \u03c9') {\u03c9 | 0 < X \u03c9} = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentSort_preserves_component",
+    "type": "\u2200 {N : \u2115} (G : RiffleLowerV2.PathEdges N) (\u03c0 : RiffleLowerV2.Permutation N) (i : Fin N),\n  RiffleLowerV2.componentIndex G ((Equiv.symm \u03c0) ((RiffleLowerV2.componentSort G \u03c0) i)) =\n    RiffleLowerV2.componentIndex G i"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_keyEdges_lt_iff",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} [inst : LinearOrder \u03b1] (f : Fin N \u2192 \u03b1),\n  Monotone f \u2192\n    \u2200 (i j : Fin N),\n      RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) i <\n          RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) j \u2194\n        f i < f j"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_8",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : MonoidWithZero M\u2080] {a : M\u2080} [IsReduced M\u2080] (n : \u2115), a \u2260 0 \u2192 (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.mgf_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9}\n  {\u03bd : autoParam (MeasureTheory.Measure \u03a9') ProbabilityTheory.Kernel.HasSubgaussianMGF._auto_1},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), ProbabilityTheory.mgf X (\u03ba \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.setLIntegral_tilted'._simp_1_2",
+    "type": "\u2200 {r : \u211d}, (ENNReal.ofReal r < \u22a4) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_const",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) [MeasureTheory.IsProbabilityMeasure \u03bc] (c : \u211d),\n  (\u03bc.tilted fun x => c) = \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF_iff_kernel.match_1_3",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  (motive :\n    ProbabilityTheory.Kernel.HasSubgaussianMGF X c (ProbabilityTheory.Kernel.const Unit \u03bc)\n        (MeasureTheory.Measure.dirac ()) \u2192\n      Prop)\n  (x :\n    ProbabilityTheory.Kernel.HasSubgaussianMGF X c (ProbabilityTheory.Kernel.const Unit \u03bc)\n      (MeasureTheory.Measure.dirac ())),\n  (\u2200\n      (h1 :\n        \u2200 (t : \u211d),\n          MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9))\n            ((MeasureTheory.Measure.dirac ()).bind \u21d1(ProbabilityTheory.Kernel.const Unit \u03bc)))\n      (h2 :\n        \u2200\u1d50 (\u03c9' : Unit) \u2202MeasureTheory.Measure.dirac (),\n          \u2200 (t : \u211d),\n            ProbabilityTheory.mgf X ((ProbabilityTheory.Kernel.const Unit \u03bc) \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)),\n      motive \u22ef) \u2192\n    motive x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.cgf_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), ProbabilityTheory.cgf X (\u03ba \u03c9') t \u2264 \u2191c * t ^ 2 / 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_forall_integrable_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03ba \u03c9')"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnMarginal",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (j : Fin K),\n  PMF.map (fun \u03c9 => \u03c9 j) (TimeProfile.fixedCountPMF cuts) = TimeProfile.columnPMF cuts j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.map_equiv_apply",
+    "type": "\u2200 {\u03b1 : Type u_1} {\u03b2 : Type u_2} [Fintype \u03b1] (P : PMF \u03b1) (e : \u03b1 \u2243 \u03b2) (b : \u03b2), (PMF.map (\u21d1e) P) b = P (e.symm b)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.fun_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  ProbabilityTheory.HasSubgaussianMGF (fun x => 0) 0 \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N},\n  RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) i =\n      RiffleLowerV2.componentIndex (RiffleLowerV2.Model.keyEdges f) j \u2192\n    f i = f j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le_exp_add",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200 (\u03b5 : \u211d), \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), 0 \u2264 t \u2192 (\u03ba \u03c9').real {\u03c9 | \u03b5 \u2264 X \u03c9} \u2264 Real.exp (-t * \u03b5 + \u2191c * t ^ 2 / 2)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_eq_withDensity_nnreal._proof_1",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) (f : \u03b1 \u2192 \u211d) (x : \u03b1),\n  0 \u2264 Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_4",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 2] [NeZero 2], (2 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.mk",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03bc : autoParam (MeasureTheory.Measure \u03a9) ProbabilityTheory.HasSubgaussianMGF._auto_1},\n  (\u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc) \u2192\n    (\u2200 (t : \u211d), ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192 ProbabilityTheory.HasSubgaussianMGF X c \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.mk._flat_ctor",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03bc : autoParam (MeasureTheory.Measure \u03a9) ProbabilityTheory.HasSubgaussianMGF._auto_1},\n  (\u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc) \u2192\n    (\u2200 (t : \u211d), ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192 ProbabilityTheory.HasSubgaussianMGF X c \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.memLp_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200 (t : \u211d) (p : NNReal), MeasureTheory.MemLp (fun \u03c9 => Real.exp (t * X \u03c9)) (\u2191p) (\u03bd.bind \u21d1\u03ba)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.setLIntegral_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} [MeasureTheory.SFinite \u03bc] (f : \u03b1 \u2192 \u211d)\n  (g : \u03b1 \u2192 ENNReal) (s : Set \u03b1),\n  \u222b\u207b (x : \u03b1) in s, g x \u2202\u03bc.tilted f =\n    \u222b\u207b (x : \u03b1) in s, ENNReal.ofReal (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) * g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.rnDeriv_tilted_left_self",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d} [MeasureTheory.SigmaFinite \u03bc],\n  AEMeasurable f \u03bc \u2192\n    (\u03bc.tilted f).rnDeriv \u03bc =\u1d50[\u03bc] fun x => ENNReal.ofReal (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_zero_measure",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (f : \u03b1 \u2192 \u211d), MeasureTheory.Measure.tilted 0 f = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.setIntegral_tilted_mul_eq_mgf",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {E : Type u_2}\n  [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] [MeasureTheory.SFinite \u03bc] (g : \u03a9 \u2192 E) (s : Set \u03a9),\n  (\u222b (x : \u03a9) in s, g x \u2202\u03bc.tilted fun x => t * X x) =\n    \u222b (x : \u03a9) in s, (Real.exp (t * X x) / ProbabilityTheory.mgf X \u03bc t) \u2022 g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_6",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 4] [NeZero 4], (4 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.memLp_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc] {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasCondSubgaussianMGF m hm X c \u03bc \u2192\n    \u2200 (t : \u211d) (p : NNReal), MeasureTheory.MemLp (fun \u03c9 => Real.exp (t * X \u03c9)) (\u2191p) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.recOn",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {\u03a9' : Type u_2} \u2192\n    {m\u03a9 : MeasurableSpace \u03a9} \u2192\n      {m\u03a9' : MeasurableSpace \u03a9'} \u2192\n        {X : \u03a9 \u2192 \u211d} \u2192\n          {c : NNReal} \u2192\n            {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} \u2192\n              {\u03bd : MeasureTheory.Measure \u03a9'} \u2192\n                {motive : ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 Sort u} \u2192\n                  (t : ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd) \u2192\n                    ((integrable_exp_mul :\n                          \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03bd.bind \u21d1\u03ba)) \u2192\n                        (mgf_le :\n                            \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), ProbabilityTheory.mgf X (\u03ba \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192\n                          motive \u22ef) \u2192\n                      motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.add",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X Y : \u03a9 \u2192 \u211d} {cX cY : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X cX \u03bc \u2192\n    ProbabilityTheory.HasSubgaussianMGF Y cY \u03bc \u2192\n      ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => X \u03c9 + Y \u03c9) ((NNReal.sqrt cX + NNReal.sqrt cY) ^ 2) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.sampleRelabel_apply",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (\u03c3 : RiffleLowerV2.Permutation N) (\u03c9 : RiffleLowerV2.Sample cuts)\n  (j : Fin K), (RiffleLowerV2.Model.sampleRelabel cuts \u03c3) \u03c9 j = (RiffleLowerV2.Model.columnEquiv cuts j \u03c3) (\u03c9 j)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.sum_of_iIndepFun",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {\u03b9 : Type u_2} {X : \u03b9 \u2192 \u03a9 \u2192 \u211d},\n  ProbabilityTheory.iIndepFun X \u03bc \u2192\n    \u2200 {c : \u03b9 \u2192 NNReal} {s : Finset \u03b9},\n      (\u2200 i \u2208 s, ProbabilityTheory.HasSubgaussianMGF (X i) (c i) \u03bc) \u2192\n        ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => \u2211 i \u2208 s, X i \u03c9) (\u2211 i \u2208 s, c i) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.isProbabilityMeasure_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d} [NeZero \u03bc],\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192 MeasureTheory.IsProbabilityMeasure (\u03bc.tilted f)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.setIntegral_tilted",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {E : Type u_2} [inst : NormedAddCommGroup E]\n  [inst_1 : NormedSpace \u211d E] [MeasureTheory.SFinite \u03bc] (f : \u03b1 \u2192 \u211d) (g : \u03b1 \u2192 E) (s : Set \u03b1),\n  \u222b (x : \u03b1) in s, g x \u2202\u03bc.tilted f = \u222b (x : \u03b1) in s, (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) \u2022 g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_7",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (d : \u2115) (a b : Fin N), 0 < \u2191b \u2192 \u00ac\u2191b - 1 < N - 1 \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.sum_of_iIndepFun_of_forall_aemeasurable",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {\u03b9 : Type u_2} {X : \u03b9 \u2192 \u03a9 \u2192 \u211d},\n  ProbabilityTheory.iIndepFun X \u03bc \u2192\n    \u2200 {c : \u03b9 \u2192 NNReal},\n      (\u2200 (i : \u03b9), AEMeasurable (X i) \u03bc) \u2192\n        \u2200 {s : Finset \u03b9},\n          (\u2200 i \u2208 s, ProbabilityTheory.HasSubgaussianMGF (X i) (c i) \u03bc) \u2192\n            ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => \u2211 i \u2208 s, X i \u03c9) (\u2211 i \u2208 s, c i) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.hasSubgaussianMGF_of_mem_Icc_of_integral_eq_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d}\n  [MeasureTheory.IsProbabilityMeasure \u03bc] {a b : \u211d},\n  AEMeasurable X \u03bc \u2192\n    (\u2200\u1d50 (\u03c9 : \u03a9) \u2202\u03bc, X \u03c9 \u2208 Set.Icc a b) \u2192\n      \u222b (x : \u03a9), X x \u2202\u03bc = 0 \u2192 ProbabilityTheory.HasSubgaussianMGF X ((\u2016b - a\u2016\u208a / 2) ^ 2) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF",
+    "type": "{\u03a9 : Type u_1} \u2192\n  (m : MeasurableSpace \u03a9) \u2192\n    {m\u03a9 : MeasurableSpace \u03a9} \u2192\n      m \u2264 m\u03a9 \u2192\n        [StandardBorelSpace \u03a9] \u2192\n          (\u03a9 \u2192 \u211d) \u2192\n            NNReal \u2192\n              (\u03bc : autoParam (MeasureTheory.Measure \u03a9) ProbabilityTheory.HasCondSubgaussianMGF._auto_1) \u2192\n                [MeasureTheory.IsFiniteMeasure \u03bc] \u2192 Prop"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.mgf_le_of_mem_Icc_of_integral_eq_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d}\n  [MeasureTheory.IsProbabilityMeasure \u03bc] {a b t : \u211d},\n  AEMeasurable X \u03bc \u2192\n    (\u2200\u1d50 (\u03c9 : \u03a9) \u2202\u03bc, X \u03c9 \u2208 Set.Icc a b) \u2192\n      \u222b (x : \u03a9), X x \u2202\u03bc = 0 \u2192 0 < t \u2192 ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp ((\u2191\u2016b - a\u2016\u208a / 2) ^ 2 * t ^ 2 / 2)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.of_map",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {c : NNReal} {\u03a9'' : Type u_3} {m\u03a9'' : MeasurableSpace \u03a9''} {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9''} {Y : \u03a9'' \u2192 \u03a9}\n  {X : \u03a9 \u2192 \u211d},\n  Measurable Y \u2192\n    ProbabilityTheory.Kernel.HasSubgaussianMGF X c (\u03ba.map Y) \u03bd \u2192\n      ProbabilityTheory.Kernel.HasSubgaussianMGF (X \u2218 Y) c \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_cgf'",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {s : Set \u03a9},\n  MeasurableSet s \u2192\n    MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc \u2192\n      (\u03bc.tilted fun x => t * X x) s =\n        \u222b\u207b (a : \u03a9) in s, ENNReal.ofReal (Real.exp (t * X a - ProbabilityTheory.cgf X \u03bc t)) \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.expect_uniform._simp_1_1",
+    "type": "\u2200 {\u03b9 : Type u_1} {R : Type u_4} [inst : NonUnitalNonAssocSemiring R] (s : Finset \u03b9) (f : \u03b9 \u2192 R) (a : R),\n  \u2211 i \u2208 s, a * f i = a * \u2211 i \u2208 s, f i"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_5",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 3] [NeZero 3], (3 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} [MeasureTheory.IsFiniteMeasure \u03bd] [ProbabilityTheory.IsZeroOrMarkovKernel \u03ba],\n  ProbabilityTheory.Kernel.HasSubgaussianMGF 0 0 \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.rnDeriv_tilted_right",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {f : \u03b1 \u2192 \u211d} (\u03bc \u03bd : MeasureTheory.Measure \u03b1) [MeasureTheory.SigmaFinite \u03bc]\n  [MeasureTheory.SigmaFinite \u03bd],\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bd \u2192\n    \u03bc.rnDeriv (\u03bd.tilted f) =\u1d50[\u03bd] fun x =>\n      ENNReal.ofReal (Real.exp (-f x) * \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bd) * \u03bc.rnDeriv \u03bd x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.casesOn",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {\u03a9' : Type u_2} \u2192\n    {m\u03a9 : MeasurableSpace \u03a9} \u2192\n      {m\u03a9' : MeasurableSpace \u03a9'} \u2192\n        {X : \u03a9 \u2192 \u211d} \u2192\n          {c : NNReal} \u2192\n            {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} \u2192\n              {\u03bd : MeasureTheory.Measure \u03a9'} \u2192\n                {motive : ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 Sort u} \u2192\n                  (t : ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd) \u2192\n                    ((integrable_exp_mul :\n                          \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03bd.bind \u21d1\u03ba)) \u2192\n                        (mgf_le :\n                            \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), ProbabilityTheory.mgf X (\u03ba \u03c9') t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192\n                          motive \u22ef) \u2192\n                      motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnEquiv._proof_2",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (\u03c3 : RiffleLowerV2.Permutation N)\n  (a : TimeProfile.ColumnAssignments cuts j),\n  RiffleLowerV2.Model.columnRelabel cuts j \u03c3 (RiffleLowerV2.Model.columnRelabel cuts j (Equiv.symm \u03c3) a) = a"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.cgf_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 \u2200 (t : \u211d), ProbabilityTheory.cgf X \u03bc t \u2264 \u2191c * t ^ 2 / 2"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.inversionEquiv._proof_1",
+    "type": "\u2200 (N : \u2115) (e : Fin N \u2243 Fin N), e.symm.symm = e"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnEquiv._proof_1",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (\u03c3 : RiffleLowerV2.Permutation N)\n  (a : TimeProfile.ColumnAssignments cuts j),\n  RiffleLowerV2.Model.columnRelabel cuts j (Equiv.symm \u03c3) (RiffleLowerV2.Model.columnRelabel cuts j \u03c3 a) = a"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.map_uniform_equiv",
+    "type": "\u2200 {\u03b1 : Type u_1} {\u03b2 : Type u_2} [inst : Fintype \u03b1] [inst_1 : Fintype \u03b2] [inst_2 : Nonempty \u03b1] [inst_3 : Nonempty \u03b2]\n  (e : \u03b1 \u2243 \u03b2), PMF.map (\u21d1e) (PMF.uniformOfFintype \u03b1) = PMF.uniformOfFintype \u03b2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.setIntegral_tilted_mul_eq_mgf'",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {E : Type u_2}\n  [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] (g : \u03a9 \u2192 E) {s : Set \u03a9},\n  MeasurableSet s \u2192\n    (\u222b (x : \u03a9) in s, g x \u2202\u03bc.tilted fun x => t * X x) =\n      \u222b (x : \u03a9) in s, (Real.exp (t * X x) / ProbabilityTheory.mgf X \u03bc t) \u2022 g x \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.uniformPermutation.eq_1",
+    "type": "\u2200 (N : \u2115), RiffleLowerV2.uniformPermutation N = PMF.uniformOfFintype (RiffleLowerV2.Permutation N)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero._simp_1_6",
+    "type": "\u2200 (x : ENNReal), (x.toReal = 0) = (x = 0 \u2228 x = \u22a4)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.inversionTV",
+    "type": "RiffleLowerV2.Targets.InversionTV"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.key_eq_of_componentIndex_eq._proof_1_5",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) {i j : Fin N} (d : \u2115) (a b : Fin N), 0 < \u2191b \u2192 \u00ac\u2191b - 1 \u2264 \u2191b \u2192 False"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.tilted_tilted._simp_1_4",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : Mul M\u2080] [inst_1 : Zero M\u2080] [NoZeroDivisors M\u2080] {a b : M\u2080}, a \u2260 0 \u2192 b \u2260 0 \u2192 (a * b = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.aemeasurable",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 AEMeasurable X \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.const_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200 (r : \u211d), ProbabilityTheory.Kernel.HasSubgaussianMGF (fun \u03c9 => r * X \u03c9) (NNReal.mk (r ^ 2) \u22ef * c) \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.of_rat",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  (\u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03bd.bind \u21d1\u03ba)) \u2192\n    (\u2200 (q : \u211a), \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, ProbabilityTheory.mgf X (\u03ba \u03c9') \u2191q \u2264 Real.exp (\u2191c * \u2191q ^ 2 / 2)) \u2192\n      ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.log_rnDeriv_tilted_left_self",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d} [MeasureTheory.SigmaFinite \u03bc],\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192\n    (fun x => Real.log ((\u03bc.tilted f).rnDeriv \u03bc x).toReal) =\u1d50[\u03bc] fun x => f x - Real.log (\u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.ae_eq_zero_of_hasSubgaussianMGF_zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d},\n  ProbabilityTheory.HasSubgaussianMGF X 0 \u03bc \u2192 X =\u1d50[\u03bc] 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_eq_ofReal_integral_mgf'",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {s : Set \u03a9},\n  MeasurableSet s \u2192\n    (\u03bc.tilted fun x => t * X x) s = ENNReal.ofReal (\u222b (a : \u03a9) in s, Real.exp (t * X a) / ProbabilityTheory.mgf X \u03bc t \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.rec",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {m\u03a9 : MeasurableSpace \u03a9} \u2192\n    {X : \u03a9 \u2192 \u211d} \u2192\n      {c : NNReal} \u2192\n        {\u03bc : MeasureTheory.Measure \u03a9} \u2192\n          {motive : ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 Sort u} \u2192\n            ((integrable_exp_mul : \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc) \u2192\n                (mgf_le : \u2200 (t : \u211d), ProbabilityTheory.mgf X \u03bc t \u2264 Real.exp (\u2191c * t ^ 2 / 2)) \u2192 motive \u22ef) \u2192\n              (t : ProbabilityTheory.HasSubgaussianMGF X c \u03bc) \u2192 motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.zero",
+    "type": "\u2200 {\u03a9 : Type u_1} {m m\u03a9 : MeasurableSpace \u03a9} {hm : m \u2264 m\u03a9} [inst : StandardBorelSpace \u03a9] {\u03bc : MeasureTheory.Measure \u03a9}\n  [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc], ProbabilityTheory.HasCondSubgaussianMGF m hm 0 0 \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "_private.Mathlib.Probability.Moments.Tilted.0.ProbabilityTheory.integral_tilted_mul_self._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u_1} {m : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {L : Type u_6} [inst : RCLike L] (r : L)\n  (f : \u03b1 \u2192 L), (\u222b (a : \u03b1), f a \u2202\u03bc) / r = \u222b (a : \u03b1), f a / r \u2202\u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.neg",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192 ProbabilityTheory.Kernel.HasSubgaussianMGF (-X) c \u03ba \u03bd"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.measure_sum_range_ge_le_of_iIndepFun",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u2115 \u2192 \u03a9 \u2192 \u211d},\n  ProbabilityTheory.iIndepFun X \u03bc \u2192\n    \u2200 {c : NNReal} {n : \u2115},\n      (\u2200 i < n, ProbabilityTheory.HasSubgaussianMGF (X i) c \u03bc) \u2192\n        \u2200 {\u03b5 : \u211d}, 0 \u2264 \u03b5 \u2192 \u03bc.real {\u03c9 | \u03b5 \u2264 \u2211 i \u2208 Finset.range n, X i \u03c9} \u2264 Real.exp (-\u03b5 ^ 2 / (2 * \u2191n * \u2191c))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_comm",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f : \u03b1 \u2192 \u211d},\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bc \u2192\n    \u2200 {g : \u03b1 \u2192 \u211d}, MeasureTheory.Integrable (fun x => Real.exp (g x)) \u03bc \u2192 (\u03bc.tilted f).tilted g = (\u03bc.tilted g).tilted f"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.tilted_tilted._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 3] [NeZero 3], (3 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "ProbabilityTheory.tilted_mul_apply_eq_ofReal_integral_cgf'",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {t : \u211d} {s : Set \u03a9},\n  MeasurableSet s \u2192\n    MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) \u03bc \u2192\n      (\u03bc.tilted fun x => t * X x) s =\n        ENNReal.ofReal (\u222b (a : \u03a9) in s, Real.exp (t * X a - ProbabilityTheory.cgf X \u03bc t) \u2202\u03bc)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.columnIndependence",
+    "type": "RiffleLowerV2.Targets.ColumnIndependence"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasCondSubgaussianMGF.congr_simp",
+    "type": "\u2200 {\u03a9 : Type u_1} (m m_1 : MeasurableSpace \u03a9) (e_m : m = m_1) {m\u03a9 : MeasurableSpace \u03a9} (hm : m \u2264 m\u03a9)\n  [inst : StandardBorelSpace \u03a9] (X X_1 : \u03a9 \u2192 \u211d),\n  X = X_1 \u2192\n    \u2200 (c c_1 : NNReal),\n      c = c_1 \u2192\n        \u2200 (\u03bc \u03bc_1 : MeasureTheory.Measure \u03a9) (e_\u03bc : \u03bc = \u03bc_1) [inst_1 : MeasureTheory.IsFiniteMeasure \u03bc],\n          ProbabilityTheory.HasCondSubgaussianMGF m hm X c \u03bc = ProbabilityTheory.HasCondSubgaussianMGF m_1 \u22ef X_1 c_1 \u03bc_1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.sortedWord_relabel",
+    "type": "\u2200 {N k K : \u2115} (cuts : TimeProfile.Cuts k N K) (\u03c1 : RiffleLowerV2.Permutation N) (\u03c9 : RiffleLowerV2.Sample cuts),\n  RiffleLowerV2.sortedWord ((RiffleLowerV2.Model.sampleRelabel cuts \u03c1) \u03c9) = RiffleLowerV2.sortedWord \u03c9"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.tilted_tilted._simp_1_7",
+    "type": "\u2200 {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] (n : \u2115), (\u2191n + 1 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.toReal_rnDeriv_tilted_right",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {f : \u03b1 \u2192 \u211d} (\u03bc \u03bd : MeasureTheory.Measure \u03b1) [MeasureTheory.SigmaFinite \u03bc]\n  [MeasureTheory.SigmaFinite \u03bd],\n  MeasureTheory.Integrable (fun x => Real.exp (f x)) \u03bd \u2192\n    (fun x => (\u03bc.rnDeriv (\u03bd.tilted f) x).toReal) =\u1d50[\u03bd] fun x =>\n      (Real.exp (-f x) * \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bd) * (\u03bc.rnDeriv \u03bd x).toReal"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_congr",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} {\u03bc : MeasureTheory.Measure \u03b1} {f g : \u03b1 \u2192 \u211d},\n  f =\u1d50[\u03bc] g \u2192 \u03bc.tilted f = \u03bc.tilted g"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_monotone._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u_1} {p : \u03b1 \u2192 Prop} [inst : DecidablePred p] {s : Finset \u03b1} {a : \u03b1}, (a \u2208 Finset.filter p s) = (a \u2208 s \u2227 p a)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.rowRelabeling",
+    "type": "RiffleLowerV2.Targets.RowRelabeling"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.mem_keyEdges",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) (e : Fin (N - 1)),\n  e \u2208 RiffleLowerV2.Model.keyEdges f \u2194 f (RiffleLowerV2.edgeLeft e) = f (RiffleLowerV2.edgeRight e)"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.const_mul._simp_1_1",
+    "type": "\u2200 {G : Type u_1} [inst : Semigroup G] (a b c : G), a * (b * c) = a * b * c"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.shuffleEdges.eq_1",
+    "type": "\u2200 {k N K : \u2115} {cuts : TimeProfile.Cuts k N K} (\u03c9 : RiffleLowerV2.Sample cuts),\n  RiffleLowerV2.shuffleEdges \u03c9 =\n    {e | RiffleLowerV2.sortedWord \u03c9 (RiffleLowerV2.edgeLeft e) = RiffleLowerV2.sortedWord \u03c9 (RiffleLowerV2.edgeRight e)}"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.expect_const._simp_1_1",
+    "type": "\u2200 {\u03b9 : Type u_1} {R : Type u_4} [inst : NonUnitalNonAssocSemiring R] (s : Finset \u03b9) (f : \u03b9 \u2192 R) (a : R),\n  \u2211 i \u2208 s, f i * a = (\u2211 i \u2208 s, f i) * a"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.Tilted",
+    "name": "_private.Mathlib.Probability.Moments.Tilted.0.ProbabilityTheory.memLp_tilted_mul._simp_1_1",
+    "type": "\u2200 {E : Type u_5} [inst : SeminormedAddGroup E] (x : E), \u2016x\u2016\u2091 = ENNReal.ofReal \u2016x\u2016"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.sum_of_hasCondSubgaussianMGF._simp_1_4",
+    "type": "\u2200 {n m : \u2115}, (m \u2208 Finset.range n) = (m < n)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.sum_of_hasCondSubgaussianMGF",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} [inst : StandardBorelSpace \u03a9] {Y : \u2115 \u2192 \u03a9 \u2192 \u211d}\n  {cY : \u2115 \u2192 NNReal} {\u2131 : MeasureTheory.Filtration \u2115 m\u03a9} [inst_1 : MeasureTheory.IsZeroOrProbabilityMeasure \u03bc],\n  MeasureTheory.StronglyAdapted \u2131 Y \u2192\n    ProbabilityTheory.HasSubgaussianMGF (Y 0) (cY 0) \u03bc \u2192\n      \u2200 (n : \u2115),\n        (\u2200 i < n - 1, ProbabilityTheory.HasCondSubgaussianMGF (\u2191\u2131 i) \u22ef (Y (i + 1)) (cY (i + 1)) \u03bc) \u2192\n          ProbabilityTheory.HasSubgaussianMGF (fun \u03c9 => \u2211 i \u2208 Finset.range n, Y i \u03c9) (\u2211 i \u2208 Finset.range n, cY i) \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.add._simp_1_2",
+    "type": "\u2200 (x y : \u211d), Real.exp x * Real.exp y = Real.exp (x + y)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_eq_zero_of_hasSubgaussianMGF_zero'",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X 0 \u03ba \u03bd \u2192 X =\u1d50[\u03bd.bind \u21d1\u03ba] 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "RiffleLowerV2.Model.uniform_expect_equiv",
+    "type": "\u2200 {\u03b1 : Type u_1} {\u03b2 : Type u_2} [inst : Fintype \u03b1] [inst_1 : Fintype \u03b2] [inst_2 : Nonempty \u03b1] [inst_3 : Nonempty \u03b2]\n  (e : \u03b1 \u2243 \u03b2) (f : \u03b2 \u2192 \u211d),\n  (RiffleLowerV2.expect (PMF.uniformOfFintype \u03b1) fun a => f (e a)) = RiffleLowerV2.expect (PMF.uniformOfFintype \u03b2) f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.zero_kernel._simp_1_1",
+    "type": "\u2200 (x : \u211d), (0 \u2264 Real.exp x) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.FiniteLaws",
+    "name": "TimeProfile.columnPMF.eq_1",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (j : Fin K),\n  TimeProfile.columnPMF cuts j = PMF.uniformOfFintype (TimeProfile.ColumnAssignments cuts j)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.integrable",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2192 MeasureTheory.Integrable X \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.componentIndex_monotone._simp_1_2",
+    "type": "\u2200 {\u03b1 : Type u_1} [inst : Fintype \u03b1] (x : \u03b1), (x \u2208 Finset.univ) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_integrable_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200 (t : \u211d), \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, MeasureTheory.Integrable (fun y => Real.exp (t * X y)) (\u03ba \u03c9')"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_ge_le._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u_2} [inst : Zero \u03b1] [inst_1 : OfNat \u03b1 2] [NeZero 2], (2 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "_private.Mathlib.MeasureTheory.Measure.Tilted.0.MeasureTheory.toReal_rnDeriv_tilted_left._simp_1_1",
+    "type": "\u2200 {M\u2080 : Type u_1} [inst : MulZeroClass M\u2080] [IsRightCancelMulZero M\u2080] {a b c : M\u2080}, (a * c = b * c) = (a = b \u2228 c = 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF",
+    "type": "{\u03a9 : Type u_1} \u2192\n  {\u03a9' : Type u_2} \u2192\n    {m\u03a9 : MeasurableSpace \u03a9} \u2192\n      {m\u03a9' : MeasurableSpace \u03a9'} \u2192\n        (\u03a9 \u2192 \u211d) \u2192\n          NNReal \u2192\n            ProbabilityTheory.Kernel \u03a9' \u03a9 \u2192\n              autoParam (MeasureTheory.Measure \u03a9') ProbabilityTheory.Kernel.HasSubgaussianMGF._auto_1 \u2192 Prop"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.keyEdges_sortedWord",
+    "type": "\u2200 {N k K : \u2115} {cuts : TimeProfile.Cuts k N K} (\u03c9 : RiffleLowerV2.Sample cuts),\n  RiffleLowerV2.Model.keyEdges (RiffleLowerV2.sortedWord \u03c9) = RiffleLowerV2.shuffleEdges \u03c9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.tilted_const'",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) (c : \u211d),\n  (\u03bc.tilted fun x => c) = (\u03bc Set.univ)\u207b\u00b9 \u2022 \u03bc"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.Kernel.HasSubgaussianMGF.measure_pos_eq_zero_of_hasSubGaussianMGF_zero._simp_1_1",
+    "type": "\u2200 {\u03b1 : Type u} {\u03b9 : Sort v} {x : \u03b1} {s : \u03b9 \u2192 Set \u03b1}, (x \u2208 \u22c3 i, s i) = \u2203 i, x \u2208 s i"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF.measure_sum_ge_le_of_iIndepFun",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {\u03b9 : Type u_2} {X : \u03b9 \u2192 \u03a9 \u2192 \u211d},\n  ProbabilityTheory.iIndepFun X \u03bc \u2192\n    \u2200 {c : \u03b9 \u2192 NNReal} {s : Finset \u03b9},\n      (\u2200 i \u2208 s, ProbabilityTheory.HasSubgaussianMGF (X i) (c i) \u03bc) \u2192\n        \u2200 {\u03b5 : \u211d}, 0 \u2264 \u03b5 \u2192 \u03bc.real {\u03c9 | \u03b5 \u2264 \u2211 i \u2208 s, X i \u03c9} \u2264 Real.exp (-\u03b5 ^ 2 / (2 * \u2191(\u2211 i \u2208 s, c i)))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.ae_forall_memLp_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bd : MeasureTheory.Measure \u03a9'}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200 (p : NNReal), \u2200\u1d50 (\u03c9' : \u03a9') \u2202\u03bd, \u2200 (t : \u211d), MeasureTheory.MemLp (fun \u03c9 => Real.exp (t * X \u03c9)) (\u2191p) (\u03ba \u03c9')"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.keyEdges",
+    "type": "{N : \u2115} \u2192 {\u03b1 : Type u_1} \u2192 (Fin N \u2192 \u03b1) \u2192 RiffleLowerV2.PathEdges N"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.MeasureTheory.Measure.Tilted",
+    "name": "MeasureTheory.toReal_rnDeriv_tilted_left",
+    "type": "\u2200 {\u03b1 : Type u_1} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : MeasureTheory.Measure \u03b1) {f : \u03b1 \u2192 \u211d} {\u03bd : MeasureTheory.Measure \u03b1}\n  [MeasureTheory.SigmaFinite \u03bc] [MeasureTheory.SigmaFinite \u03bd],\n  AEMeasurable f \u03bd \u2192\n    (fun x => ((\u03bc.tilted f).rnDeriv \u03bd x).toReal) =\u1d50[\u03bd] fun x =>\n      (Real.exp (f x) / \u222b (x : \u03b1), Real.exp (f x) \u2202\u03bc) * (\u03bc.rnDeriv \u03bd x).toReal"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "_private.Mathlib.Probability.Moments.SubGaussian.0.ProbabilityTheory.HasSubgaussianMGF.measureReal_le_le_exp._proof_1_3",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X Y : \u03a9 \u2192 \u211d},\n  -(\u222b (x : \u03a9), X x \u2202\u03bc - \u222b (x : \u03a9), Y x \u2202\u03bc) ^ 2 = -(\u222b (x : \u03a9), Y x \u2202\u03bc - \u222b (x : \u03a9), X x \u2202\u03bc) ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "RiffleLowerV2.Model.GraphSorting",
+    "name": "RiffleLowerV2.Model.mem_keyEdges._simp_1",
+    "type": "\u2200 {N : \u2115} {\u03b1 : Type u_1} (f : Fin N \u2192 \u03b1) (e : Fin (N - 1)),\n  (e \u2208 RiffleLowerV2.Model.keyEdges f) = (f (RiffleLowerV2.edgeLeft e) = f (RiffleLowerV2.edgeRight e))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.HasSubgaussianMGF_iff_kernel",
+    "type": "\u2200 {\u03a9 : Type u_1} {m\u03a9 : MeasurableSpace \u03a9} {\u03bc : MeasureTheory.Measure \u03a9} {X : \u03a9 \u2192 \u211d} {c : NNReal},\n  ProbabilityTheory.HasSubgaussianMGF X c \u03bc \u2194\n    ProbabilityTheory.Kernel.HasSubgaussianMGF X c (ProbabilityTheory.Kernel.const Unit \u03bc)\n      (MeasureTheory.Measure.dirac ())"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "module": "Mathlib.Probability.Moments.SubGaussian",
+    "name": "ProbabilityTheory.Kernel.HasSubgaussianMGF.integrable_exp_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03a9' : Type u_2} {m\u03a9 : MeasurableSpace \u03a9} {m\u03a9' : MeasurableSpace \u03a9'} {X : \u03a9 \u2192 \u211d} {c : NNReal}\n  {\u03ba : ProbabilityTheory.Kernel \u03a9' \u03a9}\n  {\u03bd : autoParam (MeasureTheory.Measure \u03a9') ProbabilityTheory.Kernel.HasSubgaussianMGF._auto_1},\n  ProbabilityTheory.Kernel.HasSubgaussianMGF X c \u03ba \u03bd \u2192\n    \u2200 (t : \u211d), MeasureTheory.Integrable (fun \u03c9 => Real.exp (t * X \u03c9)) (\u03bd.bind \u21d1\u03ba)"
+  }
+]

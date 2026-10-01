@@ -1,0 +1,41 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RarePair.lean:63:38: error: unexpected token '|*'; expected '|' or '|ₘ'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RarePair.lean:55:31: error: unsolved goals
+case htri
+E F M q L τ : ℝ
+hM : 0 ≤ M
+hq : 0 ≤ q
+hL : 0 ≤ L
+hτ : 0 ≤ τ
+hτ1 : τ ≤ 1
+hE : |E - M| ≤ τ * M
+hF : |F - E * q| ≤ L * τ * E * q
+hEu : E ≤ 2 * M
+hEu' : L * τ * E ≤ L * τ * (2 * M)
+hEu'' : L * τ * E * q ≤ L * τ * (2 * M) * q
+heq : |E - M| * q ≤ τ * M * q
+⊢ |F - M * q| ≤ |F - E * q| + |E - M|
+
+E F M q L τ : ℝ
+hM : 0 ≤ M
+hq : 0 ≤ q
+hL : 0 ≤ L
+hτ : 0 ≤ τ
+hτ1 : τ ≤ 1
+hE : |E - M| ≤ τ * M
+hF : |F - E * q| ≤ L * τ * E * q
+hEu : E ≤ 2 * M
+hEu' : L * τ * E ≤ L * τ * (2 * M)
+hEu'' : L * τ * E * q ≤ L * τ * (2 * M) * q
+heq : |E - M| * q ≤ τ * M * q
+htri : |F - M * q| ≤ |F - E * q| + |E - M|
+⊢ |F - M * q| ≤ (2 * L + 1) * τ * M * q
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB08/lib/lean/RiffleLowerV2/Occupancy/RarePair.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RarePair.lean']' returned non-zero exit status 1.

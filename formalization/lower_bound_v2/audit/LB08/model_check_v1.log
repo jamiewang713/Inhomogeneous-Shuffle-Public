@@ -1,0 +1,107 @@
+RiffleLowerV2.Occupancy.wordMean_pos {N k K : ℕ} (cuts : TimeProfile.Cuts k N K) (w : Word k K) {c : ℝ} (hc : 0 < c)
+  (hN : 0 < N) (hpiles : ∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) : 0 < ↑N * wordMass cuts w
+RiffleLowerV2.Occupancy.original_one_factorial_inputs (c C : ℝ) (hc : 0 < c) (hC : 0 < C) :
+  ∃ D,
+    0 < D ∧
+      ∃ N0,
+        ∀ N ≥ N0,
+          ∀ (k K : ℕ),
+            ↑K ≤ C * TimeProfile.logScale N →
+              ∀ (cuts : TimeProfile.Cuts k N K) (w : Word k K),
+                (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                  ∀ (r : ℕ),
+                    ↑r ≤ ↑N ^ (1 / 5) →
+                      |(expect (TimeProfile.fixedCountPMF cuts) fun ω => falling (wordCount w ω) r) -
+                            (↑N * wordMass cuts w) ^ r| ≤
+                        D * (↑K + 1) * ↑r ^ 2 / ↑N * (↑N * wordMass cuts w) ^ r
+RiffleLowerV2.Occupancy.original_two_factorial_inputs (c C : ℝ) (hc : 0 < c) (hC : 0 < C) :
+  ∃ D,
+    0 < D ∧
+      ∃ N0,
+        ∀ N ≥ N0,
+          ∀ (k K : ℕ),
+            ↑K ≤ C * TimeProfile.logScale N →
+              ∀ (cuts : TimeProfile.Cuts k N K) (w v : Word k K),
+                w ≠ v →
+                  (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                    (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get v j))) →
+                      ∀ (r s : ℕ),
+                        ↑(r + s) ≤ ↑N ^ (1 / 5) →
+                          |(expect (TimeProfile.fixedCountPMF cuts) fun ω =>
+                                  falling (wordCount w ω) r * falling (wordCount v ω) s) -
+                                (↑N * wordMass cuts w) ^ r * (↑N * wordMass cuts v) ^ s| ≤
+                            D * (↑K + 1) * ↑(r + s) ^ 2 / ↑N * ((↑N * wordMass cuts w) ^ r * (↑N * wordMass cuts v) ^ s)
+RiffleLowerV2.Occupancy.fullWord_empty_singleton_tail {N k K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N)
+  (w : Word k K) :
+  (probability (TimeProfile.fixedCountPMF cuts) fun ω => wordCount w ω < 2) ≤ 2 * Real.exp (-(↑N * wordMass cuts w) / 2)
+RiffleLowerV2.Occupancy.prescribedPrefixCount_fullPrefix {N k K b : ℕ} (p : RowPrescription N k K b) (w : Word k K) :
+  Thinning.prescribedPrefixCount p (fullPrefix w) = {q | p.word q = w}.card
+RiffleLowerV2.Occupancy.residualPrefixCount_fullPrefix {N k K b : ℕ} {cuts : TimeProfile.Cuts k N K}
+  (p : RowPrescription N k K b) (w : Word k K) (ω : Sample cuts) :
+  Thinning.residualPrefixCount p (fullPrefix w) ω = wordCount w ω - {q | p.word q = w}.card
+RiffleLowerV2.Occupancy.residualPrefixMean_fullPrefix {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (p : RowPrescription N k K b) (w : Word k K) :
+  Thinning.residualPrefixMean cuts p (fullPrefix w) = Targets.residualWordMean cuts p w
+RiffleLowerV2.Occupancy.residualWordMean_pos {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K) (p : RowPrescription N k K b)
+  (w : Word k K) {c : ℝ} (hb : b < N) (hbc : ↑b < c * ↑N)
+  (hpiles : ∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) : 0 < Targets.residualWordMean cuts p w
+RiffleLowerV2.Occupancy.conditionalProbability_eq_expect_indicator.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω)
+  (A B : Ω → Prop) : conditionalProbability P A B = conditionalExpect P (fun ω => if A ω then 1 else 0) B
+RiffleLowerV2.Occupancy.exists_residual_word_law {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (p : RowPrescription N k K b) (hb : b < N) (hinj : Function.Injective p.row)
+  (hprob : 0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p)) :
+  ∃ residual,
+    (∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - usedCount p j a) ∧
+      (∀ (w : Word k K) (F : ℕ → ℝ),
+          conditionalExpect (TimeProfile.fixedCountPMF cuts) (fun ω => F (wordCount w ω - {q | p.word q = w}.card))
+              (prescriptionEvent p) =
+            expect (TimeProfile.fixedCountPMF residual) fun η => F (wordCount w η)) ∧
+        (∀ (w : Word k K) (A : ℕ → Prop),
+            conditionalProbability (TimeProfile.fixedCountPMF cuts)
+                (fun ω => A (wordCount w ω - {q | p.word q = w}.card)) (prescriptionEvent p) =
+              probability (TimeProfile.fixedCountPMF residual) fun η => A (wordCount w η)) ∧
+          ∀ (w : Word k K), ↑(N - b) * wordMass residual w = Targets.residualWordMean cuts p w
+RiffleLowerV2.Occupancy.conditional_one_factorial_inputs (c C : ℝ) (hc : 0 < c) (hC : 0 < C) (b0 : ℕ) :
+  ∃ D,
+    0 < D ∧
+      ∃ N0,
+        b0 < N0 ∧
+          2 ≤ N0 ∧
+            ∀ N ≥ N0,
+              ∀ (k K b : ℕ),
+                b ≤ b0 →
+                  ↑K ≤ C * TimeProfile.logScale N →
+                    ∀ (cuts : TimeProfile.Cuts k N K) (p : RowPrescription N k K b),
+                      Function.Injective p.row →
+                        0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p) →
+                          ∀ (w : Word k K),
+                            (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                              ∀ (r : ℕ),
+                                ↑r ≤ ↑N ^ (1 / 5) →
+                                  |conditionalExpect (TimeProfile.fixedCountPMF cuts)
+                                          (fun ω => falling (wordCount w ω - {q | p.word q = w}.card) r)
+                                          (prescriptionEvent p) -
+                                        Targets.residualWordMean cuts p w ^ r| ≤
+                                    D * (↑K + 1) * ↑r ^ 2 / ↑N * Targets.residualWordMean cuts p w ^ r
+RiffleLowerV2.Occupancy.conditional_fullWord_empty_singleton_tail {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (p : RowPrescription N k K b) (hb : b < N) (hinj : Function.Injective p.row)
+  (hprob : 0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p)) (w : Word k K) :
+  conditionalProbability (TimeProfile.fixedCountPMF cuts) (fun ω => wordCount w ω - {q | p.word q = w}.card < 2)
+      (prescriptionEvent p) ≤
+    2 * Real.exp (-Targets.residualWordMean cuts p w / 2)
+'RiffleLowerV2.Occupancy.wordMean_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.original_one_factorial_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.original_two_factorial_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.fullWord_empty_singleton_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.prescribedPrefixCount_fullPrefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.residualPrefixCount_fullPrefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.residualPrefixMean_fullPrefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.residualWordMean_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.conditionalProbability_eq_expect_indicator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RiffleLowerV2.Occupancy.exists_residual_word_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.conditional_one_factorial_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.conditional_fullWord_empty_singleton_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

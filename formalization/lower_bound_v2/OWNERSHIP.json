@@ -1,0 +1,548 @@
+{
+  "LB01": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/01_concrete_shuffle_laws_and_graph_representation.txt",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Model/",
+      "audit/LB01/"
+    ],
+    "depends_on": [
+      "LB00"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Model.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB01/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Model.columnIndependence",
+        "type": "RiffleLowerV2.Targets.ColumnIndependence",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Model.graphRepresentation",
+        "type": "RiffleLowerV2.Targets.GraphRepresentation",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Model.graphEventIdentity",
+        "type": "RiffleLowerV2.Targets.GraphEventIdentity",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Model.physicalMatrixBridge",
+        "type": "RiffleLowerV2.Targets.PhysicalMatrixBridge",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Model.inversionTV",
+        "type": "RiffleLowerV2.Targets.InversionTV",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Model.rowRelabeling",
+        "type": "RiffleLowerV2.Targets.RowRelabeling",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Model.stableTie",
+        "type": "RiffleLowerV2.Targets.StableTie",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Model.prefixRanks",
+        "type": "RiffleLowerV2.Targets.PrefixRanks",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB02": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/02_successive_thinning_and_uniform_prefix_concentration.txt",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Thinning/",
+      "audit/LB02/"
+    ],
+    "depends_on": [
+      "LB00"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Thinning.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB02/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Thinning.successiveThinning",
+        "type": "RiffleLowerV2.Targets.SuccessiveThinning",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Thinning.prefixTails",
+        "type": "RiffleLowerV2.Targets.PrefixTails",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Thinning.allPrefixConcentration",
+        "type": "RiffleLowerV2.Targets.AllPrefixConcentration",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Thinning.prefixFailureUniform",
+        "type": "RiffleLowerV2.Targets.PrefixFailureUniform",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Thinning.residualLaw",
+        "type": "RiffleLowerV2.Targets.ResidualLaw",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Thinning.hypergeometricTransform",
+        "type": "RiffleLowerV2.Targets.HypergeometricTransform",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Thinning.maximalMeanIdentity",
+        "type": "RiffleLowerV2.Targets.MaximalMeanIdentity",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB03": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/03_joint_factorial_moments_and_controlled_bonferroni_polynomials.txt",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Factorial/",
+      "audit/LB03/"
+    ],
+    "depends_on": [
+      "LB00"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Factorial.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB03/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Factorial.exactJointFactorial",
+        "type": "RiffleLowerV2.Targets.ExactJointFactorial",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.relativeJointFactorial",
+        "type": "RiffleLowerV2.Targets.RelativeJointFactorial",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.bonferroniSandwich",
+        "type": "RiffleLowerV2.Targets.BonferroniSandwich",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.bonferroniProduct",
+        "type": "RiffleLowerV2.Targets.BonferroniProduct",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.centralComparison",
+        "type": "RiffleLowerV2.Targets.CentralComparison",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.centralComparisonOne",
+        "type": "RiffleLowerV2.Targets.CentralComparisonOne",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.rareSandwich",
+        "type": "RiffleLowerV2.Targets.RareSandwich",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.residualJointFactorial",
+        "type": "RiffleLowerV2.Targets.ResidualJointFactorial",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.residualRelativeFactorial",
+        "type": "RiffleLowerV2.Targets.ResidualRelativeFactorial",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Factorial.residualMeanComparison",
+        "type": "RiffleLowerV2.Targets.ResidualMeanComparison",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB04": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/04_permutation_ascent_concentration_and_the_observable_scan.txt",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Ascent/",
+      "audit/LB04/"
+    ],
+    "depends_on": [
+      "LB00"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Ascent.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB04/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Ascent.componentConcentration",
+        "type": "RiffleLowerV2.Targets.ComponentConcentration",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.componentExpectation",
+        "type": "RiffleLowerV2.Targets.ComponentExpectation",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.uniformScan",
+        "type": "RiffleLowerV2.Targets.UniformScan",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.componentComparison",
+        "type": "RiffleLowerV2.Targets.ComponentComparison",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.uniformGraphScan",
+        "type": "RiffleLowerV2.Targets.UniformGraphScan",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.relativeOrderIndependence",
+        "type": "RiffleLowerV2.Targets.RelativeOrderIndependence",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.boundaryAscentProbability",
+        "type": "RiffleLowerV2.Targets.BoundaryAscentProbability",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.bernoulliMGF",
+        "type": "RiffleLowerV2.Targets.BernoulliMGF",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.leastSuccessfulTranslate",
+        "type": "RiffleLowerV2.Targets.LeastSuccessfulTranslate",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Ascent.componentConcentrationTwoSided",
+        "type": "RiffleLowerV2.Targets.ComponentConcentrationTwoSided",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB05": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/05_one_column_tilt_analysis_and_the_empirical_cold_witness.txt",
+    "source_labels": [
+      "lem:cold-witness"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Witness/",
+      "audit/LB05/"
+    ],
+    "depends_on": [
+      "LB00"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Witness.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB05/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Witness.coldWitness",
+        "type": "RiffleLowerV2.Targets.ColdWitnessTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Witness.oneColumnTilt",
+        "type": "RiffleLowerV2.Targets.OneColumnTiltTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Witness.empiricalTilt",
+        "type": "RiffleLowerV2.Targets.EmpiricalTiltTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Witness.lB05",
+        "type": "RiffleLowerV2.Targets.LB05Target",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB06": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/06_rounded_type_classes_and_deterministic_mass_bins.txt",
+    "source_labels": [
+      "lem:type-estimates"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Types/",
+      "audit/LB06/"
+    ],
+    "depends_on": [
+      "LB00"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Types.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB06/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Types.roundedType",
+        "type": "RiffleLowerV2.Targets.RoundedTypeTarget",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB07": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/07_explicitly_integrable_profile_transfer.txt",
+    "source_labels": [
+      "lem:lower-profile-transfer"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/ProfileTransfer/",
+      "audit/LB07/"
+    ],
+    "depends_on": [
+      "LB00"
+    ],
+    "proof_entry_point": "RiffleLowerV2.ProfileTransfer.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB07/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.ProfileTransfer.marginTransfer",
+        "type": "RiffleLowerV2.Targets.MarginTransferTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.ProfileTransfer.profileTransfer",
+        "type": "RiffleLowerV2.Targets.ProfileTransferTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.ProfileTransfer.genericQuadrature",
+        "type": "RiffleLowerV2.Targets.GenericQuadrature",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.ProfileTransfer.jointPsiContinuity",
+        "type": "RiffleLowerV2.Targets.JointPsiContinuity",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB08": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/08_uniform_occupancy_probabilities_and_covariance.txt",
+    "source_labels": [
+      "lem:two-category-poisson"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Occupancy/",
+      "audit/LB08/"
+    ],
+    "depends_on": [
+      "LB00",
+      "LB02",
+      "LB03"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Occupancy.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB08/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Occupancy.uniformOccupancy",
+        "type": "RiffleLowerV2.Targets.UniformOccupancy",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Occupancy.conditionalCollisionStability",
+        "type": "RiffleLowerV2.Targets.ConditionalCollisionStability",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Occupancy.collisionChebyshev",
+        "type": "RiffleLowerV2.Targets.CollisionChebyshev",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB09": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/09_cold_geometry_relative_endpoints_and_probabilistic_localization.txt",
+    "source_labels": [
+      "lem:cold-geometry",
+      "lem:finite-relative-endpoints",
+      "lem:localization"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/Localization/",
+      "audit/LB09/"
+    ],
+    "depends_on": [
+      "LB00",
+      "LB02",
+      "LB05",
+      "LB06"
+    ],
+    "proof_entry_point": "RiffleLowerV2.Localization.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB09/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.Localization.localization",
+        "type": "RiffleLowerV2.Targets.LocalizationTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Localization.coldGeometryFromEmpirical",
+        "type": "RiffleLowerV2.Targets.ColdGeometryFromEmpiricalTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Localization.relativeEndpoint",
+        "type": "RiffleLowerV2.Targets.RelativeEndpointTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Localization.deterministicColdGeometry",
+        "type": "RiffleLowerV2.Targets.DeterministicColdGeometryTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.Localization.lB09",
+        "type": "RiffleLowerV2.Targets.LB09Target",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB10": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/10_empirical_lower_bound_assembly.txt",
+    "source_labels": [
+      "prop:largest-prefix",
+      "lem:many-edges",
+      "lem:lalley",
+      "prop:cold-lower"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/EmpiricalLower/",
+      "audit/LB10/"
+    ],
+    "depends_on": [
+      "LB00",
+      "LB01",
+      "LB02",
+      "LB04",
+      "LB08",
+      "LB09"
+    ],
+    "proof_entry_point": "RiffleLowerV2.EmpiricalLower.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB10/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.EmpiricalLower.largestOnly",
+        "type": "RiffleLowerV2.Targets.LargestOnlyTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.EmpiricalLower.coldOnly",
+        "type": "RiffleLowerV2.Targets.ColdOnlyTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.EmpiricalLower.empiricalCombined",
+        "type": "RiffleLowerV2.Targets.EmpiricalCombinedTarget",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.EmpiricalLower.finiteLargestWordTV",
+        "type": "RiffleLowerV2.Targets.FiniteLargestWordTV",
+        "status": "PENDING"
+      },
+      {
+        "name": "RiffleLowerV2.EmpiricalLower.manyEdges",
+        "type": "RiffleLowerV2.Targets.ManyEdgesTarget",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB11": {
+    "source_prompt": "formalization/lower_bound_prompt_pack_2026-10-01/11_macroscopic_lower_bound_under_explicit_scalar_integrability.txt",
+    "source_labels": [
+      "thm:buffered-reduced-lower-bound",
+      "lem:lower-profile-transfer",
+      "prop:cold-lower"
+    ],
+    "exclusive_paths": [
+      "RiffleLowerV2/MacroscopicLower/",
+      "audit/LB11/"
+    ],
+    "depends_on": [
+      "LB00",
+      "LB07",
+      "LB10"
+    ],
+    "proof_entry_point": "RiffleLowerV2.MacroscopicLower.Main",
+    "status": "PENDING; no proof module exists yet",
+    "cache": ".build/lanes/LB11/lib/lean",
+    "required_exports": [
+      {
+        "name": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+        "type": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget",
+        "status": "PENDING"
+      }
+    ]
+  },
+  "LB00": {
+    "exclusive_paths": [
+      "RiffleLowerV2/Shared/",
+      "Contracts/",
+      "audit/LB00/",
+      "package configuration",
+      "build tooling",
+      "provenance manifests",
+      "umbrella imports"
+    ],
+    "depends_on": [],
+    "status": "Shared foundation only; see receipt"
+  },
+  "LB12": {
+    "exclusive_paths": [
+      "audit/LB12/"
+    ],
+    "depends_on": [
+      "LB00",
+      "LB10",
+      "LB11"
+    ],
+    "status": "PENDING independent final endpoint audit",
+    "required_reports": [
+      "empirical E verdict",
+      "scalar-integrable M verdict",
+      "unchanged arbitrary-TimeLaw verdict",
+      "full proof-dependency and axiom closure",
+      "fresh build and provenance verification"
+    ]
+  }
+}

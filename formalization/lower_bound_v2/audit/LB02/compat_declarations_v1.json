@@ -1,0 +1,2575 @@
+[
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.coarse_total_probability",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} {Δ : Type u_3} [inst : Fintype Ω] [inst_1 : Fintype Γ] [Fintype Δ]\n  (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Z : Ω → Γ) (U : Ω → Δ) (g : Γ → Δ),\n  (∀ (ω : Ω), U ω = g (Z ω)) →\n    ∀ (u : Δ),\n      (0 < p.prob fun ω => U ω = u) →\n        ∀ (B : Ω → Prop),\n          p.conditionalProb (fun ω => U ω = u) B =\n            ∑ z, (p.conditionalProb (fun ω => U ω = u) fun ω => Z ω = z) * p.conditionalProb (fun ω => Z ω = z) B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersection_fibre_card._proof_1_1",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (A : Finset α) (m q : ℕ),\n  q ≤ m → ∀ ⦃S : Finset α⦄, (A ∩ S).card = q → S.card = m → (S \\ A).card + q = m → ¬(S \\ A).card = m - q → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.coarse_total_probability_bound",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} {Δ : Type u_3} [inst : Fintype Ω] [inst_1 : Fintype Γ] [Fintype Δ]\n  (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Z : Ω → Γ) (U : Ω → Δ) (g : Γ → Δ),\n  (∀ (ω : Ω), U ω = g (Z ω)) →\n    ∀ (u : Δ),\n      (0 < p.prob fun ω => U ω = u) →\n        ∀ (B : Ω → Prop) (b : Γ → ℝ),\n          (∀ (z : Γ), (0 < p.prob fun ω => Z ω = z) → p.conditionalProb (fun ω => Z ω = z) B ≤ b z) →\n            p.conditionalProb (fun ω => U ω = u) B ≤ ∑ z, (p.conditionalProb (fun ω => U ω = u) fun ω => Z ω = z) * b z"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_one_add_pow_le_draws",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) {u : ℝ},\n  0 ≤ u → (p.law.expect fun q => (1 + u) ^ ↑q) ≤ (1 + ↑p.marked / ↑p.population * u) ^ p.draws"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mk.sizeOf_spec",
+    "type": "∀ (population marked draws : ℕ) (marked_le : marked ≤ population) (draws_le : draws ≤ population),\n  sizeOf { population := population, marked := marked, draws := draws, marked_le := marked_le, draws_le := draws_le } =\n    1 + sizeOf population + sizeOf marked + sizeOf draws + sizeOf marked_le + sizeOf draws_le"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_eq_of_count_law._proof_1_3",
+    "type": "∀ {Ω : Type u_1} (Y : Ω → ℕ) (n : ℕ) (ω : Ω), ¬Y ω < n + 1 → ∀ (x : Fin (n + 1)), ↑x < n + 1 → ↑x = Y ω → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.ext_mass",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p q : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω),\n  (∀ (ω : Ω), p.mass ω = q.mass ω) → p = q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._proof_1_3",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  p.population = 1 → p.marked ≤ p.population → ¬(p.marked = 0 ∨ p.marked = 1) → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._proof_1_2",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  p.population ≤ 1 →\n    p.marked ≤ p.population →\n      p.draws ≤ p.population → ¬(p.marked = 0 ∨ p.draws = 0 ∨ p.marked = p.population ∨ p.draws = p.population) → False"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_eq_of_count_law._simp_1_1",
+    "type": "∀ {n : ℕ} {a b : Fin n}, (↑a = ↑b) = (a = b)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.map_variance",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (f : Ω → Γ) (h : Γ → ℝ), (p.map f).variance h = p.variance fun ω => h (f ω)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.Sample",
+    "type": "{α : Type u_1} → Finset α → ℕ → Type (max 0 u_1)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_6",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ),\n  R ⊆ V → B ⊆ R → ∀ (hBm : B.card ≤ m) (S : { S // ↑S ∩ R = B }), B ∪ ↑⟨↑↑S \\ R, ⋯⟩ ∈ Finset.powersetCard m V"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect.eq_1",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f : Ω → ℝ),\n  p.expect f = ∑ ω, p.mass ω * f ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight",
+    "type": "(p : RiffleLowerV2.Thinning.Compat.HypergeomParams) → Fin (p.draws + 1) → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight_nonneg",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : Fin (p.draws + 1)), 0 ≤ p.weight q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.weighted_conditionalExpect",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop) (f : Ω → ℝ),\n  p.prob E * p.conditionalExpect E f = ∑ ω, if E ω then p.mass ω * f ω else 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF_apply",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (ω : Ω),\n  p.toPMF ω = ENNReal.ofReal (p.mass ω)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.choose_mul_descFactorial",
+    "type": "∀ (n k r : ℕ), r ≤ k → n.choose k * k.descFactorial r = n.descFactorial r * (n - r).choose (k - r)"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mk._flat_ctor",
+    "type": "(population marked draws : ℕ) → marked ≤ population → draws ≤ population → RiffleLowerV2.Thinning.Compat.HypergeomParams"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.total_probability",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (Z : Ω → Γ) (B : Ω → Prop), p.prob B = ∑ z, (p.prob fun ω => Z ω = z) * p.conditionalProb (fun ω => Z ω = z) B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℕ → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._simp_4",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α}, (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._simp_1_5",
+    "type": "∀ {G₀ : Type u_3} [inst : GroupWithZero G₀] {a b : G₀}, (a / b = 0) = (a = 0 ∨ b = 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersection_fibre_card._simp_1_5",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α}, (a ∈ s \\ t) = (a ∈ s ∧ a ∉ t)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.descFactorial_ratio_le_pow",
+    "type": "∀ {N m : ℕ}, m ≤ N → ∀ (r : ℕ), ↑(m.descFactorial r) / ↑(N.descFactorial r) ≤ (↑m / ↑N) ^ r"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.denominator_pos",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), 0 < ↑(p.population.choose p.draws)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.sum_atom_prob",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (Z : Ω → Γ), (∑ z, p.prob fun ω => Z ω = z) = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.law",
+    "type": "(p : RiffleLowerV2.Thinning.Compat.HypergeomParams) → RiffleLowerV2.Thinning.Compat.FiniteLaw (Fin (p.draws + 1))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.product._proof_1",
+    "type": "∀ {ι : Type u_1} [inst : Fintype ι] {X : ι → Type u_2} [inst_1 : (i : ι) → Fintype (X i)]\n  (p : (i : ι) → RiffleLowerV2.Thinning.Compat.FiniteLaw (X i)) (x : (i : ι) → X i), 0 ≤ ∏ i, (p i).mass (x i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.total_probability_bound",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (Z : Ω → Γ) (B : Ω → Prop) (b : Γ → ℝ),\n  (∀ (z : Γ), (0 < p.prob fun ω => Z ω = z) → p.conditionalProb (fun ω => Z ω = z) B ≤ b z) →\n    p.prob B ≤ ∑ z, (p.prob fun ω => Z ω = z) * b z"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._simp_1_9",
+    "type": "∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] {m n : ℕ}, (↑m = ↑n) = (m = n)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mk.inj",
+    "type": "∀ {Ω : Type u_1} {inst : Fintype Ω} {mass : Ω → ℝ} {mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω} {mass_sum : ∑ ω, mass ω = 1}\n  {mass_1 : Ω → ℝ} {mass_nonneg_1 : ∀ (ω : Ω), 0 ≤ mass_1 ω} {mass_sum_1 : ∑ ω, mass_1 ω = 1},\n  { mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum } =\n      { mass := mass_1, mass_nonneg := mass_nonneg_1, mass_sum := mass_sum_1 } →\n    mass = mass_1"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.coarse_total_probability_bound._simp_1_2",
+    "type": "∀ {α : Type u_1} [inst : Preorder α] (a : α), (a ≤ a) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_eq_extended_sum._proof_1_3",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : ℕ), ¬q < p.draws + 1 → q ≤ p.draws → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.law_mass",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : Fin (p.draws + 1)), p.law.mass q = p.weight q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF",
+    "type": "{Ω : Type u_1} → [inst : Fintype Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → PMF Ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform_prob_pos_iff",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] [inst_1 : Nonempty Ω] (E : Ω → Prop),\n  0 < (RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω).prob E ↔ ∃ ω, E ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.weighted_choose_sum._proof_1_2",
+    "type": "∀ (K U m r q : ℕ), ¬r ≤ r + q → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_eq_of_count_law",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Y : Ω → ℕ) (n : ℕ)\n  (q : RiffleLowerV2.Thinning.Compat.FiniteLaw (Fin (n + 1))),\n  (∀ (a : ℕ), (p.prob fun ω => Y ω = a) = q.prob fun x => ↑x = a) →\n    ∀ (B : ℕ → Prop), (p.prob fun ω => B (Y ω)) = q.prob fun x => B ↑x"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.recOn",
+    "type": "{motive : RiffleLowerV2.Thinning.Compat.HypergeomParams → Sort u} →\n  (t : RiffleLowerV2.Thinning.Compat.HypergeomParams) →\n    ((population marked draws : ℕ) →\n        (marked_le : marked ≤ population) →\n          (draws_le : draws ≤ population) →\n            motive\n              { population := population, marked := marked, draws := draws, marked_le := marked_le,\n                draws_le := draws_le }) →\n      motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight_swapped._proof_1_5",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  ∀ q ≤ p.draws,\n    q ≤ p.marked →\n      p.marked - q ≤ p.population - p.draws →\n        ¬p.population - p.marked - (p.draws - q) = p.population - p.draws - (p.marked - q) → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw._sizeOf_inst",
+    "type": "(Ω : Type u_1) → {inst : Fintype Ω} → [SizeOf Ω] → SizeOf (RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.binomial_sum_extended._proof_1_2",
+    "type": "∀ {q : ℕ} {N : ℕ} (r : ℕ), ¬r < q + 1 → ¬q < r → False"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mk.inj",
+    "type": "∀ {population marked draws : ℕ} {marked_le : marked ≤ population} {draws_le : draws ≤ population}\n  {population_1 marked_1 draws_1 : ℕ} {marked_le_1 : marked_1 ≤ population_1} {draws_le_1 : draws_1 ≤ population_1},\n  { population := population, marked := marked, draws := draws, marked_le := marked_le, draws_le := draws_le } =\n      { population := population_1, marked := marked_1, draws := draws_1, marked_le := marked_le_1,\n        draws_le := draws_le_1 } →\n    population = population_1 ∧ marked = marked_1 ∧ draws = draws_1"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.casesOn",
+    "type": "{motive : RiffleLowerV2.Thinning.Compat.HypergeomParams → Sort u} →\n  (t : RiffleLowerV2.Thinning.Compat.HypergeomParams) →\n    ((population marked draws : ℕ) →\n        (marked_le : marked ≤ population) →\n          (draws_le : draws ≤ population) →\n            motive\n              { population := population, marked := marked, draws := draws, marked_le := marked_le,\n                draws_le := draws_le }) →\n      motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.weighted_choose_sum",
+    "type": "∀ (K U m r : ℕ),\n  r ≤ m →\n    ∑ q ∈ Finset.range (m + 1), K.choose q * U.choose (m - q) * q.descFactorial r =\n      K.descFactorial r * (K - r + U).choose (m - r)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mk.sizeOf_spec",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] [inst_1 : SizeOf Ω] (mass : Ω → ℝ) (mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω)\n  (mass_sum : ∑ ω, mass ω = 1),\n  sizeOf { mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum } = 1 + sizeOf mass_sum"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.samplingParams",
+    "type": "{α : Type u_1} → (V A : Finset α) → (m : ℕ) → A ⊆ V → m ≤ V.card → RiffleLowerV2.Thinning.Compat.HypergeomParams"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform_prob_pos_iff.match_1_1",
+    "type": "∀ {Ω : Type u_1} (E : Ω → Prop) (motive : Nonempty { ω // E ω } → Prop) (x : Nonempty { ω // E ω }),\n  (∀ (ω : Ω) (hω : E ω), motive ⋯) → motive x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.variance.eq_1",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f : Ω → ℝ),\n  p.variance f = p.expect fun ω => (f ω - p.expect f) ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.binomial_sum_extended._simp_1_1",
+    "type": "∀ {n m : ℕ}, (m ∈ Finset.range n) = (m < n)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition._proof_2",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop),\n  0 < p.prob E → ∑ ω, (if E ω then p.mass ω else 0) / p.prob E = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.markov",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) {f : Ω → ℝ},\n  (∀ (ω : Ω), 0 ≤ f ω) → ∀ {t : ℝ}, 0 < t → (p.prob fun ω => t ≤ f ω) ≤ p.expect f / t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.noConfusionType",
+    "type": "Sort u →\n  {Ω : Type u_1} →\n    [inst : Fintype Ω] →\n      RiffleLowerV2.Thinning.Compat.FiniteLaw Ω →\n        {Ω' : Type u_1} → [inst' : Fintype Ω'] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω' → Sort u"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._proof_1_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), p.population ≤ 1 → ¬(p.population = 0 ∨ p.population = 1) → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditional_prob_eq_of_map_eq",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (E : Ω → Prop) (hE : 0 < p.prob E) (X : Ω → Γ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw Γ),\n  (p.condition E hE).map X = q → ∀ (B : Γ → Prop), (p.conditionalProb E fun ω => B (X ω)) = q.prob B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition_expect",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop) (hE : 0 < p.prob E)\n  (f : Ω → ℝ), (p.condition E hE).expect f = p.conditionalExpect E f"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._simp_1_8",
+    "type": "∀ {G : Type u_3} [inst : AddGroup G] {a b : G}, (a - b = 0) = (a = b)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_1",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ),\n  B.card ≤ m →\n    ∀ (S : { S // ↑S ∩ R = B }), (↑↑S).card = m → (↑↑S \\ R).card + B.card = m → ¬(↑↑S \\ R).card = m - B.card → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_10",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ) (hR : R ⊆ V) (hB : B ⊆ R) (hBm : B.card ≤ m)\n  (T : RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)), ⟨↑↑⟨⟨B ∪ ↑T, ⋯⟩, ⋯⟩ \\ R, ⋯⟩ = T"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight_swapped._proof_1_6",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  ∀ q ≤ p.draws,\n    q ≤ p.marked →\n      ¬p.draws - q ≤ p.population - p.marked →\n        p.marked ≤ p.population → p.draws ≤ p.population → ¬p.population - p.draws < p.marked - q → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_mass",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m : ℕ) (hA : A ⊆ V) (hm : m ≤ V.card) (q : Fin (m + 1)),\n  ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).prob fun S => (A ∩ ↑S).card = ↑q) =\n    (RiffleLowerV2.Thinning.Compat.samplingParams V A m hA hm).weight q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_2",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ),\n  B.card ≤ m → ∀ (T : RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)), ¬B.card + (m - B.card) = m → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_conditional_intersection_prob.match_1_1",
+    "type": "∀ {α : Type u_1} (V : Finset α) (m : ℕ) (motive : (Finset.powersetCard m V).Nonempty → Prop)\n  (x : (Finset.powersetCard m V).Nonempty), (∀ (S : Finset α) (hS : S ∈ Finset.powersetCard m V), motive ⋯) → motive x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw",
+    "type": "(Ω : Type u_1) → [Fintype Ω] → Type u_1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_descFactorial",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (r : ℕ),\n  (p.law.expect fun q => ↑((↑q).descFactorial r)) =\n    ↑(p.marked.descFactorial r) * ↑(p.draws.descFactorial r) / ↑(p.population.descFactorial r)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_pointMass._proof_1_2",
+    "type": "∀ {α : Type u_1} (V : Finset α) (m q : ℕ), ¬q ≤ m → ¬m < q → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_markedComplement",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (f : ℕ → ℝ),\n  ((RiffleLowerV2.Thinning.Compat.HypergeomParams.markedComplement✝ p).law.expect fun q => f ↑q) =\n    p.law.expect fun q => f (p.draws - ↑q)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_3",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ),\n  B.card ≤ m → ∀ (S : { S // ↑S ∩ R = B }), ↑↑S \\ R ∈ Finset.powersetCard (m - B.card) (V \\ R)"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform_prob_pos_iff.match_1_3",
+    "type": "∀ {Ω : Type u_1} (E : Ω → Prop) (motive : (∃ ω, E ω) → Prop) (x : ∃ ω, E ω), (∀ (ω : Ω) (hω : E ω), motive ⋯) → motive x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob",
+    "type": "{Ω : Type u_1} → [inst : Fintype Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → (Ω → Prop) → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.weighted_choose_sum._proof_1_1",
+    "type": "∀ (m r : ℕ), r ≤ m → ¬m + 1 = r + (m - r + 1) → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_conditional_intersection_prob.match_1_3",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ)\n  (motive : (Finset.powersetCard (m - B.card) (V \\ R)).Nonempty → Prop)\n  (x : (Finset.powersetCard (m - B.card) (V \\ R)).Nonempty),\n  (∀ (T : Finset α) (hT : T ∈ Finset.powersetCard (m - B.card) (V \\ R)), motive ⋯) → motive x"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._simp_1_8",
+    "type": "∀ {M₀ : Type u_1} [inst : Mul M₀] [inst_1 : Zero M₀] [NoZeroDivisors M₀] {a b : M₀}, a ≠ 0 → b ≠ 0 → (a * b = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.raw_factorial_moment._proof_1_4",
+    "type": "∀ (N K m r : ℕ), ¬r ≤ m → ∀ (q : Fin (m + 1)), ¬↑q < r → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.variance_nonneg",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f : Ω → ℝ), 0 ≤ p.variance f"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.marked_le",
+    "type": "∀ (self : RiffleLowerV2.Thinning.Compat.HypergeomParams), self.marked ≤ self.population"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform._proof_2",
+    "type": "∀ (Ω : Type u_1) [inst : Fintype Ω] [Nonempty Ω], ∑ ω, 1 / ↑(Fintype.card Ω) = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.choose_mul_descFactorial._proof_1_1",
+    "type": "∀ (n k r : ℕ), r ≤ k → ¬k ≤ n → r ≤ n → ¬n - r < k - r → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform",
+    "type": "(Ω : Type u_4) → [inst : Fintype Ω] → [Nonempty Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight_swapped",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : ℕ),\n  RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight✝ p q =\n    RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight✝\n      (RiffleLowerV2.Thinning.Compat.HypergeomParams.swapped✝ p) q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.recOn",
+    "type": "{Ω : Type u_1} →\n  [inst : Fintype Ω] →\n    {motive : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → Sort u} →\n      (t : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) →\n        ((mass : Ω → ℝ) →\n            (mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω) →\n              (mass_sum : ∑ ω, mass ω = 1) →\n                motive { mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum }) →\n          motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.ext_mass_iff",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] {p q : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω},\n  p = q ↔ ∀ (ω : Ω), p.mass ω = q.mass ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mean",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform.congr_simp",
+    "type": "∀ (Ω : Type u_4) [inst : Fintype Ω] [inst_1 : Nonempty Ω],\n  RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω = RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mass_eq_zero_of_prob_eq_zero._simp_1_1",
+    "type": "∀ {α : Type u_1} [inst : Preorder α] (a : α), (a ≤ a) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_conditional_residual_mass.match_1_1",
+    "type": "∀ {α : Type u_1} (V : Finset α) (m : ℕ) (motive : (Finset.powersetCard m V).Nonempty → Prop)\n  (x : (Finset.powersetCard m V).Nonempty), (∀ (S : Finset α) (hS : S ∈ Finset.powersetCard m V), motive ⋯) → motive x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight_pos_iff",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : Fin (p.draws + 1)),\n  0 < p.weight q ↔ ↑q ≤ p.marked ∧ p.draws - ↑q ≤ p.population - p.marked"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mass_sum",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (self : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω), ∑ ω, self.mass ω = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.product.eq_1",
+    "type": "∀ {ι : Type u_4} [inst : Fintype ι] {X : ι → Type u_5} [inst_1 : (i : ι) → Fintype (X i)]\n  (p : (i : ι) → RiffleLowerV2.Thinning.Compat.FiniteLaw (X i)),\n  RiffleLowerV2.Thinning.Compat.FiniteLaw.product p =\n    { mass := fun x => ∏ i, (p i).mass (x i), mass_nonneg := ⋯, mass_sum := ⋯ }"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditionalProb_mono_on",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E B D : Ω → Prop),\n  (∀ (ω : Ω), E ω → B ω → D ω) → p.conditionalProb E B ≤ p.conditionalProb E D"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition",
+    "type": "{Ω : Type u_1} →\n  [inst : Fintype Ω] →\n    (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) →\n      (E : Ω → Prop) → 0 < p.prob E → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.pointMass_eq_zero_of_lt._proof_1_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) {q : ℕ}, p.draws < q → ∀ (x : Fin (p.draws + 1)), ↑x = q → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditionalProb",
+    "type": "{Ω : Type u_1} → [inst : Fintype Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → (Ω → Prop) → (Ω → Prop) → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.weighted_choose_sum._proof_1_3",
+    "type": "∀ (K U m r q : ℕ), ¬r + q - r = q → False"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._simp_1_7",
+    "type": "∀ {α : Type u_2} [inst : Zero α] [inst_1 : OfNat α 4] [NeZero 4], (4 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_sub",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f g : Ω → ℝ),\n  (p.expect fun ω => f ω - g ω) = p.expect f - p.expect g"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight_pos_iff._simp_1_1",
+    "type": "∀ {R : Type u} [inst : Semiring R] [inst_1 : LinearOrder R] {a b : R} [ExistsAddOfLE R] [PosMulStrictMono R]\n  [MulPosStrictMono R] [AddLeftStrictMono R] [AddLeftReflectLT R], (0 < a * b) = (0 < a ∧ 0 < b ∨ a < 0 ∧ b < 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.weighted_conditionalProb",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E B : Ω → Prop),\n  p.prob E * p.conditionalProb E B = p.prob fun ω => B ω ∧ E ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition_product_rectangle",
+    "type": "∀ {ι : Type u_4} [inst : Fintype ι] {X : ι → Type u_5} [inst_1 : (i : ι) → Fintype (X i)]\n  (p : (i : ι) → RiffleLowerV2.Thinning.Compat.FiniteLaw (X i)) (E : (i : ι) → X i → Prop)\n  (hE : ∀ (i : ι), 0 < (p i).prob (E i)),\n  (RiffleLowerV2.Thinning.Compat.FiniteLaw.product p).condition (fun x => ∀ (i : ι), E i (x i)) ⋯ =\n    RiffleLowerV2.Thinning.Compat.FiniteLaw.product fun i => (p i).condition (E i) ⋯"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.variance_eq",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f : Ω → ℝ),\n  p.variance f = (p.expect fun ω => f ω ^ 2) - p.expect f ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_mono",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) {E F : Ω → Prop},\n  (∀ (ω : Ω), E ω → F ω) → p.prob E ≤ p.prob F"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._simp_1_10",
+    "type": "∀ {G₀ : Type u_3} [inst : GroupWithZero G₀] {a : G₀} (n : ℤ), a ≠ 0 → (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_true",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω), (p.prob fun x => True) = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.product_prob_rectangle",
+    "type": "∀ {ι : Type u_4} [inst : Fintype ι] {X : ι → Type u_5} [inst_1 : (i : ι) → Fintype (X i)]\n  (p : (i : ι) → RiffleLowerV2.Thinning.Compat.FiniteLaw (X i)) (E : (i : ι) → X i → Prop),\n  ((RiffleLowerV2.Thinning.Compat.FiniteLaw.product p).prob fun x => ∀ (i : ι), E i (x i)) = ∏ i, (p i).prob (E i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.pointMass",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℕ → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform_conditionalProb",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] [inst_1 : Nonempty Ω] (E B : Ω → Prop),\n  (RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω).conditionalProb E B =\n    ↑(Fintype.card { ω // B ω ∧ E ω }) / ↑(Fintype.card { ω // E ω })"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mass",
+    "type": "{Ω : Type u_1} → [inst : Fintype Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → Ω → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.ctorIdx",
+    "type": "{Ω : Type u_1} → {inst : Fintype Ω} → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → ℕ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersection_fibre_card._simp_1_3",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α}, (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._simp_5",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α}, (a ∈ s \\ t) = (a ∈ s ∧ a ∉ t)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditional_variance_eq_of_count_law",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop) (hE : 0 < p.prob E)\n  (Y : Ω → ℕ) (n : ℕ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw (Fin (n + 1))),\n  (∀ (a : ℕ), (p.conditionalProb E fun ω => Y ω = a) = q.prob fun x => ↑x = a) →\n    ∀ (f : ℕ → ℝ), ((p.condition E hE).variance fun ω => f (Y ω)) = q.variance fun x => f ↑x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_false",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω), (p.prob fun x => False) = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.map_expect",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (f : Ω → Γ) (h : Γ → ℝ), (p.map f).expect h = p.expect fun ω => h (f ω)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.map_prob",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (f : Ω → Γ) (B : Γ → Prop), (p.map f).prob B = p.prob fun ω => B (f ω)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition_uniform_mass",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] [inst_1 : Nonempty Ω] (E : Ω → Prop)\n  (hE : 0 < (RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω).prob E) (ω : Ω),\n  ((RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω).condition E hE).mass ω =\n    if E ω then 1 / ↑(Fintype.card { ω // E ω }) else 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mk.congr_simp",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (mass mass_1 : Ω → ℝ) (e_mass : mass = mass_1) (mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω)\n  (mass_sum : ∑ ω, mass ω = 1),\n  { mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum } =\n    { mass := mass_1, mass_nonneg := ⋯, mass_sum := ⋯ }"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.casesOn",
+    "type": "{Ω : Type u_1} →\n  [inst : Fintype Ω] →\n    {motive : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → Sort u} →\n      (t : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) →\n        ((mass : Ω → ℝ) →\n            (mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω) →\n              (mass_sum : ∑ ω, mass ω = 1) →\n                motive { mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum }) →\n          motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.binomial_sum_extended",
+    "type": "∀ {q N : ℕ}, q ≤ N → ∀ (u : ℝ), (1 + u) ^ q = ∑ r ∈ Finset.range (N + 1), ↑(q.choose r) * u ^ r"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.variance_eq_of_count_law",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Y : Ω → ℕ) (n : ℕ)\n  (q : RiffleLowerV2.Thinning.Compat.FiniteLaw (Fin (n + 1))),\n  (∀ (a : ℕ), (p.prob fun ω => Y ω = a) = q.prob fun x => ↑x = a) →\n    ∀ (f : ℕ → ℝ), (p.variance fun ω => f (Y ω)) = q.variance fun x => f ↑x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_eq_of_count_law",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Y : Ω → ℕ) (n : ℕ)\n  (q : RiffleLowerV2.Thinning.Compat.FiniteLaw (Fin (n + 1))),\n  (∀ (a : ℕ), (p.prob fun ω => Y ω = a) = q.prob fun x => ↑x = a) →\n    ∀ (f : ℕ → ℝ), (p.expect fun ω => f (Y ω)) = q.expect fun x => f ↑x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_law._proof_1_2",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m q : ℕ),\n  ¬q ≤ m →\n    ∀ (S : RiffleLowerV2.Thinning.Compat.Sample V m),\n      (A ∩ ↑S).card = q → (A ∩ ↑S).card ≤ (↑S).card → (↑S).card = m → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_7",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ) (hR : R ⊆ V) (hB : B ⊆ R) (hBm : B.card ≤ m)\n  (S : { S // ↑S ∩ R = B }), ↑⟨B ∪ ↑⟨↑↑S \\ R, ⋯⟩, ⋯⟩ ∩ R = B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_prescription_pos_iff",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ),\n  R ⊆ V →\n    B ⊆ R →\n      ∀ (hm : m ≤ V.card),\n        (0 < (RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).prob fun S => ↑S ∩ R = B) ↔\n          B.card ≤ m ∧ m - B.card ≤ (V \\ R).card"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_pointMass._proof_1_3",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m q : ℕ),\n  ¬q ≤ m → ∀ (S : RiffleLowerV2.Thinning.Compat.Sample V m), (A ∩ ↑S).card = q → (A ∩ ↑S).card < m + 1 → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditionalProb.eq_1",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E B : Ω → Prop),\n  p.conditionalProb E B = (p.prob fun ω => B ω ∧ E ω) / p.prob E"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.sampleLaw.match_1",
+    "type": "∀ {α : Type u_1} (V : Finset α) (m : ℕ) (motive : (Finset.powersetCard m V).Nonempty → Prop)\n  (x : (Finset.powersetCard m V).Nonempty), (∀ (S : Finset α) (hS : S ∈ Finset.powersetCard m V), motive ⋯) → motive x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.rec",
+    "type": "{Ω : Type u_1} →\n  [inst : Fintype Ω] →\n    {motive : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → Sort u} →\n      ((mass : Ω → ℝ) →\n          (mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω) →\n            (mass_sum : ∑ ω, mass ω = 1) → motive { mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum }) →\n        (t : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) → motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mean.eq_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), p.mean = ↑p.marked * ↑p.draws / ↑p.population"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditional_prob_eq_of_count_law",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop),\n  0 < p.prob E →\n    ∀ (Y : Ω → ℕ) (n : ℕ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw (Fin (n + 1))),\n      (∀ (a : ℕ), (p.conditionalProb E fun ω => Y ω = a) = q.prob fun x => ↑x = a) →\n        ∀ (B : ℕ → Prop), (p.conditionalProb E fun ω => B (Y ω)) = q.prob fun x => B ↑x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.varianceFormula",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mass_eq_zero_of_prob_eq_zero",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop),\n  p.prob E = 0 → ∀ {ω : Ω}, E ω → p.mass ω = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sampleLaw._proof_1",
+    "type": "∀ {α : Type u_1} (V : Finset α), ∀ m ≤ V.card, Nonempty (RiffleLowerV2.Thinning.Compat.Sample V m)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_const_mul",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (c : ℝ) (f : Ω → ℝ),\n  (p.expect fun ω => c * f ω) = c * p.expect f"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams._sizeOf_1",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℕ"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.rec",
+    "type": "{motive : RiffleLowerV2.Thinning.Compat.HypergeomParams → Sort u} →\n  ((population marked draws : ℕ) →\n      (marked_le : marked ≤ population) →\n        (draws_le : draws ≤ population) →\n          motive\n            { population := population, marked := marked, draws := draws, marked_le := marked_le,\n              draws_le := draws_le }) →\n    (t : RiffleLowerV2.Thinning.Compat.HypergeomParams) → motive t"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_pow_le._proof_1_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  p.draws = 0 → ∀ (q : Fin (p.draws + 1)), ↑q < p.draws + 1 → ¬↑q = 0 → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.pointMass_eq_zero_of_lt",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) {q : ℕ}, p.draws < q → p.pointMass q = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv",
+    "type": "{α : Type u_1} →\n  [inst : DecidableEq α] →\n    (V R B : Finset α) →\n      (m : ℕ) →\n        R ⊆ V → B ⊆ R → B.card ≤ m → { S // ↑S ∩ R = B } ≃ RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF_toReal",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (ω : Ω),\n  (p.toPMF ω).toReal = p.mass ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_conditional_hypergeom_law",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B A : Finset α) (m : ℕ),\n  R ⊆ V →\n    B ⊆ R →\n      ∀ (hm : m ≤ V.card),\n        B.card ≤ m →\n          ∀ (hres : m - B.card ≤ (V \\ R).card) (hA : A ⊆ V \\ R) (q : ℕ),\n            ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).conditionalProb (fun S => ↑S ∩ R = B) fun S =>\n                (A ∩ ↑S).card = q) =\n              (RiffleLowerV2.Thinning.Compat.samplingParams (V \\ R) A (m - B.card) hA hres).law.prob fun x => ↑x = q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mk",
+    "type": "{Ω : Type u_1} →\n  [inst : Fintype Ω] →\n    (mass : Ω → ℝ) → (∀ (ω : Ω), 0 ≤ mass ω) → ∑ ω, mass ω = 1 → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_conditional_intersection_prob",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B A : Finset α) (m q : ℕ),\n  R ⊆ V →\n    B ⊆ R →\n      ∀ (hm : m ≤ V.card),\n        B.card ≤ m →\n          ∀ (hres : m - B.card ≤ (V \\ R).card),\n            A ⊆ V \\ R →\n              ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).conditionalProb (fun S => ↑S ∩ R = B) fun S =>\n                  (A ∩ ↑S).card = q) =\n                (RiffleLowerV2.Thinning.Compat.sampleLaw (V \\ R) (m - B.card) hres).prob fun T => (A ∩ ↑T).card = q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mk.noConfusion",
+    "type": "{Ω : Type u_1} →\n  {inst : Fintype Ω} →\n    {P : Sort u} →\n      {mass : Ω → ℝ} →\n        {mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω} →\n          {mass_sum : ∑ ω, mass ω = 1} →\n            {mass' : Ω → ℝ} →\n              {mass_nonneg' : ∀ (ω : Ω), 0 ≤ mass' ω} →\n                {mass_sum' : ∑ ω, mass' ω = 1} →\n                  { mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum } =\n                      { mass := mass', mass_nonneg := mass_nonneg', mass_sum := mass_sum' } →\n                    (mass ≍ mass' → P) → P"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_pow_le",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) {s : ℝ},\n  0 < s →\n    s ≤ 1 → (p.law.expect fun q => s ^ ↑q) ≤ (1 - ↑p.draws / ↑p.population + ↑p.draws / ↑p.population * s) ^ p.marked"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_eq_of_map_eq",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (X : Ω → Γ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw Γ),\n  p.map X = q → ∀ (f : Γ → ℝ), (p.expect fun ω => f (X ω)) = q.expect f"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.noConfusion",
+    "type": "{P : Sort u} →\n  {t t' : RiffleLowerV2.Thinning.Compat.HypergeomParams} →\n    t = t' → RiffleLowerV2.Thinning.Compat.HypergeomParams.noConfusionType P t t'"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.total_expectation",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (Z : Ω → Γ) (f : Ω → ℝ), p.expect f = ∑ z, (p.prob fun ω => Z ω = z) * p.conditionalExpect (fun ω => Z ω = z) f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.raw_factorial_moment._proof_1_1",
+    "type": "∀ (N K m r : ℕ), K ≤ N → r ≤ N → r ≤ K → ¬K - r + (N - K) = N - r → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw._sizeOf_1",
+    "type": "{Ω : Type u_1} → {inst : Fintype Ω} → [SizeOf Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → ℕ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.integral_toPMF",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) [inst_1 : MeasurableSpace Ω]\n  [MeasurableSingletonClass Ω] (f : Ω → ℝ), ∫ (ω : Ω), f ω ∂p.toPMF.toMeasure = p.expect f"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight_pos_iff._simp_1_2",
+    "type": "∀ {n : ℕ}, (0 < n) = (n ≠ 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_5",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ) (hR : R ⊆ V) (hB : B ⊆ R) (hBm : B.card ≤ m)\n  (T : RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)), ↑⟨B ∪ ↑T, ⋯⟩ ∩ R = B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.variance",
+    "type": "{Ω : Type u_1} → [inst : Fintype Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → (Ω → ℝ) → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.conditional_uniform_sample_intersection_mass",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {Ω : Type u_2} {Γ : Type u_3} [inst_1 : Fintype Ω] [Fintype Γ]\n  (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Z : Ω → Γ) (V : Finset α) (m : ℕ) (hm : m ≤ V.card)\n  (S : Ω → RiffleLowerV2.Thinning.Compat.Sample V m) (A : Γ → Finset α) (z : Γ) (hz : 0 < p.prob fun ω => Z ω = z)\n  (hA : A z ⊆ V),\n  (p.condition (fun ω => Z ω = z) hz).map S = RiffleLowerV2.Thinning.Compat.sampleLaw V m hm →\n    ∀ (q : Fin (m + 1)),\n      (p.conditionalProb (fun ω => Z ω = z) fun ω => (A (Z ω) ∩ ↑(S ω)).card = ↑q) =\n        (RiffleLowerV2.Thinning.Compat.samplingParams V (A z) m hA hm).weight q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform_prob",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] [inst_1 : Nonempty Ω] (E : Ω → Prop),\n  (RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω).prob E = ↑(Fintype.card { ω // E ω }) / ↑(Fintype.card Ω)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.variance_eq_of_map_eq",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (X : Ω → Γ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw Γ),\n  p.map X = q → ∀ (f : Γ → ℝ), (p.variance fun ω => f (X ω)) = q.variance f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_law",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m : ℕ) (hA : A ⊆ V) (hm : m ≤ V.card) (q : ℕ),\n  ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).prob fun S => (A ∩ ↑S).card = q) =\n    (RiffleLowerV2.Thinning.Compat.samplingParams V A m hA hm).law.prob fun x => ↑x = q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_4",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ),\n  R ⊆ V →\n    B ⊆ R →\n      B.card ≤ m → ∀ (T : RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)), B ∪ ↑T ∈ Finset.powersetCard m V"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.pointMass_le_one",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : ℕ), p.pointMass q ≤ 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_inter_eq_zero_of_prob_eq_zero",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E B : Ω → Prop),\n  p.prob E = 0 → (p.prob fun ω => B ω ∧ E ω) = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_val",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), (p.law.expect fun q => ↑↑q) = p.mean"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_mul_pred",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  (p.law.expect fun q => ↑↑q * (↑↑q - 1)) =\n    ↑p.marked * (↑p.marked - 1) * (↑p.draws * (↑p.draws - 1)) / (↑p.population * (↑p.population - 1))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.product._proof_2",
+    "type": "∀ {ι : Type u_1} [inst : Fintype ι] {X : ι → Type u_2} [inst_1 : (i : ι) → Fintype (X i)]\n  (p : (i : ι) → RiffleLowerV2.Thinning.Compat.FiniteLaw (X i)), ∑ ω, ∏ i, (p i).mass (ω i) = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersection_fibre_card._proof_1_4",
+    "type": "∀ {α : Type u_1} (m q : ℕ), q ≤ m → ∀ ⦃U : Finset α × Finset α⦄, U.1.card = q → ¬q + (m - q) = m → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_swapped",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (f : ℕ → ℝ),\n  (p.law.expect fun q => f ↑q) = (RiffleLowerV2.Thinning.Compat.HypergeomParams.swapped✝ p).law.expect fun q => f ↑q"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.ctorIdx",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℕ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.conditional_uniform_sample_intersection_law",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {Ω : Type u_2} {Γ : Type u_3} [inst_1 : Fintype Ω] [Fintype Γ]\n  (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Z : Ω → Γ) (V : Finset α) (m : ℕ) (hm : m ≤ V.card)\n  (S : Ω → RiffleLowerV2.Thinning.Compat.Sample V m) (A : Γ → Finset α) (z : Γ) (hz : 0 < p.prob fun ω => Z ω = z)\n  (hA : A z ⊆ V),\n  (p.condition (fun ω => Z ω = z) hz).map S = RiffleLowerV2.Thinning.Compat.sampleLaw V m hm →\n    ∀ (q : ℕ),\n      (p.conditionalProb (fun ω => Z ω = z) fun ω => (A (Z ω) ∩ ↑(S ω)).card = q) =\n        (RiffleLowerV2.Thinning.Compat.samplingParams V (A z) m hA hm).law.prob fun x => ↑x = q"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mk.injEq",
+    "type": "∀ (population marked draws : ℕ) (marked_le : marked ≤ population) (draws_le : draws ≤ population)\n  (population_1 marked_1 draws_1 : ℕ) (marked_le_1 : marked_1 ≤ population_1) (draws_le_1 : draws_1 ≤ population_1),\n  ({ population := population, marked := marked, draws := draws, marked_le := marked_le, draws_le := draws_le } =\n      { population := population_1, marked := marked_1, draws := draws_1, marked_le := marked_le_1,\n        draws_le := draws_le_1 }) =\n    (population = population_1 ∧ marked = marked_1 ∧ draws = draws_1)"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.noConfusionType",
+    "type": "Sort u → RiffleLowerV2.Thinning.Compat.HypergeomParams → RiffleLowerV2.Thinning.Compat.HypergeomParams → Sort u"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_eq_of_map_eq",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (X : Ω → Γ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw Γ),\n  p.map X = q → ∀ (B : Γ → Prop), (p.prob fun ω => B (X ω)) = q.prob B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_of_population_le_one._proof_1_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  p.population ≤ 1 →\n    p.marked ≤ p.population →\n      p.draws ≤ p.population → ¬(p.marked = 0 ∨ p.draws = 0 ∨ p.marked = p.population ∨ p.draws = p.population) → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_markedComplement._proof_1_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : Fin (p.draws + 1)),\n  ↑q ≤ p.draws → ¬p.draws + 1 - (↑q + 1) = p.draws - ↑q → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.weighted_choose_sum._proof_1_4",
+    "type": "∀ (K U m r q : ℕ), ¬m - (r + q) = m - r - q → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_conditional_residual_mass",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ),\n  R ⊆ V →\n    B ⊆ R →\n      ∀ (hm : m ≤ V.card),\n        B.card ≤ m →\n          m - B.card ≤ (V \\ R).card →\n            ∀ (T : RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)),\n              ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).conditionalProb (fun S => ↑S ∩ R = B) fun S =>\n                  ↑S \\ R = ↑T) =\n                1 / ↑(Fintype.card (RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)))"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.draws",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℕ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersectionCount._proof_2",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (A : Finset α) {V : Finset α} {m : ℕ}\n  (S : RiffleLowerV2.Thinning.Compat.Sample V m), (A ∩ ↑S).card < m + 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mass_nonneg",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (self : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (ω : Ω), 0 ≤ self.mass ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_eq_extended_sum._simp_1_2",
+    "type": "∀ {n m : ℕ}, (m ∈ Finset.range n) = (m < n)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_expect_pow_intersection_le",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m : ℕ) (hm : m ≤ V.card),\n  A ⊆ V →\n    ∀ {s : ℝ},\n      0 < s →\n        ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).expect fun S => s ^ (A ∩ ↑S).card) ≤\n          (1 - ↑m / ↑V.card + ↑m / ↑V.card * s) ^ A.card"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._proof_1_2",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), p.population = 0 → p.draws ≤ p.population → ¬p.draws = 0 → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_nonneg",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) {f : Ω → ℝ},\n  (∀ (ω : Ω), 0 ≤ f ω) → 0 ≤ p.expect f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition_prob",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E B : Ω → Prop)\n  (hE : 0 < p.prob E), (p.condition E hE).prob B = p.conditionalProb E B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_add",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f g : Ω → ℝ),\n  (p.expect fun ω => f ω + g ω) = p.expect f + p.expect g"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._proof_1_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  p.population = 0 → p.marked ≤ p.population → ¬p.marked = 0 → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight.eq_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : Fin (p.draws + 1)),\n  p.weight q =\n    ↑(p.marked.choose ↑q) * ↑((p.population - p.marked).choose (p.draws - ↑q)) / ↑(p.population.choose p.draws)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._proof_1_4",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), ¬p.population ≤ 1 → ¬2 ≤ p.population → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mk.injEq",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (mass : Ω → ℝ) (mass_nonneg : ∀ (ω : Ω), 0 ≤ mass ω) (mass_sum : ∑ ω, mass ω = 1)\n  (mass_1 : Ω → ℝ) (mass_nonneg_1 : ∀ (ω : Ω), 0 ≤ mass_1 ω) (mass_sum_1 : ∑ ω, mass_1 ω = 1),\n  ({ mass := mass, mass_nonneg := mass_nonneg, mass_sum := mass_sum } =\n      { mass := mass_1, mass_nonneg := mass_nonneg_1, mass_sum := mass_sum_1 }) =\n    (mass = mass_1)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_of_population_le_one",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), p.population ≤ 1 → (p.law.variance fun q => ↑↑q) = 0"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._simp_1_7",
+    "type": "∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] {n : ℕ}, (↑n = 0) = (n = 0)"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.markedComplement._proof_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), p.population - p.marked ≤ p.population"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.population",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℕ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_const._simp_1_2",
+    "type": "∀ {ι : Type u_1} {R : Type u_4} [inst : NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R) (a : R),\n  ∑ i ∈ s, f i * a = (∑ i ∈ s, f i) * a"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._simp_1_5",
+    "type": "∀ {α : Type u_2} [inst : Zero α] [inst_1 : OfNat α 2] [NeZero 2], (2 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight_swapped._proof_1_4",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  ∀ q ≤ p.draws,\n    q ≤ p.marked →\n      p.draws - q ≤ p.population - p.marked →\n        p.marked ≤ p.population → p.draws ≤ p.population → ¬p.marked - q ≤ p.population - p.draws → False"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._simp_1_9",
+    "type": "∀ {M₀ : Type u_1} [inst : MonoidWithZero M₀] {a : M₀} [IsReduced M₀] (n : ℕ), a ≠ 0 → (a ^ n = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.map._proof_1",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f : Ω → Γ) (x : Γ),\n  0 ≤ p.prob fun ω => f ω = x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.map",
+    "type": "{Ω : Type u_1} →\n  {Γ : Type u_2} →\n    [inst : Fintype Ω] →\n      [inst_1 : Fintype Γ] →\n        RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → (Ω → Γ) → RiffleLowerV2.Thinning.Compat.FiniteLaw Γ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.pointMass_eq_weight",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : Fin (p.draws + 1)), p.pointMass ↑q = p.weight q"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff._simp_1_6",
+    "type": "∀ {M₀ : Type u_1} [inst : MulZeroClass M₀] [NoZeroDivisors M₀] {a b : M₀}, (a * b = 0) = (a = 0 ∨ b = 0)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_mass._proof_1_1",
+    "type": "∀ {α : Type u_1} [DecidableEq α] (V A : Finset α) (m : ℕ) (q : Fin (m + 1)), ¬↑q ≤ m → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.product",
+    "type": "{ι : Type u_4} →\n  [inst : Fintype ι] →\n    {X : ι → Type u_5} →\n      [inst_1 : (i : ι) → Fintype (X i)] →\n        ((i : ι) → RiffleLowerV2.Thinning.Compat.FiniteLaw (X i)) →\n          RiffleLowerV2.Thinning.Compat.FiniteLaw ((i : ι) → X i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform_conditional_point_of_fiber_equiv",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] [inst_2 : Nonempty Ω] (E : Ω → Prop),\n  0 < (RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω).prob E →\n    ∀ (f : Ω → Γ) (e : { ω // E ω } ≃ Γ),\n      (∀ (ω : Ω) (h : E ω), f ω = e ⟨ω, h⟩) →\n        ∀ (z : Γ),\n          ((RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω).conditionalProb E fun ω => f ω = z) =\n            1 / ↑(Fintype.card Γ)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.shifted_anticoncentration_transfer",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} {Δ : Type u_3} [inst : Fintype Ω] [Fintype Γ] [Fintype Δ]\n  (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (Z : Ω → Γ) (U : Ω → Δ) (g : Γ → Δ),\n  (∀ (ω : Ω), U ω = g (Z ω)) →\n    ∀ (A : Γ → ℤ) (Y : Ω → ℕ) (H : Γ → Prop) (S : Ω → Prop),\n      (∀ (ω : Ω), S ω → H (Z ω)) →\n        ∀ (b : ℝ),\n          0 ≤ b →\n            (∀ (z : Γ),\n                (0 < p.prob fun ω => Z ω = z) →\n                  H z → ∀ (q : ℕ), (p.conditionalProb (fun ω => Z ω = z) fun ω => Y ω = q) ≤ b) →\n              ∀ (u : Δ),\n                (0 < p.prob fun ω => U ω = u) →\n                  ∀ (j : ℤ), (p.conditionalProb (fun ω => U ω = u) fun ω => A (Z ω) + ↑(Y ω) = j ∧ S ω) ≤ b"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._simp_1_6",
+    "type": "∀ {α : Type u_2} [inst : Zero α] [inst_1 : OfNat α 3] [NeZero 3], (3 = 0) = False"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mk.noConfusion",
+    "type": "{P : Sort u} →\n  {population marked draws : ℕ} →\n    {marked_le : marked ≤ population} →\n      {draws_le : draws ≤ population} →\n        {population' marked' draws' : ℕ} →\n          {marked_le' : marked' ≤ population'} →\n            {draws_le' : draws' ≤ population'} →\n              { population := population, marked := marked, draws := draws, marked_le := marked_le,\n                    draws_le := draws_le } =\n                  { population := population', marked := marked', draws := draws', marked_le := marked_le',\n                    draws_le := draws_le' } →\n                (population = population' → marked = marked' → draws = draws' → P) → P"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mean_nonneg",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), 0 ≤ p.mean"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_choose",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (r : ℕ),\n  (p.law.expect fun q => ↑((↑q).choose r)) =\n    ↑(p.marked.choose r) * ↑(p.draws.descFactorial r) / ↑(p.population.descFactorial r)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.chebyshev",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f : Ω → ℝ) {t : ℝ},\n  0 < t → (p.prob fun ω => t ≤ |f ω - p.expect f|) ≤ p.variance f / t ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_conditional_hypergeom_mass",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B A : Finset α) (m : ℕ),\n  R ⊆ V →\n    B ⊆ R →\n      ∀ (hm : m ≤ V.card),\n        B.card ≤ m →\n          ∀ (hres : m - B.card ≤ (V \\ R).card) (hA : A ⊆ V \\ R) (q : Fin (m - B.card + 1)),\n            ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).conditionalProb (fun S => ↑S ∩ R = B) fun S =>\n                (A ∩ ↑S).card = ↑q) =\n              (RiffleLowerV2.Thinning.Compat.samplingParams (V \\ R) A (m - B.card) hA hres).weight q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_expect_intersection_eq_hypergeom",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m : ℕ) (hm : m ≤ V.card) (hA : A ⊆ V) (f : ℕ → ℝ),\n  ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).expect fun S => f (A ∩ ↑S).card) =\n    (RiffleLowerV2.Thinning.Compat.samplingParams V A m hA hm).law.expect fun q => f ↑q"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams._sizeOf_inst",
+    "type": "SizeOf RiffleLowerV2.Thinning.Compat.HypergeomParams"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mk",
+    "type": "(population marked draws : ℕ) → marked ≤ population → draws ≤ population → RiffleLowerV2.Thinning.Compat.HypergeomParams"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), (p.law.variance fun q => ↑↑q) = p.varianceFormula"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.noConfusion",
+    "type": "{P : Sort u} →\n  {Ω : Type u_1} →\n    {inst : Fintype Ω} →\n      {t : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω} →\n        {Ω' : Type u_1} →\n          {inst' : Fintype Ω'} →\n            {t' : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω'} →\n              Ω = Ω' → inst ≍ inst' → t ≍ t' → RiffleLowerV2.Thinning.Compat.FiniteLaw.noConfusionType P t t'"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._proof_1_4",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  p.population = 1 → p.draws ≤ p.population → ¬(p.draws = 0 ∨ p.draws = 1) → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.mk._flat_ctor",
+    "type": "{Ω : Type u_1} →\n  [inst : Fintype Ω] →\n    (mass : Ω → ℝ) → (∀ (ω : Ω), 0 ≤ mass ω) → ∑ ω, mass ω = 1 → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_union_le",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E F : Ω → Prop),\n  (p.prob fun ω => E ω ∨ F ω) ≤ p.prob E + p.prob F"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditionalProb_nonneg",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E B : Ω → Prop),\n  0 ≤ p.conditionalProb E B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.sampleLaw",
+    "type": "{α : Type u_1} →\n  (V : Finset α) →\n    (m : ℕ) → m ≤ V.card → RiffleLowerV2.Thinning.Compat.FiniteLaw (RiffleLowerV2.Thinning.Compat.Sample V m)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.intersectionCount",
+    "type": "{α : Type u_1} →\n  [DecidableEq α] → Finset α → {V : Finset α} → {m : ℕ} → RiffleLowerV2.Thinning.Compat.Sample V m → Fin (m + 1)"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_val._simp_1_11",
+    "type": "∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] (n : ℕ), (↑n + 1 = 0) = False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_nonneg",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop), 0 ≤ p.prob E"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.markedComplement",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → RiffleLowerV2.Thinning.Compat.HypergeomParams"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight_pos_iff._simp_1_3",
+    "type": "∀ {n k : ℕ}, (n.choose k = 0) = (n < k)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_9",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ) (hR : R ⊆ V) (hB : B ⊆ R) (hBm : B.card ≤ m)\n  (T : RiffleLowerV2.Thinning.Compat.Sample (V \\ R) (m - B.card)),\n  ↑↑⟨⟨B ∪ ↑T, ⋯⟩, ⋯⟩ \\ R ∈ Finset.powersetCard (m - B.card) (V \\ R)"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.swapped",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → RiffleLowerV2.Thinning.Compat.HypergeomParams"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_law._proof_1_1",
+    "type": "∀ {α : Type u_1} (V : Finset α) (m q : ℕ), q ≤ m → ¬q < m + 1 → False"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams",
+    "type": "Type"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.descFactorial_ratio_le_pow._proof_1_1",
+    "type": "∀ {N : ℕ} {m : ℕ} (r : ℕ), ¬r < m → ¬m < r + 1 → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_eq_of_count_law._simp_1_2",
+    "type": "∀ {α : Type u_1} [inst : Fintype α] (x : α), (x ∈ Finset.univ) = True"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition._proof_1",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop),\n  0 < p.prob E → ∀ (ω : Ω), 0 ≤ (if E ω then p.mass ω else 0) / p.prob E"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersectionCount._proof_1",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (A : Finset α) {V : Finset α} {m : ℕ}\n  (S : RiffleLowerV2.Thinning.Compat.Sample V m),\n  (A ∩ ↑S).card ≤ (↑S).card → (↑S).card = m → ¬(A ∩ ↑S).card < m + 1 → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect",
+    "type": "{Ω : Type u_1} → [inst : Fintype Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → (Ω → ℝ) → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.raw_factorial_moment._proof_1_3",
+    "type": "∀ (N K m r : ℕ), ¬r ≤ m → ¬m < r → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_mul_const",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (f : Ω → ℝ) (c : ℝ),\n  (p.expect fun ω => f ω * c) = p.expect f * c"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_one_add_pow_le",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) {u : ℝ},\n  0 ≤ u → (p.law.expect fun q => (1 + u) ^ ↑q) ≤ (1 + ↑p.draws / ↑p.population * u) ^ p.marked"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.variance_eq_zero_iff",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  (p.law.variance fun q => ↑↑q) = 0 ↔ p.marked = 0 ∨ p.draws = 0 ∨ p.marked = p.population ∨ p.draws = p.population"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_mono",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) {f g : Ω → ℝ},\n  (∀ (ω : Ω), f ω ≤ g ω) → p.expect f ≤ p.expect g"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditional_expect_eq_of_map_eq",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (E : Ω → Prop) (hE : 0 < p.prob E) (X : Ω → Γ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw Γ),\n  (p.condition E hE).map X = q → ∀ (f : Γ → ℝ), (p.conditionalExpect E fun ω => f (X ω)) = q.expect f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform.eq_1",
+    "type": "∀ (Ω : Type u_4) [inst : Fintype Ω] [inst_1 : Nonempty Ω],\n  RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform Ω =\n    { mass := fun x => 1 / ↑(Fintype.card Ω), mass_nonneg := ⋯, mass_sum := ⋯ }"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersection_fibre_card",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m q : ℕ),\n  A ⊆ V →\n    q ≤ m → {S ∈ Finset.powersetCard m V | (A ∩ S).card = q}.card = A.card.choose q * (V.card - A.card).choose (m - q)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.expect_const",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (c : ℝ), (p.expect fun x => c) = c"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.draws_le",
+    "type": "∀ (self : RiffleLowerV2.Thinning.Compat.HypergeomParams), self.draws ≤ self.population"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.uniform._proof_1",
+    "type": "∀ (Ω : Type u_1) [inst : Fintype Ω] (x : Ω), 0 ≤ 1 / ↑(Fintype.card Ω)"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.markedComplement.eq_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  RiffleLowerV2.Thinning.Compat.HypergeomParams.markedComplement✝ p =\n    { population := p.population, marked := p.population - p.marked, draws := p.draws, marked_le := ⋯, draws_le := ⋯ }"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_eq_extended_sum",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (f : ℕ → ℝ),\n  (p.law.expect fun q => f ↑q) =\n    ∑ q ∈ Finset.range (p.population + 1), RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight✝ p q * f q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.intersection_fibre_card._simp_1_2",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {a : α} {s₁ s₂ : Finset α}, (a ∈ s₁ ∩ s₂) = (a ∈ s₁ ∧ a ∈ s₂)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.raw_factorial_moment",
+    "type": "∀ (N K m r : ℕ),\n  K ≤ N →\n    m ≤ N →\n      ∑ q, ↑(K.choose ↑q) * ↑((N - K).choose (m - ↑q)) / ↑(N.choose m) * ↑((↑q).descFactorial r) =\n        ↑(K.descFactorial r) * ↑(m.descFactorial r) / ↑(N.descFactorial r)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition_mass",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop) (hE : 0 < p.prob E)\n  (ω : Ω), (p.condition E hE).mass ω = (if E ω then p.mass ω else 0) / p.prob E"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricMoments.0.RiffleLowerV2.Thinning.Compat.raw_factorial_moment._proof_1_2",
+    "type": "∀ (N K m r : ℕ), ¬r ≤ K → ¬K < r → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._simp_3",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] {a : α} {s₁ s₂ : Finset α}, (a ∈ s₁ ∩ s₂) = (a ∈ s₁ ∧ a ∈ s₂)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_pow_le_all",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) {s : ℝ},\n  0 < s → (p.law.expect fun q => s ^ ↑q) ≤ (1 - ↑p.draws / ↑p.population + ↑p.draws / ↑p.population * s) ^ p.marked"
+  },
+  {
+    "axioms": [],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.marked",
+    "type": "RiffleLowerV2.Thinning.Compat.HypergeomParams → ℕ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.condition.congr_simp",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p p_1 : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (e_p : p = p_1)\n  (E E_1 : Ω → Prop) (e_E : E = E_1) (hE : 0 < p.prob E), p.condition E hE = p_1.condition E_1 ⋯"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob_le_one",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop), p.prob E ≤ 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.sum_conditional_atom_prob",
+    "type": "∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype Ω] [inst_1 : Fintype Γ] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω)\n  (E : Ω → Prop), 0 < p.prob E → ∀ (Z : Ω → Γ), (∑ z, p.conditionalProb E fun ω => Z ω = z) = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_pointMass._proof_1_1",
+    "type": "∀ {α : Type u_1} (V : Finset α) (m q : ℕ), q ≤ m → ¬q < m + 1 → False"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.law.eq_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), p.law = { mass := p.weight, mass_nonneg := ⋯, mass_sum := ⋯ }"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.product_prob_rectangle_pos",
+    "type": "∀ {ι : Type u_4} [inst : Fintype ι] {X : ι → Type u_5} [inst_1 : (i : ι) → Fintype (X i)]\n  (p : (i : ι) → RiffleLowerV2.Thinning.Compat.FiniteLaw (X i)) (E : (i : ι) → X i → Prop),\n  (∀ (i : ι), 0 < (p i).prob (E i)) →\n    0 < (RiffleLowerV2.Thinning.Compat.FiniteLaw.product p).prob fun x => ∀ (i : ι), E i (x i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_intersection_pointMass",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V A : Finset α) (m : ℕ) (hA : A ⊆ V) (hm : m ≤ V.card) (q : ℕ),\n  ((RiffleLowerV2.Thinning.Compat.sampleLaw V m hm).prob fun S => (A ∩ ↑S).card = q) =\n    (RiffleLowerV2.Thinning.Compat.samplingParams V A m hA hm).pointMass q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.sample_prescription_pos_iff.match_1_1",
+    "type": "∀ {α : Type u_1} (V : Finset α) (m : ℕ) (motive : (Finset.powersetCard m V).Nonempty → Prop)\n  (x : (Finset.powersetCard m V).Nonempty), (∀ (S : Finset α) (hS : S ∈ Finset.powersetCard m V), motive ⋯) → motive x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditional_expect_eq_of_count_law",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop),\n  0 < p.prob E →\n    ∀ (Y : Ω → ℕ) (n : ℕ) (q : RiffleLowerV2.Thinning.Compat.FiniteLaw (Fin (n + 1))),\n      (∀ (a : ℕ), (p.conditionalProb E fun ω => Y ω = a) = q.prob fun x => ↑x = a) →\n        ∀ (f : ℕ → ℝ), (p.conditionalExpect E fun ω => f (Y ω)) = q.expect fun x => f ↑x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight.eq_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (q : ℕ),\n  RiffleLowerV2.Thinning.Compat.HypergeomParams.extendedWeight✝ p q =\n    if q ≤ p.draws then\n      ↑(p.marked.choose q) * ↑((p.population - p.marked).choose (p.draws - q)) / ↑(p.population.choose p.draws)\n    else 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.conditionalExpect",
+    "type": "{Ω : Type u_1} → [inst : Fintype Ω] → RiffleLowerV2.Thinning.Compat.FiniteLaw Ω → (Ω → Prop) → (Ω → ℝ) → ℝ"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight_sum",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams), ∑ q, p.weight q = 1"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.mk.congr_simp",
+    "type": "∀ (population population_1 : ℕ) (e_population : population = population_1) (marked marked_1 : ℕ)\n  (e_marked : marked = marked_1) (draws draws_1 : ℕ) (e_draws : draws = draws_1) (marked_le : marked ≤ population)\n  (draws_le : draws ≤ population),\n  { population := population, marked := marked, draws := draws, marked_le := marked_le, draws_le := draws_le } =\n    { population := population_1, marked := marked_1, draws := draws_1, marked_le := ⋯, draws_le := ⋯ }"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.residualSampleEquiv._proof_8",
+    "type": "∀ {α : Type u_1} [inst : DecidableEq α] (V R B : Finset α) (m : ℕ) (hR : R ⊆ V) (hB : B ⊆ R) (hBm : B.card ≤ m)\n  (S : { S // ↑S ∩ R = B }), ⟨⟨B ∪ ↑⟨↑↑S \\ R, ⋯⟩, ⋯⟩, ⋯⟩ = S"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.varianceFormula.eq_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  p.varianceFormula =\n    ↑p.marked * ↑p.draws * (↑p.population - ↑p.marked) * (↑p.population - ↑p.draws) /\n      (↑p.population ^ 2 * (↑p.population - 1))"
+  },
+  {
+    "axioms": [],
+    "is_theorem": true,
+    "name": "_private.RiffleLowerV2.Thinning.Compat.HypergeometricConcentration.0.RiffleLowerV2.Thinning.Compat.HypergeomParams.swapped.eq_1",
+    "type": "∀ (p : RiffleLowerV2.Thinning.Compat.HypergeomParams),\n  RiffleLowerV2.Thinning.Compat.HypergeomParams.swapped✝ p =\n    { population := p.population, marked := p.draws, draws := p.marked, marked_le := ⋯, draws_le := ⋯ }"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF._proof_1",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω), ∑ a, ENNReal.ofReal (p.mass a) = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.HypergeomParams.weight_sum._simp_1_2",
+    "type": "∀ {ι : Type u_1} {K : Type u_2} [inst : DivisionSemiring K] (s : Finset ι) (f : ι → K) (a : K),\n  ∑ i ∈ s, f i / a = (∑ i ∈ s, f i) / a"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.Compat.FiniteLaw.prob.eq_1",
+    "type": "∀ {Ω : Type u_1} [inst : Fintype Ω] (p : RiffleLowerV2.Thinning.Compat.FiniteLaw Ω) (E : Ω → Prop),\n  p.prob E = ∑ ω, if E ω then p.mass ω else 0"
+  }
+]

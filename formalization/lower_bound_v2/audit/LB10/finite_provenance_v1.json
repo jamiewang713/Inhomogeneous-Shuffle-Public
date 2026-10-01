@@ -1,0 +1,20 @@
+{
+  "source_label": "prop:largest-prefix",
+  "source_hashes": {
+    "lean-lower-bound/RiffleLower/LowerBounds.lean": "c109105f1af13f2ec3587d1e2dfd4f5a8f8fa20096d85b30822224e98e23c11b",
+    "lean-lower-bound/RiffleLower/FiniteProbability.lean": "1918946b462cfec9183ddcd50280abbe65185b89a65de8064a9884559fde276a",
+    "lean-lower-bound/RiffleLower/Sorting.lean": "3e0ade77a5b306f6d0eea3c876206180e0230394dd16b5058360b3f2b5ffa656",
+    "lean-lower-bound/RiffleLower/UniformPermutation.lean": "a913ea3b16b8a43b5e615d8578c0b93282b9aee21cdcf5d6f90cee92eb3ca339",
+    "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestFinite.lean": "08c491435949bc39be23bebfcc8136a53574785b28ac03e83250d33e10a1cc7d"
+  },
+  "historical_port": "Natural relative-order counts U01--U06 adapted from UniformPermutation.lean; probability wrappers use canonical shared PMFs. Canonical LB01 prefix ranks/stable ties replace historical Sorting.lean proof. Historical LowerBounds.lean and FiniteProbability.lean inspected, not imported.",
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "build_log": "audit/LB10/largest-finite-dev03.log",
+  "literal_target_check_log": "audit/LB10/finite_check_v1.log",
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

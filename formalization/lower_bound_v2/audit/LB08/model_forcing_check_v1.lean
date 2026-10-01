@@ -1,0 +1,16 @@
+import RiffleLowerV2.Occupancy.Forcing
+open RiffleLowerV2
+#check Occupancy.sameWord_forcing_probability
+#check Occupancy.sameWord_forcing_pos
+#check Occupancy.falling_eq_forcing_sum
+#check Occupancy.falling_expect_eq_forcing_sum
+#check Occupancy.falling_weighted_event_eq_forcing_sum
+#check Occupancy.forcing_weighted_relative_error
+#check Occupancy.sameWord_prescribed_other_count
+#print axioms Occupancy.sameWord_forcing_probability
+#print axioms Occupancy.sameWord_forcing_pos
+#print axioms Occupancy.falling_eq_forcing_sum
+#print axioms Occupancy.falling_expect_eq_forcing_sum
+#print axioms Occupancy.falling_weighted_event_eq_forcing_sum
+#print axioms Occupancy.forcing_weighted_relative_error
+#print axioms Occupancy.sameWord_prescribed_other_count

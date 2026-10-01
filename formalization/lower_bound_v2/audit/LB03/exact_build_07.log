@@ -1,0 +1,152 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:20:8: warning: Possibly looping simp theorem: `Fintype.card_subtype`
+
+Note: Possibly caused by: `Finset.card_eq_sum_ones` and `Finset.sum_const`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:20:30: warning: Possibly looping simp theorem: `Finset.card_eq_sum_ones`
+
+Note: Possibly caused by: `Finset.sum_const`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:20:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:101:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  {i | sampleEntry ω i j = a}.card
+in the target expression
+  {i | sampleEntry ω i j = a}.card = {q | sampleEntry ω (r.row q) j = a}.card + {q | sampleEntry ω (e q) j = a}.card
+
+N k K b : ℕ
+cuts : Cuts k N K
+r : RowPrescription N k K b
+hr : Function.Injective r.row
+e : Fin (N - b) → Fin N
+he : Function.Injective e
+hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i
+ω : Sample cuts
+hω : prescriptionEvent r ω
+j : Fin K
+a : Fin k
+h : {i | sampleEntry ω i j = a}.card = {q | sampleEntry ω (r.row q) j = a}.card + {q | sampleEntry ω (e q) j = a}.card
+horig : {i | sampleEntry ω i j = a}.card = cuts.count j a
+hused : {q | sampleEntry ω (r.row q) j = a}.card = usedCount r j a
+⊢ {q | sampleEntry ω (e q) j = a}.card = cuts.count j a - usedCount r j a
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:149:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  {i | sampleEntry ω i j = a}.card
+in the target expression
+  {i | sampleEntry ω i j = a}.card = {q | sampleEntry ω (r.row q) j = a}.card + {q | sampleEntry ω (e q) j = a}.card
+
+N k K b : ℕ
+cuts : Cuts k N K
+r : RowPrescription N k K b
+hr : Function.Injective r.row
+e : Fin (N - b) → Fin N
+he : Function.Injective e
+hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i
+ω : Sample cuts
+hω : prescriptionEvent r ω
+residual : Cuts k (N - b) K
+hres : ∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - usedCount r j a
+j : Fin K
+a : Fin k
+h : {i | sampleEntry ω i j = a}.card = {q | sampleEntry ω (r.row q) j = a}.card + {q | sampleEntry ω (e q) j = a}.card
+horig : {i | sampleEntry ω i j = a}.card = cuts.count j a
+hused : {q | sampleEntry ω (r.row q) j = a}.card = usedCount r j a
+⊢ usedCount r j a + residual.count j a = cuts.count j a
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:211:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  {i | ?a i = ?l}.card
+in the target expression
+  {i | (fun i => rawGlue r hr e he hc (sampleRow η) i j) i = a}.card = cuts.count j a
+
+N k K b : ℕ
+cuts : Cuts k N K
+r : RowPrescription N k K b
+hr : Function.Injective r.row
+e : Fin (N - b) → Fin N
+he : Function.Injective e
+hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i
+residual : Cuts k (N - b) K
+hbal : ∀ (j : Fin K) (a : Fin k), usedCount r j a + residual.count j a = cuts.count j a
+η : Sample residual
+j : Fin K
+a : Fin k
+⊢ {i | (fun i => rawGlue r hr e he hc (sampleRow η) i j) i = a}.card = cuts.count j a
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:311:4: error: `simp` made no progress
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:316:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  {i | rowWord (↑ω) i = w}.card
+in the target expression
+  {i | rowWord (↑ω) i = w}.card = {q | rowWord (↑ω) (p.row q) = w}.card + {q | rowWord (↑ω) (e q) = w}.card
+
+N k K b : ℕ
+cuts : Cuts k N K
+p : RowPrescription N k K b
+hp : Function.Injective p.row
+e : Fin (N - b) → Fin N
+he : Function.Injective e
+hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, p.row q = i
+residual : Cuts k (N - b) K
+hres : ∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - usedCount p j a
+ω : { ω // prescriptionEvent p ω }
+w : Word k K
+h : {i | rowWord (↑ω) i = w}.card = {q | rowWord (↑ω) (p.row q) = w}.card + {q | rowWord (↑ω) (e q) = w}.card
+horig : {i | rowWord (↑ω) i = w}.card = wordCount w ↑ω
+hused : {q | rowWord (↑ω) (p.row q) = w}.card = {q | p.word q = w}.card
+hremaining : {q | rowWord (↑ω) (e q) = w}.card = wordCount w (restrictSample p hp e he hc residual hres ω)
+⊢ wordCount w ↑ω - {q | p.word q = w}.card = wordCount w (restrictSample p hp e he hc residual hres ω)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:347:18: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  expect (fixedCountPMF residual) (factorialProduct w r)
+in the target expression
+  expect (PMF.uniformOfFintype (Sample residual)) (factorialProduct w r) =
+    falling (N - b) (∑ i, r i) *
+      ∏ j, (∏ a, falling (cuts.count j a - usedCount p j a) (requestedCount w r j a)) / falling (N - b) (∑ i, r i)
+
+k N K b d : ℕ
+cuts : Cuts k N K
+p : RowPrescription N k K b
+_hb : b < N
+hp : Function.Injective p.row
+hprob : 0 < probability (fixedCountPMF cuts) (prescriptionEvent p)
+w : Fin d → Word k K
+r : Fin d → ℕ
+hw : Function.Injective w
+hR : ∑ i, r i ≤ N - b
+residual : Cuts k (N - b) K
+hres : ∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - usedCount p j a
+u : Fin (N - b) ≃ unusedRows p := unusedEnumeration p hp
+e : Fin (N - b) → Fin N := fun q => ↑(u q)
+he : Function.Injective e
+hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, p.row q = i
+ω : Sample cuts
+hω : prescriptionEvent p ω
+hbal : ∀ (j : Fin K) (a : Fin k), usedCount p j a + residual.count j a = cuts.count j a :=
+  residual_balance p hp e he hc ω hω residual hres
+eqv : { ω // prescriptionEvent p ω } ≃ Sample residual := residualSampleEquiv p hp e he hc residual hres hbal
+htransport :
+  conditionalExpect (fixedCountPMF cuts) (fun ω => ∏ i, falling (wordCount (w i) ω - {q | p.word q = w i}.card) (r i))
+      (prescriptionEvent p) =
+    expect (PMF.uniformOfFintype (Sample residual)) (factorialProduct w r)
+⊢ expect (PMF.uniformOfFintype (Sample residual)) (factorialProduct w r) =
+    falling (N - b) (∑ i, r i) *
+      ∏ j, (∏ a, falling (cuts.count j a - usedCount p j a) (requestedCount w r j a)) / falling (N - b) (∑ i, r i)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean:375:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  conditionalExpect (fixedCountPMF cuts) (fun ω => ↑(wordCount w ω - {q | p.word q = w}.card)) (prescriptionEvent p) =
+    ↑(N - b) *
+      ∏ j,
+        (∏ a, ↑((cuts.count j a - usedCount p j a).descFactorial (requestedCount (fun x => w) (fun i => 1) j a))) /
+          ↑(N - b)
+but is expected to have type
+  conditionalExpect (fixedCountPMF cuts) (fun ω => ↑(wordCount w ω - {q | p.word q = w}.card)) (prescriptionEvent p) =
+    ↑(N - b) * ∏ j, ↑(cuts.count j (List.Vector.get w j) - usedCount p j (List.Vector.get w j)) / ↑(N - b)
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB03/lib/lean/RiffleLowerV2/Factorial/Residual.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean']' returned non-zero exit status 1.

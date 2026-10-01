@@ -1,0 +1,47 @@
+[
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.logScale_le_two_logScale_sub",
+    "type": "\u2200 {N b : \u2115}, 2 \u2264 N - b \u2192 \u2191N \u2264 2 * \u2191(N - b) \u2192 TimeProfile.logScale N \u2264 2 * TimeProfile.logScale (N - b)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.tau_sub_le_two_tau",
+    "type": "\u2200 {N b : \u2115}, 0 < N \u2192 \u2191N \u2264 2 * \u2191(N - b) \u2192 RiffleLowerV2.Occupancy.tau (N - b) \u2264 2 * RiffleLowerV2.Occupancy.tau N"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.eventual_residual_budgets",
+    "type": "\u2200 (c C D : \u211d),\n  0 < c \u2192\n    \u2200 (b0 M0 : \u2115),\n      \u2203 (N0 : \u2115),\n        b0 < N0 \u2227\n          2 \u2264 N0 \u2227\n            \u2200 N \u2265 N0,\n              \u2200 b \u2264 b0,\n                b < N \u2227\n                  2 \u2264 N - b \u2227\n                    M0 \u2264 N - b \u2227\n                      2 * \u2191b \u2264 c * \u2191N \u2227\n                        \u2191N \u2264 2 * \u2191(N - b) \u2227\n                          TimeProfile.logScale N \u2264 2 * TimeProfile.logScale (N - b) \u2227\n                            RiffleLowerV2.Occupancy.tau (N - b) \u2264 2 * RiffleLowerV2.Occupancy.tau N \u2227\n                              RiffleLowerV2.Occupancy.tau N \u2264 1 / 2 \u2227\n                                D * (C * TimeProfile.logScale N + 1) * \u2191b0 / \u2191N \u2264 RiffleLowerV2.Occupancy.tau N"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.residual_selected_piles",
+    "type": "\u2200 {N k K b : \u2115} (cuts : TimeProfile.Cuts k N K) (p : RiffleLowerV2.RowPrescription N k K b) (w : RiffleLowerV2.Word k K)\n  (residual : TimeProfile.Cuts k (N - b) K),\n  (\u2200 (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - RiffleLowerV2.usedCount p j a) \u2192\n    \u2200 {c : \u211d},\n      0 < c \u2192\n        2 * \u2191b \u2264 c * \u2191N \u2192\n          (\u2200 (j : Fin K), c * \u2191N \u2264 \u2191(cuts.count j (List.Vector.get w j))) \u2192\n            \u2200 (j : Fin K), c / 2 * \u2191(N - b) \u2264 \u2191(residual.count j (List.Vector.get w j))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.conditionalCollisionStability",
+    "type": "RiffleLowerV2.Targets.ConditionalCollisionStability"
+  }
+]

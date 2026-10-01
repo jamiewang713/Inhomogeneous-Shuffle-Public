@@ -1,0 +1,92 @@
+{
+  "lane": "LB11",
+  "status": "COMPLETED_LANE_READY_FOR_COORDINATOR_INTEGRATION",
+  "recorded_at": "2026-10-01T18:35:59.939768+00:00",
+  "entry_point": "RiffleLowerV2.MacroscopicLower.Main",
+  "required_exports": {
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget"
+  },
+  "additional_exports": [
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto"
+  ],
+  "build_command": "python3 scripts/lane.py LB11 RiffleLowerV2.MacroscopicLower.Main",
+  "verification_command": "python3 audit/LB11/verify_lane_v2.py v2",
+  "fresh_reproduction_command": "python3 audit/LB11/verify_lane_v2.py v3",
+  "verification": "audit/LB11/VERIFICATION_v2.json",
+  "successful_build_log": "audit/LB11/final-build-v2.log",
+  "expanded_type_and_axiom_log": "audit/LB11/final-audit-v2.log",
+  "exports": "audit/LB11/EXPORTS_v1.md",
+  "delivery": "audit/LB11/DELIVERY_v1.md",
+  "source_hashes": {
+    "RiffleLowerV2/MacroscopicLower/Main.lean": "9983f9b9b097ef9cfc67374521a1639693cb3b1e745890ab6bd2323acf5e33c7",
+    "RiffleLowerV2/MacroscopicLower/Parameters.lean": "ac7da881e475df4b5820a240b36739c0a50b8a496f7830636d17de7419c14def"
+  },
+  "input_manifests": {
+    "Contracts/v1/SHA256.json": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+    "Contracts/v1/SOURCES.json": "3a96605570737b06ba1d4c5a8e42b79f399eac6121844cfc1afcd11333e36959",
+    "audit/LB00/LB11_DEPENDENCIES_READY_v1.md": "8a3375c90768c020809885c6a7f39468e1e4c191c4fb8a729c9943a449518969",
+    "audit/LB00/LB11_INTERFACE_ACK_v1.md": "153dd12314f0a1a89c93e307189d2ffe29e20f00a83f762ee8a794177d9efed8",
+    "Contracts/dependencies/LB07-v1/SHA256.json": "4280cdd4109f8bf6b817c237b63ad9825e34767b4652c1da5600b9ba661b1398",
+    "Contracts/dependencies/LB07-v1/SOURCES.json": "946fd0c74a2e528955624f36b7fe10f00ce250c26bb7db16f36bf386444946f3",
+    "Contracts/dependencies/LB10-v1/SHA256.json": "9fe2f82ad8be2c67eaa6b7f9f9e51e833b234952cbc339b238eefa70bfd399da",
+    "Contracts/dependencies/LB10-v1/SOURCES.json": "55b8500061eac108c18cc0e1a87a236e38fad56bdd5f62db298d8292833c7251"
+  },
+  "audit_hashes": {
+    "audit/LB11/Check_v1.lean": "8729612d35b79e1b4e9cb9fac6a177fb94d9cc2b80d8a0eb67803179e3439004",
+    "audit/LB11/DELIVERY_v1.md": "a35fc15b2d870fb8bb7f817ed4d676fb08f3aa354ccc8effbfa58ca3304a5153",
+    "audit/LB11/EXPORTS_v1.md": "2f5423b38d40e935cdba227eefd823c681401900316fe18187491165b8c68f2e",
+    "audit/LB11/INTERFACE_ADOPTION_v1.md": "a02246b6f6a6e9ba7e5218b233d52b05d28eee5ad0010ea11be0ff5ae01b0b43",
+    "audit/LB11/PROVENANCE_v1.json": "eb1e5ecfedcc06084fc433c86ea66f5ae16b4b2acc34b2cfc44741c5202f8e3c",
+    "audit/LB11/REVIEW_RESOLUTION_v1.md": "af246b60ad6ba203e35ed9ac0372c8fc69e69fd19507db6a963a202de342f442",
+    "audit/LB11/VERIFICATION_v1.json": "1b95c41d983d96888da165e6769da8a1a98eadc6a646afbf8b93e67fa85565dc",
+    "audit/LB11/VERIFICATION_v2.json": "bae16f545e2ca92f947706b368eb05d66f438a7f81551cd170864adce40adf13",
+    "audit/LB11/compile_lane.py": "8deea93be3d944776ffa79331015ba3da49ef84535126999529514d99bc18c8d",
+    "audit/LB11/compiled-declarations-v1.json": "1c8970f358acba74127565eb71a31d299787ad87a4ea32735a83cdc42a8953e6",
+    "audit/LB11/compiled-declarations-v2.json": "1c8970f358acba74127565eb71a31d299787ad87a4ea32735a83cdc42a8953e6",
+    "audit/LB11/dependency-checks-v1.log": "5707e4ebd1edc1229658a33c29557416f0c2d9a877966eab12032b2fdef60e05",
+    "audit/LB11/dependency-checks-v2.log": "5707e4ebd1edc1229658a33c29557416f0c2d9a877966eab12032b2fdef60e05",
+    "audit/LB11/final-audit-v1.log": "f2d1d40a9f2d214bac9491ada373647a1f4908f07201d3e1a271de543dfae426",
+    "audit/LB11/final-audit-v2.log": "f2d1d40a9f2d214bac9491ada373647a1f4908f07201d3e1a271de543dfae426",
+    "audit/LB11/final-build-v1.log": "e4c898c2b3d3e78ea6daf10044451b178b17310ad1559cc544c3783d7fd7ff9a",
+    "audit/LB11/final-build-v2.log": "e4c898c2b3d3e78ea6daf10044451b178b17310ad1559cc544c3783d7fd7ff9a",
+    "audit/LB11/final_hypotheses_review_v1.md": "bbc533893665e36d4a0443b578c9ea8fa63393a6e075bb3f747a13a98053cf51",
+    "audit/LB11/final_math_review_v1.md": "cf1137d9def28ae2b9355ecc44602f0619cf20eb0c54ee178d1e63e94d4f15e0",
+    "audit/LB11/final_representation_evidence_v1.json": "a07c9614460869c988f3d8e0fcda219ed684cd92eb81dc60b56ea60e6f99ffdf",
+    "audit/LB11/final_representation_review_v1.md": "a14362d0aba7ce1dc00f5ae41ed14de5b5cd1d14b5657e467ef90308509674ce",
+    "audit/LB11/hypotheses_review_v1.md": "24f75965f36489763d288c0a24e5f1de5b6d0192ec5e6a8752a6a86e7cd8020c",
+    "audit/LB11/input_validation_v1.json": "c153de06864e1c759bd287e35a3873749d4077c5029fcf1fe5b7f7c5ab20dfa4",
+    "audit/LB11/main-dev01.log": "7ba639037d27c0d36b4b3206fdfbb301d1e87835598992acc4bcf2cb76dad424",
+    "audit/LB11/main-dev02.log": "e4c898c2b3d3e78ea6daf10044451b178b17310ad1559cc544c3783d7fd7ff9a",
+    "audit/LB11/math_review_v1.md": "96ee14c553afb593760f78ddf48e5f1920ffc47571a120d736d8815fed485463",
+    "audit/LB11/parameters-dev01.log": "f47041ff3c0c0dc3815e21dd74d0a27e49476fcd8737d01c9a10e995ba115913",
+    "audit/LB11/parameters-dev02.log": "f47041ff3c0c0dc3815e21dd74d0a27e49476fcd8737d01c9a10e995ba115913",
+    "audit/LB11/parameters-dev03.log": "e4c898c2b3d3e78ea6daf10044451b178b17310ad1559cc544c3783d7fd7ff9a",
+    "audit/LB11/parameters_implementation_review_v1.md": "c1a18523b3e7356851bcc6bb0e3683549505a2f0a11f4dcea977368ab0d6cf2a",
+    "audit/LB11/representation_closure_check_v1.lean": "d115a0ee2848aac7ed5f20a6c35fdcd8356aaee39134f91bfe69d809409316ba",
+    "audit/LB11/representation_closure_check_v1.log": "6d4e306625130a3dcbfa0d335864dbb7530162aec1a76a4300812f284f4c3352",
+    "audit/LB11/representation_closure_v1.json": "b0038d346da0f10ef09e9138caec4f7a11b0b31476ea7cfbfed50dd840e6bba8",
+    "audit/LB11/representation_review_v1.md": "27c58b0332e0f3d2380a9d399495db5475040cf5f1846b556c90bebd4b7a66f4",
+    "audit/LB11/review_snapshot_v1.json": "a05ef1f55f7f5fc6127df0df93f1baa197a109f5336b2dc0bd228ee2053b71df",
+    "audit/LB11/verify_lane.py": "910a7f40f73abc858a8f0a70ef89c7b852f96fc7f58684d1194d65e03e668763",
+    "audit/LB11/verify_lane_v2.py": "3764f9841de7cf93f0f5ad5938175f71b86e5b1ba049e03647ed3e40805f12ef"
+  },
+  "declarations_audited": 17,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "independent_reviews": [
+    "audit/LB11/final_math_review_v1.md",
+    "audit/LB11/final_representation_review_v1.md",
+    "audit/LB11/final_hypotheses_review_v1.md"
+  ],
+  "mathematical_obligations_pending": [],
+  "scope": "Uniform physical chronological inverse-shuffle macroscopic lower bound under explicit selected-partition ScalarIntegrable; derived sequence corollary. Not the unchanged arbitrary-totalized-TimeLaw endpoint.",
+  "separate_downstream_work": [
+    "Coordinator registration of this completed lane",
+    "LB12 independent final endpoint audit"
+  ],
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "frozen_contract_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858"
+}

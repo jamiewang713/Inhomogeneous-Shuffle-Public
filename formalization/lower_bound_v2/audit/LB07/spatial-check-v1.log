@@ -1,0 +1,35 @@
+RiffleLowerV2.ProfileTransfer.continuous_prob {k : ℕ} (l : Fin k) : Continuous fun p => TimeProfile.prob p l
+RiffleLowerV2.ProfileTransfer.continuous_pileMax {k : ℕ} : Continuous TimeProfile.pileMax
+RiffleLowerV2.ProfileTransfer.continuous_maxCost {k : ℕ} : Continuous TimeProfile.maxCost
+RiffleLowerV2.ProfileTransfer.continuous_psi {k : ℕ} {α : ℝ} (hα : α ∈ Set.Icc 2 4) :
+  Continuous fun p => TimeProfile.psi p α
+RiffleLowerV2.ProfileTransfer.jointPsiContinuity : RiffleLowerV2.Targets.JointPsiContinuity
+RiffleLowerV2.ProfileTransfer.integrable_of_continuous_bounded {k : ℕ}
+  (ν : MeasureTheory.ProbabilityMeasure (TimeProfile.Simplex k)) (f : TimeProfile.Simplex k → ℝ) {M : ℝ}
+  (hc : Continuous f) (hf : ∀ (p : TimeProfile.Simplex k), 0 ≤ f p ∧ f p ≤ M) : MeasureTheory.Integrable f ↑ν
+RiffleLowerV2.ProfileTransfer.integrable_maxCost {k : ℕ} (hk : 2 ≤ k)
+  (ν : MeasureTheory.ProbabilityMeasure (TimeProfile.Simplex k)) : MeasureTheory.Integrable TimeProfile.maxCost ↑ν
+RiffleLowerV2.ProfileTransfer.integrable_psi {k : ℕ} (hk : 2 ≤ k)
+  (ν : MeasureTheory.ProbabilityMeasure (TimeProfile.Simplex k)) {α : ℝ} (hα : α ∈ Set.Icc 2 4) :
+  MeasureTheory.Integrable (fun p => TimeProfile.psi p α) ↑ν
+RiffleLowerV2.ProfileTransfer.scalar_integral_bounds {k : ℕ}
+  (ν : MeasureTheory.ProbabilityMeasure (TimeProfile.Simplex k)) (f : TimeProfile.Simplex k → ℝ) {M : ℝ}
+  (hfint : MeasureTheory.Integrable f ↑ν) (hf : ∀ (p : TimeProfile.Simplex k), 0 ≤ f p ∧ f p ≤ M) :
+  0 ≤ ∫ (p : TimeProfile.Simplex k), f p ∂↑ν ∧ ∫ (p : TimeProfile.Simplex k), f p ∂↑ν ≤ M
+RiffleLowerV2.ProfileTransfer.profileMaxCost_bounds {k : ℕ} (hk : 2 ≤ k) (μ : TimeProfile.TimeLaw k) (t : ℝ) :
+  0 ≤ TimeProfile.profileMaxCost μ t ∧ TimeProfile.profileMaxCost μ t ≤ Real.log ↑k
+RiffleLowerV2.ProfileTransfer.profilePsi_bounds {k : ℕ} (hk : 2 ≤ k) (μ : TimeProfile.TimeLaw k) (t : ℝ) {α : ℝ}
+  (hα : α ∈ Set.Icc 2 4) : 0 ≤ TimeProfile.profilePsi μ t α ∧ TimeProfile.profilePsi μ t α ≤ 4 * Real.log ↑k
+'RiffleLowerV2.ProfileTransfer.continuous_prob' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.continuous_pileMax' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.continuous_maxCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.continuous_psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.jointPsiContinuity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.integrable_of_continuous_bounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RiffleLowerV2.ProfileTransfer.integrable_maxCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.integrable_psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.scalar_integral_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.profileMaxCost_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.profilePsi_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

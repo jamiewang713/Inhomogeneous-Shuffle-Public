@@ -1,0 +1,65 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Counts.lean:21:60: error: unsolved goals
+k N K l m : ℕ
+cuts : Cuts k N K
+a : Word k K
+hlm : l ≤ m
+hm : m ≤ K
+x : WordOn k (columnSet K l m)
+omega : Sample cuts
+hs :
+  ↑{x_1 |
+          List.take l (List.Vector.toList (rowWord omega x_1)) = List.take l (List.Vector.toList a) ∧
+            wordOnList (restrictWord (columnSet K l m) (rowWord omega x_1)) < wordOnList x}.card =
+    ∑ x_1,
+      ∑ x_2 with x_2 < x x_1,
+        ↑{x_3 |
+              List.take (↑(sidePrefix a l m x x_1 x_2).fst) (List.Vector.toList (rowWord omega x_3)) =
+                List.Vector.toList (sidePrefix a l m x x_1 x_2).snd}.card
+⊢ ∑ x_1,
+      ∑ x_2 with x_2 < x x_1,
+        ↑{i |
+              List.take (↑(sidePrefix a l m x x_1 x_2).fst) (List.Vector.toList (rowWord omega i)) =
+                List.Vector.toList (sidePrefix a l m x x_1 x_2).snd}.card =
+    ∑ x_1,
+      ∑ x_2 with x_2 < x x_1,
+        ↑{x_3 |
+              List.take (↑(sidePrefix a l m x x_1 x_2).fst) (List.Vector.toList (rowWord omega x_3)) =
+                List.Vector.toList (sidePrefix a l m x x_1 x_2).snd}.card
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Counts.lean:36:60: error: unsolved goals
+k N K l m : ℕ
+cuts : Cuts k N K
+a : Word k K
+hlm : l ≤ m
+hm : m ≤ K
+x : WordOn k (columnSet K l m)
+omega : Sample cuts
+horder : ∀ (y : WordOn k (columnSet K l m)), (∃ j, x j < y j ∧ ∀ h < j, y h = x h) ↔ wordOnList x < wordOnList y
+hs :
+  ↑{x_1 |
+          List.take l (List.Vector.toList (rowWord omega x_1)) = List.take l (List.Vector.toList a) ∧
+            wordOnList x < wordOnList (restrictWord (columnSet K l m) (rowWord omega x_1))}.card =
+    ∑ x_1,
+      ∑ x_2 with x x_1 < x_2,
+        ↑{x_3 |
+              List.take (↑(sidePrefix a l m x x_1 x_2).fst) (List.Vector.toList (rowWord omega x_3)) =
+                List.Vector.toList (sidePrefix a l m x x_1 x_2).snd}.card
+⊢ ∑ x_1,
+      ∑ x_2 with x x_1 < x_2,
+        ↑{i |
+              List.take (↑(sidePrefix a l m x x_1 x_2).fst) (List.Vector.toList (rowWord omega i)) =
+                List.Vector.toList (sidePrefix a l m x x_1 x_2).snd}.card =
+    ∑ x_1,
+      ∑ x_2 with x x_1 < x_2,
+        ↑{x_3 |
+              List.take (↑(sidePrefix a l m x x_1 x_2).fst) (List.Vector.toList (rowWord omega x_3)) =
+                List.Vector.toList (sidePrefix a l m x x_1 x_2).snd}.card
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Endpoints/Counts.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Counts.lean']' returned non-zero exit status 1.

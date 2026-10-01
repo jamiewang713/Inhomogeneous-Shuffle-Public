@@ -1,0 +1,90 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/CollisionMean.lean:96:42: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑N ^ ?y * ↑N ^ ?z
+in the target expression
+  coldMeanConstant * ↑N ^ (geometryG cuts hN P W G - 4 * kappa0 eta) =
+    coldMeanConstant *
+        ↑N ^ (typeH cuts hN P (prefixColumns K W) G.prefixType + typeH cuts hN P (tailColumns K W) G.tailType) *
+      ↑N ^ (2 * geometryZ cuts hN P W G - 4 * kappa0 eta)
+
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+eta rho chi xi D : ℝ
+heta : 0 < eta
+P : BorelPartition k
+W : ColdWitnessData
+G : ColdGeometryData K P W
+hsmall : D * ↑N ^ (-1 / 100) ≤ 1 / 2
+hmarg :
+  ∀ y ∈ coldFullFamily cuts hN P W G,
+    |probability (fixedCountPMF cuts) (collisionEvent y) - poissonCollision (↑N * wordMass cuts y)| ≤
+      D * ↑N ^ (-1 / 100) * poissonCollision (↑N * wordMass cuts y)
+left✝¹⁵ : IsCanonicalMaxWord cuts G.ambient
+left✝¹⁴ : prefixMean cuts (prefixAt W.ms G.ambient) = ↑N ^ beta cuts hN (W.s N)
+left✝¹³ : TypeDataSpec cuts hN P (prefixColumns K W) xi W.theta G.prefixType
+left✝¹² : TypeDataSpec cuts hN P (tailColumns K W) xi 2 G.tailType
+left✝¹¹ : TypeApproximation cuts hN P (prefixColumns K W) W.theta (min (kappa eta) (kappa0 eta) / 1000) G.prefixType
+left✝¹⁰ : TypeApproximation cuts hN P (tailColumns K W) 2 (min (kappa eta) (kappa0 eta) / 1000) G.tailType
+left✝⁹ : BridgeSpec cuts hN rho chi G
+left✝⁸ : beta cuts hN (W.s N) / 2 + 2 * kappa eta ≤ geometryEllP cuts hN P W G
+left✝⁷ : typeH cuts hN P (prefixColumns K W) G.prefixType ≤ geometryEllP cuts hN P W G - kappa eta
+left✝⁶ : kappa eta / 2 ≤ geometryH cuts hN P W G
+left✝⁵ : Real.exp (-2) * ↑N ^ geometryH cuts hN P W G ≤ ↑(coldRelativeSet cuts hN P W G).card
+left✝⁴ : ↑(coldRelativeSet cuts hN P W G).card ≤ 2 * ↑N ^ geometryH cuts hN P W G
+left✝³ : ↑N ^ (kappa eta / 3) ≤ ↑(coldRelativeSet cuts hN P W G).card
+left✝² : ↑(coldRelativeSet cuts hN P W G).card ≤ ↑N
+left✝¹ :
+  ∀ (q : Fin (N + 1)),
+    ↑(boundary (clipTranslate N (coldRelativeSet cuts hN P W G) ↑↑q)).card ≤ 4 * √↑(coldRelativeSet cuts hN P W G).card
+left✝ : kappa eta / 2 ≤ geometryG cuts hN P W G - geometryH cuts hN P W G / 2
+hz : geometryZ cuts hN P W G ≤ 2 * kappa0 eta
+hY :
+  ↑(coldFullFamily cuts hN P W G).card =
+    ↑N ^ (typeH cuts hN P (prefixColumns K W) G.prefixType + typeH cuts hN P (tailColumns K W) G.tailType)
+hmu :
+  ∀ y ∈ coldFullFamily cuts hN P W G,
+    Real.exp (-2) * ↑N ^ geometryZ cuts hN P W G < ↑N * wordMass cuts y ∧
+      ↑N * wordMass cuts y ≤ ↑N ^ geometryZ cuts hN P W G
+right✝ :
+  (∀ x ∈ coldPrefixFamily cuts hN P W G,
+      ↑N ^ (beta cuts hN (W.s N) / 2 + kappa eta) ≤ prefixMean cuts (reservePrefix G x G.reserveMinus) ∧
+        ↑N ^ (beta cuts hN (W.s N) / 2 + kappa eta) ≤ prefixMean cuts (reservePrefix G x G.reservePlus)) ∧
+    0 < min xi (min chi (1 / ↑k)) ∧
+      (∀ y ∈ coldFullFamily cuts hN P W G,
+          ∀ (j : Fin K), min xi (min chi (1 / ↑k)) ≤ ↑(cuts.count j (List.Vector.get y j)) / ↑N) ∧
+        ∀ x ∈ coldPrefixFamily cuts hN P W G,
+          ∀ v ∈ {G.reserveMinus, G.reservePlus},
+            ∀ (j : Fin ↑(reservePrefix G x v).fst),
+              min xi (min chi (1 / ↑k)) ≤ ↑(cuts.count ⟨↑j, ⋯⟩ (List.Vector.get (reservePrefix G x v).snd j)) / ↑N
+hNp : 0 < ↑N
+hκ₀ : 0 ≤ kappa0 eta
+hterm :
+  ∀ y ∈ coldFullFamily cuts hN P W G,
+    coldMeanConstant * ↑N ^ (2 * geometryZ cuts hN P W G - 4 * kappa0 eta) ≤
+      probability (fixedCountPMF cuts) (collisionEvent y)
+hsum :
+  ∑ i ∈ coldFullFamily cuts hN P W G, coldMeanConstant * ↑N ^ (2 * geometryZ cuts hN P W G - 4 * kappa0 eta) ≤
+    ∑ i ∈ coldFullFamily cuts hN P W G, probability (fixedCountPMF cuts) (collisionEvent i)
+hexpect :
+  expect (fixedCountPMF cuts) (collisionCount (coldFullFamily cuts hN P W G)) =
+    ∑ y ∈ coldFullFamily cuts hN P W G, probability (fixedCountPMF cuts) (collisionEvent y)
+⊢ coldMeanConstant * ↑N ^ (geometryG cuts hN P W G - 4 * kappa0 eta) =
+    coldMeanConstant *
+        ↑N ^ (typeH cuts hN P (prefixColumns K W) G.prefixType + typeH cuts hN P (tailColumns K W) G.tailType) *
+      ↑N ^ (2 * geometryZ cuts hN P W G - 4 * kappa0 eta)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/CollisionMean.lean:125:5: warning: Variable name `heta` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _heta
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB10/lib/lean/RiffleLowerV2/EmpiricalLower/CollisionMean.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/CollisionMean.lean']' returned non-zero exit status 1.

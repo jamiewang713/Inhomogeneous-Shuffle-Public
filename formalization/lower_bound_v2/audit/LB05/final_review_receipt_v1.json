@@ -1,0 +1,38 @@
+{
+  "review": "LB05 final representation and concrete proof closure",
+  "status": "PASS",
+  "report": "final_implementation_review_v1.md",
+  "report_sha256": "8c2e3c08471b8f8dbee72c20abe45d9cd30c3e66242f13a5cb63b96bf9424ba8",
+  "independent_compiler_log": "final_review_declarations_v1.log",
+  "required_exports": {
+    "RiffleLowerV2.Witness.oneColumnTilt": "RiffleLowerV2.Targets.OneColumnTiltTarget",
+    "RiffleLowerV2.Witness.empiricalTilt": "RiffleLowerV2.Targets.EmpiricalTiltTarget",
+    "RiffleLowerV2.Witness.coldWitness": "RiffleLowerV2.Targets.ColdWitnessTarget",
+    "RiffleLowerV2.Witness.lB05": "RiffleLowerV2.Targets.LB05Target"
+  },
+  "all_required_types_exact": true,
+  "all_current_source_hashes_match_final_build_record": true,
+  "unchanged_frozen_contract_manifest": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "unchanged_authoritative_manuscript": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "declarations_examined_in_compiled_record": 131,
+  "public_exports_in_record": 87,
+  "full_compiled_axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "extra_final_hypotheses": [],
+  "unresolved_findings": [],
+  "source_sha256": {
+    "RiffleLowerV2/Witness/Continuous.lean": "d4087979d57d206e092e9c3993ed2356371d4b271b33536b020abf663a305a35",
+    "RiffleLowerV2/Witness/Empirical.lean": "7220bb0fcb372ec11eb74a284f0dfeacd9485a1bf0618d3be6612097159072c8",
+    "RiffleLowerV2/Witness/EmpiricalTilt.lean": "8b7f95dad4a3df89ee66b887ead0ad4c2b264ac6a209f22cfa83af7c40129647",
+    "RiffleLowerV2/Witness/Finite.lean": "f8d3121c1c7e05cec61afd9772d746955006b716720ad0d6c3545e1d59e75e2f",
+    "RiffleLowerV2/Witness/Main.lean": "c00990a85054cccc1af82b42096d8547aa770d90391f3429f6792a933c66c731",
+    "RiffleLowerV2/Witness/OneColumn.lean": "f139c4b37e6b6492e0e140a535df2c5cdd023e74b998af2fee0d53c50ce951fe",
+    "RiffleLowerV2/Witness/OneColumnBasic.lean": "0ee7edc19ffb580282b4aad08477fdd409421f30bb52ddcd408974ecc4fd4f81",
+    "RiffleLowerV2/Witness/Rounding.lean": "c8b3b2ee0b8eb897607b7c9f1c2d13e87cd659561a355b75a2912f0e24caf959",
+    "RiffleLowerV2/Witness/Selection.lean": "898ed53cc48059604afa7b56c675488bdf39f2dc79b6f64c089bd01a9ba47225"
+  },
+  "scope_note": "Reviewer authored OneColumn modules and independently reviewed all other witness modules and final assembly. Earlier independent pre-implementation reviews are separately preserved."
+}

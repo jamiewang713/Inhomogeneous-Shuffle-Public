@@ -1,0 +1,38 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Bonferroni.lean:55:6: error: Type mismatch: After simplification, term
+  hpow
+ has type
+  (-1) ^ (b + 2) = 1
+but is expected to have type
+  -(-1) ^ (b + 1) = 1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Bonferroni.lean:72:63: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  d ≥ 0
+  c ≥ 0
+where
+ c := ↑a
+ d := ↑b
+ e := ↑((a + 2).choose (b + 1 + 1))
+ f := ↑((2 + a).choose (2 + b))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Bonferroni.lean:99:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  (0 ≤ bonferroni m x * bonferroni m y - if 2 ≤ y ∧ 2 ≤ x then 1 else 0) ∧
+    (bonferroni m x * bonferroni m y - if 2 ≤ y ∧ 2 ≤ x then 1 else 0) ≤
+      bonferroniRemainder m x + bonferroniRemainder m y + bonferroniRemainder m x * bonferroniRemainder m y
+but is expected to have type
+  (0 ≤ bonferroni m x * bonferroni m y - if 2 ≤ x ∧ 2 ≤ y then 1 else 0) ∧
+    (bonferroni m x * bonferroni m y - if 2 ≤ x ∧ 2 ≤ y then 1 else 0) ≤
+      bonferroniRemainder m x + bonferroniRemainder m y + bonferroniRemainder m x * bonferroniRemainder m y
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB03/lib/lean/RiffleLowerV2/Factorial/Bonferroni.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Bonferroni.lean']' returned non-zero exit status 1.

@@ -1,0 +1,97 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:20:4: error: No applicable extensionality theorem found for type
+  AddCommMonoid ℝ
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:22:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  NormedSpace.exp
+in the target expression
+  poissonWeight t = fun i => Real.exp (-t) * (t ^ i / ↑i.factorial)
+
+case e'_5
+t : ℝ
+⊢ poissonWeight t = fun i => Real.exp (-t) * (t ^ i / ↑i.factorial)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:18:67: error: unsolved goals
+case e'_6
+t : ℝ
+⊢ 1 = Real.exp (-t) * NormedSpace.exp t
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:39:4: error: No goals to be solved
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:43:6: error: No applicable extensionality theorem found for type
+  AddCommMonoid ℝ
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:45:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  NormedSpace.exp
+in the target expression
+  (fun n => poissonWeight t (n + r) * ↑((n + r).choose r)) = fun i =>
+    Real.exp (-t) * t ^ r / ↑r.factorial * (t ^ i / ↑i.factorial)
+
+case e'_5
+t : ℝ
+r : ℕ
+hs :
+  HasSum (fun i => Real.exp (-t) * t ^ r / ↑r.factorial * (t ^ i / ↑i.factorial))
+    (Real.exp (-t) * t ^ r / ↑r.factorial * NormedSpace.exp t)
+hshift :
+  ∀ (n : ℕ),
+    poissonWeight t (n + r) * ↑((n + r).choose r) = Real.exp (-t) * t ^ r / ↑r.factorial * (t ^ n / ↑n.factorial)
+⊢ (fun n => poissonWeight t (n + r) * ↑((n + r).choose r)) = fun i =>
+    Real.exp (-t) * t ^ r / ↑r.factorial * (t ^ i / ↑i.factorial)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:41:35: error: unsolved goals
+case e'_6
+t : ℝ
+r : ℕ
+hs :
+  HasSum (fun i => Real.exp (-t) * t ^ r / ↑r.factorial * (t ^ i / ↑i.factorial))
+    (Real.exp (-t) * t ^ r / ↑r.factorial * NormedSpace.exp t)
+hshift :
+  ∀ (n : ℕ),
+    poissonWeight t (n + r) * ↑((n + r).choose r) = Real.exp (-t) * t ^ r / ↑r.factorial * (t ^ n / ↑n.factorial)
+⊢ t ^ r / ↑r.factorial = Real.exp (-t) * t ^ r / ↑r.factorial * NormedSpace.exp t
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:25:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:61:4: error: `simp` made no progress
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:56:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:67:6: error: (kernel) unknown constant 'RiffleLowerV2.Factorial.hasSum_poissonWeight_indicator'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:79:4: error: No applicable extensionality theorem found for type
+  AddCommMonoid ℝ
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:85:11: error: Tactic `unfold` failed to unfold `poissonPolynomial` in
+  (fun n => poissonWeight t n * bonferroni m n) = fun b =>
+    ∑ i ∈ Finset.Icc 2 m, (-1) ^ i * ↑(i - 1) * (poissonWeight t b * ↑(b.choose i))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:75:84: error: unsolved goals
+case e'_6
+m : ℕ
+t : ℝ
+hs :
+  HasSum (fun b => ∑ i ∈ Finset.Icc 2 m, (-1) ^ i * ↑(i - 1) * (poissonWeight t b * ↑(b.choose i)))
+    (∑ i ∈ Finset.Icc 2 m, (-1) ^ i * ↑(i - 1) * (t ^ i / ↑i.factorial))
+⊢ poissonPolynomial m t = ∑ i ∈ Finset.Icc 2 m, (-1) ^ i * ↑(i - 1) * (t ^ i / ↑i.factorial)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:74:6: error: (kernel) unknown constant 'RiffleLowerV2.Factorial.hasSum_poissonWeight_choose'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:92:10: error: Application type mismatch: The argument
+  hasSum_poissonWeight_choose t m
+has type
+  HasSum (fun n => poissonWeight t n * ↑(n.choose m)) (t ^ m / ↑m.factorial)
+but is expected to have type
+  HasSum ?m.18 ?m.19 ?m.14
+in the application
+  HasSum.mul_left (m - 1) (hasSum_poissonWeight_choose t m)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:99:6: error: (kernel) unknown constant 'RiffleLowerV2.Factorial.hasSum_poissonWeight_indicator'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean:137:4: error: No goals to be solved
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB03/lib/lean/RiffleLowerV2/Factorial/PoissonPolynomial.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean']' returned non-zero exit status 1.

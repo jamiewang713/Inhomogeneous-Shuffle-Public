@@ -1,0 +1,10 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.MGF']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:27:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:27:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LB04 BUILD_OK

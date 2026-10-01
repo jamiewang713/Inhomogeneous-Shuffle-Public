@@ -1,0 +1,59 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean:86:2: error: Type mismatch: After simplification, term
+  hc
+ has type
+  ↑((∑ a, if rowWord ω a = w then 1 else 0).descFactorial b) =
+    ∑ x, if prescriptionEvent (sameWordPrescription w x) ω then 1 else 0
+but is expected to have type
+  ↑((wordCount w ω).descFactorial b) = ∑ e, if prescriptionEvent (sameWordPrescription w e) ω then 1 else 0
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean:113:31: error: typeclass instance problem is stuck
+  Fintype ?m.179
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Fintype` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean:128:36: error: don't know how to synthesize implicit argument `cuts`
+  @prescriptionEvent N k K b (?m.155 e) (sameWordPrescription w e)
+context:
+N k K b : ℕ
+cuts : Cuts k N K
+w : Word k K
+A : Sample cuts → Prop
+δ : ℝ
+hpos : ∀ (e : Fin b ↪ Fin N), 0 < probability (fixedCountPMF cuts) (prescriptionEvent (sameWordPrescription w e))
+hcond :
+  ∀ (e : Fin b ↪ Fin N),
+    |conditionalProbability (fixedCountPMF cuts) A (prescriptionEvent (sameWordPrescription w e)) -
+          probability (fixedCountPMF cuts) A| ≤
+      δ * probability (fixedCountPMF cuts) A
+P : PMF (ShuffleSample cuts) := ⋯
+p : ℝ := ⋯
+e : Fin b ↪ Fin N
+⊢ Cuts k N K
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean:128:6: error: failed to infer `let` declaration type
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean:125:115: error: unsolved goals
+N k K b : ℕ
+cuts : Cuts k N K
+w : Word k K
+A : Sample cuts → Prop
+δ : ℝ
+hpos : ∀ (e : Fin b ↪ Fin N), 0 < probability (fixedCountPMF cuts) (prescriptionEvent (sameWordPrescription w e))
+hcond :
+  ∀ (e : Fin b ↪ Fin N),
+    |conditionalProbability (fixedCountPMF cuts) A (prescriptionEvent (sameWordPrescription w e)) -
+          probability (fixedCountPMF cuts) A| ≤
+      δ * probability (fixedCountPMF cuts) A
+P : PMF (ShuffleSample cuts) := fixedCountPMF cuts
+p : ℝ := probability P A
+⊢ |(expect (fixedCountPMF cuts) fun ω => falling (wordCount w ω) b * if A ω then 1 else 0) -
+        (expect (fixedCountPMF cuts) fun ω => falling (wordCount w ω) b) * probability (fixedCountPMF cuts) A| ≤
+    (δ * expect (fixedCountPMF cuts) fun ω => falling (wordCount w ω) b) * probability (fixedCountPMF cuts) A
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB08/lib/lean/RiffleLowerV2/Occupancy/Forcing.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean']' returned non-zero exit status 1.

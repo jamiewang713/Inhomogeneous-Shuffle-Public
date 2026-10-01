@@ -1,0 +1,1300 @@
+{
+  "Contracts.v1.AdditionalFinite": {
+    "source": "Contracts/v1/AdditionalFinite.lean",
+    "imports": [
+      "Contracts.v1.Ascent",
+      "Contracts.v1.Endpoints"
+    ]
+  },
+  "Contracts.v1.Ascent": {
+    "source": "Contracts/v1/Ascent.lean",
+    "imports": [
+      "Contracts.v1.FactorialOccupancy"
+    ]
+  },
+  "Contracts.v1.AssemblyInputs": {
+    "source": "Contracts/v1/AssemblyInputs.lean",
+    "imports": [
+      "Contracts.v1.TransferFinite",
+      "Contracts.v1.WitnessGeometry"
+    ]
+  },
+  "Contracts.v1.Endpoints": {
+    "source": "Contracts/v1/Endpoints.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Empirical",
+      "RiffleLowerV2.Shared.Path"
+    ]
+  },
+  "Contracts.v1.FactorialOccupancy": {
+    "source": "Contracts/v1/FactorialOccupancy.lean",
+    "imports": [
+      "Contracts.v1.ModelThinning"
+    ]
+  },
+  "Contracts.v1.ModelThinning": {
+    "source": "Contracts/v1/ModelThinning.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Statistics"
+    ]
+  },
+  "Contracts.v1.TransferFinite": {
+    "source": "Contracts/v1/TransferFinite.lean",
+    "imports": [
+      "Contracts.v1.AdditionalFinite"
+    ]
+  },
+  "Contracts.v1.WitnessGeometry": {
+    "source": "Contracts/v1/WitnessGeometry.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Geometry"
+    ]
+  },
+  "Contracts.v1": {
+    "source": "Contracts/v1.lean",
+    "imports": [
+      "Contracts.v1.AssemblyInputs"
+    ]
+  },
+  "Contracts": {
+    "source": "Contracts.lean",
+    "imports": [
+      "Contracts.v1"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Asymptotic": {
+    "source": "RiffleLowerV2/Ascent/Asymptotic.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.Quantitative",
+      "RiffleLowerV2.Ascent.Selection"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Components.Charging": {
+    "source": "RiffleLowerV2/Ascent/Components/Charging.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.Components.Clipping"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Components.Clipping": {
+    "source": "RiffleLowerV2/Ascent/Components/Clipping.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.Components"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Components": {
+    "source": "RiffleLowerV2/Ascent/Components.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Path",
+      "RiffleLowerV2.Model.GraphSorting"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Concentration": {
+    "source": "RiffleLowerV2/Ascent/Concentration.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.Components",
+      "RiffleLowerV2.Ascent.RelativeOrder.Law",
+      "RiffleLowerV2.Ascent.MGF",
+      "RiffleLowerV2.Ascent.FiniteConsequences"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Expectation": {
+    "source": "RiffleLowerV2/Ascent/Expectation.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.Components.Charging",
+      "RiffleLowerV2.Ascent.FiniteProbability",
+      "RiffleLowerV2.Ascent.RelativeOrder.Boundary"
+    ]
+  },
+  "RiffleLowerV2.Ascent.FiniteConsequences": {
+    "source": "RiffleLowerV2/Ascent/FiniteConsequences.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.UniformBaseline",
+      "RiffleLowerV2.Ascent.Selection"
+    ]
+  },
+  "RiffleLowerV2.Ascent.FiniteProbability": {
+    "source": "RiffleLowerV2/Ascent/FiniteProbability.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Adapters",
+      "Contracts.v1",
+      "Mathlib.Tactic"
+    ]
+  },
+  "RiffleLowerV2.Ascent.MGF": {
+    "source": "RiffleLowerV2/Ascent/MGF.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.FiniteProbability",
+      "Mathlib.Probability.Moments.SubGaussian"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Main": {
+    "source": "RiffleLowerV2/Ascent/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.RelativeOrder",
+      "RiffleLowerV2.Ascent.Test"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Mixture": {
+    "source": "RiffleLowerV2/Ascent/Mixture.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.FiniteProbability",
+      "RiffleLowerV2.Model.FiniteLaws"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Quantitative": {
+    "source": "RiffleLowerV2/Ascent/Quantitative.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.FiniteProbability",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics"
+    ]
+  },
+  "RiffleLowerV2.Ascent.RelativeOrder.Basic": {
+    "source": "RiffleLowerV2/Ascent/RelativeOrder/Basic.lean",
+    "imports": [
+      "Contracts.v1.AdditionalFinite"
+    ]
+  },
+  "RiffleLowerV2.Ascent.RelativeOrder.Boundary": {
+    "source": "RiffleLowerV2/Ascent/RelativeOrder/Boundary.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.RelativeOrder.Weighted"
+    ]
+  },
+  "RiffleLowerV2.Ascent.RelativeOrder.Check": {
+    "source": "RiffleLowerV2/Ascent/RelativeOrder/Check.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.RelativeOrder"
+    ]
+  },
+  "RiffleLowerV2.Ascent.RelativeOrder.Law": {
+    "source": "RiffleLowerV2/Ascent/RelativeOrder/Law.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.RelativeOrder.Basic",
+      "RiffleLowerV2.Ascent.FiniteProbability"
+    ]
+  },
+  "RiffleLowerV2.Ascent.RelativeOrder.Weighted": {
+    "source": "RiffleLowerV2/Ascent/RelativeOrder/Weighted.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.RelativeOrder.Law"
+    ]
+  },
+  "RiffleLowerV2.Ascent.RelativeOrder": {
+    "source": "RiffleLowerV2/Ascent/RelativeOrder.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.RelativeOrder.Boundary"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Selection": {
+    "source": "RiffleLowerV2/Ascent/Selection.lean",
+    "imports": [
+      "Contracts.v1.AdditionalFinite",
+      "Mathlib.Tactic"
+    ]
+  },
+  "RiffleLowerV2.Ascent.Test": {
+    "source": "RiffleLowerV2/Ascent/Test.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.Concentration",
+      "RiffleLowerV2.Ascent.Expectation",
+      "RiffleLowerV2.Ascent.Asymptotic",
+      "RiffleLowerV2.Ascent.Mixture"
+    ]
+  },
+  "RiffleLowerV2.Ascent.UniformBaseline": {
+    "source": "RiffleLowerV2/Ascent/UniformBaseline.lean",
+    "imports": [
+      "RiffleLowerV2.Ascent.FiniteProbability",
+      "RiffleLowerV2.Ascent.Components"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.Cold": {
+    "source": "RiffleLowerV2/EmpiricalLower/Cold.lean",
+    "imports": [
+      "RiffleLowerV2.EmpiricalLower.Scan",
+      "RiffleLowerV2.EmpiricalLower.ManyEdges",
+      "RiffleLowerV2.Localization.Main"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.CollisionMean": {
+    "source": "RiffleLowerV2/EmpiricalLower/CollisionMean.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.Main",
+      "RiffleLowerV2.Localization.Main"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.LargestAsymptotic.Numerical": {
+    "source": "RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Main",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.LargestAsymptotic": {
+    "source": "RiffleLowerV2/EmpiricalLower/LargestAsymptotic.lean",
+    "imports": [
+      "RiffleLowerV2.EmpiricalLower.LargestFinite",
+      "RiffleLowerV2.EmpiricalLower.LargestAsymptotic.Numerical"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.LargestFinite": {
+    "source": "RiffleLowerV2/EmpiricalLower/LargestFinite.lean",
+    "imports": [
+      "RiffleLowerV2.Model.Main",
+      "RiffleLowerV2.Thinning.Main",
+      "RiffleLowerV2.Ascent.Mixture"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.Main": {
+    "source": "RiffleLowerV2/EmpiricalLower/Main.lean",
+    "imports": [
+      "RiffleLowerV2.EmpiricalLower.LargestAsymptotic",
+      "RiffleLowerV2.EmpiricalLower.Cold"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.ManyEdges": {
+    "source": "RiffleLowerV2/EmpiricalLower/ManyEdges.lean",
+    "imports": [
+      "RiffleLowerV2.EmpiricalLower.CollisionMean"
+    ]
+  },
+  "RiffleLowerV2.EmpiricalLower.Scan": {
+    "source": "RiffleLowerV2/EmpiricalLower/Scan.lean",
+    "imports": [
+      "RiffleLowerV2.Model.Main",
+      "RiffleLowerV2.Ascent.Main",
+      "RiffleLowerV2.Localization.Edges"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Basic": {
+    "source": "RiffleLowerV2/Factorial/Basic.lean",
+    "imports": [
+      "Contracts.v1.TransferFinite",
+      "Mathlib.Data.Nat.Factorial.Cast",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Tactic"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Bonferroni": {
+    "source": "RiffleLowerV2/Factorial/Bonferroni.lean",
+    "imports": [
+      "Contracts.v1.FactorialOccupancy",
+      "Mathlib.Data.Nat.Choose.Sum",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Tactic"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Central": {
+    "source": "RiffleLowerV2/Factorial/Central.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.PolynomialMoments",
+      "RiffleLowerV2.Factorial.Bonferroni",
+      "RiffleLowerV2.Factorial.PoissonPolynomial"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Exact": {
+    "source": "RiffleLowerV2/Factorial/Exact.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Basic",
+      "RiffleLowerV2.Factorial.Requests"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Main": {
+    "source": "RiffleLowerV2/Factorial/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Central",
+      "RiffleLowerV2.Factorial.RelativeTargets",
+      "RiffleLowerV2.Factorial.Residual",
+      "RiffleLowerV2.Factorial.ResidualEstimates"
+    ]
+  },
+  "RiffleLowerV2.Factorial.MomentScales": {
+    "source": "RiffleLowerV2/Factorial/MomentScales.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Ratios"
+    ]
+  },
+  "RiffleLowerV2.Factorial.PoissonPolynomial": {
+    "source": "RiffleLowerV2/Factorial/PoissonPolynomial.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Bonferroni",
+      "Mathlib.Analysis.SpecialFunctions.Exponential",
+      "Mathlib.Probability.Distributions.Poisson.Basic"
+    ]
+  },
+  "RiffleLowerV2.Factorial.PolynomialMoments": {
+    "source": "RiffleLowerV2/Factorial/PolynomialMoments.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Basic"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Ratios": {
+    "source": "RiffleLowerV2/Factorial/Ratios.lean",
+    "imports": [
+      "Contracts.v1",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+      "Mathlib.Data.Nat.Factorial.BigOperators"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Relative": {
+    "source": "RiffleLowerV2/Factorial/Relative.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.ResidualEstimates"
+    ]
+  },
+  "RiffleLowerV2.Factorial.RelativeFromExact": {
+    "source": "RiffleLowerV2/Factorial/RelativeFromExact.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Relative",
+      "RiffleLowerV2.Factorial.MomentScales"
+    ]
+  },
+  "RiffleLowerV2.Factorial.RelativeTargets": {
+    "source": "RiffleLowerV2/Factorial/RelativeTargets.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.RelativeFromExact",
+      "RiffleLowerV2.Factorial.Exact",
+      "RiffleLowerV2.Factorial.Residual"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Requests": {
+    "source": "RiffleLowerV2/Factorial/Requests.lean",
+    "imports": [
+      "Contracts.v1.FactorialOccupancy",
+      "RiffleLowerV2.Shared.Adapters",
+      "Mathlib.Data.Fintype.CardEmbedding",
+      "Mathlib.Logic.Equiv.Fintype"
+    ]
+  },
+  "RiffleLowerV2.Factorial.Residual": {
+    "source": "RiffleLowerV2/Factorial/Residual.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Exact"
+    ]
+  },
+  "RiffleLowerV2.Factorial.ResidualEstimates": {
+    "source": "RiffleLowerV2/Factorial/ResidualEstimates.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Ratios"
+    ]
+  },
+  "RiffleLowerV2.Localization.Bridge": {
+    "source": "RiffleLowerV2/Localization/Bridge.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Words"
+    ]
+  },
+  "RiffleLowerV2.Localization.ColdSet": {
+    "source": "RiffleLowerV2/Localization/ColdSet.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.ProbabilityIntervals"
+    ]
+  },
+  "RiffleLowerV2.Localization.Concentration": {
+    "source": "RiffleLowerV2/Localization/Concentration.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Main",
+      "RiffleLowerV2.Localization.Geometry.Rates"
+    ]
+  },
+  "RiffleLowerV2.Localization.Edges": {
+    "source": "RiffleLowerV2/Localization/Edges.lean",
+    "imports": [
+      "RiffleLowerV2.Model.Sorting"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints.Check": {
+    "source": "RiffleLowerV2/Localization/Endpoints/Check.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints.Coordinates": {
+    "source": "RiffleLowerV2/Localization/Endpoints/Coordinates.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints.Partitions"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints.Counts": {
+    "source": "RiffleLowerV2/Localization/Endpoints/Counts.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints.Coordinates"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints.Error": {
+    "source": "RiffleLowerV2/Localization/Endpoints/Error.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints.Means",
+      "RiffleLowerV2.Localization.Endpoints.Counts"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints.Means": {
+    "source": "RiffleLowerV2/Localization/Endpoints/Means.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints.ProductWeights"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints.Partitions": {
+    "source": "RiffleLowerV2/Localization/Endpoints/Partitions.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.WordOrder"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints.ProductWeights": {
+    "source": "RiffleLowerV2/Localization/Endpoints/ProductWeights.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints.Partitions"
+    ]
+  },
+  "RiffleLowerV2.Localization.Endpoints": {
+    "source": "RiffleLowerV2/Localization/Endpoints.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints.Error"
+    ]
+  },
+  "RiffleLowerV2.Localization.EventBounds": {
+    "source": "RiffleLowerV2/Localization/EventBounds.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Endpoints",
+      "RiffleLowerV2.Localization.Concentration"
+    ]
+  },
+  "RiffleLowerV2.Localization.Events": {
+    "source": "RiffleLowerV2/Localization/Events.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.EventBounds",
+      "RiffleLowerV2.Localization.RankBarriers",
+      "RiffleLowerV2.Localization.Edges",
+      "RiffleLowerV2.Localization.Probability"
+    ]
+  },
+  "RiffleLowerV2.Localization.Geometry.Algebra": {
+    "source": "RiffleLowerV2/Localization/Geometry/Algebra.lean",
+    "imports": [
+      "Contracts.v1.WitnessGeometry"
+    ]
+  },
+  "RiffleLowerV2.Localization.Geometry.Bounds": {
+    "source": "RiffleLowerV2/Localization/Geometry/Bounds.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Geometry.Algebra",
+      "RiffleLowerV2.Localization.Geometry.Empirical"
+    ]
+  },
+  "RiffleLowerV2.Localization.Geometry.Check": {
+    "source": "RiffleLowerV2/Localization/Geometry/Check.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Geometry"
+    ]
+  },
+  "RiffleLowerV2.Localization.Geometry.Consequences": {
+    "source": "RiffleLowerV2/Localization/Geometry/Consequences.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Bridge"
+    ]
+  },
+  "RiffleLowerV2.Localization.Geometry.Empirical": {
+    "source": "RiffleLowerV2/Localization/Geometry/Empirical.lean",
+    "imports": [
+      "RiffleLowerV2.Witness.Main",
+      "RiffleLowerV2.Shared.Adapters"
+    ]
+  },
+  "RiffleLowerV2.Localization.Geometry.Rates": {
+    "source": "RiffleLowerV2/Localization/Geometry/Rates.lean",
+    "imports": [
+      "RiffleLowerV2.Types.Main",
+      "RiffleLowerV2.Witness.Rounding",
+      "RiffleLowerV2.Localization.Geometry.Algebra"
+    ]
+  },
+  "RiffleLowerV2.Localization.Geometry": {
+    "source": "RiffleLowerV2/Localization/Geometry.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Geometry.Bounds",
+      "RiffleLowerV2.Localization.Geometry.Rates",
+      "RiffleLowerV2.Localization.Geometry.Consequences",
+      "RiffleLowerV2.Localization.ColdSet"
+    ]
+  },
+  "RiffleLowerV2.Localization.Intervals": {
+    "source": "RiffleLowerV2/Localization/Intervals.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Geometry",
+      "Mathlib.Data.Int.Interval"
+    ]
+  },
+  "RiffleLowerV2.Localization.Main": {
+    "source": "RiffleLowerV2/Localization/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Geometry",
+      "RiffleLowerV2.Localization.Events",
+      "RiffleLowerV2.Witness.Main"
+    ]
+  },
+  "RiffleLowerV2.Localization.Probability": {
+    "source": "RiffleLowerV2/Localization/Probability.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.PMFTools"
+    ]
+  },
+  "RiffleLowerV2.Localization.ProbabilityIntervals": {
+    "source": "RiffleLowerV2/Localization/ProbabilityIntervals.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Intervals",
+      "RiffleLowerV2.Localization.WordOrder"
+    ]
+  },
+  "RiffleLowerV2.Localization.RankBarriers": {
+    "source": "RiffleLowerV2/Localization/RankBarriers.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.Words",
+      "RiffleLowerV2.Localization.Endpoints.Coordinates",
+      "RiffleLowerV2.Localization.Intervals",
+      "RiffleLowerV2.Model.Sorting"
+    ]
+  },
+  "RiffleLowerV2.Localization.WordOrder": {
+    "source": "RiffleLowerV2/Localization/WordOrder.lean",
+    "imports": [
+      "Contracts.v1.WitnessGeometry",
+      "RiffleLowerV2.Thinning.PrefixCoordinates"
+    ]
+  },
+  "RiffleLowerV2.Localization.Words": {
+    "source": "RiffleLowerV2/Localization/Words.lean",
+    "imports": [
+      "RiffleLowerV2.Localization.WordOrder",
+      "RiffleLowerV2.Thinning.MaximalWord",
+      "RiffleLowerV2.Types.MassBins"
+    ]
+  },
+  "RiffleLowerV2.MacroscopicLower.Main": {
+    "source": "RiffleLowerV2/MacroscopicLower/Main.lean",
+    "imports": [
+      "RiffleLowerV2.MacroscopicLower.Parameters",
+      "RiffleLowerV2.ProfileTransfer.Main",
+      "RiffleLowerV2.EmpiricalLower.Main"
+    ]
+  },
+  "RiffleLowerV2.MacroscopicLower.Parameters": {
+    "source": "RiffleLowerV2/MacroscopicLower/Parameters.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Empirical"
+    ]
+  },
+  "RiffleLowerV2.Model.ComponentFibers": {
+    "source": "RiffleLowerV2/Model/ComponentFibers.lean",
+    "imports": [
+      "RiffleLowerV2.Model.GraphSorting",
+      "RiffleLowerV2.Model.FiberCounts"
+    ]
+  },
+  "RiffleLowerV2.Model.FiberCounts": {
+    "source": "RiffleLowerV2/Model/FiberCounts.lean",
+    "imports": [
+      "RiffleLowerV2.Model.FiniteLaws"
+    ]
+  },
+  "RiffleLowerV2.Model.FiniteLaws": {
+    "source": "RiffleLowerV2/Model/FiniteLaws.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Adapters",
+      "Contracts.v1.ModelThinning",
+      "Contracts.v1.AdditionalFinite"
+    ]
+  },
+  "RiffleLowerV2.Model.GraphLaw": {
+    "source": "RiffleLowerV2/Model/GraphLaw.lean",
+    "imports": [
+      "RiffleLowerV2.Model.GraphSorting"
+    ]
+  },
+  "RiffleLowerV2.Model.GraphSorting": {
+    "source": "RiffleLowerV2/Model/GraphSorting.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Path",
+      "RiffleLowerV2.Model.FiniteLaws"
+    ]
+  },
+  "RiffleLowerV2.Model.Main": {
+    "source": "RiffleLowerV2/Model/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Model.Sorting",
+      "RiffleLowerV2.Model.GraphLaw",
+      "RiffleLowerV2.Model.ComponentFibers",
+      "RiffleLowerV2.Model.Physical"
+    ]
+  },
+  "RiffleLowerV2.Model.Physical": {
+    "source": "RiffleLowerV2/Model/Physical.lean",
+    "imports": [
+      "RiffleLowerV2.Model.FiniteLaws"
+    ]
+  },
+  "RiffleLowerV2.Model.Sorting": {
+    "source": "RiffleLowerV2/Model/Sorting.lean",
+    "imports": [
+      "Contracts.v1.AdditionalFinite"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.CentralModel": {
+    "source": "RiffleLowerV2/Occupancy/CentralModel.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.CentralScales",
+      "RiffleLowerV2.Occupancy.ModelInputs"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.CentralScales": {
+    "source": "RiffleLowerV2/Occupancy/CentralScales.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.Scales"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Check": {
+    "source": "RiffleLowerV2/Occupancy/Check.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.Main",
+      "Lean.Util.FoldConsts",
+      "Lean.Util.CollectAxioms"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Conditional": {
+    "source": "RiffleLowerV2/Occupancy/Conditional.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.ConditionalInputs",
+      "RiffleLowerV2.Occupancy.Marginal"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.ConditionalInputs": {
+    "source": "RiffleLowerV2/Occupancy/ConditionalInputs.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.ModelInputs"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Covariance": {
+    "source": "RiffleLowerV2/Occupancy/Covariance.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.FiniteProbability"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.FiniteProbability": {
+    "source": "RiffleLowerV2/Occupancy/FiniteProbability.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Basic"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Forcing": {
+    "source": "RiffleLowerV2/Occupancy/Forcing.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.ConditionalInputs"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Main": {
+    "source": "RiffleLowerV2/Occupancy/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.RarePair",
+      "RiffleLowerV2.Occupancy.Nonrare",
+      "RiffleLowerV2.Occupancy.Covariance",
+      "Contracts.v1.AssemblyInputs"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Marginal": {
+    "source": "RiffleLowerV2/Occupancy/Marginal.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.MarginalNumerical",
+      "RiffleLowerV2.Occupancy.CentralModel",
+      "RiffleLowerV2.Occupancy.RegimeAlgebra"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.MarginalNumerical": {
+    "source": "RiffleLowerV2/Occupancy/MarginalNumerical.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.Numerical",
+      "RiffleLowerV2.Occupancy.Scales",
+      "RiffleLowerV2.Occupancy.Poisson"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.ModelInputs": {
+    "source": "RiffleLowerV2/Occupancy/ModelInputs.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Main",
+      "RiffleLowerV2.Thinning.Main"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Nonrare": {
+    "source": "RiffleLowerV2/Occupancy/Nonrare.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.CentralModel",
+      "RiffleLowerV2.Occupancy.Marginal",
+      "RiffleLowerV2.Occupancy.RegimeAlgebra"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Numerical": {
+    "source": "RiffleLowerV2/Occupancy/Numerical.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Main"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Poisson": {
+    "source": "RiffleLowerV2/Occupancy/Poisson.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.PoissonPolynomial",
+      "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+      "Mathlib.Analysis.SpecialFunctions.ExpDeriv"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.RarePair": {
+    "source": "RiffleLowerV2/Occupancy/RarePair.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.Forcing",
+      "RiffleLowerV2.Occupancy.Marginal",
+      "RiffleLowerV2.Occupancy.Conditional"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.RegimeAlgebra": {
+    "source": "RiffleLowerV2/Occupancy/RegimeAlgebra.lean",
+    "imports": [
+      "RiffleLowerV2.Occupancy.FiniteProbability",
+      "RiffleLowerV2.Occupancy.Poisson"
+    ]
+  },
+  "RiffleLowerV2.Occupancy.Scales": {
+    "source": "RiffleLowerV2/Occupancy/Scales.lean",
+    "imports": [
+      "RiffleLowerV2.Factorial.Main"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Compat.Error": {
+    "source": "RiffleLowerV2/ProfileTransfer/Compat/Error.lean",
+    "imports": [
+      "RiffleTimeProfile.Base"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Compat.GridQuadrature": {
+    "source": "RiffleLowerV2/ProfileTransfer/Compat/GridQuadrature.lean",
+    "imports": [
+      "RiffleLowerV2.ProfileTransfer.Compat.LatticeCounts",
+      "RiffleLowerV2.ProfileTransfer.Compat.IntegralEnvelope",
+      "RiffleLowerV2.ProfileTransfer.Compat.Error"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Compat.IntegralEnvelope": {
+    "source": "RiffleLowerV2/ProfileTransfer/Compat/IntegralEnvelope.lean",
+    "imports": [
+      "RiffleTimeProfile.Base"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Compat.LatticeCounts": {
+    "source": "RiffleLowerV2/ProfileTransfer/Compat/LatticeCounts.lean",
+    "imports": [
+      "RiffleTimeProfile.Base",
+      "Mathlib.Order.Interval.Finset.Nat"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Empirical": {
+    "source": "RiffleLowerV2/ProfileTransfer/Empirical.lean",
+    "imports": [
+      "RiffleLowerV2.Shared"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Endpoint": {
+    "source": "RiffleLowerV2/ProfileTransfer/Endpoint.lean",
+    "imports": [
+      "RiffleLowerV2.ProfileTransfer.Empirical"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Extrema": {
+    "source": "RiffleLowerV2/ProfileTransfer/Extrema.lean",
+    "imports": [
+      "Contracts.v1.Endpoints"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Main": {
+    "source": "RiffleLowerV2/ProfileTransfer/Main.lean",
+    "imports": [
+      "RiffleLowerV2.ProfileTransfer.Quadrature",
+      "RiffleLowerV2.ProfileTransfer.Margin",
+      "RiffleLowerV2.ProfileTransfer.Parameters"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Margin": {
+    "source": "RiffleLowerV2/ProfileTransfer/Margin.lean",
+    "imports": [
+      "RiffleLowerV2.ProfileTransfer.Empirical",
+      "RiffleLowerV2.ProfileTransfer.Spatial",
+      "RiffleLowerV2.ProfileTransfer.Extrema"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Parameters": {
+    "source": "RiffleLowerV2/ProfileTransfer/Parameters.lean",
+    "imports": [
+      "RiffleLowerV2.Shared",
+      "RiffleTimeProfile.Analysis"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Quadrature": {
+    "source": "RiffleLowerV2/ProfileTransfer/Quadrature.lean",
+    "imports": [
+      "RiffleLowerV2.ProfileTransfer.Compat.GridQuadrature",
+      "Contracts.v1.TransferFinite",
+      "RiffleLowerV2.ProfileTransfer.Endpoint"
+    ]
+  },
+  "RiffleLowerV2.ProfileTransfer.Spatial": {
+    "source": "RiffleLowerV2/ProfileTransfer/Spatial.lean",
+    "imports": [
+      "Contracts.v1.TransferFinite",
+      "RiffleTimeProfile.Analysis"
+    ]
+  },
+  "RiffleLowerV2.Shared.Adapters": {
+    "source": "RiffleLowerV2/Shared/Adapters.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Statistics"
+    ]
+  },
+  "RiffleLowerV2.Shared.Empirical": {
+    "source": "RiffleLowerV2/Shared/Empirical.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Model"
+    ]
+  },
+  "RiffleLowerV2.Shared.Geometry": {
+    "source": "RiffleLowerV2/Shared/Geometry.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Statistics"
+    ]
+  },
+  "RiffleLowerV2.Shared.Model": {
+    "source": "RiffleLowerV2/Shared/Model.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Smoke",
+      "Mathlib.Probability.ProbabilityMassFunction.Constructions"
+    ]
+  },
+  "RiffleLowerV2.Shared.Path": {
+    "source": "RiffleLowerV2/Shared/Path.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Model"
+    ]
+  },
+  "RiffleLowerV2.Shared.Smoke": {
+    "source": "RiffleLowerV2/Shared/Smoke.lean",
+    "imports": [
+      "RiffleTimeProfile.FixedCountModel",
+      "RiffleShuffle.Graphs"
+    ]
+  },
+  "RiffleLowerV2.Shared.Statistics": {
+    "source": "RiffleLowerV2/Shared/Statistics.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Empirical",
+      "RiffleLowerV2.Shared.Path"
+    ]
+  },
+  "RiffleLowerV2.Shared": {
+    "source": "RiffleLowerV2/Shared.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Adapters",
+      "RiffleLowerV2.Shared.Geometry"
+    ]
+  },
+  "RiffleLowerV2.Thinning.AllPrefixes": {
+    "source": "RiffleLowerV2/Thinning/AllPrefixes.lean",
+    "imports": [
+      "Contracts.v1.ModelThinning",
+      "RiffleLowerV2.Shared.Adapters"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Check": {
+    "source": "RiffleLowerV2/Thinning/Check.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Main",
+      "Lean.Util.FoldConsts",
+      "Lean.Util.CollectAxioms"
+    ]
+  },
+  "RiffleLowerV2.Thinning.ColumnSampling": {
+    "source": "RiffleLowerV2/Thinning/ColumnSampling.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.PMFTools",
+      "RiffleLowerV2.Thinning.Compat.SubsetTransform"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.Check": {
+    "source": "RiffleLowerV2/Thinning/Compat/Check.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.SubsetTransform",
+      "Lean.Util.CollectAxioms"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.Conditioning": {
+    "source": "RiffleLowerV2/Thinning/Compat/Conditioning.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.FiniteLaw"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.FiniteLaw": {
+    "source": "RiffleLowerV2/Thinning/Compat/FiniteLaw.lean",
+    "imports": [
+      "Mathlib.Tactic",
+      "Mathlib.Probability.ProbabilityMassFunction.Integrals"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.Hypergeometric": {
+    "source": "RiffleLowerV2/Thinning/Compat/Hypergeometric.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.FiniteLaw",
+      "Mathlib.Data.Nat.Choose.Vandermonde",
+      "Mathlib.Algebra.BigOperators.NatAntidiagonal"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.HypergeometricConcentration": {
+    "source": "RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.HypergeometricMoments",
+      "Mathlib.Data.Nat.Choose.Sum",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Data.Fin.Rev",
+      "Mathlib.Tactic"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.HypergeometricMoments": {
+    "source": "RiffleLowerV2/Thinning/Compat/HypergeometricMoments.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.Hypergeometric",
+      "Mathlib.Data.Nat.Choose.Vandermonde",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Algebra.BigOperators.NatAntidiagonal",
+      "Mathlib.Tactic.Ring"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.ResidualSampling": {
+    "source": "RiffleLowerV2/Thinning/Compat/ResidualSampling.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.SubsetSampling"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.SamplingCheck": {
+    "source": "RiffleLowerV2/Thinning/Compat/SamplingCheck.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Sampling",
+      "RiffleLowerV2.Thinning.ColumnSampling",
+      "Lean.Util.CollectAxioms"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.SubsetSampling": {
+    "source": "RiffleLowerV2/Thinning/Compat/SubsetSampling.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.Conditioning",
+      "RiffleLowerV2.Thinning.Compat.Hypergeometric",
+      "Mathlib.Data.Finset.Powerset"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Compat.SubsetTransform": {
+    "source": "RiffleLowerV2/Thinning/Compat/SubsetTransform.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.HypergeometricConcentration",
+      "RiffleLowerV2.Thinning.Compat.ResidualSampling"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Main": {
+    "source": "RiffleLowerV2/Thinning/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Process",
+      "RiffleLowerV2.Thinning.Prefixes",
+      "RiffleLowerV2.Thinning.Residual.Prefix",
+      "RiffleLowerV2.Thinning.Residual.Independence",
+      "RiffleLowerV2.Thinning.UniformError"
+    ]
+  },
+  "RiffleLowerV2.Thinning.MaximalWord": {
+    "source": "RiffleLowerV2/Thinning/MaximalWord.lean",
+    "imports": [
+      "Contracts.v1.AssemblyInputs",
+      "RiffleLowerV2.Shared.Adapters"
+    ]
+  },
+  "RiffleLowerV2.Thinning.PMFTools": {
+    "source": "RiffleLowerV2/Thinning/PMFTools.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Adapters",
+      "Mathlib.Tactic",
+      "Mathlib.Logic.Equiv.Fintype"
+    ]
+  },
+  "RiffleLowerV2.Thinning.PrefixCoordinates": {
+    "source": "RiffleLowerV2/Thinning/PrefixCoordinates.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.PMFTools"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Prefixes": {
+    "source": "RiffleLowerV2/Thinning/Prefixes.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.ColumnSampling",
+      "RiffleLowerV2.Thinning.PrefixCoordinates",
+      "RiffleLowerV2.Thinning.Recursion",
+      "RiffleLowerV2.Thinning.Tails",
+      "RiffleLowerV2.Thinning.AllPrefixes",
+      "RiffleLowerV2.Thinning.MaximalWord"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Process": {
+    "source": "RiffleLowerV2/Thinning/Process.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Sampling",
+      "RiffleLowerV2.Thinning.Recursion",
+      "RiffleLowerV2.Thinning.Tails"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Recursion": {
+    "source": "RiffleLowerV2/Thinning/Recursion.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.PMFTools"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Residual.Check": {
+    "source": "RiffleLowerV2/Thinning/Residual/Check.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Residual"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Residual.Independence": {
+    "source": "RiffleLowerV2/Thinning/Residual/Independence.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Residual"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Residual.IndependenceCheck": {
+    "source": "RiffleLowerV2/Thinning/Residual/IndependenceCheck.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Residual.Independence"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Residual.Prefix": {
+    "source": "RiffleLowerV2/Thinning/Residual/Prefix.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Residual"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Residual.PrefixCheck": {
+    "source": "RiffleLowerV2/Thinning/Residual/PrefixCheck.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Residual.Prefix"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Residual": {
+    "source": "RiffleLowerV2/Thinning/Residual.lean",
+    "imports": [
+      "Contracts.v1.ModelThinning",
+      "RiffleLowerV2.Shared.Adapters",
+      "RiffleLowerV2.Thinning.PMFTools"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Sampling": {
+    "source": "RiffleLowerV2/Thinning/Sampling.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.PMFTools",
+      "RiffleLowerV2.Thinning.Compat.SubsetTransform",
+      "Contracts.v1.AdditionalFinite"
+    ]
+  },
+  "RiffleLowerV2.Thinning.Tails": {
+    "source": "RiffleLowerV2/Thinning/Tails.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.PMFTools",
+      "Mathlib.Analysis.Complex.Exponential"
+    ]
+  },
+  "RiffleLowerV2.Thinning.UniformError": {
+    "source": "RiffleLowerV2/Thinning/UniformError.lean",
+    "imports": [
+      "Contracts.v1.ModelThinning",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics"
+    ]
+  },
+  "RiffleLowerV2.Types.Approximation": {
+    "source": "RiffleLowerV2/Types/Approximation.lean",
+    "imports": [
+      "RiffleLowerV2.Types.WordEstimates",
+      "RiffleLowerV2.Types.ClassEntropy",
+      "RiffleLowerV2.Types.Truncation",
+      "RiffleLowerV2.Types.Rates"
+    ]
+  },
+  "RiffleLowerV2.Types.ClassEntropy": {
+    "source": "RiffleLowerV2/Types/ClassEntropy.lean",
+    "imports": [
+      "RiffleLowerV2.Types.EntropyBounds",
+      "RiffleLowerV2.Types.Counting"
+    ]
+  },
+  "RiffleLowerV2.Types.Construction": {
+    "source": "RiffleLowerV2/Types/Construction.lean",
+    "imports": [
+      "RiffleLowerV2.Types.Counting",
+      "RiffleLowerV2.Types.Truncation",
+      "RiffleLowerV2.Types.MassBins"
+    ]
+  },
+  "RiffleLowerV2.Types.Counting": {
+    "source": "RiffleLowerV2/Types/Counting.lean",
+    "imports": [
+      "RiffleLowerV2.Types.Rounding",
+      "Mathlib.Data.Fintype.Perm"
+    ]
+  },
+  "RiffleLowerV2.Types.Empty": {
+    "source": "RiffleLowerV2/Types/Empty.lean",
+    "imports": [
+      "RiffleLowerV2.Types.MassBins"
+    ]
+  },
+  "RiffleLowerV2.Types.EntropyBounds": {
+    "source": "RiffleLowerV2/Types/EntropyBounds.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Geometry",
+      "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog"
+    ]
+  },
+  "RiffleLowerV2.Types.Main": {
+    "source": "RiffleLowerV2/Types/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Types.Construction",
+      "RiffleLowerV2.Types.Approximation",
+      "RiffleLowerV2.Types.Empty",
+      "RiffleLowerV2.Types.Partition",
+      "Contracts.v1.WitnessGeometry"
+    ]
+  },
+  "RiffleLowerV2.Types.MassBins": {
+    "source": "RiffleLowerV2/Types/MassBins.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Geometry"
+    ]
+  },
+  "RiffleLowerV2.Types.Partition": {
+    "source": "RiffleLowerV2/Types/Partition.lean",
+    "imports": [
+      "RiffleLowerV2.Types.Truncation",
+      "RiffleTimeProfile.Analysis"
+    ]
+  },
+  "RiffleLowerV2.Types.Rates": {
+    "source": "RiffleLowerV2/Types/Rates.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Geometry"
+    ]
+  },
+  "RiffleLowerV2.Types.Rounding": {
+    "source": "RiffleLowerV2/Types/Rounding.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Geometry",
+      "Mathlib.Algebra.BigOperators.Intervals",
+      "Mathlib.Algebra.Order.Floor.Semiring"
+    ]
+  },
+  "RiffleLowerV2.Types.Truncation": {
+    "source": "RiffleLowerV2/Types/Truncation.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Geometry"
+    ]
+  },
+  "RiffleLowerV2.Types.WordEstimates": {
+    "source": "RiffleLowerV2/Types/WordEstimates.lean",
+    "imports": [
+      "RiffleLowerV2.Types.MassBins"
+    ]
+  },
+  "RiffleLowerV2.Witness.Continuous": {
+    "source": "RiffleLowerV2/Witness/Continuous.lean",
+    "imports": [
+      "RiffleLowerV2.Witness.OneColumn",
+      "RiffleLowerV2.Witness.Empirical",
+      "RiffleLowerV2.Witness.Selection"
+    ]
+  },
+  "RiffleLowerV2.Witness.Empirical": {
+    "source": "RiffleLowerV2/Witness/Empirical.lean",
+    "imports": [
+      "RiffleLowerV2.Shared"
+    ]
+  },
+  "RiffleLowerV2.Witness.EmpiricalTilt": {
+    "source": "RiffleLowerV2/Witness/EmpiricalTilt.lean",
+    "imports": [
+      "RiffleLowerV2.Witness.Empirical",
+      "RiffleLowerV2.Witness.OneColumn"
+    ]
+  },
+  "RiffleLowerV2.Witness.Finite": {
+    "source": "RiffleLowerV2/Witness/Finite.lean",
+    "imports": [
+      "RiffleLowerV2.Witness.Selection",
+      "RiffleLowerV2.Witness.Rounding",
+      "RiffleLowerV2.Witness.Empirical",
+      "RiffleLowerV2.Witness.OneColumn"
+    ]
+  },
+  "RiffleLowerV2.Witness.Main": {
+    "source": "RiffleLowerV2/Witness/Main.lean",
+    "imports": [
+      "RiffleLowerV2.Witness.Continuous",
+      "RiffleLowerV2.Witness.Finite",
+      "RiffleLowerV2.Witness.EmpiricalTilt"
+    ]
+  },
+  "RiffleLowerV2.Witness.OneColumn": {
+    "source": "RiffleLowerV2/Witness/OneColumn.lean",
+    "imports": [
+      "RiffleLowerV2.Witness.OneColumnBasic"
+    ]
+  },
+  "RiffleLowerV2.Witness.OneColumnBasic": {
+    "source": "RiffleLowerV2/Witness/OneColumnBasic.lean",
+    "imports": [
+      "Contracts.v1.WitnessGeometry",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Continuity",
+      "Mathlib.Algebra.Order.BigOperators.Ring.Finset"
+    ]
+  },
+  "RiffleLowerV2.Witness.Rounding": {
+    "source": "RiffleLowerV2/Witness/Rounding.lean",
+    "imports": [
+      "Contracts.v1.WitnessGeometry"
+    ]
+  },
+  "RiffleLowerV2.Witness.Selection": {
+    "source": "RiffleLowerV2/Witness/Selection.lean",
+    "imports": [
+      "RiffleLowerV2.Shared",
+      "Mathlib.Topology.Order.IntermediateValue"
+    ]
+  },
+  "RiffleLowerV2": {
+    "source": "RiffleLowerV2.lean",
+    "imports": [
+      "RiffleLowerV2.Shared",
+      "Contracts.v1"
+    ]
+  },
+  "RiffleLowerV2.Completed": {
+    "source": "RiffleLowerV2/Completed.lean",
+    "imports": [
+      "RiffleLowerV2",
+      "RiffleLowerV2.Model.Main",
+      "RiffleLowerV2.Thinning.Main",
+      "RiffleLowerV2.Factorial.Main",
+      "RiffleLowerV2.Ascent.Main",
+      "RiffleLowerV2.Witness.Main",
+      "RiffleLowerV2.Types.Main",
+      "RiffleLowerV2.ProfileTransfer.Main",
+      "RiffleLowerV2.Occupancy.Main",
+      "RiffleLowerV2.Localization.Main",
+      "RiffleLowerV2.EmpiricalLower.Main",
+      "RiffleLowerV2.MacroscopicLower.Main"
+    ]
+  }
+}

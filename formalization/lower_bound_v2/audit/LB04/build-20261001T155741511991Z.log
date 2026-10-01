@@ -1,0 +1,42 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.Expectation']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:87:8: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:113:83: warning: Unused tactic linter: `omega` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean:113:83: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Expectation.lean:46:8: error(lean.unknownIdentifier): Unknown constant `Finset.disjoint_sdiff_left`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Expectation.lean:65:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - d ≥ 1
+where
+ a := ↑(Finset.card (G ∩ (G ∩ internalEdges H ∪ (goodBoundaries G H ∪ badBoundaries G H))))
+ b := ↑(Finset.card (goodBoundaries G H))
+ c := ↑(Finset.card (badBoundaries G H))
+ d := ↑(Finset.card (G ∩ internalEdges H))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Expectation.lean:98:4: error: Type mismatch: After simplification, term
+  hsum
+ has type
+  ↑(Finset.card (goodBoundaries G H)) * (1 * 2⁻¹) - ∑ x ∈ goodBoundaries G H, ↑(w x) * 6⁻¹ ≤
+    ∑ i ∈ goodBoundaries G H, p i
+but is expected to have type
+  ↑(Finset.card (goodBoundaries G H)) * 2⁻¹ - (∑ e ∈ goodBoundaries G H, ↑(w e)) * 6⁻¹ ≤ ∑ e ∈ goodBoundaries G H, p e
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/Expectation.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Expectation.lean']' returned non-zero exit status 1.

@@ -1,0 +1,103 @@
+{
+  "status": "LB03_COMPLETE",
+  "timestamp_utc": "2026-10-01T16:08:55.919523+00:00",
+  "import": "RiffleLowerV2.Factorial.Main",
+  "build_command": "python3 scripts/lane.py LB03 RiffleLowerV2.Factorial.Main",
+  "build_log": "audit/LB03/lane_build_v1.log",
+  "statement_and_axiom_check": "audit/LB03/Check_v1.lean",
+  "declaration_log": "audit/LB03/declaration_audit_v1.log",
+  "exports": {
+    "RiffleLowerV2.Factorial.exactJointFactorial": "RiffleLowerV2.Targets.ExactJointFactorial",
+    "RiffleLowerV2.Factorial.relativeJointFactorial": "RiffleLowerV2.Targets.RelativeJointFactorial",
+    "RiffleLowerV2.Factorial.residualJointFactorial": "RiffleLowerV2.Targets.ResidualJointFactorial",
+    "RiffleLowerV2.Factorial.residualRelativeFactorial": "RiffleLowerV2.Targets.ResidualRelativeFactorial",
+    "RiffleLowerV2.Factorial.residualMeanComparison": "RiffleLowerV2.Targets.ResidualMeanComparison",
+    "RiffleLowerV2.Factorial.bonferroniSandwich": "RiffleLowerV2.Targets.BonferroniSandwich",
+    "RiffleLowerV2.Factorial.bonferroniProduct": "RiffleLowerV2.Targets.BonferroniProduct",
+    "RiffleLowerV2.Factorial.centralComparison": "RiffleLowerV2.Targets.CentralComparison",
+    "RiffleLowerV2.Factorial.centralComparisonOne": "RiffleLowerV2.Targets.CentralComparisonOne",
+    "RiffleLowerV2.Factorial.rareSandwich": "RiffleLowerV2.Targets.RareSandwich"
+  },
+  "axioms": {
+    "RiffleLowerV2.Factorial.exactJointFactorial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.relativeJointFactorial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.residualJointFactorial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.residualRelativeFactorial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.residualMeanComparison": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.bonferroniSandwich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.bonferroniProduct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.centralComparison": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.centralComparisonOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.rareSandwich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Factorial.conditional_wordCount_eq_residualWordMean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "source_hashes": {
+    "RiffleLowerV2/Factorial/Basic.lean": "eb419c20e5df3505d6ca1093d964281a0de9be86454d0f9abc59f40874b11542",
+    "RiffleLowerV2/Factorial/Bonferroni.lean": "3d42d1aeea02f34e00ad95ce65feb993cffc9e4eefec978c6e20b3abcc012a7a",
+    "RiffleLowerV2/Factorial/Central.lean": "204e6b7db7876ed5ae3b503fff91b62cca95c9fcdc5fd54977ae5bbc5e707da1",
+    "RiffleLowerV2/Factorial/Exact.lean": "65640e94b727947d46db81b5a6e8f4241b041ba959df3d8ba36ed9e459855900",
+    "RiffleLowerV2/Factorial/Main.lean": "376da3c842deb56c2795cf088e889a0d7625e77a75251aa155c498da92615905",
+    "RiffleLowerV2/Factorial/MomentScales.lean": "8c55feee7a5e2f8d53d7ae9f3f7b91dace8c795f7f830b411eca5febb67d0192",
+    "RiffleLowerV2/Factorial/PoissonPolynomial.lean": "f6d6b631ad6e3debd9a945ce4dbd26b43c3fcecfd55a2e71369d822928e73af9",
+    "RiffleLowerV2/Factorial/PolynomialMoments.lean": "bcf740f632a9a93be1742ce57eb7b858b490bd8e50b1e81ad4a403bf27783201",
+    "RiffleLowerV2/Factorial/Ratios.lean": "bb86da0ab9a0fbf32179a5da3457003ec1c7311d06586b85a8fa9602fa4195dc",
+    "RiffleLowerV2/Factorial/Relative.lean": "4e7fc5bea4c5c2bc932299f31d83d626617edbd304b1134c2b06485ad2684e41",
+    "RiffleLowerV2/Factorial/RelativeFromExact.lean": "2a056832b3a61b568b811ad3a6c04f608485564c2526744120308a90019517ee",
+    "RiffleLowerV2/Factorial/RelativeTargets.lean": "4fa5664ef3751c5e983fde4b4cb0c8eb4f4d1476b0ca2054a948647855e5d928",
+    "RiffleLowerV2/Factorial/Requests.lean": "8dd04a91e84b7b6f0cd74e9c788c244c4b52a6cf12515649f1671023a3532be3",
+    "RiffleLowerV2/Factorial/Residual.lean": "2988171f3c337787e9f484eadc840b5af6835a6589709c2fba2268d96f4025b2",
+    "RiffleLowerV2/Factorial/ResidualEstimates.lean": "2dfdc4475858b67b4b5846bf8a86cb6fd9d62a5da715bf84f96f8878635eb4fc"
+  },
+  "evidence_hashes": {
+    "audit/LB03/Check_v1.lean": "00c14328aa181effdabaeb19b3217df1bbcef7f2135dc1a6d6632b291f9b10f0",
+    "audit/LB03/lane_build_v1.log": "71d92de19752b8386f6b00f5baaa75466047816148d9e500d893e04e51547a7b",
+    "audit/LB03/declaration_audit_v1.log": "8c5fd83dd38d455ca0e1cc9751ecc6946cbd39aba152ee9caf5dc075c351e83f"
+  },
+  "contract_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "pending_lb03_obligations": []
+}

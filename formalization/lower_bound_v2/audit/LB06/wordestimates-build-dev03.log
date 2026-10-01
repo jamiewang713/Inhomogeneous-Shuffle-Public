@@ -1,0 +1,36 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/WordEstimates.lean:178:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  indexFiber (roundedClass cuts hN P I D) (fun x => ⌊-Real.log (massOn cuts x)⌋₊) b
+in the target expression
+  {a ∈ s | ⌊-Real.log (massOn cuts a)⌋₊ = b}.card ≤ t.card
+
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+P : BorelPartition k
+I : Finset (Fin K)
+D : RoundedTypeData P
+hsel : (selectedClass cuts hN P I D).Nonempty
+hpos : ∀ x ∈ roundedClass cuts hN P I D, 0 < massOn cuts x
+hmax : ∀ (b : ℕ), (massBin cuts hN P I D b).card ≤ (selectedClass cuts hN P I D).card
+B : ℝ
+hB : 0 < B
+hbins : ↑(Finset.image (fun x => ⌊-Real.log (massOn cuts x)⌋₊) (roundedClass cuts hN P I D)).card ≤ B
+s : Finset (WordOn k I) := roundedClass cuts hN P I D
+t : Finset (WordOn k I) := selectedClass cuts hN P I D
+ht : 0 < ↑t.card
+hsub : t ⊆ s
+hle : ↑t.card ≤ ↑s.card
+hs : 0 < ↑s.card
+b : ℕ
+a✝ : b ∈ Finset.image (fun x => ⌊-Real.log (massOn cuts x)⌋₊) s
+⊢ {a ∈ s | ⌊-Real.log (massOn cuts a)⌋₊ = b}.card ≤ t.card
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB06/lib/lean/RiffleLowerV2/Types/WordEstimates.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/WordEstimates.lean']' returned non-zero exit status 1.

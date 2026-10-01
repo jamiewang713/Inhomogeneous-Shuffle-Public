@@ -1,0 +1,54 @@
+Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib 0df444a360eaa60ab8c11dca51a86af692955474
+CHECK RiffleTimeProfile.Base
+CHECK RiffleTimeProfile.Ambient
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:91:13: error: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:95:29: error: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:110:53: error: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:128:19: error: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:138:50: error: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:168:5: error: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/build.py", line 82, in <module>
+    if __name__=='__main__': main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/build.py", line 76, in main
+    for module in args.modules or ['RiffleLowerV2']: visit(module)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/build.py", line 68, in visit
+    for dep in imports(source): visit(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/build.py", line 68, in visit
+    for dep in imports(source): visit(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/build.py", line 73, in visit
+    subprocess.run([str(COMPILER),'-R',str(base),'-DwarningAsError=true','-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile', '-DwarningAsError=true', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lib/lean/RiffleTimeProfile/Ambient.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean']' returned non-zero exit status 1.

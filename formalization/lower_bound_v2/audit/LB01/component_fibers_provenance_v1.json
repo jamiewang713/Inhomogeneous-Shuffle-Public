@@ -1,0 +1,29 @@
+{
+  "module": "RiffleLowerV2.Model.ComponentFibers",
+  "sha256": "ca0b61143fb2aaa5ac68a868185449d4c5ef2b3800cbad971e041b01ecdd482a",
+  "provenance": "New lane-owned proofs using checked graph normalization and key-assignment fiber equivalence; no old cache or unproved auxiliary import.",
+  "mathematical_source": "time_inhomogeneous_riffle_shuffle_unified_article.tex: lem:ub-graph-representation, product of component factorials",
+  "imports": [
+    "RiffleLowerV2.Model.GraphSorting",
+    "RiffleLowerV2.Model.FiberCounts"
+  ],
+  "dependency_sha256": {
+    "RiffleLowerV2/Model/GraphSorting.lean": "66201c1a8aa75da4d0fd5855ab251d3cded0e3fb90e5df734c6c95862be880f0",
+    "RiffleLowerV2/Model/FiberCounts.lean": "a047c4cda586bacc6c19fec75e9a4905097860fa7f075917bcb213c7d6aad349"
+  },
+  "checked_command": "python3 audit/LB01/compile_lane.py RiffleLowerV2.Model.ComponentFibers",
+  "checked_workdir": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2",
+  "checked_exit_code": 0,
+  "checked_stdout": "LB01 BUILD_OK\n",
+  "main_declarations": [
+    "RiffleLowerV2.Model.componentSort_eq_iff",
+    "RiffleLowerV2.Model.componentSort_fiber_card_of_not_increasing",
+    "RiffleLowerV2.Model.shuffleComponentFiberEquiv",
+    "RiffleLowerV2.Model.shuffle_componentSort_fiber_card",
+    "RiffleLowerV2.Model.shuffle_componentSort_fiber_card_eq",
+    "RiffleLowerV2.Model.shuffle_blockIncreasing_iff"
+  ],
+  "assumption_changes": [],
+  "concrete_finite_key_type": "Word k K; unrealized words contribute 0! = 1",
+  "scope": "Exact supported and unsupported component-normalization fiber counts for the actual generated graph, plus a generic path-graph normalization criterion."
+}

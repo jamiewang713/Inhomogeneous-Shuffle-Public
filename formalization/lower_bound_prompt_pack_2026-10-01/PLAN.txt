@@ -1,0 +1,103 @@
+LOWER-BOUND LEAN FORMALIZATION PLAN — 2026-10-01
+
+Prepared from the revised manuscript and a read-only inspection of the existing Lean sources. This pack contains plans/prompts, not new checked proofs. No implementation agent has been launched by preparing this pack. Every numbered .txt file is a complete standalone prompt: paste its entire contents into its own agent/task. No extra common preamble needs to be appended. /goal follows the format of the reference chats.
+
+Source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Source SHA-256 at planning time: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Proposed new package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Proposed namespace: RiffleLowerV2
+Recommended runtime: Lean 4.33.1, mathlib 0df444a360eaa60ab8c11dca51a86af692955474.
+The package does not exist yet; LB-00 must establish it. Existing lower/probability/profile libraries at 4.19 and edge localization at 4.24 require checked source ports/adapters. There is no repository-root Lake project. Never mix incompatible .olean caches or two libraries with the same RiffleTimeProfile import name.
+
+WHAT IS BEING FORMALIZED
+
+E. A concrete empirical lower theorem for the physical shuffle law using actual finite columns, their beta/Lambda costs, and a fixed positive margin. The cold branch requires the stated local-good condition at rho>0 with 2rho log k≤kappa0/100, where kappa0 is fixed from that margin; the largest-word branch does not require local-good columns. This endpoint has no macroscopic temporal regularity assumption.
+M. A macroscopic lower theorem for the physical shuffle law from max(Lambda0,Lambda1)≥eta under almost-profile/local-good hypotheses PLUS an explicit scalar-integrability predicate for the cells and a/psi costs used by transfer.
+
+M has stronger explicit regularity than the original frozen arbitrary-TimeLaw formulation. That addition is not derived from fixed-partition AlmostLike and is not disguised as a notation change. E is the assumption-clean finite-column foundation, but it is not itself a proof of the original macro statement. The unchanged arbitrary-TimeLaw theorem remains uncertified. No random-pile cold theorem, zero-margin theorem, upper-bound proof or full-cutoff claim is included.
+
+WHAT THE EXISTING PROJECT ALREADY SUPPLIES
+
+- lean-lower-bound: finite TV/event tools, first and second word moments, stable word sorting, uniform increasing-run bounds and a finite largest-word lower bound. The deterministic cold extraction lemma assumes localization.
+- lean/Shuffle: hypergeometric/concentration and residual-conditioning tools. The public power transform is restricted to 0<s≤1, so the all-s extension is new.
+- formalization/time_profile: canonical cut/profile/matrix definitions, regular partitions, lattice counts and one-sided numerical quadrature. It does not prove the needed two-sided transfer for arbitrary TimeLaw or general joint factorial moments.
+- formalization/foundations: deterministic words, matrices, sorting, ranks and graph facts. It does not prove the probabilistic graph-mixture identity.
+- lean_formalization: finite replacement/entropy/word-mass tools. Existing entropy upper bounds do not give the new lower multinomial count.
+- formalization/upper_bound: audit/plan material, not a completed upper-bound Lean library to import.
+
+These are reuse candidates checked by source inspection for this plan. They must be recompiled and matched to exact frozen types in the new runtime before being counted as integrated proof dependencies. Old theorem counts/build receipts alone do not certify the revised article.
+
+HOW TO RUN THE AGENTS
+
+1. Run LB-00 alone to establish the shared compiled definitions, immutable target contract, build/provenance setup, and CONTRACT_READY receipt. This is a setup gate, not a demand that the final theorem already compile.
+2. After that receipt, LB-01,02,03,04,05,06,07 may run simultaneously. Each owns separate modules and can complete without a proof from another one of these seven lanes.
+3. Start LB-08 as soon as 02 and 03 are complete; start LB-09 as soon as 02,05,06 are complete. They can run concurrently, even if an unrelated first-stage lane is still working.
+4. Start LB-10 when 01,02,04,08,09 are complete. It produces E.
+5. Start LB-11 when 07 and 10 are complete. It produces M.
+6. LB-12 can inspect contracts early, but final certification runs after 10 and 11 and uses a fresh build and complete endpoint dependency audit. It reports E, M and the original unchanged statement separately.
+
+With four available worker slots, after setup start 01,02,05,06; fill slots with 03,04,07 as they become free. Prefer a now-ready 08 or 09 when it advances a critical dependency chain. This is a dependency-driven schedule, not a barrier requiring every earlier lane to finish before any later work begins. Budget independent reviewers within the actual available slots rather than recursively spawning an unbounded tree.
+
+DEPENDENCY TABLE
+LB-00: Shared contract, definitions, and build foundation | needs: none | prompt: 00_shared_contract_definitions_and_build_foundation.txt
+LB-01: Concrete shuffle laws and graph representation | needs: LB-00 | prompt: 01_concrete_shuffle_laws_and_graph_representation.txt
+LB-02: Successive thinning and uniform prefix concentration | needs: LB-00 | prompt: 02_successive_thinning_and_uniform_prefix_concentration.txt
+LB-03: Joint factorial moments and controlled Bonferroni polynomials | needs: LB-00 | prompt: 03_joint_factorial_moments_and_controlled_bonferroni_polynomials.txt
+LB-04: Permutation ascent concentration and the observable scan | needs: LB-00 | prompt: 04_permutation_ascent_concentration_and_the_observable_scan.txt
+LB-05: One-column tilt analysis and the empirical cold witness | needs: LB-00 | prompt: 05_one_column_tilt_analysis_and_the_empirical_cold_witness.txt
+LB-06: Rounded type classes and deterministic mass bins | needs: LB-00 | prompt: 06_rounded_type_classes_and_deterministic_mass_bins.txt
+LB-07: Explicitly integrable profile transfer | needs: LB-00 | prompt: 07_explicitly_integrable_profile_transfer.txt
+LB-08: Uniform occupancy probabilities and covariance | needs: LB-00,LB-02,LB-03 | prompt: 08_uniform_occupancy_probabilities_and_covariance.txt
+LB-09: Cold geometry, relative endpoints, and probabilistic localization | needs: LB-00,LB-02,LB-05,LB-06 | prompt: 09_cold_geometry_relative_endpoints_and_probabilistic_localization.txt
+LB-10: Empirical lower-bound assembly | needs: LB-00,LB-01,LB-02,LB-04,LB-08,LB-09 | prompt: 10_empirical_lower_bound_assembly.txt
+LB-11: Macroscopic lower bound under explicit scalar integrability | needs: LB-00,LB-07,LB-10 | prompt: 11_macroscopic_lower_bound_under_explicit_scalar_integrability.txt
+LB-12: Independent final theorem and dependency audit | needs: LB-00,LB-10,LB-11 | prompt: 12_independent_final_theorem_and_dependency_audit.txt
+
+DEPENDENCY SUMMARY
+
+00 -> {01,02,03,04,05,06,07}
+{02,03} -> 08
+{02,05,06} -> 09
+{01,02,04,08,09} -> 10 (empirical E)
+{07,10} -> 11 (macro M)
+{10,11} -> 12 (audit)
+
+Every lane also requires the shared contract from 00. The dependency table above gives complete task identifiers.
+
+WORKSPACE AND BUILD OWNERSHIP
+
+Use one new integration package, with new lane-specific contracts under Contracts/ and proof modules under RiffleLowerV2/. LB-00 coordinates shared definitions, frozen signatures, package configuration, read-only dependency snapshots, umbrella imports and integration build registration. LB-01..11 own only their named module directory and audit subdirectory; LB-12 owns independent audit reports. No worker writes another lane's files or changes historical freezes.
+
+Separate Codex tasks/worktrees are acceptable if each receives the same reviewed contract and current revised source, including the uncommitted manuscript revision. Do not start from an old default-branch copy and formalize the superseded proof. Integrate completed owned files and receipts through the coordinator; do not bulk-copy incompatible caches. In a shared checkout, exclusive paths and lane-local compiler outputs prevent collisions; serialize whole-package builds and dependency-cache writes.
+
+Each module may own proved private helpers. Cross-lane interface changes go through a reviewed additive contract version. Lane agents write proposed contract changes and reviews only in their own audit/LBxx/ directories; LB-00 alone edits Contracts/ and returns a freeze receipt. A pending target can be written as a proposition-valued definition for statement checking, but it cannot be imported as evidence. No dummy instances, fields packaging unproved target conclusions as assumptions, sorry, admit, custom axioms or native proof oracles are allowed. Ordinary well-formedness and mathematical premises belong explicitly in the frozen contract.
+
+IMPORTANT GAPS THAT EACH PROMPT PREVENTS
+
+- 01: the actual stable-sort law is not yet proved to be the independent graph-component mixture or the chronological physical inverse law.
+- 02: existing fixed-word/Chebyshev results do not imply exponential concentration for all prefixes; residual populations must change after conditioning.
+- 03: the old 1/6 Bonferroni coefficient is false; tail probabilities alone do not bound a polynomial remainder expectation.
+- 04: the general block bounded-difference lemma is false; the parity proof targets the actual component ascent statistic and handles clipping.
+- 05: theta=4 and a witness near the terminal time need explicit safe shortening and bridge clearance; one-column tilt analysis is new work.
+- 06: fixed-mesh errors are not o(1); upper type counts are not lower counts. Rounded classes and largest mass bins must be constructed.
+- 07: old one-sided quadrature and fixed-partition almost-likeness do not imply the added scalar regularity or the needed two-sided transfer.
+- 08: absolute central errors must become uniform relative errors even for rare/mixed pairs; occupancy variables are dependent.
+- 09: retain the ambient fluctuation in the right endpoint, count the reserve event, prove integer-rank localization, and discharge localizedKeys.
+- 10/11: discharge all interfaces on the concrete law and preserve uniformity when the finite branch/witness varies with N.
+- 12: inspect theorem types and proof dependencies, not just a theorem count or absence of sorry.
+
+DEFINITION OF COMPLETION
+
+A lane is complete only when its exact frozen exports are proved, its source-model connections are checked, its promised uniformity is formalized, and its build/axiom/dependency receipts are reproducible. Generic conditional lemmas may be useful intermediate artifacts but are not concrete endpoint proofs. The whole program is complete only when E and M have the actual checked hypotheses and conclusions, required law bridges are proved, and independent audit passes. Report M's integrability assumption every time its scope is summarized.
+
+REFERENCE-PROMPT FORMAT
+
+The eight user-supplied shared chats were read through the browser. Their common format has been retained: /goal, assigned mathematical scope, restricted relevant sources, independent reconstruction/Lean-statement/counterexample reviews, statement freeze, immutable assumptions, no placeholders, alternative strategies when blocked, and concrete verification outputs. This pack narrows each lane to the lower proof, gives exact source labels, and adds explicit interfaces/ownership/toolchain and completion requirements so agents can actually work in parallel.
+- Formalize first-moment theorem: https://chatgpt.com/s/cx_6aad63738d408191a3c665020e050fc7
+- Formalize inhomogeneous bounds: https://chatgpt.com/s/cx_6aad637fdd18819197ed70dc90769112
+- Formalize shuffle upper-bound proof: https://chatgpt.com/s/cx_6aad638c34088191882efb8f896e19b5
+- Formalize time-profile layer: https://chatgpt.com/s/cx_6aad63980344819199526d8fe15a0487
+- Formalize edge localization bounds: https://chatgpt.com/s/cx_6aad63a626088191a2c3ecf120bd24c1
+- Formalize profile estimate lemmas: https://chatgpt.com/s/cx_6aad63b20c0c8191ae3c3018395f1935
+- Formalize hypergeometric lemmas: https://chatgpt.com/s/cx_6aad63bd316081919967d9a59d37c532
+- Recover blocked Lean theorem proof: https://chatgpt.com/s/cx_6aad63c75e148191b5aae6b3d8984906

@@ -1,0 +1,36 @@
+RiffleLowerV2.Types.retainedTilt_denominator_pos {k : ℕ} (hk : 2 ≤ k) (P : TimeProfile.BorelPartition k) {xi alpha : ℝ}
+  (hxi : 0 < xi) (hxiK : xi < 1 / (4 * ↑k)) (i : Fin P.cellCount) :
+  0 < ∑ l, if 2 * xi < TimeProfile.prob (P.rep i) l then TimeProfile.prob (P.rep i) l ^ alpha else 0
+RiffleLowerV2.Types.retainedTilt_sum {k : ℕ} (hk : 2 ≤ k) (P : TimeProfile.BorelPartition k) {xi alpha : ℝ}
+  (hxi : 0 < xi) (hxiK : xi < 1 / (4 * ↑k)) (i : Fin P.cellCount) : ∑ l, RiffleLowerV2.retainedTilt P xi alpha i l = 1
+RiffleLowerV2.Types.retainedTilt_cost_transfer {k : ℕ} (hk : 2 ≤ k) (P : TimeProfile.BorelPartition k) {xi C alpha : ℝ}
+  (hxi : 0 < xi) (hxiK : xi < 1 / (4 * ↑k)) (hC : 0 ≤ C) (hreg : P.IsRegular xi C) (ha : alpha ∈ Set.Icc 2 4)
+  (i : Fin P.cellCount) (p : TimeProfile.Simplex k) (hp : P.classify p = i) :
+  |∑ l, RiffleLowerV2.retainedTilt P xi alpha i l * TimeProfile.digitCost (TimeProfile.prob (P.rep i) l) -
+        TimeProfile.tiltedCost p alpha| ≤
+    RiffleLowerV2.Types.truncationCostConstant k C * xi * Real.log (1 / xi)
+RiffleLowerV2.Types.retainedTilt_entropy_transfer {k : ℕ} (hk : 2 ≤ k) (P : TimeProfile.BorelPartition k)
+  {xi C alpha : ℝ} (hxi : 0 < xi) (hxiK : xi < 1 / (4 * ↑k)) (hC : 0 ≤ C) (hreg : P.IsRegular xi C)
+  (ha : alpha ∈ Set.Icc 2 4) (i : Fin P.cellCount) (p : TimeProfile.Simplex k) (hp : P.classify p = i) :
+  |TimeProfile.shannonEntropy (RiffleLowerV2.retainedTilt P xi alpha i) - TimeProfile.tiltedEntropy p alpha| ≤
+    RiffleLowerV2.Types.truncationEntropyConstant k C * xi * Real.log (1 / xi)
+RiffleLowerV2.Types.omittedTiltedSum_le {k : ℕ} (hk : 2 ≤ k) (r p : TimeProfile.Simplex k) {xi alpha : ℝ} (hxi : 0 ≤ xi)
+  (ha : alpha ∈ Set.Icc 2 4) (hbad : ∀ (l : Fin k), TimeProfile.prob r l ≤ 2 * xi → TimeProfile.prob p l ≤ 3 * xi) :
+  RiffleLowerV2.Types.omittedSum r p xi alpha / TimeProfile.powerSum p alpha ≤ 9 * ↑k ^ 5 * xi ^ 2
+RiffleLowerV2.Types.omittedTiltedCost_small {k : ℕ} (hk : 2 ≤ k) (r p : TimeProfile.Simplex k) {xi alpha : ℝ}
+  (hxi : 0 < xi) (hsmall : xi < 1 / 8) (ha : alpha ∈ Set.Icc 2 4)
+  (hbad : ∀ (l : Fin k), TimeProfile.prob r l ≤ 2 * xi → TimeProfile.prob p l ≤ 3 * xi) :
+  RiffleLowerV2.Types.omittedCostSum r p xi alpha / TimeProfile.powerSum p alpha ≤
+    12 * ↑k ^ 5 * xi ^ 2 * Real.log (1 / xi)
+RiffleLowerV2.Types.omittedEntropySum_bounds {k : ℕ} (hk : 2 ≤ k) (r p : TimeProfile.Simplex k) {xi alpha : ℝ}
+  (hxi : 0 < xi) (hsmall : xi < 1 / 8) (ha : alpha ∈ Set.Icc 2 4)
+  (hbad : ∀ (l : Fin k), TimeProfile.prob r l ≤ 2 * xi → TimeProfile.prob p l ≤ 3 * xi) :
+  0 ≤ RiffleLowerV2.Types.omittedEntropySum r p xi alpha ∧
+    RiffleLowerV2.Types.omittedEntropySum r p xi alpha ≤ 48 * ↑k ^ 5 * xi ^ 2 * Real.log (1 / xi)
+'RiffleLowerV2.Types.retainedTilt_denominator_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Types.retainedTilt_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Types.retainedTilt_cost_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Types.retainedTilt_entropy_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Types.omittedTiltedSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Types.omittedTiltedCost_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Types.omittedEntropySum_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

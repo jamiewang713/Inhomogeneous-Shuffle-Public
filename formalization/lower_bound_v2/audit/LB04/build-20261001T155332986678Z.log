@@ -1,0 +1,46 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.Quantitative']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Quantitative.lean:36:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (1 / 2 + δ) * 2
+in the target expression
+  M ^ ((1 / 2 + δ) * ↑2) = M * M ^ (2 * δ)
+
+M δ : ℝ
+hM : 0 < M
+he : (1 / 2 + δ) * 2 = 1 + 2 * δ
+⊢ M ^ ((1 / 2 + δ) * ↑2) = M * M ^ (2 * δ)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Quantitative.lean:60:2: error: linarith failed to find a contradiction
+hc : Targets.ComponentComparison
+N : ℕ
+G : PathEdges N
+H : Finset (Fin N)
+M D δ : ℝ
+hM : 0 < M
+hHM : ↑H.card ≤ M
+hsize : 576 ≤ M ^ δ
+hD : 24 * D ≤ M ^ δ
+hr : M ^ (1 / 2 + δ) ≤ ↑(Finset.card (G ∩ internalEdges H))
+hd : ↑(boundary H).card ≤ D * √M
+hgap : M ^ (1 / 2 + δ) / 12 ≤ ↑(Finset.card (G ∩ internalEdges H)) / 6 - ↑(boundary H).card - M ^ (1 / 2 + δ / 2)
+hpositive : 0 < M ^ (1 / 2 + δ) / 12
+ht :
+  (probability (uniformPermutation N) fun π =>
+      ↑(ascentCount H (componentSort G π)) ≤ ↑(Finset.card (internalEdges H)) / 2 + M ^ (1 / 2 + δ / 2)) ≤
+    Real.exp (-(↑(Finset.card (G ∩ internalEdges H)) / 6 - ↑(boundary H).card - M ^ (1 / 2 + δ / 2)) ^ 2 / M)
+hs :
+  (M ^ (1 / 2 + δ) / 12) ^ 2 ≤ (↑(Finset.card (G ∩ internalEdges H)) / 6 - ↑(boundary H).card - M ^ (1 / 2 + δ / 2)) ^ 2
+hdiv : M ^ (2 * δ) / 144 ≤ (↑(Finset.card (G ∩ internalEdges H)) / 6 - ↑(boundary H).card - M ^ (1 / 2 + δ / 2)) ^ 2 / M
+a✝ : -M ^ (2 * δ) / 144 < -(↑(Finset.card (G ∩ internalEdges H)) / 6 - ↑(boundary H).card - M ^ (1 / 2 + δ / 2)) ^ 2 / M
+⊢ False
+failed
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/Quantitative.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Quantitative.lean']' returned non-zero exit status 1.

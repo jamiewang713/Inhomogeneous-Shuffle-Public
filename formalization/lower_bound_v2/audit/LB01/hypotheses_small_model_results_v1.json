@@ -1,0 +1,705 @@
+{
+  "kind": "exhaustive finite arithmetic checks; not formal proof",
+  "fixtures": [
+    {
+      "N": 0,
+      "k": 0,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 0,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 0,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 0,
+      "K": 3,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 1,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 1,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 1,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 1,
+      "K": 3,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 2,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 2,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 2,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 2,
+      "K": 3,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 3,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 3,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 0,
+      "k": 3,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 0,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 0,
+      "K": 1,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 1,
+      "k": 0,
+      "K": 2,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 1,
+      "k": 0,
+      "K": 3,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 1,
+      "k": 1,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 1,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 1,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 1,
+      "K": 3,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 2,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 2,
+      "K": 1,
+      "profiles": 2,
+      "samples": 2
+    },
+    {
+      "N": 1,
+      "k": 2,
+      "K": 2,
+      "profiles": 4,
+      "samples": 4
+    },
+    {
+      "N": 1,
+      "k": 2,
+      "K": 3,
+      "profiles": 8,
+      "samples": 8
+    },
+    {
+      "N": 1,
+      "k": 3,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 1,
+      "k": 3,
+      "K": 1,
+      "profiles": 3,
+      "samples": 3
+    },
+    {
+      "N": 1,
+      "k": 3,
+      "K": 2,
+      "profiles": 9,
+      "samples": 9
+    },
+    {
+      "N": 2,
+      "k": 0,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 2,
+      "k": 0,
+      "K": 1,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 2,
+      "k": 0,
+      "K": 2,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 2,
+      "k": 0,
+      "K": 3,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 2,
+      "k": 1,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 2,
+      "k": 1,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 2,
+      "k": 1,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 2,
+      "k": 1,
+      "K": 3,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 2,
+      "k": 2,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 2,
+      "k": 2,
+      "K": 1,
+      "profiles": 3,
+      "samples": 4
+    },
+    {
+      "N": 2,
+      "k": 2,
+      "K": 2,
+      "profiles": 9,
+      "samples": 16
+    },
+    {
+      "N": 2,
+      "k": 2,
+      "K": 3,
+      "profiles": 27,
+      "samples": 64
+    },
+    {
+      "N": 2,
+      "k": 3,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 2,
+      "k": 3,
+      "K": 1,
+      "profiles": 6,
+      "samples": 9
+    },
+    {
+      "N": 2,
+      "k": 3,
+      "K": 2,
+      "profiles": 36,
+      "samples": 81
+    },
+    {
+      "N": 3,
+      "k": 0,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 3,
+      "k": 0,
+      "K": 1,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 3,
+      "k": 0,
+      "K": 2,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 3,
+      "k": 0,
+      "K": 3,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 3,
+      "k": 1,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 3,
+      "k": 1,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 3,
+      "k": 1,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 3,
+      "k": 1,
+      "K": 3,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 3,
+      "k": 2,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 3,
+      "k": 2,
+      "K": 1,
+      "profiles": 4,
+      "samples": 8
+    },
+    {
+      "N": 3,
+      "k": 2,
+      "K": 2,
+      "profiles": 16,
+      "samples": 64
+    },
+    {
+      "N": 3,
+      "k": 2,
+      "K": 3,
+      "profiles": 64,
+      "samples": 512
+    },
+    {
+      "N": 3,
+      "k": 3,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 3,
+      "k": 3,
+      "K": 1,
+      "profiles": 10,
+      "samples": 27
+    },
+    {
+      "N": 3,
+      "k": 3,
+      "K": 2,
+      "profiles": 100,
+      "samples": 729
+    },
+    {
+      "N": 3,
+      "k": 3,
+      "K": 3,
+      "profiles": 1000,
+      "samples": 19683
+    },
+    {
+      "N": 4,
+      "k": 0,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 4,
+      "k": 0,
+      "K": 1,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 4,
+      "k": 0,
+      "K": 2,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 4,
+      "k": 0,
+      "K": 3,
+      "profiles": 0,
+      "samples": 0
+    },
+    {
+      "N": 4,
+      "k": 1,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 4,
+      "k": 1,
+      "K": 1,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 4,
+      "k": 1,
+      "K": 2,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 4,
+      "k": 1,
+      "K": 3,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 4,
+      "k": 2,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 4,
+      "k": 2,
+      "K": 1,
+      "profiles": 5,
+      "samples": 16
+    },
+    {
+      "N": 4,
+      "k": 2,
+      "K": 2,
+      "profiles": 25,
+      "samples": 256
+    },
+    {
+      "N": 4,
+      "k": 2,
+      "K": 3,
+      "profiles": 125,
+      "samples": 4096
+    },
+    {
+      "N": 4,
+      "k": 3,
+      "K": 0,
+      "profiles": 1,
+      "samples": 1
+    },
+    {
+      "N": 4,
+      "k": 3,
+      "K": 1,
+      "profiles": 15,
+      "samples": 81
+    },
+    {
+      "N": 4,
+      "k": 3,
+      "K": 2,
+      "profiles": 225,
+      "samples": 6561
+    },
+    {
+      "N": 5,
+      "k": 2,
+      "K": 2,
+      "profiles": 36,
+      "samples": 1024
+    }
+  ],
+  "generic_graph_checks": 2142,
+  "profile_law_checks": 1775,
+  "full_multiset_fiber_checks": 5078,
+  "sample_checks": 33300,
+  "counterexamples_to_stronger_or_wrong_claims": {
+    "pointwise_physical_equals_matrix": {
+      "N": 2,
+      "k": 2,
+      "columns": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "profile": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "physical_inverse": [
+        1,
+        0
+      ],
+      "matrix_sort": [
+        0,
+        1
+      ],
+      "pulled_columns": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "earlier_and_later_priority_same_law": {
+      "N": 3,
+      "k": 2,
+      "profile": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "earlier_priority_numerator": 2,
+      "later_priority_numerator": 1,
+      "denominator": 9
+    },
+    "independence_omitted": {
+      "N": 3,
+      "graphs": [
+        [
+          true,
+          false
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "uniform_pi_correlated_by_lex_halves": true,
+      "dependent_counts_denominator_6": [
+        [
+          [
+            0,
+            1,
+            2
+          ],
+          2
+        ],
+        [
+          [
+            0,
+            2,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            2
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            0,
+            1
+          ],
+          2
+        ]
+      ],
+      "independent_counts_denominator_12": [
+        [
+          [
+            0,
+            1,
+            2
+          ],
+          4
+        ],
+        [
+          [
+            0,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            0,
+            2
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            0,
+            1
+          ],
+          2
+        ]
+      ]
+    }
+  },
+  "status": "PASS"
+}

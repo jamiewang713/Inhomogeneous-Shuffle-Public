@@ -1,0 +1,38 @@
+RiffleLowerV2.Occupancy.weighted_rare_sandwich.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (X : Ω → ℕ) (A : Ω → Prop) :
+  ((expect P fun ω => falling (X ω) 2 * if A ω then 1 else 0) / 2 -
+        (expect P fun ω => falling (X ω) 3 * if A ω then 1 else 0) / 3 ≤
+      probability P fun ω => 2 ≤ X ω ∧ A ω) ∧
+    (probability P fun ω => 2 ≤ X ω ∧ A ω) ≤ (expect P fun ω => falling (X ω) 2 * if A ω then 1 else 0) / 2
+RiffleLowerV2.Occupancy.weighted_moment_relative {E F M q L τ : ℝ} (hM : 0 ≤ M) (hq : 0 ≤ q) (hL : 0 ≤ L) (hτ : 0 ≤ τ)
+  (hτ1 : τ ≤ 1) (hE : |E - M| ≤ τ * M) (hF : |F - E * q| ≤ L * τ * E * q) : |F - M * q| ≤ (2 * L + 1) * τ * M * q
+RiffleLowerV2.Occupancy.eventual_rare_pair_budgets (c C D H : ℝ) (hc : 0 < c) (hH : 0 < H) :
+  ∃ N0,
+    ∀ N ≥ N0,
+      3 ≤ N ∧
+        0 ≤ TimeProfile.logScale N ∧
+          Occupancy.tau N ≤ 1 / 16 ∧
+            H * Occupancy.tau N ≤ 1 / 2 ∧
+              9 * D * (C * TimeProfile.logScale N + 1) / ↑N ≤ Occupancy.tau N ∧ 3 ≤ c * ↑N ∧ 3 ≤ ↑N ^ (1 / 5)
+RiffleLowerV2.Occupancy.rare_pair_relative_uniform (c C : ℝ) (hc : 0 < c) (hC : 0 < C) :
+  ∃ D,
+    0 < D ∧
+      ∃ N0,
+        2 ≤ N0 ∧
+          ∀ N ≥ N0,
+            ∀ (k K : ℕ),
+              ↑K ≤ C * TimeProfile.logScale N →
+                ∀ (cuts : TimeProfile.Cuts k N K) (w v : Word k K),
+                  w ≠ v →
+                    (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                      (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get v j))) →
+                        ↑N * wordMass cuts w ≤ Occupancy.tau N →
+                          |(probability (TimeProfile.fixedCountPMF cuts) fun ω =>
+                                  collisionEvent w ω ∧ collisionEvent v ω) -
+                                probability (TimeProfile.fixedCountPMF cuts) (collisionEvent w) *
+                                  probability (TimeProfile.fixedCountPMF cuts) (collisionEvent v)| ≤
+                            D * Occupancy.tau N * probability (TimeProfile.fixedCountPMF cuts) (collisionEvent w) *
+                              probability (TimeProfile.fixedCountPMF cuts) (collisionEvent v)
+'RiffleLowerV2.Occupancy.weighted_rare_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.weighted_moment_relative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.eventual_rare_pair_budgets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.rare_pair_relative_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]

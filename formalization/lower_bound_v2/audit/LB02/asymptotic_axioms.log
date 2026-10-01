@@ -1,0 +1,24 @@
+RiffleLowerV2.Thinning.prefixFailure_le_envelope {N k K : ℕ} (hN : 2 ≤ N) (hk : 2 ≤ k) {T : ℝ} (hT : 0 < T)
+  (hK : ↑K ≤ T * TimeProfile.logScale N) (ε : ℝ) :
+  RiffleLowerV2.prefixFailure N k K ε ≤ 2 * (T + 1) * ↑N ^ (1 + T * Real.log ↑k) * Real.exp (-↑N ^ ε / 8)
+RiffleLowerV2.Thinning.tendsto_power_mul_stretchedExp (a ε : ℝ) (hε : 0 < ε) :
+  Filter.Tendsto (fun x => x ^ a * Real.exp (-x ^ ε / 8)) Filter.atTop (nhds 0)
+RiffleLowerV2.Thinning.prefixFailureEnvelope_tendsto (k : ℕ) (T ε : ℝ) (hε : 0 < ε) :
+  Filter.Tendsto (fun N => 2 * (T + 1) * ↑N ^ (1 + T * Real.log ↑k) * Real.exp (-↑N ^ ε / 8)) Filter.atTop (nhds 0)
+RiffleLowerV2.Thinning.prefixFailureUniform : RiffleLowerV2.Targets.PrefixFailureUniform
+RiffleLowerV2.Thinning.exists_canonicalMaxWord {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N) :
+  ∃ w, RiffleLowerV2.IsCanonicalMaxWord cuts w
+RiffleLowerV2.Thinning.canonicalMaxWord_mean {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N)
+  (w : RiffleLowerV2.Word k K) (hw : RiffleLowerV2.IsCanonicalMaxWord cuts w) :
+  ↑N * RiffleLowerV2.wordMass cuts w = RiffleLowerV2.maximalMean cuts hN
+RiffleLowerV2.Thinning.maximalMean_eq_rpow_beta {k N K : ℕ} (hN : 2 ≤ N) (cuts : TimeProfile.Cuts k N K) :
+  RiffleLowerV2.maximalMean cuts ⋯ = ↑N ^ RiffleLowerV2.beta cuts ⋯ (RiffleLowerV2.horizon N K)
+RiffleLowerV2.Thinning.maximalMeanIdentity : RiffleLowerV2.Targets.MaximalMeanIdentity
+'RiffleLowerV2.Thinning.prefixFailure_le_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.tendsto_power_mul_stretchedExp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefixFailureEnvelope_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefixFailureUniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.exists_canonicalMaxWord' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.canonicalMaxWord_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.maximalMean_eq_rpow_beta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.maximalMeanIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]

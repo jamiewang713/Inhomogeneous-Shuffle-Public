@@ -1,0 +1,47 @@
+{
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "modules": {
+    "Mathlib.Probability.Moments.SubGaussian": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/SubGaussian.lean",
+      "sha256": "7259bc145c6de9bb81b8aea24a660b951f12787ffdb7514ba27de74fb658e151",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Probability.Kernel.Condexp": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/Kernel/Condexp.lean",
+      "sha256": "631098c0a5a7af18d7c2164630d0f594b6d41dfd4ac165414ac67433f5822f27",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Probability.Moments.MGFAnalytic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/MGFAnalytic.lean",
+      "sha256": "43bf9669a4aececdead05bfb77193476d2bf92885767b876960ca4c314d20a23",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Probability.Moments.Tilted": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/Tilted.lean",
+      "sha256": "e3b7e74d9e558da680222fbb296fa82918f82c5399fc968502bb7e05775ca6c3",
+      "kind": "pinned-library"
+    },
+    "Mathlib.MeasureTheory.Measure.Tilted": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/Tilted.lean",
+      "sha256": "355cce542b03dd9130d9511f80ae803cc11a12ba9e6a947e68402b124be2165f",
+      "kind": "pinned-library"
+    },
+    "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/Decomposition/RadonNikodym.lean",
+      "sha256": "b9119e17ecb3bb04c02f29b557cf263c3ffd856ae781386a5350d53b85f91394",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "sha256": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+      "kind": "pinned-library"
+    }
+  },
+  "built": [
+    "Mathlib.MeasureTheory.Measure.Tilted",
+    "Mathlib.Probability.Moments.Tilted",
+    "Mathlib.Probability.Moments.SubGaussian"
+  ]
+}

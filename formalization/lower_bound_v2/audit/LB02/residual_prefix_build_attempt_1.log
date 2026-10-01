@@ -1,0 +1,47 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean:84:66: error: unsolved goals
+case e'_2
+N k K b : ℕ
+cuts : Cuts k N K
+r : RowPrescription N k K b
+hr : Function.Injective r.row
+e : Fin (N - b) → Fin N
+he : Function.Injective e
+hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i
+w : Prefix k K
+ω : Sample cuts
+hω : ∀ (q : Fin b), rowWord ω (r.row q) = r.word q
+h :
+  {i | List.take (↑w.fst) (List.Vector.toList (rowWord ω i)) = List.Vector.toList w.snd}.card =
+    {x | List.take (↑w.fst) (List.Vector.toList (r.word x)) = List.Vector.toList w.snd}.card +
+      {q | List.take (↑w.fst) (List.Vector.toList (rowWord ω (e q))) = List.Vector.toList w.snd}.card
+⊢ prefixCount w ω = {i | List.take (↑w.fst) (List.Vector.toList (rowWord ω i)) = List.Vector.toList w.snd}.card
+
+case e'_3.e_a
+N k K b : ℕ
+cuts : Cuts k N K
+r : RowPrescription N k K b
+hr : Function.Injective r.row
+e : Fin (N - b) → Fin N
+he : Function.Injective e
+hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i
+w : Prefix k K
+ω : Sample cuts
+hω : ∀ (q : Fin b), rowWord ω (r.row q) = r.word q
+h :
+  {i | List.take (↑w.fst) (List.Vector.toList (rowWord ω i)) = List.Vector.toList w.snd}.card =
+    {x | List.take (↑w.fst) (List.Vector.toList (r.word x)) = List.Vector.toList w.snd}.card +
+      {q | List.take (↑w.fst) (List.Vector.toList (rowWord ω (e q))) = List.Vector.toList w.snd}.card
+⊢ (rowArrayPrefixCount w fun q j => sampleEntry ω (e q) j) =
+    {q | List.take (↑w.fst) (List.Vector.toList (rowWord ω (e q))) = List.Vector.toList w.snd}.card
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB02/lib/lean/RiffleLowerV2/Thinning/Residual/Prefix.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean']' returned non-zero exit status 1.

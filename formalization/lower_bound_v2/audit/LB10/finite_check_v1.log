@@ -1,0 +1,12 @@
+RiffleLowerV2.EmpiricalLower.probability_increasingRun_le {N m : ℕ} (hm : m ≤ N) :
+  (RiffleLowerV2.probability (RiffleLowerV2.uniformPermutation N) fun π => RiffleLowerV2.HasIncreasingRun π m) ≤
+    ↑(N - m + 1) / ↑m.factorial
+RiffleLowerV2.EmpiricalLower.fullWord_forces_increasingRun {k N K : ℕ} {cuts : TimeProfile.Cuts k N K}
+  (ω : RiffleLowerV2.Sample cuts) (w : RiffleLowerV2.Word k K) (m : ℕ) (hm : 1 ≤ m)
+  (hc : m ≤ RiffleLowerV2.wordCount w ω) : RiffleLowerV2.HasIncreasingRun (RiffleLowerV2.stableSort ω) m
+RiffleLowerV2.EmpiricalLower.finiteLargestWordTV : RiffleLowerV2.Targets.FiniteLargestWordTV
+'RiffleLowerV2.EmpiricalLower.probability_increasingRun_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.fullWord_forces_increasingRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.finiteLargestWordTV' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+EXIT_CODE 0

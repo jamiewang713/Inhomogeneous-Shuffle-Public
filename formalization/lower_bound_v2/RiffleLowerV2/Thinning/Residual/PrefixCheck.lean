@@ -1,0 +1,12 @@
+import RiffleLowerV2.Thinning.Residual.Prefix
+
+#check RiffleLowerV2.Thinning.residualPrefixCount_eq_restriction
+#check RiffleLowerV2.Thinning.residualPrefixExpect
+#check RiffleLowerV2.Thinning.residualPrefixProbability
+#check RiffleLowerV2.Thinning.residualPrefixTails_of_prefixTails
+#check RiffleLowerV2.Thinning.residualPrefixTransform_of_prefixTransform
+#print axioms RiffleLowerV2.Thinning.residualPrefixCount_eq_restriction
+#print axioms RiffleLowerV2.Thinning.residualPrefixExpect
+#print axioms RiffleLowerV2.Thinning.residualPrefixProbability
+#print axioms RiffleLowerV2.Thinning.residualPrefixTails_of_prefixTails
+#print axioms RiffleLowerV2.Thinning.residualPrefixTransform_of_prefixTransform

@@ -1,0 +1,85 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints.lean:77:54: error: Application type mismatch: The argument
+  hright
+has type
+  |∑ j,
+        ∑ d ∈ {d | x j < d},
+          (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| ≤
+    A * (√(↑k * ↑K) * √(prefixMean cuts (prefixAt l a)) + ↑k * ↑K)
+but is expected to have type
+  |∑ j,
+        ∑ d ∈ {d | x j < d},
+          (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| ≤
+    A * (√(↑k * ↑K) * √(prefixMean cuts (prefixAt l a)) + ↑k * ↑K)
+in the application
+  add_le_add hamb hright
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints.lean:78:15: error: unsolved goals
+k N K : ℕ
+cuts : Cuts k N K
+a : Word k K
+l m : ℕ
+hlm : l ≤ m
+hm : m ≤ K
+x : WordOn k (columnSet K l m)
+omega : Sample cuts
+hid :
+  ↑(relativeLowerCount a l m x omega) - prefixMean cuts (prefixAt l a) * relativeMassBefore cuts x =
+      ∑ j,
+        ∑ d with d < x j, (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d)) ∧
+    ↑(relativeUpperCount a l m x omega) - prefixMean cuts (prefixAt l a) * (relativeMassBefore cuts x + massOn cuts x) =
+      ↑(prefixCount (prefixAt l a) omega) - prefixMean cuts (prefixAt l a) -
+        ∑ j,
+          ∑ d with x j < d, (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))
+A : ℝ
+hA : 0 < A
+hconc : ∀ (v : Prefix k K), |↑(prefixCount v omega) - prefixMean cuts v| ≤ A * (√(prefixMean cuts v) + 1)
+hN : 0 < N
+hleft :
+  |∑ j, ∑ d with d < x j, (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| ≤
+    A * (√(↑k * ↑K) * √(prefixMean cuts (prefixAt l a)) + ↑k * ↑K)
+hright :
+  |∑ j, ∑ d with x j < d, (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| ≤
+    A * (√(↑k * ↑K) * √(prefixMean cuts (prefixAt l a)) + ↑k * ↑K)
+hamb :
+  |↑(prefixCount (prefixAt l a) omega) - prefixMean cuts (prefixAt l a)| ≤ A * (√(prefixMean cuts (prefixAt l a)) + 1)
+htri :
+  |↑(prefixCount (prefixAt l a) omega) - prefixMean cuts (prefixAt l a) -
+        ∑ j,
+          ∑ d with x j < d,
+            (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| ≤
+    |↑(prefixCount (prefixAt l a) omega) - prefixMean cuts (prefixAt l a)| +
+      |∑ j,
+          ∑ d with x j < d, (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))|
+⊢ A + A * ↑k * ↑K * 2 + A * √(↑k * ↑K) * √(prefixMean cuts (prefixAt l a)) * 2 + A * √(prefixMean cuts (prefixAt l a)) =
+    ?m.262
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints.lean:74:6: error: invalid 'calc' step, left-hand side is
+  |∑ j,
+        ∑ d ∈ {d | d < x j},
+          (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| +
+    |↑(prefixCount (prefixAt l a) omega) - prefixMean cuts (prefixAt l a) -
+        ∑ j,
+          ∑ d with x j < d,
+            (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| : ℝ
+but is expected to be
+  |∑ j,
+        ∑ d ∈ {d | d < x j},
+          (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| +
+    |↑(prefixCount (prefixAt l a) omega) - prefixMean cuts (prefixAt l a) -
+        ∑ j,
+          ∑ d with x j < d,
+            (↑(prefixCount (sidePrefix a l m x j d) omega) - prefixMean cuts (sidePrefix a l m x j d))| : ℝ
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Endpoints.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints.lean']' returned non-zero exit status 1.

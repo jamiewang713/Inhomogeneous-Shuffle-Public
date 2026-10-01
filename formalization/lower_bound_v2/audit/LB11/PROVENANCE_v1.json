@@ -1,0 +1,45 @@
+{
+  "manuscript": {
+    "path": "../../time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d"
+  },
+  "construction": "New LB11 source using checked frozen shared definitions and coordinator-registered LB07/LB10 imports; no legacy code or caches ported.",
+  "source_hashes": {
+    "RiffleLowerV2/MacroscopicLower/Main.lean": "9983f9b9b097ef9cfc67374521a1639693cb3b1e745890ab6bd2323acf5e33c7",
+    "RiffleLowerV2/MacroscopicLower/Parameters.lean": "ac7da881e475df4b5820a240b36739c0a50b8a496f7830636d17de7419c14def"
+  },
+  "imports": {
+    "RiffleLowerV2/MacroscopicLower/Parameters.lean": [
+      "RiffleLowerV2.Shared.Empirical"
+    ],
+    "RiffleLowerV2/MacroscopicLower/Main.lean": [
+      "RiffleLowerV2.MacroscopicLower.Parameters",
+      "RiffleLowerV2.ProfileTransfer.Main",
+      "RiffleLowerV2.EmpiricalLower.Main"
+    ]
+  },
+  "coordinator_acknowledgements": {
+    "audit/LB00/LB11_INTERFACE_ACK_v1.md": "153dd12314f0a1a89c93e307189d2ffe29e20f00a83f762ee8a794177d9efed8",
+    "audit/LB00/LB11_DEPENDENCIES_READY_v1.md": "8a3375c90768c020809885c6a7f39468e1e4c191c4fb8a729c9943a449518969"
+  },
+  "required_export": {
+    "name": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+    "type": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget"
+  },
+  "source_labels": {
+    "thm:buffered-reduced-lower-bound": [
+      "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+      "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto"
+    ],
+    "lem:lower-profile-transfer": [
+      "RiffleLowerV2.ProfileTransfer.profileTransfer"
+    ],
+    "prop:cold-lower": [
+      "RiffleLowerV2.EmpiricalLower.coldOnly"
+    ],
+    "prop:largest-prefix": [
+      "RiffleLowerV2.EmpiricalLower.largestOnly"
+    ]
+  },
+  "historical_scope": "Unrestricted TimeLaw preserved unchanged; original unregularized endpoint remains uncertified."
+}

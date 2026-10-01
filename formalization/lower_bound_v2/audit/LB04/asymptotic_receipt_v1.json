@@ -1,0 +1,15 @@
+{
+  "module": "RiffleLowerV2.Ascent.Asymptotic",
+  "source_sha256": "3eec5f1f3635bbe18e2e1074a29790f05e95ee2a6ea2938f10058ab4ecfba13a",
+  "successful_build_log": "audit/LB04/build-20261001T155849424555Z.log",
+  "axiom_log": "audit/LB04/asymptotic_axioms_v1.log",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "required_specializations": [
+    "uniformGraphScan_of_comparison with concrete componentComparison",
+    "uniform_null_scan_bound/eventually with concrete uniformScan"
+  ]
+}

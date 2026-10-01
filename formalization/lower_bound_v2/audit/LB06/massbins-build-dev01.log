@@ -1,0 +1,53 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean:14:0: warning: automatically included section variable(s) unused in theorem `RiffleLowerV2.Types.indexFiber_nonempty`:
+  [DecidableEq Ω]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq Ω] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean:31:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun n => ∀ (a : ℕ), (indexFiber s f a).card ≤ (indexFiber s f n).card
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean:35:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun n => ∀ (a : ℕ), (indexFiber s f a).card ≤ (indexFiber s f n).card
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean:40:2: error: Tactic `apply` failed: could not unify the conclusion of `@Nat.find_min'`
+  Nat.find ?H ≤ ?m
+with the goal
+  leastMaxBin s f hs ≤ b
+
+Note: The full type of `@Nat.find_min'` is
+  ∀ {p : ℕ → Prop} [inst : DecidablePred p] (H : ∃ n, p n) {m : ℕ}, p m → Nat.find H ≤ m
+
+Ω : Type u_1
+inst✝ : DecidableEq Ω
+s : Finset Ω
+f : Ω → ℕ
+hs : s.Nonempty
+b : ℕ
+hb : (indexFiber s f b).card = (indexFiber s f (leastMaxBin s f hs)).card
+⊢ leastMaxBin s f hs ≤ b
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean:56:0: warning: automatically included section variable(s) unused in theorem `RiffleLowerV2.Types.floor_image_card_bound`:
+  [DecidableEq Ω]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq Ω] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean:110:16: error: Function expected at
+  Real.log_prod ?m.110
+but this term has type
+  Real.log (∏ i ∈ ?m.108, ?m.109 i) = ∑ i ∈ ?m.108, Real.log (?m.109 i)
+
+Note: Expected a function because this term is being applied to the argument
+  _
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB06/lib/lean/RiffleLowerV2/Types/MassBins.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean']' returned non-zero exit status 1.

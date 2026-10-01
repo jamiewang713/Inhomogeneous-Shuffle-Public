@@ -1,0 +1,21 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/AllPrefixes.lean:14:24: error(lean.unknownIdentifier): Unknown constant `Fintype.card_vector`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/AllPrefixes.lean:13:41: warning: This simp argument is unused:
+  Word
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Prefix, RiffleShuffle.RawPrefix, RiffleShuffle.Word, Fintype.card_sigma, Fintype.card_vector]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/AllPrefixes.lean:32:10: warning: This simp argument is unused:
+  prefix_card_exact
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/AllPrefixes.lean:57:8: error: Type mismatch
+  add_le_add_right (le_mul_of_one_le_left hμ hA) ?m.230
+has type
+  ?m.230 + μ ≤ ?m.230 + A * μ
+but is expected to have type
+  μ + A * (√μ + 1) ≤ A * μ + A * (√μ + 1)

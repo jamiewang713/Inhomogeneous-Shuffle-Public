@@ -1,0 +1,15 @@
+import RiffleLowerV2.Thinning.AllPrefixes
+#check RiffleLowerV2.Thinning.prefix_card_exact
+#check RiffleLowerV2.Thinning.prefix_card_le
+#check RiffleLowerV2.Thinning.prefix_card_le_of_cuts
+#check RiffleLowerV2.Thinning.prefixMean_nonneg
+#check RiffleLowerV2.Thinning.prefix_bernstein_exponent
+#check RiffleLowerV2.Thinning.prefix_failure_of_prefixTails
+#check RiffleLowerV2.Thinning.allPrefixConcentration_of_prefixTails
+#print axioms RiffleLowerV2.Thinning.prefix_card_exact
+#print axioms RiffleLowerV2.Thinning.prefix_card_le
+#print axioms RiffleLowerV2.Thinning.prefix_card_le_of_cuts
+#print axioms RiffleLowerV2.Thinning.prefixMean_nonneg
+#print axioms RiffleLowerV2.Thinning.prefix_bernstein_exponent
+#print axioms RiffleLowerV2.Thinning.prefix_failure_of_prefixTails
+#print axioms RiffleLowerV2.Thinning.allPrefixConcentration_of_prefixTails

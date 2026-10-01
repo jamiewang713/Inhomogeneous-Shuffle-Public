@@ -1,0 +1,71 @@
+RiffleLowerV2.Occupancy.variance_eventCount.{u_1, u_2} {Ω : Type u_1} {ι : Type u_2} [Fintype Ω] (P : PMF Ω)
+  (W : Finset ι) (A : ι → Ω → Prop) :
+  RiffleLowerV2.variance P (RiffleLowerV2.Occupancy.eventCount W A) =
+    ∑ i ∈ W,
+      ∑ j ∈ W,
+        ((RiffleLowerV2.probability P fun (ω : Ω) => A i ω ∧ A j ω) -
+          RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j))
+RiffleLowerV2.Occupancy.variance_eventCount_le.{u_1, u_2} {Ω : Type u_1} {ι : Type u_2} [Fintype Ω] (P : PMF Ω)
+  (W : Finset ι) (A : ι → Ω → Prop) (η : ℝ) (hη : 0 ≤ η)
+  (hpair :
+    ∀ i ∈ W,
+      ∀ j ∈ W,
+        i ≠ j →
+          |(RiffleLowerV2.probability P fun (ω : Ω) => A i ω ∧ A j ω) -
+                RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j)| ≤
+            η * RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j)) :
+  RiffleLowerV2.variance P (RiffleLowerV2.Occupancy.eventCount W A) ≤
+    RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) +
+      η * RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) ^ 2
+RiffleLowerV2.Occupancy.variance_collisionCount_le {k N K : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (W : Finset (RiffleLowerV2.Word k K)) (η : ℝ) (hη : 0 ≤ η)
+  (hpair :
+    ∀ w ∈ W,
+      ∀ v ∈ W,
+        w ≠ v →
+          |(RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+                  RiffleLowerV2.collisionEvent w ω ∧ RiffleLowerV2.collisionEvent v ω) -
+                RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent w) *
+                  RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent v)| ≤
+            η * RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent w) *
+              RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent v)) :
+  RiffleLowerV2.variance (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) ≤
+    RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) +
+      η * RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) ^ 2
+RiffleLowerV2.Occupancy.chebyshev_of_variance_le.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (f : Ω → ℝ) (η t : ℝ)
+  (hμ : 0 < RiffleLowerV2.expect P f) (ht : 0 < t)
+  (hv : RiffleLowerV2.variance P f ≤ RiffleLowerV2.expect P f + η * RiffleLowerV2.expect P f ^ 2) :
+  (RiffleLowerV2.probability P fun (ω : Ω) => t * RiffleLowerV2.expect P f ≤ |f ω - RiffleLowerV2.expect P f|) ≤
+    1 / (t ^ 2 * RiffleLowerV2.expect P f) + η / t ^ 2
+RiffleLowerV2.Occupancy.lower_tail_success.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (f : Ω → ℝ) (η t : ℝ)
+  (hμ : 0 < RiffleLowerV2.expect P f) (ht : 0 < t)
+  (hv : RiffleLowerV2.variance P f ≤ RiffleLowerV2.expect P f + η * RiffleLowerV2.expect P f ^ 2) :
+  1 - 1 / (t ^ 2 * RiffleLowerV2.expect P f) - η / t ^ 2 ≤
+    RiffleLowerV2.probability P fun (ω : Ω) => (1 - t) * RiffleLowerV2.expect P f < f ω
+RiffleLowerV2.Occupancy.positive_success.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (f : Ω → ℝ) (η : ℝ)
+  (hμ : 0 < RiffleLowerV2.expect P f)
+  (hv : RiffleLowerV2.variance P f ≤ RiffleLowerV2.expect P f + η * RiffleLowerV2.expect P f ^ 2) :
+  1 - 1 / RiffleLowerV2.expect P f - η ≤ RiffleLowerV2.probability P fun (ω : Ω) => 0 < f ω
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_congr","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) {A B : Ω → Prop},\n  (∀ (ω : Ω), A ω ↔ B ω) → RiffleLowerV2.probability P A = RiffleLowerV2.probability P B"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_mono","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) {A B : Ω → Prop},\n  (∀ (ω : Ω), A ω → B ω) → RiffleLowerV2.probability P A ≤ RiffleLowerV2.probability P B"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_nonneg","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (A : Ω → Prop), 0 ≤ RiffleLowerV2.probability P A"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_le_one","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (A : Ω → Prop), RiffleLowerV2.probability P A ≤ 1"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_true","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω), (RiffleLowerV2.probability P fun (x : Ω) => True) = 1"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_false","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω), (RiffleLowerV2.probability P fun (x : Ω) => False) = 0"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_not","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (A : Ω → Prop),\n  (RiffleLowerV2.probability P fun (ω : Ω) => ¬A ω) = 1 - RiffleLowerV2.probability P A"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_and_le_left","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (A B : Ω → Prop),\n  (RiffleLowerV2.probability P fun (ω : Ω) => A ω ∧ B ω) ≤ RiffleLowerV2.probability P A"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.probability_and_le_right","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (A B : Ω → Prop),\n  (RiffleLowerV2.probability P fun (ω : Ω) => A ω ∧ B ω) ≤ RiffleLowerV2.probability P B"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.expect_indicator_mul","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (A B : Ω → Prop),\n  (RiffleLowerV2.expect P fun (ω : Ω) => (if A ω then 1 else 0) * if B ω then 1 else 0) =\n    RiffleLowerV2.probability P fun (ω : Ω) => A ω ∧ B ω"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.variance_eq","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (f : Ω → ℝ),\n  RiffleLowerV2.variance P f = (RiffleLowerV2.expect P fun (ω : Ω) => f ω ^ 2) - RiffleLowerV2.expect P f ^ 2"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.variance_nonneg","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (f : Ω → ℝ), 0 ≤ RiffleLowerV2.variance P f"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.chebyshev","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (f : Ω → ℝ) (t : ℝ),\n  0 < t →\n    (RiffleLowerV2.probability P fun (ω : Ω) => t ≤ |f ω - RiffleLowerV2.expect P f|) ≤\n      RiffleLowerV2.variance P f / t ^ 2"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.chebyshev_of_variance_le","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (f : Ω → ℝ) (η t : ℝ),\n  0 < RiffleLowerV2.expect P f →\n    0 < t →\n      RiffleLowerV2.variance P f ≤ RiffleLowerV2.expect P f + η * RiffleLowerV2.expect P f ^ 2 →\n        (RiffleLowerV2.probability P fun (ω : Ω) => t * RiffleLowerV2.expect P f ≤ |f ω - RiffleLowerV2.expect P f|) ≤\n          1 / (t ^ 2 * RiffleLowerV2.expect P f) + η / t ^ 2"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.lower_tail_success","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (f : Ω → ℝ) (η t : ℝ),\n  0 < RiffleLowerV2.expect P f →\n    0 < t →\n      RiffleLowerV2.variance P f ≤ RiffleLowerV2.expect P f + η * RiffleLowerV2.expect P f ^ 2 →\n        1 - 1 / (t ^ 2 * RiffleLowerV2.expect P f) - η / t ^ 2 ≤\n          RiffleLowerV2.probability P fun (ω : Ω) => (1 - t) * RiffleLowerV2.expect P f < f ω"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.positive_success","type":"∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (f : Ω → ℝ) (η : ℝ),\n  0 < RiffleLowerV2.expect P f →\n    RiffleLowerV2.variance P f ≤ RiffleLowerV2.expect P f + η * RiffleLowerV2.expect P f ^ 2 →\n      1 - 1 / RiffleLowerV2.expect P f - η ≤ RiffleLowerV2.probability P fun (ω : Ω) => 0 < f ω"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"definition","name":"RiffleLowerV2.Occupancy.eventCount","type":"{Ω : Type u_1} → {ι : Type u_2} → Finset ι → (ι → Ω → Prop) → Ω → ℝ"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.eventCount_nonneg","type":"∀ {Ω : Type u_1} {ι : Type u_2} (W : Finset ι) (A : ι → Ω → Prop) (ω : Ω), 0 ≤ RiffleLowerV2.Occupancy.eventCount W A ω"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.expect_eventCount","type":"∀ {Ω : Type u_1} {ι : Type u_2} [inst : Fintype Ω] (P : PMF Ω) (W : Finset ι) (A : ι → Ω → Prop),\n  RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) = ∑ i ∈ W, RiffleLowerV2.probability P (A i)"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.expect_eventCount_sq","type":"∀ {Ω : Type u_1} {ι : Type u_2} [inst : Fintype Ω] (P : PMF Ω) (W : Finset ι) (A : ι → Ω → Prop),\n  (RiffleLowerV2.expect P fun (ω : Ω) => RiffleLowerV2.Occupancy.eventCount W A ω ^ 2) =\n    ∑ i ∈ W, ∑ j ∈ W, RiffleLowerV2.probability P fun (ω : Ω) => A i ω ∧ A j ω"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.variance_eventCount","type":"∀ {Ω : Type u_1} {ι : Type u_2} [inst : Fintype Ω] (P : PMF Ω) (W : Finset ι) (A : ι → Ω → Prop),\n  RiffleLowerV2.variance P (RiffleLowerV2.Occupancy.eventCount W A) =\n    ∑ i ∈ W,\n      ∑ j ∈ W,\n        ((RiffleLowerV2.probability P fun (ω : Ω) => A i ω ∧ A j ω) -\n          RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j))"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.variance_eventCount_le","type":"∀ {Ω : Type u_1} {ι : Type u_2} [inst : Fintype Ω] (P : PMF Ω) (W : Finset ι) (A : ι → Ω → Prop) (η : ℝ),\n  0 ≤ η →\n    (∀ i ∈ W,\n        ∀ j ∈ W,\n          i ≠ j →\n            |(RiffleLowerV2.probability P fun (ω : Ω) => A i ω ∧ A j ω) -\n                  RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j)| ≤\n              η * RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j)) →\n      RiffleLowerV2.variance P (RiffleLowerV2.Occupancy.eventCount W A) ≤\n        RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) +\n          η * RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) ^ 2"}
+LB08_PROBABILITY_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"kind":"theorem","name":"RiffleLowerV2.Occupancy.variance_collisionCount_le","type":"∀ {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (W : Finset (RiffleLowerV2.Word k K)) (η : ℝ),\n  0 ≤ η →\n    (∀ w ∈ W,\n        ∀ v ∈ W,\n          w ≠ v →\n            |(RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>\n                    RiffleLowerV2.collisionEvent w ω ∧ RiffleLowerV2.collisionEvent v ω) -\n                  RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent w) *\n                    RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent v)| ≤\n              η * RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent w) *\n                RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent v)) →\n      RiffleLowerV2.variance (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) ≤\n        RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) +\n          η * RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) ^ 2"}

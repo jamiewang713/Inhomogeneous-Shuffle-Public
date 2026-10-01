@@ -1,0 +1,11 @@
+{
+  "accepted_log": "audit/LB00/final_audit_v3/audit.log",
+  "accepted_manifest_sha256": "868796a3bb25bb4b0411bee402f09559310b4fb0064cc61f5e84b6df4ca3b275",
+  "accepted_source": "audit/LB00/final_audit_v3/FullCheck.lean",
+  "accepted_umbrella_only_log": "audit/LB00/final_audit_v3/completed_only.log",
+  "accepted_umbrella_only_source": "audit/LB00/final_audit_v3/CompletedOnly.lean",
+  "original_log": "audit/LB00/full_package_v1/audit.log",
+  "original_source": "audit/LB00/full_package_v1/FullCheck.lean",
+  "reason": "The v1 generator substituted MODULES inside its diagnostic string. The source build itself passed; the corrected audit fixes the reserved identifier in v2 and also traverses inductive/recursor metadata.",
+  "status": "ORIGINAL_AUDIT_INSTRUMENTATION_SUPERSEDED"
+}

@@ -1,0 +1,63 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.MGF']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:26:48: error: Application type mismatch: The argument
+  hu
+has type
+  0 < u
+but is expected to have type
+  ?m.59 ≤ ?m.60
+in the application
+  mul_le_mul_left hu
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:24:58: error: unsolved goals
+Ω : Type u_1
+inst✝ : Fintype Ω
+P : PMF Ω
+X : Ω → ℝ
+u t : ℝ
+hu : 0 < u
+ω : Ω
+⊢ (t ≤ X ω) = (u * t ≤ u * X ω)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:30:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (probability P fun ω => Real.exp (u * t) ≤ Real.exp (u * X ω)) ≤
+    Real.exp (-(u * t)) * expect P fun ω => Real.exp (u * X ω)
+but is expected to have type
+  (probability P fun ω => Real.exp (u * t) ≤ Real.exp (u * X ω)) ≤
+    Real.exp (t * -u) * expect P fun ω => Real.exp (u * X ω)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:60:33: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Real.exp ?x * Real.exp ?y
+in the target expression
+  Real.exp (2 * u * (2 * u) * B₀ / 8 + 2 * u * (2 * u) * B₁ / 8) = Real.exp (u ^ 2 * (B₀ + B₁) / 4) ^ 2
+
+Ω : Type u_1
+inst✝ : Fintype Ω
+P : PMF Ω
+S₀ S₁ : Ω → ℝ
+B₀ B₁ : ℝ
+h₀ : ∀ (u : ℝ), (expect P fun ω => Real.exp (u * S₀ ω)) ≤ Real.exp (u ^ 2 * B₀ / 8)
+h₁ : ∀ (u : ℝ), (expect P fun ω => Real.exp (u * S₁ ω)) ≤ Real.exp (u ^ 2 * B₁ / 8)
+u : ℝ
+hsq : ∀ (S : Ω → ℝ), (expect P fun ω => Real.exp (u * S ω) ^ 2) = expect P fun ω => Real.exp (2 * u * S ω)
+hcs :
+  (expect P fun ω => Real.exp (u * (S₀ ω + S₁ ω))) ^ 2 ≤
+    (expect P fun ω => Real.exp (2 * u * S₀ ω)) * expect P fun ω => Real.exp (2 * u * S₁ ω)
+hprod : (fun ω => Real.exp (u * S₀ ω) * Real.exp (u * S₁ ω)) = fun ω => Real.exp (u * (S₀ ω + S₁ ω))
+hbound :
+  ((expect P fun ω => Real.exp (2 * u * S₀ ω)) * expect P fun ω => Real.exp (2 * u * S₁ ω)) ≤
+    Real.exp ((2 * u) ^ 2 * B₀ / 8) * Real.exp ((2 * u) ^ 2 * B₁ / 8)
+⊢ Real.exp (2 * u * (2 * u) * B₀ / 8 + 2 * u * (2 * u) * B₁ / 8) = Real.exp (u ^ 2 * (B₀ + B₁) / 4) ^ 2
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:89:8: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/MGF.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean']' returned non-zero exit status 1.

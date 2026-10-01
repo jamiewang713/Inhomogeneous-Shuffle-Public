@@ -1,0 +1,29 @@
+RiffleLowerV2.Thinning.residualLaw : RiffleLowerV2.Targets.ResidualLaw
+RiffleLowerV2.Thinning.residualConditionalExpect {k N K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (r : RiffleLowerV2.RowPrescription N k K b) (hr : Function.Injective r.row)
+  (hp : 0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) :
+  ∃ residual,
+    (∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - RiffleLowerV2.usedCount r j a) ∧
+      ∀ (e : Fin (N - b) → Fin N),
+        Function.Injective e →
+          (∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i) →
+            ∀ (F : (Fin (N - b) → Fin K → Fin k) → ℝ),
+              RiffleLowerV2.conditionalExpect (TimeProfile.fixedCountPMF cuts)
+                  (fun ω => F fun q j => TimeProfile.sampleEntry ω (e q) j) (RiffleLowerV2.prescriptionEvent r) =
+                RiffleLowerV2.expect (TimeProfile.fixedCountPMF residual) fun η => F (TimeProfile.sampleRow η)
+RiffleLowerV2.Thinning.residualConditionalProbability {k N K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (r : RiffleLowerV2.RowPrescription N k K b) (hr : Function.Injective r.row)
+  (hp : 0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) :
+  ∃ residual,
+    (∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - RiffleLowerV2.usedCount r j a) ∧
+      ∀ (e : Fin (N - b) → Fin N),
+        Function.Injective e →
+          (∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i) →
+            ∀ (A : (Fin (N - b) → Fin K → Fin k) → Prop),
+              RiffleLowerV2.conditionalProbability (TimeProfile.fixedCountPMF cuts)
+                  (fun ω => A fun q j => TimeProfile.sampleEntry ω (e q) j) (RiffleLowerV2.prescriptionEvent r) =
+                RiffleLowerV2.probability (TimeProfile.fixedCountPMF residual) fun η => A (TimeProfile.sampleRow η)
+'RiffleLowerV2.Thinning.residualLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.residualConditionalExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.residualConditionalProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+LB02 BUILD_OK

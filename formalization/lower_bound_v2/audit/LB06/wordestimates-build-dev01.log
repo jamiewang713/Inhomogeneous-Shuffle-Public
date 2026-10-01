@@ -1,0 +1,72 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/WordEstimates.lean:88:18: error: expected no space before
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/WordEstimates.lean:88:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  AddGroup Prop
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/WordEstimates.lean:71:65: error: unsolved goals
+case hreplace
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+P : BorelPartition k
+I : Finset (Fin K)
+D : RoundedTypeData P
+xi C : ℝ
+hxi : 0 < xi
+hreg : P.IsRegular xi C
+q : Fin P.cellCount → Fin k → ℝ
+hD : ∀ (i : Fin P.cellCount) (l : Fin k), prob (P.rep i) l ≤ 2 * xi → D.count i l = 0
+hq : ∀ (i : Fin P.cellCount) (l : Fin k), prob (P.rep i) l ≤ 2 * xi → q i l = 0
+herr : ∀ (i : Fin P.cellCount) (l : Fin k), |↑(D.count i l) - ↑(cellPositionCount cuts hN P I i) * q i l| ≤ 1
+x : WordOn k I
+hx : x ∈ roundedClass cuts hN P I D
+r : ↥I → Simplex k := fun j => P.rep (P.classify (cuts.profile hN ↑j))
+hcount : ∀ (i : Fin P.cellCount) (l : Fin k), wordCellCount cuts hN P x i l = D.count i l
+hgood : ∀ (j : ↥I), 2 * xi < prob (r j) (x j)
+hactual :
+  ∀ (j : ↥I),
+    xi < prob (cuts.profile hN ↑j) (x j) ∧
+      |digitCost (prob (cuts.profile hN ↑j) (x j)) - digitCost (prob (P.rep (P.classify (cuts.profile hN ↑j))) (x j))| ≤
+        C * xi
+hp : ∀ (j : ↥I), 0 < ↑(cuts.count (↑j) (x j)) / ↑N
+hlog : -Real.log (massOn cuts x) = ∑ j, digitCost (prob (cuts.profile hN ↑j) (x j))
+⊢ sorry
+
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+P : BorelPartition k
+I : Finset (Fin K)
+D : RoundedTypeData P
+xi C : ℝ
+hxi : 0 < xi
+hreg : P.IsRegular xi C
+q : Fin P.cellCount → Fin k → ℝ
+hD : ∀ (i : Fin P.cellCount) (l : Fin k), prob (P.rep i) l ≤ 2 * xi → D.count i l = 0
+hq : ∀ (i : Fin P.cellCount) (l : Fin k), prob (P.rep i) l ≤ 2 * xi → q i l = 0
+herr : ∀ (i : Fin P.cellCount) (l : Fin k), |↑(D.count i l) - ↑(cellPositionCount cuts hN P I i) * q i l| ≤ 1
+x : WordOn k I
+hx : x ∈ roundedClass cuts hN P I D
+r : ↥I → Simplex k := fun j => P.rep (P.classify (cuts.profile hN ↑j))
+hcount : ∀ (i : Fin P.cellCount) (l : Fin k), wordCellCount cuts hN P x i l = D.count i l
+hgood : ∀ (j : ↥I), 2 * xi < prob (r j) (x j)
+hactual :
+  ∀ (j : ↥I),
+    xi < prob (cuts.profile hN ↑j) (x j) ∧
+      |digitCost (prob (cuts.profile hN ↑j) (x j)) - digitCost (prob (P.rep (P.classify (cuts.profile hN ↑j))) (x j))| ≤
+        C * xi
+hp : ∀ (j : ↥I), 0 < ↑(cuts.count (↑j) (x j)) / ↑N
+hlog : -Real.log (massOn cuts x) = ∑ j, digitCost (prob (cuts.profile hN ↑j) (x j))
+hreplace : sorry
+⊢ |-Real.log (massOn cuts x) - ∑ i, ↑(cellPositionCount cuts hN P I i) * ∑ l, q i l * digitCost (prob (P.rep i) l)| ≤
+    C * xi * ↑I.card + ↑k * ↑P.cellCount * Real.log (1 / xi)
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB06/lib/lean/RiffleLowerV2/Types/WordEstimates.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Types/WordEstimates.lean']' returned non-zero exit status 1.

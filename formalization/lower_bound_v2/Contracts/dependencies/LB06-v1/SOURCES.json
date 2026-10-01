@@ -1,0 +1,332 @@
+{
+  "audit_log": "audit/LB00/LB06_dependency_check_v2.log",
+  "audit_source": "audit/LB00/LB06DependencyCheck_v2.lean",
+  "axiom_check": {
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "examined_declarations": 364,
+    "modules": [
+      "RiffleTimeProfile.Analysis",
+      "Mathlib.Data.List.GetD",
+      "Mathlib.Data.List.ToFinsupp",
+      "Mathlib.Data.Nat.Choose.Multinomial",
+      "Mathlib.Analysis.SumOverResidueClass",
+      "Mathlib.Analysis.Asymptotics.SpecificAsymptotics",
+      "Mathlib.Analysis.PSeries",
+      "Mathlib.Analysis.Real.Pi.Wallis",
+      "Mathlib.Analysis.SpecialFunctions.Stirling"
+    ]
+  },
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "build_command": [
+    "python3",
+    "build.py",
+    "RiffleTimeProfile.Analysis",
+    "Mathlib.Data.Nat.Choose.Multinomial",
+    "Mathlib.Analysis.SpecialFunctions.Stirling"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "dependency_revisions": {
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+  },
+  "id": "LB06-v1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "modules": {
+    "Mathlib.Algebra.Group.Embedding": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Group/Embedding.lean",
+      "sha256": "a4aeabc9a5cd484ce8145d9f8f63e241eaec9690c0669758bdb549653b177048",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Group/Embedding.lean"
+    },
+    "Mathlib.Algebra.Group.Finsupp": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Group/Finsupp.lean",
+      "sha256": "ff28aca2526ab47712ec982603918b058545dfddcf5bc1afad333cdf9e762665",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Group/Finsupp.lean"
+    },
+    "Mathlib.Algebra.Group.Nat.Defs": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Group/Nat/Defs.lean",
+      "sha256": "17bee4169c02f700e10b9f0201c8bd2fc893dfb4e039f6c722f8bcef6d3254aa",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Group/Nat/Defs.lean"
+    },
+    "Mathlib.Algebra.Order.Antidiag.Pi": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Order/Antidiag/Pi.lean",
+      "sha256": "e019b4351670c73572a19d14bba64c3569ed06329683e40db8aac6fab4dbb1af",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/Antidiag/Pi.lean"
+    },
+    "Mathlib.Analysis.Asymptotics.AsymptoticEquivalent": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Asymptotics/AsymptoticEquivalent.lean",
+      "sha256": "e69e8b0b401a6852755fe97605ea79d32d85cb2ae4d81e56ac3d8d683d381dc0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Asymptotics/AsymptoticEquivalent.lean"
+    },
+    "Mathlib.Analysis.Asymptotics.SpecificAsymptotics": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Asymptotics/SpecificAsymptotics.lean",
+      "sha256": "1e238d248bacb49378e0961d34e99f4ba9a876498ceaed7ce27e654a4334b738",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Asymptotics/SpecificAsymptotics.lean"
+    },
+    "Mathlib.Analysis.Convex.StdSimplex": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Convex/StdSimplex.lean",
+      "sha256": "aec844bc79d4bd36cea30d1bf2d0999ad6e82ee1d8715dc8f1fa751c2522785c",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/StdSimplex.lean"
+    },
+    "Mathlib.Analysis.Normed.Group.Real": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Normed/Group/Real.lean",
+      "sha256": "eaae958600a11f6a363c1aaf0f5d9d2f85f27a277eb26b6cbfe16e6462922cd4",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Normed/Group/Real.lean"
+    },
+    "Mathlib.Analysis.Normed.Module.FiniteDimension": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Normed/Module/FiniteDimension.lean",
+      "sha256": "2598904c7b6a33ad86537d15464c45d476dea56dd035e3d8237dab5027f47e5e",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Normed/Module/FiniteDimension.lean"
+    },
+    "Mathlib.Analysis.PSeries": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/PSeries.lean",
+      "sha256": "dffb9a0012d0091a609e2caa5a8581e3245a8f8508b6c77ef31bc7f59c2d2f7c",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/PSeries.lean"
+    },
+    "Mathlib.Analysis.Real.Pi.Wallis": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Real/Pi/Wallis.lean",
+      "sha256": "cee08e35f7a82853091be31ffd641ba79c118d64e6ff9753c07e342b11ecbe8e",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Real/Pi/Wallis.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Integrals.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean",
+      "sha256": "58a81e8137bddf5cc43ae28f08ffa75ea3aa086e607cf70e70f70c3c8e935e81",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Continuity": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean",
+      "sha256": "954afcfdbbc1ad9a7f52b8e6d726f21eb2b78bcab182cae499fac27350831afb",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+      "sha256": "1f4e64fc28a20f4e19291a94dafd68daa82588b46f6ee5b9203df373ba595fa3",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Real.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Stirling": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Stirling.lean",
+      "sha256": "46849279daaa7b5a2800f4c3428b2c28066a235f1cb6623702312aa56ba50aac",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Stirling.lean"
+    },
+    "Mathlib.Analysis.SumOverResidueClass": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SumOverResidueClass.lean",
+      "sha256": "91f5d3d3cd4316a86db490b654c3d7baffa7b3432e07086a16ba82c6918edf9f",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SumOverResidueClass.lean"
+    },
+    "Mathlib.Data.Finsupp.Multiset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Finsupp/Multiset.lean",
+      "sha256": "59c09ecba8dfd1be6fd919aae6d57feab8d082e4f0597e89368b7b1c7ab80984",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Finsupp/Multiset.lean"
+    },
+    "Mathlib.Data.List.Defs": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/List/Defs.lean",
+      "sha256": "5ee74e568657c2628623127168cb7c52e33da8ec8af0a846443c983261f459cb",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/List/Defs.lean"
+    },
+    "Mathlib.Data.List.GetD": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/List/GetD.lean",
+      "sha256": "574a0a3994484d8d591a1f57604a0eefd6b8947b1b5c9b698b01dd8bf48e600a",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/List/GetD.lean"
+    },
+    "Mathlib.Data.List.ToFinsupp": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/List/ToFinsupp.lean",
+      "sha256": "b850a99f74aeca0ce092d55fbcc6ab88faf531073f179a3b4a3a9d591d62f2bb",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/List/ToFinsupp.lean"
+    },
+    "Mathlib.Data.Nat.Choose.Multinomial": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Choose/Multinomial.lean",
+      "sha256": "7023cc66afa2ea732149a6847ee909d91b5df4fc04ed229aa03d24b664cbd8bb",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Multinomial.lean"
+    },
+    "Mathlib.Data.Nat.Choose.Sum": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Choose/Sum.lean",
+      "sha256": "c7ce3caf261d7993044a2bfd52761152f9c24fe1066989e0c910af58a50c305d",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Sum.lean"
+    },
+    "Mathlib.Data.Nat.Factorial.BigOperators": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Factorial/BigOperators.lean",
+      "sha256": "784d9aa990e125c1d9b6c06c65186f894692569cc909b2ff792045c8f5db8bd0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/BigOperators.lean"
+    },
+    "Mathlib.Data.Nat.Factorial.DoubleFactorial": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Factorial/DoubleFactorial.lean",
+      "sha256": "cb2d2378fc50ab17003d9297bbc1a06d103a7e0ecdc7624cdf73b3bbe57e5120",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/DoubleFactorial.lean"
+    },
+    "Mathlib.Data.ZMod.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/ZMod/Basic.lean",
+      "sha256": "c910cf5089e3f961c495763c0a6c9609bcb8033f500faa1e7e4f0666f7eb5f99",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/ZMod/Basic.lean"
+    },
+    "Mathlib.Logic.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Logic/Basic.lean",
+      "sha256": "66c0e30dfa1f8fc942f048d4b5225249f193077df9130b3f2152778e0609b29a",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Logic/Basic.lean"
+    },
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "sha256": "93908eb0c771ba8edcb47537dfe1a40e98a1545be9d427c1eb9823d44decdcd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean"
+    },
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
+      "sha256": "ececad97c60703de0e0ee2f47bca44a017aa8537f7186412f69b169f026e92fd",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean"
+    },
+    "Mathlib.Order.Interval.Set.Union": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/Interval/Set/Union.lean",
+      "sha256": "0609bc9d79421b5690dca5429a67571ab70d1ca9db34b7e4c3dbe920598d0eb2",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/Interval/Set/Union.lean"
+    },
+    "Mathlib.Tactic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Tactic.lean",
+      "sha256": "6ec9a1714e9fa472f7e5614792f1aa5a65f360ec56688b0dc765d1bee2e1bdd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Tactic.lean"
+    },
+    "Mathlib.Tactic.AdaptationNote": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Tactic/AdaptationNote.lean",
+      "sha256": "3db5242efe5d1bcc7bcd41e27e893ab8503c91e69c29a38b9bc1dce6ccf1b1e9",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Tactic/AdaptationNote.lean"
+    },
+    "Mathlib.Topology.Algebra.InfiniteSum.ENNReal": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Topology/Algebra/InfiniteSum/ENNReal.lean",
+      "sha256": "37cce0903d5a5c63f7ada25b94bdf4818b051490e6c8d6af6a9c373dd324579e",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Topology/Algebra/InfiniteSum/ENNReal.lean"
+    },
+    "Mathlib.Topology.Order.Lattice": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Topology/Order/Lattice.lean",
+      "sha256": "de4e005eb2aeae5df8f303f024495ea36e62a5451df065b318724cf41e1f9d22",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Topology/Order/Lattice.lean"
+    },
+    "Mathlib.Topology.UniformSpace.HeineCantor": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Topology/UniformSpace/HeineCantor.lean",
+      "sha256": "307718982cda076dc252c6506dc9ab94a3c84e3eb92516dda94e364afc0bf07a",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Topology/UniformSpace/HeineCantor.lean"
+    },
+    "RiffleTimeProfile.Analysis": {
+      "kind": "project-rebuilt",
+      "sha256": "6cb844a02817905bc2e87f57277b23e68c2040dd2b1be6509d4b4320eeb3ac30",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Analysis.lean"
+    },
+    "RiffleTimeProfile.Base": {
+      "kind": "project-rebuilt",
+      "sha256": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Base.lean"
+    }
+  },
+  "new_output_sha256": {
+    ".build/lib/lean/Mathlib/Analysis/Asymptotics/SpecificAsymptotics.olean": "a9653a73d115ddef6aa55241672dd50f3f5c89bbe370f249740aedb6059855b2",
+    ".build/lib/lean/Mathlib/Analysis/PSeries.olean": "93e879d5d2321b8c70371bea9691403bb967cb4c16ccfdb8e7c20a0888344a80",
+    ".build/lib/lean/Mathlib/Analysis/Real/Pi/Wallis.olean": "c8b0ee2187324898597c6594fd55fcf38f41033e4c681f85a7d69f259e4a4a0b",
+    ".build/lib/lean/Mathlib/Analysis/SpecialFunctions/Stirling.olean": "b3127a61d0731e54336063eefa1ecaf3252bed9091c1827e0d83b822a213790c",
+    ".build/lib/lean/Mathlib/Analysis/SumOverResidueClass.olean": "b445aebf3e80933d1516a94b5c61a6da381ce606633a5038d34b2ec6a909ace6",
+    ".build/lib/lean/Mathlib/Data/List/GetD.olean": "6b9d1387e87e23945e180677f87dead1dae5c684f86d3444c37d3b63a0e9fcbe",
+    ".build/lib/lean/Mathlib/Data/List/ToFinsupp.olean": "8b7c9d227be961cdd9dbc685f7997828d48c3b46797306c5eeb75ddf70b82761",
+    ".build/lib/lean/Mathlib/Data/Nat/Choose/Multinomial.olean": "1a3fbdf7442487bd8ce8051a7f3c3a663abf58f6dbad471a2dd80d963257d781",
+    ".build/lib/lean/RiffleTimeProfile/Analysis.olean": "9bf331ec7cd721fe6ba8e60da24b9ab3ad1ffa34f1f3a785b466185af347ed7d"
+  },
+  "newly_built_modules": [
+    "RiffleTimeProfile.Analysis",
+    "Mathlib.Data.List.GetD",
+    "Mathlib.Data.List.ToFinsupp",
+    "Mathlib.Data.Nat.Choose.Multinomial",
+    "Mathlib.Analysis.SumOverResidueClass",
+    "Mathlib.Analysis.Asymptotics.SpecificAsymptotics",
+    "Mathlib.Analysis.PSeries",
+    "Mathlib.Analysis.Real.Pi.Wallis",
+    "Mathlib.Analysis.SpecialFunctions.Stirling"
+  ],
+  "recorded_at": "2026-10-01T15:28:40.917522+00:00",
+  "registered_imports": [
+    "RiffleTimeProfile.Analysis",
+    "Mathlib.Data.Nat.Choose.Multinomial",
+    "Mathlib.Analysis.SpecialFunctions.Stirling"
+  ],
+  "schema_version": 1,
+  "scope": "Additive checked source imports only; no change to any shared target, definition, umbrella, old freeze, or lane-owned proof. Canonical Analysis rebuilt verbatim locally. Pinned-library source records were compared byte-for-byte with pinned Git HEAD. Source records cover the build traversal; already cached transitive mathlib modules remain governed by the original pinned-library policy.",
+  "status": "DEPENDENCIES_READY",
+  "verification_command": [
+    "python3",
+    "scripts/check_dependency_receipt.py",
+    "LB06-v1"
+  ]
+}

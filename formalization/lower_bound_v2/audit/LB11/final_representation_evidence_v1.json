@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "proof_sources_and_evidence_sha256": {
+    "RiffleLowerV2/MacroscopicLower/Main.lean": "9983f9b9b097ef9cfc67374521a1639693cb3b1e745890ab6bd2323acf5e33c7",
+    "RiffleLowerV2/MacroscopicLower/Parameters.lean": "ac7da881e475df4b5820a240b36739c0a50b8a496f7830636d17de7419c14def",
+    "audit/LB11/Check_v1.lean": "8729612d35b79e1b4e9cb9fac6a177fb94d9cc2b80d8a0eb67803179e3439004",
+    "audit/LB11/VERIFICATION_v2.json": "bae16f545e2ca92f947706b368eb05d66f438a7f81551cd170864adce40adf13",
+    "audit/LB11/final-build-v2.log": "e4c898c2b3d3e78ea6daf10044451b178b17310ad1559cc544c3783d7fd7ff9a",
+    "audit/LB11/final-audit-v2.log": "f2d1d40a9f2d214bac9491ada373647a1f4908f07201d3e1a271de543dfae426",
+    "audit/LB11/compiled-declarations-v2.json": "1c8970f358acba74127565eb71a31d299787ad87a4ea32735a83cdc42a8953e6",
+    "audit/LB11/representation_closure_check_v1.lean": "d115a0ee2848aac7ed5f20a6c35fdcd8356aaee39134f91bfe69d809409316ba",
+    "audit/LB11/representation_closure_check_v1.log": "6d4e306625130a3dcbfa0d335864dbb7530162aec1a76a4300812f284f4c3352",
+    "audit/LB11/representation_closure_v1.json": "b0038d346da0f10ef09e9138caec4f7a11b0b31476ea7cfbfed50dd840e6bba8",
+    "audit/LB00/LB11_DEPENDENCIES_READY_v1.md": "8a3375c90768c020809885c6a7f39468e1e4c191c4fb8a729c9943a449518969",
+    "audit/LB00/LB11_INTERFACE_ACK_v1.md": "153dd12314f0a1a89c93e307189d2ffe29e20f00a83f762ee8a794177d9efed8"
+  },
+  "frozen_manifest_content_mismatches": [],
+  "v2_receipt_all_hashes_match": true,
+  "v2_audit_inventory_exact_match": true,
+  "read_only_input_checks": {
+    "python3 scripts/check_dependency_receipt.py LB07-v1": {
+      "exit_code": 0,
+      "stdout": "LB07-v1 DEPENDENCIES_OK\n",
+      "stderr": ""
+    },
+    "python3 scripts/check_dependency_receipt.py LB10-v1": {
+      "exit_code": 0,
+      "stdout": "LB10-v1 DEPENDENCIES_OK\n",
+      "stderr": ""
+    },
+    "python3 scripts/lane.py LB11 --check-ready": {
+      "exit_code": 0,
+      "stdout": "LB11 CONTRACT_INPUTS_OK\n",
+      "stderr": ""
+    }
+  },
+  "complete_recursive_closures": [
+    {
+      "root": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+      "reachable_count": 50441,
+      "recursive_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ],
+      "collect_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto",
+      "reachable_count": 50443,
+      "recursive_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ],
+      "collect_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

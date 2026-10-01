@@ -1,0 +1,62 @@
+[
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.permutation_subset_expect",
+    "type": "∀ {M : ℕ} (B : Finset (Fin M)) (f : RiffleLowerV2.Thinning.Compat.Sample Finset.univ B.card → ℝ),\n  (RiffleLowerV2.expect (RiffleLowerV2.uniformPermutation M) fun σ => f (RiffleLowerV2.Thinning.permSubset B σ)) =\n    (RiffleLowerV2.Thinning.Compat.sampleLaw Finset.univ B.card ⋯).expect f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.permutation_intersection_transform",
+    "type": "∀ {M : ℕ} (A B : Finset (Fin M)) {s : ℝ},\n  0 < s →\n    (RiffleLowerV2.expect (RiffleLowerV2.uniformPermutation M) fun σ =>\n        s ^ (A ∩ Finset.map (Equiv.toEmbedding σ) B).card) ≤\n      (1 - ↑B.card / ↑M + ↑B.card / ↑M * s) ^ A.card"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.hypergeometricTransform",
+    "type": "RiffleLowerV2.Targets.HypergeometricTransform"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": false,
+    "name": "RiffleLowerV2.Thinning.columnRelabelEquiv",
+    "type": "{k N K : ℕ} →\n  {cuts : TimeProfile.Cuts k N K} →\n    {j : Fin K} →\n      RiffleLowerV2.Permutation N → TimeProfile.ColumnAssignments cuts j ≃ TimeProfile.ColumnAssignments cuts j"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.column_subset_expect",
+    "type": "∀ {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (a : Fin k)\n  (f : RiffleLowerV2.Thinning.Compat.Sample Finset.univ (cuts.count j a) → ℝ),\n  (RiffleLowerV2.expect (TimeProfile.columnPMF cuts j) fun c => f (RiffleLowerV2.Thinning.columnDigitSubset a c)) =\n    (RiffleLowerV2.Thinning.Compat.sampleLaw Finset.univ (cuts.count j a) ⋯).expect f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "is_theorem": true,
+    "name": "RiffleLowerV2.Thinning.column_intersection_transform",
+    "type": "∀ {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (a : Fin k) (A : Finset (Fin N)) {s : ℝ},\n  0 < s →\n    (RiffleLowerV2.expect (TimeProfile.columnPMF cuts j) fun c => s ^ (A ∩ {i | ↑c i = a}).card) ≤\n      (1 - ↑(cuts.count j a) / ↑N + ↑(cuts.count j a) / ↑N * s) ^ A.card"
+  }
+]

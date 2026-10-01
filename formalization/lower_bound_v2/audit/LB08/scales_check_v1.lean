@@ -1,0 +1,19 @@
+import RiffleLowerV2.Occupancy.CentralModel
+
+#check RiffleLowerV2.Occupancy.eventual_central_scales
+#check RiffleLowerV2.Occupancy.eventual_central_error_bounds
+#check RiffleLowerV2.Occupancy.central_marginal_absolute
+#check RiffleLowerV2.Occupancy.central_pair_absolute
+#print axioms RiffleLowerV2.Occupancy.bonferroniOrder_even
+#print axioms RiffleLowerV2.Occupancy.two_mul_bonferroniOrder_le
+#print axioms RiffleLowerV2.Occupancy.momentRadius_le
+#print axioms RiffleLowerV2.Occupancy.order_bounds
+#print axioms RiffleLowerV2.Occupancy.momentError_nonneg
+#print axioms RiffleLowerV2.Occupancy.coarseMomentError_tendsto
+#print axioms RiffleLowerV2.Occupancy.eventual_central_scales
+#print axioms RiffleLowerV2.Occupancy.poissonRemainder_exp_bound
+#print axioms RiffleLowerV2.Occupancy.poissonRemainder_le_inverse
+#print axioms RiffleLowerV2.Occupancy.central_moment_term_le
+#print axioms RiffleLowerV2.Occupancy.eventual_central_error_bounds
+#print axioms RiffleLowerV2.Occupancy.central_marginal_absolute
+#print axioms RiffleLowerV2.Occupancy.central_pair_absolute

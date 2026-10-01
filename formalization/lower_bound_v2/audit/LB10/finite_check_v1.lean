@@ -1,0 +1,11 @@
+import RiffleLowerV2.EmpiricalLower.LargestFinite
+
+example : RiffleLowerV2.Targets.FiniteLargestWordTV :=
+  RiffleLowerV2.EmpiricalLower.finiteLargestWordTV
+
+#check RiffleLowerV2.EmpiricalLower.probability_increasingRun_le
+#check RiffleLowerV2.EmpiricalLower.fullWord_forces_increasingRun
+#check RiffleLowerV2.EmpiricalLower.finiteLargestWordTV
+#print axioms RiffleLowerV2.EmpiricalLower.probability_increasingRun_le
+#print axioms RiffleLowerV2.EmpiricalLower.fullWord_forces_increasingRun
+#print axioms RiffleLowerV2.EmpiricalLower.finiteLargestWordTV

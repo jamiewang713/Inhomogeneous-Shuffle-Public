@@ -1,0 +1,3 @@
+# LB05 one-column proof provenance v1
+
+`Witness/OneColumnBasic.lean` ports source proof text `powerSum_pos`, `powerSum_le_one`, `maxCost_bounds`, `psi_bounds`, and `finite_gibbs` into the owned namespace. The source is `formalization/time_profile/RiffleTimeProfile/Analysis.lean`, SHA-256 `6cb844a02817905bc2e87f57277b23e68c2040dd2b1be6509d4b4320eeb3ac30`. Definitions remain canonical TimeProfile definitions imported by the frozen shared contract. No source package or old cache is modified. The source currently declares Lean 4.33.1; all ports are checked afresh under the LB00 pinned compiler and mathlib. Additional helpers are new proofs against those definitions.

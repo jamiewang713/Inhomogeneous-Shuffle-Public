@@ -1,0 +1,71 @@
+{
+  "status": "ALL_THREE_REQUESTED_CHECKS_PASSED",
+  "recorded_at": "2026-10-01T19:25:17.361630+00:00",
+  "manuscript": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d"
+  },
+  "source_theorem": "thm:buffered-reduced-lower-bound",
+  "source_theorem_line": 2852,
+  "lean_uniform_theorem": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+  "lean_limit_theorem": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto",
+  "required_import": "RiffleLowerV2.Completed",
+  "check_1": {
+    "status": "PASS",
+    "findings": [
+      "Exact margin formula and supremum/infimum order match.",
+      "The conclusion concerns the chronological physical inverse shuffle and half-L1 total variation.",
+      "The horizon is floor(T log N).",
+      "Partition, positive mesh and frequency tolerances precede N; the threshold is uniform over all admissible deterministic cuts.",
+      "Only the stated almost-profile, local-good, scalar-integrability and positive-margin premises occur; no assumed witness, localization, moment estimate or TV conclusion."
+    ]
+  },
+  "check_2": {
+    "status": "PASS",
+    "freshly_built_modules": 197,
+    "package_modules": 183,
+    "exact_required_theorems": 58,
+    "project_declarations_audited": 3216,
+    "sorryAx_in_endpoint_closures": false,
+    "proof_chain": "Actual fixed-column sampling and physical/graph representation -> thinning and factorial moments -> witness/type construction, occupancy and localization -> many-edge event and ascent scan -> empirical branches -> profile transfer -> uniform macroscopic endpoint -> Tendsto."
+  },
+  "check_3": {
+    "status": "PASS",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "custom_axiom_declarations": 0,
+    "native_oracle_dependencies": false,
+    "trust_boundary": "Pinned Lean 4.33.1 and mathlib library objects; all package and reached canonical project sources were freshly compiled."
+  },
+  "measurability": {
+    "status": "FORMALLY_VERIFIED",
+    "result": "ScalarIntegrable is equivalent to scalar AE strong measurability on the finite time interval. Ordinary scalar measurability suffices.",
+    "scope": "Cell probabilities for the selected partition, profileMaxCost, and profilePsi for every alpha in [2,4]; Lebesgue measure on the finite interval.",
+    "extra_time_continuity_or_convergence_rate_assumption": false,
+    "source": "audit/UserCheck_20261001/MeasurabilityCheck.lean"
+  },
+  "independent_reviews": [
+    "Raw-source theorem/definition/quantifier comparison: PASS",
+    "Raw-source proof-obligation assembly and probability estimates: PASS",
+    "Axiom/trust and verification-script review: PASS",
+    "Fresh independent compiled audit: PASS"
+  ],
+  "verification_evidence": [
+    "audit/LB00/full_package_v20/build.log",
+    "audit/LB00/final_audit_v20/VERIFICATION.json",
+    "audit/LB12/VERIFICATION_v20.json",
+    "audit/LB12/endpoint_closures_v20.json",
+    "audit/UserCheck_20261001/measurability_check.log"
+  ],
+  "reproduction_commands": [
+    "python3 scripts/verify_completed_v2.py --run v20",
+    "python3 audit/LB12/verify_final_v4.py v20 audit/LB00/final_audit_v20"
+  ],
+  "reproduction_note": "Recorded commands identify this accepted run. For a new run, select unused numeric version labels as the scripts preserve prior evidence.",
+  "scope_note": "The current V2 completed lower-bound proof is certified under scalar measurability/integrability. The old finite-only package and the default foundation-only umbrella are not evidence of this endpoint. No claim is made without scalar measurability.",
+  "manuscript_and_production_proof_sources_changed": false,
+  "unresolved_requested_obligations": []
+}

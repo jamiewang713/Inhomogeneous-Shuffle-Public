@@ -1,0 +1,86 @@
+{
+  "lane": "LB02",
+  "pending": [],
+  "requirements": [
+    {
+      "item": "1",
+      "source_label": "lem:successive-thinning-tail",
+      "claim": "All positive s under the exact uniform-permutation hypergeometric law",
+      "status": "proved_and_checked",
+      "declarations": [
+        "RiffleLowerV2.Thinning.hypergeometricTransform",
+        "RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_pow_le_all",
+        "RiffleLowerV2.Thinning.permutation_subset_expect"
+      ]
+    },
+    {
+      "item": "2",
+      "source_label": "lem:successive-thinning-tail",
+      "claim": "Independent subset process via exact finite coordinate integration and backward affine recursion",
+      "status": "proved_and_checked",
+      "declarations": [
+        "RiffleLowerV2.Thinning.successiveThinning",
+        "RiffleLowerV2.Thinning.independent_intersection_transform",
+        "RiffleLowerV2.Thinning.permutation_intersection_transform"
+      ]
+    },
+    {
+      "item": "3",
+      "source_label": "lem:successive-thinning-tail",
+      "claim": "Exact Bernstein, half-mean and fewer-than-two tails; positive population, zero mean and empty columns included",
+      "status": "proved_and_checked",
+      "declarations": [
+        "RiffleLowerV2.Thinning.thinningTails",
+        "RiffleLowerV2.Thinning.prefixTails",
+        "RiffleLowerV2.Thinning.chernoffConstant_pos"
+      ]
+    },
+    {
+      "item": "4",
+      "source_label": "lem:successive-thinning-tail",
+      "claim": "Actual admissible residual law, subtracted counts, independent residual columns and concrete residual transform/tails",
+      "status": "proved_and_checked",
+      "declarations": [
+        "RiffleLowerV2.Thinning.residualLaw",
+        "RiffleLowerV2.Thinning.residualColumnIndependence",
+        "RiffleLowerV2.Thinning.residualPrefixTransform",
+        "RiffleLowerV2.Thinning.residualPrefixTails"
+      ]
+    },
+    {
+      "item": "5a",
+      "source_label": "cor:iterated-hypergeom",
+      "claim": "Actual prefix law bridge and explicit simultaneous polynomial union bound over every length",
+      "status": "proved_and_checked",
+      "declarations": [
+        "RiffleLowerV2.Thinning.prefixTransform",
+        "RiffleLowerV2.Thinning.allPrefixConcentration",
+        "RiffleLowerV2.Thinning.prefix_card_exact",
+        "RiffleLowerV2.Thinning.prefix_card_le_of_cuts",
+        "RiffleLowerV2.Thinning.prefixCount_eq_zero_of_mass_zero"
+      ]
+    },
+    {
+      "item": "5b",
+      "source_label": "cor:iterated-hypergeom",
+      "claim": "Uniform convergence with k,T,epsilon,delta before N0, then every N,K satisfying K<=T log N",
+      "status": "proved_and_checked",
+      "declarations": [
+        "RiffleLowerV2.Thinning.prefixFailureUniform",
+        "RiffleLowerV2.Thinning.prefixFailure_le_envelope",
+        "RiffleLowerV2.Thinning.prefixFailureEnvelope_tendsto"
+      ]
+    },
+    {
+      "item": "6",
+      "source_label": "prop:largest-prefix",
+      "claim": "Canonical deterministic maximal word, exact maximal mean/exponent and exponential count tail for LB10",
+      "status": "proved_and_checked",
+      "declarations": [
+        "RiffleLowerV2.Thinning.maximalMeanIdentity",
+        "RiffleLowerV2.Thinning.maximalWordTail"
+      ]
+    }
+  ],
+  "external_scope": "LB01 physical law and LB10 run/TV assembly are not certified or consumed by this lane."
+}

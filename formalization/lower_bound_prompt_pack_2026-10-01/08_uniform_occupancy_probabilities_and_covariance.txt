@@ -1,0 +1,50 @@
+/goal
+You are the Lean formalization agent for LB-08: Uniform occupancy probabilities and covariance.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00, LB-02, LB-03. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/Occupancy/ and audit/LB08/
+
+AUTHORITATIVE SOURCE LABELS
+- lem:two-category-poisson
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/FiniteProbability.lean
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Combine the completed thinning and factorial/Bonferroni lanes into the concrete uniform collision estimate. Begin only when their exported declarations and build receipts exist; do not create placeholder upstream theorems.
+
+Let A_w={N_w≥2}, mu_w=N lambda_w, p_w=P(A_w), and f(t)=1-(1+t)exp(-t). Assume only K≤C log N and every pile selected by the deterministic word family is at least cN, with c>0,C fixed.
+
+1. Prove quantitative bounds |p_w/f(mu_w)-1|≤C1 N^(-1/100) and |P(A_w∩A_v)/(p_w p_v)-1|≤C1 N^(-1/100) for distinct words and sufficiently large N. Prefer equivalent multiplication inequalities where they avoid dividing by quantities not yet proved positive. Do not impose extra bounds on the word means.
+2. Use the explicit regimes tau=N^(-1/100), B=(log N)/10, R=floor(N^(1/25)), and even m=2 floor(R/4). Check m≥2, 2m≤R and each finite-moment admissibility condition eventually. Derive the central absolute error O(N^(-7/10)) with actual constants, including logarithmic factors and the polynomial remainder controlled by LB-03.
+3. Treat arbitrarily rare words using the second/third factorial sandwich, then force two or three labelled rows and delete them to handle rare/mixed pairs. Prove conditional mean ratios and the bound 0≤t f'(t)/f(t)≤2; obtain conditional stability uniformly even when the other category is extremely rare.
+4. Treat large means using LB-02's residual empty/singleton tail and keep its error small RELATIVE to the other collision probability. Treat moderate pairs using the central absolute bound divided by the correct lower product bound. No independence of occupancy variables may be assumed.
+5. For any deterministic distinct word family W, sum the pair estimates and prove Var Z≤E Z+C1 N^(-1/100)(E Z)^2, Z=sum_w 1_{A_w}. Give the explicit Chebyshev success bound. The constants/N0 must be independent of the family size and its word choices.
+
+Your theorem is about the shared fixed-column law. A generic moment-comparison lemma alone does not complete this lane; instantiate every hypothesis using LB-02/LB-03, including residual prescriptions and positive conditioning events.
+
+ACCEPTANCE CRITERION
+Actual-model uniform marginal and pair-relative collision estimates, all mean regimes and residual conditioning, plus summed variance and collision-count concentration. Every imported assumption is discharged.

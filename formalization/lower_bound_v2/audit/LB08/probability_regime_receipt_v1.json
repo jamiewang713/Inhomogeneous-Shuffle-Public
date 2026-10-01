@@ -1,0 +1,23 @@
+{
+  "status": "PROVED_SCALAR_REGIME_HELPERS",
+  "build_command": "python3 scripts/lane.py LB08 RiffleLowerV2.Occupancy.RegimeAlgebra",
+  "build_log": "audit/LB08/probability_regime_build_v2.log",
+  "audit_exit_code": 0,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_and_evidence_hashes": {
+    "RiffleLowerV2/Occupancy/RegimeAlgebra.lean": "36ecc808dd2ce7c002b8758c99a43116ec4b64fa32bb24e4e54666bbc207f565",
+    "RiffleLowerV2/Occupancy/Poisson.lean": "20831bdf877807e3116250e4b805d0f1aaef554daee15ccfe4d780d4bcec2106",
+    "RiffleLowerV2/Occupancy/FiniteProbability.lean": "1d2ca4a4f965acec6ee9bf02c39c0584a0f35fe9e7a3cf87c13fda6e70a12336",
+    "audit/LB08/probability_regime_Check_v1.lean": "4f57e32cfb4549f640f273b4e9a88a6251be02b9bb62e7951f8122bd33952a60",
+    "audit/LB08/probability_regime_build_v2.log": "9106dcebae6d89c298a06a4cd26074874856226ab15c7c988e2cfc71f14f428d",
+    "audit/LB08/probability_regime_axioms_v1.log": "0d6de025729c3feceff36b390011fc9ebdea9c740db190a9560496a7eea13fee",
+    "audit/LB08/probability_regime_declarations_v1.json": "681ffb245fc04ef632d8c499a6b117af2f81109d1b6efda7ca7e305506d06120"
+  },
+  "declarations": 6,
+  "source_correspondence": "lem:two-category-poisson rare marginal, rare mixed-pair, moderate-pair and large-category comparison algebra",
+  "scope_limit": "Moment sandwiches and central benchmark errors are premises; parent must instantiate every input for the actual model."
+}

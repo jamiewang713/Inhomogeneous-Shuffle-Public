@@ -1,0 +1,38 @@
+{
+  "status": "LANE_CHECKED_AWAITING_COORDINATOR_INTEGRATION",
+  "entry_point": "RiffleLowerV2.MacroscopicLower.Main",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "source_hashes": {
+    "RiffleLowerV2/MacroscopicLower/Main.lean": "9983f9b9b097ef9cfc67374521a1639693cb3b1e745890ab6bd2323acf5e33c7",
+    "RiffleLowerV2/MacroscopicLower/Parameters.lean": "ac7da881e475df4b5820a240b36739c0a50b8a496f7830636d17de7419c14def"
+  },
+  "input_manifests": {
+    "Contracts/v1/SHA256.json": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+    "Contracts/v1/SOURCES.json": "3a96605570737b06ba1d4c5a8e42b79f399eac6121844cfc1afcd11333e36959",
+    "Contracts/dependencies/LB07-v1/SHA256.json": "4280cdd4109f8bf6b817c237b63ad9825e34767b4652c1da5600b9ba661b1398",
+    "Contracts/dependencies/LB07-v1/SOURCES.json": "946fd0c74a2e528955624f36b7fe10f00ce250c26bb7db16f36bf386444946f3",
+    "Contracts/dependencies/LB10-v1/SHA256.json": "9fe2f82ad8be2c67eaa6b7f9f9e51e833b234952cbc339b238eefa70bfd399da",
+    "Contracts/dependencies/LB10-v1/SOURCES.json": "55b8500061eac108c18cc0e1a87a236e38fad56bdd5f62db298d8292833c7251"
+  },
+  "verification_artifacts": {
+    "audit/LB11/dependency-checks-v1.log": "5707e4ebd1edc1229658a33c29557416f0c2d9a877966eab12032b2fdef60e05",
+    "audit/LB11/final-build-v1.log": "e4c898c2b3d3e78ea6daf10044451b178b17310ad1559cc544c3783d7fd7ff9a",
+    "audit/LB11/final-audit-v1.log": "f2d1d40a9f2d214bac9491ada373647a1f4908f07201d3e1a271de543dfae426",
+    "audit/LB11/compiled-declarations-v1.json": "1c8970f358acba74127565eb71a31d299787ad87a4ea32735a83cdc42a8953e6",
+    "audit/LB11/Check_v1.lean": "8729612d35b79e1b4e9cb9fac6a177fb94d9cc2b80d8a0eb67803179e3439004",
+    "audit/LB11/compile_lane.py": "8deea93be3d944776ffa79331015ba3da49ef84535126999529514d99bc18c8d",
+    "audit/LB11/verify_lane.py": "910a7f40f73abc858a8f0a70ef89c7b852f96fc7f58684d1194d65e03e668763"
+  },
+  "declarations_audited": 17,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "required_theorems": {
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget",
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T eta : ℝ),\n      0 < T →\n        0 < eta →\n          ∃ (chiPartition : ℝ),\n            0 < chiPartition ∧\n              chiPartition < 1 / ↑k ∧\n                ∃ (P : TimeProfile.BorelPartition k),\n                  P.IsRegular chiPartition 1 ∧\n                    ∃ (rho0 : ℝ),\n                      0 < rho0 ∧\n                        2 * rho0 * Real.log ↑k ≤ RiffleLowerV2.kappa0 (eta / 2) / 100 ∧\n                          ∀ (rho : ℝ),\n                            0 < rho →\n                              rho ≤ rho0 →\n                                ∃ (phi0 : ℝ),\n                                  0 < phi0 ∧\n                                    ∀ (phi : ℝ),\n                                      0 < phi →\n                                        phi ≤ phi0 →\n                                          ∀ (chiGood gamma : ℝ),\n                                            0 < chiGood →\n                                              0 < gamma →\n                                                ∀ (μ : TimeProfile.TimeLaw k),\n                                                  RiffleLowerV2.ScalarIntegrable μ P T →\n                                                    ∀ (cuts : (N : ℕ) → RiffleLowerV2.Targets.HorizonCuts k N T),\n                                                      (∀ᶠ (N : ℕ) in Filter.atTop,\n                                                          ∀ (hN : 2 ≤ N),\n                                                            TimeProfile.AlmostLike (cuts N) ⋯ μ P T rho phi ∧\n                                                              TimeProfile.LocalGood (cuts N) ⋯ chiGood gamma rho 0 T) →\n                                                        eta ≤\n                                                            max (RiffleLowerV2.macroBeta μ T)\n                                                              (RiffleLowerV2.macroLambda1 μ T) →\n                                                          Filter.Tendsto\n                                                            (fun (N : ℕ) =>\n                                                              RiffleLowerV2.tv\n                                                                (RiffleLowerV2.physicalInverseLaw (cuts N))\n                                                                (RiffleLowerV2.uniformPermutation N))\n                                                            Filter.atTop (nhds 1)"
+  }
+}

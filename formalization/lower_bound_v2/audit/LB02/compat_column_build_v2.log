@@ -1,0 +1,86 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Hypergeometric.lean:74:8: warning: This simp argument is unused:
+  mul_pos_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.pos_iff_ne_zero, Nat.choose_eq_zero_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:172:0: warning: automatically included section variable(s) unused in theorem `RiffleLowerV2.Thinning.Compat.FiniteLaw.coarse_total_probability`:
+  [Fintype Δ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Δ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:391:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:80:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:106:24: warning: Variable name `hres` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hres
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:148:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:151:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Sampling.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RiffleLowerV2.Thinning.hypergeometricTransform : RiffleLowerV2.Targets.HypergeometricTransform
+SAMPLING_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"is_theorem":true,"name":"RiffleLowerV2.Thinning.permutation_subset_expect","type":"∀ {M : ℕ} (B : Finset (Fin M)) (f : RiffleLowerV2.Thinning.Compat.Sample Finset.univ B.card → ℝ),\n  (RiffleLowerV2.expect (RiffleLowerV2.uniformPermutation M) fun σ => f (RiffleLowerV2.Thinning.permSubset B σ)) =\n    (RiffleLowerV2.Thinning.Compat.sampleLaw Finset.univ B.card ⋯).expect f"}
+SAMPLING_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"is_theorem":true,"name":"RiffleLowerV2.Thinning.permutation_intersection_transform","type":"∀ {M : ℕ} (A B : Finset (Fin M)) {s : ℝ},\n  0 < s →\n    (RiffleLowerV2.expect (RiffleLowerV2.uniformPermutation M) fun σ =>\n        s ^ (A ∩ Finset.map (Equiv.toEmbedding σ) B).card) ≤\n      (1 - ↑B.card / ↑M + ↑B.card / ↑M * s) ^ A.card"}
+SAMPLING_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"is_theorem":true,"name":"RiffleLowerV2.Thinning.hypergeometricTransform","type":"RiffleLowerV2.Targets.HypergeometricTransform"}
+SAMPLING_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"is_theorem":false,"name":"RiffleLowerV2.Thinning.columnRelabelEquiv","type":"{k N K : ℕ} →\n  {cuts : TimeProfile.Cuts k N K} →\n    {j : Fin K} →\n      RiffleLowerV2.Permutation N → TimeProfile.ColumnAssignments cuts j ≃ TimeProfile.ColumnAssignments cuts j"}
+SAMPLING_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"is_theorem":true,"name":"RiffleLowerV2.Thinning.column_subset_expect","type":"∀ {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (a : Fin k)\n  (f : RiffleLowerV2.Thinning.Compat.Sample Finset.univ (cuts.count j a) → ℝ),\n  (RiffleLowerV2.expect (TimeProfile.columnPMF cuts j) fun c => f (RiffleLowerV2.Thinning.columnDigitSubset a c)) =\n    (RiffleLowerV2.Thinning.Compat.sampleLaw Finset.univ (cuts.count j a) ⋯).expect f"}
+SAMPLING_DECLARATION_JSON {"axioms":["propext","Classical.choice","Quot.sound"],"is_theorem":true,"name":"RiffleLowerV2.Thinning.column_intersection_transform","type":"∀ {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (j : Fin K) (a : Fin k) (A : Finset (Fin N)) {s : ℝ},\n  0 < s →\n    (RiffleLowerV2.expect (TimeProfile.columnPMF cuts j) fun c => s ^ (A ∩ {i | ↑c i = a}).card) ≤\n      (1 - ↑(cuts.count j a) / ↑N + ↑(cuts.count j a) / ↑N * s) ^ A.card"}
+LB02 BUILD_OK

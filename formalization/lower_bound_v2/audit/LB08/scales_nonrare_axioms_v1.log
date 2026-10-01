@@ -1,0 +1,49 @@
+RiffleLowerV2.Occupancy.nonrare_pair_relative (c C : ℝ) (hc : 0 < c) (hC : 0 < C) :
+  ∃ N0,
+    2 ≤ N0 ∧
+      ∀ N ≥ N0,
+        ∀ (k K : ℕ),
+          ↑K ≤ C * TimeProfile.logScale N →
+            ∀ (cuts : TimeProfile.Cuts k N K) (w v : RiffleLowerV2.Word k K),
+              w ≠ v →
+                (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                  (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get v j))) →
+                    RiffleLowerV2.Occupancy.tau N < ↑N * RiffleLowerV2.wordMass cuts w →
+                      RiffleLowerV2.Occupancy.tau N < ↑N * RiffleLowerV2.wordMass cuts v →
+                        |(RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) fun ω =>
+                                RiffleLowerV2.collisionEvent w ω ∧ RiffleLowerV2.collisionEvent v ω) -
+                              RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts)
+                                  (RiffleLowerV2.collisionEvent w) *
+                                RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts)
+                                  (RiffleLowerV2.collisionEvent v)| ≤
+                          128 * RiffleLowerV2.Occupancy.tau N *
+                              RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts)
+                                (RiffleLowerV2.collisionEvent w) *
+                            RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent v)
+'RiffleLowerV2.Occupancy.eventual_nonrare_budgets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.nonrare_probability_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.large_word_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.nonrare_pair_relative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_rare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_elasticity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_lower_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_div_sq_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_scale_compare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonCollision_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.log_affine_mul_rpow_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.eventually_log_affine_mul_rpow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.eventually_const_mul_rpow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.eventually_negative_rpow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.exp_logScale_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonBase_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.tau_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.tau_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.benchmark_lower_at_tau' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.eventual_marginal_budgets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.uniform_marginal' depends on axioms: [propext, Classical.choice, Quot.sound]

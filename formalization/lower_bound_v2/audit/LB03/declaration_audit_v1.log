@@ -1,0 +1,172 @@
+fun {k N K d} =>
+  Factorial.exactJointFactorial : ∀ {k N K d : ℕ} (cuts : TimeProfile.Cuts k N K) (w : Fin d → Word k K)
+  (r : Fin d → ℕ),
+  Function.Injective w →
+    ∑ i, r i ≤ N → expect (TimeProfile.fixedCountPMF cuts) (factorialProduct w r) = exactFactorial cuts w r
+Factorial.relativeJointFactorial : Targets.RelativeJointFactorial
+fun {k N K b d} =>
+  Factorial.residualJointFactorial : ∀ {k N K b d : ℕ} (cuts : TimeProfile.Cuts k N K) (p : RowPrescription N k K b),
+  b < N →
+    Function.Injective p.row →
+      0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p) →
+        ∀ (w : Fin d → Word k K) (r : Fin d → ℕ),
+          Function.Injective w →
+            ∑ i, r i ≤ N - b →
+              conditionalExpect (TimeProfile.fixedCountPMF cuts)
+                  (fun ω => ∏ i, falling (wordCount (w i) ω - {q | p.word q = w i}.card) (r i)) (prescriptionEvent p) =
+                falling (N - b) (∑ i, r i) *
+                  ∏ j,
+                    (∏ a, falling (cuts.count j a - usedCount p j a) (requestedCount w r j a)) /
+                      falling (N - b) (∑ i, r i)
+Factorial.residualRelativeFactorial : Targets.ResidualRelativeFactorial
+Factorial.residualMeanComparison : Targets.ResidualMeanComparison
+Factorial.bonferroniSandwich : Targets.BonferroniSandwich
+Factorial.bonferroniProduct : Targets.BonferroniProduct
+Factorial.centralComparison : Targets.CentralComparison
+Factorial.centralComparisonOne : Targets.CentralComparisonOne
+Factorial.rareSandwich : Targets.RareSandwich
+'RiffleLowerV2.Factorial.exactJointFactorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.relativeJointFactorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.residualJointFactorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.residualRelativeFactorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.residualMeanComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.bonferroniSandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.bonferroniProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.centralComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.centralComparisonOne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Factorial.rareSandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+def RiffleLowerV2.Targets.ExactJointFactorial : Prop :=
+∀ {k N K d : ℕ} (cuts : TimeProfile.Cuts k N K) (w : Fin d → Word k K) (r : Fin d → ℕ),
+  Function.Injective w →
+    ∑ i, r i ≤ N → expect (TimeProfile.fixedCountPMF cuts) (factorialProduct w r) = exactFactorial cuts w r
+def RiffleLowerV2.Targets.RelativeJointFactorial : Prop :=
+∀ (c C : ℝ),
+  0 < c →
+    0 < C →
+      ∃ D,
+        0 < D ∧
+          ∃ N0,
+            ∀ N ≥ N0,
+              ∀ (k K d : ℕ),
+                ↑K ≤ C * TimeProfile.logScale N →
+                  ∀ (cuts : TimeProfile.Cuts k N K) (w : Fin d → Word k K) (r : Fin d → ℕ),
+                    Function.Injective w →
+                      (∀ (i : Fin d) (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get (w i) j))) →
+                        ∑ i, ↑(r i) ≤ ↑N ^ (1 / 5) →
+                          |expect (TimeProfile.fixedCountPMF cuts) (factorialProduct w r) -
+                                ∏ i, (↑N * wordMass cuts (w i)) ^ r i| ≤
+                            D * (↑K + 1) * (∑ i, ↑(r i)) ^ 2 / ↑N * ∏ i, (↑N * wordMass cuts (w i)) ^ r i
+def RiffleLowerV2.Targets.ResidualJointFactorial : Prop :=
+∀ {k N K b d : ℕ} (cuts : TimeProfile.Cuts k N K) (p : RowPrescription N k K b),
+  b < N →
+    Function.Injective p.row →
+      0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p) →
+        ∀ (w : Fin d → Word k K) (r : Fin d → ℕ),
+          Function.Injective w →
+            ∑ i, r i ≤ N - b →
+              conditionalExpect (TimeProfile.fixedCountPMF cuts)
+                  (fun ω => ∏ i, falling (wordCount (w i) ω - {q | p.word q = w i}.card) (r i)) (prescriptionEvent p) =
+                falling (N - b) (∑ i, r i) *
+                  ∏ j,
+                    (∏ a, falling (cuts.count j a - usedCount p j a) (requestedCount w r j a)) /
+                      falling (N - b) (∑ i, r i)
+def RiffleLowerV2.Targets.ResidualRelativeFactorial : Prop :=
+∀ (c C : ℝ),
+  0 < c →
+    0 < C →
+      ∀ (b0 : ℕ),
+        ∃ D,
+          0 < D ∧
+            ∃ N0,
+              b0 < N0 ∧
+                2 ≤ N0 ∧
+                  ∀ N ≥ N0,
+                    ∀ (k K b d : ℕ),
+                      b ≤ b0 →
+                        ↑K ≤ C * TimeProfile.logScale N →
+                          ∀ (cuts : TimeProfile.Cuts k N K) (p : RowPrescription N k K b),
+                            Function.Injective p.row →
+                              0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p) →
+                                ∀ (w : Fin d → Word k K) (r : Fin d → ℕ),
+                                  Function.Injective w →
+                                    (∀ (i : Fin d) (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get (w i) j))) →
+                                      ∑ i, ↑(r i) ≤ ↑N ^ (1 / 5) →
+                                        |conditionalExpect (TimeProfile.fixedCountPMF cuts)
+                                                (fun ω =>
+                                                  ∏ i, falling (wordCount (w i) ω - {q | p.word q = w i}.card) (r i))
+                                                (prescriptionEvent p) -
+                                              ∏ i, Targets.residualWordMean cuts p (w i) ^ r i| ≤
+                                          D * (↑K + 1) * (∑ i, ↑(r i)) ^ 2 / ↑N *
+                                            ∏ i, Targets.residualWordMean cuts p (w i) ^ r i
+def RiffleLowerV2.Targets.ResidualMeanComparison : Prop :=
+∀ (c C : ℝ),
+  0 < c →
+    0 < C →
+      ∀ (b0 : ℕ),
+        ∃ D,
+          0 < D ∧
+            ∃ N0,
+              b0 < N0 ∧
+                2 ≤ N0 ∧
+                  ∀ N ≥ N0,
+                    ∀ (k K b : ℕ),
+                      b ≤ b0 →
+                        ↑K ≤ C * TimeProfile.logScale N →
+                          ∀ (cuts : TimeProfile.Cuts k N K) (p : RowPrescription N k K b) (w : Word k K),
+                            Function.Injective p.row →
+                              0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p) →
+                                (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                                  |Targets.residualWordMean cuts p w - ↑N * wordMass cuts w| ≤
+                                    D * (↑K + 1) * ↑b / ↑N * (↑N * wordMass cuts w)
+def RiffleLowerV2.Targets.BonferroniSandwich : Prop :=
+∀ (m : ℕ),
+  2 ≤ m →
+    Even m →
+      ∀ (n : ℕ),
+        (0 ≤ bonferroni m n - if 2 ≤ n then 1 else 0) ∧
+          (bonferroni m n - if 2 ≤ n then 1 else 0) ≤ bonferroniRemainder m n
+def RiffleLowerV2.Targets.BonferroniProduct : Prop :=
+∀ (m : ℕ),
+  2 ≤ m →
+    Even m →
+      ∀ (x y : ℕ),
+        (0 ≤ bonferroni m x * bonferroni m y - if 2 ≤ x ∧ 2 ≤ y then 1 else 0) ∧
+          (bonferroni m x * bonferroni m y - if 2 ≤ x ∧ 2 ≤ y then 1 else 0) ≤
+            bonferroniRemainder m x + bonferroniRemainder m y + bonferroniRemainder m x * bonferroniRemainder m y
+def RiffleLowerV2.Targets.CentralComparison : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (P : PMF Ω) (X Y : Ω → ℕ) (μ ν ε : ℝ) (m : ℕ),
+  0 < μ →
+    0 < ν →
+      0 ≤ ε →
+        ε ≤ 1 →
+          2 ≤ m →
+            Even m →
+              (∀ (r s : ℕ),
+                  r + s ≤ 2 * m →
+                    |(expect P fun ω => falling (X ω) r * falling (Y ω) s) - μ ^ r * ν ^ s| ≤ ε * μ ^ r * ν ^ s) →
+                |(probability P fun ω => 2 ≤ X ω ∧ 2 ≤ Y ω) - poissonCollision μ * poissonCollision ν| ≤
+                  ε * (1 + μ) * (1 + ν) * Real.exp (μ + ν) +
+                    3 * (poissonRemainder m μ + poissonRemainder m ν + poissonRemainder m μ * poissonRemainder m ν)
+def RiffleLowerV2.Targets.CentralComparisonOne : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (P : PMF Ω) (X : Ω → ℕ) (μ ε : ℝ) (m : ℕ),
+  0 < μ →
+    0 ≤ ε →
+      ε ≤ 1 →
+        2 ≤ m →
+          Even m →
+            (∀ r ≤ m, |(expect P fun ω => falling (X ω) r) - μ ^ r| ≤ ε * μ ^ r) →
+              |(probability P fun ω => 2 ≤ X ω) - poissonCollision μ| ≤
+                ε * (1 + μ) * Real.exp μ + 3 * poissonRemainder m μ
+def RiffleLowerV2.Targets.RareSandwich : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (P : PMF Ω) (X : Ω → ℕ),
+  ((expect P fun ω => falling (X ω) 2) / 2 - (expect P fun ω => falling (X ω) 3) / 3 ≤ probability P fun ω => 2 ≤ X ω) ∧
+    (probability P fun ω => 2 ≤ X ω) ≤ (expect P fun ω => falling (X ω) 2) / 2
+RiffleLowerV2.Factorial.conditional_wordCount_eq_residualWordMean {k N K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (p : RowPrescription N k K b) (hb : b < N) (hp : Function.Injective p.row)
+  (hprob : 0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent p)) (w : Word k K) :
+  conditionalExpect (TimeProfile.fixedCountPMF cuts) (fun ω => ↑(wordCount w ω - {q | p.word q = w}.card))
+      (prescriptionEvent p) =
+    Targets.residualWordMean cuts p w
+'RiffleLowerV2.Factorial.conditional_wordCount_eq_residualWordMean' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

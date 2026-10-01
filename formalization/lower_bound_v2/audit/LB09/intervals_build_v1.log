@@ -1,0 +1,31 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Intervals.lean:28:36: error: Application type mismatch: The argument
+  Int.ceil_mono hlr
+has type
+  ⌈l⌉ ≤ ⌈r⌉
+of sort `Prop` but is expected to have type
+  ℤ
+of sort `Type` in the application
+  Int.card_Ico_of_le (Int.ceil_mono hlr)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Intervals.lean:91:5: error(lean.unknownIdentifier): Unknown constant `Finset.card_pair_le`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Intervals.lean:129:4: error: Type mismatch: After simplification, term
+  (mem_integerBoundary H a).mp ha
+ has type
+  a ∈ H ∧ a + 1 ∉ H ∨ a ∉ H ∧ a + 1 ∈ H
+but is expected to have type
+  a ∈ H ∧ a + q + 1 - q ∉ H ∨ a ∉ H ∧ a + q + 1 - q ∈ H
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Intervals.lean:167:68: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c - d ≥ 1
+where
+ c := b
+ d := a
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Intervals.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Intervals.lean']' returned non-zero exit status 1.

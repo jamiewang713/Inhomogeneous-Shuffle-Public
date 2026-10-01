@@ -1,0 +1,310 @@
+{
+  "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex",
+  "sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "planning_only": true,
+  "new_package": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2",
+  "lean": "4.33.1",
+  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "tasks": [
+    {
+      "id": "00",
+      "title": "Shared contract, definitions, and build foundation",
+      "deps": [],
+      "owner": "RiffleLowerV2/Shared/, Contracts/, audit/LB00/, package configuration, build tooling, source/provenance manifests, and umbrella imports",
+      "labels": [
+        "thm:buffered-reduced-lower-bound",
+        "lem:ub-graph-representation",
+        "lem:lower-profile-transfer",
+        "prop:cold-lower"
+      ],
+      "reads": [
+        "lean-lower-bound/FREEZE.md",
+        "lean-lower-bound/README.md",
+        "lean-lower-bound/RiffleLower/LowerBounds.lean",
+        "formalization/time_profile/FROZEN_CONTRACT.md",
+        "formalization/time_profile/RiffleTimeProfile/Base.lean",
+        "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean",
+        "formalization/time_profile/reviews/analytic_alternatives.md",
+        "formalization/foundations/RiffleShuffle/Matrices.lean",
+        "formalization/foundations/RiffleShuffle/Graphs.lean",
+        "formalization/first_moment/compat/README.md",
+        "lean_formalization/PROJECT_INTERFACES.md"
+      ],
+      "file": "00_shared_contract_definitions_and_build_foundation.txt"
+    },
+    {
+      "id": "01",
+      "title": "Concrete shuffle laws and graph representation",
+      "deps": [
+        "00"
+      ],
+      "owner": "RiffleLowerV2/Model/ and audit/LB01/",
+      "labels": [
+        "lem:ub-graph-representation"
+      ],
+      "reads": [
+        "lean-lower-bound/RiffleLower/FixedColumns.lean",
+        "lean-lower-bound/RiffleLower/Sorting.lean",
+        "lean-lower-bound/RiffleLower/LowerBounds.lean",
+        "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean",
+        "formalization/foundations/RiffleShuffle/Matrices.lean",
+        "formalization/foundations/RiffleShuffle/Graphs.lean"
+      ],
+      "file": "01_concrete_shuffle_laws_and_graph_representation.txt"
+    },
+    {
+      "id": "02",
+      "title": "Successive thinning and uniform prefix concentration",
+      "deps": [
+        "00"
+      ],
+      "owner": "RiffleLowerV2/Thinning/ and audit/LB02/",
+      "labels": [
+        "lem:successive-thinning-tail",
+        "cor:iterated-hypergeom",
+        "prop:largest-prefix"
+      ],
+      "reads": [
+        "lean/Shuffle/HypergeometricConcentration.lean",
+        "lean/Shuffle/FixedColumns.lean",
+        "lean/Shuffle/ResidualSampling.lean",
+        "lean-lower-bound/RiffleLower/FixedColumns.lean"
+      ],
+      "file": "02_successive_thinning_and_uniform_prefix_concentration.txt"
+    },
+    {
+      "id": "03",
+      "title": "Joint factorial moments and controlled Bonferroni polynomials",
+      "deps": [
+        "00"
+      ],
+      "owner": "RiffleLowerV2/Factorial/ and audit/LB03/",
+      "labels": [
+        "lem:fixed-column-factorial",
+        "lem:central-window"
+      ],
+      "reads": [
+        "lean-lower-bound/RiffleLower/FixedColumns.lean",
+        "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean"
+      ],
+      "file": "03_joint_factorial_moments_and_controlled_bonferroni_polynomials.txt"
+    },
+    {
+      "id": "04",
+      "title": "Permutation ascent concentration and the observable scan",
+      "deps": [
+        "00"
+      ],
+      "owner": "RiffleLowerV2/Ascent/ and audit/LB04/",
+      "labels": [
+        "lem:relative-order-independence",
+        "lem:permutation-bd",
+        "lem:component-ascent-expectation",
+        "lem:uniform-ascent",
+        "lem:lalley-comparison",
+        "lem:lalley"
+      ],
+      "reads": [
+        "lean-lower-bound/RiffleLower/UniformPermutation.lean",
+        "lean-lower-bound/RiffleLower/FiniteProbability.lean",
+        "formalization/foundations/RiffleShuffle/Graphs.lean",
+        "proof_recovery/INTENDED_RESULT.md"
+      ],
+      "file": "04_permutation_ascent_concentration_and_the_observable_scan.txt"
+    },
+    {
+      "id": "05",
+      "title": "One-column tilt analysis and the empirical cold witness",
+      "deps": [
+        "00"
+      ],
+      "owner": "RiffleLowerV2/Witness/ and audit/LB05/",
+      "labels": [
+        "lem:cold-witness"
+      ],
+      "reads": [
+        "formalization/time_profile/RiffleTimeProfile/Base.lean",
+        "formalization/time_profile/RiffleTimeProfile/Analysis.lean",
+        "formalization/time_profile/RiffleTimeProfile/AnalyticParameters.lean",
+        "lean-lower-bound/RiffleLower/Cold.lean"
+      ],
+      "file": "05_one_column_tilt_analysis_and_the_empirical_cold_witness.txt"
+    },
+    {
+      "id": "06",
+      "title": "Rounded type classes and deterministic mass bins",
+      "deps": [
+        "00"
+      ],
+      "owner": "RiffleLowerV2/Types/ and audit/LB06/",
+      "labels": [
+        "lem:type-estimates"
+      ],
+      "reads": [
+        "formalization/time_profile/RiffleTimeProfile/Analysis.lean",
+        "lean_formalization/RiffleProfiles/Entropy.lean",
+        "lean_formalization/RiffleProfiles/Estimates.lean",
+        "formalization/first_moment/FirstMoment/Entropy.lean",
+        "lean-lower-bound/RiffleLower/Profiles.lean"
+      ],
+      "file": "06_rounded_type_classes_and_deterministic_mass_bins.txt"
+    },
+    {
+      "id": "07",
+      "title": "Explicitly integrable profile transfer",
+      "deps": [
+        "00"
+      ],
+      "owner": "RiffleLowerV2/ProfileTransfer/ and audit/LB07/",
+      "labels": [
+        "lem:lower-profile-transfer"
+      ],
+      "reads": [
+        "formalization/time_profile/RiffleTimeProfile/Base.lean",
+        "formalization/time_profile/RiffleTimeProfile/Analysis.lean",
+        "formalization/time_profile/RiffleTimeProfile/LatticeCounts.lean",
+        "formalization/time_profile/RiffleTimeProfile/GridQuadrature.lean",
+        "formalization/time_profile/RiffleTimeProfile/AnalyticParameters.lean",
+        "formalization/time_profile/reviews/analytic_alternatives.md"
+      ],
+      "file": "07_explicitly_integrable_profile_transfer.txt"
+    },
+    {
+      "id": "08",
+      "title": "Uniform occupancy probabilities and covariance",
+      "deps": [
+        "00",
+        "02",
+        "03"
+      ],
+      "owner": "RiffleLowerV2/Occupancy/ and audit/LB08/",
+      "labels": [
+        "lem:two-category-poisson"
+      ],
+      "reads": [
+        "lean-lower-bound/RiffleLower/FiniteProbability.lean"
+      ],
+      "file": "08_uniform_occupancy_probabilities_and_covariance.txt"
+    },
+    {
+      "id": "09",
+      "title": "Cold geometry, relative endpoints, and probabilistic localization",
+      "deps": [
+        "00",
+        "02",
+        "05",
+        "06"
+      ],
+      "owner": "RiffleLowerV2/Localization/ and audit/LB09/",
+      "labels": [
+        "lem:cold-geometry",
+        "lem:finite-relative-endpoints",
+        "lem:localization"
+      ],
+      "reads": [
+        "formalization/foundations/RiffleShuffle/Matrices.lean",
+        "lean-lower-bound/RiffleLower/Cold.lean",
+        "lean-lower-bound/RiffleLower/Sorting.lean"
+      ],
+      "file": "09_cold_geometry_relative_endpoints_and_probabilistic_localization.txt"
+    },
+    {
+      "id": "10",
+      "title": "Empirical lower-bound assembly",
+      "deps": [
+        "00",
+        "01",
+        "02",
+        "04",
+        "08",
+        "09"
+      ],
+      "owner": "RiffleLowerV2/EmpiricalLower/ and audit/LB10/",
+      "labels": [
+        "prop:largest-prefix",
+        "lem:many-edges",
+        "lem:lalley",
+        "prop:cold-lower"
+      ],
+      "reads": [
+        "lean-lower-bound/RiffleLower/LowerBounds.lean",
+        "lean-lower-bound/RiffleLower/FiniteProbability.lean"
+      ],
+      "file": "10_empirical_lower_bound_assembly.txt"
+    },
+    {
+      "id": "11",
+      "title": "Macroscopic lower bound under explicit scalar integrability",
+      "deps": [
+        "00",
+        "07",
+        "10"
+      ],
+      "owner": "RiffleLowerV2/MacroscopicLower/ and audit/LB11/",
+      "labels": [
+        "thm:buffered-reduced-lower-bound",
+        "lem:lower-profile-transfer",
+        "prop:cold-lower"
+      ],
+      "reads": [
+        "formalization/time_profile/RiffleTimeProfile/Base.lean",
+        "formalization/time_profile/reviews/analytic_alternatives.md"
+      ],
+      "file": "11_macroscopic_lower_bound_under_explicit_scalar_integrability.txt"
+    },
+    {
+      "id": "12",
+      "title": "Independent final theorem and dependency audit",
+      "deps": [
+        "00",
+        "10",
+        "11"
+      ],
+      "owner": "audit/LB12/ only; substantive proof fixes belong to the original lane owners",
+      "labels": [
+        "thm:buffered-reduced-lower-bound",
+        "prop:cold-lower"
+      ],
+      "reads": [
+        "lean-lower-bound/build.py",
+        "lean-lower-bound/FREEZE.md",
+        "formalization/time_profile/reviews/analytic_alternatives.md"
+      ],
+      "file": "12_independent_final_theorem_and_dependency_audit.txt"
+    }
+  ],
+  "reference_chats": [
+    [
+      "Formalize first-moment theorem",
+      "https://chatgpt.com/s/cx_6aad63738d408191a3c665020e050fc7"
+    ],
+    [
+      "Formalize inhomogeneous bounds",
+      "https://chatgpt.com/s/cx_6aad637fdd18819197ed70dc90769112"
+    ],
+    [
+      "Formalize shuffle upper-bound proof",
+      "https://chatgpt.com/s/cx_6aad638c34088191882efb8f896e19b5"
+    ],
+    [
+      "Formalize time-profile layer",
+      "https://chatgpt.com/s/cx_6aad63980344819199526d8fe15a0487"
+    ],
+    [
+      "Formalize edge localization bounds",
+      "https://chatgpt.com/s/cx_6aad63a626088191a2c3ecf120bd24c1"
+    ],
+    [
+      "Formalize profile estimate lemmas",
+      "https://chatgpt.com/s/cx_6aad63b20c0c8191ae3c3018395f1935"
+    ],
+    [
+      "Formalize hypergeometric lemmas",
+      "https://chatgpt.com/s/cx_6aad63bd316081919967d9a59d37c532"
+    ],
+    [
+      "Recover blocked Lean theorem proof",
+      "https://chatgpt.com/s/cx_6aad63c75e148191b5aae6b3d8984906"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "status": "INDEPENDENT_FINAL_AUDIT_PASSED",
+  "version": "v5",
+  "E": "PASS",
+  "M": "PASS_WITH_EXPLICIT_SCALAR_INTEGRABILITY",
+  "original_arbitrary_TimeLaw": "NOT_CERTIFIED; removing ScalarIntegrable from M is mathematically false under totalized integrals",
+  "coordinator_audit_evidence": "audit/LB00/final_audit_v3",
+  "fresh_build_evidence": "audit/LB00/full_package_v1",
+  "coordinator_manifest_sha256": "868796a3bb25bb4b0411bee402f09559310b4fb0064cc61f5e84b6df4ca3b275",
+  "clean_output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/full_package_v1/lib/lean",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "package_modules": 183,
+  "freshly_built_modules": 197,
+  "declarations_audited": 3216,
+  "required_exports": 58,
+  "imported_modules": 5417,
+  "foundation_declarations_unchanged": 364,
+  "protected_old_files_unchanged": 17348,
+  "imported_object_fingerprints_checked": 15867,
+  "imported_source_fingerprints_checked": 3885,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "closure_counts": {
+    "RiffleLowerV2.EmpiricalLower.empiricalCombined": 50256,
+    "RiffleLowerV2.EmpiricalLower.coldOnly": 50177,
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable": 50447,
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto": 50449
+  },
+  "closure_method": "private environment, recursive ConstantInfo.getUsedConstantsAsSet (type/value/inductive/recursor metadata), compared with Lean.collectAxioms",
+  "completed_umbrella_exports_checked": 58,
+  "unresolved_E_M_obligations": []
+}

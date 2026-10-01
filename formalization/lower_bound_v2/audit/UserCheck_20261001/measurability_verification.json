@@ -1,0 +1,15 @@
+{
+  "status": "PASSED",
+  "command": [
+    "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
+    "-DwarningAsError=true",
+    "-R",
+    "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2",
+    "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/UserCheck_20261001/MeasurabilityCheck.lean"
+  ],
+  "LEAN_PATH": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/full_package_v20/lib/lean",
+  "source_sha256": "02676f5ce5918e0b277cea26624f2b7252a5449d51b0219112554588da998acd",
+  "log_sha256": "2159e281588451759ea88065f5e4382dff20fb1880d86487f8bd3d0cae7f9df6",
+  "result": "ScalarIntegrable is equivalent to scalar AE strong measurability on the finite time interval. Ordinary scalar measurability suffices.",
+  "production_sources_changed": false
+}

@@ -1,0 +1,27 @@
+import RiffleLowerV2.Occupancy.ConditionalInputs
+
+open RiffleLowerV2
+#check Occupancy.wordMean_pos
+#check Occupancy.original_one_factorial_inputs
+#check Occupancy.original_two_factorial_inputs
+#check Occupancy.fullWord_empty_singleton_tail
+#check Occupancy.prescribedPrefixCount_fullPrefix
+#check Occupancy.residualPrefixCount_fullPrefix
+#check Occupancy.residualPrefixMean_fullPrefix
+#check Occupancy.residualWordMean_pos
+#check Occupancy.conditionalProbability_eq_expect_indicator
+#check Occupancy.exists_residual_word_law
+#check Occupancy.conditional_one_factorial_inputs
+#check Occupancy.conditional_fullWord_empty_singleton_tail
+#print axioms Occupancy.wordMean_pos
+#print axioms Occupancy.original_one_factorial_inputs
+#print axioms Occupancy.original_two_factorial_inputs
+#print axioms Occupancy.fullWord_empty_singleton_tail
+#print axioms Occupancy.prescribedPrefixCount_fullPrefix
+#print axioms Occupancy.residualPrefixCount_fullPrefix
+#print axioms Occupancy.residualPrefixMean_fullPrefix
+#print axioms Occupancy.residualWordMean_pos
+#print axioms Occupancy.conditionalProbability_eq_expect_indicator
+#print axioms Occupancy.exists_residual_word_law
+#print axioms Occupancy.conditional_one_factorial_inputs
+#print axioms Occupancy.conditional_fullWord_empty_singleton_tail

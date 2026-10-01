@@ -1,0 +1,240 @@
+{
+  "source_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "dependency_revisions": {
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+  },
+  "external_files": {
+    "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Fin.lean": "4fe78cba9cdeac4eb8badbdd6359b055031900906fb94f3e51aba6d81451dbd5",
+    "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Ring/Finset.lean": "472cd5000412d8ec35c8b9ee919b2aeedbf0a830033a55009aad436595923809",
+    "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean": "3be238a809840f7dff49a99a02fd83fd5fc93d3efd5f8f34354c5e5c4e796e7d",
+    "formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/StdSimplex.lean": "aec844bc79d4bd36cea30d1bf2d0999ad6e82ee1d8715dc8f1fa751c2522785c",
+    "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean": "1f36a9802233e878953d809b16e020beaf0ace5afd4c8279d47b52af6ee186bf",
+    "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Real.lean": "1f4e64fc28a20f4e19291a94dafd68daa82588b46f6ee5b9203df373ba595fa3",
+    "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Sqrt.lean": "38c916b763ade8ed7174488bad31aee40735d03877a1bf9e540c1cf0107ec1ab",
+    "formalization/.lake/packages/mathlib/Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean": "91cd08147cff7559f9d85be230e04662c3aaa401078ef5c561bafff0a4ea87de",
+    "formalization/.lake/packages/mathlib/Mathlib/Data/Fin/Tuple/Sort.lean": "9075b412b4e447c4a01590aceaf0f05d4cf58c419192eb016e9171241a753567",
+    "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/BigOperators.lean": "bfa35992c02f47d7c78a5425ea3c4eecba0ad54de1b5752db565b37de11148c0",
+    "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/EquivFin.lean": "2df4d785c723a7cf6ce60790a545497250b63f52ecd7bdd5039fa5ea3537acb8",
+    "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/Vector.lean": "0a0072bcc2fbb9d95b6ae7acfdb43424990820f6b90cd5d9adebad5b391a3d95",
+    "formalization/.lake/packages/mathlib/Mathlib/Data/List/Lex.lean": "6495ae02a429a2011b5873f559e0c6908f832b9f2a026ddab4af530b07660425",
+    "formalization/.lake/packages/mathlib/Mathlib/Data/Real/Basic.lean": "b1dde0e82be30e8a9ca87b23c46d04afc92be61818622ba6d4603daa4d4a9f70",
+    "formalization/.lake/packages/mathlib/Mathlib/Data/Vector/Basic.lean": "9b4928b3f1d0b81bb040f05a950b97ef9a5a9b374779d87fe9314693fda85bcf",
+    "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean": "93908eb0c771ba8edcb47537dfe1a40e98a1545be9d427c1eb9823d44decdcd5",
+    "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean": "ececad97c60703de0e0ee2f47bca44a017aa8537f7186412f69b169f026e92fd",
+    "formalization/.lake/packages/mathlib/Mathlib/Order/Interval/Set/Union.lean": "0609bc9d79421b5690dca5429a67571ab70d1ca9db34b7e4c3dbe920598d0eb2",
+    "formalization/.lake/packages/mathlib/Mathlib/Order/WithBot.lean": "1167c56b29f831e2dbc02a98bd73734867f047b67ba111bc9dba5c9a2bfbbf93",
+    "formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Uniform.lean": "c3492e1ba311263248302cf310f45e44d49524cfbba52d8fc27207be80a50ab9",
+    "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Constructions.lean": "09a7cf241524c158d4174e994e04140901630c7e0629ceee9b7ba7ec347d2cd4",
+    "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+    "formalization/.lake/packages/mathlib/Mathlib/Tactic.lean": "6ec9a1714e9fa472f7e5614792f1aa5a65f360ec56688b0dc765d1bee2e1bdd5",
+    "formalization/.lake/packages/mathlib/lake-manifest.json": "1009a101f52a9d5d8ca57666f0256bae91abdb693e0f27b5a4622cffcc38cf03",
+    "formalization/first_moment/compat/README.md": "663207cc739ce664982ec75732d45e09a27f701ce39e69b0fc52d7b804ea0967",
+    "formalization/foundations/CONTRACT.md": "2d48b42c85f7946ddb308efc21d47a4e6b596b497d5c8e447f4ae9ac1062dfd0",
+    "formalization/foundations/FREEZE.md": "072ba67e83dce6fefd493a68bb15f71c9666518c6d1e69d674b92307a218a9bc",
+    "formalization/foundations/RiffleShuffle/Basic.lean": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+    "formalization/foundations/RiffleShuffle/Graphs.lean": "d17dc327333df268b84ec9130911bba2d5d16130caaa7ffc8397db20e4601362",
+    "formalization/foundations/RiffleShuffle/Matrices.lean": "2a674866084434aa87978a35af366251df362fa0f9873b4493c136aa69e3c317",
+    "formalization/foundations/RiffleShuffle/Profiles.lean": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+    "formalization/foundations/RiffleShuffle/Words.lean": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+    "formalization/lower_bound_prompt_pack_2026-10-01/00_shared_contract_definitions_and_build_foundation.txt": "46ea67f72ddeb91506aff646f7d60bdc9419e5f9ac33b28d490e343914f30a99",
+    "formalization/lower_bound_prompt_pack_2026-10-01/01_concrete_shuffle_laws_and_graph_representation.txt": "35ee2ba2272db018b2678fdd6ac1f82822c4435c1028f61cd56a717ec5366128",
+    "formalization/lower_bound_prompt_pack_2026-10-01/02_successive_thinning_and_uniform_prefix_concentration.txt": "f8795d30c6992e3a123b0e3fb631551532eb5445f6a19edfdcb7ef48c84351e3",
+    "formalization/lower_bound_prompt_pack_2026-10-01/03_joint_factorial_moments_and_controlled_bonferroni_polynomials.txt": "d778547ef6061ca13e258d9a4e8b74b9067f91403c6712fa75fcd6277b743a66",
+    "formalization/lower_bound_prompt_pack_2026-10-01/04_permutation_ascent_concentration_and_the_observable_scan.txt": "3fd0c787eff45bb8f5e4bbda2eb3747ddb2ebe8a6061fff5d7573028e2318a36",
+    "formalization/lower_bound_prompt_pack_2026-10-01/05_one_column_tilt_analysis_and_the_empirical_cold_witness.txt": "b299bc18301e280ce685bf1e11025bcfc7b7c9250579973778a3dbec0c959190",
+    "formalization/lower_bound_prompt_pack_2026-10-01/06_rounded_type_classes_and_deterministic_mass_bins.txt": "0d281489b4c92c7559cf8a1e10be01cff77d9108a6c0f542bf43f612446531c8",
+    "formalization/lower_bound_prompt_pack_2026-10-01/07_explicitly_integrable_profile_transfer.txt": "8d7d5175576b33f1a0c34039684a1a234bde9af7ad156b9cb431419c7a279e07",
+    "formalization/lower_bound_prompt_pack_2026-10-01/08_uniform_occupancy_probabilities_and_covariance.txt": "e5ea1ede1206c81e24350bfed11ce5027730166896948a77562116e9c8592e77",
+    "formalization/lower_bound_prompt_pack_2026-10-01/09_cold_geometry_relative_endpoints_and_probabilistic_localization.txt": "460cb32101eef0430f268d4c15e09c08420f1fe15ed2138b4cc85fd9cda5dcab",
+    "formalization/lower_bound_prompt_pack_2026-10-01/10_empirical_lower_bound_assembly.txt": "6d0fbcdabd3a908a68bba4d791e1d65a39e63056637bde070babc3330a83858b",
+    "formalization/lower_bound_prompt_pack_2026-10-01/11_macroscopic_lower_bound_under_explicit_scalar_integrability.txt": "44c1e12ebb10a5bf755fe8e71517fcf64d8ad3e4803d0dbfc3a9d3f69272d691",
+    "formalization/lower_bound_prompt_pack_2026-10-01/12_independent_final_theorem_and_dependency_audit.txt": "b0e3a457b3eb2a36970db9accad29cc69d9ca4a57a0c2fc0a94a2c5c34b0a3d1",
+    "formalization/lower_bound_prompt_pack_2026-10-01/ALL_PROMPTS.txt": "fa134f6a02a6154aba74bc1a3b5c0acb025f6062ba0c1c0befb71c8942a47f84",
+    "formalization/lower_bound_prompt_pack_2026-10-01/PLAN.txt": "54c61d38772f9448ed55d1d77ecb0cf318b3396eb30f5486cafc59df1a14155a",
+    "formalization/time_profile/ANALYTIC_CONTRACT.md": "01bab54321902031f6c0985057c79786b7898298629d053fde375a101a591d71",
+    "formalization/time_profile/ANALYTIC_FREEZE.sha256": "bb928f6f3f25923343dcdbf623bea1a3d2476343f04c1e2d5da4a6cdf4f3b8f0",
+    "formalization/time_profile/EXPECTATION_CONTRACT.md": "e5968e6cd59d1e56d1e479175ae4bc0320c7d6e1bed45fb535a08eefa448eaa4",
+    "formalization/time_profile/EXPECTATION_FREEZE.sha256": "8de6d24de9920ec8dd38d47e6ef88f4faddf866c4bd3a36e3818c00343199ef4",
+    "formalization/time_profile/FREEZE.sha256": "a4d532aeaca967351d3c8f6628f1d1a9912adc125782639cb665a1852d58c392",
+    "formalization/time_profile/FROZEN_CONTRACT.md": "1e911c5b729f677b62dc4c6517c0c79a11683baee9a5aad5c4e8978bcefebcfa",
+    "formalization/time_profile/RiffleTimeProfile/Ambient.lean": "75d4558ff24fa1fc18cd09b0b1c2d0ea33140195317686e963b36038226eeea8",
+    "formalization/time_profile/RiffleTimeProfile/Base.lean": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+    "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean": "d5c7cd27f01d77063de5a5dee6f0764e36620cfa997f1660f27c3982e71fde4e",
+    "formalization/time_profile/reviews/analytic_alternatives.md": "93ebf84ffce9789f7681f506a4b93ba6f08398b296f6cab487dfc5657b2ab630",
+    "lean-lower-bound/FREEZE.md": "2a53576620795bd338548419c23193473cc0829b4a0f88dc5cbd074ba03c5b84",
+    "lean-lower-bound/README.md": "5778af58349105049f24219160a44b93707f534f155444c09af952a509551e0c",
+    "lean-lower-bound/RiffleLower/LowerBounds.lean": "c109105f1af13f2ec3587d1e2dfd4f5a8f8fa20096d85b30822224e98e23c11b",
+    "lean_formalization/PROJECT_INTERFACES.md": "c26895a2e99e994dfde299bfe4d901fb18538cecec3c1978dadd43b5caa479ba",
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d"
+  },
+  "imported_modules": {
+    "Mathlib.Algebra.BigOperators.Fin": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Fin.lean",
+      "sha256": "4fe78cba9cdeac4eb8badbdd6359b055031900906fb94f3e51aba6d81451dbd5",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Algebra.BigOperators.Ring.Finset": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+      "sha256": "472cd5000412d8ec35c8b9ee919b2aeedbf0a830033a55009aad436595923809",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean",
+      "sha256": "3be238a809840f7dff49a99a02fd83fd5fc93d3efd5f8f34354c5e5c4e796e7d",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Analysis.Convex.StdSimplex": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/StdSimplex.lean",
+      "sha256": "aec844bc79d4bd36cea30d1bf2d0999ad6e82ee1d8715dc8f1fa751c2522785c",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+      "sha256": "1f36a9802233e878953d809b16e020beaf0ace5afd4c8279d47b52af6ee186bf",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+      "sha256": "1f4e64fc28a20f4e19291a94dafd68daa82588b46f6ee5b9203df373ba595fa3",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Sqrt": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Sqrt.lean",
+      "sha256": "38c916b763ade8ed7174488bad31aee40735d03877a1bf9e540c1cf0107ec1ab",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean",
+      "sha256": "91cd08147cff7559f9d85be230e04662c3aaa401078ef5c561bafff0a4ea87de",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Data.Fin.Tuple.Sort": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Fin/Tuple/Sort.lean",
+      "sha256": "9075b412b4e447c4a01590aceaf0f05d4cf58c419192eb016e9171241a753567",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Data.Fintype.BigOperators": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/BigOperators.lean",
+      "sha256": "bfa35992c02f47d7c78a5425ea3c4eecba0ad54de1b5752db565b37de11148c0",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Data.Fintype.EquivFin": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/EquivFin.lean",
+      "sha256": "2df4d785c723a7cf6ce60790a545497250b63f52ecd7bdd5039fa5ea3537acb8",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Data.Fintype.Vector": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/Vector.lean",
+      "sha256": "0a0072bcc2fbb9d95b6ae7acfdb43424990820f6b90cd5d9adebad5b391a3d95",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Data.List.Lex": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/List/Lex.lean",
+      "sha256": "6495ae02a429a2011b5873f559e0c6908f832b9f2a026ddab4af530b07660425",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Data.Real.Basic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Real/Basic.lean",
+      "sha256": "b1dde0e82be30e8a9ca87b23c46d04afc92be61818622ba6d4603daa4d4a9f70",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Data.Vector.Basic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Vector/Basic.lean",
+      "sha256": "9b4928b3f1d0b81bb040f05a950b97ef9a5a9b374779d87fe9314693fda85bcf",
+      "kind": "pinned-library"
+    },
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "sha256": "93908eb0c771ba8edcb47537dfe1a40e98a1545be9d427c1eb9823d44decdcd5",
+      "kind": "pinned-library"
+    },
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
+      "sha256": "ececad97c60703de0e0ee2f47bca44a017aa8537f7186412f69b169f026e92fd",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Order.Interval.Set.Union": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Order/Interval/Set/Union.lean",
+      "sha256": "0609bc9d79421b5690dca5429a67571ab70d1ca9db34b7e4c3dbe920598d0eb2",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Order.WithBot": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Order/WithBot.lean",
+      "sha256": "1167c56b29f831e2dbc02a98bd73734867f047b67ba111bc9dba5c9a2bfbbf93",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Probability.Distributions.Uniform": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Uniform.lean",
+      "sha256": "c3492e1ba311263248302cf310f45e44d49524cfbba52d8fc27207be80a50ab9",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Constructions.lean",
+      "sha256": "09a7cf241524c158d4174e994e04140901630c7e0629ceee9b7ba7ec347d2cd4",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "sha256": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+      "kind": "pinned-library"
+    },
+    "Mathlib.Tactic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Tactic.lean",
+      "sha256": "6ec9a1714e9fa472f7e5614792f1aa5a65f360ec56688b0dc765d1bee2e1bdd5",
+      "kind": "pinned-library"
+    },
+    "RiffleShuffle.Basic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Basic.lean",
+      "sha256": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+      "kind": "project-rebuilt"
+    },
+    "RiffleShuffle.Graphs": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Graphs.lean",
+      "sha256": "d17dc327333df268b84ec9130911bba2d5d16130caaa7ffc8397db20e4601362",
+      "kind": "project-rebuilt"
+    },
+    "RiffleShuffle.Matrices": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Matrices.lean",
+      "sha256": "2a674866084434aa87978a35af366251df362fa0f9873b4493c136aa69e3c317",
+      "kind": "project-rebuilt"
+    },
+    "RiffleShuffle.Profiles": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Profiles.lean",
+      "sha256": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+      "kind": "project-rebuilt"
+    },
+    "RiffleShuffle.Words": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Words.lean",
+      "sha256": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+      "kind": "project-rebuilt"
+    },
+    "RiffleTimeProfile.Ambient": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean",
+      "sha256": "75d4558ff24fa1fc18cd09b0b1c2d0ea33140195317686e963b36038226eeea8",
+      "kind": "project-rebuilt"
+    },
+    "RiffleTimeProfile.Base": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Base.lean",
+      "sha256": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+      "kind": "project-rebuilt"
+    },
+    "RiffleTimeProfile.FixedCountModel": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean",
+      "sha256": "d5c7cd27f01d77063de5a5dee6f0764e36620cfa997f1660f27c3982e71fde4e",
+      "kind": "project-rebuilt"
+    }
+  },
+  "ports_by_LB00": [],
+  "canonical_project_policy": "All imported RiffleTimeProfile/RiffleShuffle project modules rebuilt verbatim into the package-local output; no old vendor tree or old-version project cache imported."
+}

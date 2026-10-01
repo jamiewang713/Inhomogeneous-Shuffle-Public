@@ -1,0 +1,39 @@
+RiffleLowerV2.Witness.oneColumnTilt : RiffleLowerV2.Targets.OneColumnTiltTarget
+'RiffleLowerV2.Witness.oneColumnTilt' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.maxCost_bounds {k : ℕ} (hk : 2 ≤ k) (p : TimeProfile.Simplex k) :
+  0 ≤ TimeProfile.maxCost p ∧ TimeProfile.maxCost p ≤ Real.log ↑k
+'RiffleLowerV2.Witness.maxCost_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.tiltedCost_bounds {k : ℕ} (hk : 2 ≤ k) (p : TimeProfile.Simplex k) {alpha : ℝ}
+  (ha : alpha ∈ Set.Icc 2 4) : 0 ≤ TimeProfile.tiltedCost p alpha ∧ TimeProfile.tiltedCost p alpha ≤ Real.log ↑k
+'RiffleLowerV2.Witness.tiltedCost_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.tiltedEntropy_bounds {k : ℕ} (_hk : 2 ≤ k) (p : TimeProfile.Simplex k) {alpha : ℝ}
+  (ha : alpha ∈ Set.Icc 2 4) :
+  0 ≤ TimeProfile.tiltedEntropy p alpha ∧ TimeProfile.tiltedEntropy p alpha ≤ TimeProfile.tiltedCost p alpha
+'RiffleLowerV2.Witness.tiltedEntropy_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.maxCost_le_tiltedCost {k : ℕ} (p : TimeProfile.Simplex k) {alpha : ℝ} (ha : 1 ≤ alpha) :
+  TimeProfile.maxCost p ≤ TimeProfile.tiltedCost p alpha
+'RiffleLowerV2.Witness.maxCost_le_tiltedCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.tiltedEntropy_identity {k : ℕ} (p : TimeProfile.Simplex k) {alpha : ℝ} (ha : 1 ≤ alpha) :
+  TimeProfile.tiltedEntropy p alpha = alpha * TimeProfile.tiltedCost p alpha - TimeProfile.psi p alpha
+'RiffleLowerV2.Witness.tiltedEntropy_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.psi_sharp_bounds {k : ℕ} (hk : 2 ≤ k) (p : TimeProfile.Simplex k) {alpha : ℝ}
+  (ha : alpha ∈ Set.Icc 2 4) : 0 ≤ TimeProfile.psi p alpha ∧ TimeProfile.psi p alpha ≤ (alpha - 1) * Real.log ↑k
+'RiffleLowerV2.Witness.psi_sharp_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.psi_two_le_maxCost {k : ℕ} (p : TimeProfile.Simplex k) :
+  TimeProfile.psi p 2 ≤ 2 * TimeProfile.maxCost p
+'RiffleLowerV2.Witness.psi_two_le_maxCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.psi_four_ge_two {k : ℕ} (p : TimeProfile.Simplex k) :
+  2 * TimeProfile.psi p 2 ≤ TimeProfile.psi p 4
+'RiffleLowerV2.Witness.psi_four_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.continuousOn_tiltedCost {k : ℕ} (p : TimeProfile.Simplex k) :
+  ContinuousOn (TimeProfile.tiltedCost p) (Set.Icc 2 4)
+'RiffleLowerV2.Witness.continuousOn_tiltedCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.continuousOn_tiltedEntropy {k : ℕ} (p : TimeProfile.Simplex k) :
+  ContinuousOn (TimeProfile.tiltedEntropy p) (Set.Icc 2 4)
+'RiffleLowerV2.Witness.continuousOn_tiltedEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.continuousOn_psi {k : ℕ} (p : TimeProfile.Simplex k) :
+  ContinuousOn (TimeProfile.psi p) (Set.Icc 2 4)
+'RiffleLowerV2.Witness.continuousOn_psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Witness.antitoneOn_tiltedCost {k : ℕ} (p : TimeProfile.Simplex k) :
+  AntitoneOn (TimeProfile.tiltedCost p) (Set.Icc 2 4)
+'RiffleLowerV2.Witness.antitoneOn_tiltedCost' depends on axioms: [propext, Classical.choice, Quot.sound]

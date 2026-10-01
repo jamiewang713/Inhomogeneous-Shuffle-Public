@@ -1,0 +1,91 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Bounds.lean:51:39: error(lean.invalidField): Invalid field `trans`: The environment does not contain `And.trans`, so it is not possible to project the field `trans` from an expression
+  hbr.right.right.right.right.right.right.right.right.right.right
+of type
+  0 ≤ geometryEllB cuts G ∧
+    geometryEllB cuts G ≤ 2 * rho * Real.log ↑k + (Real.log ↑k + 2 * Real.log (1 / chi)) / logScale N
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Bounds.lean:26:48: error: unsolved goals
+k N K : ℕ
+hk : 2 ≤ k
+hN2 : 2 ≤ N
+cuts : Cuts k N K
+hN : 0 < N
+eta rho chi xi : ℝ
+heta : 0 < eta
+hrho : 0 < rho
+P : BorelPartition k
+W : ColdWitnessData
+G : ColdGeometryData K P W
+hpa : TypeApproximation cuts hN P (prefixColumns K W) W.theta (geometryError eta) G.prefixType
+hta : TypeApproximation cuts hN P (tailColumns K W) 2 (geometryError eta) G.tailType
+hbr : BridgeSpec cuts hN rho chi G
+hdel : (2 * rho + 1 / logScale N) * Real.log ↑k ≤ kappa0 eta / 50
+hbrcost : 2 * rho * Real.log ↑k + (Real.log ↑k + 2 * Real.log (1 / chi)) / logScale N ≤ kappa0 eta / 50
+hkap : 0 < kappa eta
+hkap0 : 0 < kappa0 eta
+hbl : W.bridgeLength = ⌈2 * rho * logScale N⌉₊
+hms : W.ms ≤ W.mu
+hdepth : W.mu + W.bridgeLength ≤ K
+htheta : W.theta ∈ Icc 3 4
+left✝³ :
+  ∃ gL gR,
+    W.mu ≤ ↑gL ∧
+      ↑gL < ↑gR ∧
+        ↑gR < W.mu + W.bridgeLength ∧ GoodColumn (cuts.profile hN gL) chi ∧ GoodColumn (cuts.profile hN gR) chi
+left✝² : eta / 2 ≤ F cuts hN W.theta (W.s N) (W.u N)
+hj : J cuts hN W.theta (W.s N) (W.u N) ≤ beta cuts hN (W.s N) / 2 - 3 * kappa eta
+left✝¹ : W.theta = 3 ∨ beta cuts hN (W.s N) / 2 - 5 * kappa eta ≤ J cuts hN W.theta (W.s N) (W.u N)
+hh : kappa eta ≤ beta cuts hN (W.s N) - J cuts hN W.theta (W.s N) (W.u N) + H cuts hN W.theta (W.s N) (W.u N)
+left✝ : H cuts hN W.theta (W.s N) (W.u N) ≤ beta cuts hN (W.s N) - J cuts hN W.theta (W.s N) (W.u N) - kappa eta
+hgap :
+  kappa eta ≤
+    2 * beta cuts hN (W.s N) - 2 * J cuts hN W.theta (W.s N) (W.u N) - 2 * J cuts hN 2 (W.u N) (horizon N K) +
+          H cuts hN W.theta (W.s N) (W.u N) +
+        H cuts hN 2 (W.u N) (horizon N K) -
+      (beta cuts hN (W.s N) - J cuts hN W.theta (W.s N) (W.u N) + H cuts hN W.theta (W.s N) (W.u N)) / 2
+hmean :
+  beta cuts hN (W.s N) - J cuts hN W.theta (W.s N) (W.u N) - J cuts hN 2 (W.u N) (horizon N K) ≤
+    beta cuts hN (horizon N K)
+hterm : beta cuts hN (horizon N K) < kappa0 eta
+hmsK : W.ms ≤ K
+huK : W.mu ≤ K
+htheta2 : W.theta ∈ Icc 2 4
+hhh : H cuts hN W.theta (gridTime N W.ms) (gridTime N W.mu) ≤ J cuts hN W.theta (gridTime N W.ms) (gridTime N W.mu)
+hpa' :
+  |typeJ N G.prefixType - J cuts hN W.theta (gridTime N W.ms) (gridTime N W.mu)| +
+      |typeH cuts hN P (columnSet K W.ms W.mu) G.prefixType - H cuts hN W.theta (gridTime N W.ms) (gridTime N W.mu)| ≤
+    geometryError eta
+hta' :
+  |typeJ N G.tailType -
+          (J cuts hN 2 (gridTime N W.mu) (horizon N K) -
+            J cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)))| +
+      |typeH cuts hN P (tailColumns K W) G.tailType -
+          (H cuts hN 2 (gridTime N W.mu) (horizon N K) -
+            H cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)))| ≤
+    geometryError eta
+hsub :
+  J cuts hN 2 (gridTime N (W.mu + W.bridgeLength)) (horizon N K) =
+      J cuts hN 2 (gridTime N W.mu) (horizon N K) - J cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)) ∧
+    H cuts hN 2 (gridTime N (W.mu + W.bridgeLength)) (horizon N K) =
+      H cuts hN 2 (gridTime N W.mu) (horizon N K) - H cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength))
+hd :
+  0 ≤ J cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)) ∧
+    J cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)) ≤ (2 * rho + 1 / logScale N) * Real.log ↑k ∧
+      0 ≤ H cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)) ∧
+        H cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)) ≤ (2 * rho + 1 / logScale N) * Real.log ↑k
+hbj : J cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)) ≤ kappa0 eta / 50
+hbh : H cuts hN 2 (gridTime N W.mu) (gridTime N (W.mu + W.bridgeLength)) ≤ kappa0 eta / 50
+hell0 : ∀ v ∈ {G.central, G.reserveMinus, G.reservePlus}, chi ^ 2 * ↑k ^ (-↑W.bridgeLength) ≤ massOn cuts v
+⊢ beta cuts hN (W.s N) / 2 + 2 * kappa eta ≤ geometryEllP cuts hN P W G ∧
+    typeH cuts hN P (prefixColumns K W) G.prefixType ≤ geometryEllP cuts hN P W G - kappa eta ∧
+      kappa eta / 2 ≤ geometryH cuts hN P W G ∧
+        kappa eta / 2 ≤ geometryG cuts hN P W G - geometryH cuts hN P W G / 2 ∧ geometryZ cuts hN P W G ≤ 2 * kappa0 eta
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Geometry/Bounds.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Bounds.lean']' returned non-zero exit status 1.

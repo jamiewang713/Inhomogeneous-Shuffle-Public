@@ -1,0 +1,40 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.RelativeOrder']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Boundary.lean:24:2: warning: Try `simp at hm` instead of `simpa using hm`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Boundary.lean:106:2: error: linarith failed to find a contradiction
+case h1
+N : ℕ
+A B : Finset (Fin N)
+hAB : Disjoint A B
+τ : Permutation N
+hτ : Separates A B τ
+hevent :
+  (fun π => Separates A B π ∧ ∀ (i : Bool), relativeOrder (pairSets A B i) π = relativeOrder (pairSets A B i) τ) =
+    fun π => ∀ x ∈ A ∪ B, ∀ y ∈ A ∪ B, π x < π y ↔ τ x < τ y
+hcard : (A ∪ B).card = A.card + B.card
+hfA : ↑A.card.factorial ≠ 0
+hfB : ↑B.card.factorial ≠ 0
+hfAB : ↑(A.card + B.card).factorial ≠ 0
+hc : ↑((A.card + B.card).choose B.card) * ↑A.card.factorial * ↑B.card.factorial = ↑(A.card + B.card).factorial
+hcpos : 0 < ↑((A.card + B.card).choose A.card)
+h :
+  ↑B.card.factorial * ↑A.card.factorial =
+    ↑(A.card + B.card).factorial * probability (uniformPermutation N) (Separates A B)
+a✝ : probability (uniformPermutation N) (Separates A B) * ↑((A.card + B.card).choose A.card) < 1
+⊢ False
+failed
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Boundary.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Boundary.lean']' returned non-zero exit status 1.

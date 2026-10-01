@@ -1,0 +1,16 @@
+import RiffleLowerV2.Ascent.Asymptotic
+set_option warningAsError true
+#check RiffleLowerV2.Ascent.graph_scan_ge_of_comparison
+#print axioms RiffleLowerV2.Ascent.graph_scan_ge_of_comparison
+#check RiffleLowerV2.Ascent.failure_envelope_tendsto_zero
+#print axioms RiffleLowerV2.Ascent.failure_envelope_tendsto_zero
+#check RiffleLowerV2.Ascent.uniformGraphScan_of_comparison
+#print axioms RiffleLowerV2.Ascent.uniformGraphScan_of_comparison
+#check RiffleLowerV2.Ascent.scan_threshold_sq_div
+#print axioms RiffleLowerV2.Ascent.scan_threshold_sq_div
+#check RiffleLowerV2.Ascent.null_scan_envelope_tendsto_zero
+#print axioms RiffleLowerV2.Ascent.null_scan_envelope_tendsto_zero
+#check RiffleLowerV2.Ascent.uniform_null_scan_bound
+#print axioms RiffleLowerV2.Ascent.uniform_null_scan_bound
+#check RiffleLowerV2.Ascent.uniform_null_scan_eventually
+#print axioms RiffleLowerV2.Ascent.uniform_null_scan_eventually

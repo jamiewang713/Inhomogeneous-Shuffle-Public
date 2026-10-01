@@ -1,0 +1,41 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Empirical.lean:23:9: error: invalid 'by' tactic, expected type has not been provided
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Empirical.lean:77:4: error: linarith failed to find a contradiction
+case left.h1
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+mu bl : ℕ
+h :
+  empiricalIntegral N (fun j => tiltedCost (cuts.profile hN j) 2) (gridTime N mu) (horizon N K) =
+    empiricalIntegral N (fun j => tiltedCost (cuts.profile hN j) 2) (gridTime N mu) (gridTime N (mu + bl)) +
+      empiricalIntegral N (fun j => tiltedCost (cuts.profile hN j) 2) (gridTime N (mu + bl)) (horizon N K)
+a✝ :
+  J cuts hN 2 (gridTime N (mu + bl)) (horizon N K) <
+    J cuts hN 2 (gridTime N mu) (horizon N K) - J cuts hN 2 (gridTime N mu) (gridTime N (mu + bl))
+⊢ False
+failed
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Empirical.lean:81:4: error: linarith failed to find a contradiction
+case right.h1
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+mu bl : ℕ
+h :
+  empiricalIntegral N (fun j => tiltedEntropy (cuts.profile hN j) 2) (gridTime N mu) (horizon N K) =
+    empiricalIntegral N (fun j => tiltedEntropy (cuts.profile hN j) 2) (gridTime N mu) (gridTime N (mu + bl)) +
+      empiricalIntegral N (fun j => tiltedEntropy (cuts.profile hN j) 2) (gridTime N (mu + bl)) (horizon N K)
+a✝ :
+  H cuts hN 2 (gridTime N (mu + bl)) (horizon N K) <
+    H cuts hN 2 (gridTime N mu) (horizon N K) - H cuts hN 2 (gridTime N mu) (gridTime N (mu + bl))
+⊢ False
+failed
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Geometry/Empirical.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Empirical.lean']' returned non-zero exit status 1.

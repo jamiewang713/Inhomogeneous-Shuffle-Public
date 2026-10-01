@@ -1,0 +1,56 @@
+RiffleLowerV2.Ascent.bernoulli_mgf.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (A : Ω → Prop) (t : ℝ) :
+  (RiffleLowerV2.expect P fun ω => Real.exp (t * ((if A ω then 1 else 0) - RiffleLowerV2.probability P A))) ≤
+    Real.exp (t ^ 2 / 8)
+'RiffleLowerV2.Ascent.bernoulli_mgf' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.bernoulliMGF : RiffleLowerV2.Targets.BernoulliMGF
+'RiffleLowerV2.Ascent.bernoulliMGF' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.one_class_mgf.{u_1, u_2} {Ω : Type u_1} [Fintype Ω] {I : Type u_2} (P : PMF Ω) (s : Finset I)
+  (A : I → Ω → Prop)
+  (hfactor :
+    ∀ (u : ℝ),
+      (RiffleLowerV2.expect P fun ω =>
+          ∏ i ∈ s, Real.exp (u * ((if A i ω then 1 else 0) - RiffleLowerV2.probability P (A i)))) =
+        ∏ i ∈ s,
+          RiffleLowerV2.expect P fun ω => Real.exp (u * ((if A i ω then 1 else 0) - RiffleLowerV2.probability P (A i))))
+  (u : ℝ) :
+  (RiffleLowerV2.expect P fun ω =>
+      Real.exp (u * ∑ i ∈ s, ((if A i ω then 1 else 0) - RiffleLowerV2.probability P (A i)))) ≤
+    Real.exp (u ^ 2 * ↑s.card / 8)
+'RiffleLowerV2.Ascent.one_class_mgf' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.expect_mul_sq_le.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (f g : Ω → ℝ) :
+  (RiffleLowerV2.expect P fun ω => f ω * g ω) ^ 2 ≤
+    (RiffleLowerV2.expect P fun ω => f ω ^ 2) * RiffleLowerV2.expect P fun ω => g ω ^ 2
+'RiffleLowerV2.Ascent.expect_mul_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.exp_markov.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (X : Ω → ℝ) {u t : ℝ} (hu : 0 < u) :
+  (RiffleLowerV2.probability P fun ω => t ≤ X ω) ≤
+    Real.exp (-u * t) * RiffleLowerV2.expect P fun ω => Real.exp (u * X ω)
+'RiffleLowerV2.Ascent.exp_markov' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.parity_mgf.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (S₀ S₁ : Ω → ℝ) (B₀ B₁ : ℝ)
+  (h₀ : ∀ (u : ℝ), (RiffleLowerV2.expect P fun ω => Real.exp (u * S₀ ω)) ≤ Real.exp (u ^ 2 * B₀ / 8))
+  (h₁ : ∀ (u : ℝ), (RiffleLowerV2.expect P fun ω => Real.exp (u * S₁ ω)) ≤ Real.exp (u ^ 2 * B₁ / 8)) (u : ℝ) :
+  (RiffleLowerV2.expect P fun ω => Real.exp (u * (S₀ ω + S₁ ω))) ≤ Real.exp (u ^ 2 * (B₀ + B₁) / 4)
+'RiffleLowerV2.Ascent.parity_mgf' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.subgaussian_tails.{u_1} {Ω : Type u_1} [Fintype Ω] (P : PMF Ω) (X : Ω → ℝ) {B t : ℝ} (hB : 0 < B)
+  (ht : 0 < t) (hmgf : ∀ (u : ℝ), (RiffleLowerV2.expect P fun ω => Real.exp (u * X ω)) ≤ Real.exp (u ^ 2 * B / 4)) :
+  (RiffleLowerV2.probability P fun ω => t ≤ X ω) ≤ Real.exp (-t ^ 2 / B) ∧
+    (RiffleLowerV2.probability P fun ω => X ω ≤ -t) ≤ Real.exp (-t ^ 2 / B)
+'RiffleLowerV2.Ascent.subgaussian_tails' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.Ascent.two_class_indicator_concentration.{u_1, u_2} {Ω : Type u_1} [Fintype Ω] {I : Type u_2} (P : PMF Ω)
+  (X : Ω → ℝ) (c : ℝ) (s₀ s₁ : Finset I) (A : I → Ω → Prop)
+  (hX : ∀ (ω : Ω), X ω = (c + ∑ i ∈ s₀, if A i ω then 1 else 0) + ∑ i ∈ s₁, if A i ω then 1 else 0)
+  (hfactor₀ :
+    ∀ (u : ℝ),
+      (RiffleLowerV2.expect P fun ω =>
+          ∏ i ∈ s₀, Real.exp (u * ((if A i ω then 1 else 0) - RiffleLowerV2.probability P (A i)))) =
+        ∏ i ∈ s₀,
+          RiffleLowerV2.expect P fun ω => Real.exp (u * ((if A i ω then 1 else 0) - RiffleLowerV2.probability P (A i))))
+  (hfactor₁ :
+    ∀ (u : ℝ),
+      (RiffleLowerV2.expect P fun ω =>
+          ∏ i ∈ s₁, Real.exp (u * ((if A i ω then 1 else 0) - RiffleLowerV2.probability P (A i)))) =
+        ∏ i ∈ s₁,
+          RiffleLowerV2.expect P fun ω => Real.exp (u * ((if A i ω then 1 else 0) - RiffleLowerV2.probability P (A i))))
+  {M t : ℝ} (_hM : 0 < M) (hcard : ↑s₀.card + ↑s₁.card ≤ M) (ht : 0 < t) :
+  (RiffleLowerV2.probability P fun ω => t ≤ X ω - RiffleLowerV2.expect P X) ≤ Real.exp (-t ^ 2 / M) ∧
+    (RiffleLowerV2.probability P fun ω => X ω - RiffleLowerV2.expect P X ≤ -t) ≤ Real.exp (-t ^ 2 / M)
+'RiffleLowerV2.Ascent.two_class_indicator_concentration' depends on axioms: [propext, Classical.choice, Quot.sound]

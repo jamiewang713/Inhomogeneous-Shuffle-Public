@@ -1,0 +1,19 @@
+import RiffleLowerV2.Thinning.UniformError
+import RiffleLowerV2.Thinning.MaximalWord
+
+#check RiffleLowerV2.Thinning.prefixFailure_le_envelope
+#check RiffleLowerV2.Thinning.tendsto_power_mul_stretchedExp
+#check RiffleLowerV2.Thinning.prefixFailureEnvelope_tendsto
+#check RiffleLowerV2.Thinning.prefixFailureUniform
+#check RiffleLowerV2.Thinning.exists_canonicalMaxWord
+#check RiffleLowerV2.Thinning.canonicalMaxWord_mean
+#check RiffleLowerV2.Thinning.maximalMean_eq_rpow_beta
+#check RiffleLowerV2.Thinning.maximalMeanIdentity
+#print axioms RiffleLowerV2.Thinning.prefixFailure_le_envelope
+#print axioms RiffleLowerV2.Thinning.tendsto_power_mul_stretchedExp
+#print axioms RiffleLowerV2.Thinning.prefixFailureEnvelope_tendsto
+#print axioms RiffleLowerV2.Thinning.prefixFailureUniform
+#print axioms RiffleLowerV2.Thinning.exists_canonicalMaxWord
+#print axioms RiffleLowerV2.Thinning.canonicalMaxWord_mean
+#print axioms RiffleLowerV2.Thinning.maximalMean_eq_rpow_beta
+#print axioms RiffleLowerV2.Thinning.maximalMeanIdentity

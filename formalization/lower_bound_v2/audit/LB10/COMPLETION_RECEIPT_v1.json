@@ -1,0 +1,89 @@
+{
+  "lane": "LB10",
+  "status": "COMPLETED_LANE_READY_FOR_COORDINATOR_INTEGRATION",
+  "recorded_at": "2026-10-01T18:14:56.165960+00:00",
+  "entry_point": "RiffleLowerV2.EmpiricalLower.Main",
+  "required_exports": {
+    "RiffleLowerV2.EmpiricalLower.empiricalCombined": "RiffleLowerV2.Targets.EmpiricalCombinedTarget",
+    "RiffleLowerV2.EmpiricalLower.coldOnly": "RiffleLowerV2.Targets.ColdOnlyTarget",
+    "RiffleLowerV2.EmpiricalLower.manyEdges": "RiffleLowerV2.Targets.ManyEdgesTarget",
+    "RiffleLowerV2.EmpiricalLower.finiteLargestWordTV": "RiffleLowerV2.Targets.FiniteLargestWordTV",
+    "RiffleLowerV2.EmpiricalLower.largestOnly": "RiffleLowerV2.Targets.LargestOnlyTarget"
+  },
+  "source_labels": [
+    "prop:largest-prefix",
+    "lem:many-edges",
+    "lem:lalley",
+    "prop:cold-lower"
+  ],
+  "endpoint_law": "physicalInverseLaw (chronological physical shuffle inverse)",
+  "quantifier_scope": "Fixed parameters and epsilon precede N0; all N and cut arrays follow N0. Alternating alternatives included.",
+  "pending_mathematical_obligations": [],
+  "outside_lane_remaining": [
+    "LB00 registration in the shared dependency registry and integration ledger; no shared files modified by LB10"
+  ],
+  "source_hashes": {
+    "RiffleLowerV2/EmpiricalLower/Cold.lean": "6f92e45b5544e37cf0b463221cd866dc40826b6960586601c473bd3144c8f090",
+    "RiffleLowerV2/EmpiricalLower/CollisionMean.lean": "9ee70a58b6eea506c4709fb3b6b40c5f55492c3bf232f09b1312ef917234c85e",
+    "RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.lean": "a750e32cbafb793492c9f53f635eb60661ba4345dd8eacf1fd9e65ed91b18d93",
+    "RiffleLowerV2/EmpiricalLower/LargestAsymptotic.lean": "13bf9c58e9dfa5bf30702ee65ac29b41fc3b70acff226ab6461b3de437d0b51b",
+    "RiffleLowerV2/EmpiricalLower/LargestFinite.lean": "08c491435949bc39be23bebfcc8136a53574785b28ac03e83250d33e10a1cc7d",
+    "RiffleLowerV2/EmpiricalLower/Main.lean": "f6bf1678c71f8efb1e92442bffa78cf54c73a1830fea0eae83b30937f6b4c3f5",
+    "RiffleLowerV2/EmpiricalLower/ManyEdges.lean": "a160b8a63bb5417bdf8db8c6ec5f49aa6e636b2b25299ec2b2baa4ec79557483",
+    "RiffleLowerV2/EmpiricalLower/Scan.lean": "fb85242ca1d25c45ccc985fe6b7fe6a5858ed528e9d7d205e9d0d55772bd0562"
+  },
+  "input_manifests": {
+    "Contracts/v1/SHA256.json": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+    "Contracts/v1/SOURCES.json": "3a96605570737b06ba1d4c5a8e42b79f399eac6121844cfc1afcd11333e36959",
+    "Contracts/dependencies/LB01-v1/SHA256.json": "3144d85b8d51329be36df3a86670509a3853cd67ada2371beef31e51fa7f58aa",
+    "Contracts/dependencies/LB01-v1/SOURCES.json": "8704bbbb293af303bd06b3595ff7adecfd1e91d49929128f22c2fed10a47c6fd",
+    "Contracts/dependencies/LB02-v1/SHA256.json": "3c56558d2661a6d89fe9b095400a8a52516342dd0da74bde8ca690944556ab66",
+    "Contracts/dependencies/LB02-v1/SOURCES.json": "a8abdd8e4c9f4c2aea30ac10d48e5ae9d810b4b8776e1345e287b061512c16c9",
+    "Contracts/dependencies/LB04-v1/SHA256.json": "f4ace98aac793dda4a51f46011e817edcf82c9014271ae5d0f1cdff0df4449ac",
+    "Contracts/dependencies/LB04-v1/SOURCES.json": "53a1825322e7f8259ab50506ad255ac7e7289cfe759fd7d95230b982d5b1531d",
+    "Contracts/dependencies/LB04-completed-v1/SHA256.json": "86f951f89a3a6e9968aa5a7102cce83ec7b013276324964b9a2c52789c0060ab",
+    "Contracts/dependencies/LB04-completed-v1/SOURCES.json": "0d3059a6111213df29ad4300b1d45e11b25893eb987f65aca60f7e63004906d1",
+    "Contracts/dependencies/LB08-v1/SHA256.json": "21413a46e30829edb1dd0175ea7d37fe2c8c6b8f6922e546dcfe785122ca8e63",
+    "Contracts/dependencies/LB08-v1/SOURCES.json": "418bc363540f4c7f111b7681009331e71832ca744b2bfb546a6ec2b7b0045ee7",
+    "Contracts/dependencies/LB09-completed-v1/SHA256.json": "4035b8e4047b34ef3499c873c16a06ccf8355812d42aa5ef609cc6a958904873",
+    "Contracts/dependencies/LB09-completed-v1/SOURCES.json": "8d41514cf591656ac1fa828475b4620f090adde18e6b5c49358c6b35acf6315d"
+  },
+  "review_and_delivery_hashes": {
+    "audit/LB10/DELIVERY_v1.md": "8697e1b1582522e8fa0c4dfa4ce524a3c821de6339fd06493bb68c5ab253f0c1",
+    "audit/LB10/EXPORTS_v1.md": "d7aef44640cb20ff7f69580fc895421a2f8ffcd39945bdc9d544498895e7f5e4",
+    "audit/LB10/VERIFICATION_v1.json": "a6889b705133cc7391de78abad1243f519c855fba8d77de349d92c7765714a9d",
+    "audit/LB10/compiled-declarations-v1.json": "e8180b436aea399fabbaddc4cb578199187c1df68a5f5bb1ae75823cd7d29a38",
+    "audit/LB10/INTERFACE_ADOPTION_v1.md": "8b9d0ced302576aaa0031bc8c6880ded51b7bd82fea01fd0b36ef425a181586c",
+    "audit/LB10/REVIEW_RESOLUTION_v1.md": "18882d3702cc28f39733b65853024e27b651769b895482d37c86d7bc1f342356",
+    "audit/LB10/math_review_v1.md": "3ba480fd5f522763e8b6632d89f26923b22583965fcbf14e1b7465969f320e36",
+    "audit/LB10/representation_review_v1.md": "07ffd96fed521bccdb467b446f2982a3330afff6c717db28207c0e9150f2ed22",
+    "audit/LB10/hypotheses_review_v1.md": "7a494f12966e4fc11e3c9267dac665a552f1af7254fca34596f180057f7b1384",
+    "audit/LB10/finite_independent_review_v1.md": "f13669dc2ff94e787522726ddf10eb1c98c9aef07b10d4bf84bc6dc263d7b29a",
+    "audit/LB10/assembly_review_v1.md": "325be029ded87782d893ba9a37c772db1783ec24fabcddefffff5469bec20447",
+    "audit/LB10/many_edges_independent_review_v1.md": "8832d6b1a6215d425a49ff055fc2c078a845dc76e9cfa8cde51af8bc1eaecd9f",
+    "audit/LB10/finite_provenance_v1.json": "ea367ef0ffc23e147f61994bee6ee8bb6f72594f755afc3e43778801901e9f6b",
+    "audit/LB10/finite_delivery_v1.md": "979f60392c5cf80cf8770c73146952b83a08af5c1c2feb37255fbc691e1ba7a4",
+    "audit/LB10/largest_asymptotic_delivery_v1.md": "7106b3889ec294cbd502c35b74dee9608cd3c136eec5012fd990be5529ffe1bd",
+    "audit/LB10/largest_asymptotic_receipt_v1.json": "54cfff14b41e06f34d9fe9ba242fa1795961c78a46ae6cfe753ced1b59daf5ba",
+    "audit/LB10/many_edges_delivery_v1.md": "845c87ba0ad8558f5892785c7d108f2c7dabb89da57c85b17d126de4eb4b7e11"
+  },
+  "verification_artifacts": {
+    "audit/LB10/dependency-checks-v1.log": "8fcf32447e81c14bbf5c3418afeecb63df50505270ace8c84e5f0482c19bcadd",
+    "audit/LB10/final-build-v1.log": "f8f047cd8cec4ef4cf5b43524e40205670c1aab3ca6db31a1390bca669ad03ed",
+    "audit/LB10/final-audit-v1.log": "38cf5265322a14123dfb39bb857352b4d5a6a215411a6688dff472d53fdcf5b5",
+    "audit/LB10/compiled-declarations-v1.json": "e8180b436aea399fabbaddc4cb578199187c1df68a5f5bb1ae75823cd7d29a38",
+    "audit/LB10/Check_v1.lean": "e4c6888cec286bdb8cb7802bad0c325b9f3421237bdeb4ce135cd1f9df9aa125",
+    "audit/LB10/compile_lane.py": "459fa6b8384b2847e0ed7215d6262d8fd386785908ce98972112f23b865a40ce",
+    "audit/LB10/verify_lane.py": "f8e9e3fcd6c68db72232c7f2711ea16d555792680c28440df01acfdfa1505434"
+  },
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "declarations_audited": 93,
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "contract_unchanged": true
+}

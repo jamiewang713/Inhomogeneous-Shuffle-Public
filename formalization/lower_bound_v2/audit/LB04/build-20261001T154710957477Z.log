@@ -1,0 +1,39 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.FiniteProbability']
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteProbability.lean:77:60: error: unsolved goals
+Ω : Type u_1
+inst✝ : Fintype Ω
+P : PMF Ω
+A : Ω → Prop
+h : ∀ (ω : Ω), (if ¬A ω then 1 else 0) = 1 - if A ω then 1 else 0
+⊢ (expect P fun ω => if ¬A ω then 1 else 0) = 1 - expect P fun ω => if A ω then 1 else 0
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteProbability.lean:80:26: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [probability, expect_sub, expect_const]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteProbability.lean:80:29: warning: This simp argument is unused:
+  expect_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [probability, h, expect_const]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteProbability.lean:80:41: warning: This simp argument is unused:
+  expect_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [probability, h, expect_sub]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/FiniteProbability.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteProbability.lean']' returned non-zero exit status 1.

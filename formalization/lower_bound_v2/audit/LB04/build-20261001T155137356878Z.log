@@ -1,0 +1,50 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.FiniteConsequences']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/UniformBaseline.lean:24:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  (expect (PMF.uniformOfFintype (Permutation N)) fun ω => @ite ℝ (ω j < ω i) ((ω j).decLt (ω i)) 1 0) =
+    expect (PMF.uniformOfFintype (Permutation N)) fun π => if π i < π j then 1 else 0
+but is expected to have type
+  (expect (PMF.uniformOfFintype (Permutation N)) fun ω =>
+      @ite ℝ (ω j < ω i) (Classical.propDecidable ((fun π => π j < π i) ω)) 1 0) =
+    expect (PMF.uniformOfFintype (Permutation N)) fun ω => if ω i < ω j then 1 else 0
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/UniformBaseline.lean:41:8: warning: Possibly looping simp theorem: `ascentCount.eq_1`
+
+Note: Possibly caused by: `Finset.card_filter` and `Finset.sum_boole`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/UniformBaseline.lean:41:21: warning: Possibly looping simp theorem: `Finset.card_filter`
+
+Note: Possibly caused by: `Finset.sum_boole`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/UniformBaseline.lean:41:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/UniformBaseline.lean:51:4: error: Tactic `apply` failed: could not unify the conclusion of `@probability_uniform_ascent`
+  (probability (uniformPermutation ?N) fun π => π ?i < π ?j) = 1 / 2
+with the goal
+  (expect (uniformPermutation N) fun π => if π (edgeLeft e) < π (edgeRight e) then 1 else 0) = 1 / 2
+
+Note: The full type of `@probability_uniform_ascent` is
+  ∀ {N : ℕ} (i j : Fin N), i ≠ j → (probability (uniformPermutation N) fun π => π i < π j) = 1 / 2
+
+N : ℕ
+H : Finset (Fin N)
+e : Fin (N - 1)
+⊢ (expect (uniformPermutation N) fun π => if π (edgeLeft e) < π (edgeRight e) then 1 else 0) = 1 / 2
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/UniformBaseline.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/UniformBaseline.lean']' returned non-zero exit status 1.

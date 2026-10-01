@@ -1,0 +1,26 @@
+RiffleLowerV2.EmpiricalLower.coldMeanConstant_eq : RiffleLowerV2.EmpiricalLower.coldMeanConstant = Real.exp (-5) / 4
+RiffleLowerV2.EmpiricalLower.cold_collision_mean_lower {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N)
+  {eta rho chi xi D : ℝ} (heta : 0 < eta) (P : TimeProfile.BorelPartition k) (W : RiffleLowerV2.ColdWitnessData)
+  (G : RiffleLowerV2.ColdGeometryData K P W) (hG : RiffleLowerV2.GeometrySpec cuts hN eta rho chi xi P W G)
+  (hsmall : D * ↑N ^ (-1 / 100) ≤ 1 / 2)
+  (hmarg :
+    ∀ y ∈ RiffleLowerV2.coldFullFamily cuts hN P W G,
+      |RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent y) -
+            RiffleLowerV2.poissonCollision (↑N * RiffleLowerV2.wordMass cuts y)| ≤
+        D * ↑N ^ (-1 / 100) * RiffleLowerV2.poissonCollision (↑N * RiffleLowerV2.wordMass cuts y)) :
+  RiffleLowerV2.EmpiricalLower.coldMeanConstant *
+      ↑N ^ (RiffleLowerV2.geometryG cuts hN P W G - 4 * RiffleLowerV2.kappa0 eta) ≤
+    RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts)
+      (RiffleLowerV2.collisionCount (RiffleLowerV2.coldFullFamily cuts hN P W G))
+RiffleLowerV2.EmpiricalLower.cold_exponent_slack {eta g h : ℝ} (hgap : RiffleLowerV2.kappa eta / 2 ≤ g - h / 2) :
+  h / 2 + RiffleLowerV2.kappa eta / 3 + 19 * RiffleLowerV2.kappa eta / 150 ≤ g - 4 * RiffleLowerV2.kappa0 eta
+RiffleLowerV2.EmpiricalLower.cold_mean_dominates {N : ℕ} (hN : 1 ≤ N) {eta M h g E : ℝ} (_heta : 0 < eta) (hM : 0 ≤ M)
+  (hMupper : M ≤ 2 * ↑N ^ h) (hgap : RiffleLowerV2.kappa eta / 2 ≤ g - h / 2)
+  (hlarge : 2 / RiffleLowerV2.EmpiricalLower.coldMeanConstant ≤ ↑N ^ (19 * RiffleLowerV2.kappa eta / 150))
+  (hmean : RiffleLowerV2.EmpiricalLower.coldMeanConstant * ↑N ^ (g - 4 * RiffleLowerV2.kappa0 eta) ≤ E) :
+  √M * ↑N ^ (RiffleLowerV2.kappa eta / 3) ≤ E
+RiffleLowerV2.EmpiricalLower.manyEdges : RiffleLowerV2.Targets.ManyEdgesTarget
+'RiffleLowerV2.EmpiricalLower.coldMeanConstant_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.cold_collision_mean_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.cold_mean_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.manyEdges' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,20 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Concentration.lean:17:5: error(lean.unknownIdentifier): Unknown constant `Real.isLittleO_log_rpow_atTop`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Concentration.lean:56:6: error: Type mismatch: After simplification, term
+  hh
+ has type
+  ↑N ^ (kap / 4) * ((2 * (√↑k * √↑K) + 1) * ↑N ^ (b / 2) + 2 * (↑k * ↑K) + 1) ≤
+    ↑N ^ (kap / 4) * (↑N ^ (b / 2) * ↑N ^ (kap / 4))
+but is expected to have type
+  ↑N ^ (kap / 4) * ((2 * (√↑k * √↑K) + 1) * ↑N ^ (b / 2) + 2 * ↑k * ↑K + 1) ≤
+    ↑N ^ (kap / 4) * (↑N ^ (b / 2) * ↑N ^ (kap / 4))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Concentration.lean:105:26: error: `ring_nf` made no progress on the goal
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Concentration.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Concentration.lean']' returned non-zero exit status 1.

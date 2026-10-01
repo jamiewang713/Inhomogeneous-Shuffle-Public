@@ -1,0 +1,53 @@
+{
+  "status": "CONTRACT_READY",
+  "lane": "LB00",
+  "contract_version": "v1",
+  "released_at_utc": "2026-10-01T14:33:14.631459+00:00",
+  "contract_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "source_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "lean": "4.33.1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "imports": [
+    "RiffleLowerV2.Shared",
+    "Contracts.v1"
+  ],
+  "verified_build_commands": [
+    "python3 build.py --fresh --audit",
+    "python3 build.py RiffleLowerV2.Shared",
+    "python3 build.py RiffleLowerV2.Shared.Smoke",
+    "python3 build.py"
+  ],
+  "independent_reviews": [
+    "mathematical",
+    "Lean representation/exact compiled types",
+    "missing hypotheses/counterexamples"
+  ],
+  "ready_to_start": [
+    "LB01",
+    "LB02",
+    "LB03",
+    "LB04",
+    "LB05",
+    "LB06",
+    "LB07"
+  ],
+  "pending_endpoints": {
+    "E": "UNPROVED empirical physical-inverse law target",
+    "M": "UNPROVED macroscopic physical-inverse law target under explicit same-partition scalar integrability",
+    "original_arbitrary_TimeLaw": "UNCERTIFIED; not claimed by this contract"
+  },
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "artifact_sha256": {
+    "audit/LB00/build-v1.log": "8d303615294b4a4cc4938ca6f093d8744f02ae62e46c89705c1905fc8ef68a61",
+    "audit/LB00/post-freeze-build-v1.log": "c07003dec75ba73419013228701ac7a204e0612845798bb982191a43fef6e264",
+    "audit/LB00/lane-readiness-v1.log": "e3f54cc0a1f2c2cbfb8a52cb207f74e93e9d995f4b7c10d7e513842bcb486510",
+    "audit/LB00/public-exports.json": "2c3aec14d56e7eab2d175e9e1fb12d9bab3f65ce7bbb3d7e02aa3880932f64e4",
+    "Contracts/v1/EXPORTS.md": "ccdc854ed8b5a545de6ac3f719ac6367706dfd85f73f29f8620f0df20cbd9da1"
+  },
+  "old_packages_modified": false,
+  "manuscript_modified_by_LB00": false
+}

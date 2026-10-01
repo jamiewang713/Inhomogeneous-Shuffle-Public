@@ -1,0 +1,53 @@
+/goal
+You are the Lean formalization agent for LB-12: Independent final theorem and dependency audit.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00, LB-10, LB-11. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: audit/LB12/ only; substantive proof fixes belong to the original lane owners
+
+AUTHORITATIVE SOURCE LABELS
+- thm:buffered-reduced-lower-bound
+- prop:cold-lower
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/build.py
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/FREEZE.md
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/reviews/analytic_alternatives.md
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Act as an independent auditor of the COMPLETED new lower-bound formalization. Do not assume the implementation is correct because its authors reported success or because a theorem count is large.
+
+1. Read the frozen contract, exact current theorem types and source snapshot/hashes first. Compare E and M with the revised manuscript and with the original frozen assumptions. Verify the explicit scalar-integrability addition and that it is absent from E. Check precise parameter order and uniformity over changing cuts/witnesses.
+2. Trace the elaborated dependency closure of the actual endpoint theorems. Inspect every hypothesis and structure field for conclusions hidden as assumptions: witness existence, graph-law correctness, collision moments, prefix concentration, reserves, localization, many edges, scan success or the TV conclusion. A generic theorem of the form 'if all needed results hold, then mixing lower bound' does not certify the concrete endpoint.
+3. Verify the actual model law, row/sort orientation, chronological inversion, independence of pi and G, and the one-based/zero-based rank conversion. Confirm any old finite laws or 4.19 source ports were identified with the canonical 4.33.1 objects by checked theorems.
+4. Independently review the highest-risk mathematics: all-s thinning/residual conditioning; even Bonferroni polynomial expectation remainder and 1/3 coefficient; relative pair errors in rare/mixed regimes; theta=4 backward motion and terminal clearance; lower multinomial count and fixed-xi errors; ambient right-endpoint fluctuation; clipped component deficit; graph-only translate selection; uniform two-branch asymptotics.
+5. Run a fresh build using the pinned runtime, followed by a complete axiom audit. Permit only the established standard Lean foundations (propext, Classical.choice, Quot.sound); reject custom axioms, sorryAx, placeholders and native-oracle dependencies. Inspect actual proof terms/import closure in addition to textual scans. Verify source/provenance hashes and that old packages/freeze files remain unchanged.
+6. Verify every frozen export and ensure the umbrella imports all intended completed modules. Check that the new build examines every new module, unlike an old checker with a hard-coded historical list. Record exact build commands, runtime/mathlib hashes, exported signatures, dependency graph and reproducible results.
+7. If anything fails, issue a precise finding to its owner, let that owner repair it, then recheck the affected proof and endpoint closure. Keep unaffected verified work. Do not approve a weakened or strengthened replacement without an explicit versioned contract change and independent comparison.
+
+Finish with two separate verdicts (empirical endpoint; integrable-profile endpoint), a third explicit status for the original unchanged arbitrary-TimeLaw statement, and a list of unresolved obligations if any. Never call the full task complete while either requested endpoint still rests on an unproved adapter or assumption.
+
+ACCEPTANCE CRITERION
+Independent exact-type, full-dependency, hypothesis and fresh-build audit, with separate E/M/original-contract verdicts. Any remaining gap is identified rather than hidden in a completion claim.

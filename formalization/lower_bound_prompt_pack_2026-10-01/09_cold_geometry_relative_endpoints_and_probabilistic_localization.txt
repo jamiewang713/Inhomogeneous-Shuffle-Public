@@ -1,0 +1,53 @@
+/goal
+You are the Lean formalization agent for LB-09: Cold geometry, relative endpoints, and probabilistic localization.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00, LB-02, LB-05, LB-06. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/Localization/ and audit/LB09/
+
+AUTHORITATIVE SOURCE LABELS
+- lem:cold-geometry
+- lem:finite-relative-endpoints
+- lem:localization
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Matrices.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/Cold.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/Sorting.lean
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Construct the actual cold set and prove its localization, rather than assuming a localized family. Your independent finite interval/lexicographic lemmas can be designed earlier, but completion requires LB-02, LB-05 and LB-06.
+
+1. Apply the empirical witness and mass-binned classes to prefix positions (m_s,m_u] and tail positions (m_u+b_N,K_T]. Define the maximal ambient prefix a_s, b=beta_N(s), exact relative probability intervals and the deterministic integer union H_rel. Keep b (a real exponent) distinct from the bridge word v_b.
+2. Build v_b and reserves v_b^-,v_b^+ from two good columns. Each reserve agrees with v_b everywhere except its one specified column. Prove lexicographic ordering and product-mass bounds. Include the additional budget r_b log k≤kappa0/100 and all fixed chi_g factors.
+3. Prove the effective exponents ell_p,h_N,z_N,g_N and the exact inequalities in lem:cold-geometry: ell_p≥b/2+2kappa, H_p*≤ell_p-kappa, M_N=N^(h_N+o(1)) with N^(kappa/3)≤M_N≤N, boundary(H_q)=O(sqrt M_N), g_N-h_N/2≥kappa/2, z_N≤2kappa0. Replace o/O by explicit uniform bounds. Export |Y_N|=N^(H_p*+H_t*), e^(-2)N^(z_N)<mu_y≤N^(z_N), and the common selected/reserve digit lower bound min(xi,chi_g,1/k)>0. Do not assume selected probability intervals are separate connected components; adjacent intervals may merge.
+4. Prove exact left/right relative endpoint identities by first-differing-digit side cylinders. The RIGHT identity must retain C(a_s)-mu_a. Derive the finite endpoint error A[(2sqrt(kK)+1)sqrt(mu_a)+2kK+1], including empty suffixes and small means.
+5. Apply the actual simultaneous prefix theorem, with epsilon=kappa/4. Show the endpoint error is at most N^(b/2+kappa/2), all reserve means are at least N^(b/2+kappa), and all reserve counts exceed the endpoint error by two with high probability. Supply the polynomial union bound and uniform N0 over cuts/witnesses.
+6. Prove every occurring y=a_s x v_b z has all sorted ranks in H_{L_{a_s}} on one event on which the conclusion holds simultaneously for every tail word z, without selecting a new event for z. No stochastic independence from tail columns is required. Resolve the (L,U] versus [ell,r) convention with the explicit two-unit slack. Show distinct repeated full words supply distinct internal graph edges.
+
+RiffleLower.localized_collisions_supply_edges is reusable only AFTER its localizedKeys premise has been proved for the actual event. Endpoint anti-concentration, large-block density and the unfinished upper first-moment theorem are not dependencies of this lower argument.
+
+ACCEPTANCE CRITERION
+Constructed deterministic cold sets and full-word families with quantitative mass/entropy/boundary estimates, and actual high-probability localization with an injective word-to-edge assignment. No localization or reserve event remains an external final premise.

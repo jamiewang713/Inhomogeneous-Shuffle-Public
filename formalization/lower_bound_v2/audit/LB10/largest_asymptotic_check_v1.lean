@@ -1,0 +1,15 @@
+import RiffleLowerV2.EmpiricalLower.LargestAsymptotic
+
+example : RiffleLowerV2.Targets.LargestOnlyTarget :=
+  RiffleLowerV2.EmpiricalLower.largestOnly
+
+#print axioms RiffleLowerV2.EmpiricalLower.largestOnly
+#print axioms RiffleLowerV2.EmpiricalLower.largestMean_uniform
+#print axioms RiffleLowerV2.EmpiricalLower.largestMean_uniform_scales
+#print axioms RiffleLowerV2.EmpiricalLower.largestRunLength_eventually_admissible
+#print axioms RiffleLowerV2.EmpiricalLower.largestRunError_tendsto
+#print axioms RiffleLowerV2.EmpiricalLower.largestChernoffError_tendsto
+#check RiffleLowerV2.EmpiricalLower.largestMean_uniform
+#check RiffleLowerV2.EmpiricalLower.largestRunLength_eventually_admissible
+#check RiffleLowerV2.EmpiricalLower.largestRunError_tendsto
+#check RiffleLowerV2.EmpiricalLower.largestMean_uniform_scales

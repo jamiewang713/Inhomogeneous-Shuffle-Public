@@ -1,0 +1,53 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Means.lean:104:4: error: Tactic `rfl` failed: The left-hand side
+  @ite ℝ (x✝ < x j) (x✝.decLt (x j)) (sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝) 0
+is not definitionally equal to the right-hand side
+  @ite ℝ (x✝ < x j) (Classical.propDecidable (x✝ < x j)) (sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝) 0
+
+case a
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+I : Finset (Fin K)
+x : WordOn k I
+hs :
+  (∑ x_1, if wordOnList x_1 < wordOnList x then massOn cuts x_1 else 0) =
+    ∑ x_1, ∑ a, if a < x x_1 then sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x x_1 a else 0
+j : ↥I
+a✝¹ : j ∈ Finset.univ
+x✝ : Fin k
+a✝ : x✝ ∈ Finset.univ
+⊢ (if x✝ < x j then sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝ else 0) =
+    if x✝ < x j then sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝ else 0
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Means.lean:128:4: error: Tactic `rfl` failed: The left-hand side
+  @ite ℝ (x j < x✝) ((x j).decLt x✝) (sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝) 0
+is not definitionally equal to the right-hand side
+  @ite ℝ (x j < x✝) (Classical.propDecidable (x j < x✝)) (sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝) 0
+
+case a
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+I : Finset (Fin K)
+x : WordOn k I
+horder : ∀ (y : WordOn k I), (∃ j, x j < y j ∧ ∀ h < j, y h = x h) ↔ wordOnList x < wordOnList y
+hs :
+  (∑ x_1, if wordOnList x < wordOnList x_1 then massOn cuts x_1 else 0) =
+    ∑ x_1, ∑ a, if x x_1 < a then sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x x_1 a else 0
+j : ↥I
+a✝¹ : j ∈ Finset.univ
+x✝ : Fin k
+a✝ : x✝ ∈ Finset.univ
+⊢ (if x j < x✝ then sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝ else 0) =
+    if x j < x✝ then sideWeight (fun h e => ↑(cuts.count (↑h) e) / ↑N) x j x✝ else 0
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Endpoints/Means.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Means.lean']' returned non-zero exit status 1.

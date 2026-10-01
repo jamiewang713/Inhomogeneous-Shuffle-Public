@@ -1,0 +1,29 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:55:6: error: mod_cast has type
+  Finset.univ.sup ?m.97 ≤ ?m.98
+but is expected to have type
+  ↑(Finset.univ.sup fun l => ⟨prob (cuts.profile hN j) l, ⋯⟩) ≤ ↑(cuts.count j (List.Vector.get w j)) / ↑N
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean:69:58: error: unsolved goals
+k N K : ℕ
+hN : 2 ≤ N
+cuts : Cuts k N K
+hNr : 0 < ↑N
+hL : logScale N ≠ 0
+hp : 0 < ∏ j, pileMax (cuts.profile ⋯ j)
+hA : A cuts ⋯ 0 (horizon N K) = (∑ j, maxCost (cuts.profile ⋯ j)) / logScale N
+⊢ Real.log ↑N + ∑ i, Real.log (pileMax (cuts.profile ⋯ i)) = ∑ i, Real.log (pileMax (cuts.profile ⋯ i)) + logScale N
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB02/lib/lean/RiffleLowerV2/Thinning/MaximalWord.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean']' returned non-zero exit status 1.

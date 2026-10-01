@@ -1,0 +1,79 @@
+RiffleLowerV2.Occupancy.eventual_central_scales (D C : ℝ) (hD : 0 < D) (hC : 0 < C) :
+  ∃ N0,
+    ∀ N ≥ N0,
+      2 ≤ N ∧
+        1 ≤ TimeProfile.logScale N ∧
+          2 ≤ RiffleLowerV2.Occupancy.bonferroniOrder N ∧
+            Even (RiffleLowerV2.Occupancy.bonferroniOrder N) ∧
+              2 * RiffleLowerV2.Occupancy.bonferroniOrder N ≤ RiffleLowerV2.Occupancy.momentRadius N ∧
+                ↑(RiffleLowerV2.Occupancy.momentRadius N) ≤ ↑N ^ (1 / 5) ∧
+                  ↑N ^ (1 / 25) / 4 ≤ ↑(RiffleLowerV2.Occupancy.bonferroniOrder N) ∧
+                    ↑(RiffleLowerV2.Occupancy.bonferroniOrder N) ≤ ↑N ∧
+                      3 * TimeProfile.logScale N ≤ ↑(RiffleLowerV2.Occupancy.bonferroniOrder N) * Real.log 2 ∧
+                        TimeProfile.logScale N ^ 3 ≤ ↑N ^ (1 / 50) ∧
+                          0 ≤ RiffleLowerV2.Occupancy.momentError D C N ∧ RiffleLowerV2.Occupancy.momentError D C N ≤ 1
+RiffleLowerV2.Occupancy.eventual_central_error_bounds (D C : ℝ) (hD : 0 < D) (hC : 0 < C) :
+  ∃ N0,
+    ∀ N ≥ N0,
+      (∀ (μ ν : ℝ),
+          0 ≤ μ →
+            μ ≤ RiffleLowerV2.Occupancy.centralBound N →
+              0 ≤ ν →
+                ν ≤ RiffleLowerV2.Occupancy.centralBound N →
+                  RiffleLowerV2.Occupancy.momentError D C N * (1 + μ) * (1 + ν) * Real.exp (μ + ν) +
+                      3 *
+                        (RiffleLowerV2.poissonRemainder (RiffleLowerV2.Occupancy.bonferroniOrder N) μ +
+                            RiffleLowerV2.poissonRemainder (RiffleLowerV2.Occupancy.bonferroniOrder N) ν +
+                          RiffleLowerV2.poissonRemainder (RiffleLowerV2.Occupancy.bonferroniOrder N) μ *
+                            RiffleLowerV2.poissonRemainder (RiffleLowerV2.Occupancy.bonferroniOrder N) ν) ≤
+                    RiffleLowerV2.Occupancy.centralConstant D C * ↑N ^ (-7 / 10)) ∧
+        ∀ (t : ℝ),
+          0 ≤ t →
+            t ≤ 2 * RiffleLowerV2.Occupancy.centralBound N →
+              RiffleLowerV2.Occupancy.momentError D C N * (1 + t) * Real.exp t +
+                  3 * RiffleLowerV2.poissonRemainder (RiffleLowerV2.Occupancy.bonferroniOrder N) t ≤
+                RiffleLowerV2.Occupancy.centralConstant D C * ↑N ^ (-7 / 10)
+RiffleLowerV2.Occupancy.central_marginal_absolute (c C : ℝ) (hc : 0 < c) (hC : 0 < C) :
+  ∃ A,
+    0 < A ∧
+      ∃ N0,
+        ∀ N ≥ N0,
+          ∀ (k K : ℕ),
+            ↑K ≤ C * TimeProfile.logScale N →
+              ∀ (cuts : TimeProfile.Cuts k N K) (w : RiffleLowerV2.Word k K),
+                (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                  ↑N * RiffleLowerV2.wordMass cuts w ≤ 2 * RiffleLowerV2.Occupancy.centralBound N →
+                    |RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent w) -
+                          RiffleLowerV2.poissonCollision (↑N * RiffleLowerV2.wordMass cuts w)| ≤
+                      A * ↑N ^ (-7 / 10)
+RiffleLowerV2.Occupancy.central_pair_absolute (c C : ℝ) (hc : 0 < c) (hC : 0 < C) :
+  ∃ A,
+    0 < A ∧
+      ∃ N0,
+        ∀ N ≥ N0,
+          ∀ (k K : ℕ),
+            ↑K ≤ C * TimeProfile.logScale N →
+              ∀ (cuts : TimeProfile.Cuts k N K) (w v : RiffleLowerV2.Word k K),
+                w ≠ v →
+                  (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get w j))) →
+                    (∀ (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get v j))) →
+                      ↑N * RiffleLowerV2.wordMass cuts w ≤ RiffleLowerV2.Occupancy.centralBound N →
+                        ↑N * RiffleLowerV2.wordMass cuts v ≤ RiffleLowerV2.Occupancy.centralBound N →
+                          |(RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) fun ω =>
+                                  RiffleLowerV2.collisionEvent w ω ∧ RiffleLowerV2.collisionEvent v ω) -
+                                RiffleLowerV2.poissonCollision (↑N * RiffleLowerV2.wordMass cuts w) *
+                                  RiffleLowerV2.poissonCollision (↑N * RiffleLowerV2.wordMass cuts v)| ≤
+                            A * ↑N ^ (-7 / 10)
+'RiffleLowerV2.Occupancy.bonferroniOrder_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.two_mul_bonferroniOrder_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.momentRadius_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.order_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.momentError_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.coarseMomentError_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.eventual_central_scales' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonRemainder_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.poissonRemainder_le_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.central_moment_term_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.eventual_central_error_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.central_marginal_absolute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.central_pair_absolute' depends on axioms: [propext, Classical.choice, Quot.sound]

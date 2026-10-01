@@ -1,0 +1,34 @@
+'RiffleLowerV2.EmpiricalLower.largestOnly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.largestMean_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.largestMean_uniform_scales' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.largestRunLength_eventually_admissible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RiffleLowerV2.EmpiricalLower.largestRunError_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.largestChernoffError_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.EmpiricalLower.largestMean_uniform (b epsilon : ℝ) (hb : 0 < b) (hepsilon : 0 < epsilon) :
+  ∃ N0,
+    2 ≤ N0 ∧
+      ∀ N ≥ N0,
+        ∀ (k K : ℕ) (cuts : TimeProfile.Cuts k N K) (hN : 0 < N),
+          ↑N ^ b ≤ RiffleLowerV2.maximalMean cuts hN →
+            1 - epsilon ≤ RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts) (RiffleLowerV2.uniformPermutation N)
+RiffleLowerV2.EmpiricalLower.largestRunLength_eventually_admissible (b : ℝ) (hb : 0 < b) (hb1 : b ≤ 1) :
+  ∀ᶠ (N : ℕ) in Filter.atTop,
+    2 ≤ RiffleLowerV2.EmpiricalLower.largestRunLength N b ∧
+      RiffleLowerV2.EmpiricalLower.largestRunLength N b ≤ N ∧
+        ↑(RiffleLowerV2.EmpiricalLower.largestRunLength N b) ≤ ↑N ^ b / 2
+RiffleLowerV2.EmpiricalLower.largestRunError_tendsto (b : ℝ) (hb : 0 < b) :
+  Filter.Tendsto (fun N => RiffleLowerV2.EmpiricalLower.largestRunError N b) Filter.atTop (nhds 0)
+RiffleLowerV2.EmpiricalLower.largestMean_uniform_scales (b epsilon : ℝ) (hb : 0 < b) (hepsilon : 0 < epsilon) :
+  ∃ N0,
+    2 ≤ N0 ∧
+      ∀ N ≥ N0,
+        ∀ (mu : ℝ),
+          ↑N ^ b ≤ mu →
+            mu ≤ ↑N →
+              2 ≤ RiffleLowerV2.EmpiricalLower.largestRunLength N b ∧
+                RiffleLowerV2.EmpiricalLower.largestRunLength N b ≤ N ∧
+                  ↑(RiffleLowerV2.EmpiricalLower.largestRunLength N b) ≤ mu / 2 ∧
+                    Real.exp (-RiffleLowerV2.chernoffConstant * mu) + RiffleLowerV2.EmpiricalLower.largestRunError N b ≤
+                      epsilon

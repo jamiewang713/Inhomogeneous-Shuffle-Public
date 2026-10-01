@@ -1,0 +1,736 @@
+{
+  "additional_export": {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Factorial.conditional_wordCount_eq_residualWordMean",
+    "type": "\u2200 {k N K b : \u2115} (cuts : TimeProfile.Cuts k N K) (p : RiffleLowerV2.RowPrescription N k K b),\n  b < N \u2192\n    Function.Injective p.row \u2192\n      0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent p) \u2192\n        \u2200 (w : RiffleLowerV2.Word k K),\n          RiffleLowerV2.conditionalExpect (TimeProfile.fixedCountPMF cuts)\n              (fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n                \u2191(RiffleLowerV2.wordCount w \u03c9 - {q : Fin b | p.word q = w}.card))\n              (RiffleLowerV2.prescriptionEvent p) =\n            RiffleLowerV2.Targets.residualWordMean cuts p w",
+    "type_dependencies": [
+      "Nat",
+      "TimeProfile.Cuts",
+      "RiffleLowerV2.RowPrescription",
+      "LT.lt",
+      "instLTNat",
+      "Function.Injective",
+      "Fin",
+      "RiffleLowerV2.RowPrescription.row",
+      "Real",
+      "Real.instLT",
+      "OfNat.ofNat",
+      "Zero.toOfNat0",
+      "Real.instZero",
+      "RiffleLowerV2.probability",
+      "TimeProfile.ShuffleSample",
+      "TimeProfile.instFintypeShuffleSample",
+      "TimeProfile.fixedCountPMF",
+      "RiffleLowerV2.prescriptionEvent",
+      "RiffleLowerV2.Word",
+      "Eq",
+      "RiffleLowerV2.conditionalExpect",
+      "Nat.cast",
+      "Real.instNatCast",
+      "HSub.hSub",
+      "instHSub",
+      "instSubNat",
+      "RiffleLowerV2.wordCount",
+      "Finset.card",
+      "Finset.filter",
+      "RiffleLowerV2.RowPrescription.word",
+      "List.Vector.instDecidableEq",
+      "instDecidableEqFin",
+      "Finset.univ",
+      "Fin.fintype",
+      "RiffleLowerV2.Targets.residualWordMean"
+    ],
+    "value": "",
+    "value_dependencies": [
+      "Nat",
+      "TimeProfile.Cuts",
+      "RiffleLowerV2.RowPrescription",
+      "LT.lt",
+      "instLTNat",
+      "Function.Injective",
+      "Fin",
+      "RiffleLowerV2.RowPrescription.row",
+      "Real",
+      "Real.instLT",
+      "OfNat.ofNat",
+      "Zero.toOfNat0",
+      "Real.instZero",
+      "RiffleLowerV2.probability",
+      "TimeProfile.ShuffleSample",
+      "TimeProfile.instFintypeShuffleSample",
+      "TimeProfile.fixedCountPMF",
+      "RiffleLowerV2.prescriptionEvent",
+      "RiffleLowerV2.Word",
+      "instOfNatNat",
+      "Eq",
+      "Subsingleton.elim",
+      "Fin.subsingleton_one",
+      "LE.le",
+      "instLENat",
+      "Finset.sum",
+      "Nat.instAddCommMonoid",
+      "Finset.univ",
+      "Fin.fintype",
+      "HSub.hSub",
+      "instHSub",
+      "instSubNat",
+      "Eq.mpr",
+      "id",
+      "congrFun'",
+      "congrArg",
+      "Fin.sum_univ_one",
+      "Decidable.byContradiction",
+      "Nat.decLe",
+      "Not",
+      "RiffleLowerV2.Factorial.conditional_wordCount_eq_residualWordMean._proof_1_1",
+      "RiffleLowerV2.conditionalExpect",
+      "Finset.prod",
+      "Real.instCommMonoid",
+      "RiffleLowerV2.falling",
+      "RiffleLowerV2.wordCount",
+      "Finset.card",
+      "Finset.filter",
+      "RiffleLowerV2.RowPrescription.word",
+      "List.Vector.instDecidableEq",
+      "instDecidableEqFin",
+      "HMul.hMul",
+      "instHMul",
+      "Real.instMul",
+      "HDiv.hDiv",
+      "instHDiv",
+      "DivInvMonoid.toDiv",
+      "Real.instDivInvMonoid",
+      "TimeProfile.Cuts.count",
+      "RiffleLowerV2.usedCount",
+      "RiffleLowerV2.requestedCount",
+      "RiffleLowerV2.Factorial.residualJointFactorial",
+      "Nat.cast",
+      "Real.instNatCast",
+      "List.Vector.get",
+      "Finset.prod_eq_single",
+      "Membership.mem",
+      "Finset",
+      "SetLike.instMembership",
+      "Finset.instSetLike",
+      "Ne",
+      "of_eq_true",
+      "One.toOfNat1",
+      "MulOne.toOne",
+      "MulOneClass.toMulOne",
+      "Monoid.toMulOneClass",
+      "CommMonoid.toMonoid",
+      "Eq.trans",
+      "AddMonoidWithOne.toOne",
+      "AddGroupWithOne.toAddMonoidWithOne",
+      "Ring.toAddGroupWithOne",
+      "Real.instRing",
+      "True",
+      "Nat.descFactorial",
+      "AddZero.toZero",
+      "AddZeroClass.toAddZero",
+      "AddMonoid.toAddZeroClass",
+      "AddCommMonoid.toAddMonoid",
+      "ite",
+      "Singleton.singleton",
+      "Finset.instSingleton",
+      "Fin.instOfNat",
+      "Fin.instUnique._proof_1",
+      "Finset.sum_congr",
+      "Finset.univ_unique",
+      "Fin.instUnique",
+      "ite_cond_eq_false",
+      "eq_false",
+      "Ne.symm",
+      "Finset.sum_const_zero",
+      "Nat.cast_one",
+      "eq_self",
+      "False",
+      "implies_congr",
+      "Finset.mem_univ._simp_1",
+      "not_true_eq_false",
+      "Eq.refl",
+      "IsEmpty.forall_iff._simp_1",
+      "instIsEmptyFalse",
+      "HSMul.hSMul",
+      "instHSMul",
+      "NSMul.toSMul",
+      "AddMonoid.toNSMul",
+      "ite_cond_eq_true",
+      "Finset.sum_const",
+      "Finset.card_singleton",
+      "mul_one",
+      "Nat.instMulOneClass",
+      "instMulNat",
+      "tsub_zero",
+      "Nat.instPartialOrder",
+      "Nat.instOrderedSub",
+      "RiffleLowerV2.Targets.residualWordMean",
+      "Eq.mp",
+      "congr",
+      "RiffleLowerV2.Sample",
+      "funext",
+      "Nat.descFactorial_one",
+      "Finset.prod_congr",
+      "Fin.prod_univ_one"
+    ]
+  },
+  "audit_log": "audit/LB00/LB03_integration_audit_v1.log",
+  "audit_source": "audit/LB00/LB03IntegrationCheck_v1.lean",
+  "axiom_check": {
+    "all_eleven_lane_export_closures_match": true,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "coverage": "Extends the lane eleven-export closure probe to all 278 owned namespace declarations, including generated/private helpers.",
+    "examined_declarations": 278
+  },
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "build_command": [
+    "python3",
+    "build.py",
+    "RiffleLowerV2.Factorial.Main"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "completed_input_sha256": "3923f80266e21f6f4380381041563bcf089e37066528808b35d20eb13e3f7f01",
+  "dependency_revisions": {
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+  },
+  "id": "LB03-v1",
+  "integration_ledger": "audit/LB00/INTEGRATION_LEDGER_v3.json",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "modules": {
+    "Contracts.v1": {
+      "kind": "project-rebuilt",
+      "sha256": "819297508cb01f36de6f746d0c9166574d8e68736bba658fb31358e45e3eb1a3",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1.lean"
+    },
+    "Contracts.v1.AdditionalFinite": {
+      "kind": "project-rebuilt",
+      "sha256": "b94a1cb35d7204e4e6f0c8dbb277ebc471ec16307a38d2351ef290de6da20869",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/AdditionalFinite.lean"
+    },
+    "Contracts.v1.Ascent": {
+      "kind": "project-rebuilt",
+      "sha256": "3816a1346b6f770837169835f93abc02a85f14c5f6c4d1d9a748f9d17602ab2b",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/Ascent.lean"
+    },
+    "Contracts.v1.AssemblyInputs": {
+      "kind": "project-rebuilt",
+      "sha256": "fd005b12cc24ebab117cf08b244d28cef07c31ce02a4d429625a7e92c1e874ea",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/AssemblyInputs.lean"
+    },
+    "Contracts.v1.Endpoints": {
+      "kind": "project-rebuilt",
+      "sha256": "ee995fe56f4815ec78d6d2bd0d76ed4aecb357883417a57958d0dd3ae19df0c0",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/Endpoints.lean"
+    },
+    "Contracts.v1.FactorialOccupancy": {
+      "kind": "project-rebuilt",
+      "sha256": "80be112ec4fe3b811738bcb75a0aa29b26ef31d7bafd5d264fbee8ba21f7253d",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/FactorialOccupancy.lean"
+    },
+    "Contracts.v1.ModelThinning": {
+      "kind": "project-rebuilt",
+      "sha256": "bdb0c4c3af301658c9798d191b3dfef1ac34d9df02fb988b1c10214d6b039288",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/ModelThinning.lean"
+    },
+    "Contracts.v1.TransferFinite": {
+      "kind": "project-rebuilt",
+      "sha256": "fd67fc92015806b8cc78d6b1f4a558ed512a41f818c732435e7e59e664e8b933",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/TransferFinite.lean"
+    },
+    "Contracts.v1.WitnessGeometry": {
+      "kind": "project-rebuilt",
+      "sha256": "bbd3f28678e95ace37f07c0d993992f20fd4dc4d565ccbc11d0b8a4f1ba822bc",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/WitnessGeometry.lean"
+    },
+    "Mathlib.Algebra.BigOperators.Fin": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/Fin.lean",
+      "sha256": "4fe78cba9cdeac4eb8badbdd6359b055031900906fb94f3e51aba6d81451dbd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Fin.lean"
+    },
+    "Mathlib.Algebra.BigOperators.Ring.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+      "sha256": "472cd5000412d8ec35c8b9ee919b2aeedbf0a830033a55009aad436595923809",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Ring/Finset.lean"
+    },
+    "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean",
+      "sha256": "3be238a809840f7dff49a99a02fd83fd5fc93d3efd5f8f34354c5e5c4e796e7d",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean"
+    },
+    "Mathlib.Analysis.Convex.StdSimplex": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Convex/StdSimplex.lean",
+      "sha256": "aec844bc79d4bd36cea30d1bf2d0999ad6e82ee1d8715dc8f1fa751c2522785c",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/StdSimplex.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Exponential": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Exponential.lean",
+      "sha256": "ccf78eb419eed1c6f1172d4e62609d7942f028c9ea037eed54d7b095c80362c0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Exponential.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+      "sha256": "1f36a9802233e878953d809b16e020beaf0ace5afd4c8279d47b52af6ee186bf",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+      "sha256": "004e4d6013b20f95feedfcb23b257c07eb1ee4c7645b9d81fd6e4cb684a116d6",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+      "sha256": "1f4e64fc28a20f4e19291a94dafd68daa82588b46f6ee5b9203df373ba595fa3",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Real.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Sqrt": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Sqrt.lean",
+      "sha256": "38c916b763ade8ed7174488bad31aee40735d03877a1bf9e540c1cf0107ec1ab",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Sqrt.lean"
+    },
+    "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean",
+      "sha256": "91cd08147cff7559f9d85be230e04662c3aaa401078ef5c561bafff0a4ea87de",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean"
+    },
+    "Mathlib.Data.Fin.Tuple.Sort": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fin/Tuple/Sort.lean",
+      "sha256": "9075b412b4e447c4a01590aceaf0f05d4cf58c419192eb016e9171241a753567",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fin/Tuple/Sort.lean"
+    },
+    "Mathlib.Data.Fintype.BigOperators": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/BigOperators.lean",
+      "sha256": "bfa35992c02f47d7c78a5425ea3c4eecba0ad54de1b5752db565b37de11148c0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/BigOperators.lean"
+    },
+    "Mathlib.Data.Fintype.CardEmbedding": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/CardEmbedding.lean",
+      "sha256": "c80a43cc580276d27c987976ee393659992710aab844c84dcc9a91af4cdf0a3c",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/CardEmbedding.lean"
+    },
+    "Mathlib.Data.Fintype.EquivFin": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/EquivFin.lean",
+      "sha256": "2df4d785c723a7cf6ce60790a545497250b63f52ecd7bdd5039fa5ea3537acb8",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/EquivFin.lean"
+    },
+    "Mathlib.Data.Fintype.Vector": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/Vector.lean",
+      "sha256": "0a0072bcc2fbb9d95b6ae7acfdb43424990820f6b90cd5d9adebad5b391a3d95",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/Vector.lean"
+    },
+    "Mathlib.Data.List.Lex": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/List/Lex.lean",
+      "sha256": "6495ae02a429a2011b5873f559e0c6908f832b9f2a026ddab4af530b07660425",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/List/Lex.lean"
+    },
+    "Mathlib.Data.Nat.Choose.Cast": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Choose/Cast.lean",
+      "sha256": "bb2345595880ff28fff3cdd8219bcb5bf28659eb4d39de65d3bd1df1476c15bc",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Cast.lean"
+    },
+    "Mathlib.Data.Nat.Choose.Sum": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Choose/Sum.lean",
+      "sha256": "c7ce3caf261d7993044a2bfd52761152f9c24fe1066989e0c910af58a50c305d",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Sum.lean"
+    },
+    "Mathlib.Data.Nat.Factorial.BigOperators": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Factorial/BigOperators.lean",
+      "sha256": "784d9aa990e125c1d9b6c06c65186f894692569cc909b2ff792045c8f5db8bd0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/BigOperators.lean"
+    },
+    "Mathlib.Data.Nat.Factorial.Cast": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Factorial/Cast.lean",
+      "sha256": "6ce6dd4a5af21056cdadf1c5fb4f4ec983d13864214b7b700c44caad48779b29",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/Cast.lean"
+    },
+    "Mathlib.Data.Real.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Real/Basic.lean",
+      "sha256": "b1dde0e82be30e8a9ca87b23c46d04afc92be61818622ba6d4603daa4d4a9f70",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Real/Basic.lean"
+    },
+    "Mathlib.Data.Vector.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Vector/Basic.lean",
+      "sha256": "9b4928b3f1d0b81bb040f05a950b97ef9a5a9b374779d87fe9314693fda85bcf",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Vector/Basic.lean"
+    },
+    "Mathlib.Logic.Equiv.Fintype": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Logic/Equiv/Fintype.lean",
+      "sha256": "cddcf2bf85395affa0b01435380f29f284bf216e353d79c215065ec74131049b",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Logic/Equiv/Fintype.lean"
+    },
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "sha256": "93908eb0c771ba8edcb47537dfe1a40e98a1545be9d427c1eb9823d44decdcd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean"
+    },
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
+      "sha256": "ececad97c60703de0e0ee2f47bca44a017aa8537f7186412f69b169f026e92fd",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean"
+    },
+    "Mathlib.Order.Interval.Set.Union": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/Interval/Set/Union.lean",
+      "sha256": "0609bc9d79421b5690dca5429a67571ab70d1ca9db34b7e4c3dbe920598d0eb2",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/Interval/Set/Union.lean"
+    },
+    "Mathlib.Order.WithBot": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/WithBot.lean",
+      "sha256": "1167c56b29f831e2dbc02a98bd73734867f047b67ba111bc9dba5c9a2bfbbf93",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/WithBot.lean"
+    },
+    "Mathlib.Probability.Distributions.Poisson.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Distributions/Poisson/Basic.lean",
+      "sha256": "61e73e5005dff57b502ab5ac900c1ed8a2b7b424d715b71324d1c08eb5791be1",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Poisson/Basic.lean"
+    },
+    "Mathlib.Probability.Distributions.Uniform": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Distributions/Uniform.lean",
+      "sha256": "c3492e1ba311263248302cf310f45e44d49524cfbba52d8fc27207be80a50ab9",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Uniform.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Constructions.lean",
+      "sha256": "09a7cf241524c158d4174e994e04140901630c7e0629ceee9b7ba7ec347d2cd4",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Constructions.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "sha256": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean"
+    },
+    "Mathlib.Tactic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Tactic.lean",
+      "sha256": "6ec9a1714e9fa472f7e5614792f1aa5a65f360ec56688b0dc765d1bee2e1bdd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Tactic.lean"
+    },
+    "RiffleLowerV2.Factorial.Basic": {
+      "kind": "project-rebuilt",
+      "sha256": "eb419c20e5df3505d6ca1093d964281a0de9be86454d0f9abc59f40874b11542",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Basic.lean"
+    },
+    "RiffleLowerV2.Factorial.Bonferroni": {
+      "kind": "project-rebuilt",
+      "sha256": "3d42d1aeea02f34e00ad95ce65feb993cffc9e4eefec978c6e20b3abcc012a7a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Bonferroni.lean"
+    },
+    "RiffleLowerV2.Factorial.Central": {
+      "kind": "project-rebuilt",
+      "sha256": "204e6b7db7876ed5ae3b503fff91b62cca95c9fcdc5fd54977ae5bbc5e707da1",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Central.lean"
+    },
+    "RiffleLowerV2.Factorial.Exact": {
+      "kind": "project-rebuilt",
+      "sha256": "65640e94b727947d46db81b5a6e8f4241b041ba959df3d8ba36ed9e459855900",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Exact.lean"
+    },
+    "RiffleLowerV2.Factorial.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "376da3c842deb56c2795cf088e889a0d7625e77a75251aa155c498da92615905",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Main.lean"
+    },
+    "RiffleLowerV2.Factorial.MomentScales": {
+      "kind": "project-rebuilt",
+      "sha256": "8c55feee7a5e2f8d53d7ae9f3f7b91dace8c795f7f830b411eca5febb67d0192",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/MomentScales.lean"
+    },
+    "RiffleLowerV2.Factorial.PoissonPolynomial": {
+      "kind": "project-rebuilt",
+      "sha256": "f6d6b631ad6e3debd9a945ce4dbd26b43c3fcecfd55a2e71369d822928e73af9",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean"
+    },
+    "RiffleLowerV2.Factorial.PolynomialMoments": {
+      "kind": "project-rebuilt",
+      "sha256": "bcf740f632a9a93be1742ce57eb7b858b490bd8e50b1e81ad4a403bf27783201",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/PolynomialMoments.lean"
+    },
+    "RiffleLowerV2.Factorial.Ratios": {
+      "kind": "project-rebuilt",
+      "sha256": "bb86da0ab9a0fbf32179a5da3457003ec1c7311d06586b85a8fa9602fa4195dc",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Ratios.lean"
+    },
+    "RiffleLowerV2.Factorial.Relative": {
+      "kind": "project-rebuilt",
+      "sha256": "4e7fc5bea4c5c2bc932299f31d83d626617edbd304b1134c2b06485ad2684e41",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Relative.lean"
+    },
+    "RiffleLowerV2.Factorial.RelativeFromExact": {
+      "kind": "project-rebuilt",
+      "sha256": "2a056832b3a61b568b811ad3a6c04f608485564c2526744120308a90019517ee",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean"
+    },
+    "RiffleLowerV2.Factorial.RelativeTargets": {
+      "kind": "project-rebuilt",
+      "sha256": "4fa5664ef3751c5e983fde4b4cb0c8eb4f4d1476b0ca2054a948647855e5d928",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeTargets.lean"
+    },
+    "RiffleLowerV2.Factorial.Requests": {
+      "kind": "project-rebuilt",
+      "sha256": "8dd04a91e84b7b6f0cd74e9c788c244c4b52a6cf12515649f1671023a3532be3",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Requests.lean"
+    },
+    "RiffleLowerV2.Factorial.Residual": {
+      "kind": "project-rebuilt",
+      "sha256": "2988171f3c337787e9f484eadc840b5af6835a6589709c2fba2268d96f4025b2",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean"
+    },
+    "RiffleLowerV2.Factorial.ResidualEstimates": {
+      "kind": "project-rebuilt",
+      "sha256": "2dfdc4475858b67b4b5846bf8a86cb6fd9d62a5da715bf84f96f8878635eb4fc",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean"
+    },
+    "RiffleLowerV2.Shared.Adapters": {
+      "kind": "project-rebuilt",
+      "sha256": "737a259499bd3eea31843ddc6a82e498a58dc606c6a94a84b409eb35fe179253",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Adapters.lean"
+    },
+    "RiffleLowerV2.Shared.Empirical": {
+      "kind": "project-rebuilt",
+      "sha256": "84ea013c6f9c64073700be1dced470f11fa30a9b3d0b79a59dde63a099cf817e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Empirical.lean"
+    },
+    "RiffleLowerV2.Shared.Geometry": {
+      "kind": "project-rebuilt",
+      "sha256": "cb992d0297bcf75ada15ff6154a146caadfa3d984629aafd70f74feef6bfbb09",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Geometry.lean"
+    },
+    "RiffleLowerV2.Shared.Model": {
+      "kind": "project-rebuilt",
+      "sha256": "cceadf1b4a5be2f412fe15a9b52b7b7f3c67bfa6d19270955f7c338f01e90930",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Model.lean"
+    },
+    "RiffleLowerV2.Shared.Path": {
+      "kind": "project-rebuilt",
+      "sha256": "513afea203a5ad1a3b851fdb8317b4f6473d2c54e1c0466139b349530563acbf",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Path.lean"
+    },
+    "RiffleLowerV2.Shared.Smoke": {
+      "kind": "project-rebuilt",
+      "sha256": "41544e0cc785a589dedcd14757b1bf2b69747c5512193f80fcdda277c9b1939a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Smoke.lean"
+    },
+    "RiffleLowerV2.Shared.Statistics": {
+      "kind": "project-rebuilt",
+      "sha256": "dd57ff2f4bbac3e26176809ee15081b58510b041e6dee418f65d31d4fc26fb69",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Statistics.lean"
+    },
+    "RiffleShuffle.Basic": {
+      "kind": "project-rebuilt",
+      "sha256": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Basic.lean"
+    },
+    "RiffleShuffle.Graphs": {
+      "kind": "project-rebuilt",
+      "sha256": "d17dc327333df268b84ec9130911bba2d5d16130caaa7ffc8397db20e4601362",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Graphs.lean"
+    },
+    "RiffleShuffle.Matrices": {
+      "kind": "project-rebuilt",
+      "sha256": "2a674866084434aa87978a35af366251df362fa0f9873b4493c136aa69e3c317",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Matrices.lean"
+    },
+    "RiffleShuffle.Profiles": {
+      "kind": "project-rebuilt",
+      "sha256": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Profiles.lean"
+    },
+    "RiffleShuffle.Words": {
+      "kind": "project-rebuilt",
+      "sha256": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Words.lean"
+    },
+    "RiffleTimeProfile.Ambient": {
+      "kind": "project-rebuilt",
+      "sha256": "75d4558ff24fa1fc18cd09b0b1c2d0ea33140195317686e963b36038226eeea8",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Ambient.lean"
+    },
+    "RiffleTimeProfile.Base": {
+      "kind": "project-rebuilt",
+      "sha256": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Base.lean"
+    },
+    "RiffleTimeProfile.FixedCountModel": {
+      "kind": "project-rebuilt",
+      "sha256": "d5c7cd27f01d77063de5a5dee6f0764e36620cfa997f1660f27c3982e71fde4e",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean"
+    }
+  },
+  "new_output_sha256": {
+    ".build/lib/lean/RiffleLowerV2/Factorial/Basic.olean": "0d59b3d6a45b555bbaa0da640d75a1ba1b96d642b73b909cdc32c2fd4e44dcba",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Bonferroni.olean": "3f532c32db0fc7e3594bd953b4f5dca36267758470f9d02a2073ffe8a967d0bb",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Central.olean": "61ab3878a54b0e57551bb51faf135ea079bb37b94913e824d7af5d2c16dd1c04",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Exact.olean": "3533246ea9b018961e361e3b576779cf04cc7f3cc1a918063a68496aa166f3e4",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Main.olean": "c11c20665fcd03360ef647ab39e6d2a07243be5a7dadbf0e92a179df886f3c0d",
+    ".build/lib/lean/RiffleLowerV2/Factorial/MomentScales.olean": "b6b5543db15331de814f6bb2f9a03a533b6ce7c95a9797d66e6de03d6647d6ed",
+    ".build/lib/lean/RiffleLowerV2/Factorial/PoissonPolynomial.olean": "8a5c9acc1370b00cd0f709f4a8fd5eaf0fc5f7704d234f87f1cea699f71e2fb6",
+    ".build/lib/lean/RiffleLowerV2/Factorial/PolynomialMoments.olean": "31160961bc26083f4f4d7e7f71ede15707a4d8625bba676dd9c7f954d4e695d2",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Ratios.olean": "98fd2ffcf6b6b9f41a5a18ddd7d6f26a3ad00890d7e0df5cff1cc66e716a8e95",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Relative.olean": "55d8bbba8c35aeae54eada7cafa5d0c030cd9ad30a796309655f1947f5c6f2f0",
+    ".build/lib/lean/RiffleLowerV2/Factorial/RelativeFromExact.olean": "de82efa4eeebd45d440ddeb0407911cd3227c1169f06493ee569c6c76aa07478",
+    ".build/lib/lean/RiffleLowerV2/Factorial/RelativeTargets.olean": "4f70c48e8847dbec1121b0a4c1ae63af01621cd5a2b701074e85af7cbe50c171",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Requests.olean": "15540777071e0517db18cc461d6ef0342018f358b3cbd1192837127c86375ecb",
+    ".build/lib/lean/RiffleLowerV2/Factorial/Residual.olean": "d5c103a2858cb0f64c872766583e19b08b8014ce0257a0ae691edbaaffcfdc4a",
+    ".build/lib/lean/RiffleLowerV2/Factorial/ResidualEstimates.olean": "ab01b956c8e97e0bc112532d675fe32db9b1d940ded55a770e43476c1b1496e5"
+  },
+  "newly_built_modules": [
+    "RiffleLowerV2.Factorial.Basic",
+    "RiffleLowerV2.Factorial.PolynomialMoments",
+    "RiffleLowerV2.Factorial.Bonferroni",
+    "RiffleLowerV2.Factorial.PoissonPolynomial",
+    "RiffleLowerV2.Factorial.Central",
+    "RiffleLowerV2.Factorial.Ratios",
+    "RiffleLowerV2.Factorial.ResidualEstimates",
+    "RiffleLowerV2.Factorial.Relative",
+    "RiffleLowerV2.Factorial.MomentScales",
+    "RiffleLowerV2.Factorial.RelativeFromExact",
+    "RiffleLowerV2.Factorial.Requests",
+    "RiffleLowerV2.Factorial.Exact",
+    "RiffleLowerV2.Factorial.Residual",
+    "RiffleLowerV2.Factorial.RelativeTargets",
+    "RiffleLowerV2.Factorial.Main"
+  ],
+  "recorded_at": "2026-10-01T16:15:31.374502+00:00",
+  "registered_imports": [
+    "RiffleLowerV2.Factorial.Main"
+  ],
+  "required_exports": [
+    {
+      "name": "RiffleLowerV2.Factorial.exactJointFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ExactJointFactorial"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.relativeJointFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RelativeJointFactorial"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.residualJointFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ResidualJointFactorial"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.residualRelativeFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ResidualRelativeFactorial"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.residualMeanComparison",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ResidualMeanComparison"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.bonferroniSandwich",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.BonferroniSandwich"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.bonferroniProduct",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.BonferroniProduct"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.centralComparison",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.CentralComparison"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.centralComparisonOne",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.CentralComparisonOne"
+    },
+    {
+      "name": "RiffleLowerV2.Factorial.rareSandwich",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RareSandwich"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Fifteen Factorial modules rebuilt; ten exact frozen targets and actual residual conditional-mean identification verified. No LB01/LB02 proof import; independently checked local source port retains provenance. Build has two tactic-style linter warnings, no proof errors; new audit passed with warnings as errors. Occupancy and final endpoints are not certified.",
+  "status": "INTEGRATED_COMPLETED_INPUT",
+  "verification_command": [
+    "python3",
+    "scripts/check_dependency_receipt.py",
+    "LB03-v1"
+  ]
+}

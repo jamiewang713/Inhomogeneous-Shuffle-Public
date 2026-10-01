@@ -1,0 +1,28 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.Asymptotic']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean:43:5: error(lean.unknownIdentifier): Unknown constant `Real.tendsto_rpow_atTop`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean:47:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  @Tendsto ℕ ℝ ((fun x => Real.exp (-x)) ∘ fun x => ↑x ^ (a * (2 * δ)) / 144) atTop (𝓝 0)
+but is expected to have type
+  @Tendsto ℕ ℝ (fun N => Real.exp (-(↑N ^ (a * (2 * δ)) / 144))) atTop (𝓝 0)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean:54:5: error(lean.unknownIdentifier): Unknown constant `Real.tendsto_rpow_atTop`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean:101:5: error(lean.unknownIdentifier): Unknown constant `Real.tendsto_rpow_atTop`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean:102:18: error(lean.unknownIdentifier): Unknown constant `Real.tendsto_rpow_mul_exp_neg_mul_atTop_nhds_zero`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean:99:76: error: unsolved goals
+β : ℝ
+hβ : 0 < β
+hp : Tendsto (fun N => ↑N ^ β) atTop atTop
+⊢ Tendsto (fun N => (↑N + 1) * Real.exp (-↑N ^ β)) atTop (𝓝 0)
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/Asymptotic.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean']' returned non-zero exit status 1.

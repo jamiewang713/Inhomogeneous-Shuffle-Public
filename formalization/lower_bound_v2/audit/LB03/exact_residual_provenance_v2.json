@@ -1,0 +1,22 @@
+{
+  "source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual.lean",
+  "source_sha256": "c2ab734fc2a452b6ae2d8541d982ad5589fbf99d2b7e8850e0f2bf6b6eb64d62",
+  "source_declarations": "unusedRows through residualConditionalExpect; uniform conditional probability/expectation normalization adapted to local Basic.lean",
+  "destination": "RiffleLowerV2/Factorial/Residual.lean",
+  "import_dependency": "none on Thinning; imported source is independently rebuilt in LB03 namespace",
+  "mathematical_contribution": "explicit restriction/gluing equivalence of conditioned canonical sample with residual canonical sample; exact factorial specialization added locally",
+  "status": "CHECKED_LB03_BUILD_OK",
+  "checked_command": "python3 scripts/lane.py LB03 RiffleLowerV2.Factorial.Residual",
+  "checked_log": "audit/LB03/exact_build_08.log",
+  "adaptations": [
+    "Generic count_split now carries DecidableEq for the compared color type; this supports both digit and complete-word counts without mismatched finite instances.",
+    "Finite probability normalization uses Factorial.Basic finite-expectation helpers.",
+    "Residual full-word count identity, residual factorial specialization, and conditional order-one mean identification are added locally."
+  ],
+  "artifact_sha256": {
+    "RiffleLowerV2/Factorial/Requests.lean": "8dd04a91e84b7b6f0cd74e9c788c244c4b52a6cf12515649f1671023a3532be3",
+    "RiffleLowerV2/Factorial/Exact.lean": "65640e94b727947d46db81b5a6e8f4241b041ba959df3d8ba36ed9e459855900",
+    "RiffleLowerV2/Factorial/Residual.lean": "2988171f3c337787e9f484eadc840b5af6835a6589709c2fba2268d96f4025b2",
+    "audit/LB03/exact_build_08.log": "32f5a5e84a25cc51a0257e48c5f828bc766e75c802ffbc8cfa95b201cac641e2"
+  }
+}

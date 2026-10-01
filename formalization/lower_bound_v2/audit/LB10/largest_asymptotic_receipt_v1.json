@@ -1,0 +1,30 @@
+{
+  "status": "PROVED_COMPONENT",
+  "contract_unchanged": true,
+  "entry_point": "RiffleLowerV2.EmpiricalLower.LargestAsymptotic",
+  "required_export": {
+    "name": "RiffleLowerV2.EmpiricalLower.largestOnly",
+    "type": "RiffleLowerV2.Targets.LargestOnlyTarget"
+  },
+  "additional_uniform_export": "RiffleLowerV2.EmpiricalLower.largestMean_uniform",
+  "source_label": "prop:largest-prefix",
+  "source_hashes": {
+    "RiffleLowerV2/EmpiricalLower/LargestAsymptotic.lean": "13bf9c58e9dfa5bf30702ee65ac29b41fc3b70acff226ab6461b3de437d0b51b",
+    "RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.lean": "a750e32cbafb793492c9f53f635eb60661ba4345dd8eacf1fd9e65ed91b18d93"
+  },
+  "dependency_source_hashes": {
+    "RiffleLowerV2/EmpiricalLower/LargestFinite.lean": "08c491435949bc39be23bebfcc8136a53574785b28ac03e83250d33e10a1cc7d"
+  },
+  "build_command": "python3 audit/LB10/compile_lane.py largest-asymptotic-dev06.log RiffleLowerV2.EmpiricalLower.LargestAsymptotic",
+  "evidence_hashes": {
+    "audit/LB10/largest-asymptotic-dev06.log": "f8f047cd8cec4ef4cf5b43524e40205670c1aab3ca6db31a1390bca669ad03ed",
+    "audit/LB10/largest_asymptotic_check_v1.lean": "29ea68c90bd17256aedd68e3f144c2d120b32ee50c67d96043b2f8c4d841241d",
+    "audit/LB10/largest_asymptotic_axioms_v1.log": "bf07d55c35aaa7a481c173e5abe8a191d7c6740f5e0b54e43c238febe053b4b6"
+  },
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "pending_component_obligations": []
+}

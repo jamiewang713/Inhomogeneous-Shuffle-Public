@@ -1,0 +1,44 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Hypergeometric.lean:74:8: warning: This simp argument is unused:
+  mul_pos_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.pos_iff_ne_zero, Nat.choose_eq_zero_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean:188:53: error: unsolved goals
+p : HypergeomParams
+f : ℕ → ℝ
+q : Fin (p.markedComplement.draws + 1)
+hq : ↑q ≤ p.draws
+⊢ f ↑q * (↑(p.marked.choose (p.draws - ↑q)) * ↑((p.population - p.marked).choose ↑q) / ↑(p.population.choose p.draws)) =
+    f (p.draws - ↑q.rev) *
+      (↑(p.marked.choose ↑q.rev) * ↑((p.population - p.marked).choose (p.draws - ↑q.rev)) /
+        ↑(p.population.choose p.draws))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean:195:39: warning: This simp argument is unused:
+  Fin.val_rev
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [law, weight, markedComplement, Nat.sub_sub_self p.marked_le, Nat.sub_sub_self hq, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean:196:34: warning: This simp argument is unused:
+  Nat.sub_sub_self hq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [law, weight, markedComplement, Fin.val_rev, Nat.sub_sub_self p.marked_le, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB02/lib/lean/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean']' returned non-zero exit status 1.

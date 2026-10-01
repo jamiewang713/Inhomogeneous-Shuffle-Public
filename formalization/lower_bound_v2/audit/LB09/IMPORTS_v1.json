@@ -1,0 +1,109 @@
+{
+  "RiffleLowerV2/Localization/Bridge.lean": [
+    "RiffleLowerV2.Localization.Words"
+  ],
+  "RiffleLowerV2/Localization/ColdSet.lean": [
+    "RiffleLowerV2.Localization.ProbabilityIntervals"
+  ],
+  "RiffleLowerV2/Localization/Concentration.lean": [
+    "RiffleLowerV2.Thinning.Main",
+    "RiffleLowerV2.Localization.Geometry.Rates"
+  ],
+  "RiffleLowerV2/Localization/Edges.lean": [
+    "RiffleLowerV2.Model.Sorting"
+  ],
+  "RiffleLowerV2/Localization/Endpoints/Check.lean": [
+    "RiffleLowerV2.Localization.Endpoints"
+  ],
+  "RiffleLowerV2/Localization/Endpoints/Coordinates.lean": [
+    "RiffleLowerV2.Localization.Endpoints.Partitions"
+  ],
+  "RiffleLowerV2/Localization/Endpoints/Counts.lean": [
+    "RiffleLowerV2.Localization.Endpoints.Coordinates"
+  ],
+  "RiffleLowerV2/Localization/Endpoints/Error.lean": [
+    "RiffleLowerV2.Localization.Endpoints.Means",
+    "RiffleLowerV2.Localization.Endpoints.Counts"
+  ],
+  "RiffleLowerV2/Localization/Endpoints/Means.lean": [
+    "RiffleLowerV2.Localization.Endpoints.ProductWeights"
+  ],
+  "RiffleLowerV2/Localization/Endpoints/Partitions.lean": [
+    "RiffleLowerV2.Localization.WordOrder"
+  ],
+  "RiffleLowerV2/Localization/Endpoints/ProductWeights.lean": [
+    "RiffleLowerV2.Localization.Endpoints.Partitions"
+  ],
+  "RiffleLowerV2/Localization/Endpoints.lean": [
+    "RiffleLowerV2.Localization.Endpoints.Error"
+  ],
+  "RiffleLowerV2/Localization/EventBounds.lean": [
+    "RiffleLowerV2.Localization.Endpoints",
+    "RiffleLowerV2.Localization.Concentration"
+  ],
+  "RiffleLowerV2/Localization/Events.lean": [
+    "RiffleLowerV2.Localization.EventBounds",
+    "RiffleLowerV2.Localization.RankBarriers",
+    "RiffleLowerV2.Localization.Edges",
+    "RiffleLowerV2.Localization.Probability"
+  ],
+  "RiffleLowerV2/Localization/Geometry/Algebra.lean": [
+    "Contracts.v1.WitnessGeometry"
+  ],
+  "RiffleLowerV2/Localization/Geometry/Bounds.lean": [
+    "RiffleLowerV2.Localization.Geometry.Algebra",
+    "RiffleLowerV2.Localization.Geometry.Empirical"
+  ],
+  "RiffleLowerV2/Localization/Geometry/Check.lean": [
+    "RiffleLowerV2.Localization.Geometry"
+  ],
+  "RiffleLowerV2/Localization/Geometry/Consequences.lean": [
+    "RiffleLowerV2.Localization.Bridge"
+  ],
+  "RiffleLowerV2/Localization/Geometry/Empirical.lean": [
+    "RiffleLowerV2.Witness.Main",
+    "RiffleLowerV2.Shared.Adapters"
+  ],
+  "RiffleLowerV2/Localization/Geometry/Rates.lean": [
+    "RiffleLowerV2.Types.Main",
+    "RiffleLowerV2.Witness.Rounding",
+    "RiffleLowerV2.Localization.Geometry.Algebra"
+  ],
+  "RiffleLowerV2/Localization/Geometry.lean": [
+    "RiffleLowerV2.Localization.Geometry.Bounds",
+    "RiffleLowerV2.Localization.Geometry.Rates",
+    "RiffleLowerV2.Localization.Geometry.Consequences",
+    "RiffleLowerV2.Localization.ColdSet"
+  ],
+  "RiffleLowerV2/Localization/Intervals.lean": [
+    "RiffleLowerV2.Shared.Geometry",
+    "Mathlib.Data.Int.Interval"
+  ],
+  "RiffleLowerV2/Localization/Main.lean": [
+    "RiffleLowerV2.Localization.Geometry",
+    "RiffleLowerV2.Localization.Events",
+    "RiffleLowerV2.Witness.Main"
+  ],
+  "RiffleLowerV2/Localization/Probability.lean": [
+    "RiffleLowerV2.Thinning.PMFTools"
+  ],
+  "RiffleLowerV2/Localization/ProbabilityIntervals.lean": [
+    "RiffleLowerV2.Localization.Intervals",
+    "RiffleLowerV2.Localization.WordOrder"
+  ],
+  "RiffleLowerV2/Localization/RankBarriers.lean": [
+    "RiffleLowerV2.Localization.Words",
+    "RiffleLowerV2.Localization.Endpoints.Coordinates",
+    "RiffleLowerV2.Localization.Intervals",
+    "RiffleLowerV2.Model.Sorting"
+  ],
+  "RiffleLowerV2/Localization/WordOrder.lean": [
+    "Contracts.v1.WitnessGeometry",
+    "RiffleLowerV2.Thinning.PrefixCoordinates"
+  ],
+  "RiffleLowerV2/Localization/Words.lean": [
+    "RiffleLowerV2.Localization.WordOrder",
+    "RiffleLowerV2.Thinning.MaximalWord",
+    "RiffleLowerV2.Types.MassBins"
+  ]
+}

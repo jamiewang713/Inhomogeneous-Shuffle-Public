@@ -1,0 +1,30 @@
+import RiffleLowerV2.Occupancy.Nonrare
+
+#check RiffleLowerV2.Occupancy.nonrare_pair_relative
+#print axioms RiffleLowerV2.Occupancy.eventual_nonrare_budgets
+#print axioms RiffleLowerV2.Occupancy.nonrare_probability_lower
+#print axioms RiffleLowerV2.Occupancy.large_word_complement
+#print axioms RiffleLowerV2.Occupancy.nonrare_pair_relative
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_hasDerivAt
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_continuous
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_mono
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_lower
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_pos
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_upper
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_rare
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_elasticity
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_lower_min
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_div_sq_antitone
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_scale_compare
+#print axioms RiffleLowerV2.Occupancy.poissonCollision_stability
+#print axioms RiffleLowerV2.Occupancy.log_affine_mul_rpow_tendsto
+#print axioms RiffleLowerV2.Occupancy.eventually_log_affine_mul_rpow_le
+#print axioms RiffleLowerV2.Occupancy.eventually_const_mul_rpow_le
+#print axioms RiffleLowerV2.Occupancy.eventually_negative_rpow_le
+#print axioms RiffleLowerV2.Occupancy.exp_logScale_mul
+#print axioms RiffleLowerV2.Occupancy.poissonBase_pos
+#print axioms RiffleLowerV2.Occupancy.tau_pos
+#print axioms RiffleLowerV2.Occupancy.tau_pow
+#print axioms RiffleLowerV2.Occupancy.benchmark_lower_at_tau
+#print axioms RiffleLowerV2.Occupancy.eventual_marginal_budgets
+#print axioms RiffleLowerV2.Occupancy.uniform_marginal

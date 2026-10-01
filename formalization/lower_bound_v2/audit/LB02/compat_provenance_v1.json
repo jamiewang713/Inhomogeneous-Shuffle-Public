@@ -1,0 +1,71 @@
+{
+  "lean/Shuffle/FiniteLaw.lean": {
+    "original_sha256": "f5dcbcfa6908503696d6edaa363a8a0919a22aabd8e01e9819e6f13d20baff17",
+    "port": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/FiniteLaw.lean",
+    "changes": [
+      "Import paths moved to RiffleLowerV2.Thinning.Compat",
+      "Namespace Shuffle moved to RiffleLowerV2.Thinning.Compat",
+      "Omit the unrelated variance_toPMF theorem and its direct Mathlib.Probability.Variance import; retain finite variance and finite-PMF expectation adapters"
+    ],
+    "port_sha256": "0aea699fe721acd93eb38772b280630b822dfa31495349baf55877110cd9d182"
+  },
+  "lean/Shuffle/Conditioning.lean": {
+    "original_sha256": "d38948fc44f5a107aa3aff794ffd20db7f87d901bc8c104eff4486e9937730b4",
+    "port": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean",
+    "changes": [
+      "Import paths moved to RiffleLowerV2.Thinning.Compat",
+      "Namespace Shuffle moved to RiffleLowerV2.Thinning.Compat"
+    ],
+    "port_sha256": "c4db2f88fe8520a8ff9ae9293957be5e96134ac472e01c99833e6ab434fb64ed"
+  },
+  "lean/Shuffle/Hypergeometric.lean": {
+    "original_sha256": "dd55c562c7b52821bbc06412786d1a2a98df0b9be97a41b6b0a4924254cb0809",
+    "port": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Hypergeometric.lean",
+    "changes": [
+      "Import paths moved to RiffleLowerV2.Thinning.Compat",
+      "Namespace Shuffle moved to RiffleLowerV2.Thinning.Compat"
+    ],
+    "port_sha256": "60ddfc6791ce509faac5cbebd3461406eb80f5b515e383499d86a5884f09655b"
+  },
+  "lean/Shuffle/HypergeometricMoments.lean": {
+    "original_sha256": "c667d6024b8e6aadf26c917e4bc97dbc13f5efb570af0edfbecef4283117b109",
+    "port": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricMoments.lean",
+    "changes": [
+      "Import paths moved to RiffleLowerV2.Thinning.Compat",
+      "Namespace Shuffle moved to RiffleLowerV2.Thinning.Compat",
+      "Update Nat.choose_mul hk hr to Nat.choose_mul hr for the pinned mathlib signature; statement unchanged"
+    ],
+    "port_sha256": "683abd2e64966bb8dfd229b9f7d0ab93bb2c68a446f2f5ee1d0fbbaa47615ce0"
+  },
+  "lean/Shuffle/SubsetSampling.lean": {
+    "original_sha256": "23da7cc182126632e7f5f0f0e897f9da15bd06aa17247023a9722ccd74d86042",
+    "port": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetSampling.lean",
+    "changes": [
+      "Import paths moved to RiffleLowerV2.Thinning.Compat",
+      "Namespace Shuffle moved to RiffleLowerV2.Thinning.Compat"
+    ],
+    "port_sha256": "a2f7d4d1335767c0e2f4b56a78a08e00fd3ded5b51b539c1dd87542251d03bd6"
+  },
+  "lean/Shuffle/ResidualSampling.lean": {
+    "original_sha256": "30c78cd52fd8ee7ea88f12fb2123d093573d6d4434c192a93a486df810f64d04",
+    "port": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean",
+    "changes": [
+      "Import paths moved to RiffleLowerV2.Thinning.Compat",
+      "Namespace Shuffle moved to RiffleLowerV2.Thinning.Compat"
+    ],
+    "port_sha256": "76adf5628deddc7f8f4c2e1eb141401599013e8158b321d8e2687da67b5809d8"
+  },
+  "lean/Shuffle/HypergeometricConcentration.lean": {
+    "original_sha256": "156d6e9aa774c2e3498975acfb64d9622dfc6d923cfcd96db5a866c4592e5a14",
+    "port": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean",
+    "changes": [
+      "Import paths moved to RiffleLowerV2.Thinning.Compat",
+      "Namespace Shuffle moved to RiffleLowerV2.Thinning.Compat",
+      "Trim analytic concentration suffix starting at old private expect_exp_le; new generic tails are implemented by the root lane",
+      "Omit unavailable and now-unused Mathlib.Data.Complex.Exponential import",
+      "Adjust field_simp and Fin.revPerm elaboration to Lean 4.33.1",
+      "Add expect_pow_le_all for all s>0 using the retained positive-u helper and retained expect_pow_le for s<=1"
+    ],
+    "port_sha256": "8cdacefcef6d8aa9302d9dd3907236b7f3a36c3dd372b2dddcc3fbf0f93335df"
+  }
+}

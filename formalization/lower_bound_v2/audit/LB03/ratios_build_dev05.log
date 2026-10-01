@@ -1,0 +1,67 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:48:23: error: unsolved goals
+K : ℕ
+M M' : ℝ
+n n' : Fin K → ℝ
+hM : 0 < M
+hM' : 0 < M'
+hn : ∀ (j : Fin K), 0 < n j
+hn' : ∀ (j : Fin K), 0 < n' j
+a b : ℝ
+hpop : |Real.log (M' / M)| ≤ b
+hpile : ∀ (j : Fin K), |Real.log (n' j / n j)| ≤ a
+hpop' : |Real.log M' - Real.log M| ≤ b
+hpile' : ∀ (j : Fin K), |Real.log (n' j) - Real.log (n j)| ≤ a
+heq :
+  Real.log M' + ∑ j, (Real.log (n' j) - Real.log M') - (Real.log M + ∑ j, (Real.log (n j) - Real.log M)) =
+    Real.log M' - Real.log M + ∑ j, (Real.log (n' j) - Real.log (n j) - (Real.log M' - Real.log M))
+⊢ ↑K * a + ↑K * b = ↑K * (a + b)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:55:91: error: unsolved goals
+N k K : ℕ
+cuts : Cuts k N K
+w : Word k K
+⊢ (∏ x, ↑(cuts.count x (List.Vector.get w x))) / ↑N ^ Finset.univ.card =
+      (∏ x, ↑(cuts.count x (List.Vector.get w x))) / ↑N ^ K ∨
+    N = 0
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:79:47: error: mod_cast has type
+  (0 : ℝ) < n j
+but is expected to have type
+  (0 : ℕ) < cuts.count j (List.Vector.get w j)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:81:4: error: mod_cast has type
+  (0 : ℕ) < cuts.count j (List.Vector.get w j) - usedCount p j (List.Vector.get w j)
+but is expected to have type
+  (0 : ℝ) < n' j
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:85:50: error: mod_cast has type
+  (0 : ℝ) < n j
+but is expected to have type
+  (0 : ℕ) < cuts.count j (List.Vector.get w j)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:94:31: error: Invalid argument name `R` for function `Nat.cast_nonneg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `α`: R̵α̲
+  • `n`: R̵n̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:131:54: error: mod_cast has type
+  ⌈↑(2 * b0) / c⌉₊ ≤ N
+but is expected to have type
+  ↑⌈↑(2 * b0) / c⌉₊ ≤ ?m.327
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:140:6: error: No goals to be solved
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:143:64: error: Invalid argument name `R` for function `Nat.cast_nonneg`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `α`: R̵α̲
+  • `n`: R̵n̲
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB03/lib/lean/RiffleLowerV2/Factorial/ResidualEstimates.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean']' returned non-zero exit status 1.

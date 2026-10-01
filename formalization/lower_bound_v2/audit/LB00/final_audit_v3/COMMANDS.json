@@ -1,0 +1,27 @@
+{
+  "LEAN_PATH": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/full_package_v1/lib/lean",
+  "commands": {
+    "CompletedOnly.lean": [
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
+      "-R",
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2",
+      "-DwarningAsError=true",
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/final_audit_v3/CompletedOnly.lean"
+    ],
+    "FullCheck.lean": [
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
+      "-R",
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2",
+      "-DwarningAsError=true",
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/final_audit_v3/FullCheck.lean"
+    ]
+  },
+  "invocation": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "scripts/final_audit_v3.py",
+    "--build-run",
+    "v1",
+    "--run",
+    "v3"
+  ]
+}

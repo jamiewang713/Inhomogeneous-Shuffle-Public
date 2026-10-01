@@ -1,0 +1,115 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RegimeAlgebra.lean:25:2: error: Tactic `constructor` failed: target is not an inductive datatype
+
+μ τ η q p E2 E3 : ℝ
+hμ : 0 ≤ μ
+hμτ : μ ≤ τ
+hτ : τ ≤ 1 / 2
+hη0 : 0 ≤ η
+hητ : η ≤ τ
+hq : 0 ≤ q
+hE2 : |E2 - μ ^ 2 * q| ≤ η * μ ^ 2 * q
+hE3 : |E3 - μ ^ 3 * q| ≤ η * μ ^ 3 * q
+hlo : E2 / 2 - E3 / 3 ≤ p
+hhi : p ≤ E2 / 2
+hM : 0 ≤ μ ^ 2 * q
+hM3 : 0 ≤ μ ^ 3 * q
+h2 : -(η * μ ^ 2 * q) ≤ E2 - μ ^ 2 * q ∧ E2 - μ ^ 2 * q ≤ η * μ ^ 2 * q
+h3 : -(η * μ ^ 3 * q) ≤ E3 - μ ^ 3 * q ∧ E3 - μ ^ 3 * q ≤ η * μ ^ 3 * q
+he : η * (μ ^ 2 * q) ≤ τ * (μ ^ 2 * q)
+he3 : η * (μ ^ 3 * q) ≤ 1 / 2 * (μ ^ 3 * q)
+hm : μ * (μ ^ 2 * q) ≤ τ * (μ ^ 2 * q)
+hτ0 : 0 ≤ τ
+hτM : 0 ≤ τ * μ ^ 2 * q
+⊢ |p - μ ^ 2 * q / 2| ≤ τ * μ ^ 2 * q
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RegimeAlgebra.lean:99:30: error: unexpected token '|*'; expected '|' or '|ₘ'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RegimeAlgebra.lean:98:39: error: unsolved goals
+case ht
+p q joint f g ε δ : ℝ
+hf : 0 ≤ f
+hg : 0 ≤ g
+hε0 : 0 ≤ ε
+hε : ε ≤ 1 / 2
+hδ : 0 ≤ δ
+hp : |p - f| ≤ ε * f
+hq : |q - g| ≤ ε * g
+hj : |joint - f * g| ≤ δ * f * g
+hp' : -(ε * f) ≤ p - f ∧ p - f ≤ ε * f
+hq' : -(ε * g) ≤ q - g ∧ q - g ≤ ε * g
+hεf : ε * f ≤ 1 / 2 * f
+hεg : ε * g ≤ 1 / 2 * g
+hp0 : 0 ≤ p
+hq0 : 0 ≤ q
+hpl : f / 2 ≤ p
+hql : g / 2 ≤ q
+hqu : q ≤ 3 / 2 * g
+hproduct : f / 2 * (g / 2) ≤ p * q
+hprod : f * g ≤ 4 * p * q
+hmul1 : |p - f| * q ≤ ε * f * q
+hmul2 : f * |q - g| ≤ f * (ε * g)
+hmul3 : ε * f * q ≤ ε * f * (3 / 2 * g)
+hεfg : 0 ≤ ε * f * g
+⊢ |p * q - f * g| ≤ |p - f|
+
+p q joint f g ε δ : ℝ
+hf : 0 ≤ f
+hg : 0 ≤ g
+hε0 : 0 ≤ ε
+hε : ε ≤ 1 / 2
+hδ : 0 ≤ δ
+hp : |p - f| ≤ ε * f
+hq : |q - g| ≤ ε * g
+hj : |joint - f * g| ≤ δ * f * g
+hp' : -(ε * f) ≤ p - f ∧ p - f ≤ ε * f
+hq' : -(ε * g) ≤ q - g ∧ q - g ≤ ε * g
+hεf : ε * f ≤ 1 / 2 * f
+hεg : ε * g ≤ 1 / 2 * g
+hp0 : 0 ≤ p
+hq0 : 0 ≤ q
+hpl : f / 2 ≤ p
+hql : g / 2 ≤ q
+hqu : q ≤ 3 / 2 * g
+hproduct : f / 2 * (g / 2) ≤ p * q
+hprod : f * g ≤ 4 * p * q
+hmul1 : |p - f| * q ≤ ε * f * q
+hmul2 : f * |q - g| ≤ f * (ε * g)
+hmul3 : ε * f * q ≤ ε * f * (3 / 2 * g)
+hεfg : 0 ≤ ε * f * g
+ht : |p * q - f * g| ≤ |p - f|
+⊢ |p * q - f * g| ≤ 3 * ε * f * g
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RegimeAlgebra.lean:82:35: error: unsolved goals
+p q joint f g ε δ : ℝ
+hf : 0 ≤ f
+hg : 0 ≤ g
+hε0 : 0 ≤ ε
+hε : ε ≤ 1 / 2
+hδ : 0 ≤ δ
+hp : |p - f| ≤ ε * f
+hq : |q - g| ≤ ε * g
+hj : |joint - f * g| ≤ δ * f * g
+hp' : -(ε * f) ≤ p - f ∧ p - f ≤ ε * f
+hq' : -(ε * g) ≤ q - g ∧ q - g ≤ ε * g
+hεf : ε * f ≤ 1 / 2 * f
+hεg : ε * g ≤ 1 / 2 * g
+hp0 : 0 ≤ p
+hq0 : 0 ≤ q
+hpl : f / 2 ≤ p
+hql : g / 2 ≤ q
+hqu : q ≤ 3 / 2 * g
+hproduct : f / 2 * (g / 2) ≤ p * q
+hprod : f * g ≤ 4 * p * q
+hmul1 : |p - f| * q ≤ ε * f * q
+hmul2 : f * |q - g| ≤ f * (ε * g)
+hmul3 : ε * f * q ≤ ε * f * (3 / 2 * g)
+hεfg : 0 ≤ ε * f * g
+hbench : |p * q - f * g| ≤ 3 * ε * f * g
+⊢ |joint - p * q| ≤ 4 * (δ + 3 * ε) * p * q
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB08/lib/lean/RiffleLowerV2/Occupancy/RegimeAlgebra.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RegimeAlgebra.lean']' returned non-zero exit status 1.

@@ -1,0 +1,67 @@
+/goal
+You are the Lean formalization agent for LB-00: Shared contract, definitions, and build foundation.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own the new shared definitions, package configuration, umbrella imports and integration manifests listed below. Do not modify lane-owned proof files or any historical freeze. Coordinate later additive shared changes explicitly. Review and version any necessary additive interface change before downstream lanes use it. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Start first. Later lanes depend on your CONTRACT_READY receipt.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/Shared/, Contracts/, audit/LB00/, package configuration, build tooling, source/provenance manifests, and umbrella imports
+
+AUTHORITATIVE SOURCE LABELS
+- thm:buffered-reduced-lower-bound
+- lem:ub-graph-representation
+- lem:lower-profile-transfer
+- prop:cold-lower
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/FREEZE.md
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/README.md
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/LowerBounds.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/FROZEN_CONTRACT.md
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Base.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/reviews/analytic_alternatives.md
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Matrices.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Graphs.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/compat/README.md
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/PROJECT_INTERFACES.md
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Establish the new integration package, not the final lower-bound proof. Your deliverable is the small compiled shared foundation that makes seven subsequent lanes genuinely independent.
+
+1. Reconstruct the lower proof's dependency graph once. Distinguish already checked declarations, definitions needing adapters, new lemmas, and the two final endpoints. Do not audit the whole upper-bound program or random-pile extension.
+2. Use Lean 4.33.1 with mathlib commit 0df444a360eaa60ab8c11dca51a86af692955474, matching the canonical time-profile and foundations packages. Inspect the installed runtime and compile a smoke test before recording the pin. Establish a package-local verified build entry point. Never mix .olean files from different Lean versions. Do not add both canonical RiffleTimeProfile and the identically named old vendor tree to the import path.
+3. Prefer TimeProfile.Cuts, ShuffleSample, and fixedCountPMF as the concrete matrix-law basis. Reuse existing deterministic word/graph definitions through explicit adapters. Fix one representation of variable-length prefixes, rows, lexicographic order, stable full-word sorting, component sorting, real-valued expectation, variance, and half-L1 total variation. Define the actual stable-sort pushforward law. Define the chronological physical forward law and its inverse unconditionally: the source endpoints E and M concern this process. Separately name any matrix-law intermediate endpoints. Proving the law identifications belongs to LB-01; definitions must not contain the desired identities as fields.
+4. Freeze zero-based Lean positions and the map i ↦ i+1 to manuscript ranks. State explicitly how [L,U) of zero-based indices corresponds to one-based (L,U]. Fix integer-path E(H), boundary, clipping H_q=(q+H_0)∩[N], and the observable ascent scan. Prove routine finite definitional adapters needed by multiple lanes.
+5. Define empirical A_N, B_{alpha,N}, J_{alpha,N}, H_{alpha,N} on S_N=floor(T log N)/log N, their exact grid sums, beta_N, F_{alpha,N}, and Lambda_{1,N}. These are bounded finite-column constructions and carry no macro-profile integrability hypothesis. All shared definitions must compile before the parallel lanes are released.
+6. Freeze TWO endpoints for the chronological physical inverse law (equivalently the forward law by proved inversion invariance). E: a uniform empirical positive-margin lower theorem for concrete deterministic cuts and local good columns, without any arbitrary TimeLaw assumption. In the cold branch include rho>0 and 2rho log k≤kappa0/100, with kappa0 fixed from its positive empirical margin; the largest-word branch needs no local-good assumption. M: a separately named macroscopic theorem UNDER explicit scalar time integrability, obtained from E by a proved transfer. Preserve old TimeLaw/AlmostLike/A/B definitions. Introduce an opt-in predicate, for the finite partition actually used, asserting interval integrability of its cell masses, a(t), and psi_t(alpha), alpha∈[2,4]. Choose and freeze that transfer partition before requiring its scalar-integrability predicate; do not assume integrability for an unrelated partition and then replace/refine it without proof. Do not require continuity, differentiability, a full measurable kernel, or macro J/H integrability merely for convenience. M is not the original unchanged totalized-TimeLaw theorem.
+7. Freeze exact typed interfaces for all lanes after independent mathematical, Lean-representation, and missing-hypothesis reviews. Pending results may be represented as proposition-valued target definitions and unproved text specifications, NEVER as axioms, instances, assumed theorems, or proof fields inserted into the final hypotheses. Separate witness/geometry DATA from the propositions their owners must prove.
+8. Specify quantifier order. Fixed k,T,positive margins,local-good parameters and accuracy precede N0; N,cuts,word families and selected witnesses follow N0. For M, the regular partition and rho/phi thresholds are chosen before N0; expose the dependence of N0 on fixed rho/phi/good-column constants. State uniformity as actual quantifiers, not a family of sequence-specific Tendsto statements.
+9. Assign exclusive paths to LB-01 through LB-12, following PLAN.txt. You alone own shared definitions, target declarations, package configuration, umbrella imports and dependency registration. Record source hashes and provenance of each imported/ported module. Old projects and freeze records stay unchanged. Required compatibility ports must have designated owners; avoid importing whole upper-proof trees for elementary helpers.
+
+Before releasing the contract, have independent agents compare the exact target types with the revised manuscript AND with the original frozen hypotheses. Record the integrability addition prominently. If a proposed interface would assume the desired witness, localization, concentration, graph-law equality or TV result, reject it.
+
+Release an explicit CONTRACT_READY receipt only after the shared definitions and smoke tests compile. There is no need to wait for the later proof lanes to finish. Do not claim the lower theorem is proved at this stage.
+
+ACCEPTANCE CRITERION
+A reproducible compiled RiffleLowerV2/Shared/ foundation, immutable versioned contract, typed target inventory, source/provenance hashes, ownership/dependency table, and CONTRACT_READY receipt. Pending mathematics remains explicitly unproved; no dummy declarations enter the build.

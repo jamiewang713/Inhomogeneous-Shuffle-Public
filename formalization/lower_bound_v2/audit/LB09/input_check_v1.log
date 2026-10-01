@@ -1,0 +1,17 @@
+RiffleLowerV2.Thinning.allPrefixConcentration : RiffleLowerV2.Targets.AllPrefixConcentration
+RiffleLowerV2.Thinning.prefixFailureUniform : RiffleLowerV2.Targets.PrefixFailureUniform
+RiffleLowerV2.Thinning.prefixTails : RiffleLowerV2.Targets.PrefixTails
+RiffleLowerV2.Thinning.exists_canonicalMaxWord {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N) :
+  ∃ w, RiffleLowerV2.IsCanonicalMaxWord cuts w
+RiffleLowerV2.Witness.coldWitness : RiffleLowerV2.Targets.ColdWitnessTarget
+RiffleLowerV2.Witness.empiricalTilt : RiffleLowerV2.Targets.EmpiricalTiltTarget
+RiffleLowerV2.Types.roundedType : RiffleLowerV2.Targets.RoundedTypeTarget
+RiffleLowerV2.Types.exists_type_partition {k : ℕ} (hk : 2 ≤ k) {xi : ℝ} (hxi : 0 < xi) (hxiK : xi < 1 / (4 * ↑k)) :
+  ∃ P, P.IsRegular xi 1
+RiffleLowerV2.Model.prefixRanks : RiffleLowerV2.Targets.PrefixRanks
+'RiffleLowerV2.Thinning.allPrefixConcentration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefixFailureUniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Witness.coldWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Witness.empiricalTilt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Types.roundedType' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Model.prefixRanks' depends on axioms: [propext, Classical.choice, Quot.sound]

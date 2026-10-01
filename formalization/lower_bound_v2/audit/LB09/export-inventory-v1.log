@@ -1,0 +1,20 @@
+{
+  "status": "LB09_PROVED",
+  "required_exports": {
+    "RiffleLowerV2.Localization.relativeEndpoint": "RiffleLowerV2.Targets.RelativeEndpointTarget",
+    "RiffleLowerV2.Localization.deterministicColdGeometry": "RiffleLowerV2.Targets.DeterministicColdGeometryTarget",
+    "RiffleLowerV2.Localization.localization": "RiffleLowerV2.Targets.LocalizationTarget",
+    "RiffleLowerV2.Localization.coldGeometryFromEmpirical": "RiffleLowerV2.Targets.ColdGeometryFromEmpiricalTarget",
+    "RiffleLowerV2.Localization.lB09": "RiffleLowerV2.Targets.LB09Target"
+  },
+  "compiled_declarations": 293,
+  "public_exports": 160,
+  "public_theorems": 152,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "frozen_target_changed": false,
+  "pending_LB09_proof_obligations": []
+}

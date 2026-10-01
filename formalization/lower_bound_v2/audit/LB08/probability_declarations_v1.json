@@ -1,0 +1,232 @@
+[
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_congr",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) {A B : \u03a9 \u2192 Prop},\n  (\u2200 (\u03c9 : \u03a9), A \u03c9 \u2194 B \u03c9) \u2192 RiffleLowerV2.probability P A = RiffleLowerV2.probability P B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_mono",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) {A B : \u03a9 \u2192 Prop},\n  (\u2200 (\u03c9 : \u03a9), A \u03c9 \u2192 B \u03c9) \u2192 RiffleLowerV2.probability P A \u2264 RiffleLowerV2.probability P B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_nonneg",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (A : \u03a9 \u2192 Prop), 0 \u2264 RiffleLowerV2.probability P A"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_le_one",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (A : \u03a9 \u2192 Prop), RiffleLowerV2.probability P A \u2264 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_true",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9), (RiffleLowerV2.probability P fun (x : \u03a9) => True) = 1"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_false",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9), (RiffleLowerV2.probability P fun (x : \u03a9) => False) = 0"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_not",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (A : \u03a9 \u2192 Prop),\n  (RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => \u00acA \u03c9) = 1 - RiffleLowerV2.probability P A"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_and_le_left",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (A B : \u03a9 \u2192 Prop),\n  (RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => A \u03c9 \u2227 B \u03c9) \u2264 RiffleLowerV2.probability P A"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.probability_and_le_right",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (A B : \u03a9 \u2192 Prop),\n  (RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => A \u03c9 \u2227 B \u03c9) \u2264 RiffleLowerV2.probability P B"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.expect_indicator_mul",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (A B : \u03a9 \u2192 Prop),\n  (RiffleLowerV2.expect P fun (\u03c9 : \u03a9) => (if A \u03c9 then 1 else 0) * if B \u03c9 then 1 else 0) =\n    RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => A \u03c9 \u2227 B \u03c9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.variance_eq",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (f : \u03a9 \u2192 \u211d),\n  RiffleLowerV2.variance P f = (RiffleLowerV2.expect P fun (\u03c9 : \u03a9) => f \u03c9 ^ 2) - RiffleLowerV2.expect P f ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.variance_nonneg",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (f : \u03a9 \u2192 \u211d), 0 \u2264 RiffleLowerV2.variance P f"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.chebyshev",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (f : \u03a9 \u2192 \u211d) (t : \u211d),\n  0 < t \u2192\n    (RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => t \u2264 |f \u03c9 - RiffleLowerV2.expect P f|) \u2264\n      RiffleLowerV2.variance P f / t ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.chebyshev_of_variance_le",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (f : \u03a9 \u2192 \u211d) (\u03b7 t : \u211d),\n  0 < RiffleLowerV2.expect P f \u2192\n    0 < t \u2192\n      RiffleLowerV2.variance P f \u2264 RiffleLowerV2.expect P f + \u03b7 * RiffleLowerV2.expect P f ^ 2 \u2192\n        (RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => t * RiffleLowerV2.expect P f \u2264 |f \u03c9 - RiffleLowerV2.expect P f|) \u2264\n          1 / (t ^ 2 * RiffleLowerV2.expect P f) + \u03b7 / t ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.lower_tail_success",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (f : \u03a9 \u2192 \u211d) (\u03b7 t : \u211d),\n  0 < RiffleLowerV2.expect P f \u2192\n    0 < t \u2192\n      RiffleLowerV2.variance P f \u2264 RiffleLowerV2.expect P f + \u03b7 * RiffleLowerV2.expect P f ^ 2 \u2192\n        1 - 1 / (t ^ 2 * RiffleLowerV2.expect P f) - \u03b7 / t ^ 2 \u2264\n          RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => (1 - t) * RiffleLowerV2.expect P f < f \u03c9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.positive_success",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (f : \u03a9 \u2192 \u211d) (\u03b7 : \u211d),\n  0 < RiffleLowerV2.expect P f \u2192\n    RiffleLowerV2.variance P f \u2264 RiffleLowerV2.expect P f + \u03b7 * RiffleLowerV2.expect P f ^ 2 \u2192\n      1 - 1 / RiffleLowerV2.expect P f - \u03b7 \u2264 RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => 0 < f \u03c9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "definition",
+    "name": "RiffleLowerV2.Occupancy.eventCount",
+    "type": "{\u03a9 : Type u_1} \u2192 {\u03b9 : Type u_2} \u2192 Finset \u03b9 \u2192 (\u03b9 \u2192 \u03a9 \u2192 Prop) \u2192 \u03a9 \u2192 \u211d"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.eventCount_nonneg",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03b9 : Type u_2} (W : Finset \u03b9) (A : \u03b9 \u2192 \u03a9 \u2192 Prop) (\u03c9 : \u03a9), 0 \u2264 RiffleLowerV2.Occupancy.eventCount W A \u03c9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.expect_eventCount",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03b9 : Type u_2} [inst : Fintype \u03a9] (P : PMF \u03a9) (W : Finset \u03b9) (A : \u03b9 \u2192 \u03a9 \u2192 Prop),\n  RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) = \u2211 i \u2208 W, RiffleLowerV2.probability P (A i)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.expect_eventCount_sq",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03b9 : Type u_2} [inst : Fintype \u03a9] (P : PMF \u03a9) (W : Finset \u03b9) (A : \u03b9 \u2192 \u03a9 \u2192 Prop),\n  (RiffleLowerV2.expect P fun (\u03c9 : \u03a9) => RiffleLowerV2.Occupancy.eventCount W A \u03c9 ^ 2) =\n    \u2211 i \u2208 W, \u2211 j \u2208 W, RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => A i \u03c9 \u2227 A j \u03c9"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.variance_eventCount",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03b9 : Type u_2} [inst : Fintype \u03a9] (P : PMF \u03a9) (W : Finset \u03b9) (A : \u03b9 \u2192 \u03a9 \u2192 Prop),\n  RiffleLowerV2.variance P (RiffleLowerV2.Occupancy.eventCount W A) =\n    \u2211 i \u2208 W,\n      \u2211 j \u2208 W,\n        ((RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => A i \u03c9 \u2227 A j \u03c9) -\n          RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j))"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.variance_eventCount_le",
+    "type": "\u2200 {\u03a9 : Type u_1} {\u03b9 : Type u_2} [inst : Fintype \u03a9] (P : PMF \u03a9) (W : Finset \u03b9) (A : \u03b9 \u2192 \u03a9 \u2192 Prop) (\u03b7 : \u211d),\n  0 \u2264 \u03b7 \u2192\n    (\u2200 i \u2208 W,\n        \u2200 j \u2208 W,\n          i \u2260 j \u2192\n            |(RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => A i \u03c9 \u2227 A j \u03c9) -\n                  RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j)| \u2264\n              \u03b7 * RiffleLowerV2.probability P (A i) * RiffleLowerV2.probability P (A j)) \u2192\n      RiffleLowerV2.variance P (RiffleLowerV2.Occupancy.eventCount W A) \u2264\n        RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) +\n          \u03b7 * RiffleLowerV2.expect P (RiffleLowerV2.Occupancy.eventCount W A) ^ 2"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kind": "theorem",
+    "name": "RiffleLowerV2.Occupancy.variance_collisionCount_le",
+    "type": "\u2200 {k N K : \u2115} (cuts : TimeProfile.Cuts k N K) (W : Finset (RiffleLowerV2.Word k K)) (\u03b7 : \u211d),\n  0 \u2264 \u03b7 \u2192\n    (\u2200 w \u2208 W,\n        \u2200 v \u2208 W,\n          w \u2260 v \u2192\n            |(RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n                    RiffleLowerV2.collisionEvent w \u03c9 \u2227 RiffleLowerV2.collisionEvent v \u03c9) -\n                  RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent w) *\n                    RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent v)| \u2264\n              \u03b7 * RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent w) *\n                RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionEvent v)) \u2192\n      RiffleLowerV2.variance (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) \u2264\n        RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) +\n          \u03b7 * RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.collisionCount W) ^ 2"
+  }
+]

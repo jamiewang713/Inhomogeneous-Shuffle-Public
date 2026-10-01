@@ -1,0 +1,25 @@
+RiffleLowerV2.Thinning.prefix_card_exact (k K : ℕ) : Fintype.card (RiffleLowerV2.Prefix k K) = ∑ n, k ^ ↑n
+RiffleLowerV2.Thinning.prefix_card_le {k K : ℕ} (hk : 1 ≤ k) : Fintype.card (RiffleLowerV2.Prefix k K) ≤ (K + 1) * k ^ K
+RiffleLowerV2.Thinning.prefix_card_le_of_cuts {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (hN : 0 < N) :
+  Fintype.card (RiffleLowerV2.Prefix k K) ≤ (K + 1) * k ^ K
+RiffleLowerV2.Thinning.prefixMean_nonneg {k N K : ℕ} (cuts : TimeProfile.Cuts k N K) (w : RiffleLowerV2.Prefix k K) :
+  0 ≤ RiffleLowerV2.prefixMean cuts w
+RiffleLowerV2.Thinning.prefix_bernstein_exponent {μ A : ℝ} (hμ : 0 ≤ μ) (hA : 1 ≤ A) :
+  A / 8 ≤ (A * (√μ + 1)) ^ 2 / (4 * (μ + A * (√μ + 1)))
+RiffleLowerV2.Thinning.prefix_failure_of_prefixTails (htails : RiffleLowerV2.Targets.PrefixTails) {k N K : ℕ}
+  (cuts : TimeProfile.Cuts k N K) (hN : 2 ≤ N) (ε : ℝ) (hε : 0 < ε) (w : RiffleLowerV2.Prefix k K) :
+  (RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) fun ω =>
+      ↑N ^ ε * (√(RiffleLowerV2.prefixMean cuts w) + 1) ≤
+        |↑(RiffleLowerV2.prefixCount w ω) - RiffleLowerV2.prefixMean cuts w|) ≤
+    2 * Real.exp (-↑N ^ ε / 8)
+RiffleLowerV2.Thinning.allPrefixConcentration_of_prefixTails (htails : RiffleLowerV2.Targets.PrefixTails) :
+  RiffleLowerV2.Targets.AllPrefixConcentration
+'RiffleLowerV2.Thinning.prefix_card_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefix_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefix_card_le_of_cuts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefixMean_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefix_bernstein_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.prefix_failure_of_prefixTails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.allPrefixConcentration_of_prefixTails' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,41 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Edges.lean:21:40: error(lean.unknownIdentifier): Unknown constant `List.Vector.take_length`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Edges.lean:21:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  List.take K (List.Vector.toList (sortedWord omega i)) = List.Vector.toList w ↔
+    lowerRank ⟨Fin.last K, w⟩ omega ≤ ↑i ∧ ↑i < upperRank ⟨Fin.last K, w⟩ omega
+but is expected to have type
+  sortedWord omega i = w ↔ lowerRank ⟨Fin.last K, w⟩ omega ≤ ↑i ∧ ↑i < upperRank ⟨Fin.last K, w⟩ omega
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Edges.lean:55:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun w => firstRepeatedWordEdge omega ↑w ⋯) w
+in the target expression
+  sortedWord omega (edgeLeft (firstRepeatedWordEdge omega ↑w ⋯)) = ↑w
+
+k N K : ℕ
+cuts : TimeProfile.Cuts k N K
+omega : Sample cuts
+w v : { w // 2 ≤ wordCount w omega }
+he : (fun w => firstRepeatedWordEdge omega ↑w ⋯) w = (fun w => firstRepeatedWordEdge omega ↑w ⋯) v
+hw : sortedWord omega (edgeLeft (firstRepeatedWordEdge omega ↑w ⋯)) = ↑w
+hv : sortedWord omega (edgeLeft (firstRepeatedWordEdge omega ↑v ⋯)) = ↑v
+⊢ ↑w = ↑v
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Edges.lean:74:24: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Inter Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Edges.lean:78:37: error: Type mismatch
+  congrArg Subtype.val ?m.224
+has type
+  ↑?m.220 = ↑?m.221
+but is expected to have type
+  edge w = edge v
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Edges.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Edges.lean']' returned non-zero exit status 1.

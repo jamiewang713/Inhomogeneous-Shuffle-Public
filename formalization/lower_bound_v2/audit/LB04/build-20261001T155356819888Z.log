@@ -1,0 +1,32 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.RelativeOrder.Weighted']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Weighted.lean:49:2: error: linarith failed to find a contradiction
+case h1
+N : ℕ
+I : Type u_1
+inst✝¹ : Fintype I
+inst✝ : DecidableEq I
+A : I → Finset (Fin N)
+hA : ∀ (i j : I), i ≠ j → Disjoint (A i) (A j)
+w : Permutation N → ℝ
+hw : ∀ (η : (i : I) → Equiv.Perm (Fin (A i).card)) (π : Fin N ≃ Fin N), w (Equiv.trans (blockAction A hA η) π) = w π
+F : ((i : I) → Equiv.Perm (Fin (A i).card)) → ℝ
+Q : Type (max u_1 0) := (i : I) → Equiv.Perm (Fin (A i).card)
+f : Permutation N → ℝ := fun π => w π * F fun i => relativeOrder (A i) π
+hcol : ∀ (η : Q), ∑ π, f (Equiv.trans (blockAction A hA η) π) = ∑ π, f π
+hrow : ∀ (π : Permutation N), ∑ η, f (Equiv.trans (blockAction A hA η) π) = w π * ∑ η, F η
+hcount : ↑(Fintype.card Q) * ∑ π, f π = (∑ π, w π) * ∑ η, F η
+a✝ : ∑ π, f π < ((∑ π, w π) * ∑ η, F η) / ↑(Fintype.card Q)
+⊢ False
+failed
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Weighted.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Weighted.lean']' returned non-zero exit status 1.

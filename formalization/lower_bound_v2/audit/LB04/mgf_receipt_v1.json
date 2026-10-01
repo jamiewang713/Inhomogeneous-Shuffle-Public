@@ -1,0 +1,15 @@
+{
+  "module": "RiffleLowerV2.Ascent.MGF",
+  "source_sha256": "3fa1bbd161af04b5b6bcda57f8f1e528f5e341e002a5a7bb8c27ac1b9a52d9e1",
+  "successful_build_log": "audit/LB04/build-20261001T155339600217Z.log",
+  "axiom_log": "audit/LB04/mgf_axioms_v1.log",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "frozen_exports": {
+    "RiffleLowerV2.Ascent.bernoulliMGF": "RiffleLowerV2.Targets.BernoulliMGF"
+  },
+  "pending": "Concrete component decomposition, factorization and geometry specialization by root"
+}

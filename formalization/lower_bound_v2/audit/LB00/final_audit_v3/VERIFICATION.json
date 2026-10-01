@@ -1,0 +1,46 @@
+{
+  "audit_warning_count": 0,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "build_warning_count": 14,
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "completed_only_lane_entry_points": 11,
+  "completed_only_theorems_exact_checked": 58,
+  "declarations_audited": 3216,
+  "endpoint_closure_counts": {
+    "RiffleLowerV2.EmpiricalLower.empiricalCombined": 50256,
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable": 50447,
+    "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto": 50449
+  },
+  "exact_prior_inventory_matches": {
+    "LB01": 162,
+    "LB02": 472,
+    "LB03": 278,
+    "LB04": 269,
+    "LB05": 131,
+    "LB06": 287,
+    "LB07": 140,
+    "LB08": 186,
+    "LB09": 293,
+    "LB10": 93,
+    "LB11": 17,
+    "foundation": 364
+  },
+  "fresh_build_evidence": "audit/LB00/full_package_v1",
+  "freshly_built_modules": 197,
+  "imported_modules": 5417,
+  "imported_sources_verified": 3885,
+  "isolated_output": ".build/full_package_v1/lib/lean",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "package_modules": 183,
+  "recorded_at": "2026-10-01T18:57:02.424291+00:00",
+  "recursive_dependencies": "ConstantInfo.getUsedConstantsAsSet: types, values (opaque opened), inductive constructors and recursor metadata",
+  "required_theorems_exact_checked": 58,
+  "scope": "Empirical E; selected-partition scalar-integrable M; derived sequence corollary. No certification of the historical arbitrary-TimeLaw statement.",
+  "status": "FRESH_BUILD_AND_METADATA_COMPLETE_AUDIT_PASSED"
+}

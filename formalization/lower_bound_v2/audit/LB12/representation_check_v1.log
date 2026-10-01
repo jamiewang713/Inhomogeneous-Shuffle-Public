@@ -1,0 +1,14 @@
+audit/LB12/RepresentationCheck_v1.lean:8:74: error: unsolved goals
+k N K : ℕ
+cuts : TimeProfile.Cuts k N K
+⊢ PMF.map physicalInverse (TimeProfile.fixedCountPMF cuts) =
+    PMF.map (fun x => Equiv.symm (physicalForward x)) (TimeProfile.fixedCountPMF cuts)
+audit/LB12/RepresentationCheck_v1.lean:10:23: error: This simp argument is unused:
+  physicalInverse
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalInverseLaw, physicalForwardLaw, PMF.map_comp, Function.comp_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'RiffleLowerV2.LB12.physicalInverseLaw_eq_map' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'RiffleLowerV2.LB12.physicalInverse_forward_tv' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

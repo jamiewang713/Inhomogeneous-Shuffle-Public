@@ -1,0 +1,52 @@
+/goal
+You are the Lean formalization agent for LB-05: One-column tilt analysis and the empirical cold witness.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/Witness/ and audit/LB05/
+
+AUTHORITATIVE SOURCE LABELS
+- lem:cold-witness
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Base.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Analysis.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/AnalyticParameters.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/Cold.lean
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Formalize the cold witness entirely from the actual empirical finite columns. This lane must have no macroscopic temporal regularity premise.
+
+1. For alpha∈[2,4], prove the one-column toolkit on the simplex, including zero coordinates: continuity and monotonicity in alpha of I_p(alpha); 0≤H_p(alpha)≤I_p(alpha)≤log k; a_p≤I_p(alpha); psi_p(2)≤2a_p≤2I_p(alpha); and psi_p(4)≥2psi_p(2). Also prove 0≤psi_p(alpha)≤(alpha-1)log k; the existing psi_bounds only provides a coarser bound. Supply exact entropy/cost identities. Existing power-sum, maximum-cost and Gibbs lemmas are reusable, but do not assume the full toolkit is already exported.
+2. Use the frozen empirical step interpolation on [0,S_N], including exact grid sums and uniform endpoint Lipschitz bounds. Define the empirical cold variational margin precisely, with real infimum/supremum domains and boundedness/nonemptiness proofs as necessary.
+3. From Lambda_{1,N}≥eta_f and beta_N(S_N)<kappa0, kappa=eta_f/1000 and kappa0=min(kappa/100,1/1000), construct s,u,theta. Include rho>0, 2rho log k≤kappa/100 and the stated local-good condition among the witness premises; LB-09 later uses the smaller kappa0 budget. Check theta=3, theta=4, and the intermediate-value case separately. The theta=4 backward move is protected by psi_4≥2psi_2; no bound on the length of that move may be assumed.
+4. Shorten to J≤b/2-3kappa while retaining either theta=3 or J≥b/2-5kappa, and F≥eta_f/2. Prove the exact 2Gamma-h identity and derive h≥kappa, H≤b-J-kappa, Gamma-h/2≥kappa, and b-J-J_t≤beta_N(S_N).
+5. Round to column-grid endpoints, reserve b_N=ceil(2rho log N) bridge columns, and prove m_s≤m_u≤K_T-b_N. Explicitly protect s near S_N using the beta difference. Derive two good bridge columns from the existing local-good hypothesis; allow the closed-grid endpoint loss of one column. Charge every rounding/terminal error to fixed margins.
+6. Export existence of a concrete witness and all its inequalities with an N0 independent of the cut array. It is acceptable for witness data to depend on N and cuts. It is not acceptable to make existence of the witness an input to the intended witness theorem.
+
+Use independent reviews of theta=4, a witness born near the terminal time, and zero/deterministic columns. Macro A/B transfer is LB-07's separate job; do not wait for it or import its added assumptions.
+
+ACCEPTANCE CRITERION
+The full finite empirical witness, including grids, bridge clearance and exact numerical margins, is a proved output. All one-column and continuity inputs in its actual dependency closure are checked.

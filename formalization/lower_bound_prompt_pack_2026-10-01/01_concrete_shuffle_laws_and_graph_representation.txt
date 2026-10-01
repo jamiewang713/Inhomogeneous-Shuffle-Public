@@ -1,0 +1,54 @@
+/goal
+You are the Lean formalization agent for LB-01: Concrete shuffle laws and graph representation.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/Model/ and audit/LB01/
+
+AUTHORITATIVE SOURCE LABELS
+- lem:ub-graph-representation
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/FixedColumns.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/Sorting.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/LowerBounds.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Matrices.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Graphs.lean
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Prove the probability-law identifications needed to apply a permutation test to the actual shuffle.
+
+1. Prove that the shared fixed-count sample law has independent uniform columns and is invariant under simultaneous relabelling of rows. If reusing RiffleLower's uniform column-permutation construction, prove its pushforward equals the canonical uniform-assignment model; do not identify their different sample spaces by notation.
+2. Reconcile stable lexicographic sorting, tie ordering, sorted-position→original-label orientation, prefix rank cuts, and path edges. Existing deterministic monotone sorting results alone do not identify the distribution of the output permutation.
+3. Conditional on the full-word multiset, prove uniform assignment of label sets to word blocks, and count the product of component factorials in every fiber. Formalize conditional statements on positive-probability atoms, or give an equivalent unconditional finite-sum identity.
+4. Prove the exact distributional identity: the stable-sort shuffle law equals the mixture obtained by sampling its shuffle graph G and then, independently, a uniform permutation pi, sorted increasingly inside G-components. Export an event-probability equality usable by LB-10. Independence must be in the construction, not an undocumented coupling assumption.
+5. Prove the chronological physical cut/interleave process has the same inverse law as the matrix stable-sort model, including reverse chronological order of inverse steps and earlier-column lexicographic priority. If this separate physical-law bridge is unfinished, export only an honestly named matrix-model theorem and report the missing physical result; the full source endpoint remains pending.
+6. Port only the needed old finite law/TV/sorting results into your owned compatibility subtree. Record original and ported signatures, hashes, proof-only API changes and an actual checked equivalence to the shared objects. Do not mutate existing freezes or delegate the missing graph identity to an assumption in the integration theorem.
+
+Use independent reviews for (a) the exchangeability/counting proof and (b) permutation orientation/time reversal. Test small N, equal words, all-singleton graphs, a single giant component, deterministic columns and K=0. Generic graph objects may be used internally, but the exported law identity must specialize to the actual generated graph.
+
+ACCEPTANCE CRITERION
+Checked concrete matrix-law bridge, graph-mixture/event identity with independent pi, rank/orientation adapters, and chronological physical-law equivalence. A missing physical-law bridge must be reported as pending; partial exports may be delivered, but LB-01 cannot issue its completed-input receipt until this bridge is proved.

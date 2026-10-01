@@ -1,0 +1,54 @@
+/goal
+You are the Lean formalization agent for LB-07: Explicitly integrable profile transfer.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/ProfileTransfer/ and audit/LB07/
+
+AUTHORITATIVE SOURCE LABELS
+- lem:lower-profile-transfer
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Base.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Analysis.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/LatticeCounts.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/GridQuadrature.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/AnalyticParameters.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/reviews/analytic_alternatives.md
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Formalize the two-sided empirical-to-macroscopic transfer only under the separately named scalar integrability predicate frozen by LB-00. This is an explicitly stronger regularity target than the old arbitrary TimeLaw contract.
+
+1. Keep old TimeLaw, AlmostLike, integrated costs and frozen theorem signatures unchanged. Select the transfer partition before assuming integrability of its cell masses; an integrability premise for another partition does not automatically pass to this partition or its refinements. Use interval integrability of the selected finite partition's cell masses and the scalar a(t), psi_t(alpha), alpha∈[2,4]. Do not strengthen the premise to a full measurable probability kernel, time continuity, differentiability, or macro J/H integrability.
+2. Prove a generic absolute quadrature bound for nonnegative bounded observables f with small oscillation on each regular cell, explicit spatial integrability (or sufficient continuity) and interval integrability of t↦∫f dmu_t. The a/psi-specific predicate alone does not cover arbitrary f. Discharge spatial integrability by continuity and temporal integrability by the opt-in scalar predicate when specializing to a and psi. Include BOTH directions, the number-of-cells factor m*phi, complete grid blocks, up to two incomplete blocks, and the closed-to-half-open column discrepancy. The existing one_sided_quadrature theorem is not a two-sided estimate.
+3. Account for empirical step interpolation at arbitrary endpoints and S_N=K_T/log N versus T. Supply finite explicit errors, uniformly over the interval endpoints and alpha∈[2,4]. Prove the needed joint continuity in p,alpha of psi; do not assume any temporal derivative or exchange differentiation and integration.
+4. Derive the A_N/B_{alpha,N} error ≤e by the ordered choice partition → rho → phi → N. rho may simultaneously obey any additional positive bridge upper bound. Make the mesh/frequency thresholds and dependencies of N0 explicit.
+5. Transfer beta and Lambda_1 with the source bound 13e/2 plus the terminal O_k(1/log N), encoded as an explicit bound or proved uniform vanishing function. Taking infimum/supremum must preserve the error after nonempty/bounded domains are verified.
+6. Record the exact additional assumptions used, and show that no temporal integrability predicate appears in the empirical witness/type/probability lanes. The final macro assembly is LB-11; do not label this result as a proof of the original unchanged unregularized theorem.
+
+If a reviewer proposes deriving temporal regularity from fixed-partition AlmostLike, test that claim against the documented same-cell nonmeasurable switching example. An independent reviewer must check the strengthened-assumption ledger, not just the numerical inequality.
+
+ACCEPTANCE CRITERION
+Checked two-sided A/B and margin transfer under the minimal frozen explicit scalar integrability predicate, with ordered parameters and uniform errors; the old totalized definitions and theorems remain untouched.

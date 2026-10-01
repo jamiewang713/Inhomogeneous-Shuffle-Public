@@ -1,0 +1,30 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/ManyEdges.lean:18:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  ((expect P fun ω => if A ω then 1 else 0) + expect P fun ω => if B ω then 1 else 0) - 1 ≤
+    expect P fun ω => @ite ℝ (A ω ∧ B ω) instDecidableAnd 1 0
+but is expected to have type
+  ((expect P fun ω => if A ω then 1 else 0) + expect P fun ω => if B ω then 1 else 0) - 1 ≤
+    expect P fun ω => @ite ℝ (A ω ∧ B ω) (Classical.propDecidable ((fun ω => A ω ∧ B ω) ω)) 1 0
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/ManyEdges.lean:22:79: error: unsolved goals
+k N K : ℕ
+cuts : Cuts k N K
+Y : Finset (Word k K)
+ω : Sample cuts
+⊢ (∑ w ∈ Y, if 2 ≤ wordCount w ω then 1 else 0) = ∑ x ∈ Y, if 2 ≤ wordCount x ω then 1 else 0
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB10/lib/lean/RiffleLowerV2/EmpiricalLower/ManyEdges.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/ManyEdges.lean']' returned non-zero exit status 1.

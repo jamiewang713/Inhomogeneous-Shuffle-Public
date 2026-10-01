@@ -1,0 +1,9 @@
+{
+  "source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual.lean",
+  "source_sha256": "c2ab734fc2a452b6ae2d8541d982ad5589fbf99d2b7e8850e0f2bf6b6eb64d62",
+  "source_declarations": "unusedRows through residualConditionalExpect; uniform conditional probability/expectation normalization adapted to local Basic.lean",
+  "destination": "RiffleLowerV2/Factorial/Residual.lean",
+  "import_dependency": "none on Thinning; imported source is independently rebuilt in LB03 namespace",
+  "mathematical_contribution": "explicit restriction/gluing equivalence of conditioned canonical sample with residual canonical sample; exact factorial specialization added locally",
+  "status": "SOURCE_PORT_PENDING_COMPILER_CHECK"
+}

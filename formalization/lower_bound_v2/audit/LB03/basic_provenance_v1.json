@@ -1,0 +1,16 @@
+{
+  "destination": "RiffleLowerV2/Factorial/Basic.lean",
+  "destination_sha256": "eb419c20e5df3505d6ca1093d964281a0de9be86454d0f9abc59f40874b11542",
+  "references": [
+    {
+      "path": "RiffleLowerV2/Model/FiniteLaws.lean",
+      "sha256": "cc5abe4ecf21f682658ca77e7a867368a4f1f8c4ab0b9d70eba79a9041772a06"
+    },
+    {
+      "path": "RiffleLowerV2/Thinning/PMFTools.lean",
+      "sha256": "2eeef3e8d1b2e7921371484ba3ed9a8abe35c776eb582bf5a77d5d2fc6e82104"
+    }
+  ],
+  "scope": "Elementary finite PMF sum identities reimplemented locally; original rare-category pointwise proof and expectation assembly. No sibling-lane import or cached historical module.",
+  "validation": "basic_build_dev03.log: LB03 BUILD_OK; final target closure checked separately."
+}

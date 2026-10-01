@@ -1,0 +1,53 @@
+/goal
+You are the Lean formalization agent for LB-10: Empirical lower-bound assembly.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00, LB-01, LB-02, LB-04, LB-08, LB-09. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/EmpiricalLower/ and audit/LB10/
+
+AUTHORITATIVE SOURCE LABELS
+- prop:largest-prefix
+- lem:many-edges
+- lem:lalley
+- prop:cold-lower
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/LowerBounds.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/FiniteProbability.lean
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Prove the first full endpoint from actual finite column costs. This endpoint must contain NO macroscopic TimeLaw, measurability or integrability premise.
+
+1. Reuse or port the finite increasing-run event bound with a proved adapter to the canonical shuffle law. Combine the exact maximal-word mean with LB-02's exponential lower tail. For integers 2≤m≤N with m≤mu_*/2, prove the finite TV bound 1-exp(-c_Ch mu_*)-(N-m+1)/m!. Prove uniform convergence whenever mu_*≥N^b for fixed b>0, choosing m=floor(N^(b/2)) and checking its eventual admissibility. Do not confuse a contiguous increasing run with a subsequence.
+2. Under the empirical cold margin and small terminal beta, obtain the concrete family and H_rel from LB-05/LB-09. Use LB-08 to prove E Z≥c N^(g_N-4kappa0). Show g_N-4kappa0-h_N/2>kappa/3 from kappa0≤kappa/100, with sufficient uniform slack to absorb all finite constants and vanishing errors.
+3. Apply the proved variance estimate to obtain Z≥M_N^(1/2)N^(kappa/4) with high probability. Intersect with the proved localization event and inject words into graph edges. Obtain the many-edge threshold M_N^(1/2+delta), e.g. delta=kappa/5, using M_N≤N.
+4. Apply LB-04's explicit observable scan and LB-01's graph-mixture law. Select the least successful translate from G only. Prove both the actual shuffle's scan success and the uniform permutation's scan failure, then the half-L1 TV lower bound.
+5. Assemble the empirical alternative: a fixed positive largest-word margin OR a fixed positive Lambda_{1,N} margin gives TV→1. In the cold branch require the stated local-good hypothesis at rho>0 with 2rho log k≤kappa0/100, where kappa0 is determined by the fixed cold margin; the largest-word branch needs no local-good assumption. For the latter branch split on terminal beta using kappa0. Match the exact frozen endpoint, including constants and quantifier order. Handle cut arrays that alternate between the two cases as N changes.
+6. Export uniform finite error functions or the equivalent quantified theorem: for every accuracy epsilon>0 there is N0 such that all N≥N0 and all admissible cuts satisfy TV≥1-epsilon. Discharge every witness, class, concentration, localization, covariance, representation and scan premise through checked declarations.
+
+Do not claim completion from an abstract implication assuming the desired test succeeds. If LB-01 only supplies the matrix-model law but its physical chronological equivalence is still open, label the matrix endpoint accurately and keep the full physical endpoint incomplete. Random-pile cold bounds are outside this task.
+
+ACCEPTANCE CRITERION
+A concrete uniform empirical TV lower theorem with complete checked dependencies and no macro analytic regularity. Its theorem type has no assumed witness, localization, graph-law correctness, scan-success or TV premise.

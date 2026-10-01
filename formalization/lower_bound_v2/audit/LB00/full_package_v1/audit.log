@@ -1,0 +1,72 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/full_package_v1/FullCheck.lean:323:7: error: unexpected token 'prefix'; expected '(', ':=', 'rec', '|', identifier or term
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/full_package_v1/FullCheck.lean:323:14: error: unexpected token ':='; expected ':'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/full_package_v1/FullCheck.lean:324:13: error: unexpected token '=='; expected ':'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/full_package_v1/FullCheck.lean:324:42: error: unexpected token '=='; expected ':'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/full_package_v1/FullCheck.lean:325:14: error: unexpected token '=='; expected ':'
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB00/full_package_v1/FullCheck.lean:325:47: error: unexpected token '=='; expected ':'
+def RiffleLowerV2.Targets.EmpiricalCombinedTarget : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T etaLargest etaCold : ℝ),
+      0 < T →
+        0 < etaLargest →
+          0 < etaCold →
+            ∀ (chiGood gamma rho epsilon : ℝ),
+              0 < epsilon →
+                ∃ (N0 : ℕ),
+                  2 ≤ N0 ∧
+                    ∀ (N : ℕ) (hN : 2 ≤ N),
+                      N0 ≤ N →
+                        ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                          RiffleLowerV2.Targets.EmpiricalAlternative T cuts ⋯ etaLargest etaCold chiGood gamma rho →
+                            1 - epsilon ≤
+                              RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                                (RiffleLowerV2.uniformPermutation N)
+def RiffleLowerV2.Targets.MacroscopicIntegrableTarget : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T eta : ℝ),
+      0 < T →
+        0 < eta →
+          ∃ (chiPartition : ℝ),
+            0 < chiPartition ∧
+              chiPartition < 1 / ↑k ∧
+                ∃ (P : TimeProfile.BorelPartition k),
+                  P.IsRegular chiPartition 1 ∧
+                    ∃ (rho0 : ℝ),
+                      0 < rho0 ∧
+                        2 * rho0 * Real.log ↑k ≤ RiffleLowerV2.kappa0 (eta / 2) / 100 ∧
+                          ∀ (rho : ℝ),
+                            0 < rho →
+                              rho ≤ rho0 →
+                                ∃ (phi0 : ℝ),
+                                  0 < phi0 ∧
+                                    ∀ (phi : ℝ),
+                                      0 < phi →
+                                        phi ≤ phi0 →
+                                          ∀ (chiGood gamma : ℝ),
+                                            0 < chiGood →
+                                              0 < gamma →
+                                                ∀ (epsilon : ℝ),
+                                                  0 < epsilon →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleLowerV2.ScalarIntegrable μ P T →
+                                                        ∃ (N0 : ℕ),
+                                                          2 ≤ N0 ∧
+                                                            ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                              N0 ≤ N →
+                                                                ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                                  TimeProfile.AlmostLike cuts ⋯ μ P T rho phi →
+                                                                    TimeProfile.LocalGood cuts ⋯ chiGood gamma rho 0 T →
+                                                                      eta ≤
+                                                                          max (RiffleLowerV2.macroBeta μ T)
+                                                                            (RiffleLowerV2.macroLambda1 μ T) →
+                                                                        1 - epsilon ≤
+                                                                          RiffleLowerV2.tv
+                                                                            (RiffleLowerV2.physicalInverseLaw cuts)
+                                                                            (RiffleLowerV2.uniformPermutation N)
+def RiffleLowerV2.ScalarIntegrable : {k : ℕ} → TimeProfile.TimeLaw k → TimeProfile.BorelPartition k → ℝ → Prop :=
+fun {k : ℕ} (μ : TimeProfile.TimeLaw k) (P : TimeProfile.BorelPartition k) (T : ℝ) =>
+  (∀ (i : Fin P.cellCount), IntervalIntegrable (TimeProfile.cellMass μ P i) MeasureTheory.volume 0 T) ∧
+    IntervalIntegrable (TimeProfile.profileMaxCost μ) MeasureTheory.volume 0 T ∧
+      ∀ α ∈ Set.Icc 2 4, IntervalIntegrable (fun (t : ℝ) => TimeProfile.profilePsi μ t α) MeasureTheory.volume 0 T

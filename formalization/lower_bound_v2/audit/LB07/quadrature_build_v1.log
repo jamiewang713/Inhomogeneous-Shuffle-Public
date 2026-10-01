@@ -1,0 +1,54 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Quadrature.lean:78:5: warning: Variable name `hphi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hphi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Quadrature.lean:112:17: error: Type mismatch: After simplification, term
+  (hf (Cuts.profile cuts (Targets.deckPos hN) j)).right
+ has type
+  f (Cuts.profile cuts ⋯ j) ≤ M
+but is expected to have type
+  |?m.139 j| ≤ M
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Quadrature.lean:100:57: error: unsolved goals
+k N : ℕ
+hN : 2 ≤ N
+T rho phi omega M : ℝ
+hT : 0 < T
+hrho : 0 < rho
+hphi : 0 ≤ phi
+homega : 0 ≤ omega
+hM : 0 ≤ M
+P : BorelPartition k
+μ : TimeLaw k
+f : Simplex k → ℝ
+hcont : Continuous f
+hf : ∀ (p : Simplex k), 0 ≤ f p ∧ f p ≤ M
+hosc : ∀ (i : Fin P.cellCount) (p q : Simplex k), P.classify p = i → P.classify q = i → |f p - f q| ≤ omega
+_hcell : ∀ (i : Fin P.cellCount), IntervalIntegrable (cellMass μ P i) volume 0 T
+htime : IntervalIntegrable (fun t => ∫ (p : Simplex k), f p ∂↑(μ t)) volume 0 T
+cuts : Targets.HorizonCuts k N T
+hLike : AlmostLike cuts ⋯ μ P T rho phi
+r s : ℝ
+hr : 0 ≤ r
+hrs : r ≤ s
+hs : s ≤ horizon N (horizonDepth N T)
+hST : horizon N (horizonDepth N T) ≤ T
+hm : 1 ≤ P.cellCount
+hsample :
+  |(∑ j ∈ Compat.timePositions N (horizonDepth N T) r s, f (Cuts.profile cuts ⋯ j)) / logScale N -
+        ∫ (t : ℝ) in r..s, ∫ (p : Simplex k), f p ∂↑(μ t)| ≤
+    Compat.quadratureError N T rho phi P.cellCount M (min omega M) + M / logScale N
+⊢ |empiricalIntegral N (fun j => f (Cuts.profile cuts ⋯ j)) r s - ∫ (t : ℝ) in r..s, ∫ (p : Simplex k), f p ∂↑(μ t)| ≤
+    2 * T * omega + M * ↑P.cellCount * phi * T + 4 * M * rho +
+      (4 * M * ↑P.cellCount * (T / rho + 2) + 6 * M) / logScale N
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB07/lib/lean/RiffleLowerV2/ProfileTransfer/Quadrature.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Quadrature.lean']' returned non-zero exit status 1.

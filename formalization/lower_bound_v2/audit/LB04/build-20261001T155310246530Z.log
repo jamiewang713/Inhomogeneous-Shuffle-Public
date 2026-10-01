@@ -1,0 +1,17 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.MGF']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:175:15: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean:185:40: warning: This simp argument is unused:
+  neg_lt_zero.mpr ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sub_self, not_le.mpr ht, show ¬(0 : ℝ) ≤ -t by linarith, probability_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LB04 BUILD_OK

@@ -1,0 +1,10 @@
+import RiffleLowerV2.Occupancy.RarePair
+open RiffleLowerV2
+#check Occupancy.weighted_rare_sandwich
+#check Occupancy.weighted_moment_relative
+#check Occupancy.eventual_rare_pair_budgets
+#check Occupancy.rare_pair_relative_uniform
+#print axioms Occupancy.weighted_rare_sandwich
+#print axioms Occupancy.weighted_moment_relative
+#print axioms Occupancy.eventual_rare_pair_budgets
+#print axioms Occupancy.rare_pair_relative_uniform

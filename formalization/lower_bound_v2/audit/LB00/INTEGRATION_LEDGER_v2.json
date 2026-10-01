@@ -1,0 +1,384 @@
+{
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "completed_lanes": {
+    "LB01": {
+      "receipt": "audit/LB00/LB01_INTEGRATION_ACK_v1.md",
+      "registry": "Contracts/dependencies/LB01-v1/SOURCES.json",
+      "registry_sha256": "8704bbbb293af303bd06b3595ff7adecfd1e91d49929128f22c2fed10a47c6fd"
+    },
+    "LB04": {
+      "receipt": "audit/LB00/LB04_INTEGRATION_ACK_v1.md",
+      "registry": "Contracts/dependencies/LB04-completed-v1/SOURCES.json",
+      "registry_sha256": "0d3059a6111213df29ad4300b1d45e11b25893eb987f65aca60f7e63004906d1"
+    },
+    "LB06": {
+      "receipt": "audit/LB00/LB06_INTEGRATION_ACK_v1.md",
+      "registry": "Contracts/dependencies/LB06-completed-v1/SOURCES.json",
+      "registry_sha256": "0b71590cad2cbca541eec97674485353ed2c36f8d136ac035824a8bbd9df2809"
+    }
+  },
+  "counts": {
+    "frozen_lane_exports": 58,
+    "proved_and_integrated": 19
+  },
+  "final_endpoints": {
+    "empirical_E": "NOT_CERTIFIED",
+    "historical_arbitrary_TimeLaw_endpoint": "UNCERTIFIED; integrable M is a distinct strengthened theorem",
+    "macroscopic_integrable_M": "NOT_CERTIFIED"
+  },
+  "foundation": "Original CONTRACT_READY v1, shared definitions and routine adapter certification remain unchanged.",
+  "kind": "additive_coordinator_integration_snapshot",
+  "preserves": "Historical LEDGER.md and OWNERSHIP.json stay unchanged. Lack of coordinator certification is not a claim that another lane has no proofs or work.",
+  "previous_ledger_sha256": "430969214bdd3bb0c5ac7d511867d5edea46525e21f8556dc104650042c63b53",
+  "recorded_at": "2026-10-01T16:12:26.102357+00:00",
+  "required_exports": [
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.columnIndependence",
+      "type": "RiffleLowerV2.Targets.ColumnIndependence"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.graphRepresentation",
+      "type": "RiffleLowerV2.Targets.GraphRepresentation"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.graphEventIdentity",
+      "type": "RiffleLowerV2.Targets.GraphEventIdentity"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.physicalMatrixBridge",
+      "type": "RiffleLowerV2.Targets.PhysicalMatrixBridge"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.inversionTV",
+      "type": "RiffleLowerV2.Targets.InversionTV"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.rowRelabeling",
+      "type": "RiffleLowerV2.Targets.RowRelabeling"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.stableTie",
+      "type": "RiffleLowerV2.Targets.StableTie"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.prefixRanks",
+      "type": "RiffleLowerV2.Targets.PrefixRanks"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.successiveThinning",
+      "type": "RiffleLowerV2.Targets.SuccessiveThinning"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.prefixTails",
+      "type": "RiffleLowerV2.Targets.PrefixTails"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.allPrefixConcentration",
+      "type": "RiffleLowerV2.Targets.AllPrefixConcentration"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.prefixFailureUniform",
+      "type": "RiffleLowerV2.Targets.PrefixFailureUniform"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.residualLaw",
+      "type": "RiffleLowerV2.Targets.ResidualLaw"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.hypergeometricTransform",
+      "type": "RiffleLowerV2.Targets.HypergeometricTransform"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.maximalMeanIdentity",
+      "type": "RiffleLowerV2.Targets.MaximalMeanIdentity"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.exactJointFactorial",
+      "type": "RiffleLowerV2.Targets.ExactJointFactorial"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.relativeJointFactorial",
+      "type": "RiffleLowerV2.Targets.RelativeJointFactorial"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.bonferroniSandwich",
+      "type": "RiffleLowerV2.Targets.BonferroniSandwich"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.bonferroniProduct",
+      "type": "RiffleLowerV2.Targets.BonferroniProduct"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.centralComparison",
+      "type": "RiffleLowerV2.Targets.CentralComparison"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.centralComparisonOne",
+      "type": "RiffleLowerV2.Targets.CentralComparisonOne"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.rareSandwich",
+      "type": "RiffleLowerV2.Targets.RareSandwich"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.residualJointFactorial",
+      "type": "RiffleLowerV2.Targets.ResidualJointFactorial"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.residualRelativeFactorial",
+      "type": "RiffleLowerV2.Targets.ResidualRelativeFactorial"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.residualMeanComparison",
+      "type": "RiffleLowerV2.Targets.ResidualMeanComparison"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentConcentration",
+      "type": "RiffleLowerV2.Targets.ComponentConcentration"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentExpectation",
+      "type": "RiffleLowerV2.Targets.ComponentExpectation"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.uniformScan",
+      "type": "RiffleLowerV2.Targets.UniformScan"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentComparison",
+      "type": "RiffleLowerV2.Targets.ComponentComparison"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.uniformGraphScan",
+      "type": "RiffleLowerV2.Targets.UniformGraphScan"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.relativeOrderIndependence",
+      "type": "RiffleLowerV2.Targets.RelativeOrderIndependence"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.boundaryAscentProbability",
+      "type": "RiffleLowerV2.Targets.BoundaryAscentProbability"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.bernoulliMGF",
+      "type": "RiffleLowerV2.Targets.BernoulliMGF"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.leastSuccessfulTranslate",
+      "type": "RiffleLowerV2.Targets.LeastSuccessfulTranslate"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentConcentrationTwoSided",
+      "type": "RiffleLowerV2.Targets.ComponentConcentrationTwoSided"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.coldWitness",
+      "type": "RiffleLowerV2.Targets.ColdWitnessTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.oneColumnTilt",
+      "type": "RiffleLowerV2.Targets.OneColumnTiltTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.empiricalTilt",
+      "type": "RiffleLowerV2.Targets.EmpiricalTiltTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.lB05",
+      "type": "RiffleLowerV2.Targets.LB05Target"
+    },
+    {
+      "integration_status": "PROVED_AND_INTEGRATED",
+      "lane": "LB06",
+      "name": "RiffleLowerV2.Types.roundedType",
+      "type": "RiffleLowerV2.Targets.RoundedTypeTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.marginTransfer",
+      "type": "RiffleLowerV2.Targets.MarginTransferTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.profileTransfer",
+      "type": "RiffleLowerV2.Targets.ProfileTransferTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.genericQuadrature",
+      "type": "RiffleLowerV2.Targets.GenericQuadrature"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.jointPsiContinuity",
+      "type": "RiffleLowerV2.Targets.JointPsiContinuity"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB08",
+      "name": "RiffleLowerV2.Occupancy.uniformOccupancy",
+      "type": "RiffleLowerV2.Targets.UniformOccupancy"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB08",
+      "name": "RiffleLowerV2.Occupancy.conditionalCollisionStability",
+      "type": "RiffleLowerV2.Targets.ConditionalCollisionStability"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB08",
+      "name": "RiffleLowerV2.Occupancy.collisionChebyshev",
+      "type": "RiffleLowerV2.Targets.CollisionChebyshev"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.localization",
+      "type": "RiffleLowerV2.Targets.LocalizationTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.coldGeometryFromEmpirical",
+      "type": "RiffleLowerV2.Targets.ColdGeometryFromEmpiricalTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.relativeEndpoint",
+      "type": "RiffleLowerV2.Targets.RelativeEndpointTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.deterministicColdGeometry",
+      "type": "RiffleLowerV2.Targets.DeterministicColdGeometryTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.lB09",
+      "type": "RiffleLowerV2.Targets.LB09Target"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.largestOnly",
+      "type": "RiffleLowerV2.Targets.LargestOnlyTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.coldOnly",
+      "type": "RiffleLowerV2.Targets.ColdOnlyTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.empiricalCombined",
+      "type": "RiffleLowerV2.Targets.EmpiricalCombinedTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.finiteLargestWordTV",
+      "type": "RiffleLowerV2.Targets.FiniteLargestWordTV"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.manyEdges",
+      "type": "RiffleLowerV2.Targets.ManyEdgesTarget"
+    },
+    {
+      "integration_status": "NOT_YET_COORDINATOR_CERTIFIED",
+      "lane": "LB11",
+      "name": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+      "type": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget"
+    }
+  ]
+}

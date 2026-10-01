@@ -1,0 +1,36 @@
+{
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "certified_files": {
+    "Contracts/dependencies/LB07-v1/SHA256.json": "4280cdd4109f8bf6b817c237b63ad9825e34767b4652c1da5600b9ba661b1398",
+    "Contracts/dependencies/LB07-v1/SOURCES.json": "946fd0c74a2e528955624f36b7fe10f00ce250c26bb7db16f36bf386444946f3",
+    "Contracts/dependencies/LB10-v1/SHA256.json": "9fe2f82ad8be2c67eaa6b7f9f9e51e833b234952cbc339b238eefa70bfd399da",
+    "Contracts/dependencies/LB10-v1/SOURCES.json": "55b8500061eac108c18cc0e1a87a236e38fad56bdd5f62db298d8292833c7251",
+    "Contracts/v1/SHA256.json": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+    "audit/LB00/INTEGRATION_LEDGER_v9.json": "eab72fc93eb4f85c154790e43a1f19a56b3fa5648fc9e07ec789db098c85b08f",
+    "audit/LB00/INTEGRATION_LEDGER_v9.md": "17f55b97a995b77bfc67664b84ee8443fe595163c9b60ac64fbe2b1f061e0d39",
+    "audit/LB00/LB07_INTEGRATION_ACK_v1.md": "ef0f6f66d4d0c9cc28ccb2247efa929c99bc3f309252364b68c72e74fb50b6e2",
+    "audit/LB00/LB10_INTEGRATION_ACK_v1.md": "af28c69cfeb78e77d9afc072e0998a42e50e526825d30999b9d6f69338e31680",
+    "audit/LB00/LB11_DEPENDENCIES_READY_v1.md": "8a3375c90768c020809885c6a7f39468e1e4c191c4fb8a729c9943a449518969",
+    "audit/LB00/LB11_INTERFACE_ACK_v1.md": "153dd12314f0a1a89c93e307189d2ffe29e20f00a83f762ee8a794177d9efed8",
+    "audit/LB00/LB11_dependency_check_v1.lean": "b510fa61cebd3c78cfb9ed3eb08550e98e9b610d2f627325aec671951d4967db",
+    "audit/LB00/LB11_dependency_check_v1.log": "5c6cefa01c95dc42efc01ffcff74d7bfc1117bc0711ebf0539c89951567ea5be",
+    "audit/LB00/LB11_dependency_validation_v1.json": "dba11818be1140ad55d6d03ae45c9790b864d19cc087eb96bfc2288f9887971f",
+    "audit/LB11/INTERFACE_ADOPTION_v1.md": "a02246b6f6a6e9ba7e5218b233d52b05d28eee5ad0010ea11be0ff5ae01b0b43",
+    "audit/LB11/REVIEW_RESOLUTION_v1.md": "af246b60ad6ba203e35ed9ac0372c8fc69e69fd19507db6a963a202de342f442",
+    "audit/LB11/hypotheses_review_v1.md": "24f75965f36489763d288c0a24e5f1de5b6d0192ec5e6a8752a6a86e7cd8020c",
+    "audit/LB11/input_validation_v1.json": "c153de06864e1c759bd287e35a3873749d4077c5029fcf1fe5b7f7c5ab20dfa4",
+    "audit/LB11/math_review_v1.md": "96ee14c553afb593760f78ddf48e5f1920ffc47571a120d736d8815fed485463",
+    "audit/LB11/representation_review_v1.md": "27c58b0332e0f3d2380a9d399495db5475040cf5f1846b556c90bebd4b7a66f4"
+  },
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "recorded_at": "2026-10-01T18:30:44.098629+00:00",
+  "registered_imports": [
+    "RiffleLowerV2.ProfileTransfer.Main",
+    "RiffleLowerV2.EmpiricalLower.Main"
+  ],
+  "required_export": {
+    "name": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+    "type": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget"
+  },
+  "status": "RELEASED_FOR_IMPLEMENTATION_NOT_M_CERTIFICATION"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "lane": "LB02",
+  "entries": [
+    {
+      "new_file": "RiffleLowerV2/Thinning/Tails.lean",
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean/Shuffle/HypergeometricConcentration.lean",
+      "source_sha256": "156d6e9aa774c2e3498975acfb64d9622dfc6d923cfcd96db5a866c4592e5a14",
+      "relation": "Adapted the finite Markov/centered exponential/Chernoff proof structure at former lines 281-379 to the canonical PMF finite expectation. Retained the sharper denominator bound before the historical minimum weakening. Added both exact half-mean and small-count tails. Generic transform input is concretely discharged in Process, Prefixes and Main."
+    }
+  ],
+  "new_proofs": [
+    "PMFTools.lean",
+    "Recursion.lean",
+    "PrefixCoordinates.lean",
+    "Process.lean",
+    "Prefixes.lean",
+    "Main.lean"
+  ],
+  "additional_port_receipts": [
+    "compat_provenance_v1.json",
+    "compat_report_v1.md",
+    "compat_sampling_report_v1.md",
+    "residual_receipt_v1.md",
+    "residual_prefix_receipt_v1.md",
+    "asymptotic_receipt_v1.json"
+  ],
+  "toolchain": "Lean 4.33.1",
+  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "cache_policy": "Only assigned LB02 overlay; original Lean 4.19 compiled objects never imported."
+}

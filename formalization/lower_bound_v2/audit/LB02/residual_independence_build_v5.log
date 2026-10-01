@@ -1,0 +1,19 @@
+RiffleLowerV2.Thinning.uniform_pi_expect_prod.{u_1, u_2} {I : Type u_1} [Fintype I] [DecidableEq I] {Ω : I → Type u_2}
+  [(i : I) → Fintype (Ω i)] [∀ (i : I), Nonempty (Ω i)] (f : (i : I) → Ω i → ℝ) :
+  (RiffleLowerV2.expect (PMF.uniformOfFintype ((i : I) → Ω i)) fun ω => ∏ i, f i (ω i)) =
+    ∏ i, RiffleLowerV2.expect (PMF.uniformOfFintype (Ω i)) (f i)
+RiffleLowerV2.Thinning.residualColumnIndependence {k N K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (r : RiffleLowerV2.RowPrescription N k K b) (_hb : b < N) (hr : Function.Injective r.row)
+  (hp : 0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) :
+  ∃ residual,
+    (∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - RiffleLowerV2.usedCount r j a) ∧
+      ∀ (e : Fin (N - b) → Fin N),
+        Function.Injective e →
+          (∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i) →
+            ∀ (f : Fin K → (Fin (N - b) → Fin k) → ℝ),
+              RiffleLowerV2.conditionalExpect (TimeProfile.fixedCountPMF cuts)
+                  (fun ω => ∏ j, f j fun q => TimeProfile.sampleEntry ω (e q) j) (RiffleLowerV2.prescriptionEvent r) =
+                ∏ j, RiffleLowerV2.expect (TimeProfile.columnPMF residual j) fun c => f j ↑c
+'RiffleLowerV2.Thinning.uniform_pi_expect_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.residualColumnIndependence' depends on axioms: [propext, Classical.choice, Quot.sound]
+LB02 BUILD_OK

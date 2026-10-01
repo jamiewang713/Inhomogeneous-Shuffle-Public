@@ -1,0 +1,169 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Hypergeometric.lean:74:8: warning: This simp argument is unused:
+  mul_pos_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.pos_iff_ne_zero, Nat.choose_eq_zero_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:172:0: warning: automatically included section variable(s) unused in theorem `RiffleLowerV2.Thinning.Compat.FiniteLaw.coarse_total_probability`:
+  [Fintype Δ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Δ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:391:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:80:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:106:24: warning: Variable name `hres` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hres
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:148:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:151:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Sampling.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RiffleLowerV2.Thinning.hypergeometricTransform : RiffleLowerV2.Targets.HypergeometricTransform
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SamplingCheck.lean:19:20: error(lean.invalidField): Invalid field `find!`: The environment does not contain `Lean.Environment.find!`, so it is not possible to project the field `find!` from an expression
+  env
+of type `Environment`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SamplingCheck.lean:24:43: error(lean.invalidField): Invalid field notation: Type of
+  info
+is not known; cannot resolve field `type`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `NonemptyType.type`
+  • `Ordinal.type`
+  • `ConstantInfo.type`
+  • `ConstantVal.type`
+  • `Constructor.type`
+  • `InductiveType.type`
+  • `Literal.type`
+  • `LocalDecl.type`
+  • `MetavarDecl.type`
+  • `QuotKind.type`
+  • `LeanSearchClient.LoogleMatch.type`
+  • `IO.FS.Metadata.type`
+  • `DefViewElabHeaderData.type`
+  • `InlayHintKind.type`
+  • `PreDefinition.type`
+  • `Expr.ProdTree.type`
+  • `IR.CtorInfo.type`
+  • `Lsp.FileEvent.type`
+  • `Lsp.InlayHintKind.type`
+  • `Lsp.SemanticTokenType.type`
+  • `Lsp.ShowMessageParams.type`
+  • `Lsp.ShowMessageRequestParams.type`
+  • `Meta.AuxLemmaKey.type`
+  • `Meta.CoeFnInfo.type`
+  • `Meta.CongrTheorem.type`
+  • `Meta.ExprParamInfo.type`
+  • `Meta.Hypothesis.type`
+  • `Meta.SynthInstanceCacheKey.type`
+  • `Parser.Term.type`
+  • `Server.GoToKind.type`
+  • `Widget.InteractiveGoalCore.type`
+  • `Widget.InteractiveHypothesisBundle.type`
+  • `Mathlib.Explode.Entry.type`
+  • `Qq.Impl.MVarSynth.type`
+  • `Compiler.LCNF.Arg.type`
+  • `Compiler.LCNF.CtorInfo.type`
+  • `Compiler.LCNF.FunDecl.type`
+  • `Compiler.LCNF.LetDecl.type`
+  • `Compiler.LCNF.Param.type`
+  • `Compiler.LCNF.Signature.type`
+  • `Doc.Parser.InList.type`
+  • `ComputedFieldView.type`
+  • `PreElabHeaderResult.type`
+  • `PartialFixpoint.EqnInfo.type`
+  • `Structural.EqnInfo.type`
+  • `Term.BinderView.type`
+  • `Term.LetIdDeclView.type`
+  • `Term.LetRecToLift.type`
+  • `WF.EqnInfo.type`
+  • `Meta.Closure.MkValueTypeClosureResult.type`
+  • `Meta.GeneralizeTelescope.Entry.type`
+  • `Meta.Grind.SplitArg.type`
+  • `Meta.SimpAll.Entry.type`
+  • `Server.FileWorker.AbsoluteLspSemanticToken.type`
+  • `Server.FileWorker.LeanSemanticToken.type`
+  • `Mathlib.Meta.FunProp.LambdaTheoremArgs.type`
+  • `Mathlib.Tactic.Conv.Path.type`
+  • `Meta.Grind.AC.Struct.type`
+  • `Meta.Sym.Arith.Ring.type`
+  • `Meta.Sym.Arith.Semiring.type`
+  • `Meta.Grind.Arith.CommRing.Ring.type`
+  • `Meta.Grind.Arith.CommRing.Semiring.type`
+  • `Meta.Grind.Arith.Cutsat.ToIntInfo.type`
+  • `Meta.Grind.Arith.Linear.NatStruct.type`
+  • `Meta.Grind.Arith.Linear.Struct.type`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SamplingCheck.lean:26:28: error(lean.invalidField): Invalid field notation: Type of
+  info
+is not known; cannot resolve field `isTheorem`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `ConstantInfo.isTheorem`
+  • `DefKind.isTheorem`
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB02/lib/lean/RiffleLowerV2/Thinning/Compat/SamplingCheck.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SamplingCheck.lean']' returned non-zero exit status 1.

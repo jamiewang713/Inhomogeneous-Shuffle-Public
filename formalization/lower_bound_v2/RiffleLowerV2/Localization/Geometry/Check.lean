@@ -1,0 +1,13 @@
+import RiffleLowerV2.Localization.Geometry
+
+example : RiffleLowerV2.Targets.DeterministicColdGeometryTarget :=
+  RiffleLowerV2.Localization.deterministicColdGeometry
+
+#check RiffleLowerV2.Localization.deterministicColdGeometry
+#print axioms RiffleLowerV2.Localization.deterministicColdGeometry
+#print axioms RiffleLowerV2.Localization.exists_uniform_type_data
+#print axioms RiffleLowerV2.Localization.exists_geometry_scalar_thresholds
+#print axioms RiffleLowerV2.Localization.geometry_exponent_bounds
+#print axioms RiffleLowerV2.Localization.coldFullFamily_mass_bounds
+#print axioms RiffleLowerV2.Localization.reservePrefix_mean_lower
+#print axioms RiffleLowerV2.Localization.cold_selected_digits

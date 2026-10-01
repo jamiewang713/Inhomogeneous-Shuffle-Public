@@ -1,0 +1,36 @@
+{
+  "status": "PROVED_FINITE_HELPERS_ONLY",
+  "source_correspondence": "lem:two-category-poisson final covariance summation, with explicit Chebyshev success consequence",
+  "import": "RiffleLowerV2.Occupancy.Covariance",
+  "build_command": "python3 scripts/lane.py LB08 RiffleLowerV2.Occupancy.Covariance",
+  "build_log": "audit/LB08/probability_build_v2.log",
+  "compiler": "Lean 4.33.1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "upstream_import": "RiffleLowerV2.Factorial.Basic",
+  "legacy_source": {
+    "path": "lean-lower-bound/RiffleLower/FiniteProbability.lean",
+    "sha256": "1918946b462cfec9183ddcd50280abbe65185b89a65de8064a9884559fde276a",
+    "toolchain": "leanprover/lean4:v4.19.0",
+    "adapted_proof_patterns": [
+      "variance_eq (lines 238-245)",
+      "chebyshev (lines 250-266)",
+      "lower_tail_from_variance (lines 278-300)"
+    ],
+    "representation_change": "Legacy FiniteLaw real mass and Finset events replaced by frozen PMF expectation and predicate events. No old cache or legacy import. Covariance summation is a new direct finite-sum proof; expectation algebra is imported from checked Factorial.Basic."
+  },
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "declaration_count": 23,
+  "source_and_evidence_hashes": {
+    "RiffleLowerV2/Occupancy/FiniteProbability.lean": "1d2ca4a4f965acec6ee9bf02c39c0584a0f35fe9e7a3cf87c13fda6e70a12336",
+    "RiffleLowerV2/Occupancy/Covariance.lean": "45cd8677ba25c496ab3277935aa7728d2f57c0e8d75bbd992d4610a6e5b769f2",
+    "audit/LB08/probability_Check_v1.lean": "4987acf8aacd7b82210fde568e52ffd644e818d5695b115f92c18a2590ecb61a",
+    "audit/LB08/probability_build_v2.log": "9106dcebae6d89c298a06a4cd26074874856226ab15c7c988e2cfc71f14f428d",
+    "audit/LB08/probability_axioms_v1.log": "3560feaa84cb9bf6f18d1a99f6d3629ab73e19e3263fc57df9c529c73eb62f41",
+    "audit/LB08/probability_declarations_v1.json": "f000d0aeef735cd8008f1f99bd5e972ddba1f1a1534cdee817d365b1ec3078d7"
+  },
+  "scope_limit": "Pair-relative estimates are explicit premises of the reusable covariance helper. No actual-model UniformOccupancy or final CollisionChebyshev export is claimed."
+}

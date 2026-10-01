@@ -1,0 +1,38 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Sampling.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Sampling.lean:36:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  expect (PMF.uniformOfFintype (Permutation M)) fun ω => f (permSubset B ω)
+in the target expression
+  (expect (uniformPermutation M) fun σ => f (permSubset B σ)) = (Compat.sampleLaw Finset.univ B.card ⋯).expect f
+
+M : ℕ
+B : Finset (Fin M)
+f : Compat.Sample Finset.univ B.card → ℝ
+this : Nonempty (Compat.Sample Finset.univ B.card) :=
+  Nonempty.intro ⟨B, Finset.mem_powersetCard.mpr ⟨Finset.subset_univ B, rfl⟩⟩
+he :
+  (∀ (b c : Compat.Sample Finset.univ B.card),
+      Fintype.card { ω // permSubset B ω = b } = Fintype.card { ω // permSubset B ω = c }) →
+    (expect (PMF.uniformOfFintype (Permutation M)) fun ω => f (permSubset B ω)) =
+      expect (PMF.uniformOfFintype (Compat.Sample Finset.univ B.card)) f
+hf :
+  ∀ (b c : Compat.Sample Finset.univ B.card),
+    Fintype.card { σ // permSubset B σ = b } = Fintype.card { σ // permSubset B σ = c }
+⊢ (expect (uniformPermutation M) fun σ => f (permSubset B σ)) = (Compat.sampleLaw Finset.univ B.card ⋯).expect f
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Fintype.card_fin M
+  has type
+    @Eq ℕ (Fintype.card (Fin M)) M
+  but is expected to have type
+    @Eq ℕ Finset.univ.card M
+  in the application
+    congrArg (LE.le B.card) (Fintype.card_fin M)

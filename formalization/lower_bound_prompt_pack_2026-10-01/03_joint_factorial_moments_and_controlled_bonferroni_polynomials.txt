@@ -1,0 +1,51 @@
+/goal
+You are the Lean formalization agent for LB-03: Joint factorial moments and controlled Bonferroni polynomials.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/Factorial/ and audit/LB03/
+
+AUTHORITATIVE SOURCE LABELS
+- lem:fixed-column-factorial
+- lem:central-window
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/FixedColumns.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Prove the two finite ingredients for occupancy approximation, independently of the thinning implementation.
+
+1. For distinct complete words w_i and orders r_i with R=sum r_i, expand the product of falling factorial occupancies into ordered DISJOINT labelled-row requests. Prove the exact formula (N)_R product_j[product_a(n_{j,a})_(m_{j,a})/(N)_R]. Explain disjointness using distinctness of full words.
+2. Under selected piles ≥cN, K≤C log N and R≤N^(1/5), obtain an explicit uniform relative error bounded by C1(K+1)R²/N for large N. Derive it from controlled log falling-factorial ratios, with quantitative positivity and denominators. Treat R=0 and K=0. First/second moment results already exist; they do not supply this arbitrary mixed moment theorem.
+3. Prove residual factorial versions for an admissible positive-probability prescription of b labelled rows, with b≤b0<N and fixed b0. Derive the residual pile lower bound and the residual mean ratio 1+O((K+1)b/N), in finite quantified form with constants and thresholds allowed to depend on b0,c,C. Connect all moments to the canonical matrix law, not an abstract family merely asserted to have those moments.
+4. For even m≥2 define U_m(n)=sum_{r=2}^m (-1)^r(r-1) choose(n,r) and D_m(n)=(m-1)choose(n,m). Prove 0≤U_m(n)-1_{n≥2}≤D_m(n) for every natural n, including n=0,1 and m=2.
+5. Prove the product remainder bound by D_m(X)+D_m(Y)+D_m(X)D_m(Y). Under mixed factorial errors through TOTAL order 2m, prove the finite comparison in lem:central-window with f(t)=1-(1+t)e^(-t) and d_m(t)=(m-1)t^m/m!. Include the one-variable version and all explicit constants.
+6. Prove the rare-category sandwich (1/2)E(X)_2-(1/3)E(X)_3 ≤ P(X≥2) ≤ (1/2)E(X)_2. The third coefficient is 1/3, not the old false 1/6.
+
+The key audit is the polynomial remainder on large-count outcomes. A small probability of {X+Y>R} does NOT control the polynomial expectation there. The finite sandwich must bound it using factorial moments. No Poisson or independence approximation may be assumed as an additional hypothesis of the concrete moment theorem.
+
+ACCEPTANCE CRITERION
+Exact mixed moments, uniform quantitative factorial ratios, residual versions, pointwise Bonferroni sandwich and finite central comparison all checked. These are sufficient inputs for LB-08, not a claim that occupancy approximation is already complete.

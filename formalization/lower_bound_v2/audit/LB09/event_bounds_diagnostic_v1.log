@@ -1,0 +1,129 @@
+RiffleLowerV2/Localization/EventBounds.lean:47:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @LE.le.{0} Real Real.instLE
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@abs.{0} Real Real.lattice Real.instAddGroup
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@RiffleLowerV2.relativeLowerCount k N K cuts (@RiffleLowerV2.ColdGeometryData.ambient k K P W G)
+              (RiffleLowerV2.ColdWitnessData.ms W) (RiffleLowerV2.ColdWitnessData.mu W) x omega))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast N)
+              (@RiffleLowerV2.beta k N K cuts hN (RiffleLowerV2.ColdWitnessData.s W N)))
+            (@RiffleLowerV2.relativeMassBefore k N K cuts
+              (RiffleLowerV2.columnSet K (RiffleLowerV2.ColdWitnessData.ms W) (RiffleLowerV2.ColdWitnessData.mu W))
+              x))))
+      (@abs.{0} Real Real.lattice Real.instAddGroup
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@RiffleLowerV2.relativeUpperCount k N K cuts (@RiffleLowerV2.ColdGeometryData.ambient k K P W G)
+              (RiffleLowerV2.ColdWitnessData.ms W) (RiffleLowerV2.ColdWitnessData.mu W) x omega))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast N)
+              (@RiffleLowerV2.beta k N K cuts hN (RiffleLowerV2.ColdWitnessData.s W N)))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@RiffleLowerV2.relativeMassBefore k N K cuts
+                (RiffleLowerV2.columnSet K (RiffleLowerV2.ColdWitnessData.ms W) (RiffleLowerV2.ColdWitnessData.mu W)) x)
+              (@RiffleLowerV2.massOn k N K cuts
+                (RiffleLowerV2.columnSet K (RiffleLowerV2.ColdWitnessData.ms W) (RiffleLowerV2.ColdWitnessData.mu W))
+                x))))))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+        (@Nat.cast.{0} Real Real.instNatCast N)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (RiffleLowerV2.kappa eta)
+          (@OfNat.ofNat.{0} Real (nat_lit 4)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                    RiffleLowerV2.Targets.ColdWitnessTarget._proof_1))
+                (Real.sqrt
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@Nat.cast.{0} Real Real.instNatCast k) (@Nat.cast.{0} Real Real.instNatCast K))))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast N)
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                (@RiffleLowerV2.beta k N K cuts hN (RiffleLowerV2.ColdWitnessData.s W N))
+                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                    (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real (@Semigroup.toMul.{0} Real Real.instSemigroup))
+            (@OfNat.ofNat.{0} Real (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                RiffleLowerV2.Targets.ColdWitnessTarget._proof_1))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real (@Semigroup.toMul.{0} Real Real.instSemigroup))
+              (@Nat.cast.{0} Real Real.instNatCast k) (@Nat.cast.{0} Real Real.instNatCast K))))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+but is expected to have type
+  @LE.le.{0} Real Real.instLE
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@abs.{0} Real Real.lattice Real.instAddGroup
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@RiffleLowerV2.relativeLowerCount k N K cuts (@RiffleLowerV2.ColdGeometryData.ambient k K P W G)
+              (RiffleLowerV2.ColdWitnessData.ms W) (RiffleLowerV2.ColdWitnessData.mu W) x omega))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast N)
+              (@RiffleLowerV2.beta k N K cuts hN (RiffleLowerV2.ColdWitnessData.s W N)))
+            (@RiffleLowerV2.relativeMassBefore k N K cuts (RiffleLowerV2.prefixColumns K W) x))))
+      (@abs.{0} Real Real.lattice Real.instAddGroup
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@RiffleLowerV2.relativeUpperCount k N K cuts (@RiffleLowerV2.ColdGeometryData.ambient k K P W G)
+              (RiffleLowerV2.ColdWitnessData.ms W) (RiffleLowerV2.ColdWitnessData.mu W) x omega))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast N)
+              (@RiffleLowerV2.beta k N K cuts hN (RiffleLowerV2.ColdWitnessData.s W N)))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@RiffleLowerV2.relativeMassBefore k N K cuts (RiffleLowerV2.prefixColumns K W) x)
+              (@RiffleLowerV2.massOn k N K cuts (RiffleLowerV2.prefixColumns K W) x))))))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+        (@Nat.cast.{0} Real Real.instNatCast N)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (RiffleLowerV2.kappa eta)
+          (@OfNat.ofNat.{0} Real (nat_lit 4)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+              RiffleLowerV2.Localization.endpointError._proof_1))))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                    RiffleLowerV2.Localization.endpointError._proof_2))
+                (Real.sqrt
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@Nat.cast.{0} Real Real.instNatCast k) (@Nat.cast.{0} Real Real.instNatCast K))))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast N)
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                (@RiffleLowerV2.beta k N K cuts hN (RiffleLowerV2.ColdWitnessData.s W N))
+                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                    RiffleLowerV2.Localization.endpointError._proof_2)))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real (@Semigroup.toMul.{0} Real Real.instSemigroup))
+            (@OfNat.ofNat.{0} Real (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                RiffleLowerV2.Localization.endpointError._proof_2))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real (@Semigroup.toMul.{0} Real Real.instSemigroup))
+              (@Nat.cast.{0} Real Real.instNatCast k) (@Nat.cast.{0} Real Real.instNatCast K))))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))

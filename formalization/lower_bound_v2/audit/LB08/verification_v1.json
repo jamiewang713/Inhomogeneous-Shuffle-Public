@@ -1,0 +1,86 @@
+{
+  "additional_success_export": "RiffleLowerV2.Occupancy.collision_success",
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "axioms": {
+    "RiffleLowerV2.Occupancy.collisionChebyshev": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Occupancy.conditionalCollisionStability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RiffleLowerV2.Occupancy.uniformOccupancy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build_command": "python3 scripts/lane.py LB08 RiffleLowerV2.Occupancy.Main",
+  "compiled_overlay": ".build/lanes/LB08/lib/lean",
+  "compiler": "Lean 4.33.1",
+  "coordinator_integration": "Separate LB00 integration receipt required to publish into the shared overlay.",
+  "declarations_audited": 186,
+  "dependencies": {
+    "LB02-v1": "3c56558d2661a6d89fe9b095400a8a52516342dd0da74bde8ca690944556ab66",
+    "LB03-v1": "ec889ccc6409f4339ff31b41beae3b5847b90ac6eb62eab0809f263f29fc2c4f"
+  },
+  "downstream_import": "RiffleLowerV2.Occupancy.Main",
+  "evidence_hashes": {
+    "audit/LB00/LB08_DEPENDENCIES_READY_v1.md": "52775ca700856007c08daee299e7dde842b53274c1aa30bc54864e5ffd340aea",
+    "audit/LB00/LB08_INTERFACE_ACK_v1.md": "2628c95632db175e4ed9ec572bc969bae8c625e7f8ad5c3924e267d2c379d632",
+    "audit/LB08/DELIVERY_v1.md": "0457b025f3b4af21c6e6b014e31aa58b9029bd59e408a9f34a56e7be2da64cda",
+    "audit/LB08/INTERFACE_PROPOSAL_v1.md": "37fc8ea5bae76d6d9982dfbfd51561e50cc1cc104e604674a050bd88cc83ecc5",
+    "audit/LB08/REVIEW_RESOLUTION_v1.md": "48c66dd088659642c6790809fe209b237bf777e34e327cce984a58567d8e1b8f",
+    "audit/LB08/compiled_declarations_v1.json": "d9f6c17b8ecd293fbfc625bc497f7ff87e55fff41b885ae72fa60536441d7c30",
+    "audit/LB08/declaration_audit_v1.log": "9c05b713179c1729e30721ad659de12e20a8764767e1674c3763199cd44f922b",
+    "audit/LB08/final_hypotheses_implementation_review_v1.md": "093ac63e6676edc4bcfb81b2456ed8a82076de3757680968a351df65e7dd51c0",
+    "audit/LB08/final_integration_review_v1.md": "3aae713eae50d362e43d75242877ea5fd21636c0e44a0d70266dd154bce1d2f8",
+    "audit/LB08/hypotheses_review_v1.md": "f15b7848fe361bb8911201f61a983b6290c03e9df47272d2128bef7ce51e9b16",
+    "audit/LB08/input_snapshot_v1.json": "605870d9ad84440acded7df6fa32185898e26bb20a601fbe434769e2e121a5e6",
+    "audit/LB08/lane_build_v1.log": "9106dcebae6d89c298a06a4cd26074874856226ab15c7c988e2cfc71f14f428d",
+    "audit/LB08/math_review_v1.md": "704d82c6d3e8de0de8b09847defc5a44bf0da01cbf4eb304797a79520da2be29",
+    "audit/LB08/probability_provenance_v1.json": "ef74a4c6c875abddfe665aa0e4a3a00d537b7110f7c5e3639efaabc758616aae",
+    "audit/LB08/representation_review_v1.md": "1e2b936d69e63fd366b100c7697cb1f88bd757f220066618c89252b5c3435903",
+    "audit/LB08/scalar_marginal_implementation_review_v1.md": "9a35eca6141360bb88dcc39c0f1fb55eaf8317efda701529a7f77497b2f901dc",
+    "audit/LB08/verify_delivery_v1.py": "13b8c40b44410571cf7eb65b333ef0bca93a2b9935a7109484bd166cc0ff0152"
+  },
+  "exports": {
+    "RiffleLowerV2.Occupancy.collisionChebyshev": "RiffleLowerV2.Targets.CollisionChebyshev",
+    "RiffleLowerV2.Occupancy.conditionalCollisionStability": "RiffleLowerV2.Targets.ConditionalCollisionStability",
+    "RiffleLowerV2.Occupancy.uniformOccupancy": "RiffleLowerV2.Targets.UniformOccupancy"
+  },
+  "frozen_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "pending_lane_obligations": [],
+  "recorded_at": "2026-10-01T17:22:16.644026+00:00",
+  "scope": "All three exact frozen LB08 exports and actual collision-count success bound; no lower-bound endpoint is asserted.",
+  "source_hashes": {
+    "RiffleLowerV2/Occupancy/CentralModel.lean": "2cbb6194cbd6408e89a8dfe6d541e04cc9701e2604117c2eb2173ca6791bf496",
+    "RiffleLowerV2/Occupancy/CentralScales.lean": "52507fdb4813d50facf684b19b5a24c14131f0ae4353b84af82b2018fb12c003",
+    "RiffleLowerV2/Occupancy/Check.lean": "f4966a727e6e0c52421d56fd8d7c26367b98763835bf3e37e006caed38bc9d0f",
+    "RiffleLowerV2/Occupancy/Conditional.lean": "388502eee66cc6dda07cb9ae05682e42a6d1c92d0cbeddff3ac964cb1aee6c1b",
+    "RiffleLowerV2/Occupancy/ConditionalInputs.lean": "da63dc22aaacc800e9de78579ff1ff114149fd07cc025f9d39a031149f4f75ba",
+    "RiffleLowerV2/Occupancy/Covariance.lean": "45cd8677ba25c496ab3277935aa7728d2f57c0e8d75bbd992d4610a6e5b769f2",
+    "RiffleLowerV2/Occupancy/FiniteProbability.lean": "1d2ca4a4f965acec6ee9bf02c39c0584a0f35fe9e7a3cf87c13fda6e70a12336",
+    "RiffleLowerV2/Occupancy/Forcing.lean": "4135e6447932e7516a02ac5535135c2395bd3a7c017304fdd046faeb49dd0200",
+    "RiffleLowerV2/Occupancy/Main.lean": "c66657c99cf84390ab0ff635a92a77afa4ba6f2f6735cc788d91eb3e0a17dac5",
+    "RiffleLowerV2/Occupancy/Marginal.lean": "0dac91849a1101b30aa37d9c622414d1a10974c0b4a208589290cd35fc52ec55",
+    "RiffleLowerV2/Occupancy/MarginalNumerical.lean": "4e593198ed2563800f63c3e41bcec4f1e2a35e1f4ed0e625b940c4f3c18da3b9",
+    "RiffleLowerV2/Occupancy/ModelInputs.lean": "cf5ebf5fa6bac958abebce6a5275159714089ff5567fe1ec1b34c162569c23ad",
+    "RiffleLowerV2/Occupancy/Nonrare.lean": "7293e2dff7721dfab20d1f6565aa718a80855cadcd9b0ce1cbbb0eb4b86cd909",
+    "RiffleLowerV2/Occupancy/Numerical.lean": "2d33ca6d2d779f0abe883eb682366f15c1f48893cd9bd095a4878b89acfc6e32",
+    "RiffleLowerV2/Occupancy/Poisson.lean": "20831bdf877807e3116250e4b805d0f1aaef554daee15ccfe4d780d4bcec2106",
+    "RiffleLowerV2/Occupancy/RarePair.lean": "2380ba529e81a5f6be7adc54e70859c2b8f61c9ef933ce0bc2e18aca849f228a",
+    "RiffleLowerV2/Occupancy/RegimeAlgebra.lean": "36ecc808dd2ce7c002b8758c99a43116ec4b64fa32bb24e4e54666bbc207f565",
+    "RiffleLowerV2/Occupancy/Scales.lean": "da8854a15548d7cca32c72e6f5cc46cc2c0779e9e55ecc8eb8cb39e67e59f18d"
+  },
+  "status": "COMPLETE"
+}

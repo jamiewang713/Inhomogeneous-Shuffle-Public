@@ -1,0 +1,25 @@
+{
+  "module": "RiffleLowerV2.Model.GraphSorting",
+  "sha256": "66201c1a8aa75da4d0fd5855ab251d3cded0e3fb90e5df734c6c95862be880f0",
+  "provenance": "New lane-owned proofs. Uses pinned mathlib sorting characterizations; no unchecked old module import and no copied old compiled cache.",
+  "mathematical_source": "time_inhomogeneous_riffle_shuffle_unified_article.tex: lem:ub-graph-representation",
+  "imports": [
+    "RiffleLowerV2.Shared.Path",
+    "RiffleLowerV2.Model.FiniteLaws"
+  ],
+  "pinned_mathlib_sort_source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Fin/Tuple/Sort.lean",
+  "pinned_mathlib_sort_sha256": "9075b412b4e447c4a01590aceaf0f05d4cf58c419192eb016e9171241a753567",
+  "mathlib_helpers": [
+    "Tuple.monotone_sort",
+    "Tuple.unique_monotone",
+    "Tuple.eq_sort_iff",
+    "Tuple.comp_perm_comp_sort_eq_comp_sort"
+  ],
+  "checked_command": "python3 audit/LB01/compile_lane.py RiffleLowerV2.Model.GraphSorting",
+  "checked_workdir": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2",
+  "checked_exit_code": 0,
+  "checked_stdout": "LB01 BUILD_OK\n",
+  "public_main": "RiffleLowerV2.Model.stableSort_relabel",
+  "assumption_changes": [],
+  "scope": "Deterministic sorting/component/relabel adapters only; law assembly and physical bridge are separate."
+}

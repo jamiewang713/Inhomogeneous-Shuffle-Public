@@ -1,0 +1,2208 @@
+{
+  "axiom_check": {
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "closure_counts": {
+      "RiffleLowerV2.EmpiricalLower.empiricalCombined": 50256,
+      "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable": 50447,
+      "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto": 50449
+    },
+    "examined_declarations": 3216,
+    "recursive_method": "ConstantInfo.getUsedConstantsAsSet: types, values (opaque opened), inductive constructors and recursor metadata"
+  },
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "dependency_revisions": {
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+  },
+  "fresh_build_evidence": "audit/LB00/full_package_v1",
+  "fresh_build_manifest_sha256": "e644816f9dc96092b7d28bf95d461d37bb6596cb6dd7211e9a565fea84a72dca",
+  "id": "COMPLETED-v1",
+  "integration_ledger": "audit/LB00/INTEGRATION_LEDGER_v11.json",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "metadata_complete_audit": "audit/LB00/final_audit_v3",
+  "modules": {
+    "Contracts": {
+      "kind": "project-rebuilt",
+      "sha256": "a66b432533867d39734e0f62c2b81520e2c7a7c83f9468805fe0b185b1437b51",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts.lean"
+    },
+    "Contracts.v1": {
+      "kind": "project-rebuilt",
+      "sha256": "819297508cb01f36de6f746d0c9166574d8e68736bba658fb31358e45e3eb1a3",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1.lean"
+    },
+    "Contracts.v1.AdditionalFinite": {
+      "kind": "project-rebuilt",
+      "sha256": "b94a1cb35d7204e4e6f0c8dbb277ebc471ec16307a38d2351ef290de6da20869",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/AdditionalFinite.lean"
+    },
+    "Contracts.v1.Ascent": {
+      "kind": "project-rebuilt",
+      "sha256": "3816a1346b6f770837169835f93abc02a85f14c5f6c4d1d9a748f9d17602ab2b",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/Ascent.lean"
+    },
+    "Contracts.v1.AssemblyInputs": {
+      "kind": "project-rebuilt",
+      "sha256": "fd005b12cc24ebab117cf08b244d28cef07c31ce02a4d429625a7e92c1e874ea",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/AssemblyInputs.lean"
+    },
+    "Contracts.v1.Endpoints": {
+      "kind": "project-rebuilt",
+      "sha256": "ee995fe56f4815ec78d6d2bd0d76ed4aecb357883417a57958d0dd3ae19df0c0",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/Endpoints.lean"
+    },
+    "Contracts.v1.FactorialOccupancy": {
+      "kind": "project-rebuilt",
+      "sha256": "80be112ec4fe3b811738bcb75a0aa29b26ef31d7bafd5d264fbee8ba21f7253d",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/FactorialOccupancy.lean"
+    },
+    "Contracts.v1.ModelThinning": {
+      "kind": "project-rebuilt",
+      "sha256": "bdb0c4c3af301658c9798d191b3dfef1ac34d9df02fb988b1c10214d6b039288",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/ModelThinning.lean"
+    },
+    "Contracts.v1.TransferFinite": {
+      "kind": "project-rebuilt",
+      "sha256": "fd67fc92015806b8cc78d6b1f4a558ed512a41f818c732435e7e59e664e8b933",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/TransferFinite.lean"
+    },
+    "Contracts.v1.WitnessGeometry": {
+      "kind": "project-rebuilt",
+      "sha256": "bbd3f28678e95ace37f07c0d993992f20fd4dc4d565ccbc11d0b8a4f1ba822bc",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/WitnessGeometry.lean"
+    },
+    "Mathlib.Algebra.BigOperators.Fin": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/Fin.lean",
+      "sha256": "4fe78cba9cdeac4eb8badbdd6359b055031900906fb94f3e51aba6d81451dbd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Fin.lean"
+    },
+    "Mathlib.Algebra.BigOperators.Intervals": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/Intervals.lean",
+      "sha256": "c969bea5adca8855d8dd38d6cc80523edb8ee2fd41dcda77a7b47b09fa710570",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Intervals.lean"
+    },
+    "Mathlib.Algebra.BigOperators.NatAntidiagonal": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/NatAntidiagonal.lean",
+      "sha256": "64430c09500e0d0d7592534812ef6db6c51dea382ba8448b0a90cd3b60392d14",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/NatAntidiagonal.lean"
+    },
+    "Mathlib.Algebra.BigOperators.Ring.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+      "sha256": "472cd5000412d8ec35c8b9ee919b2aeedbf0a830033a55009aad436595923809",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Ring/Finset.lean"
+    },
+    "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean",
+      "sha256": "3be238a809840f7dff49a99a02fd83fd5fc93d3efd5f8f34354c5e5c4e796e7d",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean"
+    },
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean",
+      "sha256": "c89a7463df5acd6485e64d14b958daaedf6b857aad2808a4ead0570b52220568",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean"
+    },
+    "Mathlib.Algebra.Order.Floor.Semiring": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Order/Floor/Semiring.lean",
+      "sha256": "89cec8d921ee572258917b08f64efc19abe2922fb363e5b0af072c231c9ab7d3",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/Floor/Semiring.lean"
+    },
+    "Mathlib.Analysis.Calculus.Deriv.MeanValue": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Calculus/Deriv/MeanValue.lean",
+      "sha256": "5fd9daf39319b42d9d6f76ab6092e70e5e230cc2d3bed2a3db7deb1967450f81",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/MeanValue.lean"
+    },
+    "Mathlib.Analysis.Complex.Exponential": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Complex/Exponential.lean",
+      "sha256": "78ca88512755a04b7346806b8e74fb3930bf14c0ec289107694a33c1947b7821",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Complex/Exponential.lean"
+    },
+    "Mathlib.Analysis.Convex.StdSimplex": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Convex/StdSimplex.lean",
+      "sha256": "aec844bc79d4bd36cea30d1bf2d0999ad6e82ee1d8715dc8f1fa751c2522785c",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/StdSimplex.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.ExpDeriv": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
+      "sha256": "7678c4712458f4129eb9b29ea7eb332467501cc8a6688547d1ed1b25f8849722",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Exponential": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Exponential.lean",
+      "sha256": "ccf78eb419eed1c6f1172d4e62609d7942f028c9ea037eed54d7b095c80362c0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Exponential.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+      "sha256": "1f36a9802233e878953d809b16e020beaf0ace5afd4c8279d47b52af6ee186bf",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Log/NegMulLog.lean",
+      "sha256": "e249365f3eff509bfd9774e8e5f380c7e0290d76847871daee3616fb15b6b643",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/NegMulLog.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+      "sha256": "004e4d6013b20f95feedfcb23b257c07eb1ee4c7645b9d81fd6e4cb684a116d6",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Continuity": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean",
+      "sha256": "954afcfdbbc1ad9a7f52b8e6d726f21eb2b78bcab182cae499fac27350831afb",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+      "sha256": "1f4e64fc28a20f4e19291a94dafd68daa82588b46f6ee5b9203df373ba595fa3",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Real.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Sqrt": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Sqrt.lean",
+      "sha256": "38c916b763ade8ed7174488bad31aee40735d03877a1bf9e540c1cf0107ec1ab",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Sqrt.lean"
+    },
+    "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean",
+      "sha256": "91cd08147cff7559f9d85be230e04662c3aaa401078ef5c561bafff0a4ea87de",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean"
+    },
+    "Mathlib.Data.Fin.Rev": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fin/Rev.lean",
+      "sha256": "cd616713110393338bd880146a89ac3dce464df31d107d96fa652164727f4888",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fin/Rev.lean"
+    },
+    "Mathlib.Data.Fin.Tuple.Sort": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fin/Tuple/Sort.lean",
+      "sha256": "9075b412b4e447c4a01590aceaf0f05d4cf58c419192eb016e9171241a753567",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fin/Tuple/Sort.lean"
+    },
+    "Mathlib.Data.Finset.Powerset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Finset/Powerset.lean",
+      "sha256": "ffe38ab68a55fd3c24524e502afab8dad28588fb899157deae3976f24ff16b27",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Finset/Powerset.lean"
+    },
+    "Mathlib.Data.Fintype.BigOperators": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/BigOperators.lean",
+      "sha256": "bfa35992c02f47d7c78a5425ea3c4eecba0ad54de1b5752db565b37de11148c0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/BigOperators.lean"
+    },
+    "Mathlib.Data.Fintype.CardEmbedding": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/CardEmbedding.lean",
+      "sha256": "c80a43cc580276d27c987976ee393659992710aab844c84dcc9a91af4cdf0a3c",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/CardEmbedding.lean"
+    },
+    "Mathlib.Data.Fintype.EquivFin": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/EquivFin.lean",
+      "sha256": "2df4d785c723a7cf6ce60790a545497250b63f52ecd7bdd5039fa5ea3537acb8",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/EquivFin.lean"
+    },
+    "Mathlib.Data.Fintype.Perm": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/Perm.lean",
+      "sha256": "e8756bd3968e86cfcd80327198dbd8ef239ec320ade1db544663b0b09cdfe611",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/Perm.lean"
+    },
+    "Mathlib.Data.Fintype.Vector": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/Vector.lean",
+      "sha256": "0a0072bcc2fbb9d95b6ae7acfdb43424990820f6b90cd5d9adebad5b391a3d95",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/Vector.lean"
+    },
+    "Mathlib.Data.Int.Interval": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Int/Interval.lean",
+      "sha256": "aa48ad0047fc178dbd4c51ff9485392c85e1ed139b66e886897e22b1af80a8e6",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Int/Interval.lean"
+    },
+    "Mathlib.Data.List.Lex": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/List/Lex.lean",
+      "sha256": "6495ae02a429a2011b5873f559e0c6908f832b9f2a026ddab4af530b07660425",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/List/Lex.lean"
+    },
+    "Mathlib.Data.Nat.Choose.Cast": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Choose/Cast.lean",
+      "sha256": "bb2345595880ff28fff3cdd8219bcb5bf28659eb4d39de65d3bd1df1476c15bc",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Cast.lean"
+    },
+    "Mathlib.Data.Nat.Choose.Sum": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Choose/Sum.lean",
+      "sha256": "c7ce3caf261d7993044a2bfd52761152f9c24fe1066989e0c910af58a50c305d",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Sum.lean"
+    },
+    "Mathlib.Data.Nat.Choose.Vandermonde": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Choose/Vandermonde.lean",
+      "sha256": "2a00982f5be6eb43dd92263310602ae50ac886d2c463966cce9c757e0e5fa3ef",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Vandermonde.lean"
+    },
+    "Mathlib.Data.Nat.Factorial.BigOperators": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Factorial/BigOperators.lean",
+      "sha256": "784d9aa990e125c1d9b6c06c65186f894692569cc909b2ff792045c8f5db8bd0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/BigOperators.lean"
+    },
+    "Mathlib.Data.Nat.Factorial.Cast": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Nat/Factorial/Cast.lean",
+      "sha256": "6ce6dd4a5af21056cdadf1c5fb4f4ec983d13864214b7b700c44caad48779b29",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/Cast.lean"
+    },
+    "Mathlib.Data.Real.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Real/Basic.lean",
+      "sha256": "b1dde0e82be30e8a9ca87b23c46d04afc92be61818622ba6d4603daa4d4a9f70",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Real/Basic.lean"
+    },
+    "Mathlib.Data.Vector.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Vector/Basic.lean",
+      "sha256": "9b4928b3f1d0b81bb040f05a950b97ef9a5a9b374779d87fe9314693fda85bcf",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Vector/Basic.lean"
+    },
+    "Mathlib.Logic.Equiv.Fintype": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Logic/Equiv/Fintype.lean",
+      "sha256": "cddcf2bf85395affa0b01435380f29f284bf216e353d79c215065ec74131049b",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Logic/Equiv/Fintype.lean"
+    },
+    "Mathlib.MeasureTheory.Integral.Bochner.SumMeasure": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Integral/Bochner/SumMeasure.lean",
+      "sha256": "cfb87381d26bdb1aa5fee20ea2d59c79b6ded045a8417d2f483a7533ad50a5a1",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/Bochner/SumMeasure.lean"
+    },
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "sha256": "93908eb0c771ba8edcb47537dfe1a40e98a1545be9d427c1eb9823d44decdcd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean"
+    },
+    "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/Decomposition/RadonNikodym.lean",
+      "sha256": "b9119e17ecb3bb04c02f29b557cf263c3ffd856ae781386a5350d53b85f91394",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/Decomposition/RadonNikodym.lean"
+    },
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
+      "sha256": "ececad97c60703de0e0ee2f47bca44a017aa8537f7186412f69b169f026e92fd",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean"
+    },
+    "Mathlib.MeasureTheory.Measure.Tilted": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/Tilted.lean",
+      "sha256": "355cce542b03dd9130d9511f80ae803cc11a12ba9e6a947e68402b124be2165f",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/Tilted.lean"
+    },
+    "Mathlib.Order.Interval.Finset.Nat": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/Interval/Finset/Nat.lean",
+      "sha256": "90339c927a9c62f2bed05fd25089b1570397415d65bfc09def8b8e536a4019c9",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/Interval/Finset/Nat.lean"
+    },
+    "Mathlib.Order.Interval.Set.Union": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/Interval/Set/Union.lean",
+      "sha256": "0609bc9d79421b5690dca5429a67571ab70d1ca9db34b7e4c3dbe920598d0eb2",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/Interval/Set/Union.lean"
+    },
+    "Mathlib.Order.WithBot": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/WithBot.lean",
+      "sha256": "1167c56b29f831e2dbc02a98bd73734867f047b67ba111bc9dba5c9a2bfbbf93",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/WithBot.lean"
+    },
+    "Mathlib.Probability.ConditionalProbability": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ConditionalProbability.lean",
+      "sha256": "247049f525790604ab3192c8ee3d8ac3c7bc250a37f84809df972d6bc52a8a53",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ConditionalProbability.lean"
+    },
+    "Mathlib.Probability.Density": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Density.lean",
+      "sha256": "e2c3ac48e38cb53ede252c93be157eab08f59028a5be3eb11a69e80aa1fee3a2",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Density.lean"
+    },
+    "Mathlib.Probability.Distributions.Poisson.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Distributions/Poisson/Basic.lean",
+      "sha256": "61e73e5005dff57b502ab5ac900c1ed8a2b7b424d715b71324d1c08eb5791be1",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Poisson/Basic.lean"
+    },
+    "Mathlib.Probability.Distributions.Uniform": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Distributions/Uniform.lean",
+      "sha256": "c3492e1ba311263248302cf310f45e44d49524cfbba52d8fc27207be80a50ab9",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Uniform.lean"
+    },
+    "Mathlib.Probability.Kernel.Condexp": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Kernel/Condexp.lean",
+      "sha256": "631098c0a5a7af18d7c2164630d0f594b6d41dfd4ac165414ac67433f5822f27",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Kernel/Condexp.lean"
+    },
+    "Mathlib.Probability.Moments.MGFAnalytic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Moments/MGFAnalytic.lean",
+      "sha256": "43bf9669a4aececdead05bfb77193476d2bf92885767b876960ca4c314d20a23",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/MGFAnalytic.lean"
+    },
+    "Mathlib.Probability.Moments.SubGaussian": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Moments/SubGaussian.lean",
+      "sha256": "7259bc145c6de9bb81b8aea24a660b951f12787ffdb7514ba27de74fb658e151",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/SubGaussian.lean"
+    },
+    "Mathlib.Probability.Moments.Tilted": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Moments/Tilted.lean",
+      "sha256": "e3b7e74d9e558da680222fbb296fa82918f82c5399fc968502bb7e05775ca6c3",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/Tilted.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Basic.lean",
+      "sha256": "4ef376c0ae18ac15664d1d0a77c075f838bc0d65556ac3bc7e462d651fdae197",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Basic.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Constructions.lean",
+      "sha256": "09a7cf241524c158d4174e994e04140901630c7e0629ceee9b7ba7ec347d2cd4",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Constructions.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "sha256": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean"
+    },
+    "Mathlib.Tactic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Tactic.lean",
+      "sha256": "6ec9a1714e9fa472f7e5614792f1aa5a65f360ec56688b0dc765d1bee2e1bdd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Tactic.lean"
+    },
+    "Mathlib.Tactic.Ring": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Tactic/Ring.lean",
+      "sha256": "d3ef5c49ebbd1108ce3f935e5ad95485e143abf02f28c027dba4bb6f3be8196e",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Tactic/Ring.lean"
+    },
+    "Mathlib.Topology.Order.IntermediateValue": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Topology/Order/IntermediateValue.lean",
+      "sha256": "6e22cbb5e8b9124378735958f0282285a127f3b1dc9eaafeb2c714f89222ba65",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean"
+    },
+    "Mathlib.Topology.Order.Lattice": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Topology/Order/Lattice.lean",
+      "sha256": "de4e005eb2aeae5df8f303f024495ea36e62a5451df065b318724cf41e1f9d22",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Topology/Order/Lattice.lean"
+    },
+    "Mathlib.Topology.UniformSpace.HeineCantor": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Topology/UniformSpace/HeineCantor.lean",
+      "sha256": "307718982cda076dc252c6506dc9ab94a3c84e3eb92516dda94e364afc0bf07a",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Topology/UniformSpace/HeineCantor.lean"
+    },
+    "RiffleLowerV2": {
+      "kind": "project-rebuilt",
+      "sha256": "94e39b59d25faeb49afaa0e3acd11b8dad3e83852c406315b277fcb5d90b4a39",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2.lean"
+    },
+    "RiffleLowerV2.Ascent.Asymptotic": {
+      "kind": "project-rebuilt",
+      "sha256": "3eec5f1f3635bbe18e2e1074a29790f05e95ee2a6ea2938f10058ab4ecfba13a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean"
+    },
+    "RiffleLowerV2.Ascent.Components": {
+      "kind": "project-rebuilt",
+      "sha256": "d2aa1eafa280844418c84250f1d709fc8ed9db057010826ad0647e6581905fc0",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components.lean"
+    },
+    "RiffleLowerV2.Ascent.Components.Charging": {
+      "kind": "project-rebuilt",
+      "sha256": "5cf45d89fa9be8ee6db8e00b9200a5709d1a0be50b844d927bdd31661fe2c1ea",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Charging.lean"
+    },
+    "RiffleLowerV2.Ascent.Components.Clipping": {
+      "kind": "project-rebuilt",
+      "sha256": "f91ff7b097575b4ffbfb7337aadce667fd78bb04f6ae6494d584618809e8ed18",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Components/Clipping.lean"
+    },
+    "RiffleLowerV2.Ascent.Concentration": {
+      "kind": "project-rebuilt",
+      "sha256": "6852a9d8411462557f30b8cd400cced25cc111fd4bc91a72969c002ad8381178",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Concentration.lean"
+    },
+    "RiffleLowerV2.Ascent.Expectation": {
+      "kind": "project-rebuilt",
+      "sha256": "cfb7e67022e62bbce9a8f843d80a632f0030ff17499de4093e6fea93787d496e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Expectation.lean"
+    },
+    "RiffleLowerV2.Ascent.FiniteConsequences": {
+      "kind": "project-rebuilt",
+      "sha256": "e3368fc0ea4dac663a18272963396712cb4b41c7a68fd364e3e4732af327abd3",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteConsequences.lean"
+    },
+    "RiffleLowerV2.Ascent.FiniteProbability": {
+      "kind": "project-rebuilt",
+      "sha256": "00d82b310825842653daaedb9ed6b9f846c13057c5e4808b7d8f4ea91bbc9b76",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteProbability.lean"
+    },
+    "RiffleLowerV2.Ascent.MGF": {
+      "kind": "project-rebuilt",
+      "sha256": "3fa1bbd161af04b5b6bcda57f8f1e528f5e341e002a5a7bb8c27ac1b9a52d9e1",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/MGF.lean"
+    },
+    "RiffleLowerV2.Ascent.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "a76031e74e2408913208733112e0a0ad4f0617cd437bb01d4be9a4a514a7e74a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Main.lean"
+    },
+    "RiffleLowerV2.Ascent.Mixture": {
+      "kind": "project-rebuilt",
+      "sha256": "242db008170a8dbc82d139f6e249366e8bfca9577da78bb4431e0fa7feba0aff",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Mixture.lean"
+    },
+    "RiffleLowerV2.Ascent.Quantitative": {
+      "kind": "project-rebuilt",
+      "sha256": "de4a60ba3ffd75c775bfcf73d73c60e61b4ba939f4b5cbee134f419eb09cafb3",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Quantitative.lean"
+    },
+    "RiffleLowerV2.Ascent.RelativeOrder": {
+      "kind": "project-rebuilt",
+      "sha256": "dcc9a0127f4eed17d35bb830d04bea1d539beaca6a93f0a3b4bf7aad3624ecc9",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder.lean"
+    },
+    "RiffleLowerV2.Ascent.RelativeOrder.Basic": {
+      "kind": "project-rebuilt",
+      "sha256": "d596bfbce4b0508971c5dba88f1ab78fbf48e082765f1b881d3bd9b28b29313b",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean"
+    },
+    "RiffleLowerV2.Ascent.RelativeOrder.Boundary": {
+      "kind": "project-rebuilt",
+      "sha256": "a859124dc2a9ceae47518aacf9d037b948eb59cfcc78cd840384f2ed2a236aec",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Boundary.lean"
+    },
+    "RiffleLowerV2.Ascent.RelativeOrder.Check": {
+      "kind": "project-rebuilt",
+      "sha256": "d98650ca8cd66c9cf7120ad290f7f8a0fcdc20d001dc54e61a65c5d141226fc6",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Check.lean"
+    },
+    "RiffleLowerV2.Ascent.RelativeOrder.Law": {
+      "kind": "project-rebuilt",
+      "sha256": "1dbf422d393a480741f3bcf89315a3482d7d6cf7d6f54cf9e2a7c33a31f39a99",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Law.lean"
+    },
+    "RiffleLowerV2.Ascent.RelativeOrder.Weighted": {
+      "kind": "project-rebuilt",
+      "sha256": "b6d69a3fa315b507f5daabe8675bf1591eac0da8e1f02f84b03f8f052e2523e0",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Weighted.lean"
+    },
+    "RiffleLowerV2.Ascent.Selection": {
+      "kind": "project-rebuilt",
+      "sha256": "58b18d155344fcb302b408a082aa8beb0cdd6b35bcd5114d576ffe541afd8d29",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Selection.lean"
+    },
+    "RiffleLowerV2.Ascent.Test": {
+      "kind": "project-rebuilt",
+      "sha256": "2f522c2944102b010c22153754d8a12af63d6f1c73e318bccbd6d445090e1da2",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Test.lean"
+    },
+    "RiffleLowerV2.Ascent.UniformBaseline": {
+      "kind": "project-rebuilt",
+      "sha256": "f94147e58d7e30dea8251e16b02267c56ac9fe186d37b17cfd9d24472fe5586d",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/UniformBaseline.lean"
+    },
+    "RiffleLowerV2.Completed": {
+      "kind": "project-rebuilt",
+      "sha256": "345b1d1bb49bce265eb8afc14eb2b4dc161e6bb244d03fb22d3d4dc4e94cefd1",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Completed.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.Cold": {
+      "kind": "project-rebuilt",
+      "sha256": "6f92e45b5544e37cf0b463221cd866dc40826b6960586601c473bd3144c8f090",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/Cold.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.CollisionMean": {
+      "kind": "project-rebuilt",
+      "sha256": "9ee70a58b6eea506c4709fb3b6b40c5f55492c3bf232f09b1312ef917234c85e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/CollisionMean.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.LargestAsymptotic": {
+      "kind": "project-rebuilt",
+      "sha256": "13bf9c58e9dfa5bf30702ee65ac29b41fc3b70acff226ab6461b3de437d0b51b",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestAsymptotic.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.LargestAsymptotic.Numerical": {
+      "kind": "project-rebuilt",
+      "sha256": "a750e32cbafb793492c9f53f635eb60661ba4345dd8eacf1fd9e65ed91b18d93",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.LargestFinite": {
+      "kind": "project-rebuilt",
+      "sha256": "08c491435949bc39be23bebfcc8136a53574785b28ac03e83250d33e10a1cc7d",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestFinite.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "f6bf1678c71f8efb1e92442bffa78cf54c73a1830fea0eae83b30937f6b4c3f5",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/Main.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.ManyEdges": {
+      "kind": "project-rebuilt",
+      "sha256": "a160b8a63bb5417bdf8db8c6ec5f49aa6e636b2b25299ec2b2baa4ec79557483",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/ManyEdges.lean"
+    },
+    "RiffleLowerV2.EmpiricalLower.Scan": {
+      "kind": "project-rebuilt",
+      "sha256": "fb85242ca1d25c45ccc985fe6b7fe6a5858ed528e9d7d205e9d0d55772bd0562",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/Scan.lean"
+    },
+    "RiffleLowerV2.Factorial.Basic": {
+      "kind": "project-rebuilt",
+      "sha256": "eb419c20e5df3505d6ca1093d964281a0de9be86454d0f9abc59f40874b11542",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Basic.lean"
+    },
+    "RiffleLowerV2.Factorial.Bonferroni": {
+      "kind": "project-rebuilt",
+      "sha256": "3d42d1aeea02f34e00ad95ce65feb993cffc9e4eefec978c6e20b3abcc012a7a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Bonferroni.lean"
+    },
+    "RiffleLowerV2.Factorial.Central": {
+      "kind": "project-rebuilt",
+      "sha256": "204e6b7db7876ed5ae3b503fff91b62cca95c9fcdc5fd54977ae5bbc5e707da1",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Central.lean"
+    },
+    "RiffleLowerV2.Factorial.Exact": {
+      "kind": "project-rebuilt",
+      "sha256": "65640e94b727947d46db81b5a6e8f4241b041ba959df3d8ba36ed9e459855900",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Exact.lean"
+    },
+    "RiffleLowerV2.Factorial.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "376da3c842deb56c2795cf088e889a0d7625e77a75251aa155c498da92615905",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Main.lean"
+    },
+    "RiffleLowerV2.Factorial.MomentScales": {
+      "kind": "project-rebuilt",
+      "sha256": "8c55feee7a5e2f8d53d7ae9f3f7b91dace8c795f7f830b411eca5febb67d0192",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/MomentScales.lean"
+    },
+    "RiffleLowerV2.Factorial.PoissonPolynomial": {
+      "kind": "project-rebuilt",
+      "sha256": "f6d6b631ad6e3debd9a945ce4dbd26b43c3fcecfd55a2e71369d822928e73af9",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/PoissonPolynomial.lean"
+    },
+    "RiffleLowerV2.Factorial.PolynomialMoments": {
+      "kind": "project-rebuilt",
+      "sha256": "bcf740f632a9a93be1742ce57eb7b858b490bd8e50b1e81ad4a403bf27783201",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/PolynomialMoments.lean"
+    },
+    "RiffleLowerV2.Factorial.Ratios": {
+      "kind": "project-rebuilt",
+      "sha256": "bb86da0ab9a0fbf32179a5da3457003ec1c7311d06586b85a8fa9602fa4195dc",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Ratios.lean"
+    },
+    "RiffleLowerV2.Factorial.Relative": {
+      "kind": "project-rebuilt",
+      "sha256": "4e7fc5bea4c5c2bc932299f31d83d626617edbd304b1134c2b06485ad2684e41",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Relative.lean"
+    },
+    "RiffleLowerV2.Factorial.RelativeFromExact": {
+      "kind": "project-rebuilt",
+      "sha256": "2a056832b3a61b568b811ad3a6c04f608485564c2526744120308a90019517ee",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean"
+    },
+    "RiffleLowerV2.Factorial.RelativeTargets": {
+      "kind": "project-rebuilt",
+      "sha256": "4fa5664ef3751c5e983fde4b4cb0c8eb4f4d1476b0ca2054a948647855e5d928",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeTargets.lean"
+    },
+    "RiffleLowerV2.Factorial.Requests": {
+      "kind": "project-rebuilt",
+      "sha256": "8dd04a91e84b7b6f0cd74e9c788c244c4b52a6cf12515649f1671023a3532be3",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Requests.lean"
+    },
+    "RiffleLowerV2.Factorial.Residual": {
+      "kind": "project-rebuilt",
+      "sha256": "2988171f3c337787e9f484eadc840b5af6835a6589709c2fba2268d96f4025b2",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Residual.lean"
+    },
+    "RiffleLowerV2.Factorial.ResidualEstimates": {
+      "kind": "project-rebuilt",
+      "sha256": "2dfdc4475858b67b4b5846bf8a86cb6fd9d62a5da715bf84f96f8878635eb4fc",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean"
+    },
+    "RiffleLowerV2.Localization.Bridge": {
+      "kind": "project-rebuilt",
+      "sha256": "2b40a62ac461c103525a152e414a5e92decc5ba7f8a36634a60ad461ac27194b",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Bridge.lean"
+    },
+    "RiffleLowerV2.Localization.ColdSet": {
+      "kind": "project-rebuilt",
+      "sha256": "930abe1e6d85a10e7d8ed34a9bc6121e88339d9a00accd1f47c73421a04a9922",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/ColdSet.lean"
+    },
+    "RiffleLowerV2.Localization.Concentration": {
+      "kind": "project-rebuilt",
+      "sha256": "4dcb81b3c4e36f9381840e1a28678c4c064e051c4451862e036b9549cb772685",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Concentration.lean"
+    },
+    "RiffleLowerV2.Localization.Edges": {
+      "kind": "project-rebuilt",
+      "sha256": "a09fd0311c6dd3562ebbfcbfd2174d44ad50ca4872ba63845560a1029c91420a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Edges.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints": {
+      "kind": "project-rebuilt",
+      "sha256": "bce799292af3cc5ed224dd25758075d1e85cb79303814c9b160e1054fbeda8c1",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints.Check": {
+      "kind": "project-rebuilt",
+      "sha256": "1f1740677f6c0f0c06ae7aee6e00eb10de49d98f72696e09611b3c150bac837a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Check.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints.Coordinates": {
+      "kind": "project-rebuilt",
+      "sha256": "c86d33a9afbe3386b70a5c1d4167c02fd1de1fddb18efea2a938646618b0d10c",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Coordinates.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints.Counts": {
+      "kind": "project-rebuilt",
+      "sha256": "c5cd41df45ff7fe05faebe67d3c90bdcd5269de748325e781a0cc1724b3548fc",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Counts.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints.Error": {
+      "kind": "project-rebuilt",
+      "sha256": "a97ee48e804080dd2dabec18550a60189c00c6bb7ab8d27495a943aa008ed73c",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Error.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints.Means": {
+      "kind": "project-rebuilt",
+      "sha256": "d28f66f39b536f32a7472797aaef4ce5a316511675cc133c6a806c7fddfbe86e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Means.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints.Partitions": {
+      "kind": "project-rebuilt",
+      "sha256": "5fd701406a6895dd80cc33613a6c3ad4b5c6f66a0fb8d41ea22686299101a5be",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Partitions.lean"
+    },
+    "RiffleLowerV2.Localization.Endpoints.ProductWeights": {
+      "kind": "project-rebuilt",
+      "sha256": "eb975dc64e1fe3032c6aba074456aa1d42da3df049e1975c9809b3751c99c6dd",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/ProductWeights.lean"
+    },
+    "RiffleLowerV2.Localization.EventBounds": {
+      "kind": "project-rebuilt",
+      "sha256": "aa0d818eb580db5b407f401de1a53b482bc24a88105a6d8bc75f222d6ff31b17",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/EventBounds.lean"
+    },
+    "RiffleLowerV2.Localization.Events": {
+      "kind": "project-rebuilt",
+      "sha256": "edae1b97471e22b2ffe446d62939c338e233a3f01b53ff7d96289792c9a65a17",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Events.lean"
+    },
+    "RiffleLowerV2.Localization.Geometry": {
+      "kind": "project-rebuilt",
+      "sha256": "e15fde27bdb4ee637de7cc336d2598accd64aa915c527c9767ddfe807d608553",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry.lean"
+    },
+    "RiffleLowerV2.Localization.Geometry.Algebra": {
+      "kind": "project-rebuilt",
+      "sha256": "18ece81b27c2316022703f93813ddf5cc450f1e1e28717b8f750a34cd7822235",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Algebra.lean"
+    },
+    "RiffleLowerV2.Localization.Geometry.Bounds": {
+      "kind": "project-rebuilt",
+      "sha256": "a8c6b7796fb4d6b7610511024c1c5ea22b2187ff9013b7c8bca93d56ec1afa1c",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Bounds.lean"
+    },
+    "RiffleLowerV2.Localization.Geometry.Check": {
+      "kind": "project-rebuilt",
+      "sha256": "e424266a03821635e4fe39894f148a25a956bb426cfed5c72cb86a4fd2df0419",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Check.lean"
+    },
+    "RiffleLowerV2.Localization.Geometry.Consequences": {
+      "kind": "project-rebuilt",
+      "sha256": "0647c1532f4682f21edcd078fab3cff5188a262714bc983b5cd7c6f8ec15e451",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Consequences.lean"
+    },
+    "RiffleLowerV2.Localization.Geometry.Empirical": {
+      "kind": "project-rebuilt",
+      "sha256": "3af636f6d58c60ef073295b3d4207336cee41f1ab0fe5e26923e2dd17e67bc18",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Empirical.lean"
+    },
+    "RiffleLowerV2.Localization.Geometry.Rates": {
+      "kind": "project-rebuilt",
+      "sha256": "7e97b7705b2adbe9ca9b4707a792f2bbb383897d611b16182aaf2afb9dc86a58",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Rates.lean"
+    },
+    "RiffleLowerV2.Localization.Intervals": {
+      "kind": "project-rebuilt",
+      "sha256": "e87d8757d4d1c53c7c58614aff0e105e366c6c8797de141e8ae39d56f99a1367",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Intervals.lean"
+    },
+    "RiffleLowerV2.Localization.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "7dda47c3a18016c5f0e6f45dec510daf8cdbe0625f7ebb1d72d40f335d8e9949",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Main.lean"
+    },
+    "RiffleLowerV2.Localization.Probability": {
+      "kind": "project-rebuilt",
+      "sha256": "4b9dd6a5b4d645b390eb21760e16497c1e0be689cee7bb64acd447c723ddf5e0",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Probability.lean"
+    },
+    "RiffleLowerV2.Localization.ProbabilityIntervals": {
+      "kind": "project-rebuilt",
+      "sha256": "9ad1f16e3cc2634264e1cbb4234f0814cca85e5fda860ea35fbc9c34f8177249",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/ProbabilityIntervals.lean"
+    },
+    "RiffleLowerV2.Localization.RankBarriers": {
+      "kind": "project-rebuilt",
+      "sha256": "354cbdde0d9f4a30ddc49f925dae211145369461d33d3cbbeeb71961cd759f75",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/RankBarriers.lean"
+    },
+    "RiffleLowerV2.Localization.WordOrder": {
+      "kind": "project-rebuilt",
+      "sha256": "f65785e9ac187c4ba0f4d67f87e01a99166808fa481f801d07e55488a0b9f7ef",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/WordOrder.lean"
+    },
+    "RiffleLowerV2.Localization.Words": {
+      "kind": "project-rebuilt",
+      "sha256": "f2ddc788402900b53cbcf979cd7185883502cd69deaab06457407aee7092afa6",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Localization/Words.lean"
+    },
+    "RiffleLowerV2.MacroscopicLower.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "9983f9b9b097ef9cfc67374521a1639693cb3b1e745890ab6bd2323acf5e33c7",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/MacroscopicLower/Main.lean"
+    },
+    "RiffleLowerV2.MacroscopicLower.Parameters": {
+      "kind": "project-rebuilt",
+      "sha256": "ac7da881e475df4b5820a240b36739c0a50b8a496f7830636d17de7419c14def",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/MacroscopicLower/Parameters.lean"
+    },
+    "RiffleLowerV2.Model.ComponentFibers": {
+      "kind": "project-rebuilt",
+      "sha256": "ca0b61143fb2aaa5ac68a868185449d4c5ef2b3800cbad971e041b01ecdd482a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/ComponentFibers.lean"
+    },
+    "RiffleLowerV2.Model.FiberCounts": {
+      "kind": "project-rebuilt",
+      "sha256": "a047c4cda586bacc6c19fec75e9a4905097860fa7f075917bcb213c7d6aad349",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/FiberCounts.lean"
+    },
+    "RiffleLowerV2.Model.FiniteLaws": {
+      "kind": "project-rebuilt",
+      "sha256": "cc5abe4ecf21f682658ca77e7a867368a4f1f8c4ab0b9d70eba79a9041772a06",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/FiniteLaws.lean"
+    },
+    "RiffleLowerV2.Model.GraphLaw": {
+      "kind": "project-rebuilt",
+      "sha256": "9a15859e7f7b9be119b534ff177f4ce65d75ac88df779148c8cbaa27935a7103",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/GraphLaw.lean"
+    },
+    "RiffleLowerV2.Model.GraphSorting": {
+      "kind": "project-rebuilt",
+      "sha256": "66201c1a8aa75da4d0fd5855ab251d3cded0e3fb90e5df734c6c95862be880f0",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/GraphSorting.lean"
+    },
+    "RiffleLowerV2.Model.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "3300883af41f03098138ce53c49eb5a547cb7c247448cd8ee32abc0d838a0822",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/Main.lean"
+    },
+    "RiffleLowerV2.Model.Physical": {
+      "kind": "project-rebuilt",
+      "sha256": "f28ece509eee906fe8d1bc5bd20d2a8a9aeaf883fb817364b4ff168ed25cc493",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/Physical.lean"
+    },
+    "RiffleLowerV2.Model.Sorting": {
+      "kind": "project-rebuilt",
+      "sha256": "ab2e2fd9f105ab4fac52f6764d731aad7a93a34f5cb6cd85660b67eacd595a54",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/Sorting.lean"
+    },
+    "RiffleLowerV2.Occupancy.CentralModel": {
+      "kind": "project-rebuilt",
+      "sha256": "2cbb6194cbd6408e89a8dfe6d541e04cc9701e2604117c2eb2173ca6791bf496",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/CentralModel.lean"
+    },
+    "RiffleLowerV2.Occupancy.CentralScales": {
+      "kind": "project-rebuilt",
+      "sha256": "52507fdb4813d50facf684b19b5a24c14131f0ae4353b84af82b2018fb12c003",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/CentralScales.lean"
+    },
+    "RiffleLowerV2.Occupancy.Check": {
+      "kind": "project-rebuilt",
+      "sha256": "f4966a727e6e0c52421d56fd8d7c26367b98763835bf3e37e006caed38bc9d0f",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Check.lean"
+    },
+    "RiffleLowerV2.Occupancy.Conditional": {
+      "kind": "project-rebuilt",
+      "sha256": "388502eee66cc6dda07cb9ae05682e42a6d1c92d0cbeddff3ac964cb1aee6c1b",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Conditional.lean"
+    },
+    "RiffleLowerV2.Occupancy.ConditionalInputs": {
+      "kind": "project-rebuilt",
+      "sha256": "da63dc22aaacc800e9de78579ff1ff114149fd07cc025f9d39a031149f4f75ba",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/ConditionalInputs.lean"
+    },
+    "RiffleLowerV2.Occupancy.Covariance": {
+      "kind": "project-rebuilt",
+      "sha256": "45cd8677ba25c496ab3277935aa7728d2f57c0e8d75bbd992d4610a6e5b769f2",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Covariance.lean"
+    },
+    "RiffleLowerV2.Occupancy.FiniteProbability": {
+      "kind": "project-rebuilt",
+      "sha256": "1d2ca4a4f965acec6ee9bf02c39c0584a0f35fe9e7a3cf87c13fda6e70a12336",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/FiniteProbability.lean"
+    },
+    "RiffleLowerV2.Occupancy.Forcing": {
+      "kind": "project-rebuilt",
+      "sha256": "4135e6447932e7516a02ac5535135c2395bd3a7c017304fdd046faeb49dd0200",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Forcing.lean"
+    },
+    "RiffleLowerV2.Occupancy.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "c66657c99cf84390ab0ff635a92a77afa4ba6f2f6735cc788d91eb3e0a17dac5",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Main.lean"
+    },
+    "RiffleLowerV2.Occupancy.Marginal": {
+      "kind": "project-rebuilt",
+      "sha256": "0dac91849a1101b30aa37d9c622414d1a10974c0b4a208589290cd35fc52ec55",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Marginal.lean"
+    },
+    "RiffleLowerV2.Occupancy.MarginalNumerical": {
+      "kind": "project-rebuilt",
+      "sha256": "4e593198ed2563800f63c3e41bcec4f1e2a35e1f4ed0e625b940c4f3c18da3b9",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/MarginalNumerical.lean"
+    },
+    "RiffleLowerV2.Occupancy.ModelInputs": {
+      "kind": "project-rebuilt",
+      "sha256": "cf5ebf5fa6bac958abebce6a5275159714089ff5567fe1ec1b34c162569c23ad",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/ModelInputs.lean"
+    },
+    "RiffleLowerV2.Occupancy.Nonrare": {
+      "kind": "project-rebuilt",
+      "sha256": "7293e2dff7721dfab20d1f6565aa718a80855cadcd9b0ce1cbbb0eb4b86cd909",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Nonrare.lean"
+    },
+    "RiffleLowerV2.Occupancy.Numerical": {
+      "kind": "project-rebuilt",
+      "sha256": "2d33ca6d2d779f0abe883eb682366f15c1f48893cd9bd095a4878b89acfc6e32",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Numerical.lean"
+    },
+    "RiffleLowerV2.Occupancy.Poisson": {
+      "kind": "project-rebuilt",
+      "sha256": "20831bdf877807e3116250e4b805d0f1aaef554daee15ccfe4d780d4bcec2106",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Poisson.lean"
+    },
+    "RiffleLowerV2.Occupancy.RarePair": {
+      "kind": "project-rebuilt",
+      "sha256": "2380ba529e81a5f6be7adc54e70859c2b8f61c9ef933ce0bc2e18aca849f228a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RarePair.lean"
+    },
+    "RiffleLowerV2.Occupancy.RegimeAlgebra": {
+      "kind": "project-rebuilt",
+      "sha256": "36ecc808dd2ce7c002b8758c99a43116ec4b64fa32bb24e4e54666bbc207f565",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/RegimeAlgebra.lean"
+    },
+    "RiffleLowerV2.Occupancy.Scales": {
+      "kind": "project-rebuilt",
+      "sha256": "da8854a15548d7cca32c72e6f5cc46cc2c0779e9e55ecc8eb8cb39e67e59f18d",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Scales.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Compat.Error": {
+      "kind": "project-rebuilt",
+      "sha256": "1a0d3dfcf5920eb3f890ef8cefaae4c2d5c47c60ed232b7678cb76e1f9841df6",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Compat/Error.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Compat.GridQuadrature": {
+      "kind": "project-rebuilt",
+      "sha256": "bafd48d57bc58c40f3b465e1f981ca8dfbbf12651feaa42f52609a612d8ccf76",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Compat/GridQuadrature.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Compat.IntegralEnvelope": {
+      "kind": "project-rebuilt",
+      "sha256": "2c8b827a7a203c4739c65c3697d5acbcbe6b117fd65ab544810784a92e27b218",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Compat/IntegralEnvelope.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Compat.LatticeCounts": {
+      "kind": "project-rebuilt",
+      "sha256": "d4cb3be3a72c004c0b266a252fe22c576919f279e0591942f29af4d3da9d80c2",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Compat/LatticeCounts.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Empirical": {
+      "kind": "project-rebuilt",
+      "sha256": "fcb5630c0d0d0703526c7bcd06ee41f20c68803c10a78d81f51383d736051751",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Empirical.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Endpoint": {
+      "kind": "project-rebuilt",
+      "sha256": "7ef5ccace9000d5a2d44201f831bacfde6282b745198a366d5b491bc5821b56f",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Endpoint.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Extrema": {
+      "kind": "project-rebuilt",
+      "sha256": "9834ecf915048be8d83af99c01e47fdd109eea1f5441b3fc5e5aa9c1cbeebb79",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Extrema.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "a3dac5b594186f345fcb4a26b565d6de4fc9bbd83b0af6ad0c93869d8f2a166c",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Main.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Margin": {
+      "kind": "project-rebuilt",
+      "sha256": "0cd1f3b94947da08fcd316a1b7b1df3e5e3356f6c05843ee4d6aa6bd6db4c964",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Margin.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Parameters": {
+      "kind": "project-rebuilt",
+      "sha256": "fe5fe94d97efc824c28559f7d119d6f65a4eb984fec8974bf7bb16aa29e45df5",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Parameters.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Quadrature": {
+      "kind": "project-rebuilt",
+      "sha256": "a4f65d208be27de1e8c8c97673d563d47bada12bb34427a2340147433c0d20f0",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Quadrature.lean"
+    },
+    "RiffleLowerV2.ProfileTransfer.Spatial": {
+      "kind": "project-rebuilt",
+      "sha256": "1c13a1dd14b1d5fe5d77e185eeaf54c9dd7f9b8946fd71fff0ef02fdf48480c3",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Spatial.lean"
+    },
+    "RiffleLowerV2.Shared": {
+      "kind": "project-rebuilt",
+      "sha256": "f01b060b307e8237b612d6ffad2566b975300e91c776190f7fac9e28ca847ba5",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared.lean"
+    },
+    "RiffleLowerV2.Shared.Adapters": {
+      "kind": "project-rebuilt",
+      "sha256": "737a259499bd3eea31843ddc6a82e498a58dc606c6a94a84b409eb35fe179253",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Adapters.lean"
+    },
+    "RiffleLowerV2.Shared.Empirical": {
+      "kind": "project-rebuilt",
+      "sha256": "84ea013c6f9c64073700be1dced470f11fa30a9b3d0b79a59dde63a099cf817e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Empirical.lean"
+    },
+    "RiffleLowerV2.Shared.Geometry": {
+      "kind": "project-rebuilt",
+      "sha256": "cb992d0297bcf75ada15ff6154a146caadfa3d984629aafd70f74feef6bfbb09",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Geometry.lean"
+    },
+    "RiffleLowerV2.Shared.Model": {
+      "kind": "project-rebuilt",
+      "sha256": "cceadf1b4a5be2f412fe15a9b52b7b7f3c67bfa6d19270955f7c338f01e90930",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Model.lean"
+    },
+    "RiffleLowerV2.Shared.Path": {
+      "kind": "project-rebuilt",
+      "sha256": "513afea203a5ad1a3b851fdb8317b4f6473d2c54e1c0466139b349530563acbf",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Path.lean"
+    },
+    "RiffleLowerV2.Shared.Smoke": {
+      "kind": "project-rebuilt",
+      "sha256": "41544e0cc785a589dedcd14757b1bf2b69747c5512193f80fcdda277c9b1939a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Smoke.lean"
+    },
+    "RiffleLowerV2.Shared.Statistics": {
+      "kind": "project-rebuilt",
+      "sha256": "dd57ff2f4bbac3e26176809ee15081b58510b041e6dee418f65d31d4fc26fb69",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Statistics.lean"
+    },
+    "RiffleLowerV2.Thinning.AllPrefixes": {
+      "kind": "project-rebuilt",
+      "sha256": "50a1a63987193154d00b721f0f040afe589864db72e838a512ad8858ebe0527a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/AllPrefixes.lean"
+    },
+    "RiffleLowerV2.Thinning.Check": {
+      "kind": "project-rebuilt",
+      "sha256": "7999d10dfe63199cab05330f7d11a1073a3303da98fd245cc566b9122dc229ea",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Check.lean"
+    },
+    "RiffleLowerV2.Thinning.ColumnSampling": {
+      "kind": "project-rebuilt",
+      "sha256": "4a3d09f0bfecce0875db521d9bd565d0c86796b64cbe18c213bce77343e393d5",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.Check": {
+      "kind": "project-rebuilt",
+      "sha256": "2bdb07a07e47bf58ba34229209ccba9bc2b798f54ccc4a16be68c88a573db120",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Check.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.Conditioning": {
+      "kind": "project-rebuilt",
+      "sha256": "59f90c6082c35defc4cb107e9ff16365bfd5d1dd849e573c4406b57332445403",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.FiniteLaw": {
+      "kind": "project-rebuilt",
+      "sha256": "0aea699fe721acd93eb38772b280630b822dfa31495349baf55877110cd9d182",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/FiniteLaw.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.Hypergeometric": {
+      "kind": "project-rebuilt",
+      "sha256": "60ddfc6791ce509faac5cbebd3461406eb80f5b515e383499d86a5884f09655b",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Hypergeometric.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.HypergeometricConcentration": {
+      "kind": "project-rebuilt",
+      "sha256": "88d1a5b1dcaa900583ea8f7871d540af93a419a111dcb18787c3a177859d1915",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.HypergeometricMoments": {
+      "kind": "project-rebuilt",
+      "sha256": "683abd2e64966bb8dfd229b9f7d0ab93bb2c68a446f2f5ee1d0fbbaa47615ce0",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricMoments.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.ResidualSampling": {
+      "kind": "project-rebuilt",
+      "sha256": "76adf5628deddc7f8f4c2e1eb141401599013e8158b321d8e2687da67b5809d8",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.SamplingCheck": {
+      "kind": "project-rebuilt",
+      "sha256": "162ee3ac7c4d8ff7ab6500850794e261edb53a73a8d74aa2ad64a66c78a5bc82",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SamplingCheck.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.SubsetSampling": {
+      "kind": "project-rebuilt",
+      "sha256": "f1f1966a32a32f77786c334424dc264c2f25cc8f407984766ebb4bdfa7306629",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetSampling.lean"
+    },
+    "RiffleLowerV2.Thinning.Compat.SubsetTransform": {
+      "kind": "project-rebuilt",
+      "sha256": "f961ee4d3a4fcf6b1f2c67b730689f8e68300f92e6d8940d92b055ae6340c9be",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetTransform.lean"
+    },
+    "RiffleLowerV2.Thinning.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "20c7050ff4e6bb2093703aaf8dfde634f82050252303ed90811897785d43281d",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Main.lean"
+    },
+    "RiffleLowerV2.Thinning.MaximalWord": {
+      "kind": "project-rebuilt",
+      "sha256": "fa720aceb1935b1f86926eccfc0a7901177fb945c5b33d2ee8a7bce1b24329b4",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean"
+    },
+    "RiffleLowerV2.Thinning.PMFTools": {
+      "kind": "project-rebuilt",
+      "sha256": "2eeef3e8d1b2e7921371484ba3ed9a8abe35c776eb582bf5a77d5d2fc6e82104",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean"
+    },
+    "RiffleLowerV2.Thinning.PrefixCoordinates": {
+      "kind": "project-rebuilt",
+      "sha256": "6eb1e70f618acb49faf4992abc2a4518a94aeb0ffadd096a974b451628b57ee4",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/PrefixCoordinates.lean"
+    },
+    "RiffleLowerV2.Thinning.Prefixes": {
+      "kind": "project-rebuilt",
+      "sha256": "3186a217fc234148f3ec2993c396f0492aad18670b75120e6ce5068fbfdb4ff2",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Prefixes.lean"
+    },
+    "RiffleLowerV2.Thinning.Process": {
+      "kind": "project-rebuilt",
+      "sha256": "19ed3d26b23d8cafb7807fcceef48ccc3e70c5cd43579543ec8aeea4aebb111b",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Process.lean"
+    },
+    "RiffleLowerV2.Thinning.Recursion": {
+      "kind": "project-rebuilt",
+      "sha256": "22c62d8a60143ecd5539bd15e068694a174da86bbda1d8e3b9d81005251832bb",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Recursion.lean"
+    },
+    "RiffleLowerV2.Thinning.Residual": {
+      "kind": "project-rebuilt",
+      "sha256": "c2ab734fc2a452b6ae2d8541d982ad5589fbf99d2b7e8850e0f2bf6b6eb64d62",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual.lean"
+    },
+    "RiffleLowerV2.Thinning.Residual.Check": {
+      "kind": "project-rebuilt",
+      "sha256": "b5b0526595a8a1e64b875e4fd5f860aa38dac3f99c1e462ae1e6d37397a2009e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Check.lean"
+    },
+    "RiffleLowerV2.Thinning.Residual.Independence": {
+      "kind": "project-rebuilt",
+      "sha256": "0c3214a843a4acd34ee5536876ce871c7df9f77a54616a9ab58fff0e7f5be85b",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Independence.lean"
+    },
+    "RiffleLowerV2.Thinning.Residual.IndependenceCheck": {
+      "kind": "project-rebuilt",
+      "sha256": "a4021bf6dad5126e40200660b904c705ce663810e417c02d80dbabe07a7dbdbc",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/IndependenceCheck.lean"
+    },
+    "RiffleLowerV2.Thinning.Residual.Prefix": {
+      "kind": "project-rebuilt",
+      "sha256": "e858e223a9a2d19fafadff543c57bcd009b67cb3ebe4fb81b3ebad12369f9510",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean"
+    },
+    "RiffleLowerV2.Thinning.Residual.PrefixCheck": {
+      "kind": "project-rebuilt",
+      "sha256": "97ce8b1e82d3accec4a2a25d14fe7fe1b36695449a8ea6c4d4d56e6fc0029b33",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/PrefixCheck.lean"
+    },
+    "RiffleLowerV2.Thinning.Sampling": {
+      "kind": "project-rebuilt",
+      "sha256": "c4b28390e2322893d008f17997e94c0067d40daf72c8fb0b966aae625ae7824e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Sampling.lean"
+    },
+    "RiffleLowerV2.Thinning.Tails": {
+      "kind": "project-rebuilt",
+      "sha256": "af3856e94508d3b68359f38db55c4f1eeb22adf94dfed8e10c5d145bba1b1d93",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Tails.lean"
+    },
+    "RiffleLowerV2.Thinning.UniformError": {
+      "kind": "project-rebuilt",
+      "sha256": "1370a1242fc236a697a1c3e107a869f843bc5581a960ca1e1b7716e3f3bfaa52",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/UniformError.lean"
+    },
+    "RiffleLowerV2.Types.Approximation": {
+      "kind": "project-rebuilt",
+      "sha256": "d99e8f46e87cfb7a8cc325797f43bda3277622eca58a0e72c2f8ecdd31bb6ab8",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Approximation.lean"
+    },
+    "RiffleLowerV2.Types.ClassEntropy": {
+      "kind": "project-rebuilt",
+      "sha256": "8cbc701b627ede6e0ffac138e72a04d8e92aa2af92b218304c16fa13ba220074",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/ClassEntropy.lean"
+    },
+    "RiffleLowerV2.Types.Construction": {
+      "kind": "project-rebuilt",
+      "sha256": "0036eea61d471f585da911739d6f03da65d1cd91ba56b190c7ae044ad0513d66",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Construction.lean"
+    },
+    "RiffleLowerV2.Types.Counting": {
+      "kind": "project-rebuilt",
+      "sha256": "c9447f614ac6458dd4b7a8d2512258a012a736ad8c8b62cf00520e87db05226c",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Counting.lean"
+    },
+    "RiffleLowerV2.Types.Empty": {
+      "kind": "project-rebuilt",
+      "sha256": "6184adb29d27fd464c4c6a05f34af71d340599c5fed984d836f995a4d2c05445",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Empty.lean"
+    },
+    "RiffleLowerV2.Types.EntropyBounds": {
+      "kind": "project-rebuilt",
+      "sha256": "a4075ff676bdcf7fcadbe2bf7ee2575675d43a0e29bfcc89ad6356b8794b8239",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/EntropyBounds.lean"
+    },
+    "RiffleLowerV2.Types.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "bf8a4c7a63568735968cd0bcf5e1796545427a0a2729edf19b8a1e45f83df624",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Main.lean"
+    },
+    "RiffleLowerV2.Types.MassBins": {
+      "kind": "project-rebuilt",
+      "sha256": "990b31c1b9850ec0374cc1a1ef41c3c21cfbfc97262296d7945732a01fc748fb",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/MassBins.lean"
+    },
+    "RiffleLowerV2.Types.Partition": {
+      "kind": "project-rebuilt",
+      "sha256": "a1d92f593199449bf12231c2c7c848fd98917b0297e76a528614cf19d13d4584",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Partition.lean"
+    },
+    "RiffleLowerV2.Types.Rates": {
+      "kind": "project-rebuilt",
+      "sha256": "48642dd04b57c9279b1816ec396586b59ec4f40c4595d81b5d2146e8fa8ee740",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Rates.lean"
+    },
+    "RiffleLowerV2.Types.Rounding": {
+      "kind": "project-rebuilt",
+      "sha256": "75494b90c3a320130dea75af42c0a1614b31e7ce777738332736c72ce5ec5ad4",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Rounding.lean"
+    },
+    "RiffleLowerV2.Types.Truncation": {
+      "kind": "project-rebuilt",
+      "sha256": "43f19d9366f2cc8608da41158d38be6b1d2d6f115509ccd7857fba828bfea346",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/Truncation.lean"
+    },
+    "RiffleLowerV2.Types.WordEstimates": {
+      "kind": "project-rebuilt",
+      "sha256": "6c4be391d4b49a6182512b7478c9594fbced94a83e327b3f131085a161487e1a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Types/WordEstimates.lean"
+    },
+    "RiffleLowerV2.Witness.Continuous": {
+      "kind": "project-rebuilt",
+      "sha256": "d4087979d57d206e092e9c3993ed2356371d4b271b33536b020abf663a305a35",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Continuous.lean"
+    },
+    "RiffleLowerV2.Witness.Empirical": {
+      "kind": "project-rebuilt",
+      "sha256": "7220bb0fcb372ec11eb74a284f0dfeacd9485a1bf0618d3be6612097159072c8",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Empirical.lean"
+    },
+    "RiffleLowerV2.Witness.EmpiricalTilt": {
+      "kind": "project-rebuilt",
+      "sha256": "8b7f95dad4a3df89ee66b887ead0ad4c2b264ac6a209f22cfa83af7c40129647",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/EmpiricalTilt.lean"
+    },
+    "RiffleLowerV2.Witness.Finite": {
+      "kind": "project-rebuilt",
+      "sha256": "f8d3121c1c7e05cec61afd9772d746955006b716720ad0d6c3545e1d59e75e2f",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Finite.lean"
+    },
+    "RiffleLowerV2.Witness.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "c00990a85054cccc1af82b42096d8547aa770d90391f3429f6792a933c66c731",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Main.lean"
+    },
+    "RiffleLowerV2.Witness.OneColumn": {
+      "kind": "project-rebuilt",
+      "sha256": "f139c4b37e6b6492e0e140a535df2c5cdd023e74b998af2fee0d53c50ce951fe",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/OneColumn.lean"
+    },
+    "RiffleLowerV2.Witness.OneColumnBasic": {
+      "kind": "project-rebuilt",
+      "sha256": "0ee7edc19ffb580282b4aad08477fdd409421f30bb52ddcd408974ecc4fd4f81",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/OneColumnBasic.lean"
+    },
+    "RiffleLowerV2.Witness.Rounding": {
+      "kind": "project-rebuilt",
+      "sha256": "c8b3b2ee0b8eb897607b7c9f1c2d13e87cd659561a355b75a2912f0e24caf959",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Rounding.lean"
+    },
+    "RiffleLowerV2.Witness.Selection": {
+      "kind": "project-rebuilt",
+      "sha256": "898ed53cc48059604afa7b56c675488bdf39f2dc79b6f64c089bd01a9ba47225",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Selection.lean"
+    },
+    "RiffleShuffle.Basic": {
+      "kind": "project-rebuilt",
+      "sha256": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Basic.lean"
+    },
+    "RiffleShuffle.Graphs": {
+      "kind": "project-rebuilt",
+      "sha256": "d17dc327333df268b84ec9130911bba2d5d16130caaa7ffc8397db20e4601362",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Graphs.lean"
+    },
+    "RiffleShuffle.Matrices": {
+      "kind": "project-rebuilt",
+      "sha256": "2a674866084434aa87978a35af366251df362fa0f9873b4493c136aa69e3c317",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Matrices.lean"
+    },
+    "RiffleShuffle.Profiles": {
+      "kind": "project-rebuilt",
+      "sha256": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Profiles.lean"
+    },
+    "RiffleShuffle.Words": {
+      "kind": "project-rebuilt",
+      "sha256": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Words.lean"
+    },
+    "RiffleTimeProfile.Ambient": {
+      "kind": "project-rebuilt",
+      "sha256": "75d4558ff24fa1fc18cd09b0b1c2d0ea33140195317686e963b36038226eeea8",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Ambient.lean"
+    },
+    "RiffleTimeProfile.Analysis": {
+      "kind": "project-rebuilt",
+      "sha256": "6cb844a02817905bc2e87f57277b23e68c2040dd2b1be6509d4b4320eeb3ac30",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Analysis.lean"
+    },
+    "RiffleTimeProfile.Base": {
+      "kind": "project-rebuilt",
+      "sha256": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Base.lean"
+    },
+    "RiffleTimeProfile.FixedCountModel": {
+      "kind": "project-rebuilt",
+      "sha256": "d5c7cd27f01d77063de5a5dee6f0764e36620cfa997f1660f27c3982e71fde4e",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean"
+    }
+  },
+  "new_output_sha256": {
+    ".build/full_package_v1/lib/lean/Contracts.olean": "f0b01cb02dc7dae57749e1995104089ccf576d44115fc3e7892df5e416c4d0f9",
+    ".build/full_package_v1/lib/lean/Contracts/v1.olean": "8b81a04f5efa175513e2d3964cda949a64970ea0ab511f44e490b0963656b527",
+    ".build/full_package_v1/lib/lean/Contracts/v1/AdditionalFinite.olean": "712587ca862c6fa27578cc69ef5f8b7b87110fa075e24dcccc959440aa8a0b20",
+    ".build/full_package_v1/lib/lean/Contracts/v1/Ascent.olean": "01844dbacab5a995952863c67992c36cb8b3828c73bc6b9aa050cdb8f7fe606c",
+    ".build/full_package_v1/lib/lean/Contracts/v1/AssemblyInputs.olean": "680dac43f432dc0a2109781fd7939fb5608f3affe99da183d05be46fb701396b",
+    ".build/full_package_v1/lib/lean/Contracts/v1/Endpoints.olean": "65a72468045956b39f23d673113dc6756e25fc08a03f573eeff22f40d2d5ad18",
+    ".build/full_package_v1/lib/lean/Contracts/v1/FactorialOccupancy.olean": "dc5c5f9c83e088331d7e10c58af5687326a8def42291c4078e5dc145d5c6067a",
+    ".build/full_package_v1/lib/lean/Contracts/v1/ModelThinning.olean": "25f741fdd4be069a5efa56d508158b3f465be07eb54db6ea5745b0b6bf81a235",
+    ".build/full_package_v1/lib/lean/Contracts/v1/TransferFinite.olean": "dee122998caeae59524be6118271ccdd11588d853eda0316c1526785760fce7c",
+    ".build/full_package_v1/lib/lean/Contracts/v1/WitnessGeometry.olean": "df7b52a25bea546aa1e8603ee32b3eec07989deccbf2c3f0cc212a41259d73f2",
+    ".build/full_package_v1/lib/lean/Mathlib/MeasureTheory/Measure/Tilted.olean": "f421db9234b2f141308ec3783fe04256a599908864ef740a6ca40dba799475c2",
+    ".build/full_package_v1/lib/lean/Mathlib/Probability/Distributions/Uniform.olean": "dd19b29ca01a2edc0e196c659a079bc496090a64a80921f930599ba02182e07f",
+    ".build/full_package_v1/lib/lean/Mathlib/Probability/Moments/SubGaussian.olean": "8b6ce6161f05513309710b6aa396ca6e6012bd7da0d4d14cff31b613f2283ac0",
+    ".build/full_package_v1/lib/lean/Mathlib/Probability/Moments/Tilted.olean": "db8fb9300b2cdd27eac9f8920dbcf8f65b3f44655c53475763c95cfac825fa8d",
+    ".build/full_package_v1/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.olean": "f0b6ef069acc9f4afc02d589e870548a98ce76be9648d12d72f5f46805559144",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2.olean": "5297c94754b41bd76d601259ed7784b528cd0d20a2534bf79f37cd439cefba8e",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Asymptotic.olean": "7f2950c97ac34788cdb6c96bb07c945c3597031918ef2a511c0d615919211b78",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Components.olean": "ecf10ae689a234eb44487eeafa52f1c5a6b2acd29cc96fcdff9b6ecb68830493",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Components/Charging.olean": "ef3e63a26cad1e491ab21fd3132c65cf07463269cf0bb36e70d8c77ef6ce5304",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Components/Clipping.olean": "65e0ab59c315f8f62ed4d1aa6267f063bcd3bdd0a594ed2aa0e2b2ed3902cf66",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Concentration.olean": "1a03e16178833f1547779629287485c26f524201457335a3f75283197467b9dc",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Expectation.olean": "983b93adebe556e2ee223fc57df75bbd144f4cccde817131ddc97edfcd1c6fc8",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/FiniteConsequences.olean": "2fd4f24f06663f299137aaf5636912bddf1c823ce58de76f9f6cf6081404e1df",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/FiniteProbability.olean": "df0e3c7a566573813b97287c696633fde754a5c57b898ae05625842f72f4acf6",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/MGF.olean": "50ad9f2cb0414d008d7edd057adbf4f76c097e1700210a056fb154360f0488d5",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Main.olean": "0eec205d7fc7fb8293c7abdb22d78c9649d95d16f4bc400227f486c0d9e043a4",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Mixture.olean": "1923606bdf27c037990ea3d0b4cd512993e7fbe5a07ba32f2c9f06603fb0d929",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Quantitative.olean": "c4e38b0787b43065ad0c57282e6dbb7bf0ec5ebb8500e579c4d997e663540c30",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/RelativeOrder.olean": "ca58aad2c5bc2cdd531e2d1079d8508ec12da6d6816d3fab3e6fbca8fabb5a35",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Basic.olean": "3c381d1d1bf3ffd78d992dbb0e2222fdfa8a97b05c1cb5aee1388650b40c2f06",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Boundary.olean": "a6f90fc6e681c784a3fcb419045719011ef52202c002cee0803e4a083e040272",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Check.olean": "57e94e4d90a9e9a96a31268f49f0fdb0747f774661d9819ac59a40d8941cfc8e",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Law.olean": "aa8c7e7800e45f249ef8c4b9edf264cbb8e2702f5daf59856909279e9ae4bb59",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Weighted.olean": "06fb02494984a8a8bc6393f4d1a1bd7d49b7ed6fc2504aa065fd3d950fc1a3cb",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Selection.olean": "e750dbc2e300512578d4ae306273a21497e468443cb9979c06cf06209551eaf8",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/Test.olean": "ba29929cd08180c6df144fe7118251103f226344d0ac97b8b4538d002f6a8f93",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Ascent/UniformBaseline.olean": "e1215b733474d83ad0803cfc9943f783e16b97f959801203b5ecd323effc3b08",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Completed.olean": "9be9709b13fb386e40bf72280d81fe2dd06d904d3d25a159a4980a3568993953",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/Cold.olean": "5a046750772312b3d24ab35cb5745bdf3f2266f4904d96f34054bc71fcbb0215",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/CollisionMean.olean": "8e9eede6e308f037794517c928a777370a00d3b5d7992992cd864bc5e67240a3",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/LargestAsymptotic.olean": "1c09c51cbaea38131195cfaa2f3757e2ac50194f56fe63aa524ed44384edc34b",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.olean": "982848181d400036618520949e42e726fc19351618142c081fb8dba13c40fcfa",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/LargestFinite.olean": "3a23ccc7858f7e7c851885e59069b21a74d172552275f2965211a53d0b01cb30",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/Main.olean": "b178fa09429db5b3bf47a933749d3da0bf15cf5feb28da1197ba8664b66bdef8",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/ManyEdges.olean": "ad72a5da4026eb7d297738bb734d126be448388950ac68c56df7cd24660ece51",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/EmpiricalLower/Scan.olean": "1c21e5b05d06754f458f5f51de97f08f2864cacc4736694c7550b5ae6a7bfc94",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Basic.olean": "0d59b3d6a45b555bbaa0da640d75a1ba1b96d642b73b909cdc32c2fd4e44dcba",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Bonferroni.olean": "3f532c32db0fc7e3594bd953b4f5dca36267758470f9d02a2073ffe8a967d0bb",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Central.olean": "61ab3878a54b0e57551bb51faf135ea079bb37b94913e824d7af5d2c16dd1c04",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Exact.olean": "3533246ea9b018961e361e3b576779cf04cc7f3cc1a918063a68496aa166f3e4",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Main.olean": "c11c20665fcd03360ef647ab39e6d2a07243be5a7dadbf0e92a179df886f3c0d",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/MomentScales.olean": "b6b5543db15331de814f6bb2f9a03a533b6ce7c95a9797d66e6de03d6647d6ed",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/PoissonPolynomial.olean": "8a5c9acc1370b00cd0f709f4a8fd5eaf0fc5f7704d234f87f1cea699f71e2fb6",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/PolynomialMoments.olean": "31160961bc26083f4f4d7e7f71ede15707a4d8625bba676dd9c7f954d4e695d2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Ratios.olean": "98fd2ffcf6b6b9f41a5a18ddd7d6f26a3ad00890d7e0df5cff1cc66e716a8e95",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Relative.olean": "55d8bbba8c35aeae54eada7cafa5d0c030cd9ad30a796309655f1947f5c6f2f0",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/RelativeFromExact.olean": "de82efa4eeebd45d440ddeb0407911cd3227c1169f06493ee569c6c76aa07478",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/RelativeTargets.olean": "4f70c48e8847dbec1121b0a4c1ae63af01621cd5a2b701074e85af7cbe50c171",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Requests.olean": "15540777071e0517db18cc461d6ef0342018f358b3cbd1192837127c86375ecb",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/Residual.olean": "d5c103a2858cb0f64c872766583e19b08b8014ce0257a0ae691edbaaffcfdc4a",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Factorial/ResidualEstimates.olean": "ab01b956c8e97e0bc112532d675fe32db9b1d940ded55a770e43476c1b1496e5",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Bridge.olean": "aace123963a8d0a1c92a89c4412be6998f375e951cf99934d7ca67c36166f162",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/ColdSet.olean": "9e4b8da15ad6049f47199119e5c119db677a18d6bc0981062d5328943fdb57e6",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Concentration.olean": "53484b0dce745b6af3f073c29fff2d428807ff74b75a62437aac5eb787bab434",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Edges.olean": "6ee786ab9bd76cd0b77e8255ca74c37b4fca9ac7e19c0bbfc30bb2e529d5bac1",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints.olean": "f1e3f9c91e7d8a3b5157c4a2f1d9aad9dba4fa05a83b713e2fe1445194b6b805",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints/Check.olean": "a2fff7e00a6b8d85e929245bfd802aa0361d0dabd742ba22621eb012ec4d02fe",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints/Coordinates.olean": "c52a3d28407680ab558c8d642d64e43ff21d86bc0c015995f385e45451d7e9b2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints/Counts.olean": "7dd9e72bd78e36b9c2c438b41266d3013888bf4a5472d912ae7bca7dbea20969",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints/Error.olean": "62b20592b66860957d4541742f94491f5e683ebc78994eed76d916c029024650",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints/Means.olean": "da394b2caeccc30bd7fd84528cd505ae08a3d0852a2b4de01c6cf28554c9f757",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints/Partitions.olean": "38a6840d21d8b758ef3b8a9dbb14cb24aaad1c8583fa6e7d0b3f1d8aac02b10d",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Endpoints/ProductWeights.olean": "e38e4c5bd7a34a9c85bd6a46502f09616b40d640e6807efdebc3726f0104d41b",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/EventBounds.olean": "981f024f43faff022c49e5ddc21fe66ec040d8668063322560e6c8de6c8f2823",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Events.olean": "c41d27c2ee6520391488c5163086adf4342a39c7b04f11eb74f7c3c6a03efb63",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Geometry.olean": "d34eaae1c018a6b55e0d77191bd39fcd6f24fbe9b8d1a050cb430f6e69554f65",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Geometry/Algebra.olean": "2f82474d26f40bf1316760f451c96dcdd0f7b080370b94be64aac94aaad705cf",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Geometry/Bounds.olean": "92e6105162469508a9c4d49cb7a878fe68386e32b463b471a066a1e2e56d6e11",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Geometry/Check.olean": "7013baa3a16b85224096f200956fbdbfdf6e4a26bfd6a87e179bfcda7cc698d2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Geometry/Consequences.olean": "a258bcfdce60ba766ff15e1f7e4af491bca710e99050c852a8bf693ac9219509",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Geometry/Empirical.olean": "860a19f37356d32c6181ca534ceafb96f33d45290109f5739d99f1e9044a6eda",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Geometry/Rates.olean": "46157a868c0dbb2c4399e77233f8d4500f458c0d5c15e42391f12e84312ea7aa",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Intervals.olean": "c00304f81007c39ab2f75848fbdefdf89f0188d14337e068dd7e1fa4752aa0fe",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Main.olean": "fb537e30a6aceef8c0c74e0b608baf5cf3f9984f322035a8ab277e3590c00bf1",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Probability.olean": "8f2f4a89ee723960c47a21bd99dcc6359795f2a1b78fb90d834e8eec9871a886",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/ProbabilityIntervals.olean": "e6e7f71b90cffe70837556b9fb51895760138a8e844613af94fd06f501340d86",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/RankBarriers.olean": "fa4030bd2671e5eb2ab62c53ee2d325b08cc2a2029cd0470dea6843bd7141e56",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/WordOrder.olean": "dd3440ddc6e847dae4f7e35022d602867f3087647253659600defee89fc8c195",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Localization/Words.olean": "341f27b8847abef2b680f70991581007a48a6ee5dd6b74890703ca45a5dae7e8",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/MacroscopicLower/Main.olean": "15fd79413182db0adbb9db17f585cf2c5131ed3e9bcb3e4b3aeb235bbe268952",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/MacroscopicLower/Parameters.olean": "18dbc6a1d8ecf8bf5102551ac822ff5d8009e6575d15ee3ffb3f44f5e116c818",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/ComponentFibers.olean": "9f4992c458f9422c62de7857dd260abcc3d8b165b89a5063b3c3775499100128",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/FiberCounts.olean": "692eb919c0aabac25aea4842f6acf7ffd5c7c2cb120d4c2dd8f8ce77fed80892",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/FiniteLaws.olean": "24f1c37f9f2f54116a411cf806917acb820049e85a42e4877241ad9ba187bacb",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/GraphLaw.olean": "4174c77ef65c2bfe8d6b5b636e58e7443bee137dd0816dfbb2c4459e63a84b2d",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/GraphSorting.olean": "96edab9fce65ef69c034d88159f7d601ead00718f03bee7c1cf9d5ca617c963b",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/Main.olean": "76525fb5f093030d1596b4756220ceaff29d803bd15d0e54b978dc63b192fe28",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/Physical.olean": "c3f22eff733d13b65ef2e62e3b11c0799b6049a0b39615d6830fc8eb33143a16",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Model/Sorting.olean": "2baf27bb82b21170a7b3b3abca972572e82e9508f840577deb01dbee55bdcef9",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/CentralModel.olean": "931ff5f5cfb3343962d7154f7c7a19efe0c4fde81873a07ed63472f763ce6292",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/CentralScales.olean": "2f17210777484717e8381cc986d7789082642cd828873274646372c625baa2dd",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Check.olean": "ab033a03c58b3eac160873e0ce7ddb36c8aacc96a42c92cea96e89e3572694a1",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Conditional.olean": "511707778cf50e937b7c11e83fab5a9d5b835f93c61d75e1b66d2e9e35ff9b58",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/ConditionalInputs.olean": "e49fdea35ed6b34cc0b2b2803b4c455298bda7a02ade468d327bfe12bd8b10b8",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Covariance.olean": "3c6b699efae718bc94edb92bce6144b996086fdbcca37420b5ce584d405cba21",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/FiniteProbability.olean": "c6d22e033bfa18067e127fbb0a564f97af056d270a6c8cfc84e8185e8e2d8506",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Forcing.olean": "04d78ac92711d94ee5b0d8a014612678beb886512d354b0e3973e770e9a6e761",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Main.olean": "ee64f252a04d2255647b7ec183068088648bacf4f926ddc57f516e342d8285db",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Marginal.olean": "51d5ad2043a642224ea79f3582ad5db272d6dea37532c4d46e58e5363e350230",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/MarginalNumerical.olean": "1f9ab0240b343253e4fe3d6b96b70bab21b891a827932b3c1815cd8d310cdc75",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/ModelInputs.olean": "f33e0d4dd6eff6fd2aec0c5f9b6c9422b54fc7b7e6f920fd75f4b64af7bd8d3b",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Nonrare.olean": "ee87dba566d5b1d2bfb682df8ae8884c447b886d0285512428837eecc46ef3a6",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Numerical.olean": "a2ecfce032b99515e2c9a915f649ae7b974ff272033cdac2f73d6aa9f26fe552",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Poisson.olean": "c92c0cc48328417fe9cc37a07e18480b0fb1f402f5cf27b132ae86c72d317363",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/RarePair.olean": "7f09134ddca2c00689df5e60c2a39fb3e7703fb795c390c53d533221f5026e48",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/RegimeAlgebra.olean": "0a2fcb328a8c85d05561cf21ba7b5db669f7be3d2d0d1f95615afc268a4ee125",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Occupancy/Scales.olean": "a7abde3bb2ab757d9b755febd8cd1be56562cfd5593221d40855c3461c77ae63",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Compat/Error.olean": "d5edd03a9736b3742c831d2649c723d4cf023178eb3619c950e2dd4e97d994bd",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Compat/GridQuadrature.olean": "ec2e17bdb51c9f7ac8282621f674f96bc761a63caa724e9909ac2013d849b118",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Compat/IntegralEnvelope.olean": "657f078c3ae35fef192d592140d3a28ee032d1d88e97756bd7affe4d6e76a822",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Compat/LatticeCounts.olean": "14b7c335d01e1fe39c3bfd93a12e4889bae188e5f673708fed7e5071f5236447",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Empirical.olean": "ccfefe105d832b167c6032379b090b0b8e3504500899e094cf8fbe1136e4c5e2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Endpoint.olean": "13ef129c15acbda633b850ba85b90984e35c31d2ef2bc5658669a29f06ae51f2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Extrema.olean": "c882cc73ebe73eab0223f0e8b63d787e05597714b0e83dabc6588fd46d369b39",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Main.olean": "4db868bd7b87069ef431b1e47f88c3f852399dbc491bfede3ed1747e78699915",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Margin.olean": "0cdeacec3fad8b44860fc56fc13490082344dce7b9aa75699d5308d372affe62",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Parameters.olean": "8844ee1659753c2db6a628be546e3d35751c2cbdc39da995d73971de0fa4c6bc",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Quadrature.olean": "3dc74baa53c52587666e0059a10bf32c84f33a4625b719633de0a2648680ab3f",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/ProfileTransfer/Spatial.olean": "3738d4f2677053a86b9cb575ad01ae68c9a4e248f2ab27321306d31cd8031311",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared.olean": "60089b260d2789d555d3563403a8198bad350e3ea572430dfd817715d3014d53",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared/Adapters.olean": "7c5cfb0017841e091c69789df9f71e8cb2374b1c3407c0d54fc6e72a54ed68b2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared/Empirical.olean": "9f3203a3a0955efa116f93a20061c36df6a6fe4c307523d7b2ef5f32df9d2c32",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared/Geometry.olean": "d273114bff7cca6f9365b7053db7bd7486245ecf411b7ba3946eb8d67e6453e1",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared/Model.olean": "c65710c87029ee0ec530c02b03650f22f05e436876c54389e94be6d83590726f",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared/Path.olean": "042c054c8411b0e2214504bd7ea5cd9865f2850ae59fd50c7e830a7f9c1a73e8",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared/Smoke.olean": "5886afcd33e6cbc373d17fd03afcd17a043953915f8e6194c486326309c93154",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Shared/Statistics.olean": "8fe08b6749c99602474b739e18002764dae99dafc28e34605ed99bdbc1b18c57",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/AllPrefixes.olean": "05e3ee0d80b522c1c30431233c83cce36135100f5349913ea5ac5d1c0c1faed9",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Check.olean": "b263059065156008b0d09dc2175d57585a250cce77fb9b489ff4a7c19fafb05b",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/ColumnSampling.olean": "4909437f48a96fbd40c77a1d479538a63b884c1e3df91af02876cb2749a0b6bf",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/Check.olean": "6e7be2517c8540f90d77ea3d541d3924228038a4c8733daf76cfff10aebc09de",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/Conditioning.olean": "a07fb2f444d560c1a86b68bd715ab252041bf1f01b2e85c6eb59949aca70421a",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/FiniteLaw.olean": "bc6a245b246574cd7813cbf8df7380bad84fa52a80ba293367a85e341c1ae2f1",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/Hypergeometric.olean": "43b773cc7ebe5e5df64e40a1283c568dedfba30106718dba82cfdd127cd18912",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.olean": "2c57e19478d6b74d0aa81317bbbca73d3848eec7e6fdce86bc144c3eb957de38",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/HypergeometricMoments.olean": "d1f65e0a3df94a958ea003baf4a3c3c9ae1ed515ded79471b95298e161ccb827",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/ResidualSampling.olean": "c8c893c2a8115881bd814969f5952ccdd90c5fa7c1a77b3180ddf52964ad263d",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/SamplingCheck.olean": "abf3c506e5259530e84f3b67af5c705834a26170b428054a09e593438a85ac24",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/SubsetSampling.olean": "2f57aec1fc8d838a78f1a7e271b0c53e9e65b7ffb2037c8e9b89df7cab43e1ee",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Compat/SubsetTransform.olean": "3c64fb22c7223bc5c57a585458b422453ac4ceebb3ba36e4909aa1925cab53ea",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Main.olean": "2c3951e3a938c1a14192a0c8b602c77ec42bf2a03136a8323c0c9dd149deeed2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/MaximalWord.olean": "1e6111e58942826447ac68e80fb5ad80f69047b96a382e83b338074d36664829",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/PMFTools.olean": "67ec977fce72c56899157d59e1aa80928c5af77589ccf2a1354990de3393fa05",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/PrefixCoordinates.olean": "700b550bc97a6a026a27ce914546a79908366c9153824f18ae7837b49e183243",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Prefixes.olean": "9b05c9720ec77da9704f1f51b8aa04b11525972df5d0878234d85f9bc39daa33",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Process.olean": "f761ce330b0cf96972950c8a17c9fe4cd6dea5019c1f92793bd538159676005f",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Recursion.olean": "7574bc55887f826a926dd3d6353c51387fb386c7f443347f5bedb1051646c2ca",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Residual.olean": "7ea2c5ed5251fb83ab873bf72216f642e69b721a7be953b1181ba6ec98878f61",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Residual/Check.olean": "5ce3b0a70744670a609de3730df6f97c1e6e5291878aaeee11fb0981bc630dcd",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Residual/Independence.olean": "8bf3d847e62e665f20f75346be8c91d3594ddd4328d652ca39179adeebdde67e",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Residual/IndependenceCheck.olean": "a18fc8ce3da35cf5d81efed597706172a06049929128cdb32ef272716ff583ec",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Residual/Prefix.olean": "18ce5fdb2926d6def09a16e8bcf47c65c6611df44de498af6a2b28c9ad805441",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Residual/PrefixCheck.olean": "566c5a24079bd451496599cf52b026499220b8c950428573df87f04ebedfdf15",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Sampling.olean": "42928ce387579936fed2192091491a6adff16b55ef782ddf871e444bd0179efc",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/Tails.olean": "07542b711f8499c4c573b51c29ec3628ff9631d302b5861f0cf20712da61f6c2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Thinning/UniformError.olean": "e6e27e369ba7956bffc78173a081fe3a1227d50e340732b3828f67a2f0ff94b9",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Approximation.olean": "3abf0a2f3cbd9c892ff504fcf038881870aa782e3fc9df4782da29b7d4133e31",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/ClassEntropy.olean": "ac5d253301cacd546f90fdf09b6cfc9907a61a8a238930fccd8a0aa1f3cb78d8",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Construction.olean": "e2bfb456a90bc786c1e0a3e34bfdb3f63f4a7b6322bf17bb0514acf84f555a62",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Counting.olean": "652b12ff4b05e0fb89366ddf4c45e0ef22cd9d74b0936079f4315018841cb586",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Empty.olean": "542e13dfad4f27459363f84f6ce397e566d8ea2b165d9b67bb7f0ca2e937bedd",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/EntropyBounds.olean": "3381018b881131ddfa087403785ca82340308baacb5aa2ca76a841e34cfee1ae",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Main.olean": "811ec52f85a14e630711c47d51fc35d7374bac50f573adbe8459a1b296968a0e",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/MassBins.olean": "5dbae056e9c12fcb6c0ac0fd47441109311db61f225346c4cf4b79d8d26e4cc6",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Partition.olean": "3ed6a1a8000c2ef2b98fb8a4772e4eb4b8096455dcd39e6bef5ae240fe755a7a",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Rates.olean": "29a8c3f5e7738ac19b8ca201bb3e95ce281468779e5525355cb13aa2c556f71a",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Rounding.olean": "87372afa7a09241afc4e61ae4f5b42c881e0664f18107d89a8b6ceb0b674e4cb",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/Truncation.olean": "571bcc4788fea5cff89eca5c4b858181ae3a79869d98adb2089f9e998fc4a963",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Types/WordEstimates.olean": "a2b81bbfbc295a061062860ac9329b6657181f50696f5736aade988ef911e0b1",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/Continuous.olean": "492b2195b204ec3dd9f4593549e4de1138e105a7ba1b47552e7de9a05445d2ee",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/Empirical.olean": "3feec45334b4106cf1840cdbc9cebecb976b39c1081396597b3920547c0a36b4",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/EmpiricalTilt.olean": "0a4a20c8b6abeb55e2cc6658e7a58ff3fe6d4c6e31dd64d2f40623ba4b323aa7",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/Finite.olean": "528888ae6fbeb7f13168826eb6845772bb808601750c6861051f5d4f05f65ec2",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/Main.olean": "6934d90b5f63296df8b9265833ae86fa8b8337f52dc13bad78ce9c6c2c4eb2a5",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/OneColumn.olean": "5445c4887a1e7906f7165104009a87efdd2454c16ba7570ca26e9ec4401a3c21",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/OneColumnBasic.olean": "3e19647265bc90762c44e9358c9c3d725e0018898c25f42feb5583a6513f9270",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/Rounding.olean": "4f602a2bb62634b1bd0c592034b1456a362ca3769ccc93102154284cee893ebe",
+    ".build/full_package_v1/lib/lean/RiffleLowerV2/Witness/Selection.olean": "a08c6897587dc6a06ebab1965f5bde7be8e120d27a4d7a3e40f26c27e35827d1",
+    ".build/full_package_v1/lib/lean/RiffleShuffle/Basic.olean": "389e0a6e2f39537cd7264cc875aeb4edc26215dd37738d0ed053e9a4f8e9f3f0",
+    ".build/full_package_v1/lib/lean/RiffleShuffle/Graphs.olean": "06d733249e9e318c73dc4e112ca725651146c7325f6dc90f3466950041509752",
+    ".build/full_package_v1/lib/lean/RiffleShuffle/Matrices.olean": "7141deca1cec8b2441b786622d89a8f499a4dc652b4b9e8c498f07c44db997f9",
+    ".build/full_package_v1/lib/lean/RiffleShuffle/Profiles.olean": "ff8c1fa46fa3d55c968c0b4262aa35680ca9692c64a2b6498fce1dca90e01a03",
+    ".build/full_package_v1/lib/lean/RiffleShuffle/Words.olean": "aa3418636deb4088f4022980cf09d539137e5877271e0155f20a3be2dc529bfa",
+    ".build/full_package_v1/lib/lean/RiffleTimeProfile/Ambient.olean": "5f5712098e5ab16f9d7ed2767028b3e6065a28c315821059835d9a049fe34499",
+    ".build/full_package_v1/lib/lean/RiffleTimeProfile/Analysis.olean": "9bf331ec7cd721fe6ba8e60da24b9ab3ad1ffa34f1f3a785b466185af347ed7d",
+    ".build/full_package_v1/lib/lean/RiffleTimeProfile/Base.olean": "ce2d7d1c95acfcbee86f3fdc76e8a865f4af1948a43f1e4987cd3e86c6cff1ae",
+    ".build/full_package_v1/lib/lean/RiffleTimeProfile/FixedCountModel.olean": "6d61412d9db5f17655f04a6c47c4d2ed1e78313cbaf79b1b772cdcd69bd2af9a"
+  },
+  "newly_built_modules": [
+    "RiffleTimeProfile.Base",
+    "RiffleTimeProfile.Ambient",
+    "Mathlib.Probability.Distributions.Uniform",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "RiffleTimeProfile.FixedCountModel",
+    "RiffleShuffle.Basic",
+    "RiffleShuffle.Profiles",
+    "RiffleShuffle.Words",
+    "RiffleShuffle.Matrices",
+    "RiffleShuffle.Graphs",
+    "RiffleLowerV2.Shared.Smoke",
+    "RiffleLowerV2.Shared.Model",
+    "RiffleLowerV2.Shared.Empirical",
+    "RiffleLowerV2.Shared.Path",
+    "RiffleLowerV2.Shared.Statistics",
+    "Contracts.v1.ModelThinning",
+    "Contracts.v1.FactorialOccupancy",
+    "Contracts.v1.Ascent",
+    "Contracts.v1.Endpoints",
+    "Contracts.v1.AdditionalFinite",
+    "Contracts.v1.TransferFinite",
+    "RiffleLowerV2.Shared.Geometry",
+    "Contracts.v1.WitnessGeometry",
+    "Contracts.v1.AssemblyInputs",
+    "Contracts.v1",
+    "Contracts",
+    "RiffleLowerV2.Shared.Adapters",
+    "RiffleLowerV2.Ascent.FiniteProbability",
+    "RiffleLowerV2.Ascent.Quantitative",
+    "RiffleLowerV2.Ascent.Selection",
+    "RiffleLowerV2.Ascent.Asymptotic",
+    "RiffleLowerV2.Model.FiniteLaws",
+    "RiffleLowerV2.Model.GraphSorting",
+    "RiffleLowerV2.Ascent.Components",
+    "RiffleLowerV2.Ascent.Components.Clipping",
+    "RiffleLowerV2.Ascent.Components.Charging",
+    "RiffleLowerV2.Ascent.RelativeOrder.Basic",
+    "RiffleLowerV2.Ascent.RelativeOrder.Law",
+    "Mathlib.MeasureTheory.Measure.Tilted",
+    "Mathlib.Probability.Moments.Tilted",
+    "Mathlib.Probability.Moments.SubGaussian",
+    "RiffleLowerV2.Ascent.MGF",
+    "RiffleLowerV2.Ascent.UniformBaseline",
+    "RiffleLowerV2.Ascent.FiniteConsequences",
+    "RiffleLowerV2.Ascent.Concentration",
+    "RiffleLowerV2.Ascent.RelativeOrder.Weighted",
+    "RiffleLowerV2.Ascent.RelativeOrder.Boundary",
+    "RiffleLowerV2.Ascent.Expectation",
+    "RiffleLowerV2.Ascent.RelativeOrder",
+    "RiffleLowerV2.Ascent.Mixture",
+    "RiffleLowerV2.Ascent.Test",
+    "RiffleLowerV2.Ascent.Main",
+    "RiffleLowerV2.Ascent.RelativeOrder.Check",
+    "RiffleLowerV2.Shared",
+    "RiffleLowerV2",
+    "RiffleLowerV2.Model.Sorting",
+    "RiffleLowerV2.Model.GraphLaw",
+    "RiffleLowerV2.Model.FiberCounts",
+    "RiffleLowerV2.Model.ComponentFibers",
+    "RiffleLowerV2.Model.Physical",
+    "RiffleLowerV2.Model.Main",
+    "RiffleLowerV2.Thinning.PMFTools",
+    "RiffleLowerV2.Thinning.Compat.FiniteLaw",
+    "RiffleLowerV2.Thinning.Compat.Hypergeometric",
+    "RiffleLowerV2.Thinning.Compat.HypergeometricMoments",
+    "RiffleLowerV2.Thinning.Compat.HypergeometricConcentration",
+    "RiffleLowerV2.Thinning.Compat.Conditioning",
+    "RiffleLowerV2.Thinning.Compat.SubsetSampling",
+    "RiffleLowerV2.Thinning.Compat.ResidualSampling",
+    "RiffleLowerV2.Thinning.Compat.SubsetTransform",
+    "RiffleLowerV2.Thinning.Sampling",
+    "RiffleLowerV2.Thinning.Recursion",
+    "RiffleLowerV2.Thinning.Tails",
+    "RiffleLowerV2.Thinning.Process",
+    "RiffleLowerV2.Thinning.ColumnSampling",
+    "RiffleLowerV2.Thinning.PrefixCoordinates",
+    "RiffleLowerV2.Thinning.AllPrefixes",
+    "RiffleLowerV2.Thinning.MaximalWord",
+    "RiffleLowerV2.Thinning.Prefixes",
+    "RiffleLowerV2.Thinning.Residual",
+    "RiffleLowerV2.Thinning.Residual.Prefix",
+    "RiffleLowerV2.Thinning.Residual.Independence",
+    "RiffleLowerV2.Thinning.UniformError",
+    "RiffleLowerV2.Thinning.Main",
+    "RiffleLowerV2.Factorial.Basic",
+    "RiffleLowerV2.Factorial.PolynomialMoments",
+    "RiffleLowerV2.Factorial.Bonferroni",
+    "RiffleLowerV2.Factorial.PoissonPolynomial",
+    "RiffleLowerV2.Factorial.Central",
+    "RiffleLowerV2.Factorial.Ratios",
+    "RiffleLowerV2.Factorial.ResidualEstimates",
+    "RiffleLowerV2.Factorial.Relative",
+    "RiffleLowerV2.Factorial.MomentScales",
+    "RiffleLowerV2.Factorial.RelativeFromExact",
+    "RiffleLowerV2.Factorial.Requests",
+    "RiffleLowerV2.Factorial.Exact",
+    "RiffleLowerV2.Factorial.Residual",
+    "RiffleLowerV2.Factorial.RelativeTargets",
+    "RiffleLowerV2.Factorial.Main",
+    "RiffleLowerV2.Witness.OneColumnBasic",
+    "RiffleLowerV2.Witness.OneColumn",
+    "RiffleLowerV2.Witness.Empirical",
+    "RiffleLowerV2.Witness.Selection",
+    "RiffleLowerV2.Witness.Continuous",
+    "RiffleLowerV2.Witness.Rounding",
+    "RiffleLowerV2.Witness.Finite",
+    "RiffleLowerV2.Witness.EmpiricalTilt",
+    "RiffleLowerV2.Witness.Main",
+    "RiffleLowerV2.Types.Rounding",
+    "RiffleLowerV2.Types.Counting",
+    "RiffleLowerV2.Types.Truncation",
+    "RiffleLowerV2.Types.MassBins",
+    "RiffleLowerV2.Types.Construction",
+    "RiffleLowerV2.Types.WordEstimates",
+    "RiffleLowerV2.Types.EntropyBounds",
+    "RiffleLowerV2.Types.ClassEntropy",
+    "RiffleLowerV2.Types.Rates",
+    "RiffleLowerV2.Types.Approximation",
+    "RiffleLowerV2.Types.Empty",
+    "RiffleTimeProfile.Analysis",
+    "RiffleLowerV2.Types.Partition",
+    "RiffleLowerV2.Types.Main",
+    "RiffleLowerV2.ProfileTransfer.Compat.LatticeCounts",
+    "RiffleLowerV2.ProfileTransfer.Compat.IntegralEnvelope",
+    "RiffleLowerV2.ProfileTransfer.Compat.Error",
+    "RiffleLowerV2.ProfileTransfer.Compat.GridQuadrature",
+    "RiffleLowerV2.ProfileTransfer.Empirical",
+    "RiffleLowerV2.ProfileTransfer.Endpoint",
+    "RiffleLowerV2.ProfileTransfer.Quadrature",
+    "RiffleLowerV2.ProfileTransfer.Spatial",
+    "RiffleLowerV2.ProfileTransfer.Extrema",
+    "RiffleLowerV2.ProfileTransfer.Margin",
+    "RiffleLowerV2.ProfileTransfer.Parameters",
+    "RiffleLowerV2.ProfileTransfer.Main",
+    "RiffleLowerV2.Occupancy.ModelInputs",
+    "RiffleLowerV2.Occupancy.ConditionalInputs",
+    "RiffleLowerV2.Occupancy.Forcing",
+    "RiffleLowerV2.Occupancy.Numerical",
+    "RiffleLowerV2.Occupancy.Scales",
+    "RiffleLowerV2.Occupancy.Poisson",
+    "RiffleLowerV2.Occupancy.MarginalNumerical",
+    "RiffleLowerV2.Occupancy.CentralScales",
+    "RiffleLowerV2.Occupancy.CentralModel",
+    "RiffleLowerV2.Occupancy.FiniteProbability",
+    "RiffleLowerV2.Occupancy.RegimeAlgebra",
+    "RiffleLowerV2.Occupancy.Marginal",
+    "RiffleLowerV2.Occupancy.Conditional",
+    "RiffleLowerV2.Occupancy.RarePair",
+    "RiffleLowerV2.Occupancy.Nonrare",
+    "RiffleLowerV2.Occupancy.Covariance",
+    "RiffleLowerV2.Occupancy.Main",
+    "RiffleLowerV2.Localization.Geometry.Algebra",
+    "RiffleLowerV2.Localization.Geometry.Empirical",
+    "RiffleLowerV2.Localization.Geometry.Bounds",
+    "RiffleLowerV2.Localization.Geometry.Rates",
+    "RiffleLowerV2.Localization.WordOrder",
+    "RiffleLowerV2.Localization.Words",
+    "RiffleLowerV2.Localization.Bridge",
+    "RiffleLowerV2.Localization.Geometry.Consequences",
+    "RiffleLowerV2.Localization.Intervals",
+    "RiffleLowerV2.Localization.ProbabilityIntervals",
+    "RiffleLowerV2.Localization.ColdSet",
+    "RiffleLowerV2.Localization.Geometry",
+    "RiffleLowerV2.Localization.Endpoints.Partitions",
+    "RiffleLowerV2.Localization.Endpoints.ProductWeights",
+    "RiffleLowerV2.Localization.Endpoints.Means",
+    "RiffleLowerV2.Localization.Endpoints.Coordinates",
+    "RiffleLowerV2.Localization.Endpoints.Counts",
+    "RiffleLowerV2.Localization.Endpoints.Error",
+    "RiffleLowerV2.Localization.Endpoints",
+    "RiffleLowerV2.Localization.Concentration",
+    "RiffleLowerV2.Localization.EventBounds",
+    "RiffleLowerV2.Localization.RankBarriers",
+    "RiffleLowerV2.Localization.Edges",
+    "RiffleLowerV2.Localization.Probability",
+    "RiffleLowerV2.Localization.Events",
+    "RiffleLowerV2.Localization.Main",
+    "RiffleLowerV2.EmpiricalLower.LargestFinite",
+    "RiffleLowerV2.EmpiricalLower.LargestAsymptotic.Numerical",
+    "RiffleLowerV2.EmpiricalLower.LargestAsymptotic",
+    "RiffleLowerV2.EmpiricalLower.Scan",
+    "RiffleLowerV2.EmpiricalLower.CollisionMean",
+    "RiffleLowerV2.EmpiricalLower.ManyEdges",
+    "RiffleLowerV2.EmpiricalLower.Cold",
+    "RiffleLowerV2.EmpiricalLower.Main",
+    "RiffleLowerV2.MacroscopicLower.Parameters",
+    "RiffleLowerV2.MacroscopicLower.Main",
+    "RiffleLowerV2.Completed",
+    "RiffleLowerV2.Localization.Endpoints.Check",
+    "RiffleLowerV2.Localization.Geometry.Check",
+    "RiffleLowerV2.Occupancy.Check",
+    "RiffleLowerV2.Thinning.Check",
+    "RiffleLowerV2.Thinning.Compat.Check",
+    "RiffleLowerV2.Thinning.Compat.SamplingCheck",
+    "RiffleLowerV2.Thinning.Residual.Check",
+    "RiffleLowerV2.Thinning.Residual.IndependenceCheck",
+    "RiffleLowerV2.Thinning.Residual.PrefixCheck"
+  ],
+  "recorded_at": "2026-10-01T18:57:51.290501+00:00",
+  "registered_imports": [
+    "RiffleLowerV2.Completed"
+  ],
+  "reproduction_command": [
+    "python3",
+    "scripts/verify_completed_v2.py",
+    "--run",
+    "v4"
+  ],
+  "required_exports": [
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.columnIndependence",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ColumnIndependence"
+    },
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.graphRepresentation",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.GraphRepresentation"
+    },
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.graphEventIdentity",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.GraphEventIdentity"
+    },
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.physicalMatrixBridge",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.PhysicalMatrixBridge"
+    },
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.inversionTV",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.InversionTV"
+    },
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.rowRelabeling",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RowRelabeling"
+    },
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.stableTie",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.StableTie"
+    },
+    {
+      "lane": "LB01",
+      "name": "RiffleLowerV2.Model.prefixRanks",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.PrefixRanks"
+    },
+    {
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.successiveThinning",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.SuccessiveThinning"
+    },
+    {
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.prefixTails",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.PrefixTails"
+    },
+    {
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.allPrefixConcentration",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.AllPrefixConcentration"
+    },
+    {
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.prefixFailureUniform",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.PrefixFailureUniform"
+    },
+    {
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.residualLaw",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ResidualLaw"
+    },
+    {
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.hypergeometricTransform",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.HypergeometricTransform"
+    },
+    {
+      "lane": "LB02",
+      "name": "RiffleLowerV2.Thinning.maximalMeanIdentity",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.MaximalMeanIdentity"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.exactJointFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ExactJointFactorial"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.relativeJointFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RelativeJointFactorial"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.bonferroniSandwich",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.BonferroniSandwich"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.bonferroniProduct",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.BonferroniProduct"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.centralComparison",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.CentralComparison"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.centralComparisonOne",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.CentralComparisonOne"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.rareSandwich",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RareSandwich"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.residualJointFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ResidualJointFactorial"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.residualRelativeFactorial",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ResidualRelativeFactorial"
+    },
+    {
+      "lane": "LB03",
+      "name": "RiffleLowerV2.Factorial.residualMeanComparison",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ResidualMeanComparison"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentConcentration",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ComponentConcentration"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentExpectation",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ComponentExpectation"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.uniformScan",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.UniformScan"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentComparison",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ComponentComparison"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.uniformGraphScan",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.UniformGraphScan"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.relativeOrderIndependence",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RelativeOrderIndependence"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.boundaryAscentProbability",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.BoundaryAscentProbability"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.bernoulliMGF",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.BernoulliMGF"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.leastSuccessfulTranslate",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.LeastSuccessfulTranslate"
+    },
+    {
+      "lane": "LB04",
+      "name": "RiffleLowerV2.Ascent.componentConcentrationTwoSided",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ComponentConcentrationTwoSided"
+    },
+    {
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.coldWitness",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ColdWitnessTarget"
+    },
+    {
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.oneColumnTilt",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.OneColumnTiltTarget"
+    },
+    {
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.empiricalTilt",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.EmpiricalTiltTarget"
+    },
+    {
+      "lane": "LB05",
+      "name": "RiffleLowerV2.Witness.lB05",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.LB05Target"
+    },
+    {
+      "lane": "LB06",
+      "name": "RiffleLowerV2.Types.roundedType",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RoundedTypeTarget"
+    },
+    {
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.marginTransfer",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.MarginTransferTarget"
+    },
+    {
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.profileTransfer",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ProfileTransferTarget"
+    },
+    {
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.genericQuadrature",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.GenericQuadrature"
+    },
+    {
+      "lane": "LB07",
+      "name": "RiffleLowerV2.ProfileTransfer.jointPsiContinuity",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.JointPsiContinuity"
+    },
+    {
+      "lane": "LB08",
+      "name": "RiffleLowerV2.Occupancy.uniformOccupancy",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.UniformOccupancy"
+    },
+    {
+      "lane": "LB08",
+      "name": "RiffleLowerV2.Occupancy.conditionalCollisionStability",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ConditionalCollisionStability"
+    },
+    {
+      "lane": "LB08",
+      "name": "RiffleLowerV2.Occupancy.collisionChebyshev",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.CollisionChebyshev"
+    },
+    {
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.localization",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.LocalizationTarget"
+    },
+    {
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.coldGeometryFromEmpirical",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ColdGeometryFromEmpiricalTarget"
+    },
+    {
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.relativeEndpoint",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.RelativeEndpointTarget"
+    },
+    {
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.deterministicColdGeometry",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.DeterministicColdGeometryTarget"
+    },
+    {
+      "lane": "LB09",
+      "name": "RiffleLowerV2.Localization.lB09",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.LB09Target"
+    },
+    {
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.largestOnly",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.LargestOnlyTarget"
+    },
+    {
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.coldOnly",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ColdOnlyTarget"
+    },
+    {
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.empiricalCombined",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.EmpiricalCombinedTarget"
+    },
+    {
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.finiteLargestWordTV",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.FiniteLargestWordTV"
+    },
+    {
+      "lane": "LB10",
+      "name": "RiffleLowerV2.EmpiricalLower.manyEdges",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ManyEdgesTarget"
+    },
+    {
+      "lane": "LB11",
+      "name": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Empirical E; selected-partition scalar-integrable M; derived sequence corollary. No certification of the historical arbitrary-TimeLaw statement.",
+  "status": "INTEGRATED_FULL_PROOF_PACKAGE",
+  "umbrella_only_exports_verified": 58,
+  "upstream_dependency_receipts": [
+    "LB01-v1",
+    "LB02-v1",
+    "LB03-v1",
+    "LB04-completed-v1",
+    "LB04-v1",
+    "LB05-v1",
+    "LB06-completed-v1",
+    "LB06-v1",
+    "LB07-v1",
+    "LB08-v1",
+    "LB09-completed-v1",
+    "LB09-v1",
+    "LB10-v1",
+    "LB11-v1"
+  ],
+  "verification_command": [
+    "python3",
+    "scripts/check_dependency_receipt.py",
+    "COMPLETED-v1"
+  ]
+}

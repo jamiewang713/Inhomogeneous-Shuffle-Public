@@ -1,0 +1,56 @@
+[
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.rare_sandwich_error",
+    "type": "\u2200 {\u03bc \u03c4 \u03b7 q p E2 E3 : \u211d},\n  0 \u2264 \u03bc \u2192\n    \u03bc \u2264 \u03c4 \u2192\n      \u03c4 \u2264 1 / 2 \u2192\n        0 \u2264 \u03b7 \u2192\n          \u03b7 \u2264 \u03c4 \u2192\n            0 \u2264 q \u2192\n              |E2 - \u03bc ^ 2 * q| \u2264 \u03b7 * \u03bc ^ 2 * q \u2192\n                |E3 - \u03bc ^ 3 * q| \u2264 \u03b7 * \u03bc ^ 3 * q \u2192\n                  E2 / 2 - E3 / 3 \u2264 p \u2192 p \u2264 E2 / 2 \u2192 |p - \u03bc ^ 2 * q / 2| \u2264 \u03c4 * \u03bc ^ 2 * q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.rare_marginal_relative",
+    "type": "\u2200 {\u03bc \u03c4 \u03b7 p E2 E3 : \u211d},\n  0 < \u03bc \u2192\n    \u03bc \u2264 \u03c4 \u2192\n      \u03c4 \u2264 1 / 2 \u2192\n        0 \u2264 \u03b7 \u2192\n          \u03b7 \u2264 \u03c4 \u2192\n            |E2 - \u03bc ^ 2| \u2264 \u03b7 * \u03bc ^ 2 \u2192\n              |E3 - \u03bc ^ 3| \u2264 \u03b7 * \u03bc ^ 3 \u2192\n                E2 / 2 - E3 / 3 \u2264 p \u2192\n                  p \u2264 E2 / 2 \u2192 |p - RiffleLowerV2.poissonCollision \u03bc| \u2264 8 * \u03c4 * RiffleLowerV2.poissonCollision \u03bc"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.rare_marginal_lower",
+    "type": "\u2200 {\u03bc \u03c4 \u03b7 p E2 E3 : \u211d},\n  0 \u2264 \u03bc \u2192\n    \u03bc \u2264 \u03c4 \u2192\n      \u03c4 \u2264 1 / 4 \u2192\n        0 \u2264 \u03b7 \u2192\n          \u03b7 \u2264 \u03c4 \u2192 |E2 - \u03bc ^ 2| \u2264 \u03b7 * \u03bc ^ 2 \u2192 |E3 - \u03bc ^ 3| \u2264 \u03b7 * \u03bc ^ 3 \u2192 E2 / 2 - E3 / 3 \u2264 p \u2192 p \u2264 E2 / 2 \u2192 \u03bc ^ 2 / 4 \u2264 p"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.rare_pair_relative",
+    "type": "\u2200 {\u03bc \u03c4 \u03b7 p q joint E2 E3 F2 F3 : \u211d},\n  0 < \u03bc \u2192\n    \u03bc \u2264 \u03c4 \u2192\n      \u03c4 \u2264 1 / 2 \u2192\n        0 \u2264 \u03b7 \u2192\n          \u03b7 \u2264 \u03c4 \u2192\n            0 \u2264 q \u2192\n              |E2 - \u03bc ^ 2| \u2264 \u03b7 * \u03bc ^ 2 \u2192\n                |E3 - \u03bc ^ 3| \u2264 \u03b7 * \u03bc ^ 3 \u2192\n                  |F2 - \u03bc ^ 2 * q| \u2264 \u03b7 * \u03bc ^ 2 * q \u2192\n                    |F3 - \u03bc ^ 3 * q| \u2264 \u03b7 * \u03bc ^ 3 * q \u2192\n                      E2 / 2 - E3 / 3 \u2264 p \u2192\n                        p \u2264 E2 / 2 \u2192\n                          F2 / 2 - F3 / 3 \u2264 joint \u2192 joint \u2264 F2 / 2 \u2192 \u03bc ^ 2 / 4 \u2264 p \u2192 |joint - p * q| \u2264 16 * \u03c4 * p * q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.pair_relative_of_benchmark",
+    "type": "\u2200 {p q joint f g \u03b5 \u03b4 : \u211d},\n  0 \u2264 f \u2192\n    0 \u2264 g \u2192\n      0 \u2264 \u03b5 \u2192\n        \u03b5 \u2264 1 / 2 \u2192\n          0 \u2264 \u03b4 \u2192\n            |p - f| \u2264 \u03b5 * f \u2192 |q - g| \u2264 \u03b5 * g \u2192 |joint - f * g| \u2264 \u03b4 * f * g \u2192 |joint - p * q| \u2264 4 * (\u03b4 + 3 * \u03b5) * p * q"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "name": "RiffleLowerV2.Occupancy.abs_probability_covariance_le_complement",
+    "type": "\u2200 {\u03a9 : Type u_1} [inst : Fintype \u03a9] (P : PMF \u03a9) (A B : \u03a9 \u2192 Prop),\n  |(RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => A \u03c9 \u2227 B \u03c9) -\n        RiffleLowerV2.probability P A * RiffleLowerV2.probability P B| \u2264\n    RiffleLowerV2.probability P fun (\u03c9 : \u03a9) => \u00acB \u03c9"
+  }
+]

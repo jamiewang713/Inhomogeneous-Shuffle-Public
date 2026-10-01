@@ -1,0 +1,57 @@
+/goal
+You are the Lean formalization agent for LB-04: Permutation ascent concentration and the observable scan.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/Ascent/ and audit/LB04/
+
+AUTHORITATIVE SOURCE LABELS
+- lem:relative-order-independence
+- lem:permutation-bd
+- lem:component-ascent-expectation
+- lem:uniform-ascent
+- lem:lalley-comparison
+- lem:lalley
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/UniformPermutation.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean-lower-bound/RiffleLower/FiniteProbability.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Graphs.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/proof_recovery/INTENDED_RESULT.md
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Formalize the component-specific ascent argument. Do not revive the false general block bounded-difference lemma.
+
+1. For a uniform permutation, prove joint uniformity and independence of relative orders on disjoint position sets by exact finite counting. Deduce P(max pi(A)<min pi(B))=1/choose(a+b,a).
+2. For fixed path subgraph G and H⊆[N], express X_{G,H} as its r deterministic internal graph ascents plus the retained boundary indicators Y_j between consecutive G-components. Split component indices by parity. Within each part the component-pair unions are disjoint, so the Y_j are independent.
+3. Prove the Bernoulli centered MGF bound and apply Cauchy–Schwarz to the two parity sums. Export each one-sided tail exp(-t²/M), and the two-sided 2 exp(-t²/M), for |H|≤M, M>0,t>0. Handle zero retained boundaries separately. No condition on boundary(H) belongs in this concentration theorem.
+4. Prove E X≥|E(H)|/2+r/6-|boundary(H)|. Count partial G-components and at most twice as many bad boundary edges; verify the binomial boundary deficit and its double charging. Retain internal edges even in clipped components.
+5. For arbitrary deterministic integer H_0, M=|H_0|>0, H_q=(q+H_0)∩[N], prove the finite uniform-permutation scan bound (N+1)exp(-s²/M). Prove the precise conditional FAILURE bound P_pi[X_{G,H}≤|E(H)|/2+s]≤exp(-(r/6-d-s)²/M), where r/6-d-s>0.
+6. Export the asymptotic test under M≥N^a, d≤D sqrt M and r≥M^(1/2+delta), with quantitative uniformity. Define a measurable deterministic choice of the least successful q from G; its choice may not depend on the independently sampled permutation.
+
+The generic test may assume a graph law and its mixture representation only as an explicitly conditional intermediate theorem. LB-01 proves the actual representation; LB-10 must discharge it. An independent reviewer should also reconstruct the independent-uniform-keys proof as an alternative mathematical check. Only the finite parity proof need be implemented if it yields the frozen bound; do not substitute a weaker constant after freeze.
+
+ACCEPTANCE CRITERION
+Finite concentration, clipped expectation, scan bounds and conditional Lalley test checked on shared definitions. No block lemma, hidden independence or actual-shuffle law assumption is presented as proved.

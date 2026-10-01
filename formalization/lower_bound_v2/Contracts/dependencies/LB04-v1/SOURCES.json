@@ -1,0 +1,134 @@
+{
+  "audit_log": "audit/LB00/LB04_dependency_check_v1.log",
+  "audit_source": "audit/LB00/LB04DependencyCheck_v1.lean",
+  "axiom_check": {
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "examined_declarations": 301,
+    "modules": [
+      "Mathlib.MeasureTheory.Measure.Tilted",
+      "Mathlib.Probability.Moments.Tilted",
+      "Mathlib.Probability.Moments.SubGaussian",
+      "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+      "RiffleLowerV2.Model.GraphSorting",
+      "RiffleLowerV2.Model.FiniteLaws"
+    ]
+  },
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "build_command": [
+    "python3",
+    "build.py",
+    "Mathlib.Probability.Moments.SubGaussian",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "dependency_contract_addendum": "Contracts/dependencies/LB04-v1/REUSE.md",
+  "dependency_revisions": {
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+  },
+  "id": "LB04-v1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "modules": {
+    "Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/Decomposition/RadonNikodym.lean",
+      "sha256": "b9119e17ecb3bb04c02f29b557cf263c3ffd856ae781386a5350d53b85f91394",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/Decomposition/RadonNikodym.lean"
+    },
+    "Mathlib.MeasureTheory.Measure.Tilted": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/Tilted.lean",
+      "sha256": "355cce542b03dd9130d9511f80ae803cc11a12ba9e6a947e68402b124be2165f",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/Tilted.lean"
+    },
+    "Mathlib.Probability.Kernel.Condexp": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Kernel/Condexp.lean",
+      "sha256": "631098c0a5a7af18d7c2164630d0f594b6d41dfd4ac165414ac67433f5822f27",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Kernel/Condexp.lean"
+    },
+    "Mathlib.Probability.Moments.MGFAnalytic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Moments/MGFAnalytic.lean",
+      "sha256": "43bf9669a4aececdead05bfb77193476d2bf92885767b876960ca4c314d20a23",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/MGFAnalytic.lean"
+    },
+    "Mathlib.Probability.Moments.SubGaussian": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Moments/SubGaussian.lean",
+      "sha256": "7259bc145c6de9bb81b8aea24a660b951f12787ffdb7514ba27de74fb658e151",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/SubGaussian.lean"
+    },
+    "Mathlib.Probability.Moments.Tilted": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Moments/Tilted.lean",
+      "sha256": "e3b7e74d9e558da680222fbb296fa82918f82c5399fc968502bb7e05775ca6c3",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Moments/Tilted.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "sha256": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean"
+    },
+    "RiffleLowerV2.Model.FiniteLaws": {
+      "kind": "project-rebuilt",
+      "sha256": "cc5abe4ecf21f682658ca77e7a867368a4f1f8c4ab0b9d70eba79a9041772a06",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/FiniteLaws.lean"
+    },
+    "RiffleLowerV2.Model.GraphSorting": {
+      "kind": "project-rebuilt",
+      "sha256": "66201c1a8aa75da4d0fd5855ab251d3cded0e3fb90e5df734c6c95862be880f0",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Model/GraphSorting.lean"
+    }
+  },
+  "new_output_sha256": {
+    ".build/lib/lean/Mathlib/MeasureTheory/Measure/Tilted.olean": "f421db9234b2f141308ec3783fe04256a599908864ef740a6ca40dba799475c2",
+    ".build/lib/lean/Mathlib/Probability/Moments/SubGaussian.olean": "8b6ce6161f05513309710b6aa396ca6e6012bd7da0d4d14cff31b613f2283ac0",
+    ".build/lib/lean/Mathlib/Probability/Moments/Tilted.olean": "db8fb9300b2cdd27eac9f8920dbcf8f65b3f44655c53475763c95cfac825fa8d",
+    ".build/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.olean": "f0b6ef069acc9f4afc02d589e870548a98ce76be9648d12d72f5f46805559144",
+    ".build/lib/lean/RiffleLowerV2/Model/FiniteLaws.olean": "24f1c37f9f2f54116a411cf806917acb820049e85a42e4877241ad9ba187bacb",
+    ".build/lib/lean/RiffleLowerV2/Model/GraphSorting.olean": "96edab9fce65ef69c034d88159f7d601ead00718f03bee7c1cf9d5ca617c963b"
+  },
+  "newly_built_modules": [
+    "Mathlib.MeasureTheory.Measure.Tilted",
+    "Mathlib.Probability.Moments.Tilted",
+    "Mathlib.Probability.Moments.SubGaussian"
+  ],
+  "recorded_at": "2026-10-01T15:47:17.570853+00:00",
+  "registered_imports": [
+    "Mathlib.Probability.Moments.SubGaussian",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "RiffleLowerV2.Model.GraphSorting",
+    "RiffleLowerV2.Model.FiniteLaws"
+  ],
+  "required_completed_input": "Contracts/dependencies/LB01-v1/SOURCES.json",
+  "required_completed_manifest_sha256": "3144d85b8d51329be36df3a86670509a3853cd67ada2371beef31e51fa7f58aa",
+  "schema_version": 1,
+  "scope": "Three new pinned mathlib modules compiled locally; original PMF Integrals and two completed LB01 modules rechecked as imports. All newly recorded mathlib sources match pinned Git HEAD. Only the listed additive dependency edge is authorized; mathematical v1 targets are unchanged.",
+  "status": "DEPENDENCIES_READY_AND_REUSE_AUTHORIZED",
+  "verification_command": [
+    "python3",
+    "scripts/check_dependency_receipt.py",
+    "LB04-v1"
+  ]
+}

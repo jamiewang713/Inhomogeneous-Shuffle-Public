@@ -1,0 +1,51 @@
+/goal
+You are the Lean formalization agent for LB-11: Macroscopic lower bound under explicit scalar integrability.
+
+WORKSPACE AND SOURCE CONTRACT
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+New integration package (planned; LB-00 creates it): /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_prompt_pack_2026-10-01
+Authoritative mathematical source: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Planning snapshot SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+
+This is an implementation assignment for the revised LOWER-BOUND proof, not a request to restate the paper. Read the source labels assigned below, their definitions/dependencies, the new shared contract, the listed existing Lean sources/contracts, and necessary trusted mathlib sources. The two local reference PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources; they do not override the current targets. Historical chat prompts/README gap lists describe earlier source versions.
+
+Before proofs, arrange independent reviews of (i) the mathematical argument, (ii) the exact Lean statement/representation, and (iii) missing hypotheses/counterexamples. Schedule these reviews within available worker capacity; the coordinator can queue reviews without every worker spawning nested agents. Compare them, then propose the lane's exact assumptions, definitions and exports against LB-00's shared contract. Put proposed additions and review reports only in your owned audit/LBxx/ directory; LB-00 alone incorporates and freezes Contracts/ and returns a receipt before dependent proofs begin. Once frozen, change no assumption or conclusion silently. Preserve all original packages and old freeze records. Do not edit the manuscript in this task.
+
+Use no sorry, admit, custom axiom, unproved placeholder, native proof oracle, or assumption that merely restates the desired conclusion. A predicate naming a target is not evidence for it. Trusted mathlib results and actually checked project declarations are allowed. New helper lemmas must be proved, and all generic inputs must be discharged when specializing to the concrete shuffle model. Port source with documented provenance; do not mix toolchain caches.
+
+You own only the paths listed below. Read other lanes, but do not modify their files, shared definitions, Lake configuration, umbrella imports, freezes or other agents' work. Request a reviewed additive interface change from the coordinator when necessary. Compile your own module entry point in its assigned output/cache area; the coordinator serializes whole-package builds and dependency-cache changes. No agent may overwrite an old audit or regenerate an old contract hash to make it pass.
+
+If stuck, test two genuinely different mathematical/Lean strategies with independent reviewers. Distinguish a false theorem from an API or representation obstacle. Continue useful independent helper work while an upstream proof is pending; do not replace it by an axiom or pretend an abstract conditional lemma completed the task. Report exact mathematical counterexamples or missing declarations. Any target change needs a visible versioned comparison, not a silent repair.
+
+DELIVERY STANDARD
+Return exact exported declaration names and types; source-label correspondence; proved-versus-pending dependency ledger; successful lane build command/log; axiom closure; independent review findings and resolutions; and the import list/receipt needed by downstream lanes. Constants and eventual thresholds must have explicit quantifier order and be uniform over the variables promised by the source. The number of theorems is not a completion criterion.
+
+READINESS
+Required completed inputs: LB-00, LB-07, LB-10. Check their receipts and actual exported declarations before relying on them.
+
+EXCLUSIVE OWNERSHIP
+Within the new package: RiffleLowerV2/MacroscopicLower/ and audit/LB11/
+
+AUTHORITATIVE SOURCE LABELS
+- thm:buffered-reduced-lower-bound
+- lem:lower-profile-transfer
+- prop:cold-lower
+
+EXISTING INPUTS TO INSPECT (read-only; reuse still requires compatible checked imports)
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Base.lean
+- /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/reviews/analytic_alternatives.md
+
+ASSIGNED MATHEMATICS AND IMPLEMENTATION
+Prove the separately named integrable-profile macroscopic endpoint. The additional scalar regularity must appear visibly in the final theorem signature and in the completion report.
+
+1. Start with k≥2,T>0,eta>0. Set eta_f=eta/2, kappa=eta_f/1000, kappa0=min(kappa/100,1/1000), and choose e<min(kappa0/10,eta/100). Use LB-07 to choose the regular transfer partition P independently of N, then require the opt-in integrability predicate for this SAME P and profile mu. Do not start with integrability for an unrelated partition or silently refine it.
+2. Assume max{Lambda_0(T),Lambda_1(T)}≥eta and the frozen almost-like/local-good parameter hierarchy for P. Select sufficiently small rho/phi, simultaneously requiring 2rho log k≤kappa0/100. State all choices before the eventual N threshold. Do not alter the definitions of either margin or substitute the homogeneous cutoff constant.
+3. If beta_N(S_N)≥kappa0, invoke the empirical largest-word endpoint. Otherwise use two-sided transfer to infer Lambda_0(T)<eta for large N, hence Lambda_1(T)≥eta, and then Lambda_{1,N}≥eta_f. Apply the empirical cold endpoint.
+4. Prove uniform convergence even for sequences alternating between these finite branches. Give both the exact quantified uniform theorem and a convenient Tendsto corollary if the contract requests it. The Tendsto wrapper must follow from the uniform theorem, not replace it.
+5. Print and independently audit the complete theorem type and all additional assumptions. Explicitly contrast the two certified endpoints: the empirical theorem has no temporal regularity; this macro theorem has scalar integrability. Preserve the original arbitrary TimeLaw contract as a separate historical statement, not silently upgraded.
+
+No measurable probability-kernel assumption, time smoothness, global positive pile lower bound, homogeneous substitution, upper first-moment result, random-pile extension, or zero-margin conclusion may be introduced. The current global TeX sentence about all integrals is broader than needed: use only the minimal reviewed scalar predicate, while recording the precise logical relationship to the manuscript.
+
+ACCEPTANCE CRITERION
+The amended macroscopic lower theorem, with explicit scalar regularity and full uniform quantifiers, compiles from LB-07 and LB-10. Final reporting clearly states that this is not an unchanged-assumption theorem for arbitrary totalized TimeLaw.

@@ -1,0 +1,64 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean:44:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  expect ?P ?f + expect ?P ?g
+in the target expression
+  (expect P fun ω => if A ω ∨ B ω then 1 else 0) ≤ (expect P fun ω => if A ω then 1 else 0) + probability P B
+
+Ω : Type u_1
+inst✝ : Fintype Ω
+P : PMF Ω
+A B : Ω → Prop
+⊢ (expect P fun ω => if A ω ∨ B ω then 1 else 0) ≤ (expect P fun ω => if A ω then 1 else 0) + probability P B
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean:67:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?c * expect ?P ?f
+in the target expression
+  (t * probability P fun ω => t ≤ f ω) ≤ expect P f
+
+Ω : Type u_1
+inst✝ : Fintype Ω
+P : PMF Ω
+f : Ω → ℝ
+hf : ∀ (ω : Ω), 0 ≤ f ω
+t : ℝ
+ht : 0 < t
+⊢ (t * probability P fun ω => t ≤ f ω) ≤ expect P f
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean:88:8: warning: Possibly looping simp theorem: `Fintype.card_subtype`
+
+Note: Possibly caused by: `Finset.card_filter` and `Finset.sum_boole`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean:88:30: warning: Possibly looping simp theorem: `Finset.card_filter`
+
+Note: Possibly caused by: `Finset.sum_boole`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean:88:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean:105:13: error(lean.unknownIdentifier): Unknown constant `Nat.mul_pos_iff.mp`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean:108:81: error: unsolved goals
+Ω : Type u_1
+Γ : Type u_2
+inst✝³ : Fintype Ω
+inst✝² : Fintype Γ
+inst✝¹ : Nonempty Ω
+inst✝ : Nonempty Γ
+f : Ω → Γ
+hf : ∀ (b c : Γ), Fintype.card { ω // f ω = b } = Fintype.card { ω // f ω = c }
+g : Γ → ℝ
+b : Γ := Classical.choice ⋯
+hc : Fintype.card Ω = Fintype.card Γ * Fintype.card { ω // f ω = b }
+hd : ↑(Fintype.card { ω // f ω = b }) ≠ 0
+c : Γ
+a✝ : c ∈ Finset.univ
+⊢ ∑ y, g (f ↑y) = ↑(Fintype.card { ω // f ω = c }) * g c
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB02/lib/lean/RiffleLowerV2/Thinning/PMFTools.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean']' returned non-zero exit status 1.

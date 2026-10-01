@@ -1,0 +1,46 @@
+RiffleLowerV2.Occupancy.sameWord_forcing_probability {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K) (w : Word k K)
+  (e : Fin b ↪ Fin N) :
+  probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent (Occupancy.sameWordPrescription w e)) =
+    ∏ j, falling (cuts.count j (List.Vector.get w j)) b / falling N b
+RiffleLowerV2.Occupancy.sameWord_forcing_pos {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K) (w : Word k K)
+  (e : Fin b ↪ Fin N) (hb : b ≤ N) (hpiles : ∀ (j : Fin K), b ≤ cuts.count j (List.Vector.get w j)) :
+  0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent (Occupancy.sameWordPrescription w e))
+RiffleLowerV2.Occupancy.falling_eq_forcing_sum {N k K b : ℕ} {cuts : TimeProfile.Cuts k N K} (w : Word k K)
+  (ω : Sample cuts) :
+  falling (wordCount w ω) b = ∑ e, if prescriptionEvent (Occupancy.sameWordPrescription w e) ω then 1 else 0
+RiffleLowerV2.Occupancy.falling_expect_eq_forcing_sum {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K) (w : Word k K) :
+  (expect (TimeProfile.fixedCountPMF cuts) fun ω => falling (wordCount w ω) b) =
+    ∑ e, probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent (Occupancy.sameWordPrescription w e))
+RiffleLowerV2.Occupancy.falling_weighted_event_eq_forcing_sum {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (w : Word k K) (A : Sample cuts → Prop) :
+  (expect (TimeProfile.fixedCountPMF cuts) fun ω => falling (wordCount w ω) b * if A ω then 1 else 0) =
+    ∑ e,
+      probability (TimeProfile.fixedCountPMF cuts) fun ω =>
+        A ω ∧ prescriptionEvent (Occupancy.sameWordPrescription w e) ω
+RiffleLowerV2.Occupancy.forcing_weighted_relative_error {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K) (w : Word k K)
+  (A : Sample cuts → Prop) (δ : ℝ)
+  (hpos :
+    ∀ (e : Fin b ↪ Fin N),
+      0 < probability (TimeProfile.fixedCountPMF cuts) (prescriptionEvent (Occupancy.sameWordPrescription w e)))
+  (hcond :
+    ∀ (e : Fin b ↪ Fin N),
+      |conditionalProbability (TimeProfile.fixedCountPMF cuts) A
+              (prescriptionEvent (Occupancy.sameWordPrescription w e)) -
+            probability (TimeProfile.fixedCountPMF cuts) A| ≤
+        δ * probability (TimeProfile.fixedCountPMF cuts) A) :
+  |(expect (TimeProfile.fixedCountPMF cuts) fun ω => falling (wordCount w ω) b * if A ω then 1 else 0) -
+        (expect (TimeProfile.fixedCountPMF cuts) fun ω => falling (wordCount w ω) b) *
+          probability (TimeProfile.fixedCountPMF cuts) A| ≤
+    (δ * expect (TimeProfile.fixedCountPMF cuts) fun ω => falling (wordCount w ω) b) *
+      probability (TimeProfile.fixedCountPMF cuts) A
+RiffleLowerV2.Occupancy.sameWord_prescribed_other_count {N k K b : ℕ} (w v : Word k K) (e : Fin b ↪ Fin N)
+  (hwv : w ≠ v) : {q | (Occupancy.sameWordPrescription w e).word q = v}.card = 0
+'RiffleLowerV2.Occupancy.sameWord_forcing_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.sameWord_forcing_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.falling_eq_forcing_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.falling_expect_eq_forcing_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.falling_weighted_event_eq_forcing_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RiffleLowerV2.Occupancy.forcing_weighted_relative_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Occupancy.sameWord_prescribed_other_count' depends on axioms: [propext, Classical.choice, Quot.sound]

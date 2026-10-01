@@ -1,0 +1,626 @@
+COMMAND ['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-DwarningAsError=true', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB12/IndependentCheck_v1.lean']
+LEAN_PATH /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB11/lib/lean
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB12/IndependentCheck_v1.lean:45:20: error: Type mismatch. The `do` element has monadic result type
+  Unit
+but the rest of the `do` block has monadic result type
+  String
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB12/IndependentCheck_v1.lean:44:16: error: Missing cases:
+none
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB12/IndependentCheck_v1.lean:48:20: error: Application type mismatch: The argument
+  ""
+has type
+  String
+but is expected to have type
+  Unit
+in the application
+  pure ""
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB12/IndependentCheck_v1.lean:10:0: error: Aborting evaluation since the expression depends on the 'sorry' axiom, which can lead to runtime instability and crashes.
+
+To attempt to evaluate anyway despite the risks, use the '#eval!' command.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/audit/LB12/IndependentCheck_v1.lean:49:8: error: unexpected token '|'; expected command
+theorem RiffleLowerV2.EmpiricalLower.empiricalCombined : RiffleLowerV2.Targets.EmpiricalCombinedTarget :=
+fun (k : ℕ) (hk : 2 ≤ k) (T etaLargest etaCold : ℝ) (hT : 0 < T) (hLargest : 0 < etaLargest) (hCold : 0 < etaCold)
+    (chi gamma rho ε : ℝ) (hε : 0 < ε) =>
+  Exists.casesOn (RiffleLowerV2.EmpiricalLower.largestOnly k hk T etaLargest hT hLargest ε hε)
+    fun (Nl : ℕ)
+      (h :
+        2 ≤ Nl ∧
+          ∀ (N : ℕ) (hN : 2 ≤ N),
+            Nl ≤ N →
+              ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                etaLargest ≤
+                    RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                      (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) →
+                  1 - ε ≤
+                    RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts) (RiffleLowerV2.uniformPermutation N)) =>
+    And.casesOn h
+      fun (hNl : 2 ≤ Nl)
+        (hlargest :
+          ∀ (N : ℕ) (hN : 2 ≤ N),
+            Nl ≤ N →
+              ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                etaLargest ≤
+                    RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                      (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) →
+                  1 - ε ≤
+                    RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts) (RiffleLowerV2.uniformPermutation N)) =>
+      if hparams : RiffleLowerV2.Targets.ColdParameters k etaCold chi gamma rho then
+        have hk0 :=
+          id
+            (id
+              (lt_min
+                (div_pos
+                  (div_pos hCold
+                    (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 1000))
+                      (Eq.refl (Nat.ble 1 1000))))
+                  (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 100))
+                    (Eq.refl (Nat.ble 1 100))))
+                (div_pos
+                  (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                    (Eq.refl (Nat.ble 1 1)))
+                  (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 1000))
+                    (Eq.refl (Nat.ble 1 1000))))));
+        Exists.casesOn (RiffleLowerV2.EmpiricalLower.largestOnly k hk T (RiffleLowerV2.kappa0 etaCold) hT hk0 ε hε)
+          fun (Ns : ℕ)
+            (h :
+              2 ≤ Ns ∧
+                ∀ (N : ℕ) (hN : 2 ≤ N),
+                  Ns ≤ N →
+                    ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                      RiffleLowerV2.kappa0 etaCold ≤
+                          RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                            (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) →
+                        1 - ε ≤
+                          RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                            (RiffleLowerV2.uniformPermutation N)) =>
+          And.casesOn h
+            fun (left : 2 ≤ Ns)
+              (hsplit :
+                ∀ (N : ℕ) (hN : 2 ≤ N),
+                  Ns ≤ N →
+                    ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                      RiffleLowerV2.kappa0 etaCold ≤
+                          RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                            (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) →
+                        1 - ε ≤
+                          RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                            (RiffleLowerV2.uniformPermutation N)) =>
+            Exists.casesOn (RiffleLowerV2.EmpiricalLower.coldOnly k hk T etaCold hT hCold chi gamma rho hparams ε hε)
+              fun (Nc : ℕ)
+                (h :
+                  2 ≤ Nc ∧
+                    ∀ (N : ℕ) (hN : 2 ≤ N),
+                      Nc ≤ N →
+                        ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                          TimeProfile.LocalGood cuts (RiffleLowerV2.Targets.deckPos hN) chi gamma rho 0 T →
+                            etaCold ≤ RiffleLowerV2.lambda1 cuts (RiffleLowerV2.Targets.deckPos hN) →
+                              RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                                    (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) <
+                                  RiffleLowerV2.kappa0 etaCold →
+                                1 - ε ≤
+                                  RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                                    (RiffleLowerV2.uniformPermutation N)) =>
+              And.casesOn h
+                fun (left : 2 ≤ Nc)
+                  (hcold :
+                    ∀ (N : ℕ) (hN : 2 ≤ N),
+                      Nc ≤ N →
+                        ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                          TimeProfile.LocalGood cuts (RiffleLowerV2.Targets.deckPos hN) chi gamma rho 0 T →
+                            etaCold ≤ RiffleLowerV2.lambda1 cuts (RiffleLowerV2.Targets.deckPos hN) →
+                              RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                                    (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) <
+                                  RiffleLowerV2.kappa0 etaCold →
+                                1 - ε ≤
+                                  RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                                    (RiffleLowerV2.uniformPermutation N)) =>
+                Exists.intro (max Nl (max Ns Nc))
+                  ⟨LE.le.trans hNl (le_max_left Nl (max Ns Nc)),
+                    fun (N : ℕ) (hN : 2 ≤ N) (hlarge : max Nl (max Ns Nc) ≤ N)
+                      (cuts : RiffleLowerV2.Targets.HorizonCuts k N T)
+                      (halt :
+                        RiffleLowerV2.Targets.EmpiricalAlternative T cuts (RiffleLowerV2.Targets.deckPos hN) etaLargest
+                          etaCold chi gamma rho) =>
+                    have hlN := LE.le.trans (le_max_left Nl (max Ns Nc)) hlarge;
+                    have hsN := LE.le.trans (LE.le.trans (le_max_left Ns Nc) (le_max_right Nl (max Ns Nc))) hlarge;
+                    have hcN := LE.le.trans (LE.le.trans (le_max_right Ns Nc) (le_max_right Nl (max Ns Nc))) hlarge;
+                    Or.casesOn halt
+                      (fun
+                          (hl :
+                            etaLargest ≤
+                              RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                                (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T))) =>
+                        hlargest N hN hlN cuts hl)
+                      fun
+                        (h :
+                          RiffleLowerV2.Targets.ColdParameters k etaCold chi gamma rho ∧
+                            TimeProfile.LocalGood cuts (RiffleLowerV2.Targets.deckPos hN) chi gamma rho 0 T ∧
+                              etaCold ≤ RiffleLowerV2.lambda1 cuts (RiffleLowerV2.Targets.deckPos hN)) =>
+                      And.casesOn h
+                        fun (left : RiffleLowerV2.Targets.ColdParameters k etaCold chi gamma rho)
+                          (right :
+                            TimeProfile.LocalGood cuts (RiffleLowerV2.Targets.deckPos hN) chi gamma rho 0 T ∧
+                              etaCold ≤ RiffleLowerV2.lambda1 cuts (RiffleLowerV2.Targets.deckPos hN)) =>
+                        And.casesOn right
+                          fun (hgood : TimeProfile.LocalGood cuts (RiffleLowerV2.Targets.deckPos hN) chi gamma rho 0 T)
+                            (hmargin : etaCold ≤ RiffleLowerV2.lambda1 cuts (RiffleLowerV2.Targets.deckPos hN)) =>
+                          if hs :
+                              RiffleLowerV2.kappa0 etaCold ≤
+                                RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                                  (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) then
+                            hsplit N hN hsN cuts hs
+                          else hcold N hN hcN cuts hgood hmargin (lt_of_not_ge hs)⟩
+      else
+        Exists.intro Nl
+          ⟨hNl,
+            fun (N : ℕ) (hN : 2 ≤ N) (hlarge : Nl ≤ N) (cuts : RiffleLowerV2.Targets.HorizonCuts k N T)
+              (halt :
+                RiffleLowerV2.Targets.EmpiricalAlternative T cuts (RiffleLowerV2.Targets.deckPos hN) etaLargest etaCold
+                  chi gamma rho) =>
+            Or.casesOn halt
+              (fun
+                  (hl :
+                    etaLargest ≤
+                      RiffleLowerV2.beta cuts (RiffleLowerV2.Targets.deckPos hN)
+                        (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T))) =>
+                hlargest N hN hlarge cuts hl)
+              fun
+                (h :
+                  RiffleLowerV2.Targets.ColdParameters k etaCold chi gamma rho ∧
+                    TimeProfile.LocalGood cuts (RiffleLowerV2.Targets.deckPos hN) chi gamma rho 0 T ∧
+                      etaCold ≤ RiffleLowerV2.lambda1 cuts (RiffleLowerV2.Targets.deckPos hN)) =>
+              And.casesOn h
+                fun (hp : RiffleLowerV2.Targets.ColdParameters k etaCold chi gamma rho)
+                  (right :
+                    TimeProfile.LocalGood cuts (RiffleLowerV2.Targets.deckPos hN) chi gamma rho 0 T ∧
+                      etaCold ≤ RiffleLowerV2.lambda1 cuts (RiffleLowerV2.Targets.deckPos hN)) =>
+                False.elim (hparams hp)⟩
+theorem RiffleLowerV2.MacroscopicLower.macroscopicIntegrable : RiffleLowerV2.Targets.MacroscopicIntegrableTarget :=
+fun (k : ℕ) (hk : 2 ≤ k) (T eta : ℝ) (hT : 0 < T) (heta : 0 < eta) =>
+  have he := RiffleLowerV2.MacroscopicLower.transferAccuracy_spec heta;
+  have hk0 := RiffleLowerV2.MacroscopicLower.coldMargin_scale heta;
+  have hceiling := RiffleLowerV2.MacroscopicLower.bridgeCeiling_spec hk heta;
+  Exists.casesOn
+    (RiffleLowerV2.ProfileTransfer.profileTransfer k hk T (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)
+      (RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta) hT he.left hceiling.left)
+    fun (chi : ℝ)
+      (h :
+        0 < chi ∧
+          chi < 1 / ↑k ∧
+            ∃ (P : TimeProfile.BorelPartition k),
+              P.IsRegular chi 1 ∧
+                ∃ (rho0 : ℝ),
+                  0 < rho0 ∧
+                    rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+    And.casesOn h
+      fun (hchi : 0 < chi)
+        (right :
+          chi < 1 / ↑k ∧
+            ∃ (P : TimeProfile.BorelPartition k),
+              P.IsRegular chi 1 ∧
+                ∃ (rho0 : ℝ),
+                  0 < rho0 ∧
+                    rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+      And.casesOn right
+        fun (hchik : chi < 1 / ↑k)
+          (right :
+            ∃ (P : TimeProfile.BorelPartition k),
+              P.IsRegular chi 1 ∧
+                ∃ (rho0 : ℝ),
+                  0 < rho0 ∧
+                    rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+        Exists.casesOn right
+          fun (P : TimeProfile.BorelPartition k)
+            (h :
+              P.IsRegular chi 1 ∧
+                ∃ (rho0 : ℝ),
+                  0 < rho0 ∧
+                    rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+          And.casesOn h
+            fun (hP : P.IsRegular chi 1)
+              (right :
+                ∃ (rho0 : ℝ),
+                  0 < rho0 ∧
+                    rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+            Exists.casesOn right
+              fun (rho0 : ℝ)
+                (h :
+                  0 < rho0 ∧
+                    rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+              And.casesOn h
+                fun (hrho0 : 0 < rho0)
+                  (right :
+                    rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta ∧
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+                And.casesOn right
+                  fun (hrhoCeiling : rho0 ≤ RiffleLowerV2.MacroscopicLower.bridgeCeiling k eta)
+                    (htransfer :
+                      ∀ (rho : ℝ),
+                        0 < rho →
+                          rho ≤ rho0 →
+                            ∃ (phi0 : ℝ),
+                              0 < phi0 ∧
+                                ∀ (phi : ℝ),
+                                  0 < phi →
+                                    phi ≤ phi0 →
+                                      ∀ (μ : TimeProfile.TimeLaw k),
+                                        RiffleLowerV2.ScalarIntegrable μ P T →
+                                          ∃ (N0 : ℕ),
+                                            2 ≤ N0 ∧
+                                              ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                N0 ≤ N →
+                                                  ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                    TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ P T
+                                                        rho phi →
+                                                      RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                        RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                          (RiffleLowerV2.Targets.deckPos hN) μ
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+                  Exists.intro chi
+                    ⟨hchi,
+                      ⟨hchik,
+                        Exists.intro P
+                          ⟨hP,
+                            Exists.intro rho0
+                              ⟨hrho0,
+                                ⟨hceiling.right rho0 hrhoCeiling,
+                                  fun (rho : ℝ) (hrho : 0 < rho) (hrhoSmall : rho ≤ rho0) =>
+                                  Exists.casesOn (htransfer rho hrho hrhoSmall)
+                                    fun (phi0 : ℝ)
+                                      (h :
+                                        0 < phi0 ∧
+                                          ∀ (phi : ℝ),
+                                            0 < phi →
+                                              phi ≤ phi0 →
+                                                ∀ (μ : TimeProfile.TimeLaw k),
+                                                  RiffleLowerV2.ScalarIntegrable μ P T →
+                                                    ∃ (N0 : ℕ),
+                                                      2 ≤ N0 ∧
+                                                        ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                          N0 ≤ N →
+                                                            ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                              TimeProfile.AlmostLike cuts
+                                                                  (RiffleLowerV2.Targets.deckPos hN) μ P T rho phi →
+                                                                RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                                    (RiffleLowerV2.Targets.deckPos hN) μ
+                                                                    (RiffleLowerV2.MacroscopicLower.transferAccuracy
+                                                                      eta) ∧
+                                                                  RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                                    (RiffleLowerV2.Targets.deckPos hN) μ
+                                                                    (RiffleLowerV2.MacroscopicLower.transferAccuracy
+                                                                      eta)) =>
+                                    And.casesOn h
+                                      fun (hphi0 : 0 < phi0)
+                                        (htransferPhi :
+                                          ∀ (phi : ℝ),
+                                            0 < phi →
+                                              phi ≤ phi0 →
+                                                ∀ (μ : TimeProfile.TimeLaw k),
+                                                  RiffleLowerV2.ScalarIntegrable μ P T →
+                                                    ∃ (N0 : ℕ),
+                                                      2 ≤ N0 ∧
+                                                        ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                          N0 ≤ N →
+                                                            ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                              TimeProfile.AlmostLike cuts
+                                                                  (RiffleLowerV2.Targets.deckPos hN) μ P T rho phi →
+                                                                RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                                    (RiffleLowerV2.Targets.deckPos hN) μ
+                                                                    (RiffleLowerV2.MacroscopicLower.transferAccuracy
+                                                                      eta) ∧
+                                                                  RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                                    (RiffleLowerV2.Targets.deckPos hN) μ
+                                                                    (RiffleLowerV2.MacroscopicLower.transferAccuracy
+                                                                      eta)) =>
+                                      Exists.intro phi0
+                                        ⟨hphi0,
+                                          fun (phi : ℝ) (hphi : 0 < phi) (hphiSmall : phi ≤ phi0) (chiGood gamma : ℝ)
+                                            (hchiGood : 0 < chiGood) (hgamma : 0 < gamma) (epsilon : ℝ)
+                                            (hepsilon : 0 < epsilon) (μ : TimeProfile.TimeLaw k)
+                                            (hμ : RiffleLowerV2.ScalarIntegrable μ P T) =>
+                                          Exists.casesOn (htransferPhi phi hphi hphiSmall μ hμ)
+                                            fun (Nt : ℕ)
+                                              (h :
+                                                2 ≤ Nt ∧
+                                                  ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                    Nt ≤ N →
+                                                      ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                        TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ
+                                                            P T rho phi →
+                                                          RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                              (RiffleLowerV2.Targets.deckPos hN) μ
+                                                              (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                            RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                              (RiffleLowerV2.Targets.deckPos hN) μ
+                                                              (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+                                            And.casesOn h
+                                              fun (left : 2 ≤ Nt)
+                                                (htransferN :
+                                                  ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                    Nt ≤ N →
+                                                      ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                        TimeProfile.AlmostLike cuts (RiffleLowerV2.Targets.deckPos hN) μ
+                                                            P T rho phi →
+                                                          RiffleLowerV2.Targets.ProfileIntervalErrors T cuts
+                                                              (RiffleLowerV2.Targets.deckPos hN) μ
+                                                              (RiffleLowerV2.MacroscopicLower.transferAccuracy eta) ∧
+                                                            RiffleLowerV2.Targets.ProfileMarginErrors T cuts
+                                                              (RiffleLowerV2.Targets.deckPos hN) μ
+                                                              (RiffleLowerV2.MacroscopicLower.transferAccuracy eta)) =>
+                                              have hparams :=
+                                                ⟨hchiGood,
+                                                  ⟨hgamma,
+                                                    ⟨hrho, hceiling.right rho (LE.le.trans hrhoSmall hrhoCeiling)⟩⟩⟩;
+                                              Exists.casesOn
+                                                (RiffleLowerV2.EmpiricalLower.largestOnly k hk T
+                                                  (RiffleLowerV2.kappa0 (eta / 2)) hT hk0.left epsilon hepsilon)
+                                                fun (Nl : ℕ)
+                                                  (h :
+                                                    2 ≤ Nl ∧
+                                                      ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                        Nl ≤ N →
+                                                          ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                            RiffleLowerV2.kappa0 (eta / 2) ≤
+                                                                RiffleLowerV2.beta cuts
+                                                                  (RiffleLowerV2.Targets.deckPos hN)
+                                                                  (RiffleLowerV2.horizon N
+                                                                    (TimeProfile.horizonDepth N T)) →
+                                                              1 - epsilon ≤
+                                                                RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                                                                  (RiffleLowerV2.uniformPermutation N)) =>
+                                                And.casesOn h
+                                                  fun (hNl : 2 ≤ Nl)
+                                                    (hlargest :
+                                                      ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                        Nl ≤ N →
+                                                          ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                            RiffleLowerV2.kappa0 (eta / 2) ≤
+                                                                RiffleLowerV2.beta cuts
+                                                                  (RiffleLowerV2.Targets.deckPos hN)
+                                                                  (RiffleLowerV2.horizon N
+                                                                    (TimeProfile.horizonDepth N T)) →
+                                                              1 - epsilon ≤
+                                                                RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                                                                  (RiffleLowerV2.uniformPermutation N)) =>
+                                                  Exists.casesOn
+                                                    (RiffleLowerV2.EmpiricalLower.coldOnly k hk T (eta / 2) hT
+                                                      (div_pos heta
+                                                        (Mathlib.Meta.Positivity.pos_of_isNat
+                                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+                                                          (Eq.refl (Nat.ble 1 2))))
+                                                      chiGood gamma rho hparams epsilon hepsilon)
+                                                    fun (Nc : ℕ) (h : 2 ≤ Nc ∧ ∀ (N : ℕ) (hN : 2 ≤ N), Nc ≤ N → ⋯) =>
+                                                    And.casesOn h
+                                                      fun (left_1 : 2 ≤ Nc) (hcold : ∀ (N : ℕ) (hN : 2 ≤ N), ⋯) =>
+                                                      let Nd :=
+                                                        RiffleLowerV2.ProfileTransfer.transferThreshold (Real.log ↑k)
+                                                          (RiffleLowerV2.MacroscopicLower.transferAccuracy eta);
+                                                      Exists.intro (max Nt (max Nd (max Nl Nc))) ⋯⟩⟩⟩⟩⟩⟩
+def RiffleLowerV2.Targets.EmpiricalCombinedTarget : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T etaLargest etaCold : ℝ),
+      0 < T →
+        0 < etaLargest →
+          0 < etaCold →
+            ∀ (chiGood gamma rho epsilon : ℝ),
+              0 < epsilon →
+                ∃ (N0 : ℕ),
+                  2 ≤ N0 ∧
+                    ∀ (N : ℕ) (hN : 2 ≤ N),
+                      N0 ≤ N →
+                        ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                          RiffleLowerV2.Targets.EmpiricalAlternative T cuts ⋯ etaLargest etaCold chiGood gamma rho →
+                            1 - epsilon ≤
+                              RiffleLowerV2.tv (RiffleLowerV2.physicalInverseLaw cuts)
+                                (RiffleLowerV2.uniformPermutation N)
+def RiffleLowerV2.Targets.MacroscopicIntegrableTarget : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T eta : ℝ),
+      0 < T →
+        0 < eta →
+          ∃ (chiPartition : ℝ),
+            0 < chiPartition ∧
+              chiPartition < 1 / ↑k ∧
+                ∃ (P : TimeProfile.BorelPartition k),
+                  P.IsRegular chiPartition 1 ∧
+                    ∃ (rho0 : ℝ),
+                      0 < rho0 ∧
+                        2 * rho0 * Real.log ↑k ≤ RiffleLowerV2.kappa0 (eta / 2) / 100 ∧
+                          ∀ (rho : ℝ),
+                            0 < rho →
+                              rho ≤ rho0 →
+                                ∃ (phi0 : ℝ),
+                                  0 < phi0 ∧
+                                    ∀ (phi : ℝ),
+                                      0 < phi →
+                                        phi ≤ phi0 →
+                                          ∀ (chiGood gamma : ℝ),
+                                            0 < chiGood →
+                                              0 < gamma →
+                                                ∀ (epsilon : ℝ),
+                                                  0 < epsilon →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleLowerV2.ScalarIntegrable μ P T →
+                                                        ∃ (N0 : ℕ),
+                                                          2 ≤ N0 ∧
+                                                            ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                              N0 ≤ N →
+                                                                ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                                  TimeProfile.AlmostLike cuts ⋯ μ P T rho phi →
+                                                                    TimeProfile.LocalGood cuts ⋯ chiGood gamma rho 0 T →
+                                                                      eta ≤
+                                                                          max (RiffleLowerV2.macroBeta μ T)
+                                                                            (RiffleLowerV2.macroLambda1 μ T) →
+                                                                        1 - epsilon ≤
+                                                                          RiffleLowerV2.tv
+                                                                            (RiffleLowerV2.physicalInverseLaw cuts)
+                                                                            (RiffleLowerV2.uniformPermutation N)
+def RiffleLowerV2.ScalarIntegrable : {k : ℕ} → TimeProfile.TimeLaw k → TimeProfile.BorelPartition k → ℝ → Prop :=
+fun {k : ℕ} (μ : TimeProfile.TimeLaw k) (P : TimeProfile.BorelPartition k) (T : ℝ) =>
+  (∀ (i : Fin P.cellCount), IntervalIntegrable (TimeProfile.cellMass μ P i) MeasureTheory.volume 0 T) ∧
+    IntervalIntegrable (TimeProfile.profileMaxCost μ) MeasureTheory.volume 0 T ∧
+      ∀ α ∈ Set.Icc 2 4, IntervalIntegrable (fun (t : ℝ) => TimeProfile.profilePsi μ t α) MeasureTheory.volume 0 T

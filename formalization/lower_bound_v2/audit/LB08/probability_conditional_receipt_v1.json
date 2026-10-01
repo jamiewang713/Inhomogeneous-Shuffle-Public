@@ -1,0 +1,37 @@
+{
+  "status": "PROVED_EXACT_FROZEN_CONDITIONAL_TARGET",
+  "export": "RiffleLowerV2.Occupancy.conditionalCollisionStability",
+  "type": "RiffleLowerV2.Targets.ConditionalCollisionStability",
+  "constant_D": 64,
+  "import": "RiffleLowerV2.Occupancy.Conditional",
+  "build_command": "python3 scripts/lane.py LB08 RiffleLowerV2.Occupancy.Conditional",
+  "build_log": "audit/LB08/probability_conditional_build_v1.log",
+  "audit_exit_code": 0,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_and_evidence_hashes": {
+    "RiffleLowerV2/Occupancy/Conditional.lean": "388502eee66cc6dda07cb9ae05682e42a6d1c92d0cbeddff3ac964cb1aee6c1b",
+    "RiffleLowerV2/Occupancy/ConditionalInputs.lean": "da63dc22aaacc800e9de78579ff1ff114149fd07cc025f9d39a031149f4f75ba",
+    "RiffleLowerV2/Occupancy/Marginal.lean": "0dac91849a1101b30aa37d9c622414d1a10974c0b4a208589290cd35fc52ec55",
+    "RiffleLowerV2/Occupancy/MarginalNumerical.lean": "4e593198ed2563800f63c3e41bcec4f1e2a35e1f4ed0e625b940c4f3c18da3b9",
+    "RiffleLowerV2/Occupancy/Numerical.lean": "2d33ca6d2d779f0abe883eb682366f15c1f48893cd9bd095a4878b89acfc6e32",
+    "RiffleLowerV2/Occupancy/Poisson.lean": "20831bdf877807e3116250e4b805d0f1aaef554daee15ccfe4d780d4bcec2106",
+    "audit/LB08/probability_conditional_Check_v1.lean": "20fa02c25d8fbc6afb7291e016d145c4ac76d20114883c34ec0c105dd153ac2a",
+    "audit/LB08/probability_conditional_build_v1.log": "9106dcebae6d89c298a06a4cd26074874856226ab15c7c988e2cfc71f14f428d",
+    "audit/LB08/probability_conditional_axioms_v1.log": "e07be11739835e69410af9174b81515e790fb91ddaaf24cd3e5b2ac5f1765868",
+    "audit/LB08/probability_conditional_declarations_v1.json": "0da94e685d9e5af52075e7e54275a01379fecf7cb4ef796f4a002d3280d5aff6"
+  },
+  "declarations": 5,
+  "source_correspondence": "lem:two-category-poisson conditional stability, extended as frozen to arbitrary fixed b0 and arbitrary positive prescribed rows with deleted tested copies",
+  "proof_inputs": [
+    "actual uniform_marginal at c/2 and 2C on population N-b",
+    "actual exists_residual_word_law",
+    "Factorial.residualMeanComparison",
+    "poissonCollision_stability"
+  ],
+  "pending_conditional_obligations": [],
+  "scope_limit": "Only the conditional frozen target is certified by this receipt; parent lane must complete uniform pair/variance and final concentration exports."
+}

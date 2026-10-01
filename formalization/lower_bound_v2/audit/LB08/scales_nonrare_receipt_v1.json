@@ -1,0 +1,21 @@
+{
+  "status": "NONRARE_SUBTASK_COMPLETE_SCALAR_REVIEW_APPROVED",
+  "files": {
+    "RiffleLowerV2/Occupancy/Nonrare.lean": "7293e2dff7721dfab20d1f6565aa718a80855cadcd9b0ce1cbbb0eb4b86cd909",
+    "audit/LB08/scales_nonrare_build_v4.log": "9106dcebae6d89c298a06a4cd26074874856226ab15c7c988e2cfc71f14f428d",
+    "audit/LB08/scales_nonrare_check_v1.lean": "d2a820cf0a1f242c64ba6957b4ece45697d77466d50fdd552e7181f05e068926",
+    "audit/LB08/scales_nonrare_axioms_v1.log": "e891030dc45cf545a9adc2a305273f26fcf37f55d7fa23e7aa008f4edfb630a2",
+    "audit/LB08/scales_nonrare_delivery_v1.md": "1a9d0efe706a3deec1a57b2b3a8fec68a89b664a0e7c271f30214fe91d088f13",
+    "audit/LB08/scalar_marginal_implementation_review_v1.md": "9a35eca6141360bb88dcc39c0f1fb55eaf8317efda701529a7f77497b2f901dc",
+    "RiffleLowerV2/Occupancy/Poisson.lean": "20831bdf877807e3116250e4b805d0f1aaef554daee15ccfe4d780d4bcec2106",
+    "RiffleLowerV2/Occupancy/Numerical.lean": "2d33ca6d2d779f0abe883eb682366f15c1f48893cd9bd095a4878b89acfc6e32",
+    "RiffleLowerV2/Occupancy/MarginalNumerical.lean": "4e593198ed2563800f63c3e41bcec4f1e2a35e1f4ed0e625b940c4f3c18da3b9",
+    "RiffleLowerV2/Occupancy/Marginal.lean": "0dac91849a1101b30aa37d9c622414d1a10974c0b4a208589290cd35fc52ec55"
+  },
+  "axiom_theorems_checked": 27,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

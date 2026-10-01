@@ -1,0 +1,91 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean:86:83: warning: This simp argument is unused:
+  sampleRow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [prefixCount, prescribedPrefixCount, rowArrayPrefixCount, rowWord]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RiffleLowerV2.Thinning.residualPrefixCount_eq_restriction {N k K b : ℕ} {cuts : TimeProfile.Cuts k N K}
+  (r : RiffleLowerV2.RowPrescription N k K b) (hr : Function.Injective r.row) (e : Fin (N - b) → Fin N)
+  (he : Function.Injective e) (hc : ∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i) (w : RiffleLowerV2.Prefix k K)
+  (ω : RiffleLowerV2.Sample cuts) (hω : RiffleLowerV2.prescriptionEvent r ω) :
+  RiffleLowerV2.Thinning.residualPrefixCount r w ω =
+    RiffleLowerV2.Thinning.rowArrayPrefixCount w fun q j => TimeProfile.sampleEntry ω (e q) j
+RiffleLowerV2.Thinning.residualPrefixExpect {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (r : RiffleLowerV2.RowPrescription N k K b) (_hb : b < N) (hr : Function.Injective r.row)
+  (hp : 0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) :
+  ∃ residual,
+    (∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - RiffleLowerV2.usedCount r j a) ∧
+      ∀ (e : Fin (N - b) → Fin N),
+        Function.Injective e →
+          (∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i) →
+            ∀ (w : RiffleLowerV2.Prefix k K) (F : ℕ → ℝ),
+              RiffleLowerV2.conditionalExpect (TimeProfile.fixedCountPMF cuts)
+                  (fun ω => F (RiffleLowerV2.Thinning.residualPrefixCount r w ω)) (RiffleLowerV2.prescriptionEvent r) =
+                RiffleLowerV2.expect (TimeProfile.fixedCountPMF residual) fun η => F (RiffleLowerV2.prefixCount w η)
+RiffleLowerV2.Thinning.residualPrefixProbability {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K)
+  (r : RiffleLowerV2.RowPrescription N k K b) (_hb : b < N) (hr : Function.Injective r.row)
+  (hp : 0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) :
+  ∃ residual,
+    (∀ (j : Fin K) (a : Fin k), residual.count j a = cuts.count j a - RiffleLowerV2.usedCount r j a) ∧
+      ∀ (e : Fin (N - b) → Fin N),
+        Function.Injective e →
+          (∀ (i : Fin N), (∃ q, e q = i) ↔ ¬∃ q, r.row q = i) →
+            ∀ (w : RiffleLowerV2.Prefix k K) (A : ℕ → Prop),
+              RiffleLowerV2.conditionalProbability (TimeProfile.fixedCountPMF cuts)
+                  (fun ω => A (RiffleLowerV2.Thinning.residualPrefixCount r w ω)) (RiffleLowerV2.prescriptionEvent r) =
+                RiffleLowerV2.probability (TimeProfile.fixedCountPMF residual) fun η =>
+                  A (RiffleLowerV2.prefixCount w η)
+RiffleLowerV2.Thinning.residualPrefixTails_of_prefixTails (hT : RiffleLowerV2.Targets.PrefixTails) {N k K b : ℕ}
+  (cuts : TimeProfile.Cuts k N K) (r : RiffleLowerV2.RowPrescription N k K b) (hb : b < N)
+  (hr : Function.Injective r.row)
+  (hp : 0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r))
+  (w : RiffleLowerV2.Prefix k K) :
+  (∀ (t : ℝ),
+      0 < t →
+        RiffleLowerV2.conditionalProbability (TimeProfile.fixedCountPMF cuts)
+            (fun ω =>
+              t ≤
+                |↑(RiffleLowerV2.Thinning.residualPrefixCount r w ω) -
+                    RiffleLowerV2.Thinning.residualPrefixMean cuts r w|)
+            (RiffleLowerV2.prescriptionEvent r) ≤
+          2 * Real.exp (-t ^ 2 / (4 * (RiffleLowerV2.Thinning.residualPrefixMean cuts r w + t)))) ∧
+    RiffleLowerV2.conditionalProbability (TimeProfile.fixedCountPMF cuts)
+          (fun ω =>
+            ↑(RiffleLowerV2.Thinning.residualPrefixCount r w ω) ≤
+              RiffleLowerV2.Thinning.residualPrefixMean cuts r w / 2)
+          (RiffleLowerV2.prescriptionEvent r) ≤
+        Real.exp (-RiffleLowerV2.chernoffConstant * RiffleLowerV2.Thinning.residualPrefixMean cuts r w) ∧
+      RiffleLowerV2.conditionalProbability (TimeProfile.fixedCountPMF cuts)
+          (fun ω => RiffleLowerV2.Thinning.residualPrefixCount r w ω < 2) (RiffleLowerV2.prescriptionEvent r) ≤
+        2 * Real.exp (-RiffleLowerV2.Thinning.residualPrefixMean cuts r w / 2)
+RiffleLowerV2.Thinning.residualPrefixTransform_of_prefixTransform
+  (hT :
+    ∀ {k N K : ℕ} (cuts : TimeProfile.Cuts k N K),
+      0 < N →
+        ∀ (w : RiffleLowerV2.Prefix k K) (s : ℝ),
+          0 < s →
+            (RiffleLowerV2.expect (TimeProfile.fixedCountPMF cuts) fun ω => s ^ RiffleLowerV2.prefixCount w ω) ≤
+                (1 - RiffleLowerV2.prefixMass cuts w + RiffleLowerV2.prefixMass cuts w * s) ^ N ∧
+              (1 - RiffleLowerV2.prefixMass cuts w + RiffleLowerV2.prefixMass cuts w * s) ^ N ≤
+                Real.exp (RiffleLowerV2.prefixMean cuts w * (s - 1)))
+  {N k K b : ℕ} (cuts : TimeProfile.Cuts k N K) (r : RiffleLowerV2.RowPrescription N k K b) (hb : b < N)
+  (hr : Function.Injective r.row)
+  (hp : 0 < RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r))
+  (w : RiffleLowerV2.Prefix k K) (s : ℝ) (hs : 0 < s) :
+  RiffleLowerV2.conditionalExpect (TimeProfile.fixedCountPMF cuts)
+        (fun ω => s ^ RiffleLowerV2.Thinning.residualPrefixCount r w ω) (RiffleLowerV2.prescriptionEvent r) ≤
+      (1 - RiffleLowerV2.Thinning.residualPrefixMass cuts r w +
+          RiffleLowerV2.Thinning.residualPrefixMass cuts r w * s) ^
+        (N - b) ∧
+    (1 - RiffleLowerV2.Thinning.residualPrefixMass cuts r w + RiffleLowerV2.Thinning.residualPrefixMass cuts r w * s) ^
+        (N - b) ≤
+      Real.exp (RiffleLowerV2.Thinning.residualPrefixMean cuts r w * (s - 1))
+'RiffleLowerV2.Thinning.residualPrefixCount_eq_restriction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.residualPrefixExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.residualPrefixProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.residualPrefixTails_of_prefixTails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.Thinning.residualPrefixTransform_of_prefixTransform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LB02 BUILD_OK

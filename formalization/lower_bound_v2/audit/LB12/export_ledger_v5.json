@@ -1,0 +1,741 @@
+[
+  {
+    "name": "RiffleLowerV2.Model.columnIndependence",
+    "type": "RiffleLowerV2.Targets.ColumnIndependence",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.FiniteLaws",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Model.graphRepresentation",
+    "type": "RiffleLowerV2.Targets.GraphRepresentation",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.GraphLaw",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Model.graphEventIdentity",
+    "type": "RiffleLowerV2.Targets.GraphEventIdentity",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.GraphLaw",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Model.physicalMatrixBridge",
+    "type": "RiffleLowerV2.Targets.PhysicalMatrixBridge",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.Physical",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Model.inversionTV",
+    "type": "RiffleLowerV2.Targets.InversionTV",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.FiniteLaws",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Model.rowRelabeling",
+    "type": "RiffleLowerV2.Targets.RowRelabeling",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.FiniteLaws",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Model.stableTie",
+    "type": "RiffleLowerV2.Targets.StableTie",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.Sorting",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Model.prefixRanks",
+    "type": "RiffleLowerV2.Targets.PrefixRanks",
+    "status": "PENDING",
+    "lane": "LB01",
+    "source_labels": [
+      "lem:ub-graph-representation"
+    ],
+    "defining_module": "RiffleLowerV2.Model.Sorting",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Thinning.successiveThinning",
+    "type": "RiffleLowerV2.Targets.SuccessiveThinning",
+    "status": "PENDING",
+    "lane": "LB02",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "defining_module": "RiffleLowerV2.Thinning.Process",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Thinning.prefixTails",
+    "type": "RiffleLowerV2.Targets.PrefixTails",
+    "status": "PENDING",
+    "lane": "LB02",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "defining_module": "RiffleLowerV2.Thinning.Prefixes",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Thinning.allPrefixConcentration",
+    "type": "RiffleLowerV2.Targets.AllPrefixConcentration",
+    "status": "PENDING",
+    "lane": "LB02",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "defining_module": "RiffleLowerV2.Thinning.Prefixes",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Thinning.prefixFailureUniform",
+    "type": "RiffleLowerV2.Targets.PrefixFailureUniform",
+    "status": "PENDING",
+    "lane": "LB02",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "defining_module": "RiffleLowerV2.Thinning.UniformError",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Thinning.residualLaw",
+    "type": "RiffleLowerV2.Targets.ResidualLaw",
+    "status": "PENDING",
+    "lane": "LB02",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "defining_module": "RiffleLowerV2.Thinning.Residual",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Thinning.hypergeometricTransform",
+    "type": "RiffleLowerV2.Targets.HypergeometricTransform",
+    "status": "PENDING",
+    "lane": "LB02",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "defining_module": "RiffleLowerV2.Thinning.Sampling",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Thinning.maximalMeanIdentity",
+    "type": "RiffleLowerV2.Targets.MaximalMeanIdentity",
+    "status": "PENDING",
+    "lane": "LB02",
+    "source_labels": [
+      "lem:successive-thinning-tail",
+      "cor:iterated-hypergeom",
+      "prop:largest-prefix"
+    ],
+    "defining_module": "RiffleLowerV2.Thinning.MaximalWord",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.exactJointFactorial",
+    "type": "RiffleLowerV2.Targets.ExactJointFactorial",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.Exact",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.relativeJointFactorial",
+    "type": "RiffleLowerV2.Targets.RelativeJointFactorial",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.RelativeTargets",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.bonferroniSandwich",
+    "type": "RiffleLowerV2.Targets.BonferroniSandwich",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.Bonferroni",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.bonferroniProduct",
+    "type": "RiffleLowerV2.Targets.BonferroniProduct",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.Bonferroni",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.centralComparison",
+    "type": "RiffleLowerV2.Targets.CentralComparison",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.Central",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.centralComparisonOne",
+    "type": "RiffleLowerV2.Targets.CentralComparisonOne",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.Central",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.rareSandwich",
+    "type": "RiffleLowerV2.Targets.RareSandwich",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.Basic",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.residualJointFactorial",
+    "type": "RiffleLowerV2.Targets.ResidualJointFactorial",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.Residual",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.residualRelativeFactorial",
+    "type": "RiffleLowerV2.Targets.ResidualRelativeFactorial",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.RelativeTargets",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Factorial.residualMeanComparison",
+    "type": "RiffleLowerV2.Targets.ResidualMeanComparison",
+    "status": "PENDING",
+    "lane": "LB03",
+    "source_labels": [
+      "lem:fixed-column-factorial",
+      "lem:central-window"
+    ],
+    "defining_module": "RiffleLowerV2.Factorial.ResidualEstimates",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.componentConcentration",
+    "type": "RiffleLowerV2.Targets.ComponentConcentration",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.Concentration",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.componentExpectation",
+    "type": "RiffleLowerV2.Targets.ComponentExpectation",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.Expectation",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.uniformScan",
+    "type": "RiffleLowerV2.Targets.UniformScan",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.Concentration",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.componentComparison",
+    "type": "RiffleLowerV2.Targets.ComponentComparison",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.Test",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.uniformGraphScan",
+    "type": "RiffleLowerV2.Targets.UniformGraphScan",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.Test",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.relativeOrderIndependence",
+    "type": "RiffleLowerV2.Targets.RelativeOrderIndependence",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.RelativeOrder.Law",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.boundaryAscentProbability",
+    "type": "RiffleLowerV2.Targets.BoundaryAscentProbability",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.RelativeOrder.Boundary",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.bernoulliMGF",
+    "type": "RiffleLowerV2.Targets.BernoulliMGF",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.MGF",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.leastSuccessfulTranslate",
+    "type": "RiffleLowerV2.Targets.LeastSuccessfulTranslate",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.Selection",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Ascent.componentConcentrationTwoSided",
+    "type": "RiffleLowerV2.Targets.ComponentConcentrationTwoSided",
+    "status": "PENDING",
+    "lane": "LB04",
+    "source_labels": [
+      "lem:relative-order-independence",
+      "lem:permutation-bd",
+      "lem:component-ascent-expectation",
+      "lem:uniform-ascent",
+      "lem:lalley-comparison",
+      "lem:lalley"
+    ],
+    "defining_module": "RiffleLowerV2.Ascent.Concentration",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Witness.coldWitness",
+    "type": "RiffleLowerV2.Targets.ColdWitnessTarget",
+    "status": "PENDING",
+    "lane": "LB05",
+    "source_labels": [
+      "lem:cold-witness"
+    ],
+    "defining_module": "RiffleLowerV2.Witness.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Witness.oneColumnTilt",
+    "type": "RiffleLowerV2.Targets.OneColumnTiltTarget",
+    "status": "PENDING",
+    "lane": "LB05",
+    "source_labels": [
+      "lem:cold-witness"
+    ],
+    "defining_module": "RiffleLowerV2.Witness.OneColumn",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Witness.empiricalTilt",
+    "type": "RiffleLowerV2.Targets.EmpiricalTiltTarget",
+    "status": "PENDING",
+    "lane": "LB05",
+    "source_labels": [
+      "lem:cold-witness"
+    ],
+    "defining_module": "RiffleLowerV2.Witness.EmpiricalTilt",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Witness.lB05",
+    "type": "RiffleLowerV2.Targets.LB05Target",
+    "status": "PENDING",
+    "lane": "LB05",
+    "source_labels": [
+      "lem:cold-witness"
+    ],
+    "defining_module": "RiffleLowerV2.Witness.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Types.roundedType",
+    "type": "RiffleLowerV2.Targets.RoundedTypeTarget",
+    "status": "PENDING",
+    "lane": "LB06",
+    "source_labels": [
+      "lem:type-estimates"
+    ],
+    "defining_module": "RiffleLowerV2.Types.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.ProfileTransfer.marginTransfer",
+    "type": "RiffleLowerV2.Targets.MarginTransferTarget",
+    "status": "PENDING",
+    "lane": "LB07",
+    "source_labels": [
+      "lem:lower-profile-transfer"
+    ],
+    "defining_module": "RiffleLowerV2.ProfileTransfer.Margin",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.ProfileTransfer.profileTransfer",
+    "type": "RiffleLowerV2.Targets.ProfileTransferTarget",
+    "status": "PENDING",
+    "lane": "LB07",
+    "source_labels": [
+      "lem:lower-profile-transfer"
+    ],
+    "defining_module": "RiffleLowerV2.ProfileTransfer.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.ProfileTransfer.genericQuadrature",
+    "type": "RiffleLowerV2.Targets.GenericQuadrature",
+    "status": "PENDING",
+    "lane": "LB07",
+    "source_labels": [
+      "lem:lower-profile-transfer"
+    ],
+    "defining_module": "RiffleLowerV2.ProfileTransfer.Quadrature",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.ProfileTransfer.jointPsiContinuity",
+    "type": "RiffleLowerV2.Targets.JointPsiContinuity",
+    "status": "PENDING",
+    "lane": "LB07",
+    "source_labels": [
+      "lem:lower-profile-transfer"
+    ],
+    "defining_module": "RiffleLowerV2.ProfileTransfer.Spatial",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Occupancy.uniformOccupancy",
+    "type": "RiffleLowerV2.Targets.UniformOccupancy",
+    "status": "PENDING",
+    "lane": "LB08",
+    "source_labels": [
+      "lem:two-category-poisson"
+    ],
+    "defining_module": "RiffleLowerV2.Occupancy.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Occupancy.conditionalCollisionStability",
+    "type": "RiffleLowerV2.Targets.ConditionalCollisionStability",
+    "status": "PENDING",
+    "lane": "LB08",
+    "source_labels": [
+      "lem:two-category-poisson"
+    ],
+    "defining_module": "RiffleLowerV2.Occupancy.Conditional",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Occupancy.collisionChebyshev",
+    "type": "RiffleLowerV2.Targets.CollisionChebyshev",
+    "status": "PENDING",
+    "lane": "LB08",
+    "source_labels": [
+      "lem:two-category-poisson"
+    ],
+    "defining_module": "RiffleLowerV2.Occupancy.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Localization.localization",
+    "type": "RiffleLowerV2.Targets.LocalizationTarget",
+    "status": "PENDING",
+    "lane": "LB09",
+    "source_labels": [
+      "lem:cold-geometry",
+      "lem:finite-relative-endpoints",
+      "lem:localization"
+    ],
+    "defining_module": "RiffleLowerV2.Localization.Events",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Localization.coldGeometryFromEmpirical",
+    "type": "RiffleLowerV2.Targets.ColdGeometryFromEmpiricalTarget",
+    "status": "PENDING",
+    "lane": "LB09",
+    "source_labels": [
+      "lem:cold-geometry",
+      "lem:finite-relative-endpoints",
+      "lem:localization"
+    ],
+    "defining_module": "RiffleLowerV2.Localization.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Localization.relativeEndpoint",
+    "type": "RiffleLowerV2.Targets.RelativeEndpointTarget",
+    "status": "PENDING",
+    "lane": "LB09",
+    "source_labels": [
+      "lem:cold-geometry",
+      "lem:finite-relative-endpoints",
+      "lem:localization"
+    ],
+    "defining_module": "RiffleLowerV2.Localization.Endpoints",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Localization.deterministicColdGeometry",
+    "type": "RiffleLowerV2.Targets.DeterministicColdGeometryTarget",
+    "status": "PENDING",
+    "lane": "LB09",
+    "source_labels": [
+      "lem:cold-geometry",
+      "lem:finite-relative-endpoints",
+      "lem:localization"
+    ],
+    "defining_module": "RiffleLowerV2.Localization.Geometry",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.Localization.lB09",
+    "type": "RiffleLowerV2.Targets.LB09Target",
+    "status": "PENDING",
+    "lane": "LB09",
+    "source_labels": [
+      "lem:cold-geometry",
+      "lem:finite-relative-endpoints",
+      "lem:localization"
+    ],
+    "defining_module": "RiffleLowerV2.Localization.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.EmpiricalLower.largestOnly",
+    "type": "RiffleLowerV2.Targets.LargestOnlyTarget",
+    "status": "PENDING",
+    "lane": "LB10",
+    "source_labels": [
+      "prop:largest-prefix",
+      "lem:many-edges",
+      "lem:lalley",
+      "prop:cold-lower"
+    ],
+    "defining_module": "RiffleLowerV2.EmpiricalLower.LargestAsymptotic",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.EmpiricalLower.coldOnly",
+    "type": "RiffleLowerV2.Targets.ColdOnlyTarget",
+    "status": "PENDING",
+    "lane": "LB10",
+    "source_labels": [
+      "prop:largest-prefix",
+      "lem:many-edges",
+      "lem:lalley",
+      "prop:cold-lower"
+    ],
+    "defining_module": "RiffleLowerV2.EmpiricalLower.Cold",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.EmpiricalLower.empiricalCombined",
+    "type": "RiffleLowerV2.Targets.EmpiricalCombinedTarget",
+    "status": "PENDING",
+    "lane": "LB10",
+    "source_labels": [
+      "prop:largest-prefix",
+      "lem:many-edges",
+      "lem:lalley",
+      "prop:cold-lower"
+    ],
+    "defining_module": "RiffleLowerV2.EmpiricalLower.Main",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.EmpiricalLower.finiteLargestWordTV",
+    "type": "RiffleLowerV2.Targets.FiniteLargestWordTV",
+    "status": "PENDING",
+    "lane": "LB10",
+    "source_labels": [
+      "prop:largest-prefix",
+      "lem:many-edges",
+      "lem:lalley",
+      "prop:cold-lower"
+    ],
+    "defining_module": "RiffleLowerV2.EmpiricalLower.LargestFinite",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.EmpiricalLower.manyEdges",
+    "type": "RiffleLowerV2.Targets.ManyEdgesTarget",
+    "status": "PENDING",
+    "lane": "LB10",
+    "source_labels": [
+      "prop:largest-prefix",
+      "lem:many-edges",
+      "lem:lalley",
+      "prop:cold-lower"
+    ],
+    "defining_module": "RiffleLowerV2.EmpiricalLower.ManyEdges",
+    "verified": true
+  },
+  {
+    "name": "RiffleLowerV2.MacroscopicLower.macroscopicIntegrable",
+    "type": "RiffleLowerV2.Targets.MacroscopicIntegrableTarget",
+    "status": "PENDING",
+    "lane": "LB11",
+    "source_labels": [
+      "thm:buffered-reduced-lower-bound",
+      "lem:lower-profile-transfer",
+      "prop:cold-lower"
+    ],
+    "defining_module": "RiffleLowerV2.MacroscopicLower.Main",
+    "verified": true
+  }
+]

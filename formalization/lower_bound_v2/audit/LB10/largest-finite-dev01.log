@@ -1,0 +1,56 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestFinite.lean:118:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  e ≥ 0
+  e - f ≤ -1
+  e - g ≥ 1
+  d ≥ 0
+  c ≥ 0
+  c - e ≤ 0
+  c + d - f ≥ 1
+  b ≥ 0
+  b - c - d ≥ 0
+  b - e ≥ 1
+  b - f ≥ 1
+  b - g ≥ 1
+where
+ b := ↑N
+ c := ↑a
+ d := ↑m
+ e := ↑↑i
+ f := ↑↑j
+ g := ↑↑({ toFun := fun i => ⟨a + ↑i, ⋯⟩, inj' := ⋯ } ⟨↑i - a, ⋯⟩)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestFinite.lean:122:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  e - g ≥ 1
+  d ≥ 0
+  c ≥ 0
+  c - f ≤ 0
+  c + d - e ≥ 1
+  b ≥ 0
+  b - c - d ≥ 0
+  b - e ≥ 1
+  b - f ≥ 1
+  b - g ≥ 1
+where
+ b := ↑N
+ c := ↑a
+ d := ↑m
+ e := ↑↑j
+ f := ↑↑((windowEmbedding N m a h) ii)
+ g := ↑↑({ toFun := fun i => ⟨a + ↑i, ⋯⟩, inj' := ⋯ } ⟨↑j - a, ⋯⟩)
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB10/lib/lean/RiffleLowerV2/EmpiricalLower/LargestFinite.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestFinite.lean']' returned non-zero exit status 1.

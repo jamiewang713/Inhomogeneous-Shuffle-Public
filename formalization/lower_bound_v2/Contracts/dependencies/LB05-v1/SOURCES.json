@@ -1,0 +1,406 @@
+{
+  "audit_log": "audit/LB00/LB05_integration_audit_v1.log",
+  "audit_source": "audit/LB05/Check_v1.lean",
+  "axiom_check": {
+    "all_lane_records_match": true,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "examined_declarations": 131
+  },
+  "base_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "build_command": [
+    "python3",
+    "build.py",
+    "RiffleLowerV2.Witness.Main"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "completed_input_sha256": "6f7d105be04f0eebdcb4acba9d363e2fa104bf4c0d1b1ff908da527585830278",
+  "dependency_revisions": {
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+  },
+  "id": "LB05-v1",
+  "integration_ledger": "audit/LB00/INTEGRATION_LEDGER_v5.json",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "modules": {
+    "Contracts.v1.WitnessGeometry": {
+      "kind": "project-rebuilt",
+      "sha256": "bbd3f28678e95ace37f07c0d993992f20fd4dc4d565ccbc11d0b8a4f1ba822bc",
+      "workspace_relative_source": "formalization/lower_bound_v2/Contracts/v1/WitnessGeometry.lean"
+    },
+    "Mathlib.Algebra.BigOperators.Fin": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/Fin.lean",
+      "sha256": "4fe78cba9cdeac4eb8badbdd6359b055031900906fb94f3e51aba6d81451dbd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Fin.lean"
+    },
+    "Mathlib.Algebra.BigOperators.Ring.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+      "sha256": "472cd5000412d8ec35c8b9ee919b2aeedbf0a830033a55009aad436595923809",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Ring/Finset.lean"
+    },
+    "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean",
+      "sha256": "3be238a809840f7dff49a99a02fd83fd5fc93d3efd5f8f34354c5e5c4e796e7d",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean"
+    },
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean",
+      "sha256": "c89a7463df5acd6485e64d14b958daaedf6b857aad2808a4ead0570b52220568",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean"
+    },
+    "Mathlib.Analysis.Convex.StdSimplex": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/Convex/StdSimplex.lean",
+      "sha256": "aec844bc79d4bd36cea30d1bf2d0999ad6e82ee1d8715dc8f1fa751c2522785c",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/StdSimplex.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+      "sha256": "1f36a9802233e878953d809b16e020beaf0ace5afd4c8279d47b52af6ee186bf",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Continuity": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean",
+      "sha256": "954afcfdbbc1ad9a7f52b8e6d726f21eb2b78bcab182cae499fac27350831afb",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+      "sha256": "1f4e64fc28a20f4e19291a94dafd68daa82588b46f6ee5b9203df373ba595fa3",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Real.lean"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Sqrt": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Analysis/SpecialFunctions/Sqrt.lean",
+      "sha256": "38c916b763ade8ed7174488bad31aee40735d03877a1bf9e540c1cf0107ec1ab",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Sqrt.lean"
+    },
+    "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean",
+      "sha256": "91cd08147cff7559f9d85be230e04662c3aaa401078ef5c561bafff0a4ea87de",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean"
+    },
+    "Mathlib.Data.Fin.Tuple.Sort": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fin/Tuple/Sort.lean",
+      "sha256": "9075b412b4e447c4a01590aceaf0f05d4cf58c419192eb016e9171241a753567",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fin/Tuple/Sort.lean"
+    },
+    "Mathlib.Data.Fintype.BigOperators": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/BigOperators.lean",
+      "sha256": "bfa35992c02f47d7c78a5425ea3c4eecba0ad54de1b5752db565b37de11148c0",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/BigOperators.lean"
+    },
+    "Mathlib.Data.Fintype.EquivFin": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/EquivFin.lean",
+      "sha256": "2df4d785c723a7cf6ce60790a545497250b63f52ecd7bdd5039fa5ea3537acb8",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/EquivFin.lean"
+    },
+    "Mathlib.Data.Fintype.Vector": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Fintype/Vector.lean",
+      "sha256": "0a0072bcc2fbb9d95b6ae7acfdb43424990820f6b90cd5d9adebad5b391a3d95",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Fintype/Vector.lean"
+    },
+    "Mathlib.Data.List.Lex": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/List/Lex.lean",
+      "sha256": "6495ae02a429a2011b5873f559e0c6908f832b9f2a026ddab4af530b07660425",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/List/Lex.lean"
+    },
+    "Mathlib.Data.Real.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Real/Basic.lean",
+      "sha256": "b1dde0e82be30e8a9ca87b23c46d04afc92be61818622ba6d4603daa4d4a9f70",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Real/Basic.lean"
+    },
+    "Mathlib.Data.Vector.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Data/Vector/Basic.lean",
+      "sha256": "9b4928b3f1d0b81bb040f05a950b97ef9a5a9b374779d87fe9314693fda85bcf",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Data/Vector/Basic.lean"
+    },
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "sha256": "93908eb0c771ba8edcb47537dfe1a40e98a1545be9d427c1eb9823d44decdcd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean"
+    },
+    "Mathlib.MeasureTheory.Measure.ProbabilityMeasure": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
+      "sha256": "ececad97c60703de0e0ee2f47bca44a017aa8537f7186412f69b169f026e92fd",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean"
+    },
+    "Mathlib.Order.Interval.Set.Union": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/Interval/Set/Union.lean",
+      "sha256": "0609bc9d79421b5690dca5429a67571ab70d1ca9db34b7e4c3dbe920598d0eb2",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/Interval/Set/Union.lean"
+    },
+    "Mathlib.Order.WithBot": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Order/WithBot.lean",
+      "sha256": "1167c56b29f831e2dbc02a98bd73734867f047b67ba111bc9dba5c9a2bfbbf93",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Order/WithBot.lean"
+    },
+    "Mathlib.Probability.Distributions.Uniform": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/Distributions/Uniform.lean",
+      "sha256": "c3492e1ba311263248302cf310f45e44d49524cfbba52d8fc27207be80a50ab9",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Uniform.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Constructions": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Constructions.lean",
+      "sha256": "09a7cf241524c158d4174e994e04140901630c7e0629ceee9b7ba7ec347d2cd4",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Constructions.lean"
+    },
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+      "sha256": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean"
+    },
+    "Mathlib.Tactic": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Tactic.lean",
+      "sha256": "6ec9a1714e9fa472f7e5614792f1aa5a65f360ec56688b0dc765d1bee2e1bdd5",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Tactic.lean"
+    },
+    "Mathlib.Topology.Order.IntermediateValue": {
+      "kind": "pinned-library",
+      "package": "mathlib",
+      "package_relative_source": "Mathlib/Topology/Order/IntermediateValue.lean",
+      "sha256": "6e22cbb5e8b9124378735958f0282285a127f3b1dc9eaafeb2c714f89222ba65",
+      "workspace_relative_source": "formalization/.lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean"
+    },
+    "RiffleLowerV2.Shared": {
+      "kind": "project-rebuilt",
+      "sha256": "f01b060b307e8237b612d6ffad2566b975300e91c776190f7fac9e28ca847ba5",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared.lean"
+    },
+    "RiffleLowerV2.Shared.Adapters": {
+      "kind": "project-rebuilt",
+      "sha256": "737a259499bd3eea31843ddc6a82e498a58dc606c6a94a84b409eb35fe179253",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Adapters.lean"
+    },
+    "RiffleLowerV2.Shared.Empirical": {
+      "kind": "project-rebuilt",
+      "sha256": "84ea013c6f9c64073700be1dced470f11fa30a9b3d0b79a59dde63a099cf817e",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Empirical.lean"
+    },
+    "RiffleLowerV2.Shared.Geometry": {
+      "kind": "project-rebuilt",
+      "sha256": "cb992d0297bcf75ada15ff6154a146caadfa3d984629aafd70f74feef6bfbb09",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Geometry.lean"
+    },
+    "RiffleLowerV2.Shared.Model": {
+      "kind": "project-rebuilt",
+      "sha256": "cceadf1b4a5be2f412fe15a9b52b7b7f3c67bfa6d19270955f7c338f01e90930",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Model.lean"
+    },
+    "RiffleLowerV2.Shared.Path": {
+      "kind": "project-rebuilt",
+      "sha256": "513afea203a5ad1a3b851fdb8317b4f6473d2c54e1c0466139b349530563acbf",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Path.lean"
+    },
+    "RiffleLowerV2.Shared.Smoke": {
+      "kind": "project-rebuilt",
+      "sha256": "41544e0cc785a589dedcd14757b1bf2b69747c5512193f80fcdda277c9b1939a",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Smoke.lean"
+    },
+    "RiffleLowerV2.Shared.Statistics": {
+      "kind": "project-rebuilt",
+      "sha256": "dd57ff2f4bbac3e26176809ee15081b58510b041e6dee418f65d31d4fc26fb69",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Shared/Statistics.lean"
+    },
+    "RiffleLowerV2.Witness.Continuous": {
+      "kind": "project-rebuilt",
+      "sha256": "d4087979d57d206e092e9c3993ed2356371d4b271b33536b020abf663a305a35",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Continuous.lean"
+    },
+    "RiffleLowerV2.Witness.Empirical": {
+      "kind": "project-rebuilt",
+      "sha256": "7220bb0fcb372ec11eb74a284f0dfeacd9485a1bf0618d3be6612097159072c8",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Empirical.lean"
+    },
+    "RiffleLowerV2.Witness.EmpiricalTilt": {
+      "kind": "project-rebuilt",
+      "sha256": "8b7f95dad4a3df89ee66b887ead0ad4c2b264ac6a209f22cfa83af7c40129647",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/EmpiricalTilt.lean"
+    },
+    "RiffleLowerV2.Witness.Finite": {
+      "kind": "project-rebuilt",
+      "sha256": "f8d3121c1c7e05cec61afd9772d746955006b716720ad0d6c3545e1d59e75e2f",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Finite.lean"
+    },
+    "RiffleLowerV2.Witness.Main": {
+      "kind": "project-rebuilt",
+      "sha256": "c00990a85054cccc1af82b42096d8547aa770d90391f3429f6792a933c66c731",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Main.lean"
+    },
+    "RiffleLowerV2.Witness.OneColumn": {
+      "kind": "project-rebuilt",
+      "sha256": "f139c4b37e6b6492e0e140a535df2c5cdd023e74b998af2fee0d53c50ce951fe",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/OneColumn.lean"
+    },
+    "RiffleLowerV2.Witness.OneColumnBasic": {
+      "kind": "project-rebuilt",
+      "sha256": "0ee7edc19ffb580282b4aad08477fdd409421f30bb52ddcd408974ecc4fd4f81",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/OneColumnBasic.lean"
+    },
+    "RiffleLowerV2.Witness.Rounding": {
+      "kind": "project-rebuilt",
+      "sha256": "c8b3b2ee0b8eb897607b7c9f1c2d13e87cd659561a355b75a2912f0e24caf959",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Rounding.lean"
+    },
+    "RiffleLowerV2.Witness.Selection": {
+      "kind": "project-rebuilt",
+      "sha256": "898ed53cc48059604afa7b56c675488bdf39f2dc79b6f64c089bd01a9ba47225",
+      "workspace_relative_source": "formalization/lower_bound_v2/RiffleLowerV2/Witness/Selection.lean"
+    },
+    "RiffleShuffle.Basic": {
+      "kind": "project-rebuilt",
+      "sha256": "6e22940f17e283c2080bb979f2282b792afb64e65d1d27fb8986c66ee8cf842e",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Basic.lean"
+    },
+    "RiffleShuffle.Graphs": {
+      "kind": "project-rebuilt",
+      "sha256": "d17dc327333df268b84ec9130911bba2d5d16130caaa7ffc8397db20e4601362",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Graphs.lean"
+    },
+    "RiffleShuffle.Matrices": {
+      "kind": "project-rebuilt",
+      "sha256": "2a674866084434aa87978a35af366251df362fa0f9873b4493c136aa69e3c317",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Matrices.lean"
+    },
+    "RiffleShuffle.Profiles": {
+      "kind": "project-rebuilt",
+      "sha256": "decfe90c9526f301f95fd9d76d0f873221e089ae8fe00bf74dc402762ac23ca0",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Profiles.lean"
+    },
+    "RiffleShuffle.Words": {
+      "kind": "project-rebuilt",
+      "sha256": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+      "workspace_relative_source": "formalization/foundations/RiffleShuffle/Words.lean"
+    },
+    "RiffleTimeProfile.Ambient": {
+      "kind": "project-rebuilt",
+      "sha256": "75d4558ff24fa1fc18cd09b0b1c2d0ea33140195317686e963b36038226eeea8",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Ambient.lean"
+    },
+    "RiffleTimeProfile.Base": {
+      "kind": "project-rebuilt",
+      "sha256": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/Base.lean"
+    },
+    "RiffleTimeProfile.FixedCountModel": {
+      "kind": "project-rebuilt",
+      "sha256": "d5c7cd27f01d77063de5a5dee6f0764e36620cfa997f1660f27c3982e71fde4e",
+      "workspace_relative_source": "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean"
+    }
+  },
+  "new_output_sha256": {
+    ".build/lib/lean/RiffleLowerV2/Witness/Continuous.olean": "492b2195b204ec3dd9f4593549e4de1138e105a7ba1b47552e7de9a05445d2ee",
+    ".build/lib/lean/RiffleLowerV2/Witness/Empirical.olean": "3feec45334b4106cf1840cdbc9cebecb976b39c1081396597b3920547c0a36b4",
+    ".build/lib/lean/RiffleLowerV2/Witness/EmpiricalTilt.olean": "0a4a20c8b6abeb55e2cc6658e7a58ff3fe6d4c6e31dd64d2f40623ba4b323aa7",
+    ".build/lib/lean/RiffleLowerV2/Witness/Finite.olean": "528888ae6fbeb7f13168826eb6845772bb808601750c6861051f5d4f05f65ec2",
+    ".build/lib/lean/RiffleLowerV2/Witness/Main.olean": "6934d90b5f63296df8b9265833ae86fa8b8337f52dc13bad78ce9c6c2c4eb2a5",
+    ".build/lib/lean/RiffleLowerV2/Witness/OneColumn.olean": "5445c4887a1e7906f7165104009a87efdd2454c16ba7570ca26e9ec4401a3c21",
+    ".build/lib/lean/RiffleLowerV2/Witness/OneColumnBasic.olean": "3e19647265bc90762c44e9358c9c3d725e0018898c25f42feb5583a6513f9270",
+    ".build/lib/lean/RiffleLowerV2/Witness/Rounding.olean": "4f602a2bb62634b1bd0c592034b1456a362ca3769ccc93102154284cee893ebe",
+    ".build/lib/lean/RiffleLowerV2/Witness/Selection.olean": "a08c6897587dc6a06ebab1965f5bde7be8e120d27a4d7a3e40f26c27e35827d1"
+  },
+  "newly_built_modules": [
+    "RiffleLowerV2.Witness.OneColumnBasic",
+    "RiffleLowerV2.Witness.OneColumn",
+    "RiffleLowerV2.Witness.Empirical",
+    "RiffleLowerV2.Witness.Selection",
+    "RiffleLowerV2.Witness.Continuous",
+    "RiffleLowerV2.Witness.Rounding",
+    "RiffleLowerV2.Witness.Finite",
+    "RiffleLowerV2.Witness.EmpiricalTilt",
+    "RiffleLowerV2.Witness.Main"
+  ],
+  "recorded_at": "2026-10-01T16:52:34.355074+00:00",
+  "registered_imports": [
+    "RiffleLowerV2.Witness.Main"
+  ],
+  "required_exports": [
+    {
+      "name": "RiffleLowerV2.Witness.oneColumnTilt",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.OneColumnTiltTarget"
+    },
+    {
+      "name": "RiffleLowerV2.Witness.empiricalTilt",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.EmpiricalTiltTarget"
+    },
+    {
+      "name": "RiffleLowerV2.Witness.coldWitness",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.ColdWitnessTarget"
+    },
+    {
+      "name": "RiffleLowerV2.Witness.lB05",
+      "status": "PROVED",
+      "type": "RiffleLowerV2.Targets.LB05Target"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Nine Witness modules rebuilt; all four exact frozen exports and 131 declaration records verified. The 87 public declaration records match compiled content with source-location metadata excluded. Build and audit passed without warnings. Concrete finite empirical witness and uniform threshold are outputs; no macro-integrability or supplied-witness premise. Final endpoints remain uncertified.",
+  "status": "INTEGRATED_COMPLETED_INPUT",
+  "verification_command": [
+    "python3",
+    "scripts/check_dependency_receipt.py",
+    "LB05-v1"
+  ]
+}

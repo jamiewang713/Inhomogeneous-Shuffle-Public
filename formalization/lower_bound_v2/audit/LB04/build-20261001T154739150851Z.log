@@ -1,0 +1,101 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.RelativeOrder.Basic']
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:21:2: error: Tactic `apply` failed: could not unify the conclusion of `Monotone.strictMono_of_injective (Tuple.monotone_sort ?m.15)`
+  StrictMono (?m.15 ∘ ⇑(Tuple.sort ?m.15))
+with the goal
+  StrictMono fun i => π ↑((positionEnum A) ((relativeOrder A π) i))
+
+Note: The full type of `Monotone.strictMono_of_injective (Tuple.monotone_sort ?m.15)` is
+  Function.Injective (?m.15 ∘ ⇑(Tuple.sort ?m.15)) → StrictMono (?m.15 ∘ ⇑(Tuple.sort ?m.15))
+
+N : ℕ
+A : Finset (Fin N)
+π : Permutation N
+⊢ StrictMono fun i => π ↑((positionEnum A) ((relativeOrder A π) i))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:42:35: error: Application type mismatch: The argument
+  Iff.symm hσ
+has type
+  (Equiv.symm (relativeOrder A σ)) a < (Equiv.symm (relativeOrder A σ)) b ↔
+    σ ↑((positionEnum A) a) < σ ↑((positionEnum A) b)
+but is expected to have type
+  (Equiv.symm (relativeOrder A π)) a < (Equiv.symm (relativeOrder A π)) b ↔ ?m.63
+in the application
+  Iff.trans hπ (Iff.symm hσ)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:49:6: error: Application type mismatch: The argument
+  StrictMono.monotone (relativeOrder_strictMono A σ)
+has type
+  Monotone fun i => σ ↑((positionEnum A) ((relativeOrder A σ) i))
+but is expected to have type
+  Monotone (?m.118 ∘ ⇑?m.120)
+in the application
+  Tuple.unique_monotone ?m.126 (StrictMono.monotone (relativeOrder_strictMono A σ))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:74:35: error(lean.unknownIdentifier): Unknown identifier `hA`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:77:2: error: Tactic `subst` failed: 'i' occurs at
+  Classical.choose hx
+
+N : ℕ
+I : Type u_1
+inst✝ : Fintype I
+A : I → Finset (Fin N)
+η : (i : I) → Equiv.Perm (Fin (A i).card)
+i : I
+x : Fin (A i).card
+hx : ∃ j, ↑((positionEnum (A i)) x) ∈ A j
+hi : Classical.choose hx = i
+⊢ ↑((positionEnum (A (Classical.choose ⋯)))
+        ((η (Classical.choose ⋯)) ((positionEnum (A (Classical.choose ⋯))).symm ⟨↑((positionEnum (A i)) x), ⋯⟩))) =
+    ↑((positionEnum (A i)) ((η i) x))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:84:27: error(lean.unknownIdentifier): Unknown identifier `hA`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:85:2: error: No goals to be solved
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:93:34: error: Application type mismatch: The argument
+  hA
+has type
+  ∀ (i j : I), i ≠ j → Disjoint (A i) (A j)
+of sort `Prop` but is expected to have type
+  (i : I) → Equiv.Perm (Fin (A i).card)
+of sort `Type u_1` in the application
+  blockMap_apply_of_mem A hA
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:99:34: error: Application type mismatch: The argument
+  hA
+has type
+  ∀ (i j : I), i ≠ j → Disjoint (A i) (A j)
+of sort `Prop` but is expected to have type
+  (i : I) → Equiv.Perm (Fin (A i).card)
+of sort `Type u_1` in the application
+  blockMap_apply_of_mem A hA
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:106:18: error: Application type mismatch: The argument
+  hA
+has type
+  ∀ (i j : I), i ≠ j → Disjoint (A i) (A j)
+of sort `Prop` but is expected to have type
+  (i : I) → Equiv.Perm (Fin (A i).card)
+of sort `Type u_1` in the application
+  blockAction A hA
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:107:19: error(lean.unknownIdentifier): Unknown identifier `hA`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:111:40: error: Application type mismatch: The argument
+  hA
+has type
+  ∀ (i j : I), i ≠ j → Disjoint (A i) (A j)
+of sort `Prop` but is expected to have type
+  (i : I) → Equiv.Perm (Fin (A i).card)
+of sort `Type u_1` in the application
+  blockAction A hA
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:113:49: error(lean.unknownIdentifier): Unknown identifier `hA`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean:112:50: error: unsolved goals
+N : ℕ
+I : Type u_1
+inst✝ : Fintype I
+A : I → Finset (Fin N)
+η : (i : I) → Equiv.Perm (Fin (A i).card)
+π : Permutation N
+i : I
+⊢ relativeOrder (A i) sorry = Equiv.trans (relativeOrder (A i) π) (Equiv.symm (η i))
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Basic.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Basic.lean']' returned non-zero exit status 1.

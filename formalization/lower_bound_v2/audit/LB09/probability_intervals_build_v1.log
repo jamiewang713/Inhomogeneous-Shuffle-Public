@@ -1,0 +1,49 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/ProbabilityIntervals.lean:19:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x, ∏ i, ?f i (x i)
+in the target expression
+  ∑ x, ∏ j, ↑(cuts.count (↑j) (x j)) / ↑N = 1
+
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+I : Finset (Fin K)
+hNr : ↑N ≠ 0
+⊢ ∑ x, ∏ j, ↑(cuts.count (↑j) (x j)) / ↑N = 1
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/ProbabilityIntervals.lean:56:73: error: Tactic `rfl` failed: The left-hand side
+  relativeMassBefore cuts x + massOn cuts x
+is not definitionally equal to the right-hand side
+  massOn cuts x + ∑ x ∈ S, massOn cuts x
+
+k N K : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+I : Finset (Fin K)
+x : WordOn k I
+S : Finset (WordOn k I) := {v | wordOnList v < wordOnList x}
+hx : x ∉ S
+⊢ relativeMassBefore cuts x + massOn cuts x = massOn cuts x + ∑ x ∈ S, massOn cuts x
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/ProbabilityIntervals.lean:76:73: error: Tactic `rfl` failed: The left-hand side
+  relativeMassBefore cuts x + massOn cuts x
+is not definitionally equal to the right-hand side
+  massOn cuts x + ∑ x ∈ S, massOn cuts x
+
+k N K : ℕ
+cuts : Cuts k N K
+I : Finset (Fin K)
+x y : WordOn k I
+hxy : wordOnList x < wordOnList y
+S : Finset (WordOn k I) := {v | wordOnList v < wordOnList x}
+T : Finset (WordOn k I) := {v | wordOnList v < wordOnList y}
+hx : x ∉ S
+hsub : insert x S ⊆ T
+⊢ relativeMassBefore cuts x + massOn cuts x = massOn cuts x + ∑ x ∈ S, massOn cuts x
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/ProbabilityIntervals.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/ProbabilityIntervals.lean']' returned non-zero exit status 1.

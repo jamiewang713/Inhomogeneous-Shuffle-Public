@@ -1,0 +1,33 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.lean:117:2: error: linarith failed to find a contradiction
+b : ℝ
+hb : 0 < b
+hb1 : b ≤ 1
+hr : 0 < b / 2
+hx✝ : ∀ᶠ (x : ℕ) in atTop, 2 ≤ ((fun x => x ^ (b / 2)) ∘ Nat.cast) x
+N : ℕ
+hx : 2 ≤ ((fun x => x ^ (b / 2)) ∘ Nat.cast) N
+hN : 1 ≤ N
+hNr : 0 < ↑N
+hN1 : 1 ≤ ↑N
+hm : ↑(largestRunLength N b) ≤ ↑N ^ (b / 2)
+hpow : ↑N ^ (b / 2) ≤ ↑N
+hsq : (↑N ^ (b / 2)) ^ 2 = ↑N ^ b
+a✝ : ↑N ^ b / 2 < ↑(largestRunLength N b)
+⊢ False
+failed
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB10/lib/lean/RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestAsymptotic/Numerical.lean']' returned non-zero exit status 1.

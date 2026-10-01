@@ -1,0 +1,149 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/ResidualEstimates.lean:104:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Relative.lean:152:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean:34:52: error: unsolved goals
+case b0
+hExact : Targets.ExactJointFactorial
+c C : ℝ
+hc : 0 < c
+hC : 0 < C
+a : ℝ := ⋯
+ha : 0 < a
+N0 : ℕ
+hN02 : 2 ≤ N0
+hN0 : ∀ N ≥ N0, 2 * ↑N ^ (1 / 5) ≤ a * ↑N ∧ 2 / a * (C * logScale N + 1) * (↑N ^ (1 / 5)) ^ 2 / ↑N ≤ 1
+N : ℕ
+hN : N ≥ N0
+k K d : ℕ
+hK : ↑K ≤ C * logScale N
+cuts : Cuts k N K
+w : Fin d → Word k K
+r : Fin d → ℕ
+hw : Function.Injective w
+hpiles : ∀ (i : Fin d) (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get (w i) j))
+hR : ∑ i, ↑(r i) ≤ ↑N ^ (1 / 5)
+hNp : 0 < N
+hNr : 0 < ↑N
+hb : 2 * ↑N ^ (1 / 5) ≤ a * ↑N ∧ 2 / a * (C * logScale N + 1) * (↑N ^ (1 / 5)) ^ 2 / ↑N ≤ 1
+ha1 : a ≤ 1
+hac : a ≤ c
+hpop : a * ↑N ≤ ↑N
+hcut : 2 * ∑ i, ↑(r i) ≤ a * ↑N
+hRN : ∑ i, r i ≤ N
+hs : ∀ (j : Fin K) (x : Fin k), 0 < requestedCount w r j x → a * ↑N ≤ ↑(cuts.count j x)
+⊢ 0 ≤ 2 / a * (C * logScale N + 1)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean:38:32: error: Application type mismatch: The argument
+  hcut
+has type
+  2 * ∑ i, ↑(r i) ≤ a * ↑N
+but is expected to have type
+  2 * ↑(∑ i, r i) ≤ a * ↑N
+in the application
+  relativeFactorial_finite cuts.count (requestedCount w r) ha hNp hpop (requestedCount_sum w r) hs hcut
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean:40:2: error: Type mismatch: After simplification, term
+  hf
+ has type
+  |falling N (∑ i, r i) * ∏ x, (∏ a, falling (cuts.count x a) (requestedCount w r x a)) / falling N (∑ i, r i) -
+        (↑N ^ ∑ i, r i) * ∏ x, (∏ a, ↑(cuts.count x a) ^ requestedCount w r x a) / ↑N ^ ∑ i, r i| ≤
+    4 / a * (↑K + 1) * ↑(∑ i, r i) ^ 2 / ↑N *
+      ((↑N ^ ∑ i, r i) * ∏ x, (∏ a, ↑(cuts.count x a) ^ requestedCount w r x a) / ↑N ^ ∑ i, r i)
+but is expected to have type
+  |falling N (∑ i, r i) * ∏ j, (∏ a, falling (cuts.count j a) (requestedCount w r j a)) / falling N (∑ i, r i) -
+        (↑N ^ ∑ i, r i) * ∏ j, (∏ a, ↑(cuts.count j a) ^ requestedCount w r j a) / ↑N ^ ∑ i, r i| ≤
+    4 / a * (↑K + 1) * (∑ i, ↑(r i)) ^ 2 / ↑N *
+      ((↑N ^ ∑ i, r i) * ∏ j, (∏ a, ↑(cuts.count j a) ^ requestedCount w r j a) / ↑N ^ ∑ i, r i)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean:89:52: error: unsolved goals
+case b0
+hExact : Targets.ResidualJointFactorial
+c C : ℝ
+hc : 0 < c
+hC : 0 < C
+b0 : ℕ
+a : ℝ := ⋯
+ha : 0 < a
+N1 : ℕ
+hN12 : 2 ≤ N1
+hN1 : ∀ N ≥ N1, 2 * ↑N ^ (1 / 5) ≤ a * ↑N ∧ 2 / a * (C * logScale N + 1) * (↑N ^ (1 / 5)) ^ 2 / ↑N ≤ 1
+N0 : ℕ := ⋯
+hb0N0 : b0 < N0
+hN02 : 2 ≤ N0
+N : ℕ
+hN : N ≥ N0
+k K b d : ℕ
+hbb : b ≤ b0
+hK : ↑K ≤ C * logScale N
+cuts : Cuts k N K
+p : RowPrescription N k K b
+hpinj : Function.Injective p.row
+hp : 0 < probability (fixedCountPMF cuts) (prescriptionEvent p)
+w : Fin d → Word k K
+r : Fin d → ℕ
+hw : Function.Injective w
+hpiles : ∀ (i : Fin d) (j : Fin K), c * ↑N ≤ ↑(cuts.count j (List.Vector.get (w i) j))
+hR : ∑ i, ↑(r i) ≤ ↑N ^ (1 / 5)
+hNN1 : N1 ≤ N
+hNN2 : 2 * b0 + 2 ≤ N
+hNceil : ⌈2 * ↑b0 / c⌉₊ ≤ N
+hNp : 0 < N
+hNr : 0 < ↑N
+hbN : b < N
+hbR : ↑b ≤ ↑b0
+hbc0 : 2 * ↑b0 ≤ c * ↑N
+ha1 : a ≤ 1 / 2
+hac : a ≤ c / 2
+hpop : a * ↑N ≤ ↑(N - b)
+hb : 2 * ↑N ^ (1 / 5) ≤ a * ↑N ∧ 2 / a * (C * logScale N + 1) * (↑N ^ (1 / 5)) ^ 2 / ↑N ≤ 1
+hcut : 2 * ∑ i, ↑(r i) ≤ a * ↑N
+hRN : ∑ i, r i ≤ N - b
+n : Fin K → Fin k → ℕ := ⋯
+hs : ∀ (j : Fin K) (x : Fin k), 0 < requestedCount w r j x → a * ↑N ≤ ↑(n j x)
+⊢ 0 ≤ 2 / a * (C * logScale N + 1)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean:93:32: error: Application type mismatch: The argument
+  hcut
+has type
+  2 * ∑ i, ↑(r i) ≤ a * ↑N
+but is expected to have type
+  2 * ↑(∑ i, r i) ≤ a * ↑N
+in the application
+  relativeFactorial_finite n (requestedCount w r) ha hNp hpop (requestedCount_sum w r) hs hcut
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean:99:2: error: Type mismatch: After simplification, term
+  hf
+ has type
+  |falling (N - b) (∑ i, r i) *
+          ∏ x,
+            (∏ x_1, falling (cuts.count x x_1 - usedCount p x x_1) (requestedCount w r x x_1)) /
+              falling (N - b) (∑ i, r i) -
+        (↑(N - b) ^ ∑ i, r i) *
+          ∏ x, (∏ x_1, ↑(cuts.count x x_1 - usedCount p x x_1) ^ requestedCount w r x x_1) / ↑(N - b) ^ ∑ i, r i| ≤
+    4 / a * (↑K + 1) * ↑(∑ i, r i) ^ 2 / ↑N *
+      ((↑(N - b) ^ ∑ i, r i) *
+        ∏ x, (∏ x_1, ↑(cuts.count x x_1 - usedCount p x x_1) ^ requestedCount w r x x_1) / ↑(N - b) ^ ∑ i, r i)
+but is expected to have type
+  |falling (N - b) (∑ i, r i) *
+          ∏ j, (∏ a, falling (cuts.count j a - usedCount p j a) (requestedCount w r j a)) / falling (N - b) (∑ i, r i) -
+        (↑(N - b) ^ ∑ i, r i) *
+          ∏ x, (∏ x_1, ↑(cuts.count x x_1 - usedCount p x x_1) ^ requestedCount w r x x_1) / ↑(N - b) ^ ∑ i, r i| ≤
+    4 / a * (↑K + 1) * (∑ i, ↑(r i)) ^ 2 / ↑N *
+      ((↑(N - b) ^ ∑ i, r i) *
+        ∏ x, (∏ x_1, ↑(cuts.count x x_1 - usedCount p x x_1) ^ requestedCount w r x x_1) / ↑(N - b) ^ ∑ i, r i)
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB03/lib/lean/RiffleLowerV2/Factorial/RelativeFromExact.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeFromExact.lean']' returned non-zero exit status 1.

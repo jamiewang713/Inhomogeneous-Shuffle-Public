@@ -1,0 +1,25 @@
+import RiffleLowerV2.ProfileTransfer.Spatial
+
+#check RiffleLowerV2.ProfileTransfer.continuous_prob
+#check RiffleLowerV2.ProfileTransfer.continuous_pileMax
+#check RiffleLowerV2.ProfileTransfer.continuous_maxCost
+#check RiffleLowerV2.ProfileTransfer.continuous_psi
+#check RiffleLowerV2.ProfileTransfer.jointPsiContinuity
+#check RiffleLowerV2.ProfileTransfer.integrable_of_continuous_bounded
+#check RiffleLowerV2.ProfileTransfer.integrable_maxCost
+#check RiffleLowerV2.ProfileTransfer.integrable_psi
+#check RiffleLowerV2.ProfileTransfer.scalar_integral_bounds
+#check RiffleLowerV2.ProfileTransfer.profileMaxCost_bounds
+#check RiffleLowerV2.ProfileTransfer.profilePsi_bounds
+
+#print axioms RiffleLowerV2.ProfileTransfer.continuous_prob
+#print axioms RiffleLowerV2.ProfileTransfer.continuous_pileMax
+#print axioms RiffleLowerV2.ProfileTransfer.continuous_maxCost
+#print axioms RiffleLowerV2.ProfileTransfer.continuous_psi
+#print axioms RiffleLowerV2.ProfileTransfer.jointPsiContinuity
+#print axioms RiffleLowerV2.ProfileTransfer.integrable_of_continuous_bounded
+#print axioms RiffleLowerV2.ProfileTransfer.integrable_maxCost
+#print axioms RiffleLowerV2.ProfileTransfer.integrable_psi
+#print axioms RiffleLowerV2.ProfileTransfer.scalar_integral_bounds
+#print axioms RiffleLowerV2.ProfileTransfer.profileMaxCost_bounds
+#print axioms RiffleLowerV2.ProfileTransfer.profilePsi_bounds

@@ -1,0 +1,16 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Covariance.lean:14:0: warning: automatically included section variable(s) unused in theorem `RiffleLowerV2.Occupancy.eventCount_nonneg`:
+  [Fintype Ω]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Ω] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Covariance.lean:71:14: warning: This simp argument is unused:
+  ← eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hi]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LB08 BUILD_OK

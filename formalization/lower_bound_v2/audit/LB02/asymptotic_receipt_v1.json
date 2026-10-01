@@ -1,0 +1,20 @@
+{
+  "status": "PROVED_AND_COMPILED",
+  "targets": [
+    "RiffleLowerV2.Thinning.prefixFailureUniform : RiffleLowerV2.Targets.PrefixFailureUniform",
+    "RiffleLowerV2.Thinning.maximalMeanIdentity : RiffleLowerV2.Targets.MaximalMeanIdentity"
+  ],
+  "command": "python3 scripts/lane.py LB02 RiffleLowerV2.Thinning.MaximalWord RiffleLowerV2.Thinning.UniformError",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "sha256": {
+    "RiffleLowerV2/Thinning/UniformError.lean": "1370a1242fc236a697a1c3e107a869f843bc5581a960ca1e1b7716e3f3bfaa52",
+    "RiffleLowerV2/Thinning/MaximalWord.lean": "fa720aceb1935b1f86926eccfc0a7901177fb945c5b33d2ee8a7bce1b24329b4",
+    "audit/LB02/asymptotic_build_final.log": "0740855d4966f9daf4ed6369f53e6d8b068ddcdd42b1c7c97e23072ba786c4d7",
+    "audit/LB02/asymptotic_check.lean": "d6d21b6b3d2871f948045fd09bc9aff5a8d4621a38c1b37d76068be3daaaafad",
+    "audit/LB02/asymptotic_axioms.log": "80f1727703e25be797537331f68beae77ad4d5358aec38c658975c364ecb3d70"
+  }
+}

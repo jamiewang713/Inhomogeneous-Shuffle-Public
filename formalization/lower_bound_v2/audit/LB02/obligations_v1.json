@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "lane": "LB02",
+  "status": "preproof review; seven frozen targets pending",
+  "receipt": "audit/LB00/CONTRACT_READY.md",
+  "targets": [
+    {
+      "name": "RiffleLowerV2.Thinning.successiveThinning",
+      "type": "RiffleLowerV2.Targets.SuccessiveThinning",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "name": "RiffleLowerV2.Thinning.prefixTails",
+      "type": "RiffleLowerV2.Targets.PrefixTails",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "name": "RiffleLowerV2.Thinning.allPrefixConcentration",
+      "type": "RiffleLowerV2.Targets.AllPrefixConcentration",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "name": "RiffleLowerV2.Thinning.prefixFailureUniform",
+      "type": "RiffleLowerV2.Targets.PrefixFailureUniform",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "name": "RiffleLowerV2.Thinning.residualLaw",
+      "type": "RiffleLowerV2.Targets.ResidualLaw",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "name": "RiffleLowerV2.Thinning.hypergeometricTransform",
+      "type": "RiffleLowerV2.Targets.HypergeometricTransform",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "name": "RiffleLowerV2.Thinning.maximalMeanIdentity",
+      "type": "RiffleLowerV2.Targets.MaximalMeanIdentity",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "additional_required_obligations": [
+    {
+      "claim": "All positive s hypergeometric transform",
+      "status": "pending"
+    },
+    {
+      "claim": "Independent subsets exact transition and affine backward recursion",
+      "status": "pending"
+    },
+    {
+      "claim": "Bernstein and both lower tails for abstract process",
+      "status": "pending"
+    },
+    {
+      "claim": "Concrete prefix transform and tails",
+      "status": "pending"
+    },
+    {
+      "claim": "Conditional residual fixed-count law and residual tail specialization",
+      "status": "pending"
+    },
+    {
+      "claim": "Finite all-prefix polynomial union bound including empty and zero-mass prefixes",
+      "status": "pending"
+    },
+    {
+      "claim": "Uniform prefix-failure convergence at K <= T log N",
+      "status": "pending"
+    },
+    {
+      "claim": "Deterministic maximal-word tail for LB10",
+      "status": "pending"
+    },
+    {
+      "claim": "Lean lane build and complete exported axiom closure",
+      "status": "pending"
+    },
+    {
+      "claim": "Provenance and exact import receipt",
+      "status": "pending"
+    }
+  ]
+}

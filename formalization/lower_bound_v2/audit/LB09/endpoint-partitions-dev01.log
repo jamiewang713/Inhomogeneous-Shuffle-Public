@@ -1,0 +1,61 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Partitions.lean:32:4: error: unsolved goals
+case pos
+α : Type u_1
+β : Type u_2
+inst✝³ : Fintype α
+inst✝² : LinearOrder α
+inst✝¹ : Fintype β
+inst✝ : DecidableEq β
+x y : α → β
+R : β → β → Prop
+hR : ∀ (d e : β), R d e → d ≠ e
+j : α
+hjR : R (y j) (x j)
+hjpre : ∀ h < j, y h = x h
+⊢ 1 = ↑{x_1 ∈ {d | R d (x j)} | x_1 = y j ∧ ∀ h < j, x h = y h}.card
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Partitions.lean:32:23: warning: This simp argument is unused:
+  hjpre
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sideMatch, eq_comm, hjR]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Partitions.lean:32:39: warning: This simp argument is unused:
+  hjR
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sideMatch, hjpre, eq_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Partitions.lean:60:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?m.65, ∑ y ∈ ?m.66, ?m.67 x y
+in the target expression
+  (∑ ω, if A ω ∧ ∃ j, R (y ω j) (x j) ∧ ∀ h < j, y ω h = x h then f ω else 0) =
+    ∑ j, ∑ d with R d (x j), ∑ ω, if A ω ∧ sideMatch x (y ω) j d then f ω else 0
+
+α : Type u_1
+β : Type u_2
+Ω : Type u_3
+inst✝⁴ : Fintype α
+inst✝³ : LinearOrder α
+inst✝² : Fintype β
+inst✝¹ : DecidableEq β
+inst✝ : Fintype Ω
+x : α → β
+y : Ω → α → β
+A : Ω → Prop
+f : Ω → ℝ
+R : β → β → Prop
+hR : ∀ (d e : β), R d e → d ≠ e
+⊢ (∑ ω, if A ω ∧ ∃ j, R (y ω j) (x j) ∧ ∀ h < j, y ω h = x h then f ω else 0) =
+    ∑ j, ∑ d with R d (x j), ∑ ω, if A ω ∧ sideMatch x (y ω) j d then f ω else 0
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Endpoints/Partitions.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints/Partitions.lean']' returned non-zero exit status 1.

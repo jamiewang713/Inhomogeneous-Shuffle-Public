@@ -1,0 +1,51 @@
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py', 'LB04', 'RiffleLowerV2.Ascent.RelativeOrder.Law']
+LB01-v1 DEPENDENCIES_OK
+LB04-v1 DEPENDENCIES_OK
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Law.lean:69:16: error: Application type mismatch: The argument
+  uniform_expect_equiv (Equiv.piUnique ?m.42) ?m.44
+has type
+  (expect (PMF.uniformOfFintype ((i : ?m.40) → ?m.42 i)) fun ω => ?m.44 ((Equiv.piUnique ?m.42) ω)) =
+    expect (PMF.uniformOfFintype (?m.42 default)) ?m.44
+but is expected to have type
+  (expect (PMF.uniformOfFintype (Unit → Equiv.Perm (Fin A.card))) fun η => f (η ())) =
+    expect (PMF.uniformOfFintype (Equiv.Perm (Fin A.card))) f
+in the application
+  Eq.trans h (uniform_expect_equiv (Equiv.piUnique ?m.42) ?m.44)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Law.lean:65:64: error: stuck at solving universe constraint
+  ?u.28 + 1 =?= max (?u.27 + 1) ?u.30
+while trying to unify
+  Equiv.{?u.28 + 1, ?u.27 + 1} ((i : ?m.40) → ?m.42 i) (?m.42 default.{?u.30}) : Type (max ?u.28 ?u.27)
+with
+  Equiv.{max ?u.30 (?u.27 + 1), ?u.27 + 1} ((i : ?m.40) → ?m.42 i)
+    (?m.42 default.{?u.30}) : Sort (max (max 1 ?u.30 (?u.27 + 1)) (?u.27 + 1))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Law.lean:77:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  expect (uniformPermutation N) fun π => ?F fun i => relativeOrder (A i) π
+in the target expression
+  (expect (uniformPermutation N) fun π => ∏ i, f i (relativeOrder (A i) π)) =
+    ∏ i, expect (uniformPermutation N) fun π => f i (relativeOrder (A i) π)
+
+N : ℕ
+I : Type u_1
+inst✝ : Fintype I
+A : I → Finset (Fin N)
+hA : ∀ (i j : I), i ≠ j → Disjoint (A i) (A j)
+f : (i : I) → Equiv.Perm (Fin (A i).card) → ℝ
+⊢ (expect (uniformPermutation N) fun π => ∏ i, f i (relativeOrder (A i) π)) =
+    ∏ i, expect (uniformPermutation N) fun π => f i (relativeOrder (A i) π)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Law.lean:126:2: error: 'change' tactic failed, pattern
+  probability (uniformPermutation N) ?m.66 = ?m.68
+is not definitionally equal to target
+  (expect (uniformPermutation N) fun π =>
+      if ∀ (i : Fin d), ∀ x ∈ A i, ∀ y ∈ A i, π x < π y ↔ (τ i) x < (τ i) y then 1 else 0) =
+    expect (PMF.uniformOfFintype ((i : Fin d) → Equiv.Perm (Fin (A i).card))) fun η =>
+      if η = fun i => relativeOrder (A i) (τ i) then 1 else 0
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB04/lib/lean/RiffleLowerV2/Ascent/RelativeOrder/Law.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Law.lean']' returned non-zero exit status 1.

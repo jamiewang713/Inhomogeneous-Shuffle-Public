@@ -1,0 +1,74 @@
+{
+  "lane": "LB05",
+  "status": "COMPLETE",
+  "required_exports": {
+    "RiffleLowerV2.Witness.oneColumnTilt": "RiffleLowerV2.Targets.OneColumnTiltTarget",
+    "RiffleLowerV2.Witness.empiricalTilt": "RiffleLowerV2.Targets.EmpiricalTiltTarget",
+    "RiffleLowerV2.Witness.coldWitness": "RiffleLowerV2.Targets.ColdWitnessTarget",
+    "RiffleLowerV2.Witness.lB05": "RiffleLowerV2.Targets.LB05Target"
+  },
+  "elaborated_declarations": 131,
+  "public_declarations": 87,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "pending_lane_obligations": [],
+  "source_sha256": {
+    "RiffleLowerV2/Witness/Continuous.lean": "d4087979d57d206e092e9c3993ed2356371d4b271b33536b020abf663a305a35",
+    "RiffleLowerV2/Witness/Empirical.lean": "7220bb0fcb372ec11eb74a284f0dfeacd9485a1bf0618d3be6612097159072c8",
+    "RiffleLowerV2/Witness/EmpiricalTilt.lean": "8b7f95dad4a3df89ee66b887ead0ad4c2b264ac6a209f22cfa83af7c40129647",
+    "RiffleLowerV2/Witness/Finite.lean": "f8d3121c1c7e05cec61afd9772d746955006b716720ad0d6c3545e1d59e75e2f",
+    "RiffleLowerV2/Witness/Main.lean": "c00990a85054cccc1af82b42096d8547aa770d90391f3429f6792a933c66c731",
+    "RiffleLowerV2/Witness/OneColumn.lean": "f139c4b37e6b6492e0e140a535df2c5cdd023e74b998af2fee0d53c50ce951fe",
+    "RiffleLowerV2/Witness/OneColumnBasic.lean": "0ee7edc19ffb580282b4aad08477fdd409421f30bb52ddcd408974ecc4fd4f81",
+    "RiffleLowerV2/Witness/Rounding.lean": "c8b3b2ee0b8eb897607b7c9f1c2d13e87cd659561a355b75a2912f0e24caf959",
+    "RiffleLowerV2/Witness/Selection.lean": "898ed53cc48059604afa7b56c675488bdf39f2dc79b6f64c089bd01a9ba47225"
+  },
+  "imports": {
+    "RiffleLowerV2/Witness/Continuous.lean": [
+      "RiffleLowerV2.Witness.OneColumn",
+      "RiffleLowerV2.Witness.Empirical",
+      "RiffleLowerV2.Witness.Selection"
+    ],
+    "RiffleLowerV2/Witness/Empirical.lean": [
+      "RiffleLowerV2.Shared"
+    ],
+    "RiffleLowerV2/Witness/EmpiricalTilt.lean": [
+      "RiffleLowerV2.Witness.Empirical",
+      "RiffleLowerV2.Witness.OneColumn"
+    ],
+    "RiffleLowerV2/Witness/Finite.lean": [
+      "RiffleLowerV2.Witness.Selection",
+      "RiffleLowerV2.Witness.Rounding",
+      "RiffleLowerV2.Witness.Empirical",
+      "RiffleLowerV2.Witness.OneColumn"
+    ],
+    "RiffleLowerV2/Witness/Main.lean": [
+      "RiffleLowerV2.Witness.Continuous",
+      "RiffleLowerV2.Witness.Finite",
+      "RiffleLowerV2.Witness.EmpiricalTilt"
+    ],
+    "RiffleLowerV2/Witness/OneColumn.lean": [
+      "RiffleLowerV2.Witness.OneColumnBasic"
+    ],
+    "RiffleLowerV2/Witness/OneColumnBasic.lean": [
+      "Contracts.v1.WitnessGeometry",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Continuity",
+      "Mathlib.Algebra.Order.BigOperators.Ring.Finset"
+    ],
+    "RiffleLowerV2/Witness/Rounding.lean": [
+      "Contracts.v1.WitnessGeometry"
+    ],
+    "RiffleLowerV2/Witness/Selection.lean": [
+      "RiffleLowerV2.Shared",
+      "Mathlib.Topology.Order.IntermediateValue"
+    ]
+  },
+  "build_command": "python3 scripts/lane.py LB05 RiffleLowerV2.Witness.Main",
+  "build_log": "audit/LB05/lane_build_final_v1.log",
+  "audit_log": "audit/LB05/compiled_audit_v1.log",
+  "contract_manifest_sha256": "4aa7208c17818ae792398054c98ccd25c6c2270c6877572161ab73341398f858",
+  "manuscript_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d"
+}

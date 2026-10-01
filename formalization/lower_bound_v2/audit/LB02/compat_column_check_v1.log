@@ -1,0 +1,42 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:50:21: error: Application type mismatch: The argument
+  hi
+has type
+  i ∈ {i | ↑c ((Equiv.symm σ) i) = a}
+but is expected to have type
+  ↑c ((Equiv.symm σ) i) = a
+in the application
+  And.intro hi
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:52:4: error: Type mismatch: After simplification, term
+  hv
+ has type
+  ↑c v = a
+but is expected to have type
+  σ v ∈ {i | ↑c ((Equiv.symm σ) i) = a}
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:56:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => cuts.count j a ≤ _a
+Error: Application type mismatch: The argument
+  cuts
+has type
+  Cuts k N K
+but is expected to have type
+  Cuts k _a K
+in the application
+  cuts.count
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+k N K : ℕ
+cuts : Cuts k N K
+j : Fin K
+a : Fin k
+⊢ cuts.count j a ≤ N
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:66:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

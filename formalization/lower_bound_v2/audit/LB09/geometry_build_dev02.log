@@ -1,0 +1,72 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Consequences.lean:227:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (List.Vector.ofFn ?f).get ?i
+in the target expression
+  c ≤
+    ↑(cuts.count ⟨↑j, ⋯⟩
+          ((List.Vector.ofFn fun j =>
+                List.Vector.get (joinColdWord G x v (restrictWord (tailColumns K W) G.ambient)) ⟨↑j, ⋯⟩).get
+            j)) /
+      ↑N
+
+case refine_2
+k N K : ℕ
+cuts : Cuts k N K
+hk : 2 ≤ k
+hN : 0 < N
+P : BorelPartition k
+W : ColdWitnessData
+G : ColdGeometryData K P W
+xi chi : ℝ
+hxi : 0 < xi
+hchi : 0 < chi
+ha : IsCanonicalMaxWord cuts G.ambient
+hp : TypeDataSpec cuts hN P (prefixColumns K W) xi W.theta G.prefixType
+ht : TypeDataSpec cuts hN P (tailColumns K W) xi 2 G.tailType
+hb :
+  ∀ v ∈ {G.central, G.reserveMinus, G.reservePlus},
+    ∀ (j : ↥(bridgeColumns K W)), min chi (1 / ↑k) ≤ ↑(cuts.count (↑j) (v j)) / ↑N
+c : ℝ := min xi (min chi (1 / ↑k))
+hk0 : 0 < k
+hcxi : c ≤ xi
+hcbr : c ≤ min chi (1 / ↑k)
+hca : ∀ (j : Fin K), c ≤ ↑(cuts.count j (List.Vector.get G.ambient j)) / ↑N
+hcx : ∀ x ∈ coldPrefixFamily cuts hN P W G, ∀ (j : ↥(prefixColumns K W)), c ≤ ↑(cuts.count (↑j) (x j)) / ↑N
+hcz : ∀ z ∈ coldTailFamily cuts hN P W G, ∀ (j : ↥(tailColumns K W)), c ≤ ↑(cuts.count (↑j) (z j)) / ↑N
+x : WordOn k (prefixColumns K W)
+hx : x ∈ coldPrefixFamily cuts hN P W G
+v : WordOn k (bridgeColumns K W)
+hv : v ∈ {G.reserveMinus, G.reservePlus}
+j : Fin ↑(reservePrefix G x v).fst
+hv' : v ∈ {G.central, G.reserveMinus, G.reservePlus}
+hjoin :
+  ∀ (j : Fin K),
+    c ≤ ↑(cuts.count j (List.Vector.get (joinColdWord G x v (restrictWord (tailColumns K W) G.ambient)) j)) / ↑N
+⊢ c ≤
+    ↑(cuts.count ⟨↑j, ⋯⟩
+          ((List.Vector.ofFn fun j =>
+                List.Vector.get (joinColdWord G x v (restrictWord (tailColumns K W) G.ambient)) ⟨↑j, ⋯⟩).get
+            j)) /
+      ↑N
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    fun j => List.Vector.get (joinColdWord G x v (restrictWord (tailColumns K W) G.ambient)) ⟨↑j, ⋯⟩
+  has type
+    Fin ↑⟨min (W.mu + W.bridgeLength) K, ⋯⟩ → Fin k
+  but is expected to have type
+    Fin ↑(reservePrefix G x v).fst → Fin k
+  in the application
+    List.Vector.ofFn fun j => List.Vector.get (joinColdWord G x v (restrictWord (tailColumns K W) G.ambient)) ⟨↑j, ⋯⟩
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 50, in check
+    if dep.startswith(prefix+'.'):check(dep)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB09/lib/lean/RiffleLowerV2/Localization/Geometry/Consequences.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry/Consequences.lean']' returned non-zero exit status 1.

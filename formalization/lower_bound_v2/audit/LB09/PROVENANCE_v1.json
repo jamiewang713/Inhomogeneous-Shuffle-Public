@@ -1,0 +1,54 @@
+{
+  "manuscript": {
+    "path": "../../time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+    "labels": {
+      "lem:cold-geometry": 3357,
+      "lem:finite-relative-endpoints": 3518,
+      "lem:localization": 3575
+    }
+  },
+  "references": [
+    {
+      "source": "../foundations/RiffleShuffle/Matrices.lean",
+      "source_sha256": "2a674866084434aa87978a35af366251df362fa0f9873b4493c136aa69e3c317",
+      "use": "Read-only fixed-count matrix and lexicographic reference; only registered v2/shared definitions and checked inputs imported.",
+      "adapted_sources": {}
+    },
+    {
+      "source": "../../lean-lower-bound/RiffleLower/Cold.lean",
+      "source_sha256": "239d43f8f86a0128f980099908abbecf9ca95ea3bb3ca5bdf9ffe5c974b08edc",
+      "use": "Source-only adaptation of localized_collisions_supply_edges: first two sorted copies supply an injective edge map; rebuilt for concrete Word, Fin(N-1), shuffleEdges and internalEdges. Its localization premise is discharged in Events.lean.",
+      "adapted_sources": {
+        "RiffleLowerV2/Localization/Edges.lean": "a09fd0311c6dd3562ebbfcbfd2174d44ad50ca4872ba63845560a1029c91420a",
+        "RiffleLowerV2/Localization/Events.lean": "edae1b97471e22b2ffe446d62939c338e233a3f01b53ff7d96289792c9a65a17"
+      }
+    },
+    {
+      "source": "../../lean-lower-bound/RiffleLower/Sorting.lean",
+      "source_sha256": "3e0ade77a5b306f6d0eea3c876206180e0230394dd16b5058360b3f2b5ffa656",
+      "use": "Read-only sorted_fiber_interval comparison. New sortedWord_full_rank_iff uses the coordinator-authorized v2 Model.Sorting proof, with no historical binary import.",
+      "adapted_sources": {
+        "RiffleLowerV2/Localization/Edges.lean": "a09fd0311c6dd3562ebbfcbfd2174d44ad50ca4872ba63845560a1029c91420a"
+      }
+    },
+    {
+      "source": "RiffleLowerV2/Thinning/MaximalWord.lean",
+      "source_sha256": "fa720aceb1935b1f86926eccfc0a7901177fb945c5b33d2ee8a7bce1b24329b4",
+      "use": "Checked LB02 maximizing-digit/log-product argument adapted to every canonical grid prefix.",
+      "adapted_sources": {
+        "RiffleLowerV2/Localization/Words.lean": "f2ddc788402900b53cbcf979cd7185883502cd69deaab06457407aee7092afa6"
+      }
+    },
+    {
+      "source": "RiffleLowerV2/Thinning/PrefixCoordinates.lean",
+      "source_sha256": "6eb1e70f618acb49faf4992abc2a4518a94aeb0ffadd096a974b451628b57ee4",
+      "use": "Checked finite coordinate-reindexing pattern and direct compatible import for ordered words and side cylinder products.",
+      "adapted_sources": {
+        "RiffleLowerV2/Localization/WordOrder.lean": "f65785e9ac187c4ba0f4d67f87e01a99166808fa481f801d07e55488a0b9f7ef",
+        "RiffleLowerV2/Localization/Endpoints/ProductWeights.lean": "eb975dc64e1fe3032c6aba074456aa1d42da3df049e1975c9809b3751c99c6dd"
+      }
+    }
+  ],
+  "historical_binary_imports": []
+}

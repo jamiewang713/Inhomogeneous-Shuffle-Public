@@ -1,0 +1,17 @@
+{
+  "status": "CONDITIONAL_HELPER_PROVED_AND_COMPILED",
+  "export": "RiffleLowerV2.Thinning.allPrefixConcentration_of_prefixTails : RiffleLowerV2.Targets.PrefixTails \u2192 RiffleLowerV2.Targets.AllPrefixConcentration",
+  "command": "python3 scripts/lane.py LB02 RiffleLowerV2.Thinning.AllPrefixes",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "stochastic_premise": "Must be discharged by the root concrete prefix-tail theorem; this helper is not an unconditional concentration theorem",
+  "sha256": {
+    "RiffleLowerV2/Thinning/AllPrefixes.lean": "50a1a63987193154d00b721f0f040afe589864db72e838a512ad8858ebe0527a",
+    "audit/LB02/asymptotic_allprefix_build_final.log": "0740855d4966f9daf4ed6369f53e6d8b068ddcdd42b1c7c97e23072ba786c4d7",
+    "audit/LB02/asymptotic_allprefix_check.lean": "807ec4184ebe72ccbff27d07d8b851e84d5f694bd879829a7e5fe830593919b6",
+    "audit/LB02/asymptotic_allprefix_axioms.log": "a24740f77ded0598dc85b4d77af51c4ed744fe196ee4c623097369e6d6f6d6b9"
+  }
+}

@@ -1,0 +1,6 @@
+import RiffleLowerV2.Thinning.Residual.Independence
+
+#check RiffleLowerV2.Thinning.uniform_pi_expect_prod
+#check RiffleLowerV2.Thinning.residualColumnIndependence
+#print axioms RiffleLowerV2.Thinning.uniform_pi_expect_prod
+#print axioms RiffleLowerV2.Thinning.residualColumnIndependence

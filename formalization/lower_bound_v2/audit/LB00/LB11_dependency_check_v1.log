@@ -1,0 +1,61 @@
+'RiffleLowerV2.ProfileTransfer.jointPsiContinuity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.profileTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.marginTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.ProfileTransfer.genericQuadrature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.empiricalCombined' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.coldOnly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.manyEdges' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.finiteLargestWordTV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleLowerV2.EmpiricalLower.largestOnly' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleLowerV2.ProfileTransfer.transferThreshold_spec (C : ℝ) {e : ℝ} (he : 0 < e) :
+  2 ≤ RiffleLowerV2.ProfileTransfer.transferThreshold C e ∧
+    ∀ (N : ℕ), RiffleLowerV2.ProfileTransfer.transferThreshold C e ≤ N → C / TimeProfile.logScale N ≤ e / 4
+def RiffleLowerV2.Targets.MacroscopicIntegrableTarget : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T eta : ℝ),
+      0 < T →
+        0 < eta →
+          ∃ (chiPartition : ℝ),
+            0 < chiPartition ∧
+              chiPartition < 1 / ↑k ∧
+                ∃ (P : TimeProfile.BorelPartition k),
+                  P.IsRegular chiPartition 1 ∧
+                    ∃ (rho0 : ℝ),
+                      0 < rho0 ∧
+                        2 * rho0 * Real.log ↑k ≤ RiffleLowerV2.kappa0 (eta / 2) / 100 ∧
+                          ∀ (rho : ℝ),
+                            0 < rho →
+                              rho ≤ rho0 →
+                                ∃ (phi0 : ℝ),
+                                  0 < phi0 ∧
+                                    ∀ (phi : ℝ),
+                                      0 < phi →
+                                        phi ≤ phi0 →
+                                          ∀ (chiGood gamma : ℝ),
+                                            0 < chiGood →
+                                              0 < gamma →
+                                                ∀ (epsilon : ℝ),
+                                                  0 < epsilon →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleLowerV2.ScalarIntegrable μ P T →
+                                                        ∃ (N0 : ℕ),
+                                                          2 ≤ N0 ∧
+                                                            ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                              N0 ≤ N →
+                                                                ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                                  TimeProfile.AlmostLike cuts ⋯ μ P T rho phi →
+                                                                    TimeProfile.LocalGood cuts ⋯ chiGood gamma rho 0 T →
+                                                                      eta ≤
+                                                                          max (RiffleLowerV2.macroBeta μ T)
+                                                                            (RiffleLowerV2.macroLambda1 μ T) →
+                                                                        1 - epsilon ≤
+                                                                          RiffleLowerV2.tv
+                                                                            (RiffleLowerV2.physicalInverseLaw cuts)
+                                                                            (RiffleLowerV2.uniformPermutation N)
+def RiffleLowerV2.ScalarIntegrable : {k : ℕ} → TimeProfile.TimeLaw k → TimeProfile.BorelPartition k → ℝ → Prop :=
+fun {k : ℕ} (μ : TimeProfile.TimeLaw k) (P : TimeProfile.BorelPartition k) (T : ℝ) =>
+  (∀ (i : Fin P.cellCount), IntervalIntegrable (TimeProfile.cellMass μ P i) MeasureTheory.volume 0 T) ∧
+    IntervalIntegrable (TimeProfile.profileMaxCost μ) MeasureTheory.volume 0 T ∧
+      ∀ α ∈ Set.Icc 2 4, IntervalIntegrable (fun (t : ℝ) => TimeProfile.profilePsi μ t α) MeasureTheory.volume 0 T
+LB11_NINE_INPUT_THEOREMS_VERIFIED

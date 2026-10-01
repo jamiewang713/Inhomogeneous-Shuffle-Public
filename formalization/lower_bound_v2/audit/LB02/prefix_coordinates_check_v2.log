@@ -1,0 +1,15 @@
+RiffleLowerV2/Thinning/PrefixCoordinates.lean:15:45: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+RiffleLowerV2/Thinning/PrefixCoordinates.lean:17:4: error: Type mismatch: After simplification, term
+  he
+ has type
+  @Eq (Fin k) (List.Vector.toList v)[↑j] (List.Vector.toList w)[↑j]
+but is expected to have type
+  @Eq (Fin k) (↑v)[↑(Fin.cast ⋯ (Fin.castLE hd j))] (↑w)[↑(Fin.cast ⋯ j)]
+RiffleLowerV2/Thinning/PrefixCoordinates.lean:22:4: error: Type mismatch: After simplification, term
+  h ⟨j, hsmall⟩
+ has type
+  @Eq (Fin k) (↑v)[↑(Fin.cast ⋯ (Fin.castLE hd ⟨j, hsmall⟩))] (↑w)[↑(Fin.cast ⋯ ⟨j, hsmall⟩)]
+but is expected to have type
+  @Eq (Fin k) (List.Vector.toList v)[j] (List.Vector.toList w)[j]

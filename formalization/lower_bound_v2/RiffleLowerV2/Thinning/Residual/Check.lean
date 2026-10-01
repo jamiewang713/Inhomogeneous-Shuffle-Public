@@ -1,0 +1,8 @@
+import RiffleLowerV2.Thinning.Residual
+
+#check RiffleLowerV2.Thinning.residualLaw
+#check RiffleLowerV2.Thinning.residualConditionalExpect
+#check RiffleLowerV2.Thinning.residualConditionalProbability
+#print axioms RiffleLowerV2.Thinning.residualLaw
+#print axioms RiffleLowerV2.Thinning.residualConditionalExpect
+#print axioms RiffleLowerV2.Thinning.residualConditionalProbability

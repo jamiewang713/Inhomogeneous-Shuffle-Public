@@ -1,0 +1,80 @@
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Margin.lean:132:27: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Margin.lean:132:40: warning: Variable name `hST` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hST
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Margin.lean:213:44: error: failed to prove positivity/nonnegativity/nonzeroness
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Margin.lean:270:6: error: linarith failed to find a contradiction
+k N : ℕ
+hk : 2 ≤ k
+hN : 2 ≤ N
+T : ℝ
+hT : 0 < T
+P : BorelPartition k
+μ : TimeLaw k
+hI : ScalarIntegrable μ P T
+cuts : Targets.HorizonCuts k N T
+e : ℝ
+he : 0 ≤ e
+herr : Targets.ProfileIntervalErrors T cuts ⋯ μ e
+S : ℝ := horizon N (horizonDepth N T)
+Lk : ℝ := Real.log ↑k
+hLk : 0 ≤ Lk
+hL : 0 < logScale N
+hS : 0 ≤ S
+hround : 0 ≤ T - ↑(horizonDepth N T) / logScale N ∧ T - ↑(horizonDepth N T) / logScale N < 1 / logScale N
+hST : S ≤ T
+hgap : T - S ≤ 1 / logScale N
+hterm : Lk * (T - S) ≤ Lk / logScale N
+heHorizon : 0 ≤ macroLambda1 μ S - macroLambda1 μ T ∧ macroLambda1 μ S - macroLambda1 μ T ≤ 8 * Real.log ↑k * (T - S)
+heCommon : |lambda1 cuts ⋯ - macroLambda1 μ S| ≤ 13 / 2 * e
+hn : 0 ≤ Lk / logScale N
+a✝ : 8 * Lk / logScale N < macroLambda1 μ S - macroLambda1 μ T
+⊢ False
+failed
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Margin.lean:277:8: error: linarith failed to find a contradiction
+k N : ℕ
+hk : 2 ≤ k
+hN : 2 ≤ N
+T : ℝ
+hT : 0 < T
+P : BorelPartition k
+μ : TimeLaw k
+hI : ScalarIntegrable μ P T
+cuts : Targets.HorizonCuts k N T
+e : ℝ
+he : 0 ≤ e
+herr : Targets.ProfileIntervalErrors T cuts ⋯ μ e
+S : ℝ := horizon N (horizonDepth N T)
+Lk : ℝ := Real.log ↑k
+hLk : 0 ≤ Real.log ↑k
+hL : 0 < logScale N
+hS : 0 ≤ S
+hround : 0 ≤ T - ↑(horizonDepth N T) / logScale N ∧ T - ↑(horizonDepth N T) / logScale N < 1 / logScale N
+hST : S ≤ T
+hgap : T - S ≤ 1 / logScale N
+hterm : Real.log ↑k * (T - S) ≤ Real.log ↑k / logScale N
+heHorizon : 0 ≤ macroLambda1 μ S - macroLambda1 μ T ∧ macroLambda1 μ S - macroLambda1 μ T ≤ 8 * Real.log ↑k * (T - S)
+heCommon : |lambda1 cuts ⋯ - macroLambda1 μ S| ≤ 13 / 2 * e
+hn : 0 ≤ Real.log ↑k / logScale N
+heTerminal : |macroLambda1 μ S - macroLambda1 μ T| ≤ 8 * Real.log ↑k / logScale N
+a✝ : 13 / 2 * e + 14 * Real.log ↑k / logScale N < 13 / 2 * e + 8 * Real.log ↑k / logScale N
+⊢ False
+failed
+Traceback (most recent call last):
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 59, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 57, in main
+    for m in chosen:check(m)
+  File "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/scripts/lane.py", line 56, in check
+    subprocess.run([str(build.COMPILER),'-R',str(ROOT),'-o',str(target),str(source)],cwd=ROOT,env=env,check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean', '-R', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2', '-o', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/.build/lanes/LB07/lib/lean/RiffleLowerV2/ProfileTransfer/Margin.olean', '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Margin.lean']' returned non-zero exit status 1.

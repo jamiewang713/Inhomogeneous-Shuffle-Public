@@ -1,0 +1,137 @@
+{
+  "recorded_at": "2026-10-01T16:46:52.155629+00:00",
+  "authoritative_source_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "planning_source_sha256": "672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d",
+  "upstream_lane_receipts": {
+    "LB02": {
+      "receipt": "audit/LB02/LB02_READY_v1.json",
+      "sha256": "39540645b80933c440699edb4834ad107987a3892078510a0704edfd7bb23f10",
+      "source_checks": [
+        {
+          "path": "RiffleLowerV2/Thinning/AllPrefixes.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Check.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/ColumnSampling.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/Check.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/Conditioning.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/FiniteLaw.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/Hypergeometric.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/HypergeometricMoments.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/ResidualSampling.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/SamplingCheck.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/SubsetSampling.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Compat/SubsetTransform.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Main.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/MaximalWord.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/PMFTools.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/PrefixCoordinates.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Prefixes.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Process.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Recursion.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Residual/Check.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Residual/Independence.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Residual/IndependenceCheck.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Residual/Prefix.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Residual/PrefixCheck.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Residual.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Sampling.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/Tails.lean",
+          "matches": true
+        },
+        {
+          "path": "RiffleLowerV2/Thinning/UniformError.lean",
+          "matches": true
+        }
+      ]
+    },
+    "LB05": {
+      "receipt": "audit/LB05/LB05_READY_v1.json",
+      "sha256": "6f7d105be04f0eebdcb4acba9d363e2fa104bf4c0d1b1ff908da527585830278",
+      "source_checks": []
+    }
+  },
+  "foundation_check": "LB09 CONTRACT_INPUTS_OK",
+  "LB06_registry_check": "LB06-completed-v1 DEPENDENCIES_OK",
+  "coordinator_integration": "LB02 and LB05 requested; do not import private lane caches into shared overlay"
+}

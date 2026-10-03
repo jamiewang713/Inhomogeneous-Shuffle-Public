@@ -1,0 +1,14 @@
+{
+  "reviewer": "U03 (independent, not author)",
+  "status": "PASS mathematical/model/adversarial review",
+  "file": "formalization/upper_bound_v2/RiffleUpperV2/Shared/SideMass.lean",
+  "sha256": "c8bf6fd737a10bd044b850fdc672da934c4489edd520353baa87fe9c27a651a6",
+  "findings": [
+    "finiteProductSidePartition proves the first-difference partition by a finite product identity, including h=0; no positivity is assumed in this algebraic identity.",
+    "digitSideProbabilityPartition uses exact full-n column histogram, strict lower/equal/strict upper trichotomy; n>0 is explicit.",
+    "anchoredMassPartition uses M=R.card and genuine post-anchor prefix mean M*prefixMass, not n*prefixMass.",
+    "anchoredMass_le_sideMaximum combines \u03c7\u03bc\u2264min(leftScale,rightScale) with finite sums at join depth; no \u03bc\u22651 requirement or proper-continuation assumption.",
+    "The bound uses \u03c7>0 from GenuineBoundaryPair; empty-depth/empty-anchor cannot produce a genuine pair through frozen legal/crossing requirements."
+  ],
+  "scope": "Interface and proof-source review; compiler/type/axiom evidence supplied separately by U00"
+}

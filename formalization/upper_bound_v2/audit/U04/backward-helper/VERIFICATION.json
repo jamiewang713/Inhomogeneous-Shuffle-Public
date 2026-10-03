@@ -1,0 +1,114 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "scope": "Coordinator-assigned bounded U08 backward denominator/restriction/fine-refinement helper task; not the whole U08 lane.",
+  "recorded_at": "2026-10-02T20:22:57.297869+00:00",
+  "assignment": "audit/U00/backward-helper-assignment.json",
+  "owned_source_hashes": {
+    "RiffleUpperV2/Reservoir/BackwardConstraint.lean": "feda555973f894b8b3f73488b17068b51f18028d4313cc31c68608382ed52168",
+    "RiffleUpperV2/Reservoir/BackwardDenominator.lean": "7793664009b995909566f1935e2fd9c6283f4b28568b59f0d1a5f11f90951008",
+    "RiffleUpperV2/Reservoir/BackwardRestricted.lean": "c5ab3023032822dd31c125f3494a03659bae5d2b87d5e0fe21f8191019179973",
+    "RiffleUpperV2/Reservoir/BackwardRefinement.lean": "9c6740b7ab04197834e2611d2191674bfb15dedb7877f4e90427cd4f71034d18"
+  },
+  "read_only_input_hashes": {
+    "RiffleUpperV2/Reservoir/BackwardHistory.lean": "ffae3dec3a1b0381d91cbb25893f479f3d9bfc70effac473775e52b154537191",
+    "RiffleUpperV2/Reservoir/MarkedLaw.lean": "fb2311dae1291ad15611374653e5c35637ab084e3d032a5170fa1b947e25e01e",
+    "RiffleUpperV2/Reservoir/HistoryExtension.lean": "61090e65ce4ed1eed0edcba7557c78f25b91ff733fa036637f9c93ee81370935",
+    "RiffleUpperV2/Reservoir/CurrentRemoval.lean": "93bd728b627eaae32362157fd405efecca1fbcb58d62427baecb44449106ea63",
+    "RiffleUpperV2/Reservoir/PilePrefix.lean": "504d4d34487916d1ffe8b38a3a5b433fa1bd92761e2c44bd8211aa7fbf8bf8ad",
+    "RiffleUpperV2/Reservoir/ReserveUniform.lean": "e24f95b73caa5a4517090753842342e5b5f8ac070c75ecfd97bf0e7553b0b086",
+    "RiffleUpperV2/Reservoir/ProductConditional.lean": "582e3f2c8bd598002b4da2c83cffbb3f3ca177dddb6968f77c4035307b71426b",
+    "RiffleUpperV2/Reservoir/Denominator.lean": "bd3a1444698c12a9ead81ed6ce4081b076701a3708d9ddcecda71f6635728af6",
+    "RiffleUpperV2/Reservoir/RestrictedPrefix.lean": "6dcae567ab0442bdd28888565fe65a6a68bbd0a32f15bfec65aefbd3507036eb",
+    "RiffleUpperV2/Reservoir/DeletionPrefix.lean": "483a593929156e64deccb7cc8acfe809aa7425e7eb944d8cb6bf810054d86f28",
+    "RiffleUpperV2/Reservoir/Refinement.lean": "e292e3d9236b849dc0fd33fe314eaed23c5b7a340f63a3a23e955966c73bd8ef",
+    "RiffleUpperV2/Reservoir/MarkedRefinement.lean": "0eaf46eff316aaac61bcdb2177b33a20b886f891d0be319165e1f36040cb04c1",
+    "RiffleUpperV2/Reservoir/CurrentMarked.lean": "2650116f74a2fc3b894c1c7983f27faeed8e0865ab2364b2a895ffccb6bb51bd"
+  },
+  "source_map": "audit/U04/backward-helper/source-map.json",
+  "public_declarations": "audit/U04/backward-helper/DECLARATIONS.json",
+  "public_declaration_count": 18,
+  "readable_exact_types_and_axioms": "audit/U04/backward-helper/types-and-axioms.log",
+  "fully_elaborated_kernel_types": "audit/U04/backward-helper/kernel-types.log",
+  "build": {
+    "compiler": "Lean 4.33.1",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "fresh_closure": "audit/U04/backward-helper/fresh-build.log",
+    "receipts": [
+      {
+        "file": "audit/U04/backward-helper/receipt-20261002T202002151528Z.json",
+        "sha256": "ed86af33ed3d3d778dd1bc9ee9189666b1a3eec9f13e2a31f64b1bc247499f5d",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--fresh",
+          "RiffleUpperV2.Reservoir.BackwardRefinement"
+        ],
+        "exit_code": 0,
+        "status": "BUILD_OK"
+      },
+      {
+        "file": "audit/U04/backward-helper/receipt-20261002T202036510260Z.json",
+        "sha256": "4f0b400a702c2a1d2c477095a8fdfc39787fb9f59abfe698384ba1214fe41ec5",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--run",
+          "audit/U04/backward-helper/PrintTypes.lean"
+        ],
+        "exit_code": 0,
+        "status": "BUILD_OK"
+      },
+      {
+        "file": "audit/U04/backward-helper/receipt-20261002T202105994123Z.json",
+        "sha256": "eeba6e210b17185870c459bbe29aaf69ffed6649746484254bebf8b4aebb0d41",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--run",
+          "audit/U04/backward-helper/PrintKernelTypes.lean"
+        ],
+        "exit_code": 0,
+        "status": "BUILD_OK"
+      }
+    ],
+    "all_exit_codes": 0,
+    "overlay": "U04; exactly four Reservoir modules assigned by coordinator"
+  },
+  "transitive_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "independent_review": {
+    "file": "audit/U00/U08-backward-helpers-review.json",
+    "sha256": "e5925f095e228c785aef2d90b58bcfbc69b955aee8f4926ef03e21cf860bc8a2",
+    "result": "PASS_SOURCE_TYPE_TRUST",
+    "receipt": "audit/U00/backward-refinement-check-build.json",
+    "trust_inventory": "audit/U00/backward-refinement-declarations.json",
+    "root_checked_imported_reservoir_declarations": 320
+  },
+  "mathematical_and_model_points": [
+    "Backward history fixes counts for u>s and a lower bound for current s, under literal frozen historyFiber .backward.",
+    "Full first-pile exhaustion is proved via tuplePile_wordCount; outside-pile later information is not revealed.",
+    "Deleting future words w<s preserves the exact backward history constraint; left reserve v.1 works because v.1<v.middle<=tailPrefix current.",
+    "Column law, product numerators and capacities are reused unchanged; there is no time/column reversal.",
+    "Uniform denominator d0^m/2 holds for m=1 or 2, with N0 before all arrays, histories, exposed configurations and target prefixes.",
+    "Zero-probability/impossible target cases are explicit. Current-copy removal requires t<=C_s-1 and preserves forced observed multiplicity.",
+    "Refinement is (naturalHistory backward, exposedPileView); prefix and current fine bounds discharge their generic deletion/numerator/denominator premises internally."
+  ],
+  "remaining_in_bounded_assignment": [],
+  "remaining_U08_owned_work": [
+    "Supported averaging from fine views to natural histories, including bad-view probability control.",
+    "Backward prefix/current/collision count endpoints.",
+    "Conditional future-cylinder law and subsequent U09 C integration."
+  ],
+  "completed_U04_unchanged": {
+    "verification_file": "audit/U04/VERIFICATION.json",
+    "verification_sha256": "da798622a36abbe701aa4941ea0b267f136c21b8581d2f0de05dc4a732c66501",
+    "all_recorded_localization_source_hashes_match": true
+  },
+  "completion_boundary": "Only the four requested helper modules and their provider interfaces are complete; intermediate good-view and supported-pile hypotheses are intentionally discharged downstream by U08 averaging."
+}

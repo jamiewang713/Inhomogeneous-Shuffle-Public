@@ -1,0 +1,23 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:11:29.428405+00:00",
+  "reviewer": "U00 independent of U09",
+  "sources": {
+    "Conditional/CurrentRunGeometry.lean": "54ca01a54e323fa5eb34372f1bfc9fb940a82765b20e5e3c7da10b6b8705277c"
+  },
+  "root_build_receipt": "current-run-check-build.json",
+  "trust_inventory": "current-run-declarations.json",
+  "mathematics": [
+    "The actual revealed word tuple has exactly the global full-word multiplicity when its first digit is the chosen pile.",
+    "Observed multiplicity is fixed on literal natural-history fibers by revealed_word_eq.",
+    "Each remaining current-run edge injects into its right endpoint, a distinct unrevealed current-word copy. The count is therefore at most full multiplicity minus observed multiplicity."
+  ],
+  "adversarial": [
+    "The test i<=e+1 retains the crossing edge e=i-1, as required.",
+    "No monotonicity of the tuple is needed for this finite injection; both spatial directions use the same argument.",
+    "Empty populations, i=0 and terminal i are valid under finite index bounds and truncated subtraction, which is justified by the count partition identity."
+  ],
+  "remaining": [
+    "Strict-future cover and fine-Z summation into C."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "reviewer": "U05",
+  "scope": "Independent source, mathematics, quantifier and adversarial review; build and trust are supplied by U00",
+  "source": "formalization/upper_bound_v2/RiffleUpperV2/Shared/CountedRates.lean",
+  "sha256": "df4c018330d574a6373d9932ca0f68ba59a3f3e8aa7078629d8e24b934197788",
+  "reviewed_at": "2026-10-02T20:36:57.461759+00:00",
+  "declarations": {
+    "countedWindowError_power_rate": "Threshold is chosen before N,d; k>=1 and horizon suffice. countedWindowError_rate absorbs the full prefix count. powerExp with exponent epsilon+M works for arbitrary real epsilon and M. Strict positive N legitimates rpow_add, neg and division. The bound exp(-1)<=1 is used only after the power exponent b=0 reduces N^0=1.",
+    "relevantMultiplicity_power_rate": "The natural cardinal factor casts exactly. 2kd+1 <= (2k+1)(d+1) for k,d>=0, then fixed polynomial degree1 absorbs it for epsilon>0. No array data or model condition is assumed."
+  },
+  "negative_tests": [
+    "epsilon and M may be negative in the first theorem; argument remains valid because N^M>0",
+    "d=0 and k=1 satisfy both finite prefix/multiplicity bounds",
+    "No finite count or actual graph-density claim is asserted by these numerical helpers"
+  ],
+  "open_obligations": []
+}

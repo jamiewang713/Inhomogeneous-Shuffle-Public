@@ -1,0 +1,70 @@
+CHECK RiffleUpperV2.Exploration.CylinderCounts
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/CylinderCounts.lean:35:32: warning: This simp argument is unused:
+  prefixLaterCount
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Anchor.prefixRows, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_singleton,
+    RiffleLowerV2.rowWord_get]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Exploration.GuardConcentration
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:79:26: warning: This simp argument is unused:
+  guardCount
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [guardBins, beforeMiddle, throughMiddle]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:109:13: warning: This simp argument is unused:
+  RiffleLowerV2.Word
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RiffleShuffle.Word, card_vector, Fintype.card_fin]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:109:33: warning: This simp argument is unused:
+  RiffleShuffle.Word
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RiffleLowerV2.Word, card_vector, Fintype.card_fin]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:162:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleProfiles.Counting
+CHECK RiffleProfiles.AsymptoticFinite
+CHECK RiffleProfiles.TailLimits
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/TailLimits.lean:22:4: error: Type mismatch: After simplification, term
+  Tendsto.comp Real.tendsto_exp_neg_atTop_nhds_zero ht
+ has type
+  @Tendsto ℝ ℝ ((fun x => Real.exp (-x)) ∘ fun u => δ * u) atTop (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℝ (fun u => Real.exp (-(δ * u))) atTop (𝓝 0)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/TailLimits.lean:89:4: error: No goals to be solved
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/TailLimits.lean:133:34: error: unsolved goals
+k : ℕ
+T C₀ : ℝ
+hT : 0 ≤ T
+U : ℝ
+left✝ : 1 ≤ U
+hU : ∀ (u : ℝ), U ≤ u → 1 + 3 * T * ↑k * Real.exp (-u / 2) - √u / 2 ≤ -C₀
+χ0 : ℝ
+hχ00 : 0 < χ0
+hχ01 : χ0 < min 1 1
+hcut : ∀ (χ : ℝ), 0 < χ → χ < χ0 → max 1 U ≤ chiLog χ
+hχ01' : χ0 < 1
+χ : ℝ
+hχ : 0 < χ
+hχlt : χ < χ0
+N K : ℕ
+hN : 2 ≤ N
+hK : ↑K ≤ T * TimeProfile.logScale N
+hχ1 : χ < 1
+hu : 0 < chiLog χ
+hs : 0 < √(chiLog χ)
+he : 1 + 3 * T * ↑k * Real.exp (-chiLog χ / 2) - √(chiLog χ) / 2 ≤ -C₀
+hz : 1 ≤ Real.exp (chiLog χ / 2)
+hmul : χ * Real.exp (chiLog χ / 2) = Real.exp (-chiLog χ / 2)
+hsq : √(chiLog χ) ^ 2 = chiLog χ
+⊢ chiLog χ = √(chiLog χ) ^ 2

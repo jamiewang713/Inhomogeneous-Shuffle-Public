@@ -1,0 +1,73 @@
+CHECK RiffleUpperV2.Shared.PairConditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/PairConditioning.lean:17:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  RiffleLowerV2.expect (PMF.uniformOfFintype (?m.28 × ?m.29)) ?f
+in the target expression
+  (expect (PMF.uniformOfFintype (Ω × Γ)) fun ω => f ω.1 * g ω.2) =
+    expect (PMF.uniformOfFintype Ω) f * expect (PMF.uniformOfFintype Γ) g
+
+Ω : Type u_1
+Γ : Type u_2
+inst✝³ : Fintype Ω
+inst✝² : Fintype Γ
+inst✝¹ : Nonempty Ω
+inst✝ : Nonempty Γ
+f : Ω → ℝ
+g : Γ → ℝ
+⊢ (expect (PMF.uniformOfFintype (Ω × Γ)) fun ω => f ω.1 * g ω.2) =
+    expect (PMF.uniformOfFintype Ω) f * expect (PMF.uniformOfFintype Γ) g
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/PairConditioning.lean:45:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun ω => if A ω.1 ∧ B ω.2 then f ω.1 * g ω.2 else 0
+in the target expression
+  ((RiffleLowerV2.expect (PMF.uniformOfFintype (Ω × Γ)) fun ω =>
+        if (fun ω => A ω.1 ∧ B ω.2) ω then (fun ω => f ω.1 * g ω.2) ω else 0) /
+      RiffleLowerV2.probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => A ω.1 ∧ B ω.2) =
+    (RiffleLowerV2.expect (PMF.uniformOfFintype Ω) fun ω => if A ω then f ω else 0) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Ω) A *
+      ((RiffleLowerV2.expect (PMF.uniformOfFintype Γ) fun ω => if B ω then g ω else 0) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Γ) B)
+
+Ω : Type u_1
+Γ : Type u_2
+inst✝³ : Fintype Ω
+inst✝² : Fintype Γ
+inst✝¹ : Nonempty Ω
+inst✝ : Nonempty Γ
+f : Ω → ℝ
+g : Γ → ℝ
+A : Ω → Prop
+B : Γ → Prop
+h :
+  (fun ω => if A ω.1 ∧ B ω.2 then f ω.1 * g ω.2 else 0) = fun ω =>
+    (if A ω.1 then f ω.1 else 0) * if B ω.2 then g ω.2 else 0
+⊢ ((RiffleLowerV2.expect (PMF.uniformOfFintype (Ω × Γ)) fun ω =>
+        if (fun ω => A ω.1 ∧ B ω.2) ω then (fun ω => f ω.1 * g ω.2) ω else 0) /
+      RiffleLowerV2.probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => A ω.1 ∧ B ω.2) =
+    (RiffleLowerV2.expect (PMF.uniformOfFintype Ω) fun ω => if A ω then f ω else 0) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Ω) A *
+      ((RiffleLowerV2.expect (PMF.uniformOfFintype Γ) fun ω => if B ω then g ω else 0) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Γ) B)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/PairConditioning.lean:58:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  probability (PMF.uniformOfFintype (?m.146 × ?m.147)) fun ω => ?A ω.1 ∧ ?B ω.2
+in the target expression
+  ((RiffleLowerV2.probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => (E ω.1 ∧ A ω.1) ∧ F ω.2 ∧ B ω.2) /
+      RiffleLowerV2.probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => A ω.1 ∧ B ω.2) =
+    (RiffleLowerV2.probability (PMF.uniformOfFintype Ω) fun ω => E ω ∧ A ω) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Ω) A *
+      ((RiffleLowerV2.probability (PMF.uniformOfFintype Γ) fun ω => F ω ∧ B ω) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Γ) B)
+
+Ω : Type u_1
+Γ : Type u_2
+inst✝³ : Fintype Ω
+inst✝² : Fintype Γ
+inst✝¹ : Nonempty Ω
+inst✝ : Nonempty Γ
+E A : Ω → Prop
+F B : Γ → Prop
+h : (fun ω => (E ω.1 ∧ F ω.2) ∧ A ω.1 ∧ B ω.2) = fun ω => (E ω.1 ∧ A ω.1) ∧ F ω.2 ∧ B ω.2
+⊢ ((RiffleLowerV2.probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => (E ω.1 ∧ A ω.1) ∧ F ω.2 ∧ B ω.2) /
+      RiffleLowerV2.probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => A ω.1 ∧ B ω.2) =
+    (RiffleLowerV2.probability (PMF.uniformOfFintype Ω) fun ω => E ω ∧ A ω) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Ω) A *
+      ((RiffleLowerV2.probability (PMF.uniformOfFintype Γ) fun ω => F ω ∧ B ω) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Γ) B)

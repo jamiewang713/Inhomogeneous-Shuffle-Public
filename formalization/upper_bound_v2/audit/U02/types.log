@@ -1,0 +1,1241 @@
+RiffleUpperV2.Hypergeometric.transformBound (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (s : Real)
+  (hs : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s) :
+  And
+    (@LE.le.{0} Real Real.instLE
+      (@RiffleLowerV2.expect.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (Fin.fintype
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          p.law)
+        fun q =>
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) s
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            q))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@Nat.cast.{0} Real Real.instNatCast p.draws) (@Nat.cast.{0} Real Real.instNatCast p.population)))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@Nat.cast.{0} Real Real.instNatCast p.draws) (@Nat.cast.{0} Real Real.instNatCast p.population))
+            s))
+        p.marked))
+    (@LE.le.{0} Real Real.instLE
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@Nat.cast.{0} Real Real.instNatCast p.draws) (@Nat.cast.{0} Real Real.instNatCast p.population)))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@Nat.cast.{0} Real Real.instNatCast p.draws) (@Nat.cast.{0} Real Real.instNatCast p.population))
+            s))
+        p.marked)
+      (Real.exp
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) p.mean
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) s
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))))
+RiffleUpperV2.Hypergeometric.mgfBound (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) (z : Real) :
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.expect.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Fin.fintype
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        p.law)
+      fun q =>
+      Real.exp
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) z
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@Fin.val
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              q))))
+    (Real.exp
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) p.mean
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (Real.exp z)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))))
+RiffleUpperV2.Hypergeometric.twoSidedTail (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) {t : Real}
+  (ht : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) t) :
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.probability.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Fin.fintype
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        p.law)
+      fun q =>
+      @LE.le.{0} Real Real.instLE t
+        (@abs.{0} Real Real.lattice Real.instAddGroup
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@Nat.cast.{0} Real Real.instNatCast
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                q))
+            p.mean)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (Real.exp
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@Neg.neg.{0} Real Real.instNeg
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) t
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 4) (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) p.mean t)))))
+RiffleUpperV2.Hypergeometric.atomBound (p : RiffleLowerV2.Thinning.Compat.HypergeomParams)
+  (hv :
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      p.varianceFormula)
+  (z : Nat) :
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.probability.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Fin.fintype
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        p.law)
+      fun q =>
+      @Eq.{1} Nat
+        (@Fin.val
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          q)
+        z)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@OfNat.ofNat.{0} Real (nat_lit 4) (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+      p.varianceFormula.sqrt)
+RiffleUpperV2.Hypergeometric.exactMean (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) :
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Fin.fintype
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        p.law)
+      fun q =>
+      @Nat.cast.{0} Real Real.instNatCast
+        (@Fin.val
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          q))
+    p.mean
+RiffleUpperV2.Hypergeometric.exactVariance (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) :
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Fin.fintype
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        p.law)
+      fun q =>
+      @HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@Fin.val
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p.draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              q))
+          p.mean)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    p.varianceFormula
+RiffleUpperV2.Hypergeometric.zeroVariance_iff (p : RiffleLowerV2.Thinning.Compat.HypergeomParams) :
+  Iff (@Eq.{1} Real p.varianceFormula (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+    (Or (@Eq.{1} Nat p.marked (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+      (Or (@Eq.{1} Nat p.draws (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+        (Or (@Eq.{1} Nat p.marked p.population) (@Eq.{1} Nat p.draws p.population))))
+RiffleUpperV2.Hypergeometric.allowed_subset_expect {k n d : Nat} (cuts : TimeProfile.Cuts k n d) (j : Fin d)
+  (D : Finset.{0} (Fin k))
+  (f :
+    @RiffleLowerV2.Thinning.Compat.Sample.{0} (Fin n) (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+        (@RiffleUpperV2.Hypergeometric.allowedCount k n d cuts j D) →
+      Real) :
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ColumnAssignments k n d cuts j)
+      (@TimeProfile.instFintypeColumnAssignments k n d cuts j) (@TimeProfile.columnPMF k n d cuts j) fun c =>
+      f (@RiffleUpperV2.Hypergeometric.allowedSubset k n d cuts j D c))
+    (@RiffleLowerV2.Thinning.Compat.FiniteLaw.expect.{0}
+      (@RiffleLowerV2.Thinning.Compat.Sample.{0} (Fin n) (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+        (@RiffleUpperV2.Hypergeometric.allowedCount k n d cuts j D))
+      (@Finset.Subtype.fintype.{0} (Finset.{0} (Fin n))
+        (@Finset.powersetCard.{0} (Fin n) (@RiffleUpperV2.Hypergeometric.allowedCount k n d cuts j D)
+          (@Finset.univ.{0} (Fin n) (Fin.fintype n))))
+      (@RiffleLowerV2.Thinning.Compat.sampleLaw.{0} (Fin n) (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+        (@RiffleUpperV2.Hypergeometric.allowedCount k n d cuts j D) ⋯)
+      f)
+RiffleUpperV2.Hypergeometric.allowed_intersection_transform {k n d : Nat} (cuts : TimeProfile.Cuts k n d) (j : Fin d)
+  (D : Finset.{0} (Fin k)) (A : Finset.{0} (Fin n)) {s : Real}
+  (hs : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s) :
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ColumnAssignments k n d cuts j)
+      (@TimeProfile.instFintypeColumnAssignments k n d cuts j) (@TimeProfile.columnPMF k n d cuts j) fun c =>
+      @HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) s
+        (@Finset.card.{0} (Fin n)
+          (@Inter.inter.{0} (Finset.{0} (Fin n)) (@Finset.instInter.{0} (Fin n) (instDecidableEqFin n)) A
+            {i |
+              @Membership.mem.{0, 0} (Fin k) (Finset.{0} (Fin k))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin k)) (Fin k) (@Finset.instSetLike.{0} (Fin k))) D
+                (@Subtype.val.{1} (Fin n → Fin k)
+                  (fun a =>
+                    ∀ (l : Fin k),
+                      @Eq.{1} Nat (@Finset.card.{0} (Fin n) {i | @Eq.{1} (Fin k) (a i) l})
+                        (@TimeProfile.Cuts.count k n d cuts j l))
+                  c i)})))
+    (@HPow.hPow.{0, 0, 0} Real Nat Real
+      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.Hypergeometric.allowedCount k n d cuts j D))
+            (@Nat.cast.{0} Real Real.instNatCast n)))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.Hypergeometric.allowedCount k n d cuts j D))
+            (@Nat.cast.{0} Real Real.instNatCast n))
+          s))
+      (@Finset.card.{0} (Fin n) A))
+RiffleUpperV2.Hypergeometric.anchorCylinderTransform {k n d : Nat} (cuts : TimeProfile.Cuts k n d)
+  (R : Finset.{0} (Fin n)) (D : Fin d → Finset.{0} (Fin k)) (s : Real)
+  (hs : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s) :
+  And
+    (@LE.le.{0} Real Real.instLE
+      (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k n d cuts)
+        (@TimeProfile.instFintypeShuffleSample k n d cuts) (@TimeProfile.fixedCountPMF k n d cuts) fun ω =>
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) s
+          (@RiffleUpperV2.Hypergeometric.cylinderCount k n d cuts R D ω))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d cuts D))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d cuts D) s))
+        (@Finset.card.{0} (Fin n) R)))
+    (@LE.le.{0} Real Real.instLE
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d cuts D))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d cuts D) s))
+        (@Finset.card.{0} (Fin n) R))
+      (Real.exp
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) s
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))))
+RiffleUpperV2.Hypergeometric.anchorCylinderTail {k n d : Nat} (cuts : TimeProfile.Cuts k n d) (R : Finset.{0} (Fin n))
+  (D : Fin d → Finset.{0} (Fin k)) {t : Real}
+  (ht : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) t) :
+  And
+    (@LE.le.{0} Real Real.instLE
+      (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k n d cuts)
+        (@TimeProfile.instFintypeShuffleSample k n d cuts) (@TimeProfile.fixedCountPMF k n d cuts) fun ω =>
+        @LE.le.{0} Real Real.instLE t
+          (@abs.{0} Real Real.lattice Real.instAddGroup
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.Hypergeometric.cylinderCount k n d cuts R D ω))
+              (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D))))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (Real.exp
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@Neg.neg.{0} Real Real.instNeg
+              (@HPow.hPow.{0, 0, 0} Real Nat Real
+                (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) t
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 4) (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D) t))))))
+    (@LE.le.{0} Real Real.instLE
+      (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k n d cuts)
+        (@TimeProfile.instFintypeShuffleSample k n d cuts) (@TimeProfile.fixedCountPMF k n d cuts) fun ω =>
+        @LE.le.{0} Real Real.instLE
+          (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.Hypergeometric.cylinderCount k n d cuts R D ω))
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+            (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+      (Real.exp
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@Neg.neg.{0} Real Real.instNeg RiffleLowerV2.chernoffConstant)
+          (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D))))
+RiffleUpperV2.Hypergeometric.cylinderMean_eq_expect {k n d : Nat} (cuts : TimeProfile.Cuts k n d)
+  (R : Finset.{0} (Fin n)) (D : Fin d → Finset.{0} (Fin k)) :
+  @Eq.{1} Real (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k n d cuts)
+      (@TimeProfile.instFintypeShuffleSample k n d cuts) (@TimeProfile.fixedCountPMF k n d cuts) fun ω =>
+      @Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.Hypergeometric.cylinderCount k n d cuts R D ω))
+RiffleUpperV2.Hypergeometric.anchorCylinderTransform_mean {k n d : Nat} (cuts : TimeProfile.Cuts k n d)
+  (R : Finset.{0} (Fin n))
+  (hR :
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@Finset.card.{0} (Fin n) R))
+  (D : Fin d → Finset.{0} (Fin k)) (s : Real)
+  (hs : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s) :
+  And
+    (@LE.le.{0} Real Real.instLE
+      (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k n d cuts)
+        (@TimeProfile.instFintypeShuffleSample k n d cuts) (@TimeProfile.fixedCountPMF k n d cuts) fun ω =>
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) s
+          (@RiffleUpperV2.Hypergeometric.cylinderCount k n d cuts R D ω))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+              (@Nat.cast.{0} Real Real.instNatCast (@Finset.card.{0} (Fin n) R))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+              (@Nat.cast.{0} Real Real.instNatCast (@Finset.card.{0} (Fin n) R)))
+            s))
+        (@Finset.card.{0} (Fin n) R)))
+    (@LE.le.{0} Real Real.instLE
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+              (@Nat.cast.{0} Real Real.instNatCast (@Finset.card.{0} (Fin n) R))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+              (@Nat.cast.{0} Real Real.instNatCast (@Finset.card.{0} (Fin n) R)))
+            s))
+        (@Finset.card.{0} (Fin n) R))
+      (Real.exp
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@RiffleUpperV2.Hypergeometric.cylinderMean k n d cuts R D)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) s
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))))
+RiffleUpperV2.Hypergeometric.sampleComplementLaw.{u_1} {α : Type u_1} [DecidableEq.{u_1 + 1} α] (V A : Finset.{u_1} α)
+  (m : Nat) (hm : @LE.le.{0} Nat instLENat m (@Finset.card.{u_1} α V))
+  (hA :
+    @LE.le.{u_1} (Finset.{u_1} α)
+      (@Preorder.toLE.{u_1} (Finset.{u_1} α)
+        (@PartialOrder.toPreorder.{u_1} (Finset.{u_1} α) (@Finset.instPartialOrder.{u_1} α)))
+      A V)
+  (f : Nat → Real) :
+  @Eq.{1} Real
+    (@RiffleLowerV2.Thinning.Compat.FiniteLaw.expect.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+      (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+      (@RiffleLowerV2.Thinning.Compat.sampleLaw.{u_1} α V m hm) fun S =>
+      f
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Finset.card.{u_1} α A)
+          (@Finset.card.{u_1} α
+            (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝) A
+              (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+                (fun S =>
+                  @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                    (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                      (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                    (@Finset.powersetCard.{u_1} α m V) S)
+                S)))))
+    (@RiffleLowerV2.Thinning.Compat.FiniteLaw.expect.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α V A
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Finset.card.{u_1} α V) m) hA ⋯).draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Fin.fintype
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α V A
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Finset.card.{u_1} α V) m) hA ⋯).draws
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α V A
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Finset.card.{u_1} α V) m) hA ⋯).law
+      fun q =>
+      f
+        (@Fin.val
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α V A
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Finset.card.{u_1} α V) m) hA ⋯).draws
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          q))
+RiffleUpperV2.Hypergeometric.conditionalSamplingLaw.{u_1} {α : Type u_1} [DecidableEq.{u_1 + 1} α]
+  (V R A B : Finset.{u_1} α) (m : Nat) (hm : @LE.le.{0} Nat instLENat m (@Finset.card.{u_1} α V))
+  (hR :
+    @LE.le.{u_1} (Finset.{u_1} α)
+      (@Preorder.toLE.{u_1} (Finset.{u_1} α)
+        (@PartialOrder.toPreorder.{u_1} (Finset.{u_1} α) (@Finset.instPartialOrder.{u_1} α)))
+      R V)
+  (hA :
+    @LE.le.{u_1} (Finset.{u_1} α)
+      (@Preorder.toLE.{u_1} (Finset.{u_1} α)
+        (@PartialOrder.toPreorder.{u_1} (Finset.{u_1} α) (@Finset.instPartialOrder.{u_1} α)))
+      A (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R))
+  (hp :
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (@RiffleLowerV2.probability.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+        (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+        (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+          (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+          (@RiffleLowerV2.Thinning.Compat.sampleLaw.{u_1} α V m hm))
+        fun S =>
+        @Eq.{u_1 + 1} (Finset.{u_1} α)
+          (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝)
+            (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+              (fun S =>
+                @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                  (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                    (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                  (@Finset.powersetCard.{u_1} α m V) S)
+              S)
+            R)
+          B)) :
+  ∃ (hres :
+    @LE.le.{0} Nat instLENat
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B))
+      (@Finset.card.{u_1} α (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R))),
+    ∀ (q : Nat),
+      @Eq.{1} Real
+        (@RiffleLowerV2.conditionalProbability.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+          (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+          (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+            (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+            (@RiffleLowerV2.Thinning.Compat.sampleLaw.{u_1} α V m hm))
+          (fun S =>
+            @Eq.{1} Nat
+              (@Finset.card.{u_1} α
+                (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝) A
+                  (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+                    (fun S =>
+                      @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                        (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                          (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                        (@Finset.powersetCard.{u_1} α m V) S)
+                    S)))
+              q)
+          fun S =>
+          @Eq.{u_1 + 1} (Finset.{u_1} α)
+            (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝)
+              (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+                (fun S =>
+                  @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                    (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                      (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                    (@Finset.powersetCard.{u_1} α m V) S)
+                S)
+              R)
+            B)
+        (@RiffleLowerV2.probability.{0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                  (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                  hres).draws
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (Fin.fintype
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                  (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                  hres).draws
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                    (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                    hres).draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                    (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                    hres).draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                hres).law)
+          fun x =>
+          @Eq.{1} Nat
+            (@Fin.val
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                    (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                    hres).draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              x)
+            q)
+RiffleUpperV2.Hypergeometric.conditionalSamplingTransport.{u_1} {α : Type u_1} [DecidableEq.{u_1 + 1} α]
+  (V R A B : Finset.{u_1} α) (m : Nat) (hm : @LE.le.{0} Nat instLENat m (@Finset.card.{u_1} α V))
+  (hR :
+    @LE.le.{u_1} (Finset.{u_1} α)
+      (@Preorder.toLE.{u_1} (Finset.{u_1} α)
+        (@PartialOrder.toPreorder.{u_1} (Finset.{u_1} α) (@Finset.instPartialOrder.{u_1} α)))
+      R V)
+  (hA :
+    @LE.le.{u_1} (Finset.{u_1} α)
+      (@Preorder.toLE.{u_1} (Finset.{u_1} α)
+        (@PartialOrder.toPreorder.{u_1} (Finset.{u_1} α) (@Finset.instPartialOrder.{u_1} α)))
+      A (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R))
+  (hp :
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (@RiffleLowerV2.probability.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+        (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+        (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+          (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+          (@RiffleLowerV2.Thinning.Compat.sampleLaw.{u_1} α V m hm))
+        fun S =>
+        @Eq.{u_1 + 1} (Finset.{u_1} α)
+          (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝)
+            (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+              (fun S =>
+                @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                  (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                    (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                  (@Finset.powersetCard.{u_1} α m V) S)
+              S)
+            R)
+          B)) :
+  ∃ (hres :
+    @LE.le.{0} Nat instLENat
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B))
+      (@Finset.card.{u_1} α (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R))),
+    And
+      (∀ (f : Nat → Real),
+        @Eq.{1} Real
+          (@RiffleLowerV2.conditionalExpect.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+            (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+            (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+              (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+              (@RiffleLowerV2.Thinning.Compat.sampleLaw.{u_1} α V m hm))
+            (fun S =>
+              f
+                (@Finset.card.{u_1} α
+                  (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝) A
+                    (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+                      (fun S =>
+                        @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                          (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                            (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                          (@Finset.powersetCard.{u_1} α m V) S)
+                      S))))
+            fun S =>
+            @Eq.{u_1 + 1} (Finset.{u_1} α)
+              (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝)
+                (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+                  (fun S =>
+                    @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                      (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                        (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                      (@Finset.powersetCard.{u_1} α m V) S)
+                  S)
+                R)
+              B)
+          (@RiffleLowerV2.expect.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                    (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                    hres).draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                    (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                    hres).draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                      (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                      hres).draws
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (Fin.fintype
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                      (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                      hres).draws
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                  (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                  hres).law)
+            fun x =>
+            f
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                      (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                      hres).draws
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                x)))
+      (∀ (E : Nat → Prop),
+        @Eq.{1} Real
+          (@RiffleLowerV2.conditionalProbability.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+            (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+            (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{u_1} (@RiffleLowerV2.Thinning.Compat.Sample.{u_1} α V m)
+              (@Finset.Subtype.fintype.{u_1} (Finset.{u_1} α) (@Finset.powersetCard.{u_1} α m V))
+              (@RiffleLowerV2.Thinning.Compat.sampleLaw.{u_1} α V m hm))
+            (fun S =>
+              E
+                (@Finset.card.{u_1} α
+                  (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝) A
+                    (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+                      (fun S =>
+                        @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                          (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                            (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                          (@Finset.powersetCard.{u_1} α m V) S)
+                      S))))
+            fun S =>
+            @Eq.{u_1 + 1} (Finset.{u_1} α)
+              (@Inter.inter.{u_1} (Finset.{u_1} α) (@Finset.instInter.{u_1} α inst✝)
+                (@Subtype.val.{u_1 + 1} (Finset.{u_1} α)
+                  (fun S =>
+                    @Membership.mem.{u_1, u_1} (Finset.{u_1} α) (Finset.{u_1} (Finset.{u_1} α))
+                      (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} (Finset.{u_1} α)) (Finset.{u_1} α)
+                        (@Finset.instSetLike.{u_1} (Finset.{u_1} α)))
+                      (@Finset.powersetCard.{u_1} α m V) S)
+                  S)
+                R)
+              B)
+          (@RiffleLowerV2.probability.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                    (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                    hres).draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                    (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                    hres).draws
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                      (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                      hres).draws
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (Fin.fintype
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                      (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                      hres).draws
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                  (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                  hres).law)
+            fun x =>
+            E
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@RiffleLowerV2.Thinning.Compat.samplingParams.{u_1} α
+                      (@SDiff.sdiff.{u_1} (Finset.{u_1} α) (@Finset.instSDiff.{u_1} α inst✝) V R) A
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m (@Finset.card.{u_1} α B)) hA
+                      hres).draws
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                x)))
+RiffleUpperV2.Hypergeometric.firstColumnConditionalExpect {k n d : Nat}
+  (cuts :
+    TimeProfile.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (c :
+    @TimeProfile.ColumnAssignments k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts
+      (@OfNat.ofNat.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0))))
+  (f : @RiffleLowerV2.Sample k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts) → Real) :
+  @Eq.{1} Real
+    (@RiffleLowerV2.conditionalExpect.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun ω => f (@RiffleUpperV2.Hypergeometric.tailSample k n d cuts ω)) fun ω =>
+      @Eq.{1}
+        (@TimeProfile.ColumnAssignments k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        (ω
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        c)
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts))
+      (@TimeProfile.instFintypeShuffleSample k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts))
+      (@TimeProfile.fixedCountPMF k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)) f)
+RiffleUpperV2.Hypergeometric.firstColumnConditionalProbability {k n d : Nat}
+  (cuts :
+    TimeProfile.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (c :
+    @TimeProfile.ColumnAssignments k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts
+      (@OfNat.ofNat.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0))))
+  (E : @RiffleLowerV2.Sample k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts) → Prop) :
+  @Eq.{1} Real
+    (@RiffleLowerV2.conditionalProbability.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun ω => E (@RiffleUpperV2.Hypergeometric.tailSample k n d cuts ω)) fun ω =>
+      @Eq.{1}
+        (@TimeProfile.ColumnAssignments k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        (ω
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        c)
+    (@RiffleLowerV2.probability.{0}
+      (@TimeProfile.ShuffleSample k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts))
+      (@TimeProfile.instFintypeShuffleSample k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts))
+      (@TimeProfile.fixedCountPMF k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)) E)
+RiffleUpperV2.Hypergeometric.firstColumnProbability_pos {k n d : Nat}
+  (cuts :
+    TimeProfile.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (c :
+    @TimeProfile.ColumnAssignments k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts
+      (@OfNat.ofNat.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0)))) :
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@RiffleLowerV2.probability.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      fun ω =>
+      @Eq.{1}
+        (@TimeProfile.ColumnAssignments k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        (ω
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        c)
+RiffleUpperV2.Hypergeometric.firstColumnCylinderTransform {k n d : Nat}
+  (cuts :
+    TimeProfile.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (c :
+    @TimeProfile.ColumnAssignments k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts
+      (@OfNat.ofNat.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0))))
+  (a : Fin k) (D : Fin d → Finset.{0} (Fin k)) (s : Real)
+  (hs : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s) :
+  And
+    (@LE.le.{0} Real Real.instLE
+      (@RiffleLowerV2.conditionalExpect.{0}
+        (@TimeProfile.ShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.fixedCountPMF k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (fun ω =>
+          @HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) s
+            (@RiffleUpperV2.Hypergeometric.cylinderCount k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+              (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D
+              (@RiffleUpperV2.Hypergeometric.tailSample k n d cuts ω)))
+        fun ω =>
+        @Eq.{1}
+          (@TimeProfile.ColumnAssignments k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts
+            (@OfNat.ofNat.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (nat_lit 0)
+              (@Fin.instOfNat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                ⋯ (nat_lit 0))))
+          (ω
+            (@OfNat.ofNat.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (nat_lit 0)
+              (@Fin.instOfNat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                ⋯ (nat_lit 0))))
+          c)
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts) D))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts) D) s))
+        (@Finset.card.{0} (Fin n) (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a))))
+    (@LE.le.{0} Real Real.instLE
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts) D))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@RiffleUpperV2.Hypergeometric.cylinderMass k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts) D) s))
+        (@Finset.card.{0} (Fin n) (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a)))
+      (Real.exp
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@RiffleUpperV2.Hypergeometric.cylinderMean k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+            (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D)
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) s
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))))
+RiffleUpperV2.Hypergeometric.firstColumnCylinderTail {k n d : Nat}
+  (cuts :
+    TimeProfile.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (c :
+    @TimeProfile.ColumnAssignments k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts
+      (@OfNat.ofNat.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0))))
+  (a : Fin k) (D : Fin d → Finset.{0} (Fin k)) {t : Real}
+  (ht : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) t) :
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.conditionalProbability.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun ω =>
+        @LE.le.{0} Real Real.instLE t
+          (@abs.{0} Real Real.lattice Real.instAddGroup
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (@Nat.cast.{0} Real Real.instNatCast
+                (@RiffleUpperV2.Hypergeometric.cylinderCount k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+                  (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D
+                  (@RiffleUpperV2.Hypergeometric.tailSample k n d cuts ω)))
+              (@RiffleUpperV2.Hypergeometric.cylinderMean k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+                (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D))))
+      fun ω =>
+      @Eq.{1}
+        (@TimeProfile.ColumnAssignments k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        (ω
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        c)
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (Real.exp
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@Neg.neg.{0} Real Real.instNeg
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) t
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 4) (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@RiffleUpperV2.Hypergeometric.cylinderMean k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+                (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D)
+              t)))))
+RiffleUpperV2.Hypergeometric.firstColumnCylinderMean {k n d : Nat}
+  (cuts :
+    TimeProfile.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (c :
+    @TimeProfile.ColumnAssignments k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts
+      (@OfNat.ofNat.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0))))
+  (a : Fin k) (D : Fin d → Finset.{0} (Fin k)) :
+  @Eq.{1} Real
+    (@RiffleLowerV2.conditionalExpect.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun ω =>
+        @Nat.cast.{0} Real Real.instNatCast
+          (@RiffleUpperV2.Hypergeometric.cylinderCount k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+            (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D
+            (@RiffleUpperV2.Hypergeometric.tailSample k n d cuts ω)))
+      fun ω =>
+      @Eq.{1}
+        (@TimeProfile.ColumnAssignments k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        (ω
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        c)
+    (@RiffleUpperV2.Hypergeometric.cylinderMean k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+      (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D)
+RiffleUpperV2.Hypergeometric.firstColumnCylinderHalfMean {k n d : Nat}
+  (cuts :
+    TimeProfile.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (c :
+    @TimeProfile.ColumnAssignments k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts
+      (@OfNat.ofNat.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0))))
+  (a : Fin k) (D : Fin d → Finset.{0} (Fin k)) :
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.conditionalProbability.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun ω =>
+        @LE.le.{0} Real Real.instLE
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@RiffleUpperV2.Hypergeometric.cylinderCount k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+              (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D
+              (@RiffleUpperV2.Hypergeometric.tailSample k n d cuts ω)))
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@RiffleUpperV2.Hypergeometric.cylinderMean k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+              (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D)
+            (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+      fun ω =>
+      @Eq.{1}
+        (@TimeProfile.ColumnAssignments k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        (ω
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) d
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        c)
+    (Real.exp
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Neg.neg.{0} Real Real.instNeg RiffleLowerV2.chernoffConstant)
+        (@RiffleUpperV2.Hypergeometric.cylinderMean k n d (@RiffleUpperV2.Hypergeometric.tailCuts k n d cuts)
+          (@RiffleUpperV2.Hypergeometric.anchorRows k n d cuts c a) D)))
+BUILD_OK U02

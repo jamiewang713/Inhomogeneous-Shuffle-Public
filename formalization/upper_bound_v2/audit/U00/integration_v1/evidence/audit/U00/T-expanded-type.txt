@@ -1,0 +1,18 @@
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),
+      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →
+        (∀ (t : ℝ),
+            0 ≤ t →
+              RiffleUpperV2.criticalTime μ < ENNReal.ofReal t →
+                Filter.Tendsto
+                  (fun (N : ℕ) =>
+                    RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw ((cuts N).take (TimeProfile.horizonDepth N t)))
+                      (RiffleUpperV2.uniformPermutation N))
+                  Filter.atTop (nhds 0)) ∧
+          ∀ (ε : ℝ),
+            0 < ε →
+              ε < 1 →
+                Filter.limsup (fun (N : ℕ) => RiffleUpperV2.mixingTime (cuts N) ε / ENNReal.ofReal (Real.log ↑N))
+                    Filter.atTop ≤
+                  RiffleUpperV2.criticalTime μ

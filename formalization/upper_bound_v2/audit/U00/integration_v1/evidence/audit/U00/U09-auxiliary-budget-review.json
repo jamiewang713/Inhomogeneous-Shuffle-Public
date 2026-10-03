@@ -1,0 +1,26 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:54:08.691853+00:00",
+  "reviewer": "U00 independent of owner",
+  "root_build_receipt": "reservoir-complete-check-build.json",
+  "trust_inventory": "reservoir-complete-declarations.json",
+  "sources": {
+    "Conditional/AuxiliaryJensen.lean": "67fe0a21209235f17c7089ad2db7a3506e9a660dac1273d4bdba937ae95c86fa",
+    "Conditional/TailPower.lean": "63c6042e31e2070af16a4c20a77b9f7eb6a3a46665a69cb13c22641d3dffd8a5",
+    "Conditional/Parameters.lean": "72902fb836d257e5d32fb74c8d99d114a280a0ffde2307e0af79dc107cf6cb05"
+  },
+  "mathematics": [
+    "Auxiliary Jensen uses the finite sampled image of the raw natural-history/auxiliary pair, permitting natural-number counts and ranks while preserving every conditioning fiber literally.",
+    "The collision tail product is bounded by maximalTailMass^(q-1) for q>1, summing one full probability factor and bounding only the remaining power.",
+    "Terminal margin and actual lower prefix mean bound imply maximal tail mass<=N^(-eta+xi).",
+    "The explicit positive rare-digit threshold realizes alpha exactly; tiny/current/intermediate exponent inequalities and rho budget retain their fixed parameter order."
+  ],
+  "adversarial": [
+    "Zero coordinate probabilities remain valid through nonnegative real powers and q>1.",
+    "Infinite auxiliary codomains introduce no fictitious Fintype assumption.",
+    "No fine-fiber estimate or conditional remainder is assumed by the Jensen identity itself; C remains open."
+  ],
+  "remaining": [
+    "Instantiate actual auxiliary block bounds and full C."
+  ]
+}

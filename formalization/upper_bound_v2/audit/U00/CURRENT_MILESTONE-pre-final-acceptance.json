@@ -1,0 +1,41 @@
+{
+  "recorded_at": "2026-10-02T22:26:33.504350+00:00",
+  "milestone": "INTEGRATION_READY v1",
+  "contract_hash": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+  "frozen_files_intact": true,
+  "completed_lanes": [
+    "U01",
+    "U02",
+    "U03",
+    "U04",
+    "U05",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U10",
+    "U11",
+    "U12"
+  ],
+  "partial_lanes": [],
+  "active_lanes": [
+    "U00",
+    "U13"
+  ],
+  "queued_lanes": [],
+  "queued_continuations": [],
+  "six_public_endpoint_proofs": {
+    "F": "PROVED_AND_INDEPENDENTLY_CHECKED",
+    "C": "PROVED_AND_INDEPENDENTLY_CHECKED",
+    "E": "PROVED_AND_INDEPENDENTLY_CHECKED",
+    "P": "PROVED_AND_INDEPENDENTLY_CHECKED",
+    "T": "PROVED_AND_INDEPENDENTLY_CHECKED",
+    "R": "PROVED_AND_INDEPENDENTLY_CHECKED"
+  },
+  "independent_review": "All six public endpoints and twelve providers independently accepted by U00; complete clean source build and frozen evidence delivered. U13 independent build/trust/source acceptance remains.",
+  "no_upstream_or_manuscript_edits": true,
+  "worker_assignments": {
+    "u13_independent_audit": "Independent final source/model/trust review; final verdict after immutable clean integration handoff"
+  },
+  "integration_handoff_sha256": "875e62edcecfe8ba4aac2ec595ec7fcd459e479adfd22d22981e481b23f25ef5"
+}

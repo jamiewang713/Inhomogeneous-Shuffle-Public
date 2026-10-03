@@ -1,0 +1,123 @@
+{
+  "lem:ub-good-cluster": {
+    "declarations": [
+      "localGood_integerWindow",
+      "goodCluster_finite",
+      "cluster_count_threshold",
+      "goodCluster",
+      "integerWindow_cluster",
+      "cluster_threshold_eventually",
+      "goodCluster_uniform"
+    ],
+    "files": [
+      "LocalGood.lean",
+      "Clusters.lean",
+      "WindowClusters.lean"
+    ],
+    "details": "Integer windows use ceil(rho log N)+1, D=ceil(6/gamma), loss of two retained. Uniform threshold precedes arrays and every fitting window. U11 owns suffix/restart construction, consuming the actual good triple."
+  },
+  "eq:ub-reserve-mass": {
+    "declarations": [
+      "reserveCandidates_nonempty",
+      "chosenReserves_of_retainedGoodCluster",
+      "chosenReserves_spec",
+      "reserveMass_pos",
+      "direction_cover_word",
+      "direction_overlap_iff"
+    ],
+    "files": [
+      "ReserveExistence.lean",
+      "Guards.lean"
+    ],
+    "details": "Actual deterministic least triple, two retained good tail columns, maximal mass digits elsewhere, original population throughout; each mass >=g^2*k^(-D). No existence certificate remains."
+  },
+  "lem:ub-exploration-concentration": {
+    "declarations": [
+      "allCylinderFailure",
+      "allCylinder_implies_concentration",
+      "uniformConcentration_finite",
+      "uniformConcentration"
+    ],
+    "files": [
+      "AllCylinders.lean",
+      "CylinderCounts.lean",
+      "GuardConcentration.lean",
+      "UniformConcentration.lean"
+    ],
+    "details": "Full literal H: outside counts, prefix/later counts, both selected guard counts. Stronger all-digit-set event over (2^k)^(L+1) tests. Actual PMF Bernstein denominator4 yields c=1/24. Fixed A=2+k*T*log2 and c before N0 then all arrays. Guard scale threshold derived eventually before arrays."
+  },
+  "eq:ub-natural-history-good": {
+    "declarations": [
+      "naturalHistory",
+      "history_refinement",
+      "naturalHistory_positive",
+      "historyGood_adapted",
+      "historyGoodProbability",
+      "historyGood_unionBound",
+      "pairHistory_refinement",
+      "pairHistoryGood_adapted"
+    ],
+    "files": [
+      "Objects.lean",
+      "Histories.lean",
+      "HistoryProbability.lean",
+      "Regularity.lean",
+      "PairHistories.lean"
+    ],
+    "details": "Separate own-pile spatial directions, no column reversal or H conditioning. Literal finite history fibers; positive represented fibers and null quotient handled. epsilon=sqrt(rbad) of deterministic source constants."
+  },
+  "common_direction_coverage": {
+    "declarations": [
+      "guard_before_rank",
+      "guard_through_rank",
+      "guardMean_gap",
+      "guards_interlace_on_concentration",
+      "commonDirection_on_concentration",
+      "directionalCover",
+      "shuffleEdge_in_pile",
+      "sharedEdges_le_directionalProcesses"
+    ],
+    "files": [
+      "DirectionalRanks.lean",
+      "DirectionalGuards.lean",
+      "DirectionalCover.lean",
+      "CoverageCount.lean"
+    ],
+    "details": "Actual ranks and guard mean gap=np*middleMass. H\u00d7H excludes opposite sides at same spatial rank. R\u00d7R covers every shared graph edge by sum of exactly 2k terminal processes. Small piles and boundaries are included."
+  },
+  "eq:ub-exploration-regularity-probability": {
+    "declarations": [
+      "smallPileFailure_mean",
+      "smallPileFailure",
+      "regularityFailure",
+      "historyErrors_eventually_le_power",
+      "regularityError_tendsto_zero",
+      "regularity_pairHistoryGood"
+    ],
+    "files": [
+      "SmallPiles.lean",
+      "UniformRegularity.lean",
+      "RegularityDecay.lean",
+      "PairHistories.lean"
+    ],
+    "details": "Concrete collision estimate <=(k/2)n^(xi-eta). Full regularity failure <=rbad+2n*sqrt(rbad)+(k/2)n^(xi-eta) with H and actual empirical terminal mean inputs discharged internally. o(1) for 0<xi<eta; first two errors smaller than every inverse real power."
+  },
+  "exploration_process_paragraph": {
+    "declarations": [
+      "directionalProcess",
+      "directionalProcess_zero",
+      "directionalProcess_one",
+      "directionalProcess_adapted",
+      "unitIncrements",
+      "remainingDirectionalCount_eq",
+      "remaining_terminal",
+      "directionalProcess_terminal"
+    ],
+    "files": [
+      "Objects.lean",
+      "Processes.lean",
+      "CoverageCount.lean"
+    ],
+    "details": "Actual 0/1 increments. Unused small piles zero. Remaining count retains crossing edge e=i-1. Conditional remaining-edge estimate belongs to U09 and is absent from every definition."
+  }
+}

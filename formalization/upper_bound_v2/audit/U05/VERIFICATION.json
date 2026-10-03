@@ -1,0 +1,335 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "scope": "Exact frozen Contracts.V1.F; all U05 mathematical obligations discharged. No C/E/P/T/R completion is claimed by this lane.",
+  "recorded_at": "2026-10-02T20:51:26.758920+00:00",
+  "endpoint": {
+    "name": "RiffleUpperV2.FirstMoment.empiricalFirstMoment",
+    "type": "RiffleUpperV2.Contracts.V1.F",
+    "file": "RiffleUpperV2/FirstMoment/Empirical.lean",
+    "quantitative_helper": "RiffleUpperV2.FirstMoment.empiricalGraphDecay",
+    "decay_exponent": "eta/8",
+    "expanded_type": "audit/U05/F_EXPANDED_TYPE.txt",
+    "kernel_type": "audit/U05/kernel-types.log"
+  },
+  "contract": {
+    "file": "CONTRACTS_READY.json",
+    "version": "v1",
+    "sha256": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+    "frozen_sources_edited": false
+  },
+  "manuscript": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a"
+  },
+  "owned_source_hashes": {
+    "RiffleUpperV2/FirstMoment/ActiveClasses.lean": "b4f31584677a79cacdbcfc0e77a57a765413f519724eaffe7e0b72ec632f7a24",
+    "RiffleUpperV2/FirstMoment/ActiveCount.lean": "4ce1733fb2cb67f179a47599ea14af103024056ac8fa5881d592350b4216c76c",
+    "RiffleUpperV2/FirstMoment/AnchoredCosts.lean": "e02ae824475e733ba7a4eb121df23d8bc4cf3ddd4b4adaa92dc87647e7246769",
+    "RiffleUpperV2/FirstMoment/BoundaryCosts.lean": "c67b43795d71fcc4f37037bde4d2fab4fdc110e2817fb70c70617ea7f2d1ba07",
+    "RiffleUpperV2/FirstMoment/CandidateCount.lean": "bf1496f9825d365070c971a1ceec920c3c2dfa3cc83df28cad3f8cab3957bd4c",
+    "RiffleUpperV2/FirstMoment/ClassAdapters.lean": "991d44d7fcae44771653bd195b7420033813d5c00717fe23b8a7a1b03570f982",
+    "RiffleUpperV2/FirstMoment/ClassDensity.lean": "423b46c762c22642a0c38c1215c31f95735f25b5ca1b9d504a20209659d44a2a",
+    "RiffleUpperV2/FirstMoment/ClassExponents.lean": "53a115d8f8f0c42e607bbe0db0394022e47d008c311b104a2f42056f7be8cf6a",
+    "RiffleUpperV2/FirstMoment/ClassFibers.lean": "865452768020e1f5b04132efeeeefcf5f1a9cacdd7304131f8500527fedc11af",
+    "RiffleUpperV2/FirstMoment/Count.lean": "4ff343f45ed7d8de5f73a9d44d01b6d2ea962ed857e6924c687c1e7c14c10fbe",
+    "RiffleUpperV2/FirstMoment/DensityAggregation.lean": "b56e873457d574176844ad13e1c0cf8907d296f9dfcccef486f86f7d3736876e",
+    "RiffleUpperV2/FirstMoment/DensityPowers.lean": "cff3894f2e994ef649d889ede525564b9c38e8be5871a2a58fcffc5a3901ce16",
+    "RiffleUpperV2/FirstMoment/DensityRates.lean": "4bdad680130f0baaa63e352ef9736a201baaacc64af812cc45dbd1a356a7e07e",
+    "RiffleUpperV2/FirstMoment/Descriptors.lean": "aa2b29880a909c9a62a79781585724787175eea541d8c59c6a391c61daffb6d3",
+    "RiffleUpperV2/FirstMoment/Discard.lean": "56325a50dfba5e221d6df69f0560e65223923ab7123a0860f441445f657a39e2",
+    "RiffleUpperV2/FirstMoment/EdgeSlots.lean": "d94ef372b5fa8f31a11635abda3e220afeae3078d73f87468980608333cbb387",
+    "RiffleUpperV2/FirstMoment/Empirical.lean": "c048583ed32d6beafa8ef0fc22ed3908381ef35914dda913a356b7e3341639ab",
+    "RiffleUpperV2/FirstMoment/Entropy.lean": "a1269fc52407da663893167f873df0381cb175aa479a525c7de4802aa2433402",
+    "RiffleUpperV2/FirstMoment/ErrorDensity.lean": "89d94c2d5c9b5a2ff02d22addfdc9cfe30cfcd77a3f517b40f7bc37b202fbc50",
+    "RiffleUpperV2/FirstMoment/Exponents.lean": "b759874e38e22e786ec614653db161b82fb4dbb46800d684d41141576ffde864",
+    "RiffleUpperV2/FirstMoment/FirstColumn.lean": "3b24762b8a1a307a683dab84704e44566deea866438304b20d46ae1600b9419c",
+    "RiffleUpperV2/FirstMoment/FirstPileReserve.lean": "2db61f79934d6f71c2f639e7e9facba63a78724f53f8077e48002010f9d61391",
+    "RiffleUpperV2/FirstMoment/GraphAssembly.lean": "b35fb854d921ebfec26e5f78247c7ae19c0d821d74fe3bbd91b382674681c4bb",
+    "RiffleUpperV2/FirstMoment/GraphMarginals.lean": "f39adf8ae5c7c1a1e396aa39cc4d81d9794af83cc4d55d08860faa7aa5e333e0",
+    "RiffleUpperV2/FirstMoment/Main.lean": "7a08b42db0dbe44b49838890364ed6e48da8ac3fde9f8bca948cd0ba899ba4f6",
+    "RiffleUpperV2/FirstMoment/MaximalCosts.lean": "070a35b9a52c095cd767f74227ae3a24e398db158843e2c3647c090eea6bce8a",
+    "RiffleUpperV2/FirstMoment/Partition.lean": "c87edd21b6648690073e018525a12b1832def66e0ab5b49fd75895bf62b4975c",
+    "RiffleUpperV2/FirstMoment/PowerAggregation.lean": "da38b79b5cbe8f65ec77255f159e2a4abbe278453bc71cf5bc08431a51376037",
+    "RiffleUpperV2/FirstMoment/RetainedClasses.lean": "1bf5f9744be38990a0538c5d3f593b72aec58ca4cbfd72e5906712398c2cdcf4",
+    "RiffleUpperV2/FirstMoment/RetainedGraphCover.lean": "0df171494fc9a8357097ee18cbd19e9deff73a3c9103dad4ad09a8ebc2f390a3",
+    "RiffleUpperV2/FirstMoment/StoppingCosts.lean": "d305ba47bec88fb8b277098fa0eb98022f6d1783d6578e9224d7ee096fbba757",
+    "RiffleUpperV2/FirstMoment/TailCosts.lean": "0887213331c7b90afce75fb72cbda1853b68338120fcf9d872cf0c34c4cf2c82",
+    "RiffleUpperV2/FirstMoment/TailGrid.lean": "0c587c158006ec53b0d7070f7e34cf61ffe4440417b16e41a65dfea282298db5",
+    "RiffleUpperV2/FirstMoment/UniformClassDensity.lean": "29e525403da8f4bc92fe93f86592854121cb7eba8ecb1d97dd170fd13723201e",
+    "RiffleUpperV2/FirstMoment/UniformGraph.lean": "7c55c1cb354d95bfb1c489a73dcc6f53e6135a3340b279c9fb27e0c49c421bab",
+    "RiffleUpperV2/FirstMoment/WordCosts.lean": "215f69c83d9d2ddb998b5fc168a50fbdd49847aee71937ecfbff0c45e03e9a9d"
+  },
+  "build": {
+    "fresh_command": "python3 formalization/upper_bound_v2/scripts/build.py --lane U05 --fresh RiffleUpperV2.FirstMoment.Main",
+    "exit_code": 0,
+    "log": "audit/U05/build.log",
+    "fresh_owned_modules": 36,
+    "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "receipts": [
+      {
+        "file": "audit/U05/build-receipts/20261002T204537247775Z.json",
+        "sha256": "285523cbce58462efb39604186a8e39ce3d7c16a8445105f71c6ee7958c41b38",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--fresh",
+          "RiffleUpperV2.FirstMoment.Main"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0,
+        "recorded_at": "2026-10-02T20:45:37.247258+00:00"
+      },
+      {
+        "file": "audit/U05/build-receipts/20261002T204630534562Z.json",
+        "sha256": "078ca749191673a699c816dd2ddcef4c3fdd9c78e825c567ad39ea710685b719",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/FinalType.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0,
+        "recorded_at": "2026-10-02T20:46:30.533804+00:00"
+      },
+      {
+        "file": "audit/U05/build-receipts/20261002T204632732517Z.json",
+        "sha256": "5a7588f04e6055b105b2ee8e98549db833553d3bd5e300ba32d697ef9b93944d",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/PrintTypes.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0,
+        "recorded_at": "2026-10-02T20:46:32.731824+00:00"
+      },
+      {
+        "file": "audit/U05/build-receipts/20261002T204635446335Z.json",
+        "sha256": "ff998cfa4a30db5b876a59268563741fb0926380f8664832221c19f8ebac7ace",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/PrintKernelTypes.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0,
+        "recorded_at": "2026-10-02T20:46:35.445605+00:00"
+      },
+      {
+        "file": "audit/U05/build-receipts/20261002T204654605621Z.json",
+        "sha256": "1db9e6552c1aa88939628220ca8059db12617305278b1279c7fefcef735116d4",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/TrustCheck.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0,
+        "recorded_at": "2026-10-02T20:46:54.604953+00:00"
+      }
+    ],
+    "scope": "Fresh all36 owned modules against immutable U00 source-staged project dependencies; no copied historical project proof objects."
+  },
+  "public_declarations": {
+    "total": 208,
+    "theorems": 162,
+    "index": "audit/U05/DECLARATIONS.json",
+    "readable_types_and_transitive_axioms": "audit/U05/types-and-axioms.log",
+    "fully_explicit_kernel_types": "audit/U05/kernel-types.log"
+  },
+  "all_owned_declarations": {
+    "total": 577,
+    "including_generated_and_private": true,
+    "index": "audit/U05/ALL_DECLARATIONS.json",
+    "checked_types_direct_dependencies_and_transitive_axioms": "audit/U05/trust-check.log",
+    "exit_code": 0
+  },
+  "project_dependency_closure": {
+    "file": "audit/U05/PROJECT_DEPENDENCY_CLOSURE.json",
+    "project_sources": 207,
+    "all_source_hashes_match_U05_fresh_or_U00_endpoint_build_receipts": true
+  },
+  "source_map": "audit/U05/SOURCE_MAP.json",
+  "transitive_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "independent_review": {
+    "reviewer": "U00",
+    "mathematics": "PASS",
+    "statement_model_quantifiers": "PASS",
+    "adversarial_hidden_hypotheses": "PASS",
+    "exact_endpoint_build_types_trust": "PASS",
+    "root_declarations_checked": 676,
+    "evidence": [
+      {
+        "file": "audit/U00/U05-F-endpoint-review.json",
+        "sha256": "336fea20fbff4451f23dc7604d3b3795fb70e3c37719f79cd13fe3c6312edff5"
+      },
+      {
+        "file": "audit/U00/U05-active-count-review.json",
+        "sha256": "8a6bb59590998727933ff81fec178e3f4e871307eba3a990dd95c53cebc81c8d"
+      },
+      {
+        "file": "audit/U00/U05-actual-class-exponents-review.json",
+        "sha256": "49b3f94d89b128f5f28209ab98179de56115b586989ce84d7ee9525d33b7373d"
+      },
+      {
+        "file": "audit/U00/U05-adapters-review.json",
+        "sha256": "145fcfe1a9bef8bc1d308cd3364f7cffac54f90f18f75357506071edca1dded0"
+      },
+      {
+        "file": "audit/U00/U05-anchored-first-column-review.json",
+        "sha256": "807b76fbc068b10727a9b6a7384e9efe80e3aa3338d8aeb98603e4cbda9dba69"
+      },
+      {
+        "file": "audit/U00/U05-class-cost-model-review.json",
+        "sha256": "456c9abe9309595bd9c2acce177c57d25cb01a82737c55e1787f6089e951b885"
+      },
+      {
+        "file": "audit/U00/U05-class-density-review.json",
+        "sha256": "c124e1e1cc99f40f45830bc6682ed40e8a66ab5456f112a0e62c5678b073999d"
+      },
+      {
+        "file": "audit/U00/U05-classes-discard-review.json",
+        "sha256": "73bbe5b335fbde1bcf25dfa97c8af4df3b5bb97253459d9efd5997022a80c5eb"
+      },
+      {
+        "file": "audit/U00/U05-entropy-review.json",
+        "sha256": "d59a8b41814247f927bab0c11e446ef2bbda0fbeed762c398a6ec2a373671975"
+      },
+      {
+        "file": "audit/U00/U05-exponents-review.json",
+        "sha256": "0119b1061b8c054ef9b24953d9ba9119ae4af11f2b8fd3a0e91f62f79c173d06"
+      },
+      {
+        "file": "audit/U00/U05-finite-aggregation-review.json",
+        "sha256": "83e79a1b2ee325cb9d7878238964b9cadfd800841229aa0a67fb9d6807f3274d"
+      },
+      {
+        "file": "audit/U00/U05-graph-assembly-review.json",
+        "sha256": "b17bddd910b93c3ad879b7fc2601908b8db46686fe8d083b98089584c9ec8d2a"
+      },
+      {
+        "file": "audit/U00/U05-retained-graph-cover-review.json",
+        "sha256": "79c60217d6b0eda20b760310c2b89dee145a9140724267766b481a129b1288fa"
+      },
+      {
+        "file": "audit/U00/U05-tail-grid-review.json",
+        "sha256": "134b5183816cbbd8f10cd81702bb6727b4e86b33ba676f6f415be3b9c51d93b7"
+      },
+      {
+        "file": "audit/U00/U05-uniform-class-density-review.json",
+        "sha256": "073558943459695e9006f55c2c354be2e43d942ae45f18fce790021e1f9f1d4a"
+      },
+      {
+        "file": "audit/U00/first-moment-endpoint-check-build.json",
+        "sha256": "937556461357dc1c48dc608a93b42895ff50e159a385ca34411e4b95b230d75a"
+      },
+      {
+        "file": "audit/U00/F-expanded-type.txt",
+        "sha256": "92fbfd19fe94fc8a7a09b03188a11b96b52138980082ec8f7ca56c8b6af84c2e"
+      }
+    ],
+    "endpoint_review": "audit/U00/U05-F-endpoint-review.json",
+    "finite_assembly_review": "audit/U00/U05-graph-assembly-review.json"
+  },
+  "parameter_order": {
+    "fixed_first": [
+      "k",
+      "T",
+      "eta",
+      "g"
+    ],
+    "auxiliary_before_threshold": [
+      "delta=eta/256",
+      "width=eta/256",
+      "epsilon=eta/64",
+      "D=eta+4",
+      "C=D+3",
+      "chi satisfying entropy,count,discard restrictions"
+    ],
+    "then": [
+      "c=eta/8",
+      "N0"
+    ],
+    "uniform_after_threshold": [
+      "N>=N0",
+      "0<n<=N in quantitative helper; 2<=n<=N in F",
+      "absolute starting time a",
+      "horizon K<=T log N",
+      "cut arrays",
+      "first-column assignments",
+      "actual descriptor blocks and slots"
+    ]
+  },
+  "generic_inputs_discharged": [
+    {
+      "input": "Common lower mass and entropy",
+      "site": "retainedClassEntropy + retainedClass_originalEntropy; actual descriptor fibers and original absolute grid."
+    },
+    {
+      "input": "Large and small exponent scalar prerequisites",
+      "site": "AnchoredCosts, StoppingCosts, MaximalCosts, ClassExponents; terminal bound also discharges stable-no-fallback."
+    },
+    {
+      "input": "Reserve, smoothing and actual collision density",
+      "site": "FirstPileReserve + ClassDensity instantiate U03 Anchor and U04 Localization.Density, including actual atoms and fixed-count laws."
+    },
+    {
+      "input": "Class count and rare row discard",
+      "site": "retainedClasses_uniform_count and discardedRows_power_bound; C fixed before chi."
+    },
+    {
+      "input": "First-column exposure and matching law",
+      "site": "firstColumnAnchoredLaw and firstPileEdges_probability from positive conditioning and exact row permutation; future arrays retain full n."
+    },
+    {
+      "input": "Independent graph intersection identity",
+      "site": "Shared.FirstMomentAPI expectedCommonEdges_eq_sum_sq via actual product PMF; GraphAssembly uses toFirstMomentLaw_expected."
+    },
+    {
+      "input": "Localized graph cover and active count",
+      "site": "RetainedGraphCover, GraphMarginals, ActiveClasses, ActiveCount; literal rank sets and actual graph slots."
+    },
+    {
+      "input": "Per-fiber density and finite sums",
+      "site": "retainedClassDensity_eventually + classPrefixes_card + retainedDensity_sum_power; finite-fiber algebra applied after actual cardinalities proved."
+    },
+    {
+      "input": "Errors and thresholds",
+      "site": "PowerAggregation and UniformGraph; actual candidate count times omitted error and discarded square mass absorbed uniformly."
+    }
+  ],
+  "remaining_imported_assumptions": [],
+  "missing_obligations": [],
+  "planned_exports": {
+    "empiricalCostClassCount": "PROVED_AND_CHECKED",
+    "classEntropy": "PROVED_AND_CHECKED",
+    "empiricalExponentBounds": "PROVED_AND_CHECKED as retainedClass_largeExponent, retainedClass_smallProperExponent, retainedClass_smallImmediateExponent, retainedClass_terminalExponent",
+    "empiricalFirstMoment": "PROVED_AND_CHECKED exact F"
+  },
+  "boundary_cases": [
+    "N0>=2 guards log N and real powers",
+    "Current n can be smaller than N; no log n substitution",
+    "d=0 remains in quantitative domain; impossible goodness/margin combinations handled by model hypotheses",
+    "Zero-probability digits excluded only by actual legality where costs are used",
+    "Empty classes/unrealized keys contribute zero; representatives guard positive class cardinality",
+    "Immediate and terminal classes proved singleton",
+    "Zero-based integer ranks match actual Fin(n-1); exposed pile offsets aligned",
+    "No ambient-prefix independence premise; matching law proved from actual conditioning and relabeling"
+  ],
+  "delivery_boundary": "Exact F and all U05 helpers released. U09/U11 may specialize empiricalFirstMoment; sibling C/E/P/T/R remain separate."
+}

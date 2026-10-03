@@ -1,0 +1,73 @@
+U13 INDEPENDENT FINAL AUDIT — PROVED_AND_CHECKED
+Recorded: 2026-10-02T22:36:49.175321+00:00
+
+Accepted: F, C, E, P, T, R separately. No unresolved mathematical, statement,
+model, build or transitive-proof obligation remains at the recorded hashes.
+R includes its quantitative empirical mixture bound, empirical convergence,
+and profile convergence. Exact declarations, aliases, source labels and expanded
+types are in FINAL_AUDIT.json, endpoint-map-v2.json and *-expanded-type-v2.txt.
+
+Actual exports:
+F  RiffleUpperV2.FirstMoment.empiricalFirstMoment
+C  RiffleUpperV2.Conditional.remainingCommonEdges
+E  RiffleUpperV2.EmpiricalUpper.empiricalUpper
+P  RiffleUpperV2.ProfileUpper.bufferedUpper
+T  RiffleUpperV2.ProfileUpper.criticalTimeUpper
+R  RiffleUpperV2.ProfileUpper.randomUpper
+
+Independent source review covered the manuscript and actual production proofs,
+including the physical-law/graph bridge, reserve and history laws, all block
+regimes, original-N subdeck estimates, adapted moments, restart, fixed-partition
+transfer, extended critical-time semantics and dependent random-cut averaging.
+See source-proof-review-v2.txt for discharge sites, quantified uniformity,
+numerical substitutions and adversarial cases. No manuscript-to-Lean mismatch
+was found. Historical U13-R-01 is resolved by the actual REmpiricalBound export.
+
+Fresh independent build: exit 0; every one of the 398 project source modules was
+rebuilt in .build/U13. All project objects and source receipts are regular owned
+files without symlink ancestors, and all 398 objects match root clean byte for
+byte. The archived build contains 179 nonfatal warning lines and zero errors.
+The 12 actual/Completed theorem roots were recursively traversed through types,
+proof values, opaque bodies, constructors and recursor metadata. The union has
+45,162 declarations; all 3,907 upper declarations were also checked. Each root's
+axioms are exactly propext, Classical.choice and Quot.sound, in agreement with
+Lean.collectAxioms. No custom axiom, sorry, missing body or native proof oracle
+reaches a public endpoint.
+
+Runtime: Lean 4.33.1, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6.
+Compiler SHA256: 1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554
+Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474.
+Trust boundary: pinned external library/core objects and the Lean runtime are
+trusted, not independently rebuilt in their entirety. All 5,331 imported modules
+were resolved: 398 project, 3,401 external package, 1,532 core. Exact object paths,
+hashes and available companions are in final-object-inventory-v2.json. Four
+external mathlib modules missing from the cache were built by U00 and separately
+matched to the frozen clean build and pinned sources: Probability.Distributions.
+Uniform, Probability.ProbabilityMassFunction.Integrals, Combinatorics.Enumerative.
+DoubleCounting, and Combinatorics.Pigeonhole. These are explicit library trust;
+there is no corresponding exception among project sources.
+
+Accepted immutable INTEGRATION_READY v1 SHA256:
+875e62edcecfe8ba4aac2ec595ec7fcd459e479adfd22d22981e481b23f25ef5
+Its immutable 552-artifact MANIFEST SHA256:
+d5d25bf0a2272b5dc9687c414be6220cc9174994b4f1d28ffd6906c5a67ab2c0
+All 552 archived hashes verified; all current project sources match the frozen
+sources and independent build. Manuscript SHA256:
+284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+All 183 finished lower-v20 package sources and 23 initial inputs retain their
+recorded hashes; the initial user working-tree state was preserved.
+
+Reproduce the full project build from the workspace root:
+python3 formalization/upper_bound_v2/scripts/build.py --lane U13 --fresh --run audit/U13/FinalCheck_v2.lean
+
+Reproduce metadata from formalization/upper_bound_v2 using the exact compiler:
+LEAN_PATH='/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U13/lib/lean' '/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean' -R '/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2' audit/U13/MetadataCheck_v2.lean
+
+Record object inventories from the workspace root:
+python3 formalization/upper_bound_v2/audit/U13/record_build_inventory_v2.py
+
+All three recorded commands exited 0. SHA256_v2.json indexes the final evidence.
+Acceptance covers the frozen upper endpoints and their stated hypotheses. It
+asserts no critical-time equality claim or additional lower-bound/cutoff theorem.
+Earlier partial reviews remain preserved and are superseded only by this final
+verdict and its associated FINAL_AUDIT.json and VERIFICATION.json.

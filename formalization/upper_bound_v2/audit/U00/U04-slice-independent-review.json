@@ -1,0 +1,70 @@
+{
+  "status": "PASS_RELEASED_SLICE_NOT_FULL_LANE",
+  "reviewer": "U00 independent of author",
+  "recorded_at": "2026-10-02T08:56:29.082750+00:00",
+  "source_hashes": {
+    "RiffleUpperV2/Localization/Boundary.lean": "5183e8f1a59c135231d898aee39b7501665bf1a04b5da44c2285ef850c567f7d",
+    "RiffleUpperV2/Localization/Counting.lean": "de2a3e22e0601065f001aa8f8433614514ede7991ef1136cad41947d2e774cb5",
+    "RiffleUpperV2/Localization/CylinderAdapters.lean": "01b3c71b50b4153e8be78056730ac969e22696e7e9fbae5232cfb18f5bd3e44c",
+    "RiffleUpperV2/Localization/Definitions.lean": "93701ec8d2df3d4e1d69fd435ccf087c67f68006a2306cc45553e9c220935bd4",
+    "RiffleUpperV2/Localization/DensityAlgebra.lean": "ea7ecab4397da3141cc30abeed971d4f8a2669cdf931e776d028bcdf457c93fe",
+    "RiffleUpperV2/Localization/IntervalCounting.lean": "c383a4489133d623e95ff75717756a58f6d25783bb408d1f29df0a8e6c5741c7",
+    "RiffleUpperV2/Localization/Main.lean": "2722d8e6053cbf6073697162a5cdc710a644e818fc778d0ba22dd63864253835",
+    "RiffleUpperV2/Localization/Prefixes.lean": "876907335ec59abcb63fbd2028b7b1ee1c6d9d79c3b19d5276eea1ce8fe80029",
+    "RiffleUpperV2/Localization/RankGeometry.lean": "067527654564d902421f45850a5da04e01fe29d341f3a349fedd5518a1b7ef85",
+    "RiffleUpperV2/Localization/Scalars.lean": "cd5ac936a0ba9c523c1acf66ab3020a7d4cf3db4a89fdbb3cc16339c0ddf16e7",
+    "RiffleUpperV2/Localization/StableScales.lean": "f09c641308340d4e01b4cc1d2a0528f650bd4c19e618fba48a3169ddda23fca7",
+    "RiffleUpperV2/Localization/Stopping.lean": "4348e58174497b9c24bb52a259a9bf7f28e48d3a84302262022b7455f0c92339"
+  },
+  "owner_public_count": 90,
+  "build": "audit/U00/narrow-check-build.json",
+  "trust": "All imported upper declarations including private/generated passed transitive standard-axiom check",
+  "full_lane_complete": false,
+  "findings": [
+    "All original N/n/M distinctions and actual PMF cylinder mean preserved.",
+    "Stable first-cut coverage includes immediate join and explicit fallback; eliminating fallback needs empirical full-word adapter.",
+    "RankGeometry gives actual same-depth ordered intervals and exact expectation length with arbitrary integer offsets.",
+    "StableScales discharges side comparison for genuine pair, keeps finite crossingPenalty.",
+    "Counting/density algebra correct as conditional helpers; no actual endpoint/relevance/density theorem claimed."
+  ],
+  "missing": [
+    {
+      "id": "U04-M01",
+      "claim": "The fixed-cut empirical terminal margin implies meanExponent N cuts R w \u2264 -\u03b7 for every legal full anchored word (with exact original/retained index bridge).",
+      "owner": "U04 with U05 empirical adapter",
+      "note": "stable_no_fallback is proved only conditional on this actual terminal mean estimate; no public endpoint uses that conditional helper as a completed result."
+    },
+    {
+      "id": "U04-M02",
+      "claim": "Exact left/right endpoint sibling-cylinder decomposition, including prefix/side cylinder means and their uniform bounds by \u03c7\u207b\u00b9\u03c9; deduce the smaller-side finite endpoint window.",
+      "owner": "U04",
+      "inputs": "U02 actual cylinder concentration, U04 prefixRows_tail and rank geometry",
+      "note": "Both orientations; means below one; offset c0 fixed. Existing prefix concentration is not the endpoint-window theorem."
+    },
+    {
+      "id": "U04-M03",
+      "claim": "From finite endpoint windows, establish uniform w=N^(F+\u03b4/4) stretched-exponential parent windows; derive geometric membership of relevant parents; sum nonrelevant probability retaining (d+1)k^d.",
+      "owner": "U04",
+      "inputs": "Counting.enlargedIntervalMultiplicity and per_edge_multiplicity are proved generic geometry/combinatorics only."
+    },
+    {
+      "id": "U04-M04",
+      "claim": "Actual fixed-column two-row prefix/tail collision law and injection internal edges\u2192equal-row pairs for the anchored graph; terminal full-word graph bound.",
+      "owner": "U04",
+      "note": "Old EdgeLocalization collision modules use a distinct matrix/law representation and have not been imported without a model/toolchain adapter."
+    },
+    {
+      "id": "U04-M05",
+      "claim": "For every nonterminal large stable block including x=v, instantiate U03 endpoint conditional atoms against the internal offset set J; derive sup a\u2264A E|J|, sum a\u2264E|J| and sum b\u2264n P(S\u1d9c).",
+      "owner": "U04 after U03",
+      "note": "DensityAlgebra proves direct one-atom-factor aggregation only; its hypotheses have not all been discharged on the matrix law."
+    },
+    {
+      "id": "U04-M06",
+      "claim": "Uniform asymptotic absorption and exhaustive block/boundary partition into source small, large, terminal contributions in U05 interface.",
+      "owner": "U04/U05",
+      "note": "No claimed endpointWindow/relevantParents/irrelevantLoss/smallDensity/largeDensity/terminalDensity endpoint theorem exists yet."
+    }
+  ],
+  "additional_evidence": "helper-review-20261002.json"
+}

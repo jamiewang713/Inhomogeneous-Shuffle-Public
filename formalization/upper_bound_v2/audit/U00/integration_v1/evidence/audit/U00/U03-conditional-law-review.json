@@ -1,0 +1,32 @@
+{
+  "status": "PASS_NARROW_CONDITIONAL_LAW",
+  "reviewer": "U00 independent of U03",
+  "recorded_at": "2026-10-02T08:52:45.521397+00:00",
+  "files": {
+    "RiffleUpperV2/Anchor/PartialColumn.lean": "b8cfe01ea219417d9ef1cf761c99462ddf74d3e698a2e8c3de664c12ecbefdfb",
+    "RiffleUpperV2/Anchor/ConditionalColumn.lean": "1aeed9e84e70da60e9c2b5bdadaf8effb8c26b11ca2baae35c58f8d9f21b2669",
+    "RiffleUpperV2/Anchor/PartialReveal.lean": "103ebb9060691cb88692f59e6f5618db42254f4a2a0751a8cada5299abf78c8b"
+  },
+  "mathematics": [
+    "Permutations of unexposed labels fix every exposed label; valid column assignments preserve digit histograms.",
+    "Actual residualAllowed cardinal equals total allowed count minus exposed allowed count; its feasibility derives from valid representative c0.",
+    "Equal residual-subset fibers imply uniform sampling; conditional expectation under uniform PMF is literal uniform law on nonempty fiber.",
+    "All other matrix columns fixed; precise subtype equivalence leaves exactly one partially exposed column."
+  ],
+  "statement_model": [
+    "Conditional laws are actual columnPMF/fixedCountPMF; no sampling law premise.",
+    "For source convention the marked/sample parameters are transposed; equality or symmetric formula adapter still needed.",
+    "A random reveal set must be constant on its reveal atom when using this fixed-A theorem."
+  ],
+  "adversarial": [
+    "Empty residual population, empty allowed set, zero residual counts handled by finite law.",
+    "Representative c0/omega0 establishes positive mass, so no arbitrary impossible-history convention asserted."
+  ],
+  "missing": [
+    "three source revealing cases and constant-on-atom conditions",
+    "measurable shift decomposition and InternalHistory refinement",
+    "three-event failure estimate, conditional variance and final endpoint atom bound"
+  ],
+  "build": "Independent U00 NarrowCheck passed latest PartialReveal plus all imports; 692 upper declarations standard-only; audit/U00/narrow-check-build.json",
+  "source_level_only": []
+}

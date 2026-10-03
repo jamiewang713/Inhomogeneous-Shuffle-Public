@@ -1,0 +1,26 @@
+{
+  "status": "PASS_SOURCE_AND_MODEL_ADAPTER",
+  "reviewer": "U00 independent of U03 author",
+  "recorded_at": "2026-10-02T08:59:04.489294+00:00",
+  "files": {
+    "RiffleUpperV2/Anchor/HypergeometricSymmetry.lean": "e77a0238b9954819e492e3a05920343556faa1599db96b6d3101f9b85b973aaa",
+    "RiffleUpperV2/Anchor/SourceSampling.lean": "1496f324b25e5af5d765474f8a984ccb316d3dadf06d7bd3bc82c78ac0a14b6b"
+  },
+  "provenance_check": "Original private block and renamed public block text-equal after declared visibility/name changes; no proof changes.",
+  "mathematics": [
+    "All observable symmetry uses zero-extended hypergeometric weights and factorial cancellation only on positive factorials.",
+    "All impossible-support cases have exact zero binomial coefficient, including population0.",
+    "Actual conditional PMF count laws transport to source marked/sample convention.",
+    "Centered second moment identity uses actual exactVariance; no positive variance assumed or falsely concluded."
+  ],
+  "adversarial": [
+    "Population n-A.card and residualMarked truncated subtraction are feasible because valid c0 gives literal subset cardinal.",
+    "SourceSampling defines no arbitrary residual law outside positive representable fibers."
+  ],
+  "missing": [
+    "final reveal selection invariance and endpoint shift",
+    "positive variance and atom estimate on constructed good event"
+  ],
+  "build": "Independent U00 source build and expanded theorem/axiom check passed: source-sampling-check-build.json, source-sampling-check.log",
+  "exit_code": 0
+}

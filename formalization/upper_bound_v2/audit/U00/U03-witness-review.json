@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of U03",
+  "recorded_at": "2026-10-02T10:08:38.608031+00:00",
+  "sources": {
+    "SliceOrder.lean": "e685c8bcf59e5d5b331e58d01b77ec79c86eab639f9d442cce98f99de82895b7",
+    "WitnessCylinder.lean": "c83839354519d39c9c584294033d239da82fbcf5c3485eacf3c5d05b0e2138a7",
+    "WitnessInclusion.lean": "9b2f568e69c4c9dc140e93a38e6b393e01381951df49080116586bbbae949f3b"
+  },
+  "mathematics": [
+    "Equal-length suffix order is decided by the strict first differing coordinate; later suffix continuation digits are unrestricted.",
+    "The witness cylinder fixes all prefix digits before later witness i except selected earlier j, and a strict side condition at i.",
+    "Restoring the omitted selected digit multiplies the exact cylinder mean by the original full-population digit probability and recovers the side mean.",
+    "Because that digit probability is at most one, witness mean bounds side mean; positivity is not assumed where unnecessary.",
+    "The witness cylinder lies in the enlarged full-suffix sample B by the exact coordinate/suffix comparison proof. The random cylinder is determined by all other columns."
+  ],
+  "adversarial": [
+    "j<i explicitly ensures omitted column differs from strict witness column.",
+    "No dependence on suffix coordinates beyond x; no restriction after the strict witness i.",
+    "Zero digit probabilities are permitted in the multiplication identity; division by this probability is avoided.",
+    "All cardinal/mean definitions are actual fixed-column cylinders on the designated R."
+  ],
+  "missing": [
+    "Select actual extremal witnesses and combine with residual tails/variance."
+  ],
+  "independent_build": {
+    "receipt": "witness-check-build.json",
+    "log": "witness-check.log",
+    "inventory": "witness-declarations.json",
+    "declarations": 299,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

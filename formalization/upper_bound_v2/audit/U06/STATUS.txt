@@ -1,0 +1,26 @@
+U06 — PROVED_AND_CHECKED (assigned analytic lane only).
+All assigned analytic declarations are proved and freshly kernel-checked.
+
+Source: RiffleUpperV2/Margins/{Scalar,Empirical,Suffix,FixedPartition,ProfileMargin,Main}.lean
+Exact types and transitive standard-only axioms: audit/U06/checked.log
+Fresh build command/exit (0): audit/U06/final-build-command.json
+Fresh dependency receipt: audit/U06/final-build-receipt.json
+
+Completed: closed-simplex Lipschitz bounds with exact k and 4k^4 constants;
+original-N/current-n cost stability; explicit integer-grid adapters;
+maximal word product identity; concrete suffix reindexing and induced margin
+with exact 7/2 and 12k^4 losses; integer deletion and explicit rounding loss;
+arbitrary fixed regular partition quadrature with SAME-P scalar integrability;
+profile margin transfer with explicit final threshold and half-margin budget.
+
+Selected auxiliary helper U06-profile-terminal-14-v1 uses +14log(k)/log(N)
+instead of manuscript +2log(k)/log(N). U00 independently accepted it;
+profileMarginLoss_budget/profileMarginThreshold/profileToEmpiricalMargin_half
+prove public endpoint preservation with only the final N0 increased.
+
+U13 independently accepted FixedPartition. U00 independently checked the
+Scalar/Empirical/Suffix/ProfileMargin proofs and source/model/edge cases:
+audit/U00/U06-independent-review.json (hash-specific PASS).
+Global frozen-contract matching and integrated stochastic endpoint acceptance
+remain coordinator work. No missing mathematical input is inserted as an
+assumption. No F/C/E/P/T/R endpoint is claimed by this analytic lane.

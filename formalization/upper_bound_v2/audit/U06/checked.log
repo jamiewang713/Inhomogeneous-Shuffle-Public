@@ -1,0 +1,199 @@
+'RiffleUpperV2.Margins.maxCost_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.maxCost_stability : ∀ {k : ℕ},
+  2 ≤ k →
+    ∀ (p q : TimeProfile.Simplex k) {ζ : ℝ},
+      0 ≤ ζ →
+        (∀ (l : Fin k), |TimeProfile.prob p l - TimeProfile.prob q l| ≤ ζ) →
+          |TimeProfile.maxCost p - TimeProfile.maxCost q| ≤ ↑k * ζ :=
+⋯
+'RiffleUpperV2.Margins.psi_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.psi_stability : ∀ {k : ℕ},
+  2 ≤ k →
+    ∀ (p q : TimeProfile.Simplex k) {θ ζ : ℝ},
+      θ ∈ Set.Icc 2 4 →
+        0 ≤ ζ →
+          (∀ (l : Fin k), |TimeProfile.prob p l - TimeProfile.prob q l| ≤ ζ) →
+            |TimeProfile.psi p θ - TimeProfile.psi q θ| ≤ 4 * ↑k ^ 4 * ζ :=
+⋯
+'RiffleUpperV2.Margins.powerSum_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.powerSum_lower : ∀ {k : ℕ},
+  2 ≤ k → ∀ (p : TimeProfile.Simplex k) {θ : ℝ}, θ ∈ Set.Icc 2 4 → 1 / ↑k ^ 3 ≤ TimeProfile.powerSum p θ :=
+⋯
+'RiffleUpperV2.Margins.costStability' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.costStability : ∀ {k N n m L : ℕ},
+  2 ≤ k →
+    2 ≤ N →
+      ∀ (a : ℕ) (p : RiffleUpperV2.Cuts k n L) (q : RiffleUpperV2.Cuts k m L) (hn : 0 < n) (hm : 0 < m) {T ζ : ℝ},
+        0 ≤ ζ →
+          ↑L ≤ T * TimeProfile.logScale N →
+            (∀ (j : Fin L) (l : Fin k),
+                |TimeProfile.prob (TimeProfile.Cuts.profile p hn j) l -
+                      TimeProfile.prob (TimeProfile.Cuts.profile q hm j) l| ≤
+                  ζ) →
+              ∀ (s u : ℕ),
+                |RiffleUpperV2.empiricalA N a p hn s u - RiffleUpperV2.empiricalA N a q hm s u| ≤ ↑k * T * ζ ∧
+                  ∀ θ ∈ Set.Icc 2 4,
+                    |RiffleUpperV2.empiricalB N a p hn θ s u - RiffleUpperV2.empiricalB N a q hm θ s u| ≤
+                      4 * ↑k ^ 4 * T * ζ :=
+⋯
+'RiffleUpperV2.Margins.empiricalA_grid_adapter' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.empiricalA_grid_adapter : ∀ {k N n L : ℕ},
+  2 ≤ N →
+    ∀ (a : ℕ) (cuts : RiffleUpperV2.Cuts k n L) (hn : 0 < n) {s u : ℕ},
+      s ≤ u →
+        RiffleUpperV2.empiricalA N a cuts hn s u =
+          RiffleLowerV2.empiricalIntegral N (fun j => TimeProfile.maxCost (TimeProfile.Cuts.profile cuts hn j))
+            (RiffleLowerV2.gridTime N (s - a)) (RiffleLowerV2.gridTime N (u - a)) :=
+⋯
+'RiffleUpperV2.Margins.empiricalB_grid_adapter' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.empiricalB_grid_adapter : ∀ {k N n L : ℕ},
+  2 ≤ N →
+    ∀ (a : ℕ) (cuts : RiffleUpperV2.Cuts k n L) (hn : 0 < n) (θ : ℝ) {s u : ℕ},
+      s ≤ u →
+        RiffleUpperV2.empiricalB N a cuts hn θ s u =
+          RiffleLowerV2.empiricalIntegral N (fun j => TimeProfile.psi (TimeProfile.Cuts.profile cuts hn j) θ)
+            (RiffleLowerV2.gridTime N (s - a)) (RiffleLowerV2.gridTime N (u - a)) :=
+⋯
+'RiffleUpperV2.Margins.maximalWordIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.maximalWordIdentity : ∀ {k N n L : ℕ},
+  2 ≤ N →
+    ∀ (a : ℕ) (cuts : RiffleUpperV2.Cuts k n L) (hn : 0 < n),
+      RiffleLowerV2.maximalMean cuts hn = ↑N ^ RiffleUpperV2.empiricalBeta N a cuts hn (a + L) :=
+⋯
+'RiffleUpperV2.Margins.inducedMargin' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.inducedMargin : ∀ {k N m K r : ℕ},
+  2 ≤ k →
+    ∀ (hN : 2 ≤ N) (p : RiffleUpperV2.Cuts k N K) (q : RiffleUpperV2.Cuts k m (K - r)) (hm : 0 < m),
+      r ≤ K →
+        ∀ {T η e ζ : ℝ},
+          0 ≤ e →
+            0 ≤ ζ →
+              ↑K ≤ T * TimeProfile.logScale N →
+                RiffleUpperV2.EmpiricalNegativeMargin N 0 p ⋯ η →
+                  Real.log ↑m / Real.log ↑N ≤ 1 - RiffleUpperV2.empiricalA N 0 p ⋯ 0 r + e →
+                    (∀ (j : Fin (K - r)) (l : Fin k),
+                        |TimeProfile.prob (TimeProfile.Cuts.profile p ⋯ (RiffleUpperV2.Margins.suffixIndex r j)) l -
+                              TimeProfile.prob (TimeProfile.Cuts.profile q hm j) l| ≤
+                          ζ) →
+                      RiffleUpperV2.EmpiricalNegativeMargin N r q hm
+                        (η - 7 / 2 * (e + ↑k * T * ζ) - 12 * ↑k ^ 4 * T * ζ) :=
+⋯
+'RiffleUpperV2.Margins.deletePrefixMargin' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.deletePrefixMargin : ∀ {k N K r : ℕ},
+  2 ≤ k →
+    ∀ (hN : 2 ≤ N) (p : RiffleUpperV2.Cuts k N K),
+      r ≤ K →
+        ∀ {η : ℝ},
+          RiffleUpperV2.EmpiricalNegativeMargin N 0 p ⋯ η →
+            RiffleUpperV2.EmpiricalNegativeMargin N r (RiffleUpperV2.Margins.suffixCuts p r) ⋯
+              (η - 7 / 2 * (↑r * Real.log ↑k / TimeProfile.logScale N)) :=
+⋯
+'RiffleUpperV2.Margins.deletePrefixMargin_rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.deletePrefixMargin_rounding : ∀ {k N K r : ℕ},
+  2 ≤ k →
+    ∀ (hN : 2 ≤ N) (p : RiffleUpperV2.Cuts k N K),
+      r ≤ K →
+        ∀ {η ρ b : ℝ},
+          ↑r ≤ ρ * TimeProfile.logScale N + b →
+            RiffleUpperV2.EmpiricalNegativeMargin N 0 p ⋯ η →
+              RiffleUpperV2.EmpiricalNegativeMargin N r (RiffleUpperV2.Margins.suffixCuts p r) ⋯
+                (η - 7 / 2 * ρ * Real.log ↑k - 7 / 2 * b * Real.log ↑k / TimeProfile.logScale N) :=
+⋯
+'RiffleUpperV2.Margins.fixedPartitionQuadrature' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.fixedPartitionQuadrature : ∀ {k N : ℕ},
+  2 ≤ k →
+    ∀ (hN : 2 ≤ N) {T rho phi chi C : ℝ},
+      0 < T →
+        0 < rho →
+          0 ≤ phi →
+            0 ≤ chi →
+              0 ≤ C →
+                ∀ (P : TimeProfile.BorelPartition k),
+                  P.IsRegular chi C →
+                    ∀ (μ : TimeProfile.TimeLaw k),
+                      RiffleLowerV2.ScalarIntegrable μ P T →
+                        ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                          TimeProfile.AlmostLike cuts ⋯ μ P T rho phi →
+                            RiffleLowerV2.Targets.ProfileIntervalErrors T cuts ⋯ μ
+                              (RiffleUpperV2.Margins.scalarError k N P.cellCount T rho phi (C * chi)) :=
+⋯
+'RiffleUpperV2.Margins.anyFixedPartitionTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.anyFixedPartitionTransfer : ∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T e C : ℝ),
+      0 < T →
+        0 < e →
+          0 ≤ C →
+            ∃ chi0,
+              0 < chi0 ∧
+                ∀ (chi : ℝ),
+                  0 < chi →
+                    chi ≤ chi0 →
+                      ∀ (P : TimeProfile.BorelPartition k),
+                        P.IsRegular chi C →
+                          ∀ (rhoCeiling : ℝ),
+                            0 < rhoCeiling →
+                              ∃ rho0,
+                                0 < rho0 ∧
+                                  rho0 ≤ rhoCeiling ∧
+                                    ∀ (rho : ℝ),
+                                      0 < rho →
+                                        rho ≤ rho0 →
+                                          ∃ phi0,
+                                            0 < phi0 ∧
+                                              ∀ (phi : ℝ),
+                                                0 < phi →
+                                                  phi ≤ phi0 →
+                                                    ∃ N0,
+                                                      2 ≤ N0 ∧
+                                                        ∀ (N : ℕ) (hN : 2 ≤ N),
+                                                          N0 ≤ N →
+                                                            ∀ (μ : TimeProfile.TimeLaw k),
+                                                              RiffleLowerV2.ScalarIntegrable μ P T →
+                                                                ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                                                                  TimeProfile.AlmostLike cuts ⋯ μ P T rho phi →
+                                                                    RiffleLowerV2.Targets.ProfileIntervalErrors T cuts ⋯
+                                                                      μ e :=
+⋯
+'RiffleUpperV2.Margins.profileToEmpiricalMargin' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.profileToEmpiricalMargin : ∀ {k N : ℕ},
+  2 ≤ k →
+    ∀ (hN : 2 ≤ N) {T e η : ℝ},
+      0 < T →
+        0 ≤ e →
+          ∀ (P : TimeProfile.BorelPartition k) (μ : TimeProfile.TimeLaw k),
+            RiffleLowerV2.ScalarIntegrable μ P T →
+              ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                RiffleLowerV2.Targets.ProfileIntervalErrors T cuts ⋯ μ e →
+                  RiffleLowerV2.macroBeta μ T ≤ -η →
+                    RiffleLowerV2.macroLambda1 μ T ≤ -η →
+                      RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯
+                        (η - 13 / 2 * e - 14 * Real.log ↑k / TimeProfile.logScale N) :=
+⋯
+'RiffleUpperV2.Margins.profileMarginLoss_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.profileMarginLoss_budget : ∀ {η e rounding : ℝ},
+  0 ≤ η → e ≤ η / 100 → rounding ≤ η / 4 → 13 / 2 * e + rounding ≤ η / 2 :=
+⋯
+'RiffleUpperV2.Margins.profileMarginThreshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.profileMarginThreshold : ∀ (k : ℕ) {η : ℝ},
+  0 < η →
+    2 ≤ RiffleLowerV2.ProfileTransfer.transferThreshold (14 * Real.log ↑k) η ∧
+      ∀ (N : ℕ),
+        RiffleLowerV2.ProfileTransfer.transferThreshold (14 * Real.log ↑k) η ≤ N →
+          14 * Real.log ↑k / TimeProfile.logScale N ≤ η / 4 :=
+⋯
+'RiffleUpperV2.Margins.profileToEmpiricalMargin_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.Margins.profileToEmpiricalMargin_half : ∀ {k N : ℕ},
+  2 ≤ k →
+    ∀ (hN : 2 ≤ N) {T η : ℝ},
+      0 < T →
+        0 < η →
+          RiffleLowerV2.ProfileTransfer.transferThreshold (14 * Real.log ↑k) η ≤ N →
+            ∀ (P : TimeProfile.BorelPartition k) (μ : TimeProfile.TimeLaw k),
+              RiffleLowerV2.ScalarIntegrable μ P T →
+                ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                  RiffleLowerV2.Targets.ProfileIntervalErrors T cuts ⋯ μ (η / 100) →
+                    RiffleLowerV2.macroBeta μ T ≤ -η →
+                      RiffleLowerV2.macroLambda1 μ T ≤ -η → RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ (η / 2) :=
+⋯
+BUILD_OK U06

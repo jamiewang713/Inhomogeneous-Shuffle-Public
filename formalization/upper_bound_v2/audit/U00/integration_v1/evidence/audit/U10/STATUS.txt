@@ -1,0 +1,9 @@
+PROVED_AND_CHECKED — U10 finite generic layer
+
+All four planned exports are proved: stoppedBinomialMoment, adaptedExcess, finiteExplorationTV, boundedComponentTruncation. Main.lean also supplies the quantitative boundedComponentExplorationTV corollary, the eventual geometric denominator, and the limiting truncation RHS.
+
+Fresh source build: exit 0 (fresh-build.json/log). Exact-type/transitive-axiom audit: exit 0; 91 declarations, 44 public theorems, 7 public definitions; only Classical.choice, Quot.sound, propext. Independent U00 mathematics/model/adversarial review and integrated source audit PASS: audit/U00/U10-excess-review.json, U10-finite-tv-review.json, U10-final-review.json, finite-lanes-check-build.json.
+
+Source/label map: source-map.json. Fully explicit public types: public-exports.json. All declaration dependencies and axioms: declarations.json. Exact input/source hashes and commands: VERIFICATION.json, SOURCE_HASHES.json, build receipts. Boundary checks: ADVERSARIAL_CASES.json.
+
+No U10 proof obligation remains. This generic finite lane does NOT prove F/C/E/P/T/R. Concrete exploration hypotheses, initial and positive-history conditional tails, directional coverage, regularity failure, terminal maximal-mean margin, and fixed parameter choices must still be discharged by U07/U09/U11; see PREMISE_DISCHARGE.json.

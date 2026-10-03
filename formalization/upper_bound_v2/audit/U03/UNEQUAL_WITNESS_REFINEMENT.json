@@ -1,0 +1,26 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "source_construction": "B compares suffix only through the later side maximizer",
+  "implemented_construction": "B compares equal-length suffix j+1 through the continuation length |x|, never through d beyond |x|",
+  "why_valid": [
+    "The source B0 cylinder is contained, since its first unequal digit occurs at the later side maximizer.",
+    "The enlarged B stays in T, and A=T\\B; A union B=T stays in R.",
+    "Both A and B depend only on columns other than j.",
+    "Every prefix-x row has equal suffix and belongs to A.",
+    "Increasing B keeps the B0 lower bound, reduces A, and preserves sample-complement reserve."
+  ],
+  "reviewer": "U00 coordinator /root",
+  "review": "PASS received via collaboration message; no frozen definition change",
+  "remaining": [],
+  "initial_status": "reviewed mathematical interface; implementation in progress",
+  "previously_remaining": [
+    "Kernel proofs of source B0 inclusion",
+    "Actual good-event probability and variance lower bound",
+    "Combined endpoint anti-concentration theorem"
+  ],
+  "completion_evidence": [
+    "fresh-check-build.json",
+    "declarations.json",
+    "../U00/U03-final-review.json"
+  ]
+}

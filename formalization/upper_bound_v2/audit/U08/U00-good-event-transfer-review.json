@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SOURCE_REVIEW",
+  "reviewer": "U08 (independent of U00 author)",
+  "recorded_at": "2026-10-02T10:17:55.385649+00:00",
+  "source": "RiffleUpperV2/Shared/GoodEventTransfer.lean",
+  "sha256": "354e99b31739e45bc4edb4f31122c8eec0d9bb29b651ea1af6610a7eeac4672a",
+  "mathematics": [
+    "Tower orientation is fine Z to coarse U: href states equality of Z implies equality of U, and history_refinement_factors gives U=g\u2218Z.",
+    "On each positive Z atom, an actual representative exists. On a good atom, hpoint bounds E and event inclusion bounds E\u2227S by E on the same atom. No conditioning on S is introduced.",
+    "On a false-good representative, hS propagates false S to every member of that fine atom; numerator for E\u2227S is exactly zero and hb yields the bound.",
+    "Finite coarse-atom averaging uses normalized nonnegative conditional weights and positive coarse hu."
+  ],
+  "statement_model": [
+    "hS explicitly supplies fine-history measurability; it does not require coarse-history measurability.",
+    "hpoint required only at positive-mass fine atoms whose representative is good.",
+    "E itself need not be fine-history measurable.",
+    "S remains inside E\u2227S in conclusion; statement does not incorrectly assert P(E|U)\u2264b or P(E|U,S)\u2264b."
+  ],
+  "adversarial": [
+    "Null fine atoms are excluded from hpoint and carry zero conditional tower weight.",
+    "Fine atoms with S false do not invoke hpoint and contribute zero.",
+    "Negative b is prohibited by hb, necessary for bad-only fibers.",
+    "Empty/unattained values of Z use arbitrary factor-map default u, irrelevant on actual support.",
+    "Positive coarse fiber required; no normalization of null coarse history is asserted."
+  ],
+  "build": "Source/type/dependency review only; U00 runs compilation. No independent compiler receipt claimed."
+}

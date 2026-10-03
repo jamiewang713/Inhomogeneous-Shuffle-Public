@@ -1,0 +1,47 @@
+{
+  "status": "PASS_GENERIC_FINITE_THEOREM",
+  "reviewer": "U00 independent of U10",
+  "recorded_at": "2026-10-02T09:44:16.402222+00:00",
+  "sources": {
+    "RiffleUpperV2/Exponential/Pathwise.lean": "9641d61887ccacc85010fbccf478bf608555652ef61099365ac457447889c821",
+    "RiffleUpperV2/Exponential/Conditioning.lean": "f5460e12ae5e5be8b1f715388a4c12e5417967a375f1a0f8bf825f9d3c896645",
+    "RiffleUpperV2/Exponential/Stopping.lean": "ae477694549a259a1f314d9b183c2aa0a7e3eca007bc982a31d4a601c6c347e1",
+    "RiffleUpperV2/Exponential/Moments.lean": "44d386ff6631e7fef0ad6f56e780c6184b4c88f7957465620fe7e380f3f563f5",
+    "RiffleUpperV2/Exponential/Excess.lean": "312a053e114cb242ff3984de31a1407d70d664288bc74d3f3f42461fa7947465"
+  },
+  "mathematics": [
+    "Unit increment monotonicity established before subtraction; exact binomial and increment telescoping identities proved on Ico i m.",
+    "Weighted conditional bounds use current history measurability and positive fibers; null events give zero mass pointwise.",
+    "Stopped increments multiply by intersection through time j+1; only time j+1 adaptation is required. Remainder dominated by D_i times original remainder and hence uniform conditional tail.",
+    "Weighted binomial induction uses current-time increment and initial weight transported through refining histories; time zero premise used for unconditional moments.",
+    "Finite binomial expansion and geometric bound yield denominator1\u2212q\u03b3; pathwise domination on C introduces no C into histories."
+  ],
+  "model_quantifiers": [
+    "Actual finite PMF conditionalExpect quotient. Histories share a finite codomain for one process; each exploration may separately choose codomain/horizon.",
+    "Conditional tail is required on every positive fiber whose current B_i holds, including i=0.",
+    "All adaptation/unit conditions are pointwise generic inputs; U11 must derive them for actual processes."
+  ],
+  "adversarial": [
+    "m=0 produces zero excess and no remainder premise.",
+    "\u03b3=0 and t=0 allowed; denominator remains positive under displayed hypothesis.",
+    "Null history quotient totalizes0 but masked expectation lemmas prove this contributes0.",
+    "B_i may be nonpredictable; C need not be measurable at intermediate time.",
+    "No independence of distinct explorations assumed here."
+  ],
+  "missing": [
+    "convex aggregation over explorations",
+    "U01 bounded-component majorization and finite TV consumption",
+    "concrete U11 hypothesis discharge"
+  ],
+  "independent_build": {
+    "receipt": "exponential-check-build.json",
+    "log": "exponential-check.log",
+    "exit_code": 0,
+    "lane_declarations": 68,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

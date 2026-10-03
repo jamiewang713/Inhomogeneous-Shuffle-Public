@@ -1,0 +1,36 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T20:00:28.037646+00:00",
+  "sources": {
+    "Reservoir/CurrentRemoval.lean": "93bd728b627eaae32362157fd405efecca1fbcb58d62427baecb44449106ea63",
+    "Reservoir/DeletionPrefix.lean": "483a593929156e64deccb7cc8acfe809aa7425e7eb944d8cb6bf810054d86f28",
+    "Reservoir/FullTail.lean": "8c726993977ac13782d70c651ec595ebcbf841defa81faf46b3964dd5c9f146e",
+    "Reservoir/SupportBridge.lean": "24cba3a6087d426958822b19c181c55bacba328a60f1e55c8813af97a254858e",
+    "Reservoir/CurrentMarked.lean": "2650116f74a2fc3b894c1c7983f27faeed8e0865ab2364b2a895ffccb6bb51bd",
+    "Reservoir/ExtraCopies.lean": "ade423a55bf0abd758cf60c1faa14c28bb5730404a1c3809132950647d30f508"
+  },
+  "mathematics": [
+    "Tuple counts split exactly into fixed unmarked and marked counts. When the one marked word equals the current terminal word and t<=C_s-1, removing it leaves the exact lexicographic history constraint satisfied.",
+    "DeletionPrefix generalizes the actual refined prefix quotient to a target implying the needed prefix and removable-history condition. Those generic target premises are discharged in CurrentMarked for the literal current-copy event.",
+    "CurrentMarked converts actual original marked labels into the pile tuple law, retaining the same observed terminal word and forced multiplicity t.",
+    "SupportedMarked_good_le retains the initial-pile support weight while averaging good fine fibers. H complement is charged once per marked row.",
+    "The removable-copy inequality bounds (C_s-t)_+ by the sum of current removable-copy indicators. Exact support sums and initial-pile normalization yield extraCurrentCopies with C1=4/reserveMass and n*epsilon."
+  ],
+  "public_type_and_model": [
+    "Final extraCurrentCopies uses only positive forward natural history, actual historyGood, current forward direction, good first column, horizon and fixed parameter assumptions.",
+    "The subtraction is natural-number C_s-t, exactly positive-part excess. t is the observed terminal count at j+1, not total current count and not one new copy.",
+    "Full future tail prefix reconstructs the full word after its exposed head; the resulting probability is actual wordMass including the first-pile factor."
+  ],
+  "adversarial": [
+    "Forced observed copies are never treated as fresh. A target with no removable current copy has zero probability through the deletion-impossibility branch.",
+    "Zero or null fine target events cause no division issue; only the natural coarse history is required positive.",
+    "At terminal exploration, the actual excess vanishes; the theorem does not create new copies beyond all revealed rows.",
+    "No later-column outside-pile words are revealed or conditioned on, so the reservoir remains available."
+  ],
+  "remaining": [
+    "Backward current-copy bound, tail collision sum and exact future-cylinder law."
+  ],
+  "root_build_receipt": "class-current-check-build.json",
+  "trust_inventory": "class-current-declarations.json"
+}

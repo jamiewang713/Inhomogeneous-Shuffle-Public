@@ -1,0 +1,47 @@
+PARTIAL — U07 concrete exploration objects and checked finite slice
+
+Scope / frozen inputs
+- Objects.lean SHA256 8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e was sent to U00 and is frozen in CONTRACTS_READY v1.
+- PMF is the original independent fixed-column law; expectation/conditional probability are the lower-v2 finite PMF API. N=n for source exploration. All Empirical/C specifications preserve original-N logarithms.
+- No manuscript, upstream package, shared module, contract, or another lane's file edited.
+
+Verified slice (namespace RiffleUpperV2.Exploration)
+1. Objects.lean defines actual per-pile forward/backward sorted-word histories, deterministic reserve selection, explicit H, F_i, R, the 2k directional processes and their remaining counts. Definitions are not probability estimates.
+2. Clusters.lean: goodCluster_finite; cluster_count_threshold; goodCluster. The explicit sufficient size condition is 8<gamma*x for x=rho*log N, gamma<=1. D=ceil(6/gamma), m=ceil(x)+1 unchanged.
+3. LocalGood.lean: localGood_integerWindow proves literal macroscopic LocalGood implies the frozen integer-window predicate. The chosen interval fits entirely inside the window, so the proof is stronger than the allowed loss of two columns.
+4. Guards.lean: chosen reserve spec, existence iff finite candidate nonempty, positive reserve mass, per-word directional union and overlap, scalar guard interlacing, crossed-rank impossibility.
+5. Positions.lean: exact first-column prefix count/lower/upper ranks; pilePosition_firstDigit proves that the absolute sorted positions used in histories actually belong to the named pile.
+6. Histories.lean: empty history, refinement, revealed-word equality, same fibers, F_i adaptedness, every represented history positive, zero-denominator convention.
+7. Processes.lean: X0=X1=0, actual directional edge/process adaptedness, unit increments, terminal remainder zero. remainingDirectionalCount_eq explicitly retains e=i-1 (i<=e+1), including the edge crossing the reveal boundary.
+8. HistoryProbability.lean: finite conditional-probability tower including null fibers; conditional Markov; historyGoodProbability at epsilon=sqrt(r), conditional only on the literal natural history and assuming an H failure bound as an internal input.
+9. Regularity.lean: HistoryIndex cardinal 2n including empty piles; exact 2n*sqrt(r) union bound; regularityFailure_of_bounds assembles H and small-pile error estimates. This is an INTERNAL conditional lemma, not the public regularity estimate.
+10. PrefixConcentration.lean: actual fixed-column prefix size Bernstein and union bound. Prefix-size failure <= 2*(L+2)*k^(L+1)*exp(-n^(xi/3)/8), for n>0 and xi>=0. bernstein_twoThirds_exponent verifies the denominator-4 constant 1/8. This proves only the prefix-size part of H.
+
+Source-to-declaration map
+- lem:ub-good-cluster -> goodCluster_finite, goodCluster, localGood_integerWindow; eventual log threshold and restart integration remain.
+- eq:ub-reserve-mass -> chosenReserves_spec, reserveMass_pos; nonempty candidates from retainedGoodCluster remains.
+- lem:ub-exploration-concentration -> concentrationEvent and PrefixConcentration; full H and directional common-edge coverage remain.
+- eq:ub-natural-history-good -> naturalHistory, historyGood, historyGood_adapted, historyGoodProbability, historyGood_unionBound.
+- eq:ub-exploration-regularity-probability -> regularityEvent and regularityFailure_of_bounds; concrete H/small-pile inputs remain.
+- following paragraph -> directionalProcess, unitIncrements, directionalProcess_adapted, remainingDirectionalCount_eq.
+
+Remaining concrete obligations (not assumptions silently promoted to endpoint hypotheses)
+A. Derive reserveCandidates.Nonempty from retainedGoodCluster, using two good coordinates and maximal digits elsewhere. Current min' selector is deterministic and every selected triple has exact mass/order guarantees, but existence is not established here.
+B. Complete full concentrationEvent failure estimate uniformly over arrays. Prefix sizes are proved; outside counts, later-column counts and guards need their model adapters and finite union. Constants A,c must precede arrays.
+C. Derive the small-initial-pile edge failure <=(k/2)*N^(xi-eta) from concrete factorial moments and maximal word mass. No macroscopic-size assumption is made in definitions.
+D. Prove common-direction coverage on H x H and then full graph count <=sum of terminal processes on R x R, using actual guard mean gap and rank intervals. Scalar interlacing and rank adapters are available, but not the final theorem.
+E. Prove eventual 8<gamma*rho*log N, restart/retained-window translation, and instantiate regularityFailure_of_bounds with B/C. U09 supplies conditional remaining-edge estimates, never part of a process definition.
+
+Two useful full-H proof approaches considered
+(i) Source route: condition on prefix row set, apply later-column hypergeometric Bernstein, use U02 anchored head conditioning for guards. Missing adapter is exact prefix-row-set conditional split.
+(ii) Stronger unconditional route: all digit-set cylinders, deviation <=(1/2)*max(mean,N^xi)^(2/3). There are (2^k)^K polynomially many at K<=T log N. Prefix and later-cylinder means give the H count bound by triangle inequality; outside counts are cylinders with first digit unequal to p; summing <=k^D guard prefixes gives the guard threshold eventually. This bypasses the missing prefix conditional split without inserting H into any history. It is a mathematical plan, not a Lean theorem.
+
+Independent review
+- U00 reviewed Objects and exact C alignment: separate pile histories, no reversed columns, boundary edge retained; no mathematical certificate/event parameter in C premises.
+- U07 independently reviewed U00 C: positive pair fibers, scalar order, H failure as conclusion, epsilon=sqrt(rbad), endpoints correct.
+- Independent review of NEW U07 proof modules requested through U00; not yet received at this snapshot. Self-checks alone are not acceptance.
+
+Evidence
+- Fresh build command and exit status are recorded in fresh-build.log and latest-build.json.
+- Check.lean checks every public theorem and prints transitive axioms; signatures-and-axioms.log is generated by the same pinned compiler.
+- VERIFICATION.json records file/source hashes and exact status. No forbidden proof token or custom axiom is used.

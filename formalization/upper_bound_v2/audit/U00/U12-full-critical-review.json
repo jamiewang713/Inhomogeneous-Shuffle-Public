@@ -1,0 +1,18 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:57:37.988360+00:00",
+  "reviewer": "U00 independent of U12",
+  "sources": {
+    "FullCritical.lean": "82a7925cb895ed26175049c4fd1425fb247f1e12c1b6b1bcfe277a182b6f8ea3"
+  },
+  "root_receipt": "one-history-full-critical-check-build.json",
+  "trust_inventory": "one-history-full-critical-declarations.json",
+  "mathematics": [
+    "Empty full-margin negativity set gives ENNReal top exactly.",
+    "ArbitrarilyFineApproximation supplies per-horizon same-partition scalar integrability, so full and reduced critical times agree.",
+    "Full-margin convergence is the exact internal P consequence of that equality; eventual TV gives an actual integer finite mixing witness."
+  ],
+  "remaining": [
+    "Public P/T/R wrappers require actual E."
+  ]
+}

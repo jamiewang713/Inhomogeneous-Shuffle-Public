@@ -1,0 +1,8 @@
+import RiffleUpperV2.FirstMoment.Exponents
+set_option pp.funBinderTypes true
+#print RiffleUpperV2.FirstMoment.empiricalLargeExponent
+#print RiffleUpperV2.FirstMoment.empiricalSmallExponent
+#print RiffleUpperV2.FirstMoment.empiricalImmediateExponent
+#print axioms RiffleUpperV2.FirstMoment.empiricalLargeExponent
+#print axioms RiffleUpperV2.FirstMoment.empiricalSmallExponent
+#print axioms RiffleUpperV2.FirstMoment.empiricalImmediateExponent

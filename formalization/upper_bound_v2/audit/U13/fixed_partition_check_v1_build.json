@@ -1,0 +1,33 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T08:11:28.601308+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U13",
+    "--run",
+    "audit/U13/FixedPartitionCheck_v1.lean"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U13",
+  "built": [],
+  "modules": {
+    "RiffleLowerV2.ProfileTransfer.Quadrature": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Quadrature.lean",
+      "sha256": "a4f65d208be27de1e8c8c97673d563d47bada12bb34427a2340147433c0d20f0",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.ProfileTransfer.Spatial": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Spatial.lean",
+      "sha256": "1c13a1dd14b1d5fe5d77e185eeaf54c9dd7f9b8946fd71fff0ef02fdf48480c3",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.ProfileTransfer.Parameters": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Parameters.lean",
+      "sha256": "fe5fe94d97efc824c28559f7d119d6f65a4eb984fec8974bf7bb16aa29e45df5",
+      "kind": "staged-read-only"
+    }
+  }
+}

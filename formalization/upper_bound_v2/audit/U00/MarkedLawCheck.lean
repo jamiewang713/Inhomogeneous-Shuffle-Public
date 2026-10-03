@@ -1,0 +1,8 @@
+import RiffleUpperV2.Reservoir.MarkedLaw
+set_option pp.funBinderTypes true
+#check RiffleUpperV2.Reservoir.tupleWords_probability
+#check RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff
+#check RiffleUpperV2.Reservoir.exactMarkedRowLaw
+#print axioms RiffleUpperV2.Reservoir.tupleWords_probability
+#print axioms RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff
+#print axioms RiffleUpperV2.Reservoir.exactMarkedRowLaw

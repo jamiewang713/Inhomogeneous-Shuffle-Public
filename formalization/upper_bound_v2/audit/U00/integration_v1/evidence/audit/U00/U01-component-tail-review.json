@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independently of U01",
+  "recorded_at": "2026-10-02T10:01:08.334239+00:00",
+  "sources": {
+    "RiffleUpperV2/GraphOverlap/FactorialTail.lean": "7cdefa98cf44a89e21c62fb123571e9797f43c0129657d30e09ba87ce823e006",
+    "RiffleUpperV2/GraphOverlap/Components.lean": "0a63e3ae370ce1f0967390bb6f240faff644eab300044afada6dc9a2dd55301b",
+    "RiffleUpperV2/GraphOverlap/LargestComponent.lean": "3060916cdc81f152a647a73a025721dc1598d372c4359ace8dab3439e53afbd7"
+  },
+  "mathematics": [
+    "Exact single-word joint falling-factorial moment uses the actual fixed-count law. Each column ratio is bounded by its probability power; a binomial moment bounds occupancy.",
+    "Summing over all words uses exact total mass one. The maximum full-word mass is maximalMean/N.",
+    "The stable-sort bijection identifies graph components with equal-word populations, including unrealized empty words and empty component keys.",
+    "The binomial coefficient estimate gives the factorial denominator. q>N is handled by an identically empty event.",
+    "The actual component event is transformed to word occupancy with q=B+1. Power monotonicity yields the claimed N^-A/(B+1)! estimate."
+  ],
+  "model_and_adversarial": [
+    "No supplied occupancy certificate or graph law premise. Actual cuts and fixedCountPMF are used.",
+    "Factorial-ratio helper allows N=0 and q>N; occupancy normalization explicitly needs N>0.",
+    "Largest-component factorial theorem includes q>N by zero probability. Bounded-component power bound requires N>=2, B>=2.",
+    "No union-bound independence assumption and no conditioning."
+  ],
+  "remaining_obligations": [
+    "U11 must derive maximalMean bound from the negative margin."
+  ],
+  "private_port_comparison": {
+    "source": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean",
+    "exact_text_equal_after_removing_private": true
+  },
+  "independent_build": {
+    "receipt": "graph-tail-check-build.json",
+    "log": "graph-tail-check.log",
+    "inventory": "graph-tail-declarations.json",
+    "declarations": 125,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

@@ -1,0 +1,19 @@
+--- formalization/first_moment/FirstMomentModel/ProfileCountLimit.lean first two generic theorems
++++ formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean
+@@ -1,7 +1,8 @@
+-import FirstMomentModel.ProfileClasses
++import FirstMoment.Counting
+ import RiffleTimeProfile.AnalyticParameters
+ 
+-namespace InhomogeneousShuffle.FirstMoment.Model
++namespace RiffleUpperV2.Compat
++open InhomogeneousShuffle.FirstMoment
+ 
+ noncomputable section
+ open scoped BigOperators
+@@ -169,4 +170,4 @@
+   nlinarith
+ 
+ end
+-end InhomogeneousShuffle.FirstMoment.Model
++end RiffleUpperV2.Compat

@@ -1,0 +1,85 @@
+UPPER-BOUND MANUSCRIPT REPAIR AND LOWER-BOUND PRESERVATION AUDIT
+2026-10-01
+
+AUTHORITATIVE ARTIFACTS
+
+Source: time_inhomogeneous_riffle_shuffle_unified_article.tex
+Source SHA256: 284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+Compiled PDF: time_inhomogeneous_riffle_shuffle_unified_article.pdf
+PDF SHA256: d11bf44472f2cbe8e745ac9668a4071a53349185e3180828b289ff201ccbaf68
+All paths in this report are relative to the repository root unless stated otherwise.
+
+RESULT AND SCOPE
+
+The manuscript now supplies a complete mathematical argument for the empirical upper bound, followed by the buffered profile upper bound and a qualified critical-time consequence. It replaces the former ambient first-moment and conditional-preservation route by direct empirical estimates and exact conditional sampling. This is a manuscript proof repair, not a new Lean formalization of the upper bound.
+
+The empirical theorem, thm:ub-empirical-upper (source line 2383), assumes a fixed negative empirical margin and the stated local-good-column condition. It gives a uniform polynomial total-variation bound for all admissible deterministic cut arrays. It uses no macroscopic time profile.
+
+The buffered profile theorem, thm:deterministic-upper-bound (line 371), transfers bounded scalar costs from a sufficiently fine fixed partition and sufficiently small fixed time mesh, in the order of quantifiers stated there. The partition accuracy is chosen before the good-column constants; the time mesh is chosen afterward. It uses the existing ordinary-integral convention.
+
+The critical-time theorem, thm:upper-critical-reduced (line 344), explicitly uses def:ub-arbitrarily-fine-approximation (line 322). This requires suitable arbitrarily fine profile partitions and approximation meshes, with the good-column constants fixed before the time mesh is decreased. This is stronger than a hypothesis asserting approximation on only one arbitrary fixed coarse partition or mesh. The present proof does not recover a critical-time claim from that weaker hypothesis. The empty negativity set has critical time +infinity and yields no finite upper bound.
+
+PROOF-OBLIGATION LEDGER
+
+1. Graph mixture and truncation.
+   The exact component factorial ratio is bounded by a fixed factor per shared edge when one graph has uniformly bounded components. The truncated chi-square radicand is handled as an integrated variance; the integrand is not falsely assumed pointwise nonnegative. The largest-component tail follows from the exact fixed-population falling-factorial bound.
+   Source: lem:ub-component-factorial, lem:ub-truncated-chi-square, lem:ub-largest-component-tail.
+
+2. Empirical first moment.
+   An exposed first-column pile leaves an outside population reserve. The proof tracks the original log N scale even for smaller induced decks. Anchored endpoint smoothing, relevant-parent localization, stable stopping and explicit cost bins control the shared-edge first moment directly. Full-word terminal cases and omitted nonrelevant blocks are estimated separately. The direct large-block bound avoids an unnecessary squared endpoint-window loss.
+   Source: prop:ub-first-moment (line 666), lem:ub-anchor-endpoint-atoms (line 938), lem:ub-edge-density-bounds (line 1339).
+
+3. Stability under empirical perturbations.
+   An explicit scalar margin inequality replaces the unsupported assertion that an induced probability vector stays in its old partition cell. Both perturbation parameters are nonnegative, and the margin losses and prefix-deletion cost are displayed.
+   Source: lem:ub-conditional-preservation (line 1598).
+
+4. Conditional exploration law.
+   Lexicographic histories constrain only words in the selected initial pile. Exact falling-factorial sampling weights and a fixed outside reserve bound continuation counts, current-run extras and suffix collisions. Auxiliary cylinder data are used only for conditional averaging; they are not inserted into the natural exploration filtration. Independent within-cylinder column permutations prove the conditional fixed-count block law.
+   Source: lem:ub-reservoir-counts (line 1852), lem:ub-exact-conditional-block-law (line 1985).
+
+5. Conditional first moment.
+   Tiny, intermediate and large future cylinders have distinct estimates. Large cylinders use the proved empirical first moment after explicit count perturbations. Good-column refinements, their combinatorial cost, late short tails, current-run contributions and exceptional histories are included. The bound applies at time zero and at every positive-probability natural history satisfying the adapted good event.
+   Source: lem:ub-conditional-first-moment (line 2018).
+
+6. Exponential estimate and total variation.
+   Stopping adapted unit increments proves the binomial-moment bound without conditioning a history on a future good event. The finite criterion uses 2k directional unit-increment explorations, covers crossing edges, and applies the component truncation on a product of single-matrix events. Its failure probability tends to zero with explicit powers.
+   Source: lem:ub-portenko-exponential-moment (line 2237), lem:ub-shared-edge-exponential-moment (line 2307), thm:ub-empirical-upper.
+
+7. Macroscopic and critical-time conclusions.
+   Two-sided bounded-scalar quadrature transfers the profile margins to integer empirical endpoints. All parameter choices precede the cut arrays and N. Monotonicity and the existing dominance identities yield the reduced critical-time consequence under the explicit fine-approximation hypothesis. No continuity at the critical time is assumed. The random-environment upper bound uses conditional deterministic laws, a union bound for typical events, and convexity of total variation.
+   Source: thm:deterministic-upper-bound, lem:lower-profile-transfer, thm:upper-critical-reduced and their proofs.
+
+INDEPENDENT REVIEW
+
+The edge_probability reviewer checked the empirical first-moment argument and the graph/truncation/exponential chain. The profiles_lower reviewer checked exact conditional sampling, the empirical total-variation closure and the macroscopic passage. The first_moment_upper reviewer checked the integrated macroscopic argument, parameter order, monotonicity and dominance. Their final reviews found no unresolved mathematical obstruction in the revised chain.
+
+Review findings were incorporated before the final build: nonnegative error parameters, pile-restricted history constraints, explicit small-threshold conventions, the fixed good-column cluster, counting all block refinements, and visible critical-time approximation quantifiers. These are mathematical reviews by subagents, not external peer review or a Lean-kernel certificate of the new upper argument.
+
+LOWER-BOUND PRESERVATION AND LEAN EVIDENCE
+
+The entire detailed lower-bound section, from the heading "Matching lower bound from prefix blocks and cold spots" through end of file, is byte-for-byte identical to the audited Git HEAD version: 59939 bytes; SHA256 9a2b8bd175bfd348ff7b6221a253b1f81a5bd585de26078a75443a9b5486d60b. Shared lower-relevant scalar costs, effective margins, local-good definition, graph representation and the ordinary-integral convention were also checked for preservation during this repair. Equation numbers changed to section-based (x.x) form; labels remain the stable references.
+
+The accepted lower_bound_v2 v20 audit records 197 rebuilt modules, including 183 package modules, 58 exact required exports and standard-only axiom closures {Classical.choice, Quot.sound, propext}. The package sources and accepted evidence were revalidated by hashes during this task; the unchanged lower proof was not rebuilt again. The accepted v20 build has 14 recorded build warnings and zero audit warnings; do not confuse its warning count with the clean LaTeX build below.
+
+Primary lower evidence:
+  formalization/lower_bound_v2/audit/LB00/final_audit_v20/VERIFICATION.json
+  formalization/lower_bound_v2/audit/LB12/VERIFICATION_v20.json
+  formalization/lower_bound_v2/audit/UserCheck_20261001/VERIFICATION.json
+Public proof import: RiffleLowerV2.Completed.
+
+The empirical lower bound requires no temporal profile regularity. The macroscopic lower theorem requires ScalarIntegrable for the selected partition's cell probabilities and the scalar profile costs. This is stronger than the historical arbitrary-TimeLaw formulation, and was already explicit before this upper repair. No additional lower-bound assumption was introduced here. The historical arbitrary-TimeLaw claim remains uncertified and cannot be recovered merely by deleting the regularity premise under totalized-integral semantics.
+
+The immutable v20 receipt records the previous whole-manuscript fingerprint 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d. Because the upper source changed, its strict whole-file check no longer accepts the current manuscript. This report documents preservation; it does not overwrite that receipt or claim a newly accepted release. A new source-correspondence receipt remains the additive handoff task C00 in formalization/lower_bound_parallel_plan_2026-10-01/PLAN.txt.
+
+VERIFICATION
+
+The final authoritative source compiled successfully with latexmk, pdflatex, interaction=nonstopmode and halt-on-error, using /private/tmp/riffle-upper-repair-build as the build directory. The final log contains no overfull/underfull boxes, undefined references, duplicate labels or LaTeX warnings.
+
+The mathematical-writing structural audit reported:
+  0 errors, 0 warnings, 0 notes;
+  206 labels, 342 references, 55 proofs.
+The final PDF has 53 pages. All modified upper pages were rendered and inspected, with a further check of representative final pages 4, 8, 28, 29, 30 and 31 after equation renumbering and the final display adjustment. No visible clipping or overlap was found.
+
+LIMITS OF COMPLETION
+
+No new upper Lean certificate is asserted. No result here establishes a zero-margin boundary, full cutoff, or a random-environment cold lower bound. The stronger critical-time approximation condition and the pre-existing lower scalar-integrability condition must remain visible in any account of the results. The lower-bound prompt pack is available for parallel independent audits, targeted repairs if any are found, optional measurability-interface packaging and provenance reconciliation; it does not identify the already-certified mathematical lanes as unfinished.

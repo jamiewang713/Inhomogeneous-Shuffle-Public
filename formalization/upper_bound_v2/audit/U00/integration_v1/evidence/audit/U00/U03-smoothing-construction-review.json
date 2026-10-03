@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of lane author",
+  "recorded_at": "2026-10-02T10:29:53.615673+00:00",
+  "sources": {
+    "Anchor/JoinMaximizers.lean": "4e32604f1ad68dfe764f3ca793f09fa6d8621a32ef6e5368c2d010b5c0962cb6",
+    "Anchor/SmoothingData.lean": "93085848e6fd447f49456a471b62da7b81b35a19ccf996bf0a0f45e5ac05f0c9",
+    "Anchor/Smoothing.lean": "ded4de450baa759f3de1bc5c6694fab5548d30bfc82c6ef2949a65f781b4fcbc"
+  },
+  "mathematics_and_model": [
+    "Positive join-side maxima are attained at actual join coordinates; exact prefix extension preserves their means and full-n digit probabilities, including x=v.",
+    "Constructor deterministically selects actual maximizing coordinates and branches on i<j, i=j, j<i. It instantiates previously proved equal/unequal reveal laws and actual good events.",
+    "Symmetric unequal product variance combines with |R|<=D*max to obtain min-side bound, weakened from8D to16D. Equal variance uses D>1.",
+    "Failure constants combine actual three-tail estimates, with equal case2 enlarged to3. No reflection, side ordering or side>=1 assumption.",
+    "EndpointReveal and EndpointSmoothingData are output structures. Every public planned export invokes the proved endpointSmoothing constructor; no certificate, law, variance or probability bound is an input."
+  ],
+  "adversarial": [
+    "Population n>0 is explicit; genuine positive sides force existing join coordinates.",
+    "Absolute integer offset arbitrary; upper endpoint includes exact internal occupancy.",
+    "x may equal the join; no continuation-length lower bound.",
+    "The fine history refines the full actual internal history and good event is constant on fine fibers."
+  ],
+  "remaining": "Final fine/coarse conditional atom assembly",
+  "independent_build": {
+    "receipt": "concrete-constructions-check-build.json",
+    "log": "concrete-constructions-check.log",
+    "inventory": "concrete-constructions-declarations.json",
+    "declarations": 675,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

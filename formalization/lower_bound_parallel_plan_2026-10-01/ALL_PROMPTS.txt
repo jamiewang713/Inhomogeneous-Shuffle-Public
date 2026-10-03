@@ -1,0 +1,439 @@
+COPY-PASTE PROMPTS — CURRENT LOWER-BOUND PROJECT
+
+Each section is standalone. Select tasks using PLAN.txt; C01–C05 are reuse/verification lanes, not claims of missing proofs.
+
+============================================================================
+C00 — Source correspondence and provenance coordinator
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C00 — Source correspondence and provenance coordinator
+
+READINESS AND OWNERSHIP
+Start now. Own audit/Continuation20261001/C00/ within the package, including separately named additive validation tools. If C07 is selected, you also own integration into new RiffleLowerV2/Extensions/MeasurableProfileV1.lean and RiffleLowerV2/CompletedMeasurableV1.lean, provided those paths are still unused. Register new inputs through a new receipt under C00; do not mutate frozen production files, configuration or manifests. You alone may invoke existing build/audit tools that create new, unused versioned outputs under .build/, audit/LB00/ and audit/LB12/. Coordinate those writes with their original owners and serialize them. If an existing tool requires frozen configuration changes, write an additive reviewed wrapper under C00 instead.
+
+ASSIGNED WORK
+1. Record Git status, current manuscript, all Lean source hashes, toolchain and dependency identities. Preserve uncommitted user work. Locate the audited manuscript by verifying its exact hash; Git HEAD matched at planning time, but verify again.
+2. Compare the full lower-bound section, standing scalar-integral convention, model definitions, graph-law statement and every semantic dependency used by E/M. Checking only the lower section is insufficient if a common definition changed. Classify each manuscript difference as irrelevant exposition/upper proof, changed lower statement, changed shared definition, or unresolved.
+3. Verify v20 source/evidence hashes against current files. Run the read-only completed dependency receipt check and record its actual result. Do not misreport its expected manuscript-hash failure as a kernel or mathematical failure.
+4. Issue a new SOURCE_COMPARISON.json and readable report linking the old audited snapshot to the current lower claims. Include exact source ranges/labels and any outstanding difference. Do not replace or resign the old receipt.
+5. Release CURRENT_INPUTS_READY only after the above comparison. Assign only affected C01–C05 lanes if an actual dependency changed; otherwise mark the matching completed lanes REUSE. Their raw-source reading can run before this gate, but they must not accept stale compiled artifacts as current evidence.
+6. If a current release/rebuild is requested, implement a separately reviewed provenance-validation path that binds the reviewed current source to the unchanged proof package. Preserve the old strict validator and original source manifest. Do not bypass checks, ignore all source changes, silently replace expected hashes, or make the historic validator falsely claim its input is unchanged.
+7. Write an additive CURRENT_STATUS.txt in your owned directory pointing to Completed, exact endpoints and current evidence. Leave historical README/LEDGER/OWNERSHIP frozen.
+
+DONE WHEN
+Current source scope and dependencies have an explicit comparison receipt, affected lanes (if any) are identified, and reproduction prerequisites are concrete. If no lower change exists, say so and do not schedule a redundant mathematical rebuild of all eleven lanes. C06 consumes your receipt after any actual new proof/tooling change.
+
+
+============================================================================
+C01 — Concrete shuffle law and graph representation
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C01 — Concrete shuffle law and graph representation
+
+READINESS AND OWNERSHIP
+Read-only inspection can start now; use C00's current input receipt for final certification. Own only audit/Continuation20261001/C01/ within the package, including additive Lean probes/candidates there. This lane is optional when C00 confirms unchanged relevant inputs.
+
+ASSIGNED SOURCE AND MODULES
+Source label lem:ub-graph-representation and physical shuffle/sorting definitions. Read Contracts/v1/ModelThinning.lean, RiffleLowerV2/Model/{Main,Physical,GraphLaw,FiniteLaws}.lean and RiffleLowerV2/Shared/Model.lean as needed. Existing frozen names are enumerated under LB01 in OWNERSHIP.json; use its name/type list but ignore its obsolete PENDING status.
+
+ASSIGNED WORK
+Trace actual independent fixed-count columns through stable lexicographic sorting to the chronological physical inverse law. Check the independently defined forward operations, reversal/inversion convention and physicalMatrixBridge. Then check graphRepresentation: the graph and uniform permutation in the component mixture must be independent and the resulting law must be the physical law used by E/M.
+Audit row relabeling, stable ties, zero-sized piles, empty words/horizon, one-based manuscript ranks versus zero-based Lean indices and graphEventIdentity. Verify inversionTV on the actual physical law if interpreting the result for the forward shuffle. Do not treat a definitional alias of a chosen mixture as a proof of the physical model.
+Produce a short compiled consumer probe importing only RiffleLowerV2.Completed, exact-checking the public law bridges and their axiom closure against validated objects. Reuse existing theorem bodies. If a manuscript convention changed, propose and prove the smallest additive equivalence adapter with its exact type frozen first; never redefine the physical law to force equality.
+
+DONE WHEN
+Every law used by the lower endpoint is identified with the current manuscript convention and all conversion premises are discharged. Provide a model-to-endpoint dependency map and mark unchanged checked bridges REUSE.
+
+
+============================================================================
+C02 — Concentration, factorial moments and occupancy
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C02 — Concentration, factorial moments and occupancy
+
+READINESS AND OWNERSHIP
+Read-only inspection can start now; final validation uses C00. Own only audit/Continuation20261001/C02/. This groups the completed LB02, LB03 and LB08 proof chain; do not restart these implementations unless a concrete mismatch is found.
+
+ASSIGNED SOURCE AND MODULES
+Labels lem:successive-thinning-tail, cor:iterated-hypergeom, lem:fixed-column-factorial, lem:central-window, lem:two-category-poisson. Read Contracts/v1/ModelThinning.lean, Contracts/v1/FactorialOccupancy.lean and RiffleLowerV2/{Thinning,Factorial,Occupancy}/Main.lean plus reached proof modules. Exact public names/types are in the LB02/LB03/LB08 entries of OWNERSHIP.json and the completed exports inventory.
+
+ASSIGNED WORK
+1. Verify the successive-thinning transform for every positive transform parameter and the resulting exponential upper/lower tails. An older transform restricted to 0<s<=1 or a fixed-word Chebyshev estimate cannot substitute for the full target. Track residual population, category counts and conditional independence after exposure.
+2. Check that all-prefix concentration counts every relevant prefix and gives a threshold uniform over admissible cuts when K is logarithmic in N. Retain zero means, zero categories and degenerate populations.
+3. Inspect exact joint falling-factorial formulas and their relative versions in the actual fixed-column model. Verify the corrected Bonferroni inequalities and expected polynomial remainder control; do not reuse the false old 1/6 coefficient or replace a remainder expectation by a tail probability.
+4. Verify occupancy/collision estimates uniformly in rare, central and mixed regimes. Check conversion from absolute to relative errors and their dependence on small probabilities. Distinct word occupancies are not independent. Trace residual conditional estimates back to the exact law, with all coordinate-size and logarithmic-depth requirements supplied downstream.
+5. Confirm that uniformOccupancy, conditionalCollisionStability and collisionChebyshev require the advertised primitive model conditions rather than assumed moment/covariance conclusions. Map where Localization and EmpiricalLower supply each premise.
+
+DONE WHEN
+Return a proof-obligation table (claim, primitive premises, conditioning field, uniformity, source declaration, downstream discharge). Any actual gap gets a narrowly scoped additive repair with unchanged endpoint premises, not a replacement theorem assuming concentration or independence.
+
+
+============================================================================
+C03 — Cold witness, type counts and localization
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C03 — Cold witness, type counts and localization
+
+READINESS AND OWNERSHIP
+Read-only inspection can start now; final validation uses C00. Own only audit/Continuation20261001/C03/. Existing LB05/LB06/LB09 proofs are reusable; completed LB02 inputs are available after provenance validation.
+
+ASSIGNED SOURCE AND MODULES
+Labels lem:cold-witness, lem:type-estimates, lem:cold-geometry, lem:finite-relative-endpoints, lem:localization. Read Contracts/v1 specifications for these names and RiffleLowerV2/{Witness,Types,Localization}/Main.lean with their actual proof dependencies.
+
+ASSIGNED WORK
+1. Reconstruct the empirical variational witness from a fixed positive cold margin, including theta=4 boundary motion, safe shortening away from the terminal time, and the positive bridge budget. Verify the witness is constructed, not supplied as a final premise.
+2. Check rounding and a LOWER multinomial cardinality estimate for the chosen type family. Track fixed mesh errors explicitly instead of calling them o(1). Verify that deterministic mass bins are selected from the actual class with the stated entropy/mass losses. Word types must not count unused suffix coordinates.
+3. Check cold geometry in the original fixed-column model, including every reserve event and its failure probability. Retain the ambient prefix fluctuation in the right endpoint; a relative endpoint bound must not silently become an absolute one.
+4. Check integer-rank localization, clipping at deck endpoints, interval length and boundary losses, and translation. Identify exactly where local-good columns and 2*rho*log(k)<=kappa0/100 enter; do not strengthen them to per-column good cuts or a uniform positive bound on every pile.
+5. Inspect coldGeometryFromEmpirical and localization and follow them into EmpiricalLower/Cold.lean. Ensure RiffleLowerV2.WitnessSpec, GeometrySpec and ColdLocalization from RiffleLowerV2/Shared/Geometry.lean are proved before use, not hidden in a structure passed as a final hypothesis. The old localizedKeys interface is historical context only; the V2 endpoint must use the actual constructed localization. Verify all choices and failure estimates are uniform when the witness varies with N and the cuts.
+
+DONE WHEN
+Deliver a constructed-witness-to-localized-cold-set dependency map, parameter-order ledger and precise source correspondence. If unchanged, reuse the existing proofs. Repair only a demonstrated mismatch in a new candidate module; never obtain an easier theorem by assuming localization.
+
+
+============================================================================
+C04 — Observable ascent test and empirical lower bound
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C04 — Observable ascent test and empirical lower bound
+
+READINESS AND OWNERSHIP
+Read-only inspection can start now. Final validation uses C00 and the already checked model/probability/geometry inputs; consume C01–C03 reports only if those lanes were reopened. Own only audit/Continuation20261001/C04/.
+
+ASSIGNED SOURCE AND MODULES
+Labels lem:relative-order-independence, lem:permutation-bd, lem:component-ascent-expectation, lem:uniform-ascent, lem:lalley-comparison, lem:lalley, lem:many-edges, prop:largest-prefix and prop:cold-lower. Read RiffleLowerV2/Ascent/ and RiffleLowerV2/EmpiricalLower/, their contracts and RiffleLowerV2/Shared/Statistics.lean and RiffleLowerV2/Shared/Path.lean.
+
+ASSIGNED WORK
+Check the specialized ascent concentration proof for a uniform permutation sorted within graph components. The old generic block bounded-difference lemma is false; do not import it. Verify independence of relative orders where used, the parity decomposition, expectation deficit at component boundaries, and clipped-set boundary terms.
+Verify that the distinguishing statistic is observable from the shuffled permutation. The graph-dependent selector must not use the independently sampled test permutation. Check the union bound over scanned translates and the uniform-permutation false-positive estimate.
+Trace the cold chain: constructed witness/geometry -> actual collision/occupancy estimates -> manyEdges -> graph mixture -> observable scan -> TV lower bound. Check the excess over square-root fluctuations and every failure probability. No assumed many-edge event, localization, or successful test may remain at coldOnly.
+Separately inspect finiteLargestWordTV and largestOnly: the increasing-run obstruction, actual maximal-word mean and eventual bound must not depend on LocalGood. Finally inspect empiricalCombined and its internal branch at terminal beta=kappa0; the N0 must work uniformly over all cuts and arbitrary alternation of branches with N. Keep the horizon floor(T log N), physicalInverseLaw and half-L1 TV convention exact.
+
+DONE WHEN
+Exact-check largestOnly, coldOnly and empiricalCombined against their literal frozen targets and audit actual dependencies. Return a conclusion-to-primitive-premise table. This establishes E only; do not claim the macroscopic transfer, random-environment cold extension or zero-margin result from this lane.
+
+
+============================================================================
+C05 — Profile transfer and macroscopic assumption audit
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C05 — Profile transfer and macroscopic assumption audit
+
+READINESS AND OWNERSHIP
+Read-only inspection can start now; final validation uses C00. Own only audit/Continuation20261001/C05/. This verifies completed LB07/LB11; it does not authorize changing their hypotheses.
+
+ASSIGNED SOURCE AND MODULES
+Labels lem:lower-profile-transfer and thm:buffered-reduced-lower-bound, plus the standing ordinary-integral convention. Read Contracts/v1/Endpoints.lean, RiffleLowerV2/Shared/Empirical.lean, RiffleLowerV2/ProfileTransfer/ and RiffleLowerV2/MacroscopicLower/, and audit/UserCheck_20261001/MeasurabilityCheck.lean.
+
+ASSIGNED WORK
+1. Expand ScalarIntegrable, AlmostLike, LocalGood, macroBeta, macroLambda1 and the empirical costs. Compare the exact formulas and sup/inf order to the manuscript. Separate the empirical theorem E from macro theorem M.
+2. Check uniform TWO-SIDED transfer of A/B costs, including every alpha in [2,4], interval endpoints and the floor(T log N)/log N terminal correction. Old one-sided quadrature does not supply this result. Check that the selected finite partition is the same in the integrability and frequency premises.
+3. Record the quantifier order: k,T,eta; partition and rho0; fixed rho and phi0; fixed phi, good constants, epsilon and profile with its scalar premise; then N0; then all N and cuts. Do not claim uniformity over profiles or parameters that vary with N.
+4. Follow transfer into macroscopicIntegrable and macroscopicIntegrable_tendsto. Verify all positive buffers, the cold bridge restriction at eta/2 and empirical branch thresholds are chosen inside the proof, not extra user assumptions.
+5. Answer the stronger-assumption question precisely. Compared with the old arbitrary-TimeLaw representation, M has explicit scalar regularity. Compared with the revised manuscript's ordinary-integral convention, this is the relevant stated condition; E has no temporal regularity. The audit supplement already proves equivalence with scalar AE strong measurability on the finite interval. Do not substitute the stronger demand of a measurable probability kernel or continuity.
+6. Distinguish a documented mathematical counterexample to removing regularity from a Lean-formalized refutation. The existing counterexample has not itself been fully formalized. No claim about all nonmeasurable profiles is needed to certify M.
+
+DONE WHEN
+Provide an old/current/Lean assumption table and exact endpoint/source comparison, citing every actual discharge site. If all inputs are unchanged, mark REUSE; do not reprove transfer or strengthen premises to make a new representation easier.
+
+
+============================================================================
+C06 — Independent final audit and release handoff
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C06 — Independent final audit and release handoff
+
+READINESS AND OWNERSHIP
+Run after C00 and any affected proof lane. If optional C07 is selected, include it before final release. Own only audit/Continuation20261001/C06/. Do not edit proofs, contracts, manifests or another lane's outputs. Author any independent probes/checker and its outputs only under C06. Ask C00 to invoke existing verifier commands that write into audit/LB00/, audit/LB12/ or shared .build/ paths; do not call those writers concurrently or outside your ownership. You must not be the sole author of a repair you certify.
+
+ASSIGNED WORK
+1. Read C00's source comparison and the actual Lean declarations, not just lane success reports. Inspect the whole dependency chain to E/M and any added public corollaries. Compare the exact types with the frozen targets; reject extra generalized binders that assume a needed intermediate conclusion.
+2. Require fresh compilation if proof sources, compilation inputs or verification tooling changed, or if a new release is requested. Otherwise verify the accepted source/object/evidence hashes and report a reuse audit honestly. The original completed verifier currently stops on manuscript provenance; require a reviewed additive current-source validation route from C00 before issuing a current release. Never disable the old check.
+3. The coordinator alone runs the fresh build. Select a genuinely unused numeric run label after inspecting existing directories; v20 and many earlier labels already exist. Consult scripts/verify_completed_v2.py and audit/LB12/verify_final_v4.py plus their recorded accepted commands. Do not overwrite old logs or claim an unsuccessful command passed.
+4. Check imports from RiffleLowerV2.Completed in a separate environment and all 58 exact required exports. Audit recursive dependencies including theorem values, definitions, inductive constructors and recursor metadata, cross-checking Lean.collectAxioms. Reject sorryAx, custom axioms and native-oracle dependencies; expected ordinary foundations are propext, Classical.choice and Quot.sound. Record the compiler/mathlib trust boundary and actual object lookup paths.
+5. Inspect model equivalence, concrete discharges and asymptotic uniformity independently of axiom cleanliness. Kernel acceptance alone does not show the theorem expresses the paper. Check E without temporal regularity, M with the same-partition scalar premise, and optional public measurability corollaries separately.
+6. Publish a new release/handoff report with current source fingerprints, exact imports, reproduction commands, law/horizon/TV conventions and resolved findings. Preserve all earlier records.
+
+DONE WHEN
+Give separate verdicts for E, scalar-integrable M, the original unchanged arbitrary-TimeLaw statement, and any optional extension. The original statement must not inherit M's PASS. List any unresolved item explicitly; a theorem count is not a completion criterion. Do not rerun a full build merely to fill time when unchanged accepted evidence is sufficient for the stated reuse audit.
+
+
+============================================================================
+C07 — Optional public scalar-measurability interface
+============================================================================
+
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C07 — Optional public scalar-measurability interface
+
+READINESS AND OWNERSHIP
+OPTIONAL additive interface improvement, not an open gap in E/M. May run alongside C00 and focused read-only lanes. Own only audit/Continuation20261001/C07/, including staged Lean candidates. C00 integrates new public modules/build registration through a reviewed additive release; never modify the frozen RiffleLowerV2/Shared/Empirical.lean definition or existing Completed umbrella in place.
+
+ASSIGNED INPUTS
+The existing checked audit/UserCheck_20261001/MeasurabilityCheck.lean proves scalarIntegrable_of_measurable and scalarIntegrable_iff_measurable. Read those proofs and their successful v20 check, RiffleLowerV2/Shared/Empirical.lean, RiffleLowerV2/ProfileTransfer's scalar bounds, Contracts/v1/Endpoints.lean and RiffleLowerV2/MacroscopicLower/Main.lean. Do not reprove an already available equivalence unless a genuine port issue appears.
+
+ASSIGNED WORK
+1. Stage candidates for the new public module RiffleLowerV2/Extensions/MeasurableProfileV1.lean and new umbrella RiffleLowerV2/CompletedMeasurableV1.lean, confirming those names are unused. Use a fresh namespace and import production proofs only. C00 owns copying accepted candidates into these new production paths and issuing additive build/receipt registration. Port the already checked bounded-scalar equivalence with explicit provenance; do not make production code import audit scripts or audit namespaces.
+2. Define a scalar AE-measurability predicate for the selected partition's cell masses, profileMaxCost and profilePsi for alpha in [2,4], on volume restricted to the finite time interval. Prove it equivalent to ScalarIntegrable using the existing argument. Ordinary scalar measurability should give a convenience sufficient condition. No continuity or measurable-kernel assumption is required.
+3. Freeze and prove a public macroscopic lower corollary with this equivalent predicate in place of ScalarIntegrable, keeping all other quantifiers, fixed parameters, selected partition, margin, law, horizon and cut-uniformity identical to M. Derive it from macroscopicIntegrable. If exposing a Tendsto corollary, preserve the existing eventual-admissibility assumptions and fixed-profile scope.
+4. Add one small compiled consumer example demonstrating application through the new public import without manually manipulating the integrability tuple. The example must not hide the desired lower bound in a hypothesis. Choose the simplest supported regular profile instance; avoid turning this task into a general probability-kernel library.
+5. Cross-review the literal old/new theorem types to establish equivalence of hypotheses. Document that this improves access to the result, not that it proves the unrestricted arbitrary-TimeLaw statement.
+
+DONE WHEN
+Deliver additive module candidates, exact public types, checked proof/axiom evidence and a consumer example. C00/C06 handle integration and release. This optional task must not delay declaring the already certified E/M proof complete.
+
+

@@ -1,0 +1,43 @@
+CHECK RiffleUpperV2.Reservoir.SortedHistory
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/SortedHistory.lean:87:19: warning: This simp argument is unused:
+  Nat.lt_succ_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Reservoir.History
+CHECK RiffleUpperV2.Reservoir.BackwardHistory
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/BackwardHistory.lean:40:13: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/BackwardHistory.lean:40:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Reservoir.MarkedLaw
+CHECK RiffleUpperV2.Reservoir.Cancellation
+CHECK RiffleUpperV2.Reservoir.PrefixWeight
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:31: warning: Unused tactic linter: `split_ifs` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:45: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:31: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleUpperV2.Reservoir.PrefixConditional
+CHECK RiffleUpperV2.Reservoir.MarkedPrefix
+CHECK RiffleUpperV2.Reservoir.FirstColumn
+CHECK RiffleUpperV2.Reservoir.HistoryExtension
+CHECK RiffleUpperV2.Reservoir.ExposedRows
+CHECK RiffleUpperV2.Reservoir.Counts
+CHECK RiffleUpperV2.Reservoir.PilePrefix
+CHECK RiffleUpperV2.Reservoir.ReserveWeight
+CHECK RiffleUpperV2.Reservoir.ReserveUniform
+CHECK RiffleUpperV2.Reservoir.Denominator
+CHECK RiffleUpperV2.Reservoir.Module
+BUILD_OK U08

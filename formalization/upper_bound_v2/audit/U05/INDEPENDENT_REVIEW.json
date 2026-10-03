@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "reviewer": "U00",
+  "recorded_at": "2026-10-02T20:51:57.050421+00:00",
+  "scope": "Independent endpoint mathematics, exact statement/model/quantifier, adversarial source review and root build/type/transitive trust check. Earlier narrow checks linked in VERIFICATION.json.",
+  "evidence": [
+    {
+      "file": "audit/U00/U05-F-endpoint-review.json",
+      "sha256": "336fea20fbff4451f23dc7604d3b3795fb70e3c37719f79cd13fe3c6312edff5"
+    },
+    {
+      "file": "audit/U00/U05-graph-assembly-review.json",
+      "sha256": "b17bddd910b93c3ad879b7fc2601908b8db46686fe8d083b98089584c9ec8d2a"
+    }
+  ],
+  "endpoint": "RiffleUpperV2.FirstMoment.empiricalFirstMoment : RiffleUpperV2.Contracts.V1.F",
+  "root_trust_count": 676,
+  "remaining_obligations": []
+}

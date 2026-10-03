@@ -1,0 +1,22 @@
+CHECK RiffleUpperV2.Shared.WindowRates
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/WindowRates.lean:27:4: error: `ring_nf` made no progress on the goal
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/WindowRates.lean:85:34: error: Application type mismatch: The argument
+  add_le_add_left hwV ?m.822
+has type
+  w + ?m.822 ≤ V + ?m.822
+but is expected to have type
+  χ⁻¹ * V + w ≤ χ⁻¹ * V + V
+in the application
+  mul_le_mul_of_nonneg_left (add_le_add_left hwV ?m.822)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/WindowRates.lean:103:16: error: Type mismatch: After simplification, term
+  hexp N hn3
+ has type
+  ↑N * Real.exp (-1 * ↑N ^ (δ / 4)) ≤ Real.exp (-↑N ^ (δ / 8))
+but is expected to have type
+  ↑N * Real.exp (-↑N ^ (δ / 4)) ≤ Real.exp (-↑N ^ (δ / 8))
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/WindowRates.lean:137:8: error: Type mismatch: After simplification, term
+  hexp N hn2
+ has type
+  ↑N ^ (1 + T * Real.log ↑k) * Real.exp (-1 * ↑N ^ (δ / 16)) ≤ Real.exp (-↑N ^ (δ / 32))
+but is expected to have type
+  ↑N ^ (1 + T * Real.log ↑k) * Real.exp (-↑N ^ (δ / 16)) ≤ Real.exp (-↑N ^ (δ / 32))

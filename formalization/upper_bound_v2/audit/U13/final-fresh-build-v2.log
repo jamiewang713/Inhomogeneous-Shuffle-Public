@@ -1,0 +1,1287 @@
+CHECK RiffleTimeProfile.Base
+CHECK RiffleTimeProfile.Ambient
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:91:13: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:95:29: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:110:53: warning: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:128:19: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:138:50: warning: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:168:5: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleTimeProfile.FixedCountModel
+CHECK RiffleShuffle.Basic
+CHECK RiffleShuffle.Profiles
+CHECK RiffleShuffle.Words
+CHECK RiffleShuffle.Matrices
+CHECK RiffleShuffle.Graphs
+CHECK RiffleLowerV2.Shared.Smoke
+CHECK RiffleLowerV2.Shared.Model
+CHECK RiffleLowerV2.Shared.Empirical
+CHECK RiffleLowerV2.Shared.Path
+CHECK RiffleLowerV2.Shared.Statistics
+CHECK Contracts.v1.ModelThinning
+CHECK Contracts.v1.FactorialOccupancy
+CHECK Contracts.v1.Ascent
+CHECK Contracts.v1.Endpoints
+CHECK Contracts.v1.AdditionalFinite
+CHECK RiffleLowerV2.Model.Sorting
+CHECK RiffleLowerV2.Shared.Adapters
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Shared/Adapters.lean:59:2: warning: Unused tactic linter: `change (sortedWord ω (edgeLeft e) = sortedWord ω (edgeRight e)) ↔ _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CHECK RiffleLowerV2.Model.FiniteLaws
+CHECK RiffleLowerV2.Model.GraphSorting
+CHECK RiffleLowerV2.Model.GraphLaw
+CHECK RiffleLowerV2.Model.FiberCounts
+CHECK RiffleLowerV2.Model.ComponentFibers
+CHECK RiffleLowerV2.Model.Physical
+CHECK RiffleLowerV2.Model.Main
+CHECK RiffleUpperV2.Shared.Model
+CHECK RiffleTimeProfile.Analysis
+CHECK RiffleUpperV2.Shared.Empirical
+CHECK RiffleUpperV2.Contracts.V1.Empirical
+CHECK RiffleUpperV2.Shared.Conditioning
+CHECK RiffleUpperV2.Exploration.Objects
+CHECK RiffleUpperV2.Contracts.V1.Conditional
+CHECK RiffleUpperV2.Shared.Infimum
+CHECK RiffleUpperV2.Shared.Profile
+CHECK RiffleUpperV2.Shared.Random
+CHECK RiffleUpperV2.Contracts.V1.Profile
+CHECK RiffleUpperV2.Contracts.V1.Main
+CHECK RiffleLowerV2.Thinning.PMFTools
+CHECK RiffleLowerV2.Thinning.Compat.FiniteLaw
+CHECK RiffleLowerV2.Thinning.Compat.Hypergeometric
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Hypergeometric.lean:74:8: warning: This simp argument is unused:
+  mul_pos_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.pos_iff_ne_zero, Nat.choose_eq_zero_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleLowerV2.Thinning.Compat.HypergeometricMoments
+CHECK RiffleLowerV2.Thinning.Compat.HypergeometricConcentration
+CHECK RiffleLowerV2.Thinning.Compat.Conditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:172:0: warning: automatically included section variable(s) unused in theorem `RiffleLowerV2.Thinning.Compat.FiniteLaw.coarse_total_probability`:
+  [Fintype Δ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Δ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:391:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleLowerV2.Thinning.Compat.SubsetSampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleLowerV2.Thinning.Compat.ResidualSampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:80:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:106:24: warning: Variable name `hres` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hres
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:148:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:151:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleLowerV2.Thinning.Compat.SubsetTransform
+CHECK RiffleLowerV2.Thinning.ColumnSampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleLowerV2.Thinning.Recursion
+CHECK RiffleLowerV2.Thinning.Tails
+CHECK RiffleUpperV2.Hypergeometric.Cylinder
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Cylinder.lean:65:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Anchor.Definitions
+CHECK RiffleUpperV2.Shared.Anchored
+CHECK FirstMoment.Assembly
+CHECK RiffleUpperV2.Shared.FirstMomentAPI
+CHECK RiffleUpperV2.Shared.FiniteLawAdapters
+CHECK RiffleUpperV2.Shared.FiniteAveraging
+CHECK RiffleLowerV2.Thinning.PrefixCoordinates
+CHECK RiffleUpperV2.Localization.Prefixes
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Prefixes.lean:53:13: warning: This simp argument is unused:
+  parent
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [takePrefix_list, List.length_take, List.Vector.toList_length]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Anchor.Scales
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Scales.lean:69:70: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Scales.lean:94:70: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CHECK RiffleUpperV2.Shared.SideMass
+CHECK RiffleUpperV2.Hypergeometric.AntiConcentration
+CHECK RiffleUpperV2.Hypergeometric.Estimates
+CHECK RiffleUpperV2.Hypergeometric.Sampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Sampling.lean:31:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Sampling.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Sampling.lean:78:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Anchor.PartialColumn
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean:148:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean:150:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean:171:4: warning: Unused tactic linter: `change residualSubset A D c₀ v = b ↔ residualSubset A D c₀ (e v) = c` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CHECK RiffleUpperV2.Anchor.ConditionalColumn
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/ConditionalColumn.lean:46:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Anchor.PartialReveal
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialReveal.lean:47:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialReveal.lean:49:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Hypergeometric.CylinderMean
+CHECK RiffleUpperV2.Hypergeometric.ConditionalAnchor
+CHECK RiffleUpperV2.Hypergeometric.Main
+CHECK RiffleUpperV2.Anchor.HypergeometricSymmetry
+CHECK RiffleUpperV2.Anchor.SourceSampling
+CHECK RiffleUpperV2.Anchor.VarianceAlgebra
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/VarianceAlgebra.lean:33:10: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/VarianceAlgebra.lean:33:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/VarianceAlgebra.lean:38:17: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Shared.UnequalVariance
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UnequalVariance.lean:10:5: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UnequalVariance.lean:43:18: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UnequalVariance.lean:43:44: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleLowerV2.ProfileTransfer.Compat.LatticeCounts
+CHECK RiffleLowerV2.ProfileTransfer.Compat.IntegralEnvelope
+CHECK RiffleLowerV2.ProfileTransfer.Compat.Error
+CHECK RiffleLowerV2.ProfileTransfer.Compat.GridQuadrature
+CHECK Contracts.v1.TransferFinite
+CHECK RiffleLowerV2.Shared.Geometry
+CHECK RiffleLowerV2.Shared
+CHECK RiffleLowerV2.ProfileTransfer.Empirical
+CHECK RiffleLowerV2.ProfileTransfer.Endpoint
+CHECK RiffleLowerV2.ProfileTransfer.Quadrature
+CHECK RiffleLowerV2.ProfileTransfer.Spatial
+CHECK RiffleLowerV2.ProfileTransfer.Parameters
+CHECK RiffleUpperV2.Margins.FixedPartition
+CHECK RiffleUpperV2.Margins.Scalar
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Margins/Scalar.lean:25:65: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK Contracts.v1.WitnessGeometry
+CHECK Contracts.v1.AssemblyInputs
+CHECK RiffleLowerV2.Thinning.MaximalWord
+CHECK RiffleUpperV2.Margins.Empirical
+CHECK RiffleUpperV2.Margins.Suffix
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Margins/Suffix.lean:156:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleLowerV2.ProfileTransfer.Extrema
+CHECK RiffleLowerV2.ProfileTransfer.Margin
+CHECK RiffleUpperV2.Margins.ProfileMargin
+CHECK RiffleUpperV2.Margins.Main
+CHECK RiffleUpperV2.Localization.Scalars
+CHECK RiffleUpperV2.Localization.Definitions
+CHECK RiffleUpperV2.Localization.Stopping
+CHECK RiffleUpperV2.Localization.Boundary
+CHECK RiffleUpperV2.Localization.IntervalCounting
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/IntervalCounting.lean:7:37: warning: Variable name `l₁` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _l₁
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/IntervalCounting.lean:7:52: warning: Variable name `r₃` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r₃
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Localization.Counting
+CHECK RiffleUpperV2.Localization.DensityAlgebra
+CHECK RiffleUpperV2.Localization.StableScales
+CHECK RiffleUpperV2.Localization.CylinderAdapters
+CHECK RiffleUpperV2.Localization.RankGeometry
+CHECK RiffleUpperV2.Localization.Main
+CHECK RiffleUpperV2.Exploration.Histories
+CHECK RiffleUpperV2.Exploration.HistoryProbability
+CHECK RiffleLowerV2.Thinning.AllPrefixes
+CHECK RiffleLowerV2.Thinning.Prefixes
+CHECK RiffleUpperV2.Exploration.PrefixConcentration
+CHECK RiffleUpperV2.Exploration.AllCylinders
+CHECK RiffleUpperV2.Exploration.Clusters
+CHECK RiffleUpperV2.Anchor.CylinderExtension
+CHECK RiffleUpperV2.Exploration.Positions
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Positions.lean:53:15: warning: This simp argument is unused:
+  RiffleLowerV2.lowerRank
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RiffleLowerV2.upperRank, Finset.mem_filter, Finset.mem_univ, true_and] at hr ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Positions.lean:53:40: warning: This simp argument is unused:
+  RiffleLowerV2.upperRank
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RiffleLowerV2.lowerRank, Finset.mem_filter, Finset.mem_univ, true_and] at hr ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Exploration.CylinderCounts
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/CylinderCounts.lean:35:32: warning: This simp argument is unused:
+  prefixLaterCount
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Anchor.prefixRows, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_singleton,
+    RiffleLowerV2.rowWord_get]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Exploration.Guards
+CHECK RiffleUpperV2.Exploration.GuardConcentration
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:79:26: warning: This simp argument is unused:
+  guardCount
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [guardBins, beforeMiddle, throughMiddle]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:109:13: warning: This simp argument is unused:
+  RiffleLowerV2.Word
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RiffleShuffle.Word, card_vector, Fintype.card_fin]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:109:33: warning: This simp argument is unused:
+  RiffleShuffle.Word
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RiffleLowerV2.Word, card_vector, Fintype.card_fin]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/GuardConcentration.lean:162:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Exploration.ReserveExistence
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/ReserveExistence.lean:120:69: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [x, y, modifiedTail, List.Vector.get_ofFn, if_neg hab.symm] at hh'
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/ReserveExistence.lean:125:53: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [x, z, modifiedTail, List.Vector.get_ofFn] at hh'
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/ReserveExistence.lean:130:53: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [y, z, modifiedTail, List.Vector.get_ofFn] at hh'
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Exploration.DirectionalRanks
+CHECK RiffleUpperV2.Exploration.DirectionalGuards
+CHECK RiffleUpperV2.Exploration.Processes
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Processes.lean:114:72: warning: This simp argument is unused:
+  and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [S, and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Processes.lean:119:33: warning: This simp argument is unused:
+  and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [S, not_lt, and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Exploration.DirectionalCover
+CHECK RiffleUpperV2.Exploration.CoverageCount
+CHECK RiffleUpperV2.Exploration.LocalGood
+CHECK RiffleUpperV2.Exploration.PairHistories
+CHECK RiffleUpperV2.Exploration.Regularity
+CHECK RiffleUpperV2.Exploration.UniformConcentration
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/UniformConcentration.lean:21:5: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.GraphOverlap.Fibers
+CHECK RiffleUpperV2.GraphOverlap.Support
+CHECK RiffleUpperV2.GraphOverlap.Density
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Density.lean:33:4: warning: This simp argument is unused:
+  density
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ComponentSortFiber, Fintype.card_subtype, Finset.card_eq_sum_ones, Finset.sum_filter, Nat.cast_sum,
+    Nat.cast_ite, Nat.cast_one, Nat.cast_zero] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleLowerV2.Factorial.Basic
+CHECK RiffleUpperV2.GraphOverlap.FiniteProbability
+CHECK RiffleUpperV2.GraphOverlap.Truncation
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Truncation.lean:161:9: warning: Variable name `ω` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ω
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Truncation.lean:161:41: warning: Variable name `ω` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ω
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Truncation.lean:168:45: warning: Variable name `ω` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ω
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.GraphOverlap.RunProduct
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/RunProduct.lean:176:63: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleLowerV2.Factorial.Requests
+CHECK RiffleLowerV2.Factorial.Exact
+CHECK RiffleUpperV2.GraphOverlap.FactorialTail
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/FactorialTail.lean:55:13: warning: This simp argument is unused:
+  Fin.sum_univ_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.GraphOverlap.Components
+CHECK RiffleUpperV2.GraphOverlap.LargestComponent
+CHECK RiffleUpperV2.GraphOverlap.Collision
+CHECK RiffleUpperV2.Exploration.SmallPiles
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/SmallPiles.lean:135:76: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/SmallPiles.lean:135:76: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/SmallPiles.lean:162:18: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/SmallPiles.lean:162:18: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleUpperV2.Exploration.UniformRegularity
+CHECK RiffleUpperV2.Exploration.RegularityDecay
+CHECK RiffleUpperV2.Exploration.WindowClusters
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/WindowClusters.lean:61:16: warning: Variable name `hN0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/WindowClusters.lean:61:41: warning: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Exploration.Module
+CHECK RiffleUpperV2.Anchor.EqualReveal
+CHECK RiffleUpperV2.Anchor.History
+CHECK RiffleUpperV2.Anchor.EqualHistory
+CHECK RiffleUpperV2.Anchor.LexSplit
+CHECK RiffleUpperV2.Anchor.RowSlices
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/RowSlices.lean:53:45: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CHECK RiffleUpperV2.Anchor.EqualEndpoint
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:21: warning: This simp argument is unused:
+  hL
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hT, hD, hE, hS, hP, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    true_iff, false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:25: warning: This simp argument is unused:
+  hT
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hD, hE, hS, hP, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    true_iff, false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:29: warning: This simp argument is unused:
+  hD
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hE, hS, hP, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    true_iff, false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:33: warning: This simp argument is unused:
+  hE
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hS, hP, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    true_iff, false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:37: warning: This simp argument is unused:
+  hS
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hP, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    true_iff, false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:41: warning: This simp argument is unused:
+  hP
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hS, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    true_iff, false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:45: warning: This simp argument is unused:
+  true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hS, hP, false_or, or_true, or_false, true_and, false_and, and_true, and_false,
+    lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add, true_iff,
+    false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:54:54: warning: This simp argument is unused:
+  false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hS, hP, true_or, or_true, or_false, true_and, false_and, and_true, and_false,
+    lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add, true_iff,
+    false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:55:8: warning: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hS, hP, true_or, false_or, or_true, or_false, false_and, and_true, and_false,
+    lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add, true_iff,
+    false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:55:18: warning: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hS, hP, true_or, false_or, or_true, or_false, true_and, and_true, and_false,
+    lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add, true_iff,
+    false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:57:8: warning: This simp argument is unused:
+  true_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hS, hP, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    false_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:57:18: warning: This simp argument is unused:
+  false_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [hL, hT, hD, hE, hS, hP, true_or, false_or, or_true, or_false, true_and, false_and, and_true,
+    and_false, lt_self_iff_false, not_true_eq_false, not_false_eq_true, if_true, if_false, Nat.add_zero, Nat.zero_add,
+    true_iff, iff_true, iff_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:57:54: warning: Unused tactic linter: `omega` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualEndpoint.lean:57:54: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleUpperV2.Anchor.EqualMeasurability
+CHECK RiffleUpperV2.Anchor.EqualLaw
+CHECK RiffleUpperV2.Anchor.UnequalDefinitions
+CHECK RiffleUpperV2.Anchor.SliceOrder
+CHECK RiffleUpperV2.Anchor.WitnessCylinder
+CHECK RiffleUpperV2.Anchor.WitnessInclusion
+CHECK RiffleUpperV2.Anchor.UnequalHistory
+CHECK RiffleUpperV2.Anchor.UnequalEndpoint
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalEndpoint.lean:43:40: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lt_self_iff_false, ht, hs, false_or, true_and, and_true, le_iff_lt_or_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalEndpoint.lean:45:43: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [SuffixSide.test, SuffixSide.allowed, Finset.mem_filter, Finset.mem_univ, true_and,
+    lt_self_iff_false, ht, hs, not_true_eq_false, false_and, if_false, Nat.zero_add, Nat.add_zero, hp']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalEndpoint.lean:47:59: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [SuffixSide.test, lt_self_iff_false, ht, hs, not_false_eq_true, true_and, false_and, if_false,
+    Nat.zero_add, Nat.add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalEndpoint.lean:54:40: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lt_self_iff_false, ht, hns, false_or, true_and, and_false, or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalEndpoint.lean:56:43: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [SuffixSide.test, SuffixSide.allowed, Finset.mem_filter, Finset.mem_univ, true_and,
+    lt_self_iff_false, ht, hs, not_true_eq_false, false_and, if_false, Nat.zero_add, Nat.add_zero, hp']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalEndpoint.lean:58:59: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [SuffixSide.test, lt_self_iff_false, ht, hs, not_false_eq_true, true_and, false_and, if_false,
+    Nat.zero_add, Nat.add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Anchor.UnequalMeasurability
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalMeasurability.lean:70:2: warning: Unused tactic linter: `change (r ∈ R.filter (fun r => _)) ↔ _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/UnequalMeasurability.lean:73:2: warning: Unused tactic linter: `change
+  (r ∈ R ∧ _ ∧ _ ∧ sampleEntry ω r (prefixColumn x j) ∈ s.allowed (x.2.get j)) ↔ _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CHECK RiffleUpperV2.Anchor.UnequalLaw
+CHECK RiffleUpperV2.Anchor.ResidualOtherLaw
+CHECK RiffleUpperV2.Anchor.ResidualOtherTail
+CHECK RiffleUpperV2.Anchor.UnequalGood
+CHECK RiffleUpperV2.Anchor.UnequalParameters
+CHECK RiffleUpperV2.Anchor.EqualCylinder
+CHECK RiffleUpperV2.Anchor.EqualFailure
+CHECK RiffleUpperV2.Anchor.EqualMeans
+CHECK RiffleUpperV2.Anchor.UnequalSideBounds
+CHECK RiffleUpperV2.Anchor.UnequalQuantitative
+CHECK RiffleUpperV2.Anchor.EqualVarianceAlgebra
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualVarianceAlgebra.lean:43:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualVarianceAlgebra.lean:57:76: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualVarianceAlgebra.lean:61:80: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Anchor.EqualVariance
+CHECK RiffleUpperV2.Anchor.JoinMaximizers
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/JoinMaximizers.lean:17:51: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CHECK RiffleUpperV2.Anchor.SmoothingData
+CHECK RiffleUpperV2.Anchor.Smoothing
+CHECK RiffleUpperV2.Anchor.FineAtoms
+CHECK RiffleUpperV2.Shared.GoodEventTransfer
+CHECK RiffleUpperV2.Anchor.ConditionalAtoms
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/ConditionalAtoms.lean:15:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/ConditionalAtoms.lean:31:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Shared.HistoryEventBound
+CHECK RiffleUpperV2.Anchor.JointAtoms
+CHECK RiffleUpperV2.Anchor.Degenerate
+CHECK RiffleUpperV2.Anchor.Main
+CHECK FirstMoment.Entropy
+CHECK RiffleUpperV2.FirstMoment.Entropy
+CHECK RiffleUpperV2.FirstMoment.Exponents
+CHECK RiffleUpperV2.FirstMoment.WordCosts
+CHECK FirstMoment.Counting
+CHECK RiffleUpperV2.FirstMoment.Descriptors
+CHECK RiffleUpperV2.FirstMoment.BoundaryCosts
+CHECK RiffleUpperV2.FirstMoment.ClassAdapters
+CHECK RiffleTimeProfile.Numerical
+CHECK RiffleTimeProfile.Source
+CHECK RiffleTimeProfile.AnalyticParameters
+CHECK RiffleUpperV2.Compat.EmpiricalCountLimits
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean:12:18: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean:12:31: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleProfiles.Counting
+CHECK RiffleProfiles.AsymptoticFinite
+CHECK RiffleUpperV2.Compat.FixedPolynomial
+CHECK RiffleUpperV2.FirstMoment.Count
+CHECK RiffleUpperV2.Compat.EmpiricalTailLimits
+CHECK RiffleUpperV2.Compat.EmpiricalWordMass
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalWordMass.lean:71:54: warning: This simp argument is unused:
+  Finset.sum_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.sum_add_distrib, ← Finset.sum_mul, hp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalWordMass.lean:160:22: warning: This simp argument is unused:
+  Finset.sum_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalWordMass.lean:192:31: warning: This simp argument is unused:
+  Finset.prod_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.Discard
+CHECK RiffleUpperV2.FirstMoment.Partition
+CHECK RiffleUpperV2.FirstMoment.RetainedClasses
+CHECK RiffleUpperV2.Localization.Edges
+CHECK RiffleUpperV2.Localization.EdgeMoments
+CHECK RiffleUpperV2.Localization.RestrictedMoments
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/RestrictedMoments.lean:43:42: warning: This simp argument is unused:
+  Fintype.card_subtype
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab', Nat.card_eq_fintype_card, RiffleLowerV2.falling]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Localization.CollisionMass
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/CollisionMass.lean:175:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Localization.IntervalInclusion
+CHECK RiffleUpperV2.Localization.EdgeRanks
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EdgeRanks.lean:79:2: warning: Unused tactic linter: `push_cast at hc ⊢` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CHECK RiffleUpperV2.Localization.EdgeCover
+CHECK RiffleUpperV2.Localization.EdgeGeometry
+CHECK RiffleUpperV2.Localization.DiscardedEdges
+CHECK RiffleUpperV2.Localization.GlobalRanks
+CHECK RiffleUpperV2.Localization.EdgeRelabel
+CHECK RiffleUpperV2.FirstMoment.FirstColumn
+CHECK RiffleUpperV2.Localization.FirstPileTransport
+CHECK RiffleUpperV2.FirstMoment.RetainedGraphCover
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/RetainedGraphCover.lean:95:15: warning: This simp argument is unused:
+  probability
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, ht, RiffleLowerV2.probability, RiffleLowerV2.expect]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.AnchoredCosts
+CHECK RiffleUpperV2.FirstMoment.ClassFibers
+CHECK RiffleUpperV2.FirstMoment.StoppingCosts
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/StoppingCosts.lean:57:35: warning: This simp argument is unused:
+  ← Finset.sum_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [f, Finset.sum_add_distrib]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.MaximalCosts
+CHECK RiffleUpperV2.FirstMoment.TailGrid
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/TailGrid.lean:53:60: warning: This simp argument is unused:
+  Nat.add_sub_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [empiricalB, RiffleLowerV2.gridSum, empiricalPositions]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.TailCosts
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/TailCosts.lean:22:77: warning: This simp argument is unused:
+  Real.rpow_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, show x.1.val ≤ j.val by omega, j.isLt, powerSum, Cuts.profile_prob]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.ClassExponents
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassExponents.lean:90:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassExponents.lean:116:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassExponents.lean:138:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Localization.SidePieces
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SidePieces.lean:95:37: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SidePieces.lean:95:59: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SidePieces.lean:113:26: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SidePieces.lean:113:59: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SidePieces.lean:79:26: warning: This simp argument is unused:
+  Nat.min_eq_left i.isLt.le
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.take_take]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Localization.SideBounds
+CHECK RiffleUpperV2.Localization.EndpointDeviation
+CHECK RiffleUpperV2.Localization.EndpointWindow
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EndpointWindow.lean:46:8: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EndpointWindow.lean:46:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleUpperV2.Localization.RelevantParents
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/RelevantParents.lean:70:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Localization.IrrelevantLoss
+CHECK RiffleUpperV2.Localization.OffsetAtoms
+CHECK RiffleUpperV2.Localization.SmoothingDensity
+CHECK RiffleUpperV2.Localization.Density
+CHECK RiffleUpperV2.Shared.WindowRates
+CHECK RiffleUpperV2.Localization.Eventual
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Eventual.lean:41:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Eventual.lean:62:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Shared.FiniteFibers
+CHECK RiffleUpperV2.Shared.FiniteFiberCounts
+CHECK RiffleUpperV2.FirstMoment.ActiveClasses
+CHECK RiffleUpperV2.FirstMoment.GraphMarginals
+CHECK RiffleUpperV2.FirstMoment.EdgeSlots
+CHECK RiffleUpperV2.FirstMoment.ErrorDensity
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ErrorDensity.lean:74:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.FirstMoment.DensityPowers
+CHECK RiffleUpperV2.FirstMoment.FirstPileReserve
+CHECK RiffleUpperV2.FirstMoment.ClassDensity
+CHECK RiffleUpperV2.Localization.FailureRate
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/FailureRate.lean:12:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.FirstMoment.DensityRates
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/DensityRates.lean:59:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.FirstMoment.UniformClassDensity
+CHECK RiffleUpperV2.FirstMoment.DensityAggregation
+CHECK RiffleUpperV2.FirstMoment.GraphAssembly
+CHECK RiffleUpperV2.FirstMoment.CandidateCount
+CHECK RiffleUpperV2.FirstMoment.ActiveCount
+CHECK RiffleUpperV2.Shared.CountedRates
+CHECK RiffleUpperV2.FirstMoment.PowerAggregation
+CHECK RiffleUpperV2.FirstMoment.UniformGraph
+CHECK RiffleUpperV2.FirstMoment.Empirical
+CHECK RiffleUpperV2.FirstMoment.Main
+CHECK RiffleUpperV2.Reservoir.SortedHistory
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/SortedHistory.lean:87:19: warning: This simp argument is unused:
+  Nat.lt_succ_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Reservoir.History
+CHECK RiffleUpperV2.Reservoir.BackwardHistory
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/BackwardHistory.lean:40:13: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/BackwardHistory.lean:40:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Reservoir.MarkedLaw
+CHECK RiffleUpperV2.Reservoir.Cancellation
+CHECK RiffleLowerV2.Thinning.Residual
+CHECK RiffleUpperV2.Reservoir.PrefixWeight
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:31: warning: Unused tactic linter: `split_ifs` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:45: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:31: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/PrefixWeight.lean:66:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleUpperV2.Reservoir.PrefixConditional
+CHECK RiffleLowerV2.Thinning.Residual.Prefix
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean:86:83: warning: This simp argument is unused:
+  sampleRow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [prefixCount, prescribedPrefixCount, rowArrayPrefixCount, rowWord]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Reservoir.MarkedPrefix
+CHECK RiffleUpperV2.Reservoir.FirstColumn
+CHECK RiffleUpperV2.Reservoir.HistoryExtension
+CHECK RiffleUpperV2.Reservoir.ExposedRows
+CHECK RiffleUpperV2.Reservoir.Counts
+CHECK RiffleUpperV2.Reservoir.PilePrefix
+CHECK RiffleUpperV2.Reservoir.ReserveWeight
+CHECK RiffleUpperV2.Reservoir.ReserveUniform
+CHECK RiffleUpperV2.Reservoir.Denominator
+CHECK RiffleUpperV2.Reservoir.ProductUpper
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/ProductUpper.lean:11:28: warning: Variable name `hτ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/ProductUpper.lean:51:29: warning: Variable name `hτ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/ProductUpper.lean:107:57: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Reservoir.Capacity
+CHECK RiffleUpperV2.Reservoir.ProductUniform
+CHECK RiffleUpperV2.Reservoir.ProductConditional
+CHECK RiffleUpperV2.Reservoir.RestrictedPrefix
+CHECK RiffleUpperV2.Reservoir.CurrentRemoval
+CHECK RiffleUpperV2.Reservoir.DeletionPrefix
+CHECK RiffleUpperV2.Reservoir.Refinement
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/Refinement.lean:56:46: warning: This simp argument is unused:
+  and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [exposedPileView, hp, hmem, hnot, if_true] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/Refinement.lean:56:55: warning: This simp argument is unused:
+  if_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [exposedPileView, hp, hmem, hnot, and_self] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Reservoir.MarkedRefinement
+CHECK RiffleUpperV2.Reservoir.GoodView
+CHECK RiffleUpperV2.Shared.SupportedAveraging
+CHECK RiffleUpperV2.Reservoir.NaturalAveraging
+CHECK RiffleUpperV2.Reservoir.TupleCounting
+CHECK RiffleUpperV2.Reservoir.Normalization
+CHECK RiffleUpperV2.Reservoir.PrefixCount
+CHECK RiffleUpperV2.Reservoir.FullTail
+CHECK RiffleUpperV2.Reservoir.SupportBridge
+CHECK RiffleUpperV2.Reservoir.CurrentMarked
+CHECK RiffleUpperV2.Reservoir.ExtraCopies
+CHECK RiffleUpperV2.Reservoir.CollisionPower
+CHECK RiffleUpperV2.Reservoir.CollisionEvents
+CHECK RiffleUpperV2.Reservoir.CollisionNormalization
+CHECK RiffleUpperV2.Reservoir.CollisionConditional
+CHECK RiffleUpperV2.Reservoir.TailCollisions
+CHECK RiffleUpperV2.Reservoir.BackwardConstraint
+CHECK RiffleUpperV2.Reservoir.BackwardDenominator
+CHECK RiffleUpperV2.Reservoir.BackwardRestricted
+CHECK RiffleUpperV2.Reservoir.BackwardRefinement
+CHECK RiffleUpperV2.Reservoir.BackwardCounts
+CHECK RiffleUpperV2.Shared.UniformProjection
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UniformProjection.lean:21:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Reservoir.InteriorColumn
+CHECK RiffleUpperV2.Reservoir.InteriorMatrix
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/InteriorMatrix.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Reservoir.InteriorHistory
+CHECK RiffleUpperV2.Reservoir.InteriorProjection
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/InteriorProjection.lean:116:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Reservoir.InteriorCounts
+CHECK RiffleUpperV2.Reservoir.SingleCylinderLaw
+CHECK RiffleUpperV2.Reservoir.SeparatedCylinders
+CHECK RiffleUpperV2.Reservoir.OtherCylinder
+CHECK RiffleUpperV2.Reservoir.FutureCylinderLaw
+CHECK RiffleUpperV2.Reservoir.InducedMatrix
+CHECK RiffleUpperV2.Reservoir.TailWords
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/TailWords.lean:43:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CHECK RiffleUpperV2.Reservoir.FutureGraphLaw
+CHECK RiffleUpperV2.Reservoir.ErasedLabels
+CHECK RiffleUpperV2.Shared.ExpectationAveraging
+CHECK RiffleUpperV2.Reservoir.LabelAveraging
+CHECK RiffleUpperV2.Reservoir.ConditionalFutureCylinderLaw
+CHECK RiffleUpperV2.Reservoir.Module
+CHECK RiffleUpperV2.GraphOverlap.Disjoint
+CHECK RiffleUpperV2.GraphOverlap.Corollaries
+CHECK RiffleUpperV2.GraphOverlap.Main
+CHECK RiffleUpperV2.Exponential.Pathwise
+CHECK RiffleUpperV2.Exponential.Conditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:30:8: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:73:37: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [masked_expect_zero P _ hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:101:0: warning: automatically included section variable(s) unused in theorem `RiffleUpperV2.Exponential.conditional_le_of_weighted`:
+  [Fintype H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CHECK RiffleUpperV2.Exponential.Stopping
+CHECK RiffleUpperV2.Exponential.Moments
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean:13:0: warning: automatically included section variable(s) unused in theorem `RiffleUpperV2.Exponential.stoppedTail`:
+  [Fintype H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean:125:39: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Exponential.Excess
+CHECK RiffleUpperV2.Exponential.Aggregation
+CHECK RiffleUpperV2.Exponential.FiniteTV
+CHECK RiffleUpperV2.Exponential.Numerical
+CHECK RiffleUpperV2.Exponential.Truncation
+CHECK RiffleUpperV2.Exponential.Asymptotic
+CHECK RiffleUpperV2.Exponential.Main
+CHECK RiffleUpperV2.Shared.PairConditioning
+CHECK RiffleUpperV2.Localization.Stochastic
+CHECK RiffleUpperV2.Conditional.Jensen
+CHECK RiffleUpperV2.Conditional.PairReduction
+CHECK RiffleUpperV2.Conditional.RefinementCount
+CHECK RiffleUpperV2.Conditional.FutureCylinders
+CHECK RiffleUpperV2.Conditional.RefinedCylinders
+CHECK RiffleUpperV2.Conditional.GoodRefinement
+CHECK RiffleUpperV2.Conditional.PastCylinders
+CHECK RiffleUpperV2.Conditional.TailMass
+CHECK RiffleUpperV2.Conditional.LateTail
+CHECK RiffleUpperV2.Conditional.AuxiliaryJensen
+CHECK RiffleUpperV2.Conditional.TailPower
+CHECK RiffleUpperV2.Conditional.Parameters
+CHECK RiffleUpperV2.Conditional.BlockGeometry
+CHECK RiffleUpperV2.Conditional.BlockEdges
+CHECK RiffleUpperV2.Conditional.RegimePowers
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CHECK RiffleUpperV2.Conditional.DirectionalGeometry
+CHECK RiffleUpperV2.Conditional.LargeConcentration
+CHECK RiffleUpperV2.Conditional.LargeMargin
+CHECK RiffleUpperV2.Conditional.LargeFirstMoment
+CHECK RiffleUpperV2.EmpiricalUpper.FiniteTV
+CHECK RiffleUpperV2.EmpiricalUpper.Deletion
+CHECK RiffleUpperV2.EmpiricalUpper.Restart
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/EmpiricalUpper/Restart.lean:96:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Conditional.CurrentRunGeometry
+CHECK RiffleUpperV2.Conditional.PileFutureCylinders
+CHECK RiffleUpperV2.Conditional.BlockCounts
+CHECK RiffleUpperV2.Conditional.PrefixAdapters
+CHECK RiffleUpperV2.Conditional.SmallCylinderBounds
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/SmallCylinderBounds.lean:149:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/SmallCylinderBounds.lean:149:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Conditional.RemainingCover
+CHECK RiffleUpperV2.Conditional.DisjointSquares
+CHECK RiffleUpperV2.Conditional.FinePartition
+CHECK RiffleUpperV2.EmpiricalUpper.ExplorationTV
+CHECK RiffleUpperV2.EmpiricalUpper.Rates
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CHECK RiffleUpperV2.EmpiricalUpper.Parameters
+CHECK RiffleUpperV2.Conditional.GraphSquares
+CHECK RiffleUpperV2.Conditional.ConditionalAveraging
+CHECK RiffleUpperV2.Conditional.FineMoments
+CHECK RiffleUpperV2.Conditional.HistoryAdapters
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/HistoryAdapters.lean:58:8: warning: This simp argument is unused:
+  probability
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [RiffleLowerV2.probability, RiffleLowerV2.expect]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Conditional.LinearAveraging
+CHECK RiffleUpperV2.Conditional.HistoryAveraging
+CHECK RiffleUpperV2.Conditional.RegimeAveraging
+CHECK RiffleUpperV2.Conditional.PreparedFamily
+CHECK RiffleUpperV2.Conditional.CurrentRunBound
+CHECK RiffleUpperV2.Conditional.ConditionalScale
+CHECK RiffleUpperV2.Conditional.OneHistory
+CHECK RiffleUpperV2.Conditional.Main
+CHECK RiffleUpperV2.EmpiricalUpper.Main
+CHECK RiffleUpperV2.ProfileUpper.Analytic
+CHECK RiffleUpperV2.ProfileUpper.Dominance
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/ProfileUpper/Dominance.lean:124:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+CHECK RiffleUpperV2.ProfileUpper.AllMargins
+CHECK RiffleUpperV2.ProfileUpper.Buffered
+CHECK RiffleUpperV2.ProfileUpper.Mixture
+CHECK RiffleUpperV2.ProfileUpper.Random
+CHECK RiffleUpperV2.ProfileUpper.Critical
+CHECK RiffleUpperV2.ProfileUpper.FullCritical
+CHECK RiffleUpperV2.ProfileUpper.Main
+CHECK RiffleUpperV2
+CHECK RiffleUpperV2.Completed
+U13_INDEPENDENT_TRUST_PASS roots=12 dependencies=45162 upper_declarations=3907
+BUILD_OK U13

@@ -1,0 +1,31 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:50:11.662692+00:00",
+  "sources": {
+    "Localization/RestrictedMoments.lean": "efbb64a9e7be89b9865e2821daffcdc79d63f65ff7dbddb527a90b4ed20e9632",
+    "Localization/CollisionMass.lean": "e52b4a2c1a84101fb5a7af2f381125c8378388e957c337e35703f4bb777b1c4b"
+  },
+  "mathematics": [
+    "Embedding indicators count ordered distinct tuples inside arbitrary fixed R. The per-column exact fixed-count request law factors only over independent columns, yielding factorial moments with falling R.card q.",
+    "The falling-factorial ratio bound gives expected choose(count,q) <= choose(R.card,q)*wordMass^q. The anchor size is never replaced by full n.",
+    "Actual equal-word internal rank edges are bounded by the sum of choose(word count,2). Their history row masks are exactly the prefix restriction of R.",
+    "Finite product/sum expansion factors squared full-word mass into prefixMass squared times tailSquareMass. This is a square-probability product bound, not an identification with exact without-replacement collision factors.",
+    "Combining yields expected anchored edge cardinal <= anchoredMean squared * tailSquareMass / 2, with full-n column denominators throughout."
+  ],
+  "public_type_and_model": [
+    "All formulas are actual fixedCountPMF expectations and arbitrary fixed finite R; no conditional stochastic certificate is assumed.",
+    "Factorial moment identity covers every q, including q>n, via empty embedding spaces and zero falling factorials. The exact per-column request formula only quantifies over existing embeddings.",
+    "Absolute c0 affects edge positions but not the edge count; no sample-dependent translation invariance of squared density is inferred."
+  ],
+  "adversarial": [
+    "q=0 gives constant one; q>R.card gives zero. Empty horizon has one empty word and the correct empty product.",
+    "Zero and singleton word counts contribute no edge; integer Ico cardinal formula handles truncated c-1 correctly.",
+    "Empty anchors and zero-count selected digits force zero expected count. No positive population hypothesis is introduced in finite collision inequalities."
+  ],
+  "remaining": [
+    "Source density corollaries and actual global shuffle rank transport are separate U04 obligations."
+  ],
+  "root_build_receipt": "natural-count-check-build.json",
+  "trust_inventory": "natural-count-declarations.json"
+}

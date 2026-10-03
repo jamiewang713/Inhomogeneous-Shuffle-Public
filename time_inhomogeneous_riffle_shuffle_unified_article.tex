@@ -11,6 +11,8 @@
 \usepackage{microtype}
 \usepackage{comment}
 
+\numberwithin{equation}{section}
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt}
 
@@ -62,8 +64,6 @@
 \newcommand{\Mloc}{M_{\mathrm{loc}}^*}
 \newcommand{\dTV}{d_{\TV}}
 \newcommand{\nuUnif}{\nu_{\Unif}}
-\newcommand{\RFM}{\mathrm{RFM}}
-\newcommand{\FM}{\mathrm{FM}}
 \newcommand{\UB}{\mathrm{UB}}
 \newcommand{\ileft}{\mathrm I_{\rm left}}
 \newcommand{\iright}{\mathrm I_{\rm right}}
@@ -78,9 +78,9 @@
 
 \section{Purpose and status}
 
-This note combines the time-inhomogeneous first-moment setup with an upper-bound framework and a proof of the buffered reduced lower bound.
+We prove buffered upper and lower total-variation bounds for time-inhomogeneous riffle shuffles with deterministic column counts. The two effective margins are the maximal-word margin and the cold-spot margin.
 
-The upper-bound part develops the recursive first-moment framework and retains proof sketches for some inputs. The lower-bound part proves the largest-word and cold-spot obstructions under the stated almost-profile and local good-shuffle hypotheses. Its concentration, finite type construction, collision estimates, and ascent test are proved directly from the fixed-column model.
+The upper bound is first proved directly from empirical column costs. An exposed initial pile leaves a reserve of labels for endpoint smoothing; exact conditional sampling then controls natural exploration histories and their exponential moments. The macroscopic upper bound follows by transferring only bounded scalar costs, under the ordered approximation hypotheses of Theorem~\ref{thm:deterministic-upper-bound}. The lower bound in Theorem~\ref{thm:buffered-reduced-lower-bound} uses the largest-word and cold-spot obstructions, with concentration, finite type construction, collision estimates and the ascent test proved directly in the fixed-column model.
 
 \section{Common setup}
 \label{sec:common-setup}
@@ -222,7 +222,8 @@ Let
   T_{\UB}^{\mathrm{red}}
   =\inf\{T>0:\max(\Lambda_0(T),\Lambda_1(T))<0\}.
 \end{equation}
-The dominance theorem below proves that
+We use $\inf\varnothing=+\infty$ for both critical-time thresholds.
+Theorem~\ref{thm:dominance-reduction} proves that
 \[
   \Lambda_2(T)\le\Lambda_0(T),
   \qquad
@@ -238,19 +239,7 @@ It also gives
 \]
 so the reduced and four-margin thresholds agree.
 
-\begin{theorem}[Upper critical-time theorem, reduced form]
-\label{thm:upper-critical-reduced}
-Let $(\mu_t)_{t\ge0}$ be the time profile, and suppose the deterministic cut sequence is almost-$\mu_\bullet$-like on every compact time interval and satisfies the local good-shuffle condition. Then, for every fixed $T>T_{\UB}^{\mathrm{red}}$,
-\[
-  \dTV(P(n,\lfloor T\log N\rfloor),\nuUnif)\longrightarrow0.
-\]
-Equivalently, for every fixed $\varepsilon\in(0,1)$,
-\[
-  \limsup_{N\to\infty}\frac{t_{\mathrm{mix}}^{(N)}(\varepsilon)}{\log N}
-  \le T_{\UB}^{\mathrm{red}}.
-\]
-This remains the upper half of cutoff. A full cutoff theorem also requires matching lower-bound obstructions before $T_{\UB}^{\mathrm{red}}$.
-\end{theorem}
+
 
 \begin{definition}[Almost time-profile-like cuts]
 \label{def:almost-time-profile-like-cuts}
@@ -270,13 +259,21 @@ and every cell $D_i$,
 
 \begin{definition}[Randomized time-profile-like cuts]
 \label{def:randomized-time-profile-like-cuts}
-Let $X=(X^{(j)})_{1\le j\le K}$ be a random pile sequence, where each
-$X^{(j)}=(X^{(j)}_0,\ldots,X^{(j)}_{k-1})$ has nonnegative entries summing to
-$N$. We call $X$ randomized-$\mu_\bullet$-like if, with probability $1-o(1)$,
-its realized deterministic pile sequence is $(\rho,\varphi)$-almost-
-$\mu_\bullet$-like for the finite partition and parameters fixed in the
-application. In this case $P(X,K)$ denotes the mixture law obtained by first
-sampling $X$ and then performing the associated inverse $K$-shuffle.
+Fix $T>0$, a finite partition $\mathcal P$, and positive
+$\rho,\varphi$, all independent of $N$.  Let
+$X=(X^{(j)})_{1\le j\le K_N}$ be a random array with
+$X^{(j)}\in\mathbb Z_{\ge0}^k$ and
+$\sum_\ell X^{(j)}_\ell=N$, where $K_N=\lfloor T\log N\rfloor$.
+The array is randomized-$(\mathcal P,\rho,\varphi)$-almost-
+$\mu_\bullet$-like if its realized cuts satisfy
+Definition~\ref{def:almost-time-profile-like-cuts} with these fixed
+parameters with probability $1-o(1)$.  The parameters in an upper-bound
+application are chosen in the order required by
+Theorem~\ref{thm:deterministic-upper-bound}.
+Conditional on $X$, the shuffle matrix has independent uniform
+columns with the prescribed counts.  The law $P(X,K_N)$ is the
+resulting mixture of the deterministic inverse-shuffle laws.
+No independence between the random count vectors $X^{(j)}$ is assumed.
 \end{definition}
 
 \begin{definition}[$\chi$-regular partitions]
@@ -321,81 +318,89 @@ denominators are at least $k^{-3}$. These facts give the remaining bounds.
 A column $j$ is $\chi$-good if $p^{(j)}$ has at least two coordinates at least $\chi$. The sequence satisfies the local $(\chi,\gamma,\rho)$-good-shuffle condition on $[r,T]$ if every macroscopic interval $I\subset[r,T]$ of length $\rho$ contains at least $\gamma\rho\log N$ indices $j$ with $j/\log N\in I$ that are $\chi$-good.
 \end{definition}
 
-\begin{remark}
-\label{rem:local-good-shuffle}
-The local good-shuffle condition is the deterministic time-inhomogeneous replacement for the harmless shift used in the homogeneous proof to ensure good initial columns. It should follow from a uniform non-degeneracy assumption on the profile, but in this skeleton we keep it as a hypothesis.
-\end{remark}
-
-\section{Upper-bound margins}
-\label{sec:upper-bound-margins}
-
-An ambient block is a prefix block $B_w$ born at scaled time $r$, with $|w|=\lfloor r\log N\rfloor+O(1)$ and
-\[
-  \E|I(B_w)|=N^{b+o(1)}.
-\]
-For an extension prefix $x\supseteq w$ with absolute length $M_x$, put $t_x=M_x/\log N$ and
-\[
-  c_L^{r,b}(x)
-  =b-\frac1{\log N}
-  \sum_{\lfloor r\log N\rfloor<j\le M_x}
-  \log\frac{N}{n^{(j)}_{x[j]}}.
-\]
-Thus $c_L^{r,b}(x)=\log_N\E|I(B_x)|+o(1)$ inside the ambient block.
-
-\begin{definition}[First-moment margin]
-\label{def:first-moment-margin}
-For an ambient block $(r,b)$, define
-\[
-  \beta_{r,b}(s)=b-A(r,s).
-\]
-For $r\le s\le u\le T$, set
-\[
-  N_1(r,s,u;b)=\inf_{\theta\in[3,4]}
-  \left\{\frac{\theta+3}{2}\beta_{r,b}(s)-B_\theta(s,u)-2B_2(u,T)\right\},
-\]
-\[
-  N_2(r,s,u;b)=\inf_{\theta\in[3,4]}
-  \left\{\frac{\theta-1}{2}\beta_{r,b}(s)-B_\theta(s,u)-2B_2(u,T)\right\},
-\]
-and
-\[
-  N_3(r,s;b)=\beta_{r,b}(s)-B_2(s,T).
-\]
-We say $\FM(r,b,T,\eta)$ holds if
-\[
-  \beta_{r,b}(T)\le-\eta,
-\]
-\[
-  N_1(r,s,u;b)\le-\eta,
-  \qquad
-  N_2(r,s,u;b)\le-\eta
-\]
-for all $r\le s\le u\le T$, and
-\[
-  N_3(r,s;b)\le-\eta
-\]
-for all $r\le s\le T$. Write $\FM(T,\eta)=\FM(0,1,T,\eta)$.
+\begin{definition}[Arbitrarily fine profile and local-good approximation]
+\label{def:ub-arbitrarily-fine-approximation}
+A family of deterministic cut arrays, one for each $N$, has this property if, for every
+$T>0$ and every $\chi_*>0$, there are a fixed
+$0<\chi\le\chi_*$, a finite $\chi$-regular partition $\mathcal P$ with
+the common constant $C_k$, and fixed $g,\gamma,\bar\rho>0$, with
+$g<1/k$, such that the following holds.  For every fixed
+$0<\rho\le\bar\rho$ and every fixed $\varphi>0$, all sufficiently
+large $N$ satisfy both the $(\mathcal P,\rho,\varphi)$-almost-profile
+condition and the local $(g,\gamma,\rho)$-good-shuffle condition on
+$[0,T]$.  The threshold in $N$ may depend on these fixed choices.
+The scalar cell integrands of the selected partition satisfy the
+standing integrability convention.  For each $N$ the cuts form one
+fixed sequence; its restrictions at different horizons agree.
 \end{definition}
 
-\begin{definition}[Recursive first-moment margin]
-\label{def:recursive-first-moment-margin}
-An ambient block is accessible if it can arise either from the original deck or from the conditional forward/backward exploration used in the exponential-moment proof. We say $\RFM(T,\eta)$ holds if $\FM(r,b,T,\eta)$ holds for every accessible ambient block $(r,b)$. A convenient sufficient condition is
+Here $g$ and $\gamma$ are fixed before $\rho$. Thus the local-good
+constants do not deteriorate as the chosen mesh decreases. This is
+the precise approximation hypothesis for the critical-time result;
+the buffered theorem below needs only one sufficiently fine fixed
+partition and sufficiently small fixed mesh.
+
+\begin{theorem}[Upper critical-time theorem, reduced form]
+\label{thm:upper-critical-reduced}
+Let $(\mu_t)_{t\ge0}$ satisfy the standing ordinary-integral convention,
+and let the deterministic cut sequence satisfy
+Definition~\ref{def:ub-arbitrarily-fine-approximation} on every compact
+time interval.  Then, for every finite $T>T_{\UB}^{\mathrm{red}}$,
 \[
-  \FM(r,1-A(0,r),T,\eta)\qquad\hbox{for all }r\in[0,T],
+ d_{\TV}(P(n,\lfloor T\log N\rfloor),\nuUnif)\longrightarrow0.
 \]
-because accessible block sizes satisfy $b\le1-A(0,r)+o(1)$.
-\end{definition}
+Consequently, for every fixed $\varepsilon\in(0,1)$,
+\[
+ \limsup_{N\to\infty}
+ \frac{t_{\mathrm{mix}}^{(N)}(\varepsilon)}{\log N}
+ \le T_{\UB}^{\mathrm{red}}.
+\]
+When the negativity set is empty, its critical time is $+\infty$ and
+these assertions impose no finite upper bound.
+\end{theorem}
+
+The proof of Theorem~\ref{thm:upper-critical-reduced} is given after
+Theorem~\ref{thm:dominance-reduction} and uses the buffered estimate
+in Theorem~\ref{thm:deterministic-upper-bound}.
+
+
 
 \section{Upper bound}
 
-\begin{theorem}[Deterministic time-inhomogeneous upper bound]
+\begin{theorem}[Buffered deterministic upper bound]
 \label{thm:deterministic-upper-bound}
-Assume the cuts are $(\rho,\varphi)$-almost-$\mu_\bullet$-like, satisfy the local $(\chi,\gamma,\rho)$-good-shuffle condition on every relevant tail interval, and the profile satisfies $\RFM(T,\eta)$. Then
+Fix $k\ge2$, $T>0$ and $\eta>0$.
+There is $\chi_0>0$, depending only on these three quantities, such
+that the following holds.  Choose a fixed
+$0<\chi\le\chi_0$ and any finite $\chi$-regular partition $\mathcal P$
+with the common regularity constant $C_k$, and then fix
+$0<g<1/k$ and $\gamma>0$.  There is $\rho_0>0$, and
+for every fixed $0<\rho\le\rho_0$ there is $\varphi_0>0$, such that
+for every fixed $0<\varphi\le\varphi_0$ the following conclusion holds.
+Let $(\mu_t)_{0\le t\le T}$ satisfy the standing scalar-integrability
+convention for $a$, $\psi_\theta$, $2\le\theta\le4$, and the cells of
+this same partition $\mathcal P$.  Suppose
 \[
-  \dTV(P(n,K),\nuUnif)\to0.
+ \max\{\Lambda_0(T),\Lambda_1(T)\}\le-\eta.
 \]
-The convergence is uniform over deterministic cut sequences satisfying these hypotheses.
+For $K_N=\lfloor T\log N\rfloor$, consider deterministic cuts satisfying
+Definition~\ref{def:almost-time-profile-like-cuts} with
+$(\mathcal P,\rho,\varphi)$ and the local $(g,\gamma,\rho)$-good-shuffle
+condition on $[0,T]$.  Then
+\[
+ d_{\TV}(P(n,K_N),\nuUnif)\longrightarrow0
+\]
+uniformly over all such cuts.  Explicitly, for every $\varepsilon>0$
+there is $N_0$ such that the distance is at most $\varepsilon$ for all
+$N\ge N_0$ and every admissible cut array.  All parameters displayed
+before $N_0$ are fixed as $N\to\infty$.
 \end{theorem}
+
+Theorem~\ref{thm:deterministic-upper-bound} is proved after
+Theorem~\ref{thm:ub-empirical-upper}. We first prove a bound directly
+from finite column costs, including the estimates needed after
+conditioning on the natural sorted-word histories.
+
 
 \subsection{Shuffle graph and truncation}
 
@@ -447,1751 +452,2108 @@ representation with \(\pi\) independent of \(G\).
 
 \begin{lemma}[Truncated chi-square bound]
 \label{lem:ub-truncated-chi-square}
-Let $S_1$ be a typical set of shuffle matrices. Then
-\[
+Let $S_1$ be a measurable set of single shuffle matrices, and use the same
+set for the two independent matrices $S,S'$. Then
+\begin{equation}
+\label{eq:ub-truncated-chi-square}
   \dTV(P(n,K),\nuUnif)
-  \le
-  \frac12\left(\E[(f_{G,G'}-1)\1_{\{S,S'\in S_1\}}]\right)^{1/2}
-  +\Pp(S\notin S_1).
-\]
+  \le \frac12\left(\E[(f_{G,G'}-1)
+             \1_{\{S\in S_1,S'\in S_1\}}]\right)^{1/2}
+       +\Pp(S\notin S_1).
+\end{equation}
+The expression under the square root is nonnegative.
 \end{lemma}
 
-\paragraph{Sketch.}
-This is the same Cauchy--Schwarz truncation used in the homogeneous proof. The Radon--Nikodym derivative is determined by shuffle-graph components, so the estimate is formal once the graph representation is available.
+\begin{proof}
+Put $a=\Pp(S\in S_1)$ and
+$h(\sigma)=\E[f_{G,\sigma}\1_{\{S\in S_1\}}]$.
+The density of $P(n,K)$ is $h+r$, where $r\ge0$ and
+$\E_{\nuUnif}r=1-a$. Since $\E_{\nuUnif}h=a$, the triangle inequality
+and Cauchy--Schwarz give
+\[
+ \dTV(P(n,K),\nuUnif)
+ \le\tfrac12\E_{\nuUnif}|h-a|+1-a
+ \le\tfrac12\bigl(\E_{\nuUnif}(h-a)^2\bigr)^{1/2}+1-a.
+\]
+Independence of $S,S'$ and finite summation give
+\[
+ \E_{\nuUnif}(h-a)^2
+ =\E[f_{G,G'}\1_{\{S\in S_1,S'\in S_1\}}]-a^2
+ =\E[(f_{G,G'}-1)\1_{\{S\in S_1,S'\in S_1\}}].
+\]
+This proves both assertions. No pointwise nonnegativity of $f_{G,G'}-1$
+is required.
+\end{proof}
+
+For a path subgraph $H$, let $\mathcal C(H)$ be its connected components,
+including isolated vertices, and put
+\[
+ c(H)=\prod_{C\in\mathcal C(H)}|C|!.
+\]
+For an integer $B\ge2$, set
+\begin{equation}
+\label{eq:ub-component-constant}
+ d_B=\binom{B}{\lfloor B/2\rfloor}.
+\end{equation}
+
+\begin{lemma}[Component factorial bound]
+\label{lem:ub-component-factorial}
+For any two path subgraphs $G,H$ on $[N]$,
+\begin{equation}
+\label{eq:ub-factorial-overlap-identity}
+ f_{G,H}=\frac{c(G)c(H)}{c(G\cup H)}.
+\end{equation}
+If every component of $H$ has at most $B$ vertices, then
+\begin{equation}
+\label{eq:ub-component-factorial-bound}
+ f_{G,H}\le d_B^{|E(G)\cap E(H)|}.
+\end{equation}
+In particular, edge-disjoint $G,H$ satisfy $f_{G,H}\le1$.
+\end{lemma}
+
+\begin{proof}
+Sorting a uniform permutation on the components of $G$ gives density
+$c(G)$ on permutations increasing across every edge of $G$, and zero
+elsewhere. Each permutation in this support has exactly $c(G)$
+preimages. A uniform permutation is increasing across $G\cup H$ with
+probability $1/c(G\cup H)$, proving
+\eqref{eq:ub-factorial-overlap-identity}.
+
+First suppose the edge sets are disjoint. In a union component of $v$
+vertices, let $\ell_1,\ldots,\ell_s$ be the lengths of the consecutive
+monochromatic edge runs. Their sum is $v-1$, and the numerator contributed
+by that component is $\prod_i(\ell_i+1)!$. For positive integers $a,b$,
+\[
+ a!b!\le(a+b-1)!;
+\]
+indeed $\binom{a+b-1}{a}\ge b$. Applying this inequality successively
+shows that the numerator is at most $v!$. Isolated vertices contribute
+one, so \eqref{eq:ub-factorial-overlap-identity} is at most one.
+
+For general $G,H$, delete the common edges one at a time from $H$.
+The union with $G$ is unchanged. A deletion splits one component into
+parts of sizes $a,b\ge1$, with $a+b\le B$, and changes $c(H)$ by the
+factor $\binom{a+b}{a}\le d_B$. The last inequality follows because the
+largest binomial coefficient in row $m$ is
+$\binom m{\lfloor m/2\rfloor}$ and these maxima are nondecreasing in
+$m$, by Pascal's identity. The graph remaining after all deletions is
+edge-disjoint from $G$. Multiplying the deletion factors proves
+\eqref{eq:ub-component-factorial-bound}.
+\end{proof}
 
 \begin{definition}[Local sparsity]
 \label{def:local-sparsity}
-For $L\ge10$, a shuffle graph is $L$-sparse if every interval of $L$ consecutive vertices contains at most $L/3$ graph edges.
+For an integer $L\ge10$, a shuffle graph is $L$-sparse if every interval
+of $L$ consecutive vertices contains at most $L/3$ graph edges.
 \end{definition}
 
 \begin{lemma}[Sparse factorial bound]
 \label{lem:ub-sparse-factorial}
 If $G,G'$ are $L$-sparse, then
 \[
-  f_{G,G'}\le (L!)^{|E(G)\cap E(G')|}.
-\]
-\end{lemma}
-
-\paragraph{Sketch.}
-The edge union $G\cup G'$ has uniformly bounded local components when both graphs are $L$-sparse. Each component containing a shared edge contributes at most $L!$ to the Radon--Nikodym second moment.
-
-\subsection{First moment inside an ambient block}
-
-This subsection gives the detailed time-inhomogeneous first-moment section. Its role is to replace the compact homogeneous first-moment estimate by a time-profile version whose uses of the shuffle distribution are isolated in the almost-$\mu_\bullet$ Riemann-sum steps and in hypergeometric concentration for fixed column sums.
-
-The proof follows the homogeneous first-moment argument, with the single measure replaced by the time-profile $(\mu_t)$ and with all numerical hypotheses written as space-time integral inequalities. We use the following local notation inside the first-moment proof.
-
-A word \(x=(x[1],\ldots,x[M])\in[k]_0^M\), \(0\le M\le K\),
-is legal if \(n_{x[j]}^{(j)}>0\) for every \(1\le j\le M\). Let
-\(\cT\) be the tree of legal words of depth at most \(K\), ordered by
-prefix. The random shuffle matrix is sampled column by column: in column
-\(j\), the \(N\) entries are a uniformly random permutation of the
-multiset containing \(n_\ell^{(j)}\) copies of \(\ell\). Sorting the
-resulting rows lexicographically gives intervals \(\cI(B)\) for prefix
-cylinders \(B\). If \(x\in\cT\), then \(M_x=|x|\), \(B_x\) denotes the
-set of full legal strings extending \(x\), and \(\cI(B_x)\) is its random
-lexicographic interval. If \(\cU\) is a prefix antichain, set
-\(B_\cU=\bigcup_{x\in\cU}B_x\) and
-\(\cI(\cU)=\cI(B_\cU)\). For a non-root word \(x\), \(\mathcal F x\)
-denotes its parent.
-
-The shuffle graph \(G\) has vertex set \([N]\) after the lexicographic
-sort and edge set
-\[
-    E(G)=\{(m,m+1):\text{ the sorted rows at positions }m,m+1
-    \text{ are identical}\}.
-\]
-For a prefix \(x\), \(G_{B_x}\) is the subgraph containing those edges of
-\(G\) whose two endpoint rows lie in \(B_x\). For two independent shuffle
-graphs \(G,G'\), write
-\[
-    E(G,G')=E(G)\cap E(G')
-\]
-for their common adjacent edges.
-
-The parameters below are chosen in the order
-\[
-    k,T,\eta,\gamma\ \text{fixed},\qquad
-    \chi\downarrow0,\quad
-    \alpha_\chi=(\log(1/\chi))^{-1/2},\quad
-    \Delta,\rho,\varphi,\delta\downarrow0,\qquad
-    N\to\infty .
-\]
-The choices are nested in the displayed order; in particular all constants
-may depend on the parameters to their left. All \(o(1)\) terms are with
-this final limit, uniformly over the finitely many retained profile
-classes after the truncations below. Statements of the form
-\(N^{o_\chi(1)}\) mean that for every \(\varepsilon>0\), after choosing
-\(\chi\) sufficiently small and then \(N\) sufficiently large, the term
-is at most \(N^\varepsilon\).
-
-\begin{definition}[Ambient block and size exponent]
-\label{def:ambient-block-size-exponent}
-An ambient block is a fixed legal prefix block \(B_w\) with
-\(M_w=|w|\), \(M_w/\log N=r+o(1)\), and expected size
-\[
-    \E|\cI(B_w)|=N^{b+o(1)}.
-\]
-The whole deck corresponds to \(r=0\), \(b=1\), and \(w=\varnothing\). For any legal extension prefix \(x\supseteq w\), with absolute length \(M_x\), define
-\[
-    t_x=\frac{M_x}{\log N},
-\]
-and
-\[
-    c_L^{r,b}(x)
-    =
-    b-\frac1{\log N}\sum_{M_w<j\le M_x}
-    \log\frac{N}{n_{x[j]}^{(j)}} .
-\]
-Thus \(c_L^{r,b}(x)=\log_N\E|\cI(B_x)|+o(1)\) inside the ambient block.
-When an argument is carried out inside \(B_w\), interval endpoints and
-edge locations are recentered at the left endpoint of \(\cI(B_w)\);
-translating the whole ambient block is irrelevant for internal edge
-counts.
-Also define the tail edge exponent, for every legal prefix \(x\supseteq w\), by
-\[
-    c_E(x)=-\frac1{\log N}\sum_{M_x<j\le K}\psi_{p^{(j)}}(2).
-\]
-All quantities carrying only the superscript \((r,b)\) in this section are
-understood to be relative to this fixed ambient prefix \(w\).
-\end{definition}
-
-\begin{definition}[Stable blocks]
-\label{def:boundary-pairs-stable-blocks}
-Fix \(0<\chi<1/k\) and a large constant \(\mathsf C\). For each shuffle time \(j\), the sets below are nonempty, and we set
-\[
-    \ileft^{(j)}=\inf\{\ell:\ n_\ell^{(j)}/N\ge\chi\},
-    \qquad
-    \iright^{(j)}=\sup\{\ell:\ n_\ell^{(j)}/N\ge\chi\}.
-\]
-The left boundary-prefix family inside \(B_w\) is
-\[
-    \begin{aligned}
-    \cA_{\rm left}^{r,b}
-    &=
-    \left[\bigcup_{M_w<M\le K}
-    \left\{x\in\cT:
-    \begin{array}{l}
-    x\supseteq w,\ |x|=M,\ x[M]>\ileft^{(M)},\\
-    x[j]\le\ileft^{(j)}\text{ for }M_w<j<M
-    \end{array}\right\}\right]
-    \\
-    &\quad\cup
-    \left\{x\in\cT:
-    \begin{array}{l}
-    x\supseteq w,\ |x|=K,\\
-    x[j]\le\ileft^{(j)}\text{ for all }M_w<j\le K
-    \end{array}\right\}.
-    \end{aligned}
- \]
-Similarly, the right boundary-prefix family is
-\[
-    \begin{aligned}
-    \cA_{\rm right}^{r,b}
-    &=
-    \left[\bigcup_{M_w<M\le K}
-    \left\{x\in\cT:
-    \begin{array}{l}
-    x\supseteq w,\ |x|=M,\ x[M]<\iright^{(M)},\\
-    x[j]\ge\iright^{(j)}\text{ for }M_w<j<M
-    \end{array}\right\}\right]
-    \\
-    &\quad\cup
-    \left\{x\in\cT:
-    \begin{array}{l}
-    x\supseteq w,\ |x|=K,\\
-    x[j]\ge\iright^{(j)}\text{ for all }M_w<j\le K
-    \end{array}\right\}.
-    \end{aligned}
- \]
-
-For every full legal string \(\omega\in B_w\), let \(L(\omega)\) be the
-shortest prefix of \(\omega\) belonging to
-\(\cA_{\rm left}^{r,b}\), and let \(R(\omega)\) be the shortest prefix
-belonging to \(\cA_{\rm right}^{r,b}\). These prefixes are unique because
-the definitions stop at the first genuine crossing of the left or right
-large-pile boundary, with the terminal word at time \(K\) used when no
-crossing occurs. Thus every full string in \(B_w\) is assigned a unique
-boundary pair \((L(\omega),R(\omega))\).
-
-The admissible boundary families are the truncations
-\[
-    \widetilde\cA_{\rm left}^{r,b}
-    =
-    \left\{y\in\cA_{\rm left}^{r,b}:\
-    \#\{M_w<j\le M_y:\ y[j]<\ileft^{(j)}\}
-    \le \frac{\mathsf C}{\log(1/\chi)}\log N\right\},
-\]
-\[
-    \widetilde\cA_{\rm right}^{r,b}
-    =
-    \left\{z\in\cA_{\rm right}^{r,b}:\
-    \#\{M_w<j\le M_z:\ z[j]>\iright^{(j)}\}
-    \le \frac{\mathsf C}{\log(1/\chi)}\log N\right\}.
-\]
-
-For \(y\in\widetilde\cA_{\rm left}^{r,b}\) and \(z\in\widetilde\cA_{\rm right}^{r,b}\), define
-\[
-    A_{y,z}^{r,b}=\{x\in\cT:\ x\supseteq w,\ x\text{ has both }y\text{ and }z\text{ as prefixes}\}.
-\]
-When this is nonempty, one of \(y,z\) extends the other. Write \(y\vee z\) for the longer of \(y,z\), and set
-\[
-    s=s_{y,z}=t_{y\vee z}.
-\]
-For \(x\in A_{y,z}^{r,b}\), let \(M_x,M_y,M_z\) be the absolute lengths
-of \(x,y,z\), and put \(M_\vee=|y\vee z|\). Define the left
-lexicographic pieces inside the ambient block by
-\[
-    P_{x,i}^{r,b}
-    =
-    \{\sigma\in\cT:\ |\sigma|=M_x,\ \sigma \text{ extends }w,\ 
-    \sigma[j]=x[j]\text{ for }M_w<j<i,\ \sigma[i]<x[i]\},
-\]
-for \(M_w<i\le M_x\). Similarly define the right pieces
-\[
-    Q_{x,i}^{r,b}
-    =
-    \{\sigma\in\cT:\ |\sigma|=M_x,\ \sigma \text{ extends }w,\ 
-    \sigma[j]=x[j]\text{ for }M_w<j<i,\ \sigma[i]>x[i]\}.
-\]
-All expectations below are for the random strings generated inside the ambient block \(B_w\), and for a family of prefixes we use the interval convention above. Set
-\[
-    \mathrm{Fluc}_{\rm left}^{r,b}(x;y)
-    =
-    \left(\max_{M_w<i\le M_\vee}\E |\cI(P_{x,i}^{r,b})|\right)^{1/2},
-\]
-\[
-    \mathrm{Fluc}_{\rm right}^{r,b}(x;z)
-    =
-    \left(\max_{M_w<i\le M_\vee}\E |\cI(Q_{x,i}^{r,b})|\right)^{1/2},
-\]
-and
-\[
-    c_F^{r,b}(x;y,z)
-    =
-    \min\left(
-    \log_N \mathrm{Fluc}_{\rm left}^{r,b}(x;y),
-    \log_N \mathrm{Fluc}_{\rm right}^{r,b}(x;z)
-    \right).
-\]
-The maximum over an empty index set is \(0\), and \(\log_N0=-\infty\).
-Because \(x\) has both \(y\) and \(z\) as prefixes, the quantities above
-depend only on the boundary pair \((y,z)\), not on the continuation beyond
-\(y\vee z\). We use the representative value
-\(c_F^{r,b}(y\vee z;y,z)\) below.
-
-Call a pair \((y,z)\) terminal if \(M_y=K\) or \(M_z=K\). A pair is
-retained if \(A_{y,z}^{r,b}\ne\varnothing\) and either it is terminal or
-\(c_F^{r,b}(y\vee z;y,z)>-\infty\). A nonterminal retained pair is called
-fluctuation-regular when
-\[
-    c_F^{r,b}(\xi;y,z)\ge \frac12c_L^{r,b}(\xi)-o(1)
-\]
-holds uniformly for all continuations \(\xi\in A_{y,z}^{r,b}\). This is
-proved in the profile-estimates lemma below from the genuine left and
-right boundary crossings:
-at the crossing time for \(y\) there is at least \(\chi N\) mass on the
-left side, and at the crossing time for \(z\) there is at least
-\(\chi N\) mass on the right side. Terminal retained pairs are not
-discarded; their stable family is the singleton \(\{y\vee z\}\) and they
-are handled by the terminal/tail estimate.
-
-For fixed \(\delta>0\), define the first-crossing and terminal-fallback sets
-\[
-    \Gamma_{y,z}^{r,b}
-    =
-    \{x\in A_{y,z}^{r,b}:\
-    c_L^{r,b}(x)-c_F^{r,b}(y\vee z;y,z)<\delta,\
-    c_L^{r,b}(\mathcal F x)-c_F^{r,b}(y\vee z;y,z)\ge\delta\},
-\]
-\[
-    \Lambda_{y,z}^{r,b}
-    =
-    \{x\in A_{y,z}^{r,b}:\ |x|=K,\
-    c_L^{r,b}(x)-c_F^{r,b}(y\vee z;y,z)\ge\delta\}.
-\]
-Here \(\mathcal F x\) is the parent of \(x\), used only in \(\Gamma_{y,z}^{r,b}\). Now set
-\[
-    A_{y,z}^{\stable,r,b}
-    =
-    \begin{cases}
-    \{y\vee z\},
-    & \text{\((y,z)\) terminal},\\[4pt]
-    \{y\vee z\},
-    & c_L^{r,b}(y\vee z)-c_F^{r,b}(y\vee z;y,z)<\delta,\\[4pt]
-    \Gamma_{y,z}^{r,b}\cup\Lambda_{y,z}^{r,b},
-    & c_L^{r,b}(y\vee z)-c_F^{r,b}(y\vee z;y,z)\ge\delta,
-    \end{cases}
-\]
-For stable \(x\), set \(u=t_x\). Thus every stable block has times
-\[
-    r\le s\le u\le T.
-\]
-The set \(\Lambda_{y,z}^{r,b}\) is included only to make the stopping
-rule total before applying the tail-size margin; in the first-moment
-application, the tail-size part of \(\FM(r,b,T,\eta)\) excludes
-nonterminal fallback blocks, while terminal singleton pairs are estimated
-directly by the same tail-size margin.
-\end{definition}
-
-\begin{definition}[Space-time digit profile]
-\label{def:space-time-digit-profile}
-Fix the \(\chi\)-regular partition
-\(D_k=D_0\cup\cdots\cup D_m\) from the almost-like condition, with
-representatives \(p^{(i)}\in D_i\), and choose a time mesh
-\[
-    0=t_0<t_1<\cdots<t_R=T,\qquad J_q=[t_q,t_{q+1})\ (q<R-1),\quad J_{R-1}=[t_{R-1},T]
-\]
-with mesh size at most \(\Delta\). Thus \(q\in\{0,\ldots,R-1\}\) is only the time-cell index. Let \((y,z)\) be a retained boundary pair, let \(x\in A_{y,z}^{\stable,r,b}\), and put \(s=s_{y,z}\), \(u=t_x\).
-
-For a shuffle time \(j\) with \(s\log N<j\le u\log N\), let \(q(j)\) and \(i(j)\) be the unique indices such that
-\[
-    j/\log N\in J_{q(j)},\qquad p^{(j)}\in D_{i(j)}.
-\]
-Call the pair \((j,x[j])\) good if \(p_{x[j]}^{(i(j))}>2\chi\), and exceptional otherwise.
-
-Define
-\[
-    c_\ell^{(q,i)}(x)
-    =
-    \frac1{\log N}
-    \#\{j:\ s\log N<j\le u\log N,\ q(j)=q,\ i(j)=i,\ x[j]=\ell,\ (j,x[j])\text{ is good}\}.
-\]
-The full profile consists of the counts \(c_\ell^{(q,i)}(x)\), together with the exceptional set
-\[
-    \mathsf Q_x=\{j:\ s\log N<j\le u\log N,\ (j,x[j])\text{ is exceptional}\}.
-\]
-Define
-\[
-    S_x=\sum_{q=0}^{R-1}\sum_{i=0}^m\sum_{\ell=0}^{k-1}
-    c_\ell^{(q,i)}(x)\log\frac1{p_\ell^{(i)}},
-\]
-\[
-    Q_x=\frac1{\log N}\sum_{j\in\mathsf Q_x}
-    \log\frac{N}{n_{x[j]}^{(j)}}\ge0,
-    \qquad
-    R_x=\frac{|\mathsf Q_x|}{\log N}.
-\]
-For \(c_{\rm tot}^{(q,i)}=\sum_\ell c_\ell^{(q,i)}\), define
-\[
-    H_x
-    =
-    \sum_{q,i:\ c_{\rm tot}^{(q,i)}>0}
-    c_{\rm tot}^{(q,i)}
-    \sum_{\ell:\ c_\ell^{(q,i)}>0}
-    \frac{c_\ell^{(q,i)}}{c_{\rm tot}^{(q,i)}}
-    \log\frac{c_{\rm tot}^{(q,i)}}{c_\ell^{(q,i)}} .
-\]
-\end{definition}
-
-\begin{definition}[Numerical first-moment margin]
-\label{def:numerical-first-moment-margin}
-For an ambient block \((r,b)\), set
-\[
-    \beta_{r,b}(s)=b-A(r,s).
-\]
-For \(r\le s\le u\le T\), define
-\[
-    \mathcal N_1(r,s,u;b)
-    =
-    \inf_{\theta\in[3,4]}
-    \left\{\frac{\theta+3}{2}\beta_{r,b}(s)-B_\theta(s,u)-2B_2(u,T)\right\},
-\]
-\[
-    \mathcal N_2(r,s,u;b)
-    =
-    \inf_{\theta\in[3,4]}
-    \left\{\frac{\theta-1}{2}\beta_{r,b}(s)-B_\theta(s,u)-2B_2(u,T)\right\},
-\]
-and
-\[
-    \mathcal N_3(r,s;b)=\beta_{r,b}(s)-B_2(s,T).
-\]
-We say \(\FM(r,b,T,\eta)\) holds if
-\[
-    \beta_{r,b}(T)\le -\eta,
-\]
-and
-\[
-    \mathcal N_1(r,s,u;b)\le-\eta,\qquad
-    \mathcal N_2(r,s,u;b)\le-\eta
-\]
-for all \(r\le s\le u\le T\), and
-\[
-    \mathcal N_3(r,s;b)\le-\eta
-\]
-for all \(r\le s\le T\). Write \(\FM(T,\eta)=\FM(0,1,T,\eta)\).
-\end{definition}
-
-\begin{lemma}[Stable partition]
-\label{lem:ub-stable-partition}
-For every retained boundary pair \((y,z)\), the stable blocks \(B_x\),
-\(x\in A_{y,z}^{\stable,r,b}\), partition the strings in
-\(B_{y\vee z}\). The intervals \(\cI(B_x)\) partition
-\(\cI(B_{y\vee z})\).
-\end{lemma}
-
-\begin{proof}
-Fix a retained pair \((y,z)\), and write \(v=y\vee z\). If
-\((y,z)\) is terminal, then by definition
-\(A_{y,z}^{\stable,r,b}=\{v\}\), so the assertion is immediate. If
-\(c_L^{r,b}(v)-c_F^{r,b}(v;y,z)<\delta\), then by definition
-\(A_{y,z}^{\stable,r,b}=\{v\}\), so the assertion is immediate.
-
-Otherwise consider a full legal string \(\omega\in B_v\). Along the
-unique path from \(v\) to \(\omega\), the quantity \(c_L^{r,b}(\cdot)\)
-is nonincreasing, while \(c_F^{r,b}(\cdot;y,z)\) is fixed because the
-fluctuation pieces only use coordinates up to the boundary lengths
-\(M_y\) and \(M_z\). If a first descendant \(x\) of length at most \(K\)
-satisfies
-\[
-    c_L^{r,b}(x)-c_F^{r,b}(v;y,z)<\delta,
-\]
-then \(x\in\Gamma_{y,z}^{r,b}\); this includes the possibility
-\(|x|=K\). If no such first crossing occurs, the terminal word of
-\(\omega\) lies in \(\Lambda_{y,z}^{r,b}\). Thus every full string in
-\(B_v\) has a unique candidate stable prefix.
-
-The family \(\Gamma_{y,z}^{r,b}\cup\Lambda_{y,z}^{r,b}\) is an
-antichain. Indeed, if \(x\in\Gamma_{y,z}^{r,b}\), then every strict
-descendant already lies after the first crossing and cannot satisfy the
-parent condition in \(\Gamma\), while it also cannot lie in
-\(\Lambda\), whose elements have no crossing before the terminal time.
-Distinct \(\Lambda\)-elements are leaves. Therefore the stable prefix
-cylinders are disjoint. Since prefix cylinders are contiguous in
-lexicographic order, their images are disjoint contiguous subintervals
-whose union is \(\cI(B_v)\).
-\end{proof}
-
-\begin{lemma}[Global boundary decomposition]
-\label{lem:ub-global-boundary-decomposition}
-Before the admissibility truncation, the maps \(L(\omega)\) and
-\(R(\omega)\) assign every full legal string \(\omega\in B_w\) to a
-unique boundary pair. Consequently
-\[
-    B_w=
-    \bigsqcup_{(y,z)}
-    B_{\{\,\omega:\ L(\omega)=y,\ R(\omega)=z\,\}},
-\]
-where the disjoint union is over boundary pairs from
-\(\cA_{\rm left}^{r,b}\times\cA_{\rm right}^{r,b}\). For every admissible
-retained pair \((y,z)\), the stable cylinders
-\(\{B_x:x\in A_{y,z}^{\stable,r,b}\}\) partition the corresponding
-subfamily \(B_{y\vee z}\). The only strings not represented by retained
-admissible stable cylinders are those for which \(L(\omega)\) or
-\(R(\omega)\) lies outside the admissible truncation.
-\end{lemma}
-
-\begin{proof}
-Uniqueness of \(L(\omega)\) and \(R(\omega)\) follows from first-crossing
-minimality, with the terminal prefix used when no crossing occurs. This
-gives the first disjoint decomposition. If a boundary pair is admissible
-and retained, the stable partition lemma partitions \(B_{y\vee z}\) into its stable
-cylinders. If a string is not covered after the admissibility truncation,
-its unique boundary pair has at least one component removed by the
-truncation. Empty pairs contribute no strings.
-\end{proof}
-
-\begin{lemma}[Regular partition and interval blocking]
-\label{lem:ub-regular-partition-interval-blocking}
-Assume the cuts are \((\rho,\varphi)\)-almost-\(\mu_\cdot\)-like for the
-chosen \(\chi\)-regular partition. Then the representative replacements
-used in the profile estimates have error \(O(\chi)\), good digits have
-actual pile mass at least \(\chi\), and exceptional digits have actual
-pile mass at most \(3\chi+o(1)\). Moreover, the \(\rho\)-grid
-almost-like condition implies the same cell-count estimates on arbitrary
-subintervals of \([0,T]\), with error \(O(\rho+\varphi)+o(1)\).
-\end{lemma}
-
-\begin{proof}
-The representative replacement statements are precisely the defining
-properties of a \(\chi\)-regular partition. If
-\(p^{(j)}\in D_i\) and \(p_\ell^{(i)}>2\chi\), then
-\(n_\ell^{(j)}/N=p_\ell^{(j)}>\chi\) and
-\[
-    \left|
-    \log\frac{N}{n_\ell^{(j)}}-\log\frac1{p_\ell^{(i)}}
-    \right|\le C\chi .
-\]
-If \(p_\ell^{(i)}\le2\chi\), then
-\(n_\ell^{(j)}/N\le3\chi\). Thus exceptional digits carry an actual
-small-pile factor \(O(\chi)\), while good digits are in the controlled
-logarithmic region.
-
-For interval blocking, cover any interval \([a,b]\subset[0,T]\) by the
-maximal union of half-open full \(\rho\)-grid intervals it contains,
-using the closed final interval only at \(T\). The omitted left and right
-boundary pieces have total length at most \(2\rho\). The floor errors in
-converting times to indices are \(O(1/\log N)\) per grid block; since
-\(\rho\) is fixed before \(N\to\infty\), their total contribution is
-o(1). Applying the almost-like condition on the full grid intervals and
-summing over them gives, uniformly in \(i\),
-\[
-    \frac1{\log N}\#\{j:\ j/\log N\in[a,b],\ p^{(j)}\in D_i\}
-    =
-    \int_a^b\mu_t(D_i)\,dt+O(\rho+\varphi)+o(1).
-\]
-\end{proof}
-
-\begin{lemma}[Profile estimates]
-\label{lem:ub-profile-estimates}
-Uniformly over retained boundary pairs and stable
-\(x\in A_{y,z}^{\stable,r,b}\),
-\[
-    c_L^{r,b}(x)=c_L^{r,b}(y\vee z)-S_x-Q_x
-    +O(\Delta+\chi+\rho+\varphi)+o(1),
-\]
-\[
-    c_E(x)=-B_2(u,T)+O(\Delta+\chi+\rho+\varphi)+o(1),
-\]
-\[
-    c_L^{r,b}(y\vee z)\le
-    \beta_{r,b}(s)+O(\Delta+\chi+\rho+\varphi)+o(1).
-\]
-With \(\alpha_\chi=(\log(1/\chi))^{-1/2}\), every continuation
-\(\xi\in A_{y,z}^{r,b}\) of a nonterminal fluctuation-regular retained
-pair satisfies
-\[
-    c_F^{r,b}(\xi;y,z)\ge \frac12 c_L^{r,b}(\xi)-o(1).
-\]
-If \(x\in A_{y,z}^{\stable,r,b}\) is in the non-singleton first-crossing
-case, then
-\[
-    S_x\le c_L^{r,b}(y\vee z)-c_F^{r,b}(y\vee z;y,z)
-    +O(\Delta+\chi+\rho+\varphi+\alpha_\chi)+o(1).
-\]
-After discarding profiles with \(R_x>\alpha_\chi\), for every
-\(\theta\in[3,4]\),
-\[
-    H_x\le \theta S_x-B_\theta(s,u)
-    +O(\Delta+\chi+\rho+\varphi+\alpha_\chi)+o(1).
+ f_{G,G'}\le d_L^{|E(G)\cap E(G')|}
+            \le(L!)^{|E(G)\cap E(G')|}.
 \]
 \end{lemma}
 
 \begin{proof}
-Write \(v=y\vee z\). The identity for \(c_L^{r,b}(x)\) is the definition
-of \(c_L^{r,b}\) split at time \(s=t_v\). On good positions, the regular
-partition lemma replaces the actual logarithm by the representative
-logarithm with total error \(O(\chi)\); exceptional positions are kept
-exactly in \(Q_x\). Hence
-\[
-    c_L^{r,b}(x)=c_L^{r,b}(v)-S_x-Q_x+O(\chi)+o(1),
-\]
-and we keep the larger displayed error to match the tail and entropy
-bookkeeping.
-
-For \(c_E(x)\), group the tail times \(u\log N<j\le K\) by time cells
-and simplex cells. The regular partition and interval-blocking lemma
-give
-\[
-    -\frac1{\log N}\sum_{M_x<j\le K}\psi_{p^{(j)}}(2)
-    =
-    -\int_u^T\psi_t(2)\,dt
-    +O(\Delta+\chi+\rho+\varphi)+o(1).
-\]
-The same argument with \(\log(1/p_{\max})\) gives the maximal-pile bound
-for \(v\):
-\[
-    \frac1{\log N}\sum_{M_w<j\le M_v}
-    \log\frac1{p_{\max}(p^{(j)})}
-    =
-    A(r,s)+O(\Delta+\chi+\rho+\varphi)+o(1).
-\]
-Since \(n_{v[j]}^{(j)}/N\le p_{\max}(p^{(j)})\), this yields the
-displayed upper bound on \(c_L^{r,b}(v)\).
-
-We next record the fluctuation comparison. Suppose the left boundary
-prefix \(y\) has a genuine crossing before time \(K\), and write
-\(i=M_y\). Then \(y[i]>\ileft^{(i)}\), so
-\[
-    \sum_{\ell<y[i]}n_\ell^{(i)}\ge n_{\ileft^{(i)}}^{(i)}\ge\chi N .
-\]
-For every continuation \(\xi\in A_{y,z}^{r,b}\), the side piece
-\(P_{\xi,i}^{r,b}\) contains the subfamily obtained from \(B_\xi\) by
-replacing the \(i\)-th digit \(y[i]\) by a digit \(<y[i]\) and keeping all
-later digits fixed. Hence, inside the ambient block,
-\[
-    \E|\cI(P_{\xi,i}^{r,b})|
-    \ge
-    \E|\cI(B_\xi)|
-    \frac{\sum_{\ell<y[i]}n_\ell^{(i)}}{n_{y[i]}^{(i)}}
-    \ge
-    \chi\,\E|\cI(B_\xi)|.
-\]
-The right boundary prefix gives the analogous estimate for
-\(Q_{\xi,M_z}^{r,b}\), because \(z[M_z]<\iright^{(M_z)}\) leaves a pile
-of size at least \(\chi N\) to its right. Therefore, whenever both
-boundary sides have genuine crossings,
-\[
-    \mathrm{Fluc}_{\rm left}^{r,b}(\xi;y)
-    \wedge
-    \mathrm{Fluc}_{\rm right}^{r,b}(\xi;z)
-    \ge
-    N^{c_L^{r,b}(\xi)/2-o(1)}.
-\]
-If a retained pair is terminal, the stable family is already the singleton
-\(\{y\vee z\}\). Such pairs are not used in the anti-concentration cases
-below; their contribution is controlled by the terminal/tail estimate in
-the numerical and edge-density lemmas.
-
-For a non-singleton first-crossing \(x\), the parent condition gives
-\[
-    c_L^{r,b}(\mathcal Fx)-c_F^{r,b}(v;y,z)\ge\delta .
-\]
-Applying the first estimate to \(\mathcal Fx\) and using
-\(Q_{\mathcal Fx}\ge0\) gives the desired upper bound for
-\(S_{\mathcal Fx}\). Passing from \(\mathcal Fx\) to \(x\) changes \(S\)
-by \(O((\log N)^{-1})\) if the final digit is good and by \(0\) if it is
-exceptional. This proves the displayed parent-crossing estimate.
-
-Finally fix \(\theta\in[3,4]\). For each \((q,i)\), relative entropy
-applied to the distribution
-\(c_\ell^{(q,i)}/c_{\rm tot}^{(q,i)}\) and to weights proportional to
-\((p_\ell^{(i)})^\theta\) gives, with the convention that zero-count
-terms are omitted,
-\[
-    \sum_\ell c_\ell^{(q,i)}
-        \log\frac{c_{\rm tot}^{(q,i)}}{c_\ell^{(q,i)}}
-    \le
-    \theta\sum_\ell c_\ell^{(q,i)}\log\frac1{p_\ell^{(i)}}
-    +c_{\rm tot}^{(q,i)}
-        \log\sum_\ell (p_\ell^{(i)})^\theta .
-\]
-Equivalently,
-\[
-    H_x\le
-    \theta S_x-\sum_{q,i}c_{\rm tot}^{(q,i)}\psi_{p^{(i)}}(\theta).
-\]
-The total number of \((q,i)\)-positions between \(s\) and \(u\) differs
-from \(c_{\rm tot}^{(q,i)}\log N\) only by the exceptional positions.
-After profiles with \(R_x\le\alpha_\chi\) are retained, interval
-blocking and the \(\chi\)-regular representative replacement give
-\[
-    \sum_{q,i}c_{\rm tot}^{(q,i)}\psi_{p^{(i)}}(\theta)
-    =
-    B_\theta(s,u)+O(\Delta+\chi+\rho+\varphi+\alpha_\chi)+o(1),
-\]
-uniformly for \(\theta\in[3,4]\). This yields the entropy estimate.
+Every component of an $L$-sparse graph has fewer than $L$ vertices:
+a component containing $L$ vertices would give $L-1>L/3$ edges in an
+$L$-vertex interval. If $N<L$, the component bound is automatic.
+Apply Lemma~\ref{lem:ub-component-factorial} with $B=L$.
 \end{proof}
 
-\begin{lemma}[Bad-profile reduction]
-\label{lem:ub-bad-profile-reduction}
-For every fixed target \(\mathsf C_0\), the admissibility truncation above
-and the bad-profile truncation can be chosen so that the total
-contribution of non-admissible boundary pairs and profiles with
-\(R_x>\alpha_\chi\) is \(N^{-\mathsf C_0}\). Empty boundary pairs
-contribute zero, and terminal retained pairs are kept as singleton
-classes. Moreover, for every \(\varepsilon>0\), after choosing \(\chi\)
-small and then \(N\) large, the number of remaining
-boundary-pair/profile classes is at most \(N^\varepsilon\).
-\end{lemma}
+For a full word $w\in[k]_0^K$, define
+\[
+ C_w=\#\{i:S_i=w\},\qquad
+ \lambda_w=\prod_{j=1}^Kp^{(j)}_{w[j]},\qquad
+ \mu_*=N\max_w\lambda_w=N\prod_{j=1}^K\max_\ell p^{(j)}_\ell.
+\]
+Empty products equal one when $K=0$.
 
-\begin{proof}
-Fix a boundary threshold \(\mathsf C_{\rm bdry}\gg \mathsf C_0\), take
-the constant \(\mathsf C\) in the admissibility definition to be
-\(\mathsf C_{\rm bdry}\), then choose
-\(\chi\) so small that all entropy factors below are dominated by powers
-of \(\chi\), and only then take \(N\to\infty\). Put
-\[
-    \alpha_\chi=(\log(1/\chi))^{-1/2}.
-\]
-For any prefix family \(\mathcal V\), write \(G_{\mathcal V}\) for the
-subgraph generated by rows in \(B_{\mathcal V}\). Since
-\[
-    \sum_m \Pp((m,m+1)\in E(G_{\mathcal V}))^2
-    \le
-    \sum_m \Pp((m,m+1)\in E(G_{\mathcal V}))
-    =
-    \E |E(G_{\mathcal V})|
-    \le
-    \E |\cI(\mathcal V)| ,
-\]
-it suffices for discarded families to bound their expected interval mass.
-
-\emph{Admissible boundary truncation.}
-If a left boundary prefix is excluded, then it contains
-\[
-    q>\frac{\mathsf C_{\rm bdry}}{\log(1/\chi)}\log N
-\]
-digits in piles of size \(<\chi N\) before reaching the boundary stop.
-For a fixed set of such locations its expected mass has an extra factor at
-most \(\chi^q\le N^{-\mathsf C_{\rm bdry}}\). Summing over the possible
-locations and digits gives the explicit tail bound
-\[
-    N\sum_{q>\mathsf C_{\rm bdry}\log N/\log(1/\chi)}
-    \binom Kq k^q\chi^q
-    \le
-    N^{1-\mathsf C_{\rm bdry}+o_\chi(1)} .
-\]
-Here \(K=O(\log N)\), and the \(o_\chi(1)\) term tends to \(0\) after
-\(\chi\downarrow0\). Choosing \(\mathsf C_{\rm bdry}\) larger than
-\(\mathsf C_0+2\) makes the discarded left-boundary contribution
-\(N^{-\mathsf C_0}\). The right boundary is identical. Empty pairs
-\(A_{y,z}^{r,b}=\varnothing\) contribute zero. Terminal retained pairs are
-not included in this discard; they remain as singleton profile classes.
-
-\emph{Exceptional profile truncation.}
-If \(R_x>\alpha_\chi\), then \(x\) uses more than
-\(\alpha_\chi\log N\) exceptional digits, each carrying a pile-size factor
-at most \(3\chi+o(1)\) by \(\chi\)-regularity. Hence their total mass is
-bounded by
-\[
-    \sum_{q\ge\alpha_\chi\log N}\binom Kq k^q(4\chi)^q .
-\]
-The number of choices of exceptional locations and digits alone is
-\[
-    \exp\{O(\alpha_\chi\log(1/\alpha_\chi)\log N)\}.
-\]
-Since
-\(\alpha_\chi\log(1/\chi)=\sqrt{\log(1/\chi)}\to\infty\), the small-pile
-loss dominates the entropy factor, so the mass and hence the edge
-contribution of these profiles is \(N^{-\mathsf C_0}\) after decreasing
-\(\chi\).
-
-After both truncations, the boundary data and the exceptional set have
-\(N^\varepsilon\) possibilities for any prescribed \(\varepsilon>0\),
-after \(\chi\) is chosen small. Each coarse count
-\(c_\ell^{(q,i)}\) has only \(O(\log N)\) possible values. Hence the
-remaining boundary-pair/profile classes are at most \(N^\varepsilon\)
-for all large \(N\).
-\end{proof}
-
-\begin{lemma}[Hypergeometric estimates]
-\label{lem:ub-hypergeometric-estimates}
-Let \(Y\sim\operatorname{Hyp}(n_1,n,m)\), the size of the intersection
-of a uniformly chosen \(n_1\)-set and a uniformly chosen \(m\)-set in an
-\(n\)-point population. Put
-\[
-    \mu=\E Y=\frac{n_1m}{n},
-    \qquad
-    \sigma^2=
-    \frac{n_1m(n-n_1)(n-m)}{n^2(n-1)} .
-\]
-There are absolute constants \(c,C>0\) such that, for every \(t\ge0\),
+\begin{lemma}[Largest-component tail]
+\label{lem:ub-largest-component-tail}
+For integers $2\le q\le N$,
 \begin{equation}
-\label{eq:hypergeom-concentration}
-    \Pp(|Y-\mu|\ge t)
-    \le
-    2\exp\left\{-c\min\left(\frac{t^2}{\mu+t},t\right)\right\},
+\label{eq:ub-largest-component-tail}
+ \Pp\bigl(\max_w C_w\ge q\bigr)
+ \le\binom Nq\left(\frac{\mu_*}{N}\right)^{q-1}
+ \le\frac{N\mu_*^{q-1}}{q!}.
 \end{equation}
-and, whenever \(\sigma>0\),
-\[
-    \sup_q \Pp(Y=q)\le \frac{C}{\sigma}.
-\]
+For $q>N$ the probability is zero. Consequently, if
+$\mu_*\le N^{-\eta}$ for fixed $\eta>0$, then for every fixed
+$A>0$ one can choose an integer $B\ge2$ such that
+\begin{equation}
+\label{eq:ub-bounded-component-probability}
+ \Pp\bigl(G\text{ has a component with more than }B\text{ vertices}\bigr)
+ \le \frac{N^{-A}}{(B+1)!}.
+\end{equation}
 \end{lemma}
 
 \begin{proof}
-The concentration bound is Hoeffding's inequality for sampling without
-replacement. For the point-mass bound, write the hypergeometric mass
-function explicitly as a ratio of binomial coefficients. Stirling's
-formula gives \(O(\sigma^{-1})\) uniformly in the central window
-\(|q-\mu|=O(\sigma)\). The mass function is log-concave in \(q\), so the
-maximum is attained in this window up to an absolute constant factor.
+For $q$ distinct labels, the probability that all their words equal $w$
+is
+\[
+ \prod_{j=1}^K\frac{(n^{(j)}_{w[j]})_q}{(N)_q}
+ \le\lambda_w^q.
+\]
+For $0\le n\le N$, the inequality $(n)_q/(N)_q\le(n/N)^q$
+follows factor by factor when $n\ge q$; when $n<q$ the numerator
+vanishes. Hence
+\[
+ \E\binom{C_w}{q}\le\binom Nq\lambda_w^q.
+\]
+Sum over $w$, use $\sum_w\lambda_w=1$, and apply Markov's inequality.
+The components of $G$ are precisely the nonempty equal-word blocks.
+Taking $q=B+1$ and choosing $\eta B\ge A+1$ proves
+\eqref{eq:ub-bounded-component-probability}; the case $B+1>N$ is
+already zero.
 \end{proof}
 
-\begin{lemma}[Ambient conditioning transfer]
-\label{lem:ub-ambient-conditioning-transfer}
-Fix an admissible nonterminal retained boundary pair \((y,z)\), and let
-\(\xi\in A_{y,z}^{r,b}\). On an event of probability
-\(1-\exp(-N^{\delta-o(1)})\), uniformly over all prefix families appearing
-in the endpoint decompositions below, the random counts inside the ambient
-block differ from their conditional means by at most a factor
-\(N^{O(\delta)+o(1)}\) whenever the mean is at least
-\(N^{\delta-o(1)}\), and are at most \(N^{O(\delta)+o(1)}\) otherwise.
-Consequently, if \(a,b\le M_{y\vee z}\) realize the left and right
-fluctuation scales,
-\[
-    \E|\cI(P_{\xi,a}^{r,b})|,
-    \E|\cI(Q_{\xi,b}^{r,b})|
-    \ge N^{2c_F^{r,b}(\xi;y,z)-o(1)},
-\]
-then every conditional hypergeometric variable \(Y\) constructed from
-these two pieces in the anti-concentration proof, with \(\mathcal G\) denoting
-its revealing sigma-field, satisfies
-\[
-    \E(Y\mid\mathcal G)\ge
-    N^{2c_F^{r,b}(\xi;y,z)-O(\delta)-o(1)}
-\]
-and both complementary population fractions in its variance formula are
-at least \(N^{-O(\delta)-o(1)}\).
-\end{lemma}
-
-\begin{proof}
-All sets used in the endpoint decompositions are prefix cylinders or
-finite intersections of prefix cylinders with one column left unrevealed.
-There are only \(N^{o(1)}\) such sets after the admissibility and
-profile truncations. Revealing columns successively, each count evolves by
-a hypergeometric thinning with deterministic conditional mean. Applying
-Lemma~\ref{lem:ub-hypergeometric-estimates} at every reveal step and union bounding over
-the \(O(\log N)\) levels gives the stated transfer of means to realized
-ambient counts.
-
-The nonterminal boundary condition gives a genuine crossing on both sides:
-the left crossing has at least \(\chi N\) deterministic mass to its left,
-and the right crossing has at least \(\chi N\) deterministic mass to its
-right. After conditioning inside \(B_w\), the preceding concentration
-transfer preserves these side masses up to \(N^{O(\delta)+o(1)}\) factors.
-Thus the fluctuation-maximizing left and right pieces cannot exhaust the
-conditional population. The displayed lower bound on \(\E(Y\mid\mathcal G)\)
-is the transferred version of the defining lower bounds for
-\(\E|\cI(P_{\xi,a}^{r,b})|\) and \(\E|\cI(Q_{\xi,b}^{r,b})|\).
-\end{proof}
-
-\begin{lemma}[Ambient concentration and anti-concentration]
-\label{lem:ub-ambient-concentration-anti-concentration}
-Let \((y,z)\) be a nonterminal retained fluctuation-regular pair and let
-\(x\in A_{y,z}^{r,b}\). Put \(M_\vee=|y\vee z|\). Write
-\[
-    \cI(B_x)=[\iota_x,\tau_x)
-\]
-for the random lexicographic interval occupied by \(B_x\), and let
-\(\mathcal U_x\) be the internal information consisting of the rows whose
-strings have prefix \(x\), together with their continuation strings after
-time \(M_x\). On an event \(\mathcal S_x\) with
-\[
-    \Pp(\mathcal S_x^c)\le \exp(-N^{\delta-o(1)}),
-\]
-the following estimates hold uniformly over the remaining retained
-profiles:
-\[
-    |\cI(B_x)|\le N^{c_L^{r,b}(x)+O(\delta)+o(1)}
-    \qquad\text{if }c_L^{r,b}(x)\ge 2\delta,
-\]
-\[
-    |\cI(B_x)|\le N^{O(\delta)+o(1)}
-    \qquad\text{if }c_L^{r,b}(x)<2\delta,
-\]
-and
-\[
-    \max_j \Pp(\iota_x=j,\mathcal S_x\mid\mathcal U_x)
-    +
-    \max_j \Pp(\tau_x=j,\mathcal S_x\mid\mathcal U_x)
-    \le
-    N^{-M_x^*+O(\delta)+o(1)},
-\]
-where
-\[
-    M_x^*=\max(c_F^{r,b}(x;y,z),\delta).
-\]
-Moreover, there are deterministic centers
-\(\bar\iota_x=\E\iota_x\) and \(\bar\tau_x=\E\tau_x\) such that, on
-\(\mathcal S_x\),
-\[
-    |\iota_x-\bar\iota_x|+|\tau_x-\bar\tau_x|
-    \le
-    N^{M_x^*+O(\delta)+o(1)} .
-\]
-\end{lemma}
-
-\begin{proof}
-The size estimates are the ambient-block forms of the prefix
-concentration estimates. Revealing the rows inside \(B_w\) one shuffle
-time at a time, the number of rows carrying any fixed legal prefix evolves
-by successive hypergeometric thinnings. The concentration part of
-Lemma~\ref{lem:ub-hypergeometric-estimates}, iterated over \(O(\log N)\) levels, gives
-concentration around the conditional mean; the same bound with
-\(t=N^{O(\delta)}\) gives the small-mean estimate. The conditioning on
-the ambient block changes only the initial population from \(N\) to
-\(|\cI(B_w)|=N^{b+o(1)}\), and all exponents above are measured relative
-to this ambient expected size through \(c_L^{r,b}\).
-
-The endpoint-window estimate follows from the same decomposition. For
-the left endpoint,
-\[
-    \iota_x=
-    C_w+\sum_{M_w<i\le M_x}|\cI(P_{x,i}^{r,b})|,
-\]
-where \(C_w\) is the deterministic left endpoint of the ambient block
-after conditioning on \(B_w\). Each summand has mean at most
-\(N^{2c_F^{r,b}(x;y,z)+o(1)}\): for \(i\le M_\vee\) this is the
-definition of the left fluctuation, while for \(i>M_\vee\) the summand is
-contained in \(B_{y\vee z}\), whose expected size is at most
-\(N^{2c_F^{r,b}(x;y,z)+o(1)}\) by the fluctuation comparison. The same
-argument applies to the right-endpoint decomposition.
-Applying Lemma~\ref{lem:ub-hypergeometric-estimates} and taking a union bound over the
-\(O(\log N)\) summands gives
-\[
-    |\iota_x-\bar\iota_x|
-    \le N^{M_x^*+O(\delta)+o(1)}
-\]
-on an event of probability \(1-\exp(-N^{\delta-o(1)})\). Since
-\(\tau_x=\iota_x+|\cI(B_x)|\) and the size estimates give the same
-deviation scale for \(|\cI(B_x)|\), the displayed window for \(\tau_x\)
-follows after intersecting the corresponding good events.
-
-It remains to identify a hypergeometric variable with variance at least
-\(N^{2M_x^*-O(\delta)-o(1)}\). Assume first that
-\(c_F^{r,b}(x;y,z)\ge\delta-(\log N)^{-1/2}\). Work inside the ambient
-population \(B_w\); all row sets below are implicitly intersected with
-the rows extending \(w\). Write \(N_w\) for this ambient population size
-and, in this paragraph only, write \(n_\ell^{(j)}\) for the corresponding
-ambient count in column \(j\). Choose columns \(a,b\le M_\vee\) so that
-\[
-    \E|\cI(P_{x,a}^{r,b})|
-    \ge
-    N^{2c_F^{r,b}(x;y,z)-o(1)},\qquad
-    \E|\cI(Q_{x,b}^{r,b})|
-    \ge
-    N^{2c_F^{r,b}(x;y,z)-o(1)},
-\]
-after interchanging left and right if necessary. If the right fluctuation
-is the smaller one, reverse the lexicographic order; this swaps \(P\) and
-\(Q\) and leaves the argument unchanged.
-
-We spell out the left-endpoint construction. In the case \(a>b\), reveal
-all columns except column \(b\), and in column \(b\) also reveal the rows
-in
-\[
-    R_1=\{\sigma:\ \sigma[M_w+1:b-1]=x[M_w+1:b-1],\
-    \sigma[b+1:a]\ge_{\rm lex} x[b+1:a]\}.
-\]
-Let \(L_b=\sum_{\ell\le x[b]}n_\ell^{(b)}\), with the count restricted to
-the current ambient population, and define
-\[
-    a_2=|\{\sigma:\sigma[M_w+1:b-1]=x[M_w+1:b-1],\
-           \sigma[b+1:a]<_{\rm lex}x[b+1:a]\}|,
-\]
-\[
-    a_3=|\{\sigma\in R_1:\sigma[b]\le x[b]\}|.
-\]
-The remaining part of the left endpoint is
-\[
-    Y_1=
-    |\{\sigma:\sigma[M_w+1:b-1]=x[M_w+1:b-1],\
-       \sigma[b]\le x[b],\ \sigma[b+1:a]<_{\rm lex}x[b+1:a]\}|,
-\]
-and, conditional on the revealed sigma-field \(\mathcal F_1\supseteq
-\mathcal U_x\),
-\[
-    Y_1\sim\operatorname{Hyp}(L_b-a_3,\ N_w-|R_1|,\ a_2),
-    \qquad
-    \iota_x=A_1+Y_1,\quad
-    \tau_x=A_1+Y_1+|\cI(B_x)|,
-\]
-for an \(\mathcal F_1\)-measurable shift \(A_1\). The ambient conditioning
-transfer lemma, applied on \(\mathcal S_x\), gives
-\[
-    \E(Y_1\mid\mathcal F_1)\ge N^{2c_F^{r,b}(x;y,z)-O(\delta)-o(1)},
-\]
-and
-\[
-    \frac{a_2}{N_w-|R_1|}\le 1-N^{-O(\delta)-o(1)},\qquad
-    \frac{L_b-a_3}{N_w-|R_1|}\le 1-N^{-O(\delta)-o(1)}.
-\]
-With \(n=N_w-|R_1|\), the variance formula gives
-\[
-\begin{aligned}
-    \operatorname{Var}(Y_1\mid\mathcal F_1)
-    &=
-    \E(Y_1\mid\mathcal F_1)
-    \left(1-\frac{L_b-a_3}{n}\right)
-    \left(1-\frac{a_2}{n}\right)
-    \frac{n}{n-1}\\
-    &\ge N^{2c_F^{r,b}(x;y,z)-O(\delta)-o(1)}.
-\end{aligned}
-\]
-
-The case \(a<b\) is the symmetric reveal at column \(a\). With
-\[
-    R_2=\{\sigma:\ \sigma[M_w+1:a-1]=x[M_w+1:a-1],\
-    \sigma[a+1:b]\le_{\rm lex} x[a+1:b]\},
-\]
-and \(L_a^-=\sum_{\ell<x[a]}n_\ell^{(a)}\), define \(b_2\) as the number
-of rows with the common prefix up to \(a-1\) and
-\(\sigma[a+1:b]>_{\rm lex}x[a+1:b]\), and
-\(b_3=|\{\sigma\in R_2:\sigma[a]<x[a]\}|\).
-Then, conditional on the analogous sigma-field \(\mathcal F_2\),
-\[
-    Y_2\sim\operatorname{Hyp}(L_a^- - b_3,\ N_w-|R_2|,\ b_2),
-    \qquad
-    \iota_x=A_2+Y_2,\quad
-    \tau_x=A_2+Y_2+|\cI(B_x)|,
-\]
-and the same mean and non-exhaustion estimates give
-\[
-    \E(Y_2\mid\mathcal F_2)\ge N^{2c_F^{r,b}(x;y,z)-O(\delta)-o(1)},
-\]
-\[
-    1-\frac{L_a^- -b_3}{N_w-|R_2|}
-    \ge N^{-O(\delta)-o(1)},\qquad
-    1-\frac{b_2}{N_w-|R_2|}
-    \ge N^{-O(\delta)-o(1)}.
-\]
-Therefore the hypergeometric variance formula gives
-\[
-    \operatorname{Var}(Y_2\mid\mathcal F_2)
-    \ge N^{2c_F^{r,b}(x;y,z)-O(\delta)-o(1)}.
-\]
-
-Finally, if \(a=b\), reveal all columns except \(a\), and in column \(a\)
-reveal the rows with digit \(x[a]\). Let \(\mathcal F_3\supseteq
-\mathcal U_x\) be the resulting sigma-field. If \(d_2\) is the number of
-rows with the common prefix up to \(a-1\) and digit different from
-\(x[a]\), then
-\[
-    Y_3\sim
-    \operatorname{Hyp}(L_a^-,\ N_w-n_{x[a]}^{(a)},\ d_2),
-    \qquad
-    \iota_x=A_3+Y_3,\quad
-    \tau_x=A_3+Y_3+|\cI(B_x)|.
-\]
-The ambient conditioning transfer lemma gives the needed side mass on both
-sides of the crossing digit, so
-\[
-    \E(Y_3\mid\mathcal F_3)\ge N^{2c_F^{r,b}(x;y,z)-O(\delta)-o(1)},
-\]
-\[
-    1-\frac{L_a^-}{N_w-n_{x[a]}^{(a)}}\ge N^{-O(\delta)-o(1)},
-    \qquad
-    1-\frac{d_2}{N_w-n_{x[a]}^{(a)}}\ge N^{-O(\delta)-o(1)}.
-\]
-The variance formula gives
-\[
-    \operatorname{Var}(Y_3\mid\mathcal F_3)
-    \ge N^{2c_F^{r,b}(x;y,z)-O(\delta)-o(1)}.
-\]
-Thus all three cases have conditional variance at least this large.
-
-For every realization of the finer revealed sigma-field inside
-\(\mathcal S_x\), the relevant hypergeometric variable has variance at
-least \(N^{2c_F^{r,b}(x;y,z)-O(\delta)-o(1)}\). Applying the
-anti-concentration part of Lemma~\ref{lem:ub-hypergeometric-estimates} for each such
-realization and then taking conditional expectation back to
-\(\mathcal U_x\) gives
-\[
-    \sup_j\Pp(\iota_x=j,\mathcal S_x\mid\mathcal U_x)
-    \le
-    N^{-c_F^{r,b}(x;y,z)+O(\delta)+o(1)}.
-\]
-When \(c_F^{r,b}(x;y,z)<\delta\), the trivial bound
-\(\max_j\Pp(\iota_x=j\mid\mathcal U_x)\le1\) is
-\(N^{-\max(c_F^{r,b}(x;y,z),\delta)+O(\delta)}\), after increasing the
-implicit constant in \(O(\delta)\). The same argument applies to
-\(\tau_x\), using the right endpoint decomposition. This proves the
-anti-concentration estimate.
-\end{proof}
-
-\begin{lemma}[Per-edge stable localization]
-\label{lem:ub-per-edge-stable-localization}
-For each \(m\in\{1,\ldots,N-1\}\) and each retained admissible boundary
-pair \((y,z)\), define
-\[
-    A_{y,z,m}^{\stable,r,b}
-    =
-    \left\{
-    x\in A_{y,z}^{\stable,r,b}:
-    \Pp(m\in\cI(B_x))\ge \exp(-N^\delta)
-    \right\}.
-\]
-Then \(|A_{y,z,m}^{\stable,r,b}|\le 2Kk\). Moreover,
-\[
-    \Pp\left[
-    m\notin
-    \bigcup_{(y,z)}\ \bigcup_{x\in A_{y,z,m}^{\stable,r,b}}
-    \cI(B_x)
-    \right]
-    \le \exp(-N^{\delta-o(1)}),
-\]
-where the union is over retained admissible boundary pairs. If
-\((m,m+1)\in E(G)\), then the two endpoint rows have the same full string,
-so any stable block containing \(m\) also contains the edge.
-\end{lemma}
-
-\begin{proof}
-The global boundary decomposition and the stable partition show that
-retained admissible stable intervals partition the retained part of the
-ambient block. Intervals omitted by the boundary and profile truncations
-have total edge contribution \(N^{-\mathsf C_0}\) by the bad-profile
-reduction and are excluded here.
-
-For a fixed retained pair, discard from \(A_{y,z}^{\stable,r,b}\) all
-blocks whose interval contains \(m\) with probability below
-\(\exp(-N^\delta)\). A union bound over the at most \(k^K=N^{O(1)}\)
-stable prefixes gives the displayed failure probability. It remains to
-bound the number of non-discarded blocks. Map every non-singleton
-first-crossing block to its parent. If three different parents for the
-same boundary pair could contain \(m\) with probability at least
-\(\exp(-N^\delta)\), their deterministic centers would be ordered from
-left to right; for the middle one, the endpoint-window estimate from the
-ambient concentration lemma would force one of the outer events to have
-probability at most \(\exp(-N^{\delta-o(1)})\), a contradiction for large
-\(N\). Thus there are at most two parents, and each has at most \(k\)
-children. Terminal singleton pairs contribute one block. The harmless
-factor \(K\) covers the possibility of first crossings at different
-lengths before applying the parent map uniformly.
-\end{proof}
-
-\begin{lemma}[Edge-density bounds]
-\label{lem:ub-edge-density-bounds}
-Let \((y,z)\) be a nonterminal retained fluctuation-regular pair and let
-\(x\in A_{y,z}^{\stable,r,b}\setminus\Lambda_{y,z}^{r,b}\). The
-following bounds hold:
-\[
-    \sum_{m=1}^{N-1}\Pp((m,m+1)\in E(G_{B_x}))^2
-    \le N^{4c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+2c_E(x)+O(\delta)+o(1)}
-\]
-in the large-block case \(c_L^{r,b}(x)\ge2\delta\);
-\[
-    \sum_{m=1}^{N-1}\Pp((m,m+1)\in E(G_{B_x}))^2
-    \le N^{-c_F^{r,b}(x;y,z)+2c_E(x)+O(\delta)+o(1)}
-\]
-in the small non-singleton case
-\(c_L^{r,b}(x)<2\delta\),
-\(c_F^{r,b}(x;y,z)\ge\delta-(\log N)^{-1/2}\), and
-\(A_{y,z}^{\stable,r,b}\ne\{y\vee z\}\). If
-\(c_L^{r,b}(x)<2\delta\) and
-\(c_F^{r,b}(x;y,z)<\delta-(\log N)^{-1/2}\), then \(x=y\vee z\) and
-\(A_{y,z}^{\stable,r,b}=\{y\vee z\}\). If
-\(c_L^{r,b}(x)<2\delta\) and
-\(A_{y,z}^{\stable,r,b}=\{y\vee z\}\), then
-\[
-    \sum_{m=1}^{N-1}\Pp((m,m+1)\in E(G_{B_x}))^2
-    \le N^{2c_L^{r,b}(x)+2c_E(x)+O(\delta)+o(1)}.
-\]
-\end{lemma}
-
-\begin{proof}
-For any prefix \(x\) of absolute length \(M_x\),
-\[
-    \E\bigl(|E(G_{B_x})|\,\big|\,|\cI(B_x)|\bigr)
-    \le
-    |\cI(B_x)|^2
-    \prod_{M_x<j\le K}\sum_\ell
-    \frac{n_\ell^{(j)}(n_\ell^{(j)}-1)}{N(N-1)}
-    \le |\cI(B_x)|^2N^{c_E(x)+o(1)} .
-\]
-In all cases below we work on the event \(\mathcal S_x\) from the
-ambient concentration and anti-concentration lemma. Its complement has
-probability \(\exp(-N^{\delta-o(1)})\), so its contribution to the
-edge-density sums is absorbed in the displayed \(O(\delta)+o(1)\)
-exponents.
-Conditional on \(\mathcal U_x\), the internal graph \(G_{B_x}\) is fixed
-up to translation by \(\iota_x\). For a fixed \(m\), each internal edge
-of this fixed graph is placed at \((m,m+1)\) for at most one value of
-\(\iota_x\). Therefore
-\[
-    \Pp((m,m+1)\in E(G_{B_x}),\mathcal S_x\mid\mathcal U_x)
-    \le
-    |E(G_{B_x})|\,
-    N^{-M_x^*+O(\delta)+o(1)} .
-\]
-Averaging this inequality over \(\mathcal U_x\) and using the preceding
-conditional expectation bound gives the pointwise estimates below. The
-endpoint-window estimate shows that
-all non-negligible \(m\)'s lie in a deterministic interval of size
-\[
-    N^{c_L^{r,b}(x)+O(\delta)+o(1)}
-    +
-    N^{M_x^*+O(\delta)+o(1)} .
-\]
-
-In the large-block case, the fluctuation comparison and
-\(c_L^{r,b}(x)\ge2\delta\) imply
-\(c_F^{r,b}(x;y,z)\ge\delta-o(1)\), so \(M_x^*=c_F^{r,b}(x;y,z)+o(1)\).
-The size concentration and the internal edge estimate give
-\[
-    \E\bigl(|E(G_{B_x})|\mathbf 1_{\mathcal S_x}\bigr)
-    \le N^{2c_L^{r,b}(x)+c_E(x)+O(\delta)+o(1)}.
-\]
-Stability gives
-\[
-    N^{c_L^{r,b}(x)+o(1)}+N^{c_F^{r,b}(x;y,z)+o(1)}
-    \le N^{c_F^{r,b}(x;y,z)+O(\delta)+o(1)} .
-\]
-Thus the pointwise edge probability is at most
-\[
-    N^{2c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+c_E(x)+O(\delta)+o(1)}.
-\]
-Squaring and summing over the above window proves the large-block bound.
-
-In the small non-singleton case, the extra hypothesis
-\(c_F^{r,b}(x;y,z)\ge\delta-(\log N)^{-1/2}\) is exactly what is needed
-to use the same anti-concentration scale. The ambient small-block
-concentration bound and the internal edge estimate give
-\[
-    \E\bigl(|E(G_{B_x})|\mathbf 1_{\mathcal S_x}\bigr)
-    \le N^{c_E(x)+O(\delta)+o(1)},
-\]
-and hence the pointwise edge probability is
-\[
-    N^{-c_F^{r,b}(x;y,z)+c_E(x)+O(\delta)+o(1)}.
-\]
-The endpoint-window estimate and \(c_L^{r,b}(x)<2\delta\) allow us to
-sum its square over a window of size
-\(N^{c_F^{r,b}(x;y,z)+O(\delta)+o(1)}\). This gives the second bound.
-
-If \(c_L^{r,b}(x)<2\delta\) and
-\(c_F^{r,b}(x;y,z)<\delta-(\log N)^{-1/2}\), then the fluctuation
-comparison at \(y\vee z\) gives
-\[
-    c_L^{r,b}(y\vee z)-c_F^{r,b}(y\vee z;y,z)<\delta
-\]
-for \(N\) large and the small parameters fixed. Hence the stable family
-is the singleton \(\{y\vee z\}\), and \(x=y\vee z\).
-
-For a small singleton stable block, use the ambient anti-concentration
-lemma at the scale
-\[
-    M_*=\max(c_F^{r,b}(x;y,z),\delta).
-\]
-The endpoint-window estimate gives a relevant window of size
-\[
-    N^{c_L^{r,b}(x)+O(\delta)+o(1)}
-    +
-    N^{M_*+O(\delta)+o(1)} ,
-\]
-and the small-mean concentration bound gives the second-moment estimate
-\[
-    \E|\cI(B_x)|^2\le N^{c_L^{r,b}(x)+O(\delta)+o(1)}.
-\]
-Indeed, on \(\mathcal S_x\) we have
-\(|\cI(B_x)|\le N^{O(\delta)+o(1)}\), so
-\(|\cI(B_x)|^2\le N^{O(\delta)+o(1)}|\cI(B_x)|\); the complement of
-\(\mathcal S_x\) has exponentially small probability.
-Consequently the pointwise probability is bounded by
-\[
-    N^{c_L^{r,b}(x)-M_*+c_E(x)+O(\delta)+o(1)}.
-\]
-Multiplying the window size by the square of this pointwise bound gives
-\[
-\begin{aligned}
-&\left(
-N^{c_L^{r,b}(x)+O(\delta)+o(1)}
-    +
-    N^{M_*+O(\delta)+o(1)}
-\right)\\
-&\quad \times
-N^{2c_L^{r,b}(x)-2M_*+2c_E(x)+O(\delta)+o(1)}
-    \le
-    N^{2c_L^{r,b}(x)+2c_E(x)+O(\delta)+o(1)}.
-\end{aligned}
-\]
-Here we used the singleton stability inequality
-\(c_L^{r,b}(x)-c_F^{r,b}(x;y,z)<\delta\), which implies
-\[
-    \max\{c_L^{r,b}(x),M_*\}-2M_*
-    \le O(\delta).
-\]
-This proves the singleton bound.
-\end{proof}
-
-\begin{lemma}[Terminal singleton bound]
-\label{lem:ub-terminal-singleton-bound}
-Let \((y,z)\) be a terminal retained admissible pair and
-\(x=y\vee z\), so \(A_{y,z}^{\stable,r,b}=\{x\}\) and \(M_x=K\). Then
-\[
-    \sum_{m=1}^{N-1}\Pp((m,m+1)\in E(G_{B_x}))^2
-    \le N^{c_L^{r,b}(x)+c_E(x)+O(\delta)+o(1)} .
-\]
-\end{lemma}
-
-\begin{proof}
-Since \(M_x=K\), the tail factor is \(N^{c_E(x)}=1\). As above,
-\[
-    \sum_m\Pp((m,m+1)\in E(G_{B_x}))^2
-    \le \E |E(G_{B_x})| .
-\]
-The small-mean concentration estimate gives
-\(\E|\cI(B_x)|^2\le N^{c_L^{r,b}(x)+O(\delta)+o(1)}\), and
-\(|E(G_{B_x})|\le |\cI(B_x)|^2\). This proves the claim, with the
-displayed \(c_E(x)\) included for notational compatibility.
-\end{proof}
-
-\begin{lemma}[Numerical lemma]
-\label{lem:ub-numerical-lemma}
-Assume \(\FM(r,b,T,\eta)\). After choosing
-\(\Delta,\chi,\rho,\varphi\) and the stability threshold sufficiently
-small, there is \(\delta_1>0\) such that every stable profile remaining
-after the admissibility and exceptional-profile truncations satisfies
-\[
-    4c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+2c_E(x)+H_x\le-\delta_1
-\]
-in the nonterminal large-block case. In the nonterminal small
-non-singleton case,
-\[
-    -c_F^{r,b}(x;y,z)+2c_E(x)+H_x\le-\delta_1.
-\]
-Every singleton stable profile, including terminal retained pairs,
-satisfies
-\[
-    c_L^{r,b}(y\vee z)+c_E(y\vee z)\le-\delta_1.
-\]
-\end{lemma}
-
-\begin{proof}
-Let \(\delta\) denote the stability threshold in the definition of
-\(A_{y,z}^{\stable,r,b}\), and set
-\[
-    \varepsilon_{\rm det}=O(\Delta+\chi+\rho+\varphi+\alpha_\chi).
-\]
-Choose \(\Delta,\chi,\rho,\varphi\), and then \(\delta\), so that the
-fixed multiples of \(\varepsilon_{\rm det}+\delta\), including the
-edge-density \(O(\delta)\) losses used later, are at most \(\eta/2\), and
-set \(\delta_1=\eta/4\). Finally take \(N\) large so all \(o(1)\) errors
-are below the remaining margins. For nonterminal retained pairs, throughout,
-\[
-    c_F^{r,b}(x;y,z)=c_F^{r,b}(y\vee z;y,z)
-    \qquad (x\in A_{y,z}^{r,b}).
-\]
-
-First consider a terminal retained pair. Then
-\(A_{y,z}^{\stable,r,b}=\{y\vee z\}\) and \(s=T\). The maximal-pile and
-tail estimates give
-\[
-    c_L^{r,b}(y\vee z)+c_E(y\vee z)
-    \le \beta_{r,b}(T)+\varepsilon_{\rm det}+o(1)
-    \le-\eta+\varepsilon_{\rm det}+o(1),
-\]
-so the singleton conclusion holds for terminal pairs.
-
-Now suppose \((y,z)\) is nonterminal. The terminal fallback
-\(\Lambda_{y,z}^{r,b}\) does not contribute among the remaining retained
-profiles. If \(|x|=K\), then the
-maximal-pile estimate gives
-\[
-    c_L^{r,b}(x)\le \beta_{r,b}(T)+\varepsilon_{\rm det}+o(1)
-    \le-\eta+\varepsilon_{\rm det}+o(1).
-\]
-Using the fluctuation comparison and the equality of \(c_F\) along the
-boundary pair,
-\[
-    c_L^{r,b}(x)-c_F^{r,b}(y\vee z;y,z)
-    =
-    c_L^{r,b}(x)-c_F^{r,b}(x;y,z)
-    \le \frac12c_L^{r,b}(x)+o(1)<\delta .
-\]
-Thus \(x\notin\Lambda_{y,z}^{r,b}\), and every non-singleton block below
-is a first-crossing block.
-
-\medskip
-\noindent\emph{Large-block exponent.}
-Fix \(\theta\in[3,4]\). By the profile estimates,
-\[
-    H_x+2c_E(x)
-    \le \theta S_x-B_\theta(s,u)-2B_2(u,T)
-    +O(\varepsilon_{\rm det})+o(1),
-\]
-and
-\[
-    c_L^{r,b}(x)
-    =
-    c_L^{r,b}(y\vee z)-S_x-Q_x+O(\varepsilon_{\rm det})+o(1).
-\]
-Since \(x\) is stable,
-\[
-    S_x
-    \ge
-    c_L^{r,b}(y\vee z)-c_F^{r,b}(y\vee z;y,z)
-    -Q_x-\delta-O(\varepsilon_{\rm det})-o(1).
-\]
-Because \(\theta-4\le0\), this lower bound on \(S_x\) gives an upper
-bound when substituted into \((\theta-4)S_x\). Using \(Q_x\ge0\) and
-\(c_F^{r,b}(y\vee z;y,z)\ge\frac12c_L^{r,b}(y\vee z)-o(1)\),
-\[
-\begin{aligned}
-    4c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+\theta S_x
-    &\le
-    \theta c_L^{r,b}(y\vee z)
-    +(3-\theta)c_F^{r,b}(y\vee z;y,z)
-    +O(\varepsilon_{\rm det}+\delta)+o(1)\\
-    &\le
-    \frac{\theta+3}{2}\beta_{r,b}(s)
-    +O(\varepsilon_{\rm det}+\delta)+o(1).
-\end{aligned}
-\]
-Therefore
-\[
-    4c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+2c_E(x)+H_x
-    \le
-    \frac{\theta+3}{2}\beta_{r,b}(s)
-    -B_\theta(s,u)-2B_2(u,T)
-    +O(\varepsilon_{\rm det}+\delta)+o(1).
-\]
-Taking \(\theta\) near the infimum in \(\mathcal N_1(r,s,u;b)\) gives
-the large-block bound.
-
-\medskip
-\noindent\emph{Small non-singleton exponent.}
-In the non-singleton first-crossing case, the parent condition gives
-\[
-    S_x
-    \le
-    c_L^{r,b}(y\vee z)-c_F^{r,b}(y\vee z;y,z)
-    +O(\varepsilon_{\rm det})+o(1).
-\]
-Since the coefficient of \(c_F\) below is negative, the fluctuation lower
-bound gives
-\[
-\begin{aligned}
-    -c_F^{r,b}(x;y,z)+\theta S_x
-    &\le
-    -c_F^{r,b}(y\vee z;y,z)
-    +\theta\big(c_L^{r,b}(y\vee z)-c_F^{r,b}(y\vee z;y,z)\big)
-    +O(\varepsilon_{\rm det})+o(1)\\
-    &\le
-    \frac{\theta-1}{2}\beta_{r,b}(s)
-    +O(\varepsilon_{\rm det})+o(1).
-\end{aligned}
-\]
-Combining with entropy and tail estimates and optimizing over
-\(\theta\in[3,4]\) gives the small non-singleton bound from
-\(\mathcal N_2(r,s,u;b)\).
-
-\medskip
-\noindent\emph{Singleton exponent.}
-If \(A_{y,z}^{\stable,r,b}=\{y\vee z\}\), then \(u=s\). The profile
-estimate for \(c_E\) and the maximal-pile bound give
-\[
-    c_L^{r,b}(y\vee z)+c_E(y\vee z)
-    \le \beta_{r,b}(s)-B_2(s,T)
-    +O(\varepsilon_{\rm det})+o(1)
-    =
-    \mathcal N_3(r,s;b)+O(\varepsilon_{\rm det})+o(1).
-\]
-The condition \(\FM(r,b,T,\eta)\) makes the right-hand side
-negative with margin. This completes the proof.
-\end{proof}
-
-\begin{proposition}[First moment]
-\label{prop:ub-first-moment}
-Fix \(\eta>0\), then choose
-\(\chi,\Delta,\rho,\varphi,\delta\) according to the parameter hierarchy
-above, with the almost-like condition imposed for the chosen
-\(\chi\)-regular partition. Fix an ambient block \(B_w\) with parameters
-\((r,b)\). Assume the deterministic tail pile sequence
-\((n^{(j)})_{M_w<j\le K}\), viewed at macroscopic times
-\([r,T]\), is almost-\(\mu_\cdot\)-like, satisfies the local
-\((\chi,\gamma,\rho)\)-good-shuffle condition on \([r,T]\), and satisfies
-\(\FM(r,b,T,\eta)\). Then two independent shuffle graphs
-restricted to the ambient block satisfy
-\[
-    \E |E(G,G')|\le N^{-\delta_*}.
-\]
-Here \(E(G,G')\) is the set of common adjacent edges,
-\(\delta_*=\delta_*(\eta,\gamma,k,T)>0\), and the whole deck is
-\(r=0,b=1\).
+\begin{proposition}[Collision upper bound]
+\label{prop:ub-collision-upper}
+For $N\ge2$, every deterministic pile sequence satisfies
+\begin{equation}
+\label{eq:ub-collision-upper}
+ \dTV(P(n,K),\nuUnif)
+ \le\binom N2\prod_{j=1}^K
+       \sum_{\ell=0}^{k-1}\frac{(n^{(j)}_\ell)_2}{(N)_2}
+ \le\binom N2\exp\left\{-\sum_{j=1}^K\psi_{p^{(j)}}(2)\right\}.
+\end{equation}
+In particular, if $\sum_j\psi_{p^{(j)}}(2)\ge(2+\zeta)\log N$
+for fixed $\zeta>0$, then the distance is at most $N^{-\zeta}/2$.
 \end{proposition}
 
 \begin{proof}
-\[
-    \E |E(G,G')|
-    =
-    \sum_{m=1}^{N-1}\Pp((m,m+1)\in E(G))^2 .
-\]
-Fix \(\mathsf C_0\) large. The bad-profile reduction removes
-non-admissible boundary pairs and exceptional profiles at cost
-\(N^{-\mathsf C_0}\). For the retained part, the per-edge localization
-lemma gives, for each \(m\),
-\[
-    \Pp((m,m+1)\in E(G))
-    \le
-    N^{-\mathsf C_0}
-    +\sum_{(y,z)}
-    \sum_{x\in A_{y,z,m}^{\stable,r,b}}
-    \Pp((m,m+1)\in E(G_{B_x})),
-\]
-where the sum is over retained admissible pairs. For fixed \(m\), the
-number of summands is at most \(N^\varepsilon\) after \(\chi\) is chosen
-small, because there are \(N^\varepsilon\) retained boundary/profile
-classes and at most \(2Kk=N^{o(1)}\) stable blocks per pair containing
-\(m\) with non-negligible probability. Hence AM-GM gives
-\[
-    \E |E(G,G')|
-    \le
-    N^{-\mathsf C_0}
-    +
-    N^\varepsilon
-    \max_{\mathcal C}
-    \sum_{x\in\mathcal C}
-    \sum_{m=1}^{N-1}
-    \Pp((m,m+1)\in E(G_{B_x}))^2 ,
-\]
-where \(\mathcal C\) ranges over remaining boundary-pair/profile classes.
-
-Fix such a class. For a non-singleton class, the entropy estimate gives
-\(|\mathcal C|\le N^{H_x+o(1)}\); for singleton classes, \(H_x=0\). The
-exceptional locations and digit values have already been included in the
-class count through the \(N^\varepsilon\) loss.
-
-First suppose \(c_L^{r,b}(x)\ge2\delta\). This includes possible large
-nonterminal singleton classes; they are routed through the large-block
-estimate. The edge-density and numerical lemmas give
-\[
-    N^{H_x}
-    N^{4c_L^{r,b}(x)-c_F^{r,b}(x;y,z)+2c_E(x)+O(\delta)+o(1)}
-    \le N^{-\delta_1+O(\delta)+o(1)}.
-\]
-If \(c_L^{r,b}(x)<2\delta\), \(A_{y,z}^{\stable,r,b}\ne\{y\vee z\}\),
-and \(c_F^{r,b}(x;y,z)\ge\delta-(\log N)^{-1/2}\), then the small
-non-singleton estimates give
-\[
-    N^{H_x}
-    N^{-c_F^{r,b}(x;y,z)+2c_E(x)+O(\delta)+o(1)}
-    \le N^{-\delta_1+O(\delta)+o(1)}.
-\]
-All remaining nonterminal small cases are singleton classes: the
-edge-density lemma identifies the low-\(c_F\) small case as singleton,
-while high-\(c_F\) small non-singletons were handled above. For such a
-small singleton class there is only \(x=y\vee z\), so no entropy
-multiplier is needed, and
-\[
-    N^{2c_L^{r,b}(x)+2c_E(x)+O(\delta)+o(1)}
-    \le N^{-2\delta_1+O(\delta)+o(1)}.
-\]
-Finally, if the class is a terminal singleton, the terminal singleton
-bound and the numerical singleton estimate give
-\[
-    N^{c_L^{r,b}(x)+c_E(x)+O(\delta)+o(1)}
-    \le N^{-\delta_1+O(\delta)+o(1)}.
-\]
-The parameters were chosen so the \(O(\delta)\) and \(o(1)\) losses are
-absorbed by the margins. The class-count exponent \(\varepsilon\) is
-chosen smaller than the remaining margin after \(\chi\) is fixed, and
-\(\mathsf C_0\) is chosen large. This proves the bound for some
-\(\delta_*(\eta,\gamma,k,T)>0\).
+On the event that no two full words agree, $G$ has no edges and the
+independent permutation in Lemma~\ref{lem:ub-graph-representation} is
+unchanged. Thus total variation is at most the probability of a full-word
+collision. A union bound over label pairs gives the first inequality in
+\eqref{eq:ub-collision-upper}. For each digit,
+$(n)_2/(N)_2\le(n/N)^2$; summing over digits and using
+\eqref{eq:one-column-costs} gives the second inequality.
 \end{proof}
 
-\begin{remark}
-\label{rem:ub-first-moment-condition}
-The condition above is only an upper-bound first-moment condition. It is not yet a claimed cutoff formula.
-\end{remark}
+\subsection{An empirical first moment with a reserved population}
 
-\subsection{Exponential moment and completion}
+We retain the original scale $N$ when applying a bound to a smaller deck.
+Fix integers $2\le n\le N$, $0\le a<K\le T\log N$, and independent
+uniform fixed-count columns on $n$ labels, indexed by $a<j\le K$.
+Write $q^{(j)}\in D_k$ for their proportions and $L=\log N$.
+A column is $g$-good in the sense of Definition~\ref{def:good-columns},
+with proportions relative to its current $n$ labels. For integers
+$a\le i\le j\le K$, define
+\begin{equation}
+\label{eq:ub-empirical-costs}
+ \widehat A(i,j)=\frac1L\sum_{h=i+1}^j a_{q^{(h)}},\qquad
+ \widehat B_\theta(i,j)=\frac1L\sum_{h=i+1}^j\psi_{q^{(h)}}(\theta),
+ \qquad \widehat\beta(s)=\log_N n-\widehat A(a,s).
+\end{equation}
+The empirical negative-margin condition, with margin $\eta>0$, is
+\begin{equation}
+\label{eq:ub-empirical-negative-margin}
+ \widehat\beta(K)\le-\eta,\qquad
+ \inf_{3\le\theta\le4}
+ \left\{\frac{\theta+3}{2}\widehat\beta(s)
+       -\widehat B_\theta(s,u)-2\widehat B_2(u,K)\right\}
+ \le-\eta\quad(a\le s\le u\le K).
+\end{equation}
+All endpoints in \eqref{eq:ub-empirical-negative-margin} are integers.
+No time profile or simplex partition is used in this condition.
 
-\begin{lemma}[Conditional preservation]
+\begin{proposition}[Empirical first moment]
+\label{prop:ub-empirical-first-moment}
+\label{prop:ub-first-moment}
+Fix $k,T,\eta,g>0$, with $k\ge2$ and $g<1/k$.
+There exist $c>0$ and $N_0$, depending only on these fixed parameters,
+such that the following holds for every $N\ge N_0$. If the first column
+$q^{(a+1)}$ is $g$-good and
+\eqref{eq:ub-empirical-negative-margin} holds, then independent shuffle
+graphs $G,G'$ on the $n$ labels satisfy
+\begin{equation}
+\label{eq:ub-empirical-first-moment}
+ \E|E(G)\cap E(G')|\le N^{-c}.
+\end{equation}
+The bound is uniform in $n,a,K$ and the deterministic cut arrays.
+\end{proposition}
+
+The first column fixes the endpoints of its piles. Its deterministic
+counts are therefore excluded from all fluctuation scales. We condition
+on its assignment to labels. For each nonempty pile $R$, its size $M$
+satisfies $M\le(1-g)n$. All remaining columns still use the full
+population of $n$ labels; the labels outside $R$ are a population reserve.
+Row-permutation invariance shows that the conditional sorted graph law
+in a pile depends only on its deterministic size and rank offset, not
+on the particular labeled set $R$. Thus, after exposing the two
+independent first-column assignments, their corresponding pile graphs
+still have the same law and are independent.
+
+Here and below, a word is legal when all of its selected probabilities
+are positive. A legal prefix $x$ beginning in $R$ has absolute final
+column $M_x$, mean count
+\[
+ \mu_x=n\prod_{a<j\le M_x}q^{(j)}_{x[j]},\qquad
+ \ell_x=\log_N\mu_x,\qquad e_x=-\widehat B_2(M_x,K).
+\]
+The associated block $B_x$ consists of its full-word extensions. Its
+sorted rank interval is denoted by $\mathcal I(B_x)=[\iota_x,\tau_x)$,
+with one-based ranks and $\tau_x=\iota_x+C_x$, where $C_x$ is its count.
+The graph $G_{B_x}$ contains the equal-word edges internal to that block.
+
+Fix a small cutoff $0<\chi<1/k$. For each later column, put
+\[
+ l_j=\min\{d:q^{(j)}_d\ge\chi\},\qquad
+ r_j=\max\{d:q^{(j)}_d\ge\chi\}.
+\]
+For a full word beginning in $R$, its left boundary $y$ stops at the first
+column $j>a+1$ where its digit is greater than $l_j$; its right boundary
+$z$ stops at the first column where its digit is less than $r_j$.
+If the corresponding crossing never occurs, use the full word instead.
+Let $v$ be the longer of $y,z$. A pair is terminal if at least one
+boundary stops only at column $K$; it will be treated directly.
+Every other boundary pair has two genuine crossings. Within its join
+$B_v$, the pair $(y,z)$ is fixed.
+
+For a nonterminal pair, at every column after the first and up to $M_v$,
+let $P_j$ and $Q_j$ be the subsets of $R$ whose strings first differ
+from $v$ at column $j$ by a smaller or larger digit, respectively.
+Their counts and expectations are taken in the fixed-column model.
+Define
+\begin{equation}
+\label{eq:ub-anchored-fluctuation}
+ L_v=\max_{a+1<j\le M_v}\E|P_j|,\qquad
+ R_v=\max_{a+1<j\le M_v}\E|Q_j|,\qquad
+ F_v=\frac12\log_N\min(L_v,R_v),\qquad V_v=\ell_v.
+\end{equation}
+A genuine crossing gives a side mass at least $\chi\mu_v$ on each
+side. Thus both maxima are positive and
+\begin{equation}
+\label{eq:ub-anchored-fluctuation-comparison}
+ 2F_v\ge V_v-q_N,\qquad q_N=\frac{\log(1/\chi)}{\log N}.
+\end{equation}
+The scale $F_v$ remains fixed for every descendant of $v$.
+
+Choose a small stability parameter $\delta>0$. If $V_v-F_v<\delta$,
+use just the block $B_v$. Otherwise, descend from $v$ and stop each
+branch at its first prefix $x$ with $\ell_x-F_v<\delta$.
+The resulting blocks partition $B_v$: the terminal margin gives
+$\ell_x\le-\eta$ at depth $K$, while
+\eqref{eq:ub-anchored-fluctuation-comparison} and $V_v\ge\ell_x$ imply
+$\ell_x-F_v\le-\eta/2+q_N/2<\delta$ there for large $N$.
+A block other than the immediate block $v$ is called proper. Its parent, denoted $x^-$,
+has mean at least $N^{F_v+\delta}$. Moreover,
+\begin{equation}
+\label{eq:ub-proper-fluctuation-lower}
+ F_v\ge\delta-q_N\ge\delta/2
+\end{equation}
+for large $N$, because the join was not itself stopped.
+
+\begin{lemma}[Hypergeometric concentration and atoms]
+\label{lem:ub-hypergeometric-estimates}
+Write $\operatorname{Hyp}(r,n,m)$ for the number of marked positions
+in a uniform sample of $m$ positions from a population of $n$ with
+$r$ marked positions. A hypergeometric variable with population $n\ge2$, marked size $r$,
+and sample size $m$ has mean $\mu=rm/n$ and variance
+$\sigma^2=rm(n-r)(n-m)/(n^2(n-1))$. It satisfies
+\[
+ \Pp(|Y-\mu|\ge t)\le2\exp\{-t^2/[4(\mu+t)]\}\quad(t>0),
+ \qquad \sup_z\Pp(Y=z)\le C/\sigma\quad(\sigma>0),
+\]
+where $C$ is absolute. The concentration bound also holds for the count
+of a fixed prefix in a deterministic row set, with its actual mean.
+\end{lemma}
+
+\begin{proof}
+The exponential transform and tail proof in
+Lemma~\ref{lem:successive-thinning-tail} applies to successive independent
+uniform subsets of the full label population. A fixed initial row set
+can be replaced by an independent uniform set of the same size without
+changing the count law, by permutation invariance. This proves the
+concentration assertions.
+
+For the atom bound, the explicit hypergeometric probabilities have
+successive ratios decreasing on their support, so they form a
+log-concave sequence. We give the needed general estimate. Let $p_*$
+be the maximum of a log-concave integer probability mass function
+with interval support,
+attained at $z_0$, and set $h=\lceil4/p_*\rceil$. Unimodality and total
+mass one imply $p(z_0+h),p(z_0-h)\le p_*/2$, with values outside the
+support set to zero. Log-concavity then gives
+$p(z_0\pm j)\le2p_*2^{-j/h}$ for every $j\ge0$. Summing the geometric
+second moments yields
+\[
+ \Var(Y)\le\E(Y-z_0)^2\le C_0p_*h^3\le C_1/p_*^2.
+\]
+Rearranging proves $p_*\le\sqrt{C_1}/\sigma$.
+\end{proof}
+
+
+For the next three lemmas, use local coordinates after the exposed
+first column: local time $j$ means absolute column $a+1+j$, and
+$d=K-a-1$. A local prefix denotes the tail of the corresponding
+anchored prefix. Its count, mean, endpoints and internal graph are
+unchanged by this deletion of its fixed first digit. We take
+$g_{\rm anchor}=g$ and later $\chi_{\rm cross}=\chi$.
+If $d=0$, all graph components have sizes equal to the first-column
+pile counts, so the terminal negative margin is impossible for a
+nonempty pile and sufficiently large $N$. Thus only $d\ge1$ occurs.
+
+The smoothing argument uses the population outside an exposed anchor.
+Here is the precise conditional model.  Fix integers $N\ge n\ge2$ and
+$d\ge1$.  Conditionally on an initial sigma-field $\mathcal H_0$, let
+$R\subseteq[n]$, its size $M\ge1$, and an integer offset $c_0$ be fixed.
+For $1\le j\le d$, the column $(\xi_{r,j})_{r\in[n]}$ is uniform among
+all arrangements of its deterministic counts $(n_{j,a})_{a\in[k]_0}$,
+and these columns are conditionally independent.  Write
+$p_{j,a}=n_{j,a}/n$.  Assume
+\begin{equation}
+\label{eq:ub-anchor-reserve}
+  M\le(1-g_{\rm anchor})n,\qquad 0<g_{\rm anchor}<1.
+\end{equation}
+For example, expose the first column of the current $n$-row model and
+take $R$ to be one of its piles.  If its largest pile has size at most
+$(1-g_{\rm anchor})n$, then \eqref{eq:ub-anchor-reserve} holds for every
+nonempty choice of this pile.  The remaining columns still have the
+conditional law just specified.  All statements below are conditional
+on $\mathcal H_0$; in their proofs we fix an atom of this finite
+sigma-field and suppress this conditioning from the notation.
+
+For a word $x=(x_1,\ldots,x_m)$ of length $m\le d$, set
+\[
+ B_x=\{r\in R:\xi_{r,j}=x_j\text{ for }1\le j\le m\},\qquad
+ C_x=|B_x|,\qquad \mu_x=M\prod_{j=1}^m p_{j,x_j}.
+\]
+Only legal words, for which $\mu_x>0$, are considered.  Put
+\[
+ \iota_x=c_0+\#\{r\in R:(\xi_{r,1},\ldots,\xi_{r,m})<_{\rm lex}x\},
+ \qquad \tau_x=\iota_x+C_x,
+ \qquad I_x=[\iota_x,\tau_x)\cap\mathbb Z.
+\]
+Thus the integer slots are numbered from $c_0$; changing to ranks
+numbered from $c_0+1$ translates every interval by one and changes none
+of the assertions.  Let $\mathcal U_x$ record the labels in $B_x$ and
+all their digits after time $m$.  In particular $C_x$ is
+$\mathcal U_x$-measurable.
+
+For $1\le i\le m$, let $P_{x,i}$ and $Q_{x,i}$ be the subsets of $R$
+whose digits agree with $x$ before $i$ and whose $i$-th digit is,
+respectively, less than or greater than $x_i$.  Write
+\[
+ p_i(<x_i)=\sum_{a<x_i}p_{i,a},\qquad
+ p_i(>x_i)=\sum_{a>x_i}p_{i,a},
+\]
+\[
+ \ell_i=M\prod_{j<i}p_{j,x_j}\,p_i(<x_i),\qquad
+ r_i=M\prod_{j<i}p_{j,x_j}\,p_i(>x_i).
+\]
+These are exactly the conditional means of $|P_{x,i}|$ and $|Q_{x,i}|$.
+An exposed column is never included in these side pieces or in a
+fluctuation maximum.
+
+\begin{lemma}[Cylinder concentration in a fixed anchor]
+\label{lem:ub-anchor-cylinder-tail}
+In the conditional model just specified, prescribe an arbitrary set of
+allowed digits at each of any collection of future columns.  If $X$ is
+the number of rows of $R$ satisfying these prescriptions and $\mu=\E X$,
+then, for $s>0$ and $t>0$,
+\begin{equation}
+\label{eq:ub-anchor-cylinder-transform}
+ \E s^X\le(1-\mu/M+(\mu/M)s)^M\le e^{\mu(s-1)},
+\end{equation}
+\begin{equation}
+\label{eq:ub-anchor-cylinder-tail}
+ \Pp(|X-\mu|\ge t)\le
+ 2\exp\left(-\frac{t^2}{4(\mu+t)}\right),\qquad
+ \Pp(X\le\mu/2)\le e^{-c_{\rm Ch}\mu},
+ \quad c_{\rm Ch}=\frac{1-\log2}{2}>0.
+\end{equation}
+The same bounds hold for a hypergeometric intersection with any fixed
+set in the $n$-point population, with its exact hypergeometric mean.
+\end{lemma}
+
+\begin{proof}
+The allowed positions in each prescribed column form a uniform subset
+of $[n]$ of some deterministic size $nq_j$, independently across
+columns.  If the current intersection has $z$ rows, its size after
+the next column has law $\operatorname{Hyp}(nq_j,n,z)$.  For a
+positive real number $s$, its transform is the elementary symmetric
+mean of order $z$ of a list with $nq_j$ copies of $s$ and $n(1-q_j)$
+copies of one.  This mean is at most $(1-q_j+q_js)^z$.
+Indeed, averaging any two entries preserves their sum and increases
+their product, so it cannot decrease the elementary symmetric
+polynomial.  Repeatedly averaging a largest and a smallest entry
+converges to the constant list of their common arithmetic mean:
+if $V$ is the sum of squared deviations, an averaging reduces it by
+half the squared range, which is at least $V/(2n)$.  Continuity proves
+the asserted inequality, also for $z=0,1$.
+
+Start with the fixed set $R$ of size $M$.  Backward iteration of the
+affine transformations $s\mapsto1-q_j+q_js$ gives
+\[
+ \E s^X\le(1-Q+Qs)^M,\qquad Q=\prod_jq_j,\qquad \mu=MQ.
+\]
+This proves \eqref{eq:ub-anchor-cylinder-transform}.  For $0\le h\le1$,
+$e^{h}-1-h\le h^2$ and $e^{-h}-1+h\le h^2$; consequently
+$\E e^{\pm h(X-\mu)}\le e^{\mu h^2}$.
+Markov's inequality with $h=t/(2(\mu+t))$ gives the first bound in
+\eqref{eq:ub-anchor-cylinder-tail}.  The choice $s=1/2$ in
+\eqref{eq:ub-anchor-cylinder-transform}, followed by Markov's inequality
+at $2^{-\mu/2}$, gives its second bound.  One prescribed column gives
+the hypergeometric assertion.  The argument starts from the fixed
+set $R$, but every sampling population is $[n]$.
+\end{proof}
+
+Fix compatible boundary words $y,z$ that are prefixes of a word $x$.
+Let $h_- = |y|$, $h_+=|z|$, $h=\max(h_-,h_+)$ and let $v$ be their
+longer word.  Suppose both boundary words are genuine crossings, in
+the following precise sense: for a fixed $0<\chi_{\rm cross}<1$,
+\begin{equation}
+\label{eq:ub-anchor-genuine-crossings}
+ p_{h_-}(<y_{h_-})\ge\chi_{\rm cross},\qquad
+ p_{h_+}(>z_{h_+})\ge\chi_{\rm cross}.
+\end{equation}
+Set
+\begin{equation}
+\label{eq:ub-anchor-side-scales}
+ \ell=\max_{1\le i\le h}\ell_i,\qquad
+ r=\max_{1\le i\le h}r_i,\qquad
+ \omega=\min(\ell,r),\qquad
+ D=2h+\chi_{\rm cross}^{-1}.
+\end{equation}
+All these quantities depend only on $(y,z)$, not on the continuation
+of $x$ after $h$.  Since $v$ is legal,
+\begin{equation}
+\label{eq:ub-anchor-side-comparison}
+ 0<\chi_{\rm cross}\mu_v\le\omega,
+ \qquad M\le D\max(\ell,r).
+\end{equation}
+Indeed, the crossing side at $h_-$ has mean at least
+$\chi_{\rm cross}\mu_v$, and the crossing at $h_+$ gives the other
+inequality.  Partitioning the rows according to their first difference
+from $v$ gives the exact mean identity
+$M=\sum_{i\le h}(\ell_i+r_i)+\mu_v$, which proves the second
+inequality in \eqref{eq:ub-anchor-side-comparison}.
+
+\begin{lemma}[Anchored endpoint anti-concentration]
+\label{lem:ub-anchor-endpoint-atoms}
+Assume \eqref{eq:ub-anchor-reserve} and
+\eqref{eq:ub-anchor-genuine-crossings}.  For every legal continuation
+$x$ of $v$, there is a sigma-field
+$\mathcal F_x\supseteq\sigma(\mathcal H_0,\mathcal U_x)$ and an
+$\mathcal F_x$-measurable event $\mathcal S_x$ such that
+\begin{equation}
+\label{eq:ub-anchor-smoothing-failure}
+ \Pp(\mathcal S_x^c\mid\mathcal H_0)
+ \le3e^{-c_{\rm Ch}g_{\rm anchor}\omega}.
+\end{equation}
+Conditionally on $\mathcal F_x$, the endpoints have the form
+\begin{equation}
+\label{eq:ub-anchor-endpoint-shift}
+ \iota_x=A_x+Y_x,\qquad \tau_x=A_x+Y_x+C_x,
+\end{equation}
+where $A_x,C_x$ are $\mathcal F_x$-measurable and $Y_x$ is an exact
+hypergeometric variable.  On $\mathcal S_x$,
+\begin{equation}
+\label{eq:ub-anchor-variance}
+ \Var(Y_x\mid\mathcal F_x)
+ \ge\frac{g_{\rm anchor}\omega}{16D}.
+\end{equation}
+If $C_{\rm hyp}$ is the absolute point-mass constant in
+Lemma~\ref{lem:ub-hypergeometric-estimates}, then almost surely
+\begin{equation}
+\label{eq:ub-anchor-conditional-atoms}
+ \max\left\{
+ \sup_{a\in\mathbb Z}\Pp(\iota_x=a,\mathcal S_x\mid\mathcal U_x,\mathcal H_0),
+ \sup_{a\in\mathbb Z}\Pp(\tau_x=a,\mathcal S_x\mid\mathcal U_x,\mathcal H_0)
+ \right\}
+ \le4C_{\rm hyp}\sqrt{\frac{D}{g_{\rm anchor}\omega}}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We expose all but one future column, and only part of that last column.
+The unused population outside $R$ supplies the sample-complement
+factor in the variance.  Relative lower tails for the remaining
+marked and unmarked counts supply its other factors; no subtraction
+of two approximate means is used.
+
+Reverse the order of the alphabet if necessary so that
+$\ell\le r$.  This interchanges left and right endpoints, up to a
+fixed reflection inside $R$.  Reflection changes a shift plus a
+hypergeometric variable $Y$ into a shift minus $Y$.  If its sample
+size is $b$, replace $Y$ by $b-Y$, which is hypergeometric with
+marked and unmarked counts interchanged and has the same variance;
+the sample size will be measurable in every revealing sigma-field
+below.  Thus it suffices to prove the assertion in this order.
+Choose $i_-,i_+\le h$ attaining $\ell$ and $r$.
+Thus $\omega=\ell$ and $M\le Dr$.
+
+Suppose first that $i_->i_+$, and put $j=i_+$,
+$d_j=p_{j,x_j}$, $p=p_j(\le x_j)$ and $q=1-p=p_j(>x_j)$.
+Reveal all columns other than $j$.  The following row sets are then
+known:
+\[
+ T=\{a\in R:\xi_{a,i}=x_i\text{ for }i<j\},
+\]
+\[
+ B=\{a\in T:(\xi_{a,j+1},\ldots,\xi_{a,i_-})
+                    <_{\rm lex}(x_{j+1},\ldots,x_{i_-})\}.
+\]
+Put $A=T\setminus B$.  Also reveal column $j$ on $A$, and let $a_3$ be the number of its
+revealed digits at most $x_j$.  Conditional on this reveal,
+\begin{equation}
+\label{eq:ub-anchor-hyp-case-right}
+ Y_x=\#\{a\in B:\xi_{a,j}\le x_j\}
+ \sim\operatorname{Hyp}(np-a_3,n-|A|,|B|).
+\end{equation}
+Every row in $R\setminus T$ has its order relative to $x$ decided
+before column $j$.  A row in $B$ precedes $x$ exactly when its digit
+at $j$ is at most $x_j$.  The order of every row in $A$ is known.
+These facts give \eqref{eq:ub-anchor-endpoint-shift}.  All rows with
+prefix $x$ belong to $A$, and their later digits have been exposed;
+hence this revealing sigma-field contains $\mathcal U_x$.
+
+Let $B_0\subseteq B$ consist of rows matching $x$ before $i_-$ except
+at column $j$, with their digit at $i_-$ less than $x_{i_-}$.
+This is a cylinder with column $j$ omitted and mean $\ell/d_j$.
+Require the three inequalities
+\[
+ |B_0|\ge\frac{\ell}{2d_j},\qquad
+ np-a_3\ge\frac{(n-|A|)p}{2},\qquad
+ n(1-p)-(|A|-a_3)\ge\frac{(n-|A|)q}{2}.
+\]
+They define an event in the revealing sigma-field.  The first failure
+has probability at most $e^{-c_{\rm Ch}\ell/d_j}$ by
+Lemma~\ref{lem:ub-anchor-cylinder-tail}.  Conditional on the other
+columns, the two remaining counts are hypergeometric with means
+$(n-|A|)p$ and $(n-|A|)q$.  These means are at least
+$g_{\rm anchor}np$ and $g_{\rm anchor}nq$.
+Here $np\ge nd_j\ge\ell$ and $nq\ge r\ge\ell$.
+Lemma~\ref{lem:ub-anchor-cylinder-tail} and a union bound therefore
+give \eqref{eq:ub-anchor-smoothing-failure}.
+
+On this event, the marked and unmarked fractions in
+\eqref{eq:ub-anchor-hyp-case-right} are at least $p/2$ and $q/2$.
+Since $A\cup B\subseteq R$, its sample-complement fraction is at least
+\[
+ \frac{n-|A|-|B|}{n-|A|}\ge g_{\rm anchor}.
+\]
+The variance formula consequently gives
+\[
+ \Var(Y_x\mid\mathcal F_x)
+ \ge\frac{g_{\rm anchor}|B|pq}{4}
+ \ge\frac{g_{\rm anchor}\ell q}{8}
+ \ge\frac{g_{\rm anchor}\ell}{8D}.
+\]
+The second inequality uses $p\ge d_j$, and the last uses
+$q\ge r/M\ge1/D$.
+
+Suppose next that $i_-<i_+$, and put $j=i_-$,
+$d_j=p_{j,x_j}$, $p=p_j(<x_j)$ and $q=1-p$.
+Reveal all other columns and set
+\[
+ T=\{a\in R:\xi_{a,i}=x_i\text{ for }i<j\},
+\]
+\[
+ B=\{a\in T:(\xi_{a,j+1},\ldots,\xi_{a,i_+})
+                    >_{\rm lex}(x_{j+1},\ldots,x_{i_+})\}.
+\]
+Put $A=T\setminus B$.  Reveal column $j$ on $A$, writing $b_3$ for the number of revealed
+digits less than $x_j$.  Then
+\begin{equation}
+\label{eq:ub-anchor-hyp-case-left}
+ Y_x=\#\{a\in B:\xi_{a,j}<x_j\}
+ \sim\operatorname{Hyp}(np-b_3,n-|A|,|B|).
+\end{equation}
+For a row in $B$, preceding $x$ is equivalent to having its digit at
+$j$ less than $x_j$.  Every prefix-$x$ row lies in $A$.  Thus the
+same explicit classification of rows proves
+\eqref{eq:ub-anchor-endpoint-shift} and
+$\mathcal U_x\subseteq\mathcal F_x$ in this case also.
+
+Now $B$ contains the cylinder obtained from the right piece at $i_+$
+by omitting column $j$, whose mean is $r/d_j$.  Require its count to
+be at least $r/(2d_j)$, and require the remaining marked and unmarked
+counts to be at least $(n-|A|)p/2$ and $(n-|A|)q/2$.
+Their three means are at least $r$, $g_{\rm anchor}np$ and
+$g_{\rm anchor}nq$.  Since $np\ge\ell$ and
+$nq\ge nd_j\ge r\ge\ell$, the failure probability is again at most
+$3e^{-c_{\rm Ch}g_{\rm anchor}\ell}$.
+The sample-complement fraction is still at least $g_{\rm anchor}$,
+so on this event
+\[
+ \Var(Y_x\mid\mathcal F_x)
+ \ge\frac{g_{\rm anchor}|B|pq}{4}
+ \ge\frac{g_{\rm anchor}rp}{8}
+ \ge\frac{g_{\rm anchor}r\ell}{8M}
+ \ge\frac{g_{\rm anchor}\ell}{8D}.
+\]
+Here $q\ge d_j$ and $p\ge\ell/M$.
+
+Finally suppose $i_-=i_+=j$.  Set
+$p=p_j(<x_j)$, $d_j=p_{j,x_j}$ and $q=p_j(>x_j)$.
+Let
+\[
+ T=\{a\in R:\xi_{a,i}=x_i\text{ for }i<j\},\qquad
+ \bar a=M\prod_{i<j}p_{i,x_i},
+\]
+so that $\ell=\bar a p$, $r=\bar a q$ and $p\le q$.
+Reveal all columns except $j$, and in column $j$ reveal the entire
+global set $E=\{a\in[n]:\xi_{a,j}=x_j\}$.  Put $B=T\setminus E$.
+Conditional on this information, the remaining column is uniform
+on its $n(p+q)$ unexposed positions, with exactly $np$ digits less
+than $x_j$.  Therefore
+\begin{equation}
+\label{eq:ub-anchor-hyp-case-equal}
+ Y_x=\#\{a\in B:\xi_{a,j}<x_j\}
+ \sim\operatorname{Hyp}(np,n(p+q),|B|).
+\end{equation}
+The rows in $T\cap E$ have their order decided by the already exposed
+suffixes, those outside $T$ by earlier digits, and those in $B$ by
+the indicated strict inequality at $j$.  All prefix-$x$ rows and their
+continuations are known.  This proves the shift and measurability
+assertions in this final case.
+
+Require
+\[
+ |T|\ge\bar a/2,\qquad
+ |B|\ge |T|(p+q)/2,\qquad
+ n(p+q)-|B|\ge(n-|T|)(p+q)/2.
+\]
+The first failure has probability at most $e^{-c_{\rm Ch}\bar a}$.
+Conditional on all columns other than $j$, the two counts in the
+last inequalities are intersections of the uniform $(n(p+q))$-set
+$[n]\setminus E$ with $T$ and $[n]\setminus T$.  Their means are
+$|T|(p+q)$ and $(n-|T|)(p+q)$.  On the first event the former is at
+least $\bar a(p+q)/2\ge\ell$; the latter is always at least
+$g_{\rm anchor}n(p+q)\ge g_{\rm anchor}\ell$.
+Thus their total failure probability, including the first event, is
+at most $3e^{-c_{\rm Ch}g_{\rm anchor}\ell}$.
+On this event the mean of \eqref{eq:ub-anchor-hyp-case-equal} is at
+least $\ell/4$, its unmarked fraction $q/(p+q)$ is at least $1/2$,
+and its sample-complement fraction is at least $g_{\rm anchor}/2$.
+It follows that
+\[
+ \Var(Y_x\mid\mathcal F_x)\ge
+ \frac{g_{\rm anchor}\ell}{16},
+\]
+which implies \eqref{eq:ub-anchor-variance} because $D\ge1$.
+
+In every case the good event is measurable in the stated revealing
+sigma-field.  On that event the positive lower bounds for marked
+and unmarked counts ensure that the hypergeometric population has
+at least two positions; hence its variance formula is applicable.
+No lower bound such as $\omega\ge1$ is required.  Apply the point-mass
+bound of Lemma~\ref{lem:ub-hypergeometric-estimates} on each good atom
+of $\mathcal F_x$.  Both shifts in
+\eqref{eq:ub-anchor-endpoint-shift} are known there, so each endpoint
+has conditional atom at most
+$4C_{\rm hyp}\sqrt{D/(g_{\rm anchor}\omega)}$.
+Taking conditional expectation back to
+$\sigma(\mathcal H_0,\mathcal U_x)$ proves
+\eqref{eq:ub-anchor-conditional-atoms}.  This argument does not
+condition the entire law on the good event.
+\end{proof}
+
+\begin{lemma}[Endpoint windows from the smaller side]
+\label{lem:ub-anchor-endpoint-window}
+In the same model, fix genuine boundary words $(y,z)$ and the
+quantities in \eqref{eq:ub-anchor-side-scales}.  For any legal
+continuation $x$ of their join $v$, let
+$\bar\iota_x=\E(\iota_x\mid\mathcal H_0)$ and
+$\bar\tau_x=\E(\tau_x\mid\mathcal H_0)$.
+For every $w>0$,
+\begin{equation}
+\label{eq:ub-anchor-finite-window}
+ \Pp\left(
+   \max(|\iota_x-\bar\iota_x|,|\tau_x-\bar\tau_x|)>w
+       \,\middle|\,\mathcal H_0\right)
+ \le2(d+1)\exp\left\{
+ -\frac{w^2}{4(d+1)^2(\chi_{\rm cross}^{-1}\omega+w)}
+ \right\}.
+\end{equation}
+This estimate needs neither the reserve
+\eqref{eq:ub-anchor-reserve} nor a lower bound on $M/n$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\ell\le r$.  The exact endpoint decomposition is
+\[
+ \iota_x=c_0+\sum_{i\le|x|}|P_{x,i}|,
+ \qquad \tau_x=\iota_x+C_x.
+\]
+For $i\le h$ the mean of a displayed side piece is at most
+$\ell=\omega$.  For $i>h$ it is a subset of $B_v$, and its mean
+is at most $\mu_v\le\chi_{\rm cross}^{-1}\omega$ by
+\eqref{eq:ub-anchor-side-comparison}.  The same bound holds for
+$\mu_x$.  Each count is a cylinder count of the type in
+Lemma~\ref{lem:ub-anchor-cylinder-tail}; a strict inequality on one
+digit is simply an allowed set of digits in that column.
+Apply that lemma to these at most $d+1$ counts with threshold
+$w/(d+1)$.  If every deviation is at most this threshold, both
+endpoint deviations are at most $w$.  A union bound gives
+\eqref{eq:ub-anchor-finite-window}, after enlarging its denominator
+from $\chi_{\rm cross}^{-1}\omega+w/(d+1)$ to
+$\chi_{\rm cross}^{-1}\omega+w$.
+
+If $r<\ell$, use instead
+\[
+ \tau_x=c_0+M-\sum_{i\le|x|}|Q_{x,i}|,
+ \qquad \iota_x=\tau_x-C_x.
+\]
+The identical argument uses the smaller right-hand maximum
+$r=\omega$.  The constant $c_0+M$ is known after the anchor exposure.
+\end{proof}
+
+For the counting consequence, use $\log N$ as the normalization even
+when the sampling population is $n<N$.  For a legal word $x$ put
+$c_L(x)=\log_N\mu_x$.  Fix $\delta>0$ and genuine boundary words
+$(y,z)$, write $v$ for their join, and set
+\begin{equation}
+\label{eq:ub-anchor-normalized-scales}
+  V=c_L(v),\qquad F=\tfrac12\log_N\omega,\qquad
+  q_N=\frac{\log(1/\chi_{\rm cross})}{\log N}.
+\end{equation}
+Equation~\eqref{eq:ub-anchor-side-comparison} gives
+$2F\ge V-q_N$.  If $V-F<\delta$, stop at the join and use the
+single block $v$.  Otherwise a proper stable leaf is a legal strict
+extension $x$ of $v$ that first satisfies $c_L(x)-F<\delta$;
+its parent, denoted $x^-$, satisfies $c_L(x^-)-F\ge\delta$.
+Full-length words that never satisfy this inequality are terminal
+fallback words, and are not called proper stable leaves here.
+
+\begin{lemma}[Relevant parents and per-edge sparsity]
+\label{lem:ub-anchor-relevant-parents}
+Fix $k,T,\delta>0$ and $\chi_{\rm cross}\in(0,1)$ before taking
+$N\to\infty$, and assume $d\le K\le T\log N$.
+For all sufficiently large $N$, uniformly over the conditional
+column counts, anchors and genuine boundary pairs, the following
+holds.  For an integer slot $m$, call a proper stable leaf relevant
+when
+\begin{equation}
+\label{eq:ub-anchor-relevance-threshold}
+ \Pp(m\in I_x\mid\mathcal H_0)
+       \ge\exp(-N^{\delta/16}).
+\end{equation}
+There are at most $2kK$ relevant proper stable leaves for the fixed
+boundary pair.  If the join itself is the stable block, it contributes
+at most one block instead.  Moreover, the probability that $m$
+belongs to some proper stable leaf but no relevant proper stable
+leaf is at most
+\begin{equation}
+\label{eq:ub-anchor-irrelevant-loss}
+ (d+1)k^d e^{-N^{\delta/16}}
+ \le e^{-N^{\delta/32}}.
+\end{equation}
+The assertion applies to all proper stable leaves, regardless of
+whether their expected sizes are designated small or large.
+\end{lemma}
+
+\begin{proof}
+The existence of a proper stable leaf implies that the join was not
+stopped.  Therefore $V-F\ge\delta$, and
+\eqref{eq:ub-anchor-normalized-scales} gives
+\begin{equation}
+\label{eq:ub-anchor-proper-positive-fluctuation}
+ F\ge\delta-q_N\ge\delta/2
+\end{equation}
+for all sufficiently large $N$.  This argument uses the first test
+at the join, before any extension is explored.
+
+Use the same halfwidth $w=N^{F+\delta/4}$ for every parent in the
+fixed boundary pair.  Since $\omega=N^{2F}$ and
+\eqref{eq:ub-anchor-proper-positive-fluctuation} holds, the exponent
+in \eqref{eq:ub-anchor-finite-window} is at least
+\[
+ \frac{\chi_{\rm cross}}{8(d+1)^2}N^{\delta/2}
+\]
+for all sufficiently large $N$.  The factor $2(d+1)$ is harmless
+because $d\le T\log N$.  Thus, for every parent $a$ of a proper
+stable leaf,
+\begin{equation}
+\label{eq:ub-anchor-parent-window}
+ \Pp\left(
+ \max(|\iota_a-\bar\iota_a|,|\tau_a-\bar\tau_a|)>w
+       \,\middle|\,\mathcal H_0\right)
+ \le e^{-N^{\delta/8}}.
+\end{equation}
+Also $\bar\tau_a-\bar\iota_a=\mu_a\ge N^{F+\delta}>2w$.
+
+Fix a depth.  Distinct parents at this depth are distinct cylinders
+of the same length.  Their deterministic mean intervals
+$[\bar\iota_a,\bar\tau_a]$ are therefore ordered and have disjoint
+interiors: in lexicographic order the right endpoint of one is at
+most the left endpoint of the next.  If $x$ is relevant, then
+$I_x\subseteq I_{x^-}$ and the probability in
+\eqref{eq:ub-anchor-relevance-threshold} exceeds the bad-window
+probability in \eqref{eq:ub-anchor-parent-window}.  Some realization
+therefore has both $m\in I_{x^-}$ and the good parent window.  It
+follows that
+\[
+ m\in[\bar\iota_{x^-}-w,\bar\tau_{x^-}+w].
+\]
+At most two parent intervals at the fixed depth can have their
+$w$-enlargements contain $m$.  Indeed, if three did, order them
+from left to right.  The right endpoint of the first is at most
+the left endpoint of the middle, and the left endpoint of the last
+is at least the right endpoint of the middle.  Membership in both
+outer enlargements would then imply that the length of the middle
+interval is at most $2w$, contradicting $\mu_a>2w$.
+Each parent has at most $k$ children, and there are at most $d\le K$
+possible parent depths.  This proves the bound $2kK$.
+
+There are at most $(d+1)k^d$ words of length at most $d$.  A union
+bound over proper leaves failing
+\eqref{eq:ub-anchor-relevance-threshold} proves the first inequality
+in \eqref{eq:ub-anchor-irrelevant-loss}; the second follows from
+$d\le T\log N$.  If the join is already stable, its family is a
+singleton by definition.  Terminal fallback words and boundary
+pairs with a nongenuine terminal side are outside this lemma and
+must be excluded by a terminal margin or estimated separately.
+\end{proof}
+
+In particular, on a proper stable class the anti-concentration estimate
+\eqref{eq:ub-anchor-conditional-atoms} has order
+\[
+ O\left(\sqrt{K+\chi_{\rm cross}^{-1}}\,
+                  g_{\rm anchor}^{-1/2}N^{-F}\right),
+\]
+and \eqref{eq:ub-anchor-smoothing-failure} is a stretched exponential
+error.  Events controlling block sizes or endpoint windows may be
+intersected with $\mathcal S_x$: doing so only decreases the
+conditional atoms, while their failure probabilities are added.
+The sampling population throughout this proof is the actual global
+population $n$, including the labels outside $R$.  Replacing it by
+$M$ or conditioning on all future counts inside $R$ would change the
+conditional law and is not part of the argument.
+
+We now return to the absolute indices and notation of
+\eqref{eq:ub-empirical-costs} and
+\eqref{eq:ub-anchored-fluctuation}. In the preceding lemmas,
+$\omega=N^{2F_v}$, $\chi_{\rm cross}=\chi$ and
+$g_{\rm anchor}=g$ for the relevant boundary pair. All probabilities
+below remain conditional on its first-column assignment; row
+relabeling makes the bounds uniform in that assignment.
+
+\begin{lemma}[Finite collision and density bounds]
+\label{lem:ub-edge-density-bounds}
+For every legal prefix $x$ in the anchored construction, put
+$p_x(m)=\Pp((m,m+1)\in E(G_{B_x}))$ and
+$D_x=\sum_{m=1}^{n-1}p_x(m)^2$. Then
+\begin{equation}
+\label{eq:ub-unconditional-prefix-density}
+ \E|E(G_{B_x})|\le\tfrac12\mu_x^2N^{e_x},\qquad
+ D_x\le\tfrac14N^{4\ell_x+2e_x}.
+\end{equation}
+If $x$ is a full word, then $D_x\le\mu_x$.
+For a nonterminal stable block with $\ell_x\ge2\delta$, Lemma~\ref{lem:ub-anchor-endpoint-atoms} gives, uniformly over the construction,
+\begin{equation}
+\label{eq:ub-large-prefix-density}
+ D_x\le N^{4\ell_x-F_v+2e_x+2\delta+o(1)}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+An internal edge can be assigned injectively to a pair of equal rows.
+The expected number of prefix-matching row pairs is at most
+$\mu_x^2/2$, by the falling-factorial sampling bound in
+Lemma~\ref{lem:ub-largest-component-tail}. Their tail matching
+probability is at most
+$\prod_{j>M_x}\sum_d(q^{(j)}_d)^2=N^{e_x}$, independently of the
+prefix columns. This proves the first inequality in
+\eqref{eq:ub-unconditional-prefix-density}. The second follows from
+$\sum_m p_x(m)^2\le(\sum_m p_x(m))^2$.
+For a full word, the internal edge count is $(C_x-1)_+$, so
+$D_x\le\sum_m p_x(m)=\E(C_x-1)_+\le\mu_x$.
+
+For a large stable block, $F_v>\delta$ by stability. Let $J_x$
+be its set of internal edge offsets relative to $\iota_x$. The
+sigma-field $\mathcal U_x$ records the labeled rows and their full
+continuations, so it determines $J_x$. Put
+\[
+ A_x^{\rm atom}=4C_{\rm hyp}
+       \sqrt{(2K+\chi^{-1})/g}\,N^{-F_v},\qquad
+ a_x(m)=\Pp((m,m+1)\in E(G_{B_x}),\mathcal S_x).
+\]
+For each offset in $J_x$, the edge event fixes one possible value of
+$\iota_x$. Lemma~\ref{lem:ub-anchor-endpoint-atoms}, conditioned on
+$\mathcal U_x$, therefore gives
+\[
+ \sup_m a_x(m)\le A_x^{\rm atom}\E|J_x|,
+ \qquad \sum_m a_x(m)\le\E|J_x|.
+\]
+Writing $p_x(m)=a_x(m)+b_x(m)$, we have
+$p_x(m)^2-a_x(m)^2\le2b_x(m)$ and
+$\sum_m b_x(m)\le n\Pp(\mathcal S_x^c)$. Consequently
+\[
+ D_x\le\tfrac14 A_x^{\rm atom}\mu_x^4N^{2e_x}
+                       +2n\Pp(\mathcal S_x^c).
+\]
+By \eqref{eq:ub-anchor-smoothing-failure}, the last term is a
+stretched-exponential error, uniformly because $F_v>\delta$.
+Also $e_x\ge-T\log k$, $F_v\le1/2$, and $\ell_x\ge2\delta$,
+so this error is negligible relative to the displayed power of $N$.
+Since $K=O(\log N)$, the atom prefactor is $N^{o(1)}$.
+This proves \eqref{eq:ub-large-prefix-density}, with its stated slack.
+\end{proof}
+
+We next group stable words by their actual costs, rather than by
+frequencies in cells of the simplex. Fix a width $\upsilon>0$.
+For an extension from $v$ to $x$, let
+\[
+ Q_x=\{j:M_v<j\le M_x,\ q^{(j)}_{x[j]}<\chi\},\quad
+ S_x=\frac1L\sum_{\substack{M_v<j\le M_x\\j\notin Q_x}}
+               \log\frac1{q^{(j)}_{x[j]}},\quad
+ T_x=\frac1L\sum_{j\in Q_x}\log\frac1{q^{(j)}_{x[j]}}.
+\]
+In particular,
+\begin{equation}
+\label{eq:ub-exact-word-cost-split}
+ \ell_x=V_v-S_x-T_x,\qquad S_x,T_x\ge0.
+\end{equation}
+Fix a large constant $C_0$. Retain boundary words with at most
+$C_0L/\log(1/\chi)$ digits strictly below $l_j$ before their left
+crossing, or strictly above $r_j$ before their right crossing.
+Retain extensions with $|Q_x|\le\alpha_\chi L$, where
+$\alpha_\chi=(\log(1/\chi))^{-1/2}$.
+A class $\mathcal C$ records the first pile, both boundary words, $M_x$,
+the set $Q_x$ and its selected digits, the integer
+$\lfloor S_x/\upsilon\rfloor$, and whether the block is proper or
+immediate, large or small. Terminal boundary words form singleton
+classes. Empty classes are omitted. Put $H_{\mathcal C}=\log_N|\mathcal C|$.
+
+\begin{lemma}[Empirical cost classes]
+\label{lem:ub-empirical-cost-classes}
+For every fixed $\varepsilon>0$ and $D>0$, first choosing $C_0$ large,
+then $\upsilon$ and $\chi$ sufficiently small, gives at most
+$N^\varepsilon$ retained classes for all sufficiently large $N$,
+uniformly in the arrays. The expected number of discarded rows is at
+most $N^{-D}$. Every nonterminal retained class satisfies, for every
+$x\in\mathcal C$ and every $3\le\theta\le4$,
+\begin{equation}
+\label{eq:ub-empirical-class-entropy}
+ H_{\mathcal C}\le\theta S_x-\widehat B_\theta(M_v,M_x)+e_H,
+ \qquad e_H=4\upsilon+4\log(k)\alpha_\chi.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For $q\ge0$, set
+$U_q=\sum_{j=0}^{\min(q,K)}\binom Kj k^j$.
+A boundary word is determined by its crossing time and digit, its
+exceptional positions and digits, and the fixed default digits $l_j$
+or $r_j$ elsewhere. A terminal boundary is encoded in the same way.
+The number of pairs is therefore at most a constant times
+$(K+1)^2U_{q_b}^2$, with
+$q_b=\lfloor C_0L/\log(1/\chi)\rfloor$.
+The additional extension data cost at most a constant times
+$(K+1)U_{q_e}J$, where
+\[
+ q_e=\lfloor\alpha_\chi L\rfloor,\qquad
+ J=1+\left\lfloor T\log(1/\chi)/\upsilon\right\rfloor.
+\]
+The elementary bound $\binom Kj\le(eK/j)^j$ shows
+$L^{-1}\log(U_{q_b}^2U_{q_e})\to0$ as $\chi\downarrow0$, uniformly
+for $K\le TL$, after taking the large-$N$ limit. All other factors
+are fixed or polynomial in $\log N$. This proves the class bound
+with the stated order of choices.
+
+For a fixed labeled row, its digits in different columns are independent.
+The probability of using a digit of mass below $\chi$ in each of a
+prescribed set of $j$ columns is at most $(k\chi)^j$.
+Consequently the expected number of rows failing either truncation is
+bounded by a fixed multiple of
+\[
+ N\sum_{j>q_b}\binom Kj(k\chi)^j
+   +N\sum_{j>q_e}\binom Kj(k\chi)^j.
+\]
+Their logarithms divided by $L$ are at most
+$1-C_0+o_\chi(1)$ and
+$1-\alpha_\chi\log(1/\chi)+o_\chi(1)$, respectively.
+This gives $N^{-D}$ after the ordered choices. No independence between
+different rows is needed.
+
+Within a class, restriction of a word to its nonexceptional extension
+positions is injective. Under the product of the tilted laws at those
+positions, its probability is
+\[
+ N^{-\theta S_x+B^G_\theta},\qquad
+ B^G_\theta=L^{-1}\sum_{\substack{M_v<j\le M_x\\j\notin Q_x}}
+                           \psi_{q^{(j)}}(\theta).
+\]
+If $b$ is the fixed cost-bin index, every word in the class has
+$S_x<(b+1)\upsilon$. The sum of their tilted probabilities is at most
+one, whence
+$|\mathcal C|\le N^{\theta(b+1)\upsilon-B^G_\theta}$.
+Now $b\upsilon\le S_x$ and
+$0\le\psi_q(\theta)\le4\log k$ for $2\le\theta\le4$.
+At most $\alpha_\chi L$ terms were removed. These inequalities give
+\eqref{eq:ub-empirical-class-entropy}.
+\end{proof}
+
+\begin{lemma}[Empirical exponent bounds]
+\label{lem:ub-numerical-lemma}
+Under \eqref{eq:ub-empirical-negative-margin}, every large stable
+class satisfies
+\begin{equation}
+\label{eq:ub-empirical-large-exponent}
+ H_{\mathcal C}+4\ell_x-F_v+2e_x
+ \le-\eta+\delta+q_N/2+e_H.
+\end{equation}
+Every small proper class satisfies
+\begin{equation}
+\label{eq:ub-empirical-small-exponent}
+ H_{\mathcal C}+4\ell_x+2e_x
+ \le-\eta+8\delta+21q_N/2+e_H.
+\end{equation}
+For an immediate singleton, $\ell_v+e_v\le-\eta$;
+for a terminal word, $\ell_x\le-\eta$.
+\end{lemma}
+
+\begin{proof}
+Set $s=M_v$, $u=M_x$. We have $V_v\le\widehat\beta(s)$.
+For every $\theta\in[3,4]$, the exact identity
+\[
+ 4\ell_x-F_v+\theta S_x
+ =\theta V_v+(4-\theta)(\ell_x-F_v)
+                  +(3-\theta)F_v-\theta T_x
+\]
+combined with stability, \eqref{eq:ub-anchored-fluctuation-comparison},
+and $T_x\ge0$, is at most
+$\frac{\theta+3}{2}\widehat\beta(s)+\delta+q_N/2$.
+Use \eqref{eq:ub-empirical-class-entropy}, the exact value of $e_x$,
+and take the infimum over $\theta$ to obtain
+\eqref{eq:ub-empirical-large-exponent}.
+
+For a proper first crossing, the parent has
+$\ell_{x^-}\ge F_v+\delta$. The last digit adds at most
+$q_N$ to the good cost $S_x$, whether it is good or exceptional.
+Thus $S_x\le V_v-F_v+q_N\le\widehat\beta(s)/2+3q_N/2$.
+Since $S_x\ge0$, also $\widehat\beta(s)\ge-3q_N$.
+It follows that
+\[
+ \theta S_x
+ \le\tfrac{\theta+3}{2}\widehat\beta(s)+21q_N/2
+ \qquad(3\le\theta\le4).
+\]
+Use \eqref{eq:ub-empirical-class-entropy} and $4\ell_x<8\delta$
+to prove \eqref{eq:ub-empirical-small-exponent}.
+
+Finally, $\sum_dq_d^2\le\max_dq_d$ gives $\psi_q(2)\ge a_q$.
+Therefore
+\[
+ \ell_v+e_v\le\widehat\beta(s)-\widehat B_2(s,K)
+                   \le\widehat\beta(K)\le-\eta.
+\]
+The terminal assertion is the maximal-word inequality.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:ub-empirical-first-moment}]
+We may replace $\eta$ by $\min(\eta,1)$. Choose
+$\varepsilon<\eta/100$ and $\upsilon<\eta/1000$, fix $C_0$
+sufficiently large for $D=10$, and then choose $\chi$ so small
+that Lemma~\ref{lem:ub-empirical-cost-classes} holds with $D=10$ and
+$e_H<\eta/50$. Choose $\delta<\eta/1000$ and then take $N$ large,
+with all choices fixed before the cut arrays.
+
+At each edge position, the retained relevant proper blocks number at
+most $(2kK)$ times the number of retained boundary pairs, by
+Lemma~\ref{lem:ub-anchor-relevant-parents}. Immediate and terminal singleton pairs
+add at most one block per pair. The boundary-pair count is at most
+$N^\varepsilon$. The squared sum of the corresponding edge probabilities
+is consequently at most
+$N^{2\varepsilon}\sum_x p_x(m)^2$ for all large $N$.
+The probability of an omitted nonrelevant proper block is stretched-exponentially
+small after a union bound over at most $(K+1)k^{K+1}$ prefixes.
+Discarded rows contribute at most $N^{-10}$ to the expected number of
+edges, and hence at most this amount to the sum of squared discarded
+edge probabilities. Using $(u+v)^2\le2u^2+2v^2$ handles this error.
+Thus
+\begin{equation}
+\label{eq:ub-empirical-first-moment-assembly}
+ \E|E(G)\cap E(G')|
+ \le N^{-9}+2N^{2\varepsilon}
+        \sum_{\mathcal C}\sum_{x\in\mathcal C}D_x.
+\end{equation}
+There are at most $N^\varepsilon$ classes, and
+$|\mathcal C|=N^{H_{\mathcal C}}$ exactly. Equations
+\eqref{eq:ub-large-prefix-density} and
+\eqref{eq:ub-empirical-large-exponent} bound a large class by
+$N^{-\eta+3\delta+q_N/2+e_H+o(1)}$.
+Equations \eqref{eq:ub-unconditional-prefix-density} and
+\eqref{eq:ub-empirical-small-exponent} bound a small proper class by
+$N^{-\eta+8\delta+21q_N/2+e_H}$.
+For a small immediate singleton,
+$4\ell_v+2e_v=2(\ell_v+e_v)+2\ell_v\le-2\eta+4\delta$;
+its class consists of that one word. A terminal singleton contributes
+at most $N^{-\eta}$. All powers are at most $-\eta/2$ for large $N$.
+The three class/localization losses in
+\eqref{eq:ub-empirical-first-moment-assembly} are absorbed by the
+remaining margin. For example $c=\eta/4$ works after increasing $N_0$.
+All concentration, counting and numerical bounds were uniform in the
+arrays and in $n,a,K$, as required.
+\end{proof}
+
+\begin{lemma}[Stability of empirical margins]
 \label{lem:ub-conditional-preservation}
-With probability $1-\exp(-N^c)$ at each exploration step, every large unrevealed ambient block produced by conditioning on explored strings is almost-$\mu_\bullet$-like and has an accessible exponent $b$.
+Let $e,\zeta\ge0$. Suppose $p^{(j)},q^{(j)}\in D_k$ and
+$\|p^{(j)}-q^{(j)}\|_\infty\le\zeta$ on the retained columns.
+Then, uniformly in interval endpoints and $2\le\theta\le4$,
+\begin{equation}
+\label{eq:ub-empirical-cost-stability}
+ |\widehat A_p-\widehat A_q|\le kT\zeta,\qquad
+ |\widehat B_{\theta,p}-\widehat B_{\theta,q}|\le4k^4T\zeta.
+\end{equation}
+If the original deck satisfies
+\eqref{eq:ub-empirical-negative-margin} with margin $\eta$ and a
+prefix ending at column $r$ produces a deck of size $m$ with
+\[
+ \log_Nm\le1-\widehat A_p(0,r)+e,
+\]
+then its tail $q$ satisfies the same negative-margin inequalities with
+margin at least $\eta-\frac72(e+kT\zeta)-12k^4T\zeta$.
+Dropping at most $\rho\log N+O(1)$ initial columns without decreasing
+population size costs at most an additional
+$\frac72\rho\log k+O_k(1/\log N)$ in the margin.
 \end{lemma}
 
-\paragraph{Sketch.}
-Conditioning fixes finitely many rows and prefix constraints. The remaining column counts inside a block are hypergeometric samples from the original fixed column counts. Standard hypergeometric concentration preserves the local empirical profile. The accessible exponent bound follows by comparison with the path that follows the largest pile at earlier times.
+\begin{proof}
+For probability vectors $p,q$,
+\[
+ |a_p-a_q|\le k\|p-q\|_\infty,\qquad
+ |\psi_p(\theta)-\psi_q(\theta)|\le4k^3\|p-q\|_1.
+\]
+The first inequality uses $\max p,\max q\ge1/k$.
+For the second, the power sums are at least $k^{-3}$ and
+$|x^\theta-y^\theta|\le4|x-y|$ on $[0,1]$.
+Sum over at most $T\log N$ columns to obtain
+\eqref{eq:ub-empirical-cost-stability}. The tail size function is at
+most the original size function plus $e+kT\zeta$.
+The coefficient of that function is at most $7/2$, and the sum of the
+absolute coefficients of the two $B$ terms is three. This gives the
+stated loss. Finally $a_p\le\log k$ bounds the discarded initial cost.
+No preservation of membership in any partition cell is asserted.
+\end{proof}
 
-\begin{lemma}[Conditional first moment during exploration]
+
+\subsection{Conditional exploration in the fixed-column model}
+
+Throughout this subsection the population size is the original \(N\),
+including after deletion of an initial sequence of columns. We use
+a working good threshold $0<g<1/k$ and density $0<\gamma\le1$;
+any positive thresholds in the original hypothesis can be decreased
+to this range. Write
+\(K\le T\log N\), \(p_{j\ell}=n^{(j)}_\ell/N\), and, for a prefix
+\(x\), set
+\[
+ \lambda_x=\prod_{j\le |x|}p_{j,x[j]},\qquad
+ \mu_x=N\lambda_x,\qquad
+ \mu_*=N\prod_{j\le K}\max_\ell p_{j\ell}.
+\]
+Zero-probability prefixes are omitted.  Reindex the retained columns by $1,\ldots,K$. Every empirical
+endpoint is translated by the same discarded length, and every
+normalization remains $\log N$. A tail after a retained prefix $x$
+therefore uses $a=|x|$ in \eqref{eq:ub-empirical-costs}.
+
+\begin{lemma}[A short cluster of good columns]
+\label{lem:ub-good-cluster}
+Fix $g,\gamma,\rho>0$, and put $m_N=\lceil\rho\log N\rceil+1$.
+Suppose every interval of $m_N$ consecutive columns contains at least
+$\gamma\rho\log N-2$ columns having two piles of size at least $gN$.
+For all sufficiently large $N$, every such interval contains three
+good columns whose first and last indices differ by at most
+$D=\lceil6/\gamma\rceil$.
+\end{lemma}
+
+\begin{proof}
+Partition the interval into consecutive intervals of length at most
+\(D\). If each contained at most two good columns, their total would
+be at most \(2\lceil m_N/D\rceil\), which is strictly
+smaller than \(\gamma\rho\log N-2\) for large \(N\).
+\end{proof}
+
+Definition~\ref{def:good-columns} implies the hypothesis of
+Lemma~\ref{lem:ub-good-cluster} for all intervals fitting inside
+the finite horizon: discard at most the two endpoint columns when
+passing from a closed macroscopic interval to consecutive indices.
+We restart at the first good column of such a cluster in the initial
+\(\rho\log N+O(1)\) columns. Deleting these earlier shuffles is
+permitted by total-variation contraction under convolution with a
+probability measure; uniform measure is invariant under that
+convolution. This restart deletes at most \(\rho\log N+O(1)\)
+columns. Their maximal-pile costs are at most \(\log k\) per column.
+Thus the terminal maximal-word exponent increases by at most
+\(\rho\log k+o(1)\), and the numerical margins in \eqref{eq:ub-empirical-negative-margin} increase
+by at most \((7/2)\rho\log k+o(1)\). The factor \(7/2\) is the
+largest coefficient of the ambient exponent in \eqref{eq:ub-empirical-negative-margin}, as quantified by
+Lemma~\ref{lem:ub-conditional-preservation}. We choose \(\rho\) small enough to retain a positive
+margin. In particular, after decreasing that margin if necessary, fix
+\(0<\eta\le1\) such that
+\begin{equation}
+\label{eq:ub-exploration-maximal-mass}
+ \mu_*\le N^{-\eta}.
+\end{equation}
+The retained first column is \(g\)-good, and two further good columns
+occur within its next \(D\) columns.
+
+We specify the two spatial directions and their rank indices.
+For a first-column digit \(p\), put
+\[
+ n_p=n^{(1)}_p,\qquad o_p=1+\sum_{\ell<p}n_\ell.
+\]
+Its sorted strings occupy the deterministic positions
+\(o_p,\ldots,o_p+n_p-1\). Within this pile write them
+\(s^p_1\le\cdots\le s^p_{n_p}\). In the next \(D\) coordinates,
+choose two digits of probability at least \(g\) at each of the two
+good columns and choose a maximal-probability digit elsewhere. The
+four resulting tail prefixes include three in increasing order,
+denoted \(v^-<v^0<v^+\). Every one has conditional product mass at
+least
+\begin{equation}
+\label{eq:ub-reserve-mass}
+ d_0=g^2 k^{-D}>0.
+\end{equation}
+Here and below these prefixes omit the initial digit \(p\).
+A word beginning with \(p\) is called forward if its next \(D\)
+digits are at most \(v^0\), and backward if they are at least
+\(v^0\). Thus words in the middle cylinder have both directions.
+The cylinders with tail prefixes \(v^+\) and \(v^-\) are respectively
+right and left reserves, lying strictly beyond the corresponding
+directional cutoff. All these choices are deterministic functions of
+the cut array.
+
+For a local edge \((u,u+1)\), \(1\le u<n_p\), the global edge is
+\((o_p+u-1,o_p+u)\). It is a forward, respectively backward, edge
+when its equal endpoint word has that direction. For independent
+matrices, a common directional edge must have that direction in
+\emph{both} matrices.
+
+\begin{lemma}[Uniform concentration and directional coverage]
+\label{lem:ub-exploration-concentration}
+Fix \(0<\xi<\eta\). There is an event \(H\) for one matrix,
+and constants \(c,A>0\), such that
+\begin{equation}
+\label{eq:ub-exploration-H-probability}
+ \Pp(H^c)\le r_N^{\rm bad}:=A N^A\exp(-cN^{\xi/3}),
+\end{equation}
+and the following assertions hold on \(H\).
+For every initial pile, its complement has, in each later column,
+counts within \(N^{2/3}\) of its size times \(p_{j\ell}\).
+For every prefix \(x\) with \(\mu_x\ge N^\xi\), writing \(C_x\)
+for its row count and \(D_{j\ell}(x)\) for its \(\ell\)-count in
+column \(j>|x|\),
+\begin{equation}
+\label{eq:ub-exploration-prefix-concentration}
+ |C_x-\mu_x|\le\mu_x^{2/3},\qquad
+ |D_{j\ell}(x)-C_xp_{j\ell}|\le\mu_x^{2/3}.
+\end{equation}
+For every initial pile with \(n_p\ge N^\xi\), its number of words
+strictly before the middle cylinder and its number through that
+cylinder are each within \(d_0 n_p/4\) of their expectations.
+Consequently, on \(H\times H\), every shared edge in any such pile
+has a common direction.
+Moreover, the probability that any pile with \(n_p<N^\xi\) contains
+an edge is at most \((k/2)N^{\xi-\eta}\).
+\end{lemma}
+
+\begin{proof}
+We recall the elementary estimates used here. If a set of \(z\)
+marked positions meets a uniform set of \(h\) positions in a
+population of size \(M\), its intersection count \(Y\) satisfies,
+for every \(s>0\),
+\[
+ \E s^Y\le(1-h/M+(h/M)s)^z.
+\]
+Indeed its generating function is the normalized \(z\)-th
+elementary symmetric polynomial of \(h\) copies of \(s\) and
+\(M-h\) copies of \(1\). At fixed sum, replacing any pair by their
+average does not decrease this polynomial: the only changing term is
+their product times a nonnegative elementary symmetric polynomial
+of the other variables. Repeated averaging and continuity give the
+displayed bound. This argument applies also when \(s<1\).
+Applying this one-step estimate backwards through the independent
+columns proves the same binomial generating-function bound for a
+prefix count, with its actual mean \(\mu\). Exponential Markov,
+with positive and negative exponents, then gives
+\begin{equation}
+\label{eq:ub-exploration-bernstein}
+ \Pp(|Y-\mu|\ge u)
+ \le2\exp\left(-\frac{u^2}{2(\mu+u)}\right),\qquad u>0.
+\end{equation}
+For example, optimize the upper bound
+\(\exp(\mu(e^t-1)-t(\mu+u))\), and use
+\((1+v)\log(1+v)-v\ge v^2/(2(1+v))\); the lower-tail
+calculation uses \(-\log(1-v)\ge v\).
+
+An initial-pile complement is independent of every later column,
+so its count is hypergeometric. Taking \(u=N^{2/3}\) in
+\eqref{eq:ub-exploration-bernstein} gives failure
+\(\exp(-cN^{1/3})\). A prefix count has mean \(\mu_x\), so
+\(u=\mu_x^{2/3}\) gives failure \(\exp(-c\mu_x^{1/3})\).
+Given its labeled row set, a later-column count is hypergeometric
+with mean \(C_xp_{j\ell}\); on the preceding size event,
+\(C_x\le2\mu_x\), so the same bound applies. There are at most
+\(\sum_{r\le K}k^r=N^{O(1)}\) prefixes and \(kK\) later
+column/digit choices. This proves the simultaneous assertions in
+\eqref{eq:ub-exploration-prefix-concentration} and their stated
+failure bound.
+
+Conditional on the first-column row set, each of the at most \(k^D\)
+tail-prefix counts has mean \(n_p\) times its product mass and
+satisfies \eqref{eq:ub-exploration-bernstein}. Summing the finitely
+many prefixes before, or through, \(v^0\) gives the two guard
+concentration assertions, with failure \(\exp(-c n_p)\), hence
+within \eqref{eq:ub-exploration-H-probability}. Let their expected
+counts be \(n_pL\) and \(n_pU\). Since \(U-L\ge d_0\), the
+observed before-count in either matrix is strictly smaller than the
+observed through-count in the other. If an edge were before the
+middle cylinder in the first matrix and after it in the second, its
+local left endpoint \(u\) would satisfy simultaneously
+\[
+ u+1\le\#\{\text{before in the first matrix}\},\qquad
+ u\ge1+\#\{\text{through in the second matrix}\},
+\]
+a contradiction. Reversing the matrices proves coverage.
+
+Finally, for a full word \(w\) the exact factorial identity and
+\((h)_2/(N)_2\le(h/N)^2\) give
+\(\E\binom{C_w}{2}\le N^2\lambda_w^2/2\). Therefore
+\[
+ \E\sum_{w[1]=p}\binom{C_w}{2}
+ \le\frac{N^2}{2}\max_w\lambda_w\sum_{w[1]=p}\lambda_w
+ =\frac{n_p\mu_*}{2}.
+\]
+Every graph edge implies such a collision. Sum over the at most
+\(k\) small piles and use \eqref{eq:ub-exploration-maximal-mass}.
+\end{proof}
+
+We use the natural sorted-word histories within each initial pile.
+For a nonempty pile the forward one-matrix history is
+\(h_i=(s^p_1,\ldots,s^p_i)\), \(0\le i\le n_p\), with
+\(h_0\) empty. Backward histories reveal the same strings in the
+opposite spatial order. They do not reverse the columns. Each pile
+and direction uses its own filtration: no later-column word outside
+that initial pile is revealed. In particular the history does not
+include previously explored initial piles. The outside-pile rows
+remain available as the reservoir in every application below.
+Put
+\(\varepsilon_N=\sqrt{r_N^{\rm bad}}\), and, for either direction and
+\(1\le i<n_p\), define the history-measurable event
+\begin{equation}
+\label{eq:ub-natural-history-good}
+ F_i=\{\Pp(H^c\mid h_i)\le\varepsilon_N\}.
+\end{equation}
+Conditional Markov gives \(\Pp(F_i^c)\le\varepsilon_N\).
+All conditional assertions below concern positive-probability
+histories. Intersecting these events for both directions and all
+piles loses at most \(2N\varepsilon_N\).
+
+\begin{lemma}[Conditional counts from an actual reservoir]
+\label{lem:ub-reservoir-counts}
+Fix \(0<\tau<g\) and put
+\(\alpha=\log(1/g)/\log(1/\tau)\). Assume \(\alpha<1/2\).
+For all sufficiently large \(N\), uniformly in the cuts and positive
+histories, the following holds. Consider a forward history \(h_i\)
+on \(F_i\), whose last word \(s\) is forward, and let \(t\) be
+the number of observed terminal copies of \(s\). For every prefix
+cylinder \(B_x\) lying strictly above \(s\) and within the forward
+cutoff,
+\begin{align}
+ \E[C_x\mid h_i]
+ &\le C_1N\lambda_x^{1-\alpha}+N\varepsilon_N,
+ \label{eq:ub-conditional-cylinder-count}\\
+ \E[(C_s-t)_+\mid h_i]
+ &\le C_1N\lambda_s^{1-\alpha}+N\varepsilon_N,
+ \label{eq:ub-conditional-extra-copies}\\
+ \E\left[\sum_{w\supseteq x}\binom{C_w}{2}\mathrel{\Big|}h_i\right]
+ &\le C_2N^2\lambda_x^{2(1-\alpha)}
+       \prod_{j>|x|}\sum_\ell p_{j\ell}^{2(1-\alpha)}
+       +N^2\varepsilon_N.
+ \label{eq:ub-conditional-tail-collisions}
+\end{align}
+The constants depend only on \(g,\tau,k,D,T\). The reversed spatial
+statements hold for backward histories.
+\end{lemma}
+
+\begin{proof}
+Fix the labeled first-column pile \(P\), of size \(n=n_p\).
+This is without loss of generality: simultaneous relabeling of the
+rows shows that the joint law of the sorted history and \(H\) is
+independent of the particular labeled set \(P\).
+This conditioning leaves all later columns independent and uniform
+with their prescribed counts. Its complement has size
+\(c=N-n\ge gN\): the first column has two piles of size at least
+\(gN\), so no pile exceeds \((1-g)N\).
+
+For a forward history, let \(h_u\) be the observed multiplicity of
+each full word \(u<s\) beginning with \(p\). The history event is exactly
+\begin{equation}
+\label{eq:ub-exact-history-constraint}
+ C_u=h_u\quad(u[1]=p,\ u<s),\qquad C_s\ge t.
+\end{equation}
+Choose \(m=1\) or \(2\) marked labeled rows in \(P\), and fix
+all the other \(n-m\) rows, calling their configuration \(a\).
+Before imposing \eqref{eq:ub-exact-history-constraint}, the marked
+rows together with the outside reservoir are independent uniform
+fixed-count columns on \(c+m\) rows. If \(R_{j\ell}\) denotes
+the remaining column count, the exact probability that all marked
+rows begin with \(x\) is
+\begin{equation}
+\label{eq:ub-reservoir-exact-prefix-weight}
+ L_a(x^m)=\prod_{2\le j\le |x|}
+                  \frac{(R_{j,x[j]})_m}{(c+m)_m}.
+\end{equation}
+The conditional law given \(a,h_i\) is this law restricted to the
+marked tuples compatible with \eqref{eq:ub-exact-history-constraint},
+and divided by the weight of that allowed set. This follows by
+counting completions in each column: a prescribed ordered tuple
+leaves \((c)!/\prod_\ell(R_{j\ell}-r_{j\ell})!\) completions,
+where \(r_{j\ell}\) is its prescribed \(\ell\)-multiplicity.
+The resulting normalized ratio is the ordinary without-replacement
+probability. Thus the lexicographic conditioning has not been
+discarded.
+
+If all marked words lie strictly above \(s\), their removal leaves
+\(a\) satisfying the entire history constraint. If \(a\) does
+not satisfy it, that target event is impossible. If it does, every
+marked tuple in the right reserve cylinder is allowed. On the event
+\[
+ G_m(a)=\{|R_{j\ell}-cp_{j\ell}|\le N^{2/3}+m
+                           \text{ for all }j,\ell\},
+\]
+the exact reserve probability, using only its \(D\) prescribed
+coordinates, is at least \(d_0^m/2\) for large \(N\).
+All subsequent columns sum out. Notice also that \(H\) implies
+\(G_m(a)\), for every marked tuple, since its counts differ from
+the outside-reservoir counts by at most \(m\).
+
+For \(p_{j\ell}\ge\tau\), on \(G_m(a)\),
+\[
+ \frac{R_{j\ell}}{c+m}
+ \le p_{j\ell}\bigl(1+O_{g,\tau}(N^{-1/3})\bigr).
+\]
+The product of these errors over \(K\le T\log N\) columns is
+bounded by \(2\) for large \(N\). For \(p_{j\ell}<\tau\),
+the deterministic inequalities \(R_{j\ell}\le Np_{j\ell}\) and
+\(c+m\ge gN\) give \(R_{j\ell}/(c+m)\le p_{j\ell}/g\).
+Write
+\(q_x=\prod_{2\le j\le |x|}p_{j,x[j]}=\lambda_x/(n/N)\).
+If \(r\) of these selected digits have probability below \(\tau\),
+then \(q_x\le\tau^r\), whence \(g^{-r}\le q_x^{-\alpha}\).
+Using \((a)_m/(M)_m\le(a/M)^m\) in
+\eqref{eq:ub-reservoir-exact-prefix-weight}, we obtain
+\[
+ L_a(x^m)\le2^m q_x^{m(1-\alpha)}.
+\]
+For a zero-mass prefix the actual probability is zero. Dividing by
+the reserve weight proves, on \(G_m(a)\), the bound
+\(2^{m+1}d_0^{-m}q_x^{m(1-\alpha)}\) for the conditional target
+probability. Its failure set, conditionally on \(h_i\in F_i\),
+has probability at most \(\varepsilon_N\).
+
+Sum over ordered marked tuples. The initial-pile normalization
+cancels in the correct direction:
+\[
+ (n)_m q_x^{m(1-\alpha)}
+ \le N^m(n/N)^{m\alpha}\lambda_x^{m(1-\alpha)}
+ \le N^m\lambda_x^{m(1-\alpha)}.
+\]
+This proves \eqref{eq:ub-conditional-cylinder-count}. For the
+current word, use instead the removable-copy inequality
+\[
+ (C_s-t)_+
+ \le\sum_{r\in P}\1_{\{\text{row }r=s,\ C_s-1\ge t\}}.
+\]
+On each summand, removing the marked row leaves the history
+constraint satisfied, so the same reserve comparison applies.
+This proves \eqref{eq:ub-conditional-extra-copies} without
+treating any of the \(t\) forced observed copies as a fresh copy.
+
+For \eqref{eq:ub-conditional-tail-collisions}, use two marked rows
+and sum their equal-word probabilities over completions of \(x\).
+The product structure of \(q_w\) gives the displayed tail factor.
+The bad configurations are charged only once: for a given marked
+pair the event that its words agree is one event, and its probability
+on \(G_2(a)^c\) is at most \(\varepsilon_N\). Summing over
+unordered marked pairs costs at most \(N^2\varepsilon_N/2\),
+not that error multiplied by the number of full words. Reversing
+the lexicographic inequalities and using the left reserve proves
+the backward statements.
+\end{proof}
+
+\begin{lemma}[The conditional law inside future cylinders]
+\label{lem:ub-exact-conditional-block-law}
+Fix a positive forward history \(h_i\), and partition a strict
+future lexicographic interval into disjoint prefix cylinders.
+Condition additionally on their absolute rank intervals, their
+labeled row sets, all their induced tail-column counts, and the
+current word's total multiplicity. Inside any one cylinder \(B_x\),
+its columns after \(|x|\) have the uniform independent fixed-count
+law with those induced counts. Consequently its sorted internal
+graph has precisely the fixed-count graph law on \(C_x\) vertices.
+The same conclusion holds when the labeled row sets are averaged
+out of this conditioning.
+\end{lemma}
+
+\begin{proof}
+For each \(j>|x|\), permute the entries in column \(j\) within
+the labeled row set of \(B_x\), independently for different
+columns. These operations preserve the global column counts and
+the prefix \(x\), and hence preserve membership in \(B_x\).
+They preserve every other cylinder and its conditioned counts,
+the absolute rank intervals, and the current word's multiplicity.
+They also preserve the observed history: all words in \(B_x\)
+are strictly larger than its last word. The original finite matrix
+measure is uniform, so its conditional measure is invariant under
+these operations. The operations act transitively on the product
+of the sets of tail columns with the specified counts. Thus this
+conditional law is uniform on that product, which is the asserted
+independent-column law. All words in the block share \(x\), so
+sorting them sorts precisely their tails. Finally the resulting
+internal graph law depends only on the induced counts and the
+interval, not on the labeled row set being averaged out.
+\end{proof}
+
+\begin{proposition}[Conditional first moment in every natural history]
 \label{lem:ub-conditional-first-moment}
-On the regular event, let \(\mathcal F_{\mathrm{explored}}\) be the sigma-field
-generated by all information revealed before a given forward or backward
-exploration step. Then
+Fix $k\ge2$, $T>0$, $0<\eta\le1$, $0<g<1/k$ and
+$0<\gamma\le1$, and put $\xi=\eta/10$ and $D=\lceil6/\gamma\rceil$.
+Choose a fixed $\rho>0$ sufficiently small in terms of these parameters,
+as in \eqref{eq:ub-exploration-exponent-budget}. Assume the retained
+array satisfies \eqref{eq:ub-empirical-negative-margin} with $n=N$,
+$a=0$ and margin $2\eta$, and the consecutive-window hypothesis of
+Lemma~\ref{lem:ub-good-cluster}. Its first column must be $g$-good,
+with two further $g$-good columns among the next $D$ columns.
+Use the events $H,F_i$ constructed with this $\xi$.
+There exist $\zeta,C>0$ and $N_0$, depending only on the fixed
+parameters, such that for every $N\ge N_0$, every such cut array,
+and all positive-probability forward or backward histories in any
+pile with $n_p\ge N^\xi$,
+\begin{equation}
+\label{eq:ub-actual-conditional-remaining}
+ \E[\text{unrevealed common directional edges}\mid h_i,h'_i]
+ \le C N^{-\zeta}
+ \quad\text{on }F_i\cap F'_i,\qquad 1\le i<n_p.
+\end{equation}
+For \(i=0\), the same bound holds with the two empty histories;
+at \(i=n_p\) the remaining count is zero.
+\end{proposition}
+
+\begin{proof}
+Set \(\xi=\eta/10\). Choose \(\tau\) so small that
+\begin{equation}
+\label{eq:ub-exploration-alpha-budget}
+ \alpha\le\min\left\{\frac{\xi}{4(1+\xi)},
+                         \frac{\eta}{40(1+\eta)}\right\}.
+\end{equation}
+Apply Proposition~\ref{prop:ub-empirical-first-moment} with a
+margin $\eta$ and a first-column good threshold \(g/2\).
+Denote its uniform decay exponent by \(\delta_F>0\); take the
+minimum with its whole-deck decay exponent if necessary. Put
+\begin{equation}
+\label{eq:ub-exploration-exponent-budget}
+ a=\min\{3\xi/4,\,3\eta/5,\,\delta_F\},\qquad
+ \rho\log k\le a/4,\qquad \zeta=a/2.
+\end{equation}
+The parameters are fixed in this order: a smaller retained margin,
+\(g,\gamma,k,T\), then \(\xi\), the uniform empirical
+first-moment exponent \(\delta_F\), then \(\tau\) and a
+sufficiently small \(\rho\), and finally \(N_0\). The initial
+restart and all deterministic profile errors are also chosen within
+the smaller-margin budget. No choice depends on the random history
+or on the varying cut array.
+
+Consider one forward history \(h_i\in F_i\). If its current word
+is beyond the forward cutoff, no forward edge remains. Otherwise
+the strict interval from its current word through that cutoff is
+a disjoint union of at most \(2kK\) prefix cylinders. This follows
+by following the two endpoint branches of the prefix tree: at
+each depth at most \(2(k-1)\) complete sibling cylinders are
+included. When at least $m_N=\lceil\rho\log N\rceil+1$ columns remain
+after a cylinder prefix, refine it to the index immediately before
+the first good column of a cluster supplied by
+Lemma~\ref{lem:ub-good-cluster}. This adds at most $m_N$ digits. Every refined tail now has a good
+first column and two more good columns within \(D\) positions.
+The final disjoint family \(\mathcal B(h_i)\) has size
+\begin{equation}
+\label{eq:ub-exploration-block-count}
+ |\mathcal B(h_i)|\le C_0(\log N)N^{\rho\log k}.
+\end{equation}
+Prefixes with fewer remaining columns need no such refinement.
+Indeed their maximal tail mass \(q_*\) is at least
+$k^{-m_N}$, while
+\(\mu_xq_*\le\mu_*\). Thus
+\(\mu_x\le O(N^{-\eta+\rho\log k})<N^{-\xi}\), by
+\eqref{eq:ub-exploration-exponent-budget}, for large \(N\).
+
+Let \(q_e(h_i)\) be the conditional probability that position
+\(e\) is an unrevealed forward edge. Refine the history by the
+information in Lemma~\ref{lem:ub-exact-conditional-block-law} for
+this disjoint family, and call that information \(Z\). This is auxiliary information
+used only in the following conditional expectation; it is never
+added to the natural exploration filtration. Conditional
+Jensen gives
+\begin{equation}
+\label{eq:ub-one-history-jensen}
+ \sum_e q_e(h_i)^2
+ \le\E\left[\sum_e q_e(h_i,Z)^2\mathrel{\Big|}h_i\right].
+\end{equation}
+Given \(Z\), every unrevealed edge lies either in the remaining
+current-word run or inside one cylinder. An equal-word edge cannot
+cross two distinct cylinders. The current run contributes at most
+\(\E[(C_s-t)_+\mid h_i]\); this includes the possible edge
+from the last revealed copy to the first unrevealed copy. The
+right side of \eqref{eq:ub-one-history-jensen} is therefore at
+most that term plus the sum of the conditional self-intersection
+expectations inside the cylinders. We classify the \emph{final}
+cylinders, after refinement, in three regimes.
+
+If \(\mu_x\le N^{-\xi}\), self-intersection is at most the
+single graph's vertex count. By
+\eqref{eq:ub-conditional-cylinder-count}, its conditional expectation
+is at most
 \[
-  \E[\#\{\hbox{unrevealed shared edges}\}\mid\mathcal F_{\mathrm{explored}}]
-  \le N^{-\delta}.
+ C N^{-\xi+\alpha(1+\xi)}+N\varepsilon_N
+ \le C N^{-3\xi/4}+N\varepsilon_N.
 \]
-\end{lemma}
+If \(N^{-\xi}<\mu_x<N^\xi\), put
+\(q_* =\prod_{j>|x|}\max_\ell p_{j\ell}\). Since
+\(\lambda_xq_*\le\max_w\lambda_w\),
+\[
+ q_*\le N^{-\eta+\xi},\qquad
+ \prod_{j>|x|}\sum_\ell p_{j\ell}^{2(1-\alpha)}
+ \le q_*^{1-2\alpha}.
+\]
+Self-intersection is at most the number of collision pairs in the
+single block. Equation~\eqref{eq:ub-conditional-tail-collisions}
+bounds its expectation by
+\[
+ C N^{-\eta+3\xi+2\alpha(1+\eta-2\xi)}+N^2\varepsilon_N
+ \le C N^{-3\eta/5}+N^2\varepsilon_N.
+\]
+Thus the near-unit regime is controlled by its remaining collisions,
+not by total block size.
 
-\paragraph{Sketch.}
-Decompose the unrevealed strings into $N^{o(1)}$ ambient blocks. Apply the first-moment proposition to each large block, using recursive first-moment margin. Bound small blocks directly by total size.
+Finally suppose \(\mu_x\ge N^\xi\). On the part of \(Z\)
+satisfying \eqref{eq:ub-exploration-prefix-concentration}, its actual
+size \(m=C_x\) obeys
+\[
+ \tfrac12\mu_x\le m\le2\mu_x,\qquad
+ \max_{j,\ell}\left|\frac{D_{j\ell}(x)}m-p_{j\ell}\right|
+ \le2N^{-\xi/3}.
+\]
+In particular \(m\ge N^{\xi/2}\) for large \(N\). The three
+anchor columns remain \(g/2\)-good. Lemma~\ref{lem:ub-conditional-preservation} controls the change
+in the empirical costs by \(O(N^{-\xi/3})\). Also
+\(\log_Nm=\log_N\mu_x+o(1)\), and
+\(\mu_x\le N\prod_{j\le|x|}\max_\ell p_{j\ell}\).
+Consequently the actual induced array and the actual exponent
+\(\log_Nm\) satisfy \eqref{eq:ub-empirical-negative-margin} with margin
+at least $\eta$ for all sufficiently large $N$: explicitly, the
+loss is at most $\frac72(e_N+kTz_N)+12k^4Tz_N$, where
+$e_N=\log2/\log N$ and $z_N=2N^{-\xi/3}$. This is a
+consequence of the whole-deck margin and
+Lemma~\ref{lem:ub-conditional-preservation}, not an additional
+recursive hypothesis.
+Here the time grid and every exponent still use the original
+\(\log N\); no replacement by \(\log m\) is made.
+Lemma~\ref{lem:ub-exact-conditional-block-law} and
+Proposition~\ref{prop:ub-empirical-first-moment} therefore bound
+its conditional self-intersection by \(C_FN^{-\delta_F}\).
+The exceptional \(Z\)-set has conditional probability at most
+\(\varepsilon_N\), because \(H\) implies all the required
+concentration assertions and \(h_i\in F_i\). Its contribution
+is at most \(N\varepsilon_N\).
 
-For each of the \(2k\) directional explorations, let
-\(E_{\mathrm{dir}}(G,G')\subseteq E(G)\cap E(G')\) denote the shared edges
-exposed in that direction. These directional edge sets cover all shared edges.
+The current-run term from
+\eqref{eq:ub-conditional-extra-copies} is at most
+\(C N^{-\eta+\alpha(1+\eta)}+N\varepsilon_N\), by
+\eqref{eq:ub-exploration-maximal-mass}. Combining all three regimes
+with \eqref{eq:ub-exploration-block-count} gives
+\[
+ \sum_e q_e(h_i)^2
+ \le C N^{-\eta+\alpha(1+\eta)}
+ +C(\log N)N^{\rho\log k}
+   \bigl(N^{-3\xi/4}+N^{-3\eta/5}+N^{-\delta_F}
+                            +N^2\varepsilon_N\bigr)
+ \le C'N^{-a/2}.
+\]
+The stretched-exponential error absorbs every displayed polynomial,
+and \(\log N\le N^{a/4}\) for large \(N\).
 
-\begin{lemma}[Portenko exponential moment]
+The two matrices remain independent after their respective histories
+are fixed. Hence the actual expected remaining common count is
+\[
+ \sum_e q_e(h_i)q_e(h'_i)
+ \le\frac12\left(\sum_e q_e(h_i)^2+
+                         \sum_e q_e(h'_i)^2\right)
+ \le C'N^{-\zeta}.
+\]
+Both histories receive their own uniform bound; symmetry is not
+used to select one. The backward argument reverses the spatial
+order and uses the left reserve. For the empty histories apply
+Proposition~\ref{prop:ub-empirical-first-moment} to the retained
+whole deck, which has the same good anchor and buffered margin;
+the count in any one direction is bounded by the total shared-edge
+count. After the last vertex is revealed no edge remains.
+\end{proof}
+
+We finish by constructing a single-matrix typical event and the adapted
+exploration processes.
+Let \(\mathcal R\) be the event that \(H\) and all the forward
+and backward history-good events hold, and that every initial pile
+with \(n_p<N^\xi\) is edge-free. Then
+\begin{equation}
+\label{eq:ub-exploration-regularity-probability}
+ \Pp(\mathcal R^c)
+ \le r_N^{\rm bad}+2N\varepsilon_N+(k/2)N^{\xi-\eta}=o(1).
+\end{equation}
+For each large pile and each direction, reveal the two sorted lists
+in that direction simultaneously. At time \(i\), \(0\le i\le n_p\),
+let \(X_i\) count the common directional edges whose two endpoints
+are among the first \(i\) revealed vertices. In particular
+\(X_0=X_1=0\), and every increment is zero or one. Use the natural
+pair history, take its good event to be \(F_i\cap F'_i\) for
+\(1\le i<n_p\), and take the initial and terminal good events
+to be the whole space. For a small or empty pile use the identically
+zero process. There are at most \(2k\) processes.
+Their filtrations are separate; they are not joined into one
+global-deck filtration. The event \(\mathcal R\) intersects their
+good events only for the final truncation and is never inserted
+into any exploration history.
+Proposition~\ref{lem:ub-conditional-first-moment} verifies every
+conditional remaining-count inequality, including time zero.
+On \(\mathcal R\times\mathcal R\),
+Lemma~\ref{lem:ub-exploration-concentration} and edge-freeness of
+the small piles give
+\[
+ |E(G)\cap E(G')|\le\sum_{p,\,\pm}X^{p,\pm}_{n_p}.
+\]
+Thus the conditional estimates, directional cover, and typical-set
+probability required for the finite exploration criterion all follow
+from the fixed-column model and the empirical first-moment theorem.
+
+\begin{lemma}[Adapted exponential excess]
 \label{lem:ub-portenko-exponential-moment}
-For each fixed directional exploration and each fixed $t>0$,
-\[
-  \E\left[\exp(t|E_{\mathrm{dir}}(G,G')|)\1_{\{S,S'\ \mathrm{regular}\}}\right]
-  \le1+O(N^{-\delta}).
-\]
+Let $(\mathcal F_i)_{i=0}^m$ be a filtration on a finite probability
+space. Let $X_i$ be nonnegative integer-valued, $\mathcal F_i$-measurable,
+with $X_0=0$ and $X_j-X_{j-1}\in\{0,1\}$.
+Let $B_i\in\mathcal F_i$ for $0\le i\le m$, and suppose that
+$\gamma\ge0$ and
+\begin{equation}
+\label{eq:ub-adapted-tail-premise}
+ \E[X_m-X_i\mid\mathcal F_i]\le\gamma
+ \quad\hbox{on }B_i,\qquad 0\le i<m.
+\end{equation}
+For any event $C\subseteq\bigcap_{i=0}^mB_i$ and any $t\ge0$ such
+that $(e^t-1)\gamma<1$,
+\begin{equation}
+\label{eq:ub-adapted-excess-bound}
+ \E[(e^{tX_m}-1)\1_C]
+ \le\frac{(e^t-1)\gamma}{1-(e^t-1)\gamma}.
+\end{equation}
+All conditional statements and event inclusions may be interpreted
+almost surely. In particular the premise includes the initial history.
 \end{lemma}
 
-\paragraph{Sketch.}
-Reveal the graphs one step at a time. The conditional first-moment bound controls the future success intensity uniformly. Portenko's lemma, or an iterated conditional Laplace-transform bound, converts this into the exponential-moment estimate.
+\begin{proof}
+Set $D_i=\bigcap_{h=0}^iB_h$ and
+\[
+ Z_i=\sum_{j=1}^i(X_j-X_{j-1})\1_{D_j},\qquad Z_0=0.
+\]
+This is an adapted process with increments in $\{0,1\}$. Since
+$D_j\subseteq D_i$ for $j>i$,
+\[
+ 0\le Z_m-Z_i\le\1_{D_i}(X_m-X_i).
+\]
+Taking the conditional expectation and using $D_i\subseteq B_i$ gives
+\begin{equation}
+\label{eq:ub-stopped-tail-bound}
+ \E[Z_m-Z_i\mid\mathcal F_i]\le\gamma
+ \qquad(0\le i\le m).
+\end{equation}
+For every integer $r\ge0$, we claim
+\begin{equation}
+\label{eq:ub-stopped-binomial-moment}
+ \E\left[\binom{Z_m-Z_i}{r}\mathrel{\Big|}\mathcal F_i\right]
+ \le\gamma^r.
+\end{equation}
+The assertion is immediate for $r=0$. For $r\ge1$, the unit increments
+give the pathwise identity
+\[
+ \binom{Z_m-Z_i}{r}
+ =\sum_{j=i+1}^m(Z_j-Z_{j-1})\binom{Z_m-Z_j}{r-1}.
+\]
+Condition each summand first on $\mathcal F_j$. Its first factor is
+$\mathcal F_j$-measurable, so induction bounds the conditional
+expectation of its second factor by $\gamma^{r-1}$. Now condition on
+$\mathcal F_i$ and use \eqref{eq:ub-stopped-tail-bound}. This proves
+\eqref{eq:ub-stopped-binomial-moment}.
 
-\begin{lemma}[Shared-edge exponential moment]
+Put $q=e^t-1\ge0$. The binomial theorem and
+\eqref{eq:ub-stopped-binomial-moment}, with $i=0$, imply
+\[
+ \E(e^{tZ_m}-1)
+ =\sum_{r=1}^m q^r\E\binom{Z_m}{r}
+ \le\sum_{r=1}^{\infty}(q\gamma)^r
+ =\frac{q\gamma}{1-q\gamma}.
+\]
+On $C$, all $D_j$ hold and $Z_m=X_m$. Since the exponential excess is
+nonnegative, $(e^{tX_m}-1)\1_C\le e^{tZ_m}-1$, proving
+\eqref{eq:ub-adapted-excess-bound}. No history was enlarged by $C$.
+\end{proof}
+
+\begin{proposition}[Finite exploration criterion for total variation]
 \label{lem:ub-shared-edge-exponential-moment}
-For $t=2k\log(L!)$,
+Let $B\ge2$ and $d\ge1$ be integers, and let $S_1$ be a set of single
+shuffle matrices whose graphs have components of size at most $B$.
+On the product space of the independent matrices $S,S'$, suppose there
+are $d$ explorations satisfying the hypotheses of
+Lemma~\ref{lem:ub-portenko-exponential-moment}, with processes
+$X^{(a)}_i$, terminal times $m_a$, adapted events $B^{(a)}_i$, and a
+common bound $\gamma$, for $1\le a\le d$. Suppose further that
+\begin{equation}
+\label{eq:ub-direction-cover-premise}
+ \begin{aligned}
+ |E(G)\cap E(G')|&\le\sum_{a=1}^dX^{(a)}_{m_a}
+ \quad\hbox{on }\{S\in S_1,S'\in S_1\},\\
+ \{S\in S_1,S'\in S_1\}&\subseteq
+                \bigcap_{a=1}^d\bigcap_{i=0}^{m_a}B^{(a)}_i.
+ \end{aligned}
+\end{equation}
+Define $q=d_B^d-1$, with $d_B$ from
+\eqref{eq:ub-component-constant}. If $q\gamma<1$, then
+\begin{equation}
+\label{eq:ub-exploration-excess}
+ \E\left[(d_B^{|E(G)\cap E(G')|}-1)
+       \1_{\{S\in S_1,S'\in S_1\}}\right]
+ \le\frac{q\gamma}{1-q\gamma},
+\end{equation}
+and
+\begin{equation}
+\label{eq:ub-finite-exploration-tv}
+ \dTV(P(n,K),\nuUnif)
+ \le\frac12\sqrt{\frac{q\gamma}{1-q\gamma}}+\Pp(S\notin S_1).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For nonnegative $x_1,\ldots,x_d$, convexity gives
 \[
-  \E\left[((L!)^{|E(G)\cap E(G')|}-1)\1_{\{S,S'\in S_1\}}\right]
-  =O(N^{-\delta}),
+ d_B^{\sum_a x_a}-1
+ \le\frac1d\sum_{a=1}^d\bigl(e^{d\log(d_B)x_a}-1\bigr).
 \]
-where $S_1$ is the event that both matrices are regular and both graphs are $L$-sparse.
-\end{lemma}
+Use \eqref{eq:ub-direction-cover-premise}, multiply by the product-event
+indicator, and apply \eqref{eq:ub-adapted-excess-bound} to every term,
+with $t=d\log d_B$. This proves \eqref{eq:ub-exploration-excess}.
+Lemma~\ref{lem:ub-component-factorial} and
+\eqref{eq:ub-truncated-chi-square} prove
+\eqref{eq:ub-finite-exploration-tv}.
+\end{proof}
 
-\paragraph{Sketch.}
-Every shared edge is covered by one of the $2k$ directional explorations. Apply the directional exponential-moment lemma to each direction and combine using convexity.
-
-\begin{lemma}[Regularity and sparsity]
+\begin{corollary}[Bounded-component truncation]
 \label{lem:ub-regularity-sparsity}
-For $L$ sufficiently large,
+Suppose $\mu_*\le N^{-\eta}$ for fixed $\eta>0$.
+Let $\mathcal R$ be any set of single matrices, and put
 \[
-  \Pp(S\notin S_1)=O(N^{-1}).
+ S_1=\{S\in\mathcal R:\text{ every component of }G(S)
+                            \text{ has at most }B\text{ vertices}\}.
 \]
-\end{lemma}
+For every fixed $A>0$, choosing $B\ge2$ with $\eta B\ge A+1$ gives
+\begin{equation}
+\label{eq:ub-single-matrix-truncation}
+ \Pp(S\notin S_1)\le\Pp(S\notin\mathcal R)
+                         +\frac{N^{-A}}{(B+1)!}.
+\end{equation}
+If the explorations in
+Proposition~\ref{lem:ub-shared-edge-exponential-moment} are constructed
+for this $S_1$, with fixed $d$ and $\gamma=O(N^{-\delta})$, and
+$\Pp(S\notin\mathcal R)=o(1)$, then
+$\dTV(P(n,K),\nuUnif)\to0$.
+\end{corollary}
 
-\paragraph{Sketch.}
-Regularity is a collection of prefix-count concentration estimates, all based on hypergeometric concentration for deterministic column sums. Sparsity follows by applying the same stable-block estimates to the event that a short vertex interval contains too many equal-string adjacencies, then union-bounding over intervals.
+\begin{proof}
+The union bound and Lemma~\ref{lem:ub-largest-component-tail} give
+\eqref{eq:ub-single-matrix-truncation}. The integers $B,d$ are fixed,
+so $q=d_B^d-1$ is independent of $N$ and $q\gamma\to0$.
+Equation \eqref{eq:ub-finite-exploration-tv} proves the last assertion.
+\end{proof}
 
-\paragraph{Proof of the upper-bound theorem.}
-Take $S_1$ as in the preceding lemma. The truncated chi-square bound gives
+\begin{theorem}[Empirical upper bound]
+\label{thm:ub-empirical-upper}
+Fix $k\ge2$ and $T,\eta_0,g_0,\gamma_0>0$.
+There is $\rho_0>0$ such that, for every fixed $0<\rho\le\rho_0$,
+there are $c>0$ and $N_0$ with the following property.
+For every $N\ge N_0$ and deterministic array of $K\le T\log N$
+fixed-count columns on $N$ labels, suppose
+\eqref{eq:ub-empirical-negative-margin} holds with $n=N$, $a=0$
+and margin $\eta_0$. Suppose also that the local
+$(g_0,\gamma_0,\rho)$-good-shuffle condition of
+Definition~\ref{def:good-columns} holds on $[0,K/\log N]$.
+Then
+\begin{equation}
+\label{eq:ub-empirical-tv-conclusion}
+ \dTV(P(n,K),\nuUnif)\le N^{-c}.
+\end{equation}
+The constants are uniform over the arrays and $K$ in this range.
+No macroscopic time profile is needed.
+\end{theorem}
+
+\begin{proof}
+Put $g=\min\{g_0,1/(2k)\}$,
+$\gamma=\min\{\gamma_0,1\}$ and
+$\eta=\min\{\eta_0/4,1\}$. Shrinking the good threshold and
+density preserves the assumed local condition.
+Take $\xi=\eta/10$ and obtain the exponent $\delta_F>0$ in
+Proposition~\ref{prop:ub-empirical-first-moment} for margin $\eta$
+and good threshold $g/2$. Define
+$a=\min\{3\xi/4,3\eta/5,\delta_F\}>0$ and choose $\rho_0$ so that
+\begin{equation}
+\label{eq:ub-completion-rho-budget}
+ \rho_0\log k\le\min\{\eta/7,a/4,1/4\}.
+\end{equation}
+All these choices precede the cut array and $N$.
+
+The terminal margin and $a_p\le\log k$ imply
+$K\ge(1+\eta_0)\log N/\log k$. Thus the initial window of
+$m_N=\lceil\rho\log N\rceil+1$ columns fits inside the horizon
+for large $N$. Lemma~\ref{lem:ub-good-cluster} supplies the anchor
+and two further good columns. Discard the columns preceding this
+anchor. Lemma~\ref{lem:ub-conditional-preservation} and
+\eqref{eq:ub-completion-rho-budget} show that the retained array
+has margin at least $2\eta$ for large $N$. Its maximum full-word
+mean is consequently at most $N^{-2\eta}$, and in particular it
+satisfies \eqref{eq:ub-exploration-maximal-mass}.
+Every retained integer window corresponds to a window of the
+original array, so its local good-column condition is inherited.
+
+The constructions leading to
+Proposition~\ref{lem:ub-conditional-first-moment} apply, with the
+parameters in \eqref{eq:ub-exploration-alpha-budget} and
+\eqref{eq:ub-exploration-exponent-budget}. They give $2k$ separate
+unit-increment explorations, a common conditional remainder bound
+$\gamma_N=O(N^{-a/2})$, and the single-matrix event $\mathcal R$
+with the failure estimate
+\eqref{eq:ub-exploration-regularity-probability}.
+Choose a fixed integer $B\ge2$ with $\eta B\ge2$, and restrict
+$\mathcal R$ further to graphs with components of size at most $B$.
+Lemma~\ref{lem:ub-largest-component-tail} bounds this additional
+failure probability by $N^{-1}/(B+1)!$.
+
+Apply Proposition~\ref{lem:ub-shared-edge-exponential-moment} with
+$d=2k$. Its constant $q=d_B^{2k}-1$ is fixed, so $q\gamma_N<1$
+for large $N$. Equation~\eqref{eq:ub-finite-exploration-tv} gives
 \[
-  \dTV(P(n,K),\nuUnif)
-  \le
-  \frac12\left(\E[(f_{G,G'}-1)\1_{\{S,S'\in S_1\}}]\right)^{1/2}
-  +O(N^{-1}).
+ \dTV(P_{\rm ret},\nuUnif)
+ \le O(N^{-a/4})+O(N^{\xi-\eta})+O(N^{-1}),
 \]
-On $S_1$, the sparse factorial bound gives $f_{G,G'}\le(L!)^{|E(G)\cap E(G')|}$. The shared-edge exponential-moment lemma then yields
-\[
-  \E[(f_{G,G'}-1)\1_{\{S,S'\in S_1\}}]=O(N^{-\delta}).
-\]
-Hence $\dTV(P(n,K),\nuUnif)\to0$.
+where $P_{\rm ret}$ denotes the inverse-shuffle law of the retained
+array; the remaining errors are stretched exponential.
+Convolution with the deleted independent shuffles cannot increase
+distance to the uniform law. This proves
+\eqref{eq:ub-empirical-tv-conclusion}, for instance with any
+$0<c<\min\{a/4,\eta-\xi,1\}$ after increasing $N_0$.
+\end{proof}
 
 \begin{proposition}[Random time-profile upper bound]
 \label{cor:random-time-profile-upper-bound}
-Let \(X\) be a random pile sequence. If \(X\) is randomized-$\mu_\bullet$-like in
-the sense of Definition~\ref{def:randomized-time-profile-like-cuts}, satisfies
-the local good-shuffle condition with probability \(1-o(1)\), and the profile
-satisfies \(\RFM(T,\eta)\) from Definition~\ref{def:recursive-first-moment-margin}, then
+Fix the profile, negative reduced margin, partition and ordered
+parameters of Theorem~\ref{thm:deterministic-upper-bound}.  Let $X$
+be randomized-almost-profile-like with those parameters.  Suppose
+also that its realized cuts satisfy the local-good hypothesis with
+probability $1-o(1)$.  Then
 \[
-  \dTV(P(X,K),\nuUnif)\to0.
+ d_{\TV}(P(X,K_N),\nuUnif)\longrightarrow0.
 \]
 \end{proposition}
+\begin{proof}
+Let $\mathcal A_N$ be the intersection of the almost-profile and
+local-good events.  Its complement has probability $o(1)$ by the
+union bound; the two events need not be independent.  Conditional
+on $X$, the law is exactly the deterministic law to which the
+uniform theorem applies.  Convexity of total variation gives
+\[
+ d_{\TV}(P(X,K_N),\nuUnif)
+ \le\Pp(\mathcal A_N^c)+
+       \E\!\left[\mathbf1_{\mathcal A_N}
+                    d_{\TV}(P(n(X),K_N),\nuUnif)\right].
+\]
+Here $n(X)$ denotes the realized deterministic cut array.  The first
+term tends to zero by assumption, and the second is at most a
+deterministic $b_N\to0$ supplied by the uniform deterministic theorem.
+\end{proof}
 
-\paragraph{Sketch.}
-With high probability the realized deterministic cut sequence is almost-$\mu_\bullet$-like and satisfies the deterministic hypotheses. Apply the deterministic upper bound on this event and average over the random cuts.
+The same argument applies directly to
+Theorem~\ref{thm:ub-empirical-upper}: if its empirical-margin and
+local-good hypotheses hold simultaneously with probability $1-o(1)$,
+then the mixture distance is at most that failure probability plus
+$N^{-c}$.  This version requires no macroscopic profile.
 
-\section{Derivation from the buffered upper bound}
+
+\section{Derivation from empirical upper margins}
 \label{sec:buffered-upper-bound-derivation}
 
-\paragraph{Inputs and output.}
-This section has two inputs.  First, Definition~\ref{def:first-moment-margin} and Definition~\ref{def:recursive-first-moment-margin}
-turn the profile costs into uniform blockwise inequalities, including those
-needed after conditioning inside a previously exposed block.  Second,
-Theorem~\ref{thm:deterministic-upper-bound} turns the resulting recursive
-first-moment condition into convergence in total variation.  Starting from
-the four global margins in \eqref{eq:global-lambda-zero}--\eqref{eq:global-upper-margin},
-the goal is to verify that recursive condition with a positive buffer, prove
-that the four margins are nonincreasing in time, and deduce the four-margin
-critical-time upper bound in Proposition~\ref{cor:full-margin-critical-upper-bound}.
-The subsequent reduction from four margins to the two effective margins is
-proved in Theorem~\ref{thm:dominance-reduction}.
+Only the two whole-deck profile margins are required.  The deterministic
+transfer of bounded scalar costs is
+Lemma~\ref{lem:lower-profile-transfer}, whose proof uses regular
+partitions and the almost-profile condition and is independent of any
+upper or lower probability estimate.
+
+\begin{proof}[Proof of Theorem~\ref{thm:deterministic-upper-bound}]
+Put $\eta_e=\eta/2$ and $e=\eta/100$.
+Write $M=3\log k$.  Choose $\chi_0>0$ so small that
+$2TC_k\chi_0\le e/4$.  Fix the regular partition in the theorem;
+let $m$ be its number of cells.  The explicit quadrature proof of
+Lemma~\ref{lem:lower-profile-transfer} applies to this partition,
+with cell oscillation at most $C_k\chi$.
+Choose $\rho_0$ below the empirical threshold
+$\rho_0^{\rm emp}(k,T,\eta_e,g,\gamma)$ from
+Theorem~\ref{thm:ub-empirical-upper}, and also so that
+$4M\rho_0\le e/4$.  For each fixed $0<\rho\le\rho_0$, choose
+$\varphi_0>0$ with $Mm\varphi_0T\le e/4$.
+After $\varphi$ is fixed, the remaining explicit terms of order
+$1/\log N$ are at most $e/4$ for all sufficiently large $N$.
+Consequently, writing $S_N=K_N/\log N$, for every integer
+$0\le i\le j\le K_N$ and every $2\le\theta\le4$,
+\[
+ |\widehat A(i,j)-A(i/\log N,j/\log N)|\le e,
+ \qquad
+ |\widehat B_\theta(i,j)-B_\theta(i/\log N,j/\log N)|\le e.
+\]
+Here the empirical costs in \eqref{eq:ub-empirical-costs} have
+$n=N$ and $a=0$.
+The omitted terminal interval has length less than $1/\log N$.
+Thus, at every integer grid pair $0\le i\le j\le K_N$,
+\begin{align*}
+ \widehat\beta(K_N)
+ &\le\Lambda_0(T)+e+\frac{\log k}{\log N},\\
+ \inf_{3\le\theta\le4}
+ \left\{\frac{\theta+3}{2}\widehat\beta(i)
+     -\widehat B_\theta(i,j)-2\widehat B_2(j,K_N)\right\}
+ &\le\Lambda_1(T)+\frac{13}{2}e
+                         +\frac{2\log k}{\log N}.
+\end{align*}
+The second inequality compares the expressions pointwise in $\theta$
+at $(s,u)=(i/\log N,j/\log N)$ before taking the infimum.
+Both right sides are at most $-3\eta/4\le-\eta_e$ for large $N$.
+The local condition on $[0,T]$ implies the same condition on $[0,S_N]$.
+Theorem~\ref{thm:ub-empirical-upper} now applies.  The choices and
+errors were uniform over the cut array, proving the stated uniformity.
+\end{proof}
 
 \begin{lemma}[Buffered pointwise upper bound]
 \label{lem:buffered-pointwise-upper-bound}
-Assume that the deterministic cuts are almost-$\mu_\bullet$-like in the
-sense of Definition~\ref{def:almost-time-profile-like-cuts} and satisfy the local
-good-shuffle condition in Definition~\ref{def:good-columns}, with parameters as
-required by Theorem~\ref{thm:deterministic-upper-bound}.  Fix $T>0$.  If there
-exists $\eta>0$ such that
-\begin{equation}
-\label{eq:buffered-global-upper-margin}
-  \Lambda_{\UB}(T)\le-\eta,
-\end{equation}
-then
+Under the ordered approximation and local-good hypotheses of
+Theorem~\ref{thm:deterministic-upper-bound}, if
+$\Lambda_{\UB}(T)\le-\eta$ for some $\eta>0$, then
 \[
-  \dTV(P(n,\lfloor T\log N\rfloor),\nuUnif)\longrightarrow0.
+ d_{\TV}(P(n,\lfloor T\log N\rfloor),\nuUnif)\longrightarrow0.
 \]
 \end{lemma}
-
 \begin{proof}
-By the definition of the full margin in \eqref{eq:global-upper-margin},
-\eqref{eq:buffered-global-upper-margin} implies
-\begin{equation}
-\label{eq:all-four-global-margins-buffered}
-  \Lambda_i(T)\le-\eta,
-  \qquad 0\le i\le3.
-\end{equation}
-Fix a birth time $r\in[0,T]$ and recall from
-Definition~\ref{def:first-moment-margin} that an ambient exponent $b$ has remaining
-mass exponent
-\(
-  \beta_{r,b}(s)=b-A(r,s)
-\)
-at time $s\ge r$.  Define the maximal accessible exponent at time $r$ by
-\begin{equation}
-\label{eq:maximal-accessible-exponent}
-  b_r:=1-A(0,r).
-\end{equation}
-The additivity of $A$, which follows directly from its definition in
-\eqref{eq:integrated-profile-costs}, and the definition of $\beta$ in
-\eqref{eq:global-beta} give, for every $s\in[r,T]$,
-\begin{equation}
-\label{eq:local-global-beta-identity}
-  \beta_{r,b_r}(s)
-  =1-A(0,r)-A(r,s)
-  =1-A(0,s)
-  =\beta(s).
-\end{equation}
-
-We first verify the four inequalities in
-Definition~\ref{def:first-moment-margin} for the extremal exponent $b_r$.  At the
-terminal time, \eqref{eq:local-global-beta-identity},
-\eqref{eq:global-lambda-zero}, and
-\eqref{eq:all-four-global-margins-buffered} yield
-\begin{equation}
-\label{eq:terminal-local-margin-bound}
-  \beta_{r,b_r}(T)=\beta(T)=\Lambda_0(T)\le-\eta.
-\end{equation}
-For $r\le s\le u\le T$, the definitions of $N_1$ and $N_2$ in
-Definition~\ref{def:first-moment-margin}, together with
-\eqref{eq:local-global-beta-identity}, give
-\begin{align}
-  N_1(r,s,u;b_r)
-  &\le \Lambda_1(T)\le-\eta,
-  \label{eq:local-n-one-bound}\\
-  N_2(r,s,u;b_r)
-  &\le \Lambda_2(T)\le-\eta.
-  \label{eq:local-n-two-bound}
-\end{align}
-Indeed, the expression defining each $N_i(r,s,u;b_r)$ is exactly the
-corresponding expression inside the supremum in
-\eqref{eq:global-lambda-one} or \eqref{eq:global-lambda-two}; hence it is
-bounded by that supremum.  Similarly, for every $r\le s\le T$,
-\begin{equation}
-\label{eq:local-n-three-bound}
-  N_3(r,s;b_r)
-  =\beta(s)-B_2(s,T)
-  \le\Lambda_3(T)
-  \le-\eta,
-\end{equation}
-where the first equality uses \eqref{eq:local-global-beta-identity} and the
-first inequality uses \eqref{eq:global-lambda-three}.  Thus
-\eqref{eq:terminal-local-margin-bound}--\eqref{eq:local-n-three-bound}
-verify $\FM(r,b_r,T,\eta)$ according to
-Definition~\ref{def:first-moment-margin}.
-
-It remains to pass from the extremal exponent $b_r$ to every accessible
-ambient block.  By the accessibility estimate recalled in
-Definition~\ref{def:recursive-first-moment-margin}, there is a deterministic
-$\varepsilon_N\downarrow0$, uniform over the accessible blocks under
-consideration, such that each accessible exponent born at time $r$ obeys
-\begin{equation}
-\label{eq:accessible-exponent-error}
-  b\le b_r+\varepsilon_N.
-\end{equation}
-Since $\beta_{r,b}(s)$ is affine with slope one in $b$,
-\eqref{eq:accessible-exponent-error} gives
-\begin{equation}
-\label{eq:accessible-beta-error}
-  \beta_{r,b}(s)\le\beta_{r,b_r}(s)+\varepsilon_N.
-\end{equation}
-On $\theta\in[3,4]$, the coefficients multiplying this exponent satisfy
-\[
-  \frac{\theta+3}{2}\le\frac72,
-  \qquad
-  \frac{\theta-1}{2}\le\frac32.
-\]
-Applying \eqref{eq:accessible-beta-error} pointwise in $\theta$ before
-taking the infimum in Definition~\ref{def:first-moment-margin}, we obtain
-\begin{align}
-  \beta_{r,b}(T)
-  &\le\beta_{r,b_r}(T)+\varepsilon_N,\nonumber\\
-  N_1(r,s,u;b)
-  &\le N_1(r,s,u;b_r)+\tfrac72\varepsilon_N,\nonumber\\
-  N_2(r,s,u;b)
-  &\le N_2(r,s,u;b_r)+\tfrac32\varepsilon_N,\nonumber\\
-  N_3(r,s;b)
-  &\le N_3(r,s;b_r)+\varepsilon_N.
-  \label{eq:accessible-margin-errors}
-\end{align}
-For all sufficiently large $N$, we have
-$\varepsilon_N\le\eta/7$.  Combining
-\eqref{eq:terminal-local-margin-bound}--\eqref{eq:local-n-three-bound}
-with \eqref{eq:accessible-margin-errors} shows that every accessible block
-satisfies $\FM(r,b,T,\eta/2)$.  By
-Definition~\ref{def:recursive-first-moment-margin}, this is precisely
-$\RFM(T,\eta/2)$.  All the remaining assumptions of
-Theorem~\ref{thm:deterministic-upper-bound} are part of the hypotheses of the
-present lemma.  Applying Theorem~\ref{thm:deterministic-upper-bound} gives the
-asserted convergence.
+The defining maximum gives $\Lambda_0(T),\Lambda_1(T)\le-\eta$.
+Apply Theorem~\ref{thm:deterministic-upper-bound}.  The conditional estimates used by that theorem are already
+proved for the induced finite arrays.
 \end{proof}
 
 \begin{lemma}[Monotonicity of the upper margins]
@@ -2328,34 +2690,29 @@ therefore nonincreasing by \eqref{eq:global-upper-margin}.
 
 \begin{proposition}[Four-margin critical-time upper bound]
 \label{cor:full-margin-critical-upper-bound}
-Let $(\mu_t)_{t\ge0}$ be the time profile.  Suppose the deterministic cut
-sequence is almost-$\mu_\bullet$-like on every compact interval in the
-sense of Definition~\ref{def:almost-time-profile-like-cuts} and satisfies the local
-good-shuffle condition in Definition~\ref{def:good-columns}.  Then, for every fixed
-$T>T_{\UB}$,
+Under Definition~\ref{def:ub-arbitrarily-fine-approximation}, for every
+finite $T>T_{\UB}$,
 \[
-  \dTV(P(n,\lfloor T\log N\rfloor),\nuUnif)\longrightarrow0.
+ d_{\TV}(P(n,\lfloor T\log N\rfloor),\nuUnif)\longrightarrow0.
 \]
 \end{proposition}
-
 \begin{proof}
-Recall the threshold definition \eqref{eq:full-upper-threshold}, and set
-\[
-  \mathcal G_{\UB}:=\{S>0:\Lambda_{\UB}(S)<0\}.
-\]
-Thus $T_{\UB}=\inf\mathcal G_{\UB}$.  By
-Lemma~\ref{lem:upper-margin-monotonicity}, $\mathcal G_{\UB}$ is an upper
-interval.  Fix $T>T_{\UB}$.  The definition of the infimum supplies an
-$S\in\mathcal G_{\UB}$ with $S<T$, and
-Lemma~\ref{lem:upper-margin-monotonicity} then gives
-\[
-  \Lambda_{\UB}(T)\le\Lambda_{\UB}(S)<0.
-\]
-Taking $\eta_T:=-\Lambda_{\UB}(T)>0$, the hypothesis
-\eqref{eq:buffered-global-upper-margin} of
-Lemma~\ref{lem:buffered-pointwise-upper-bound} holds with $\eta=\eta_T$.
-The conclusion now follows from
-Lemma~\ref{lem:buffered-pointwise-upper-bound}.
+Put $\mathcal G=\{S>0:\Lambda_{\UB}(S)<0\}$.
+If $\mathcal G$ is empty, then $T_{\UB}=+\infty$ and there is no
+finite $T>T_{\UB}$.  Otherwise, for any such $T$, the definition of
+the infimum supplies $S\in\mathcal G$ with $S<T$.
+Lemma~\ref{lem:upper-margin-monotonicity} implies
+$\Lambda_{\UB}(T)\le\Lambda_{\UB}(S)<0$.
+Fix $\eta_T=-\Lambda_{\UB}(T)>0$.
+Choose a sufficiently fine regular partition from
+Definition~\ref{def:ub-arbitrarily-fine-approximation} for the spatial
+cutoff in Theorem~\ref{thm:deterministic-upper-bound}; that spatial
+cutoff depends only on $k,T,\eta_T$, not on $g$ or $\gamma$.
+Once the partition and its fixed $g,\gamma,\bar\rho$ are given,
+choose $0<\rho\le\min\{\bar\rho,\rho_0\}$ and then
+$0<\varphi\le\varphi_0$.  The two cut hypotheses hold eventually
+by the definition.  Lemma~\ref{lem:buffered-pointwise-upper-bound} proves convergence.
+No continuity of the margins at their critical time is needed.
 \end{proof}
 
 \section{Dominance of the auxiliary upper-bound margins}
@@ -2370,7 +2727,7 @@ Theorem~\ref{thm:dominance-reduction}; its buffered and threshold consequences
 are Proposition~\ref{cor:buffered-consequence} and
 \eqref{eq:upper-threshold-identity}, respectively.
 
-\paragraph{Notation.}
+We record the notation for the dominance argument.
 The simplex $D_k$ is defined in \eqref{eq:probability-simplex}.  The
 one-column quantities $p_{\max}$, $a_p$, and $\psi_p$ are defined in
 \eqref{eq:one-column-costs}; their time averages are defined in
@@ -2539,7 +2896,7 @@ margins are at most $-\eta$.  The definition
 $\Lambda_{\UB}(T)\le-\eta$.
 \end{proof}
 
-\paragraph{Threshold consequence.}
+The two critical-time thresholds therefore agree.
 Recall the reduced threshold from \eqref{eq:reduced-upper-threshold}.
 The pointwise identity \eqref{eq:two-margin-reduction}, proved in
 Theorem~\ref{thm:dominance-reduction}, shows that the negativity sets in the two
@@ -2555,36 +2912,16 @@ remain useful proof diagnostics, but they do not affect its upper critical
 time.
 
 \begin{proof}[Proof of Theorem~\ref{thm:upper-critical-reduced}]
-Fix $T>T_{\UB}^{\mathrm{red}}$.  The threshold identity
-\eqref{eq:upper-threshold-identity} implies $T>T_{\UB}$, so
-Proposition~\ref{cor:full-margin-critical-upper-bound} gives
-\begin{equation}
-\label{eq:reduced-upper-pointwise-convergence}
-  \dTV(P(n,\lfloor T\log N\rfloor),\nuUnif)\longrightarrow0.
-\end{equation}
-This proves the first assertion of Theorem~\ref{thm:upper-critical-reduced}.
-
-For the mixing-time assertion, fix $\varepsilon\in(0,1)$.
-Equation \eqref{eq:reduced-upper-pointwise-convergence} implies that, for
-every $T>T_{\UB}^{\mathrm{red}}$ and all
-sufficiently large $N$,
-\[
-  \dTV(P(n,\lfloor T\log N\rfloor),\nuUnif)\le\varepsilon.
-\]
-By the definition of mixing time in \eqref{eq:mixing-time-definition},
-\[
-  t_{\mathrm{mix}}^{(N)}(\varepsilon)
-  \le\lfloor T\log N\rfloor.
-\]
-Consequently,
-\[
-  \limsup_{N\to\infty}
-  \frac{t_{\mathrm{mix}}^{(N)}(\varepsilon)}{\log N}
-  \le T.
-\]
-Since this holds for every $T>T_{\UB}^{\mathrm{red}}$, letting
-$T\downarrow T_{\UB}^{\mathrm{red}}$ proves the second assertion of
-Theorem~\ref{thm:upper-critical-reduced}.
+Theorem~\ref{thm:dominance-reduction} gives
+$\Lambda_2(T),\Lambda_3(T)\le\Lambda_0(T)$, so the two negativity
+sets coincide and $T_{\UB}=T_{\UB}^{\mathrm{red}}$, including the
+case of an empty negativity set.  Proposition~\ref{cor:full-margin-critical-upper-bound} proves
+the asserted convergence for every finite $T$ above this threshold.
+For fixed $\varepsilon\in(0,1)$ and each such $T$, eventually
+$t_{\mathrm{mix}}^{(N)}(\varepsilon)\le\lfloor T\log N\rfloor$.
+Divide by $\log N$, take the limsup, and let $T$ decrease to the
+finite threshold.  If the threshold is $+\infty$, the asserted
+limsup inequality is automatic.
 \end{proof}
 
 \begin{remark}

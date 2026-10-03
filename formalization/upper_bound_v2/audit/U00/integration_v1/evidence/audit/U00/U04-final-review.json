@@ -1,0 +1,30 @@
+{
+  "status": "PROVED_AND_CHECKED_LANE",
+  "recorded_at": "2026-10-02T20:17:31.015743+00:00",
+  "lane": "U04",
+  "owner_verification_sha256": "da798622a36abbe701aa4941ea0b267f136c21b8581d2f0de05dc4a732c66501",
+  "verified_owned_sources": 36,
+  "fresh_owner_receipts_checked": 4,
+  "root_trust_receipt": "partial-global-check2-build.json",
+  "root_all_declaration_inventory": "partial-global-check2-declarations.json",
+  "actual_scope": "Stochastic anchored localization, literal graph transport/stable cover/discard bounds. Full n sampling, original N normalization, and fixed R/c0 preserved.",
+  "independent_reviews": [
+    "U04-restricted-collision-review.json",
+    "U04-side-pieces-review.json",
+    "U04-slice-independent-review.json",
+    "U04-window-density-review.json",
+    "U04-eventual-density-review.json",
+    "U04-graph-cover-discard-review.json",
+    "U04-failure-rate-review.json",
+    "U04-graph-transport-review.json"
+  ],
+  "open_provider_obligations": [],
+  "downstream_obligations": [
+    "U05 first moment finite sums and uniform global assembly",
+    "U09 conditional integration",
+    "U11/U12 public endpoints",
+    "U13 final whole-package acceptance"
+  ],
+  "not_endpoint_completion": true,
+  "all_219_public_declarations_present_in_root_inventory": true
+}

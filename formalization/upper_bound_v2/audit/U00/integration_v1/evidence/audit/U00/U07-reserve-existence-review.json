@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of lane author",
+  "recorded_at": "2026-10-02T10:29:53.617094+00:00",
+  "sources": {
+    "Exploration/ReserveExistence.lean": "82c9f7acb7660014209d9e361339c0b44c3d520129a016187888d02e8e6ebd76"
+  },
+  "mathematics_and_model": [
+    "Retained cluster provides two distinct later good columns within min(D,L); first-column offsets are mapped exactly.",
+    "Choose maximal digits elsewhere, each fraction>=1/k by actual column sum n. At the two selected coordinates use distinct good digits of mass>=g.",
+    "Construct three distinct tail words by two-coordinate modification, each with product mass>=g^2*k^-D. Sorting these three distinct words supplies the literal ordered reserve candidate.",
+    "Finite chosenReserves selector is instantiated from actual candidate nonemptiness; no existence certificate input."
+  ],
+  "adversarial": [
+    "g=0 allowed for candidate existence (downstream mass positivity requires g>0).",
+    "K-tail too short for two coordinates makes retained cluster impossible; arithmetic handles min(D,L).",
+    "Only k>=1,n>0 required, no false positive n=0 or undefined 1/k.",
+    "Uses full-population fractions unchanged and existing frozen reserveMass."
+  ],
+  "remaining": "Small-pile estimate, directional cover and full regularity",
+  "independent_build": {
+    "receipt": "concrete-constructions-check-build.json",
+    "log": "concrete-constructions-check.log",
+    "inventory": "concrete-constructions-declarations.json",
+    "declarations": 675,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

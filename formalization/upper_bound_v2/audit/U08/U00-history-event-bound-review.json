@@ -1,0 +1,24 @@
+{
+  "status": "PASS_SOURCE_REVIEW",
+  "reviewer": "U08 (independent of U00 author)",
+  "recorded_at": "2026-10-02T10:30:11.238084+00:00",
+  "source": "RiffleUpperV2/Shared/HistoryEventBound.lean",
+  "sha256": "d7f4105e2ba5c12131315fa6cb62e769af049485ff7f4111b142967bbda91a9f",
+  "mathematics": [
+    "Positive history atoms inside H use event inclusion E\u2227H(U)\u2286E and hpoint; outside H the event is impossible on that atom and contributes0.",
+    "Finite total-probability bound uses atom bound b on H and0 elsewhere, yielding the weighted sum restricted to H.",
+    "The final sum is exactly b times pushforward probability of H, then map_prob identifies the original P(H\u2218U)."
+  ],
+  "statement_model": [
+    "H is explicitly an event in the conditioning value U; no requirement that E itself be U-measurable.",
+    "hpoint required only on positive-mass U fibers satisfying H; conclusion remains the joint-event estimate.",
+    "No positivity restriction on b is needed: if a positive H fiber exists, hpoint forces b\u22650; if all H fibers are null, both sides are0 for arbitrary b."
+  ],
+  "adversarial": [
+    "Null fine atoms have zero weight without invoking hpoint.",
+    "Null H event allowed, including b negative; both sides reduce0.",
+    "All-H and empty-H cases have expected probability bounds.",
+    "No conditionalization on H or division by its possibly-zero probability occurs."
+  ],
+  "build": "Independent source/model review; root reported successful compile. No additional compiler run claimed."
+}

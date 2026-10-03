@@ -1,0 +1,57 @@
+CHECK RiffleProfiles.Counting
+CHECK RiffleTimeProfile.Base
+CHECK RiffleProfiles.AsymptoticFinite
+CHECK RiffleUpperV2.Compat.FixedPolynomial
+CHECK RiffleUpperV2.Shared.WindowRates
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/WindowRates.lean:19:72: error: unsolved goals
+case e_1
+a b c : ℝ
+ha : 0 < a
+hab : b < a
+hc : 0 < c
+s : ℝ
+hlog : Tendsto (fun N => Real.log ↑N / ↑N ^ a) atTop (𝓝 0)
+h : Tendsto ((fun x => x ^ (-(a - b))) ∘ Nat.cast) atTop (𝓝 0)
+N : ℕ
+hN : 1 ≤ N
+hN0 : 0 < ↑N
+⊢ ℕ = ℝ
+
+case e_4
+a b c : ℝ
+ha : 0 < a
+hab : b < a
+hc : 0 < c
+s : ℝ
+hlog : Tendsto (fun N => Real.log ↑N / ↑N ^ a) atTop (𝓝 0)
+h : Tendsto ((fun x => x ^ (-(a - b))) ∘ Nat.cast) atTop (𝓝 0)
+N : ℕ
+hN : 1 ≤ N
+hN0 : 0 < ↑N
+⊢ (fun x => x ^ (-(a - b))) = HPow.hPow ↑N
+
+case e_5
+a b c : ℝ
+ha : 0 < a
+hab : b < a
+hc : 0 < c
+s : ℝ
+hlog : Tendsto (fun N => Real.log ↑N / ↑N ^ a) atTop (𝓝 0)
+h : Tendsto ((fun x => x ^ (-(a - b))) ∘ Nat.cast) atTop (𝓝 0)
+N : ℕ
+hN : 1 ≤ N
+hN0 : 0 < ↑N
+⊢ Nat.cast ≍ HSub.hSub b
+
+case e_6
+a b c : ℝ
+ha : 0 < a
+hab : b < a
+hc : 0 < c
+s : ℝ
+hlog : Tendsto (fun N => Real.log ↑N / ↑N ^ a) atTop (𝓝 0)
+h : Tendsto ((fun x => x ^ (-(a - b))) ∘ Nat.cast) atTop (𝓝 0)
+N : ℕ
+hN : 1 ≤ N
+hN0 : 0 < ↑N
+⊢ N ≍ a

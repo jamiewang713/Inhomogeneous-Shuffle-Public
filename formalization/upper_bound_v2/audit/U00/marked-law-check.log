@@ -1,0 +1,37 @@
+CHECK RiffleUpperV2.Reservoir.MarkedLaw
+RiffleUpperV2.Reservoir.tupleWords_probability {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L) (e : Fin m ↪ Fin n)
+  (w : Fin m → RiffleUpperV2.Word k L) :
+  (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+      RiffleUpperV2.Reservoir.tupleWords e ω = w) =
+    RiffleUpperV2.Reservoir.tupleWeight cuts w
+RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (L + 1)) (p : Fin k)
+  (e : Fin (RiffleUpperV2.Exploration.pileSize cuts p) ↪ Fin n) (ω v : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)) :
+  RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j (RiffleUpperV2.Reservoir.tupleWords e v) ↔
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+        List.Vector.get (RiffleUpperV2.Reservoir.tupleWords e v q) 0 = p) ∧
+      RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward (↑j + 1) ω v
+RiffleUpperV2.Reservoir.exactMarkedRowLaw {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (L + 1)) (p : Fin k)
+  (e : Fin (RiffleUpperV2.Exploration.pileSize cuts p) ↪ Fin n) (ω : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (A : Finset (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (L + 1))
+  (F : (Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (L + 1)) → ℝ) :
+  (RiffleUpperV2.conditionalExpect (RiffleUpperV2.fixedCountPMF cuts)
+      (fun (v : TimeProfile.ShuffleSample cuts) => F (RiffleUpperV2.Reservoir.tupleWords e v))
+      fun (v : TimeProfile.ShuffleSample cuts) =>
+      (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+          List.Vector.get (RiffleUpperV2.Reservoir.tupleWords e v q) 0 = p) ∧
+        RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward (↑j + 1) ω v ∧
+          ∀ q ∈ A, RiffleUpperV2.Reservoir.tupleWords e v q = a q) =
+    (∑ w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (L + 1),
+        if RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧ ∀ q ∈ A, w q = a q then
+          RiffleUpperV2.Reservoir.tupleWeight cuts w * F w
+        else 0) /
+      ∑ w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (L + 1),
+        if RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧ ∀ q ∈ A, w q = a q then
+          RiffleUpperV2.Reservoir.tupleWeight cuts w
+        else 0
+'RiffleUpperV2.Reservoir.tupleWords_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Reservoir.exactMarkedRowLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

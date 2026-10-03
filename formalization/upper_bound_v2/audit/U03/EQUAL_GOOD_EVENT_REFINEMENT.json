@@ -1,0 +1,30 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "source_event": "three lower tails: prefix population T, B=T\\E relative to T, complement relative to n\u2212T",
+  "implemented_event": "two actual cylinder lower tails: B=T\\E and C=(univ\\R)\\E, each at half its unconditional mean",
+  "bounds": [
+    "B mean = leftMean+rightMean.",
+    "C mean = (n\u2212M)(p+q), at least g times either side mean.",
+    "C disjoint B and globally nonEqual, so sample complement at least C.",
+    "Good draws \u2265abar(p+q)/2, good sample complement fraction\u2265g/2.",
+    "Harmonic inequality yields actual conditional variance \u2265g min(leftMean,rightMean)/8.",
+    "Failure \u22642 exp(\u2212cCh g leftMean), hence source weaker 3 bound after max/min adapters."
+  ],
+  "orientation": "Proof is symmetric through min; no alphabet reversal needed. U00 also proposed symmetric unequal variance chain ell*r/M, adopted for later work.",
+  "files": [
+    "CylinderExtension.lean",
+    "EqualCylinder.lean",
+    "EqualFailure.lean",
+    "EqualMeans.lean",
+    "EqualVarianceAlgebra.lean",
+    "EqualVariance.lean"
+  ],
+  "remaining": [],
+  "initial_status": "mathematical review PASS by U00; kernel compiled implementation",
+  "previously_remaining": "Join-maximizer/continuation adapter, coarse-atom averaging and full three-case assembly still missing.",
+  "completion_evidence": [
+    "fresh-check-build.json",
+    "declarations.json",
+    "../U00/U03-final-review.json"
+  ]
+}

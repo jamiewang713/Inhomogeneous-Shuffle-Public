@@ -1,0 +1,36 @@
+CHECK RiffleProfiles.WordMass
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/WordMass.lean:68:54: warning: This simp argument is unused:
+  Finset.sum_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.sum_add_distrib, ← Finset.sum_mul, hp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/WordMass.lean:86:8: error: Type mismatch
+  add_le_add_left (mul_le_mul_of_nonneg_right (hbad j) hz') 1
+has type
+  (∑ d ∈ bad j, p j d) * (z - 1) + 1 ≤ a * (z - 1) + 1
+but is expected to have type
+  1 + (∑ d ∈ bad j, p j d) * (z - 1) ≤ 1 + a * (z - 1)
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/WordMass.lean:157:22: warning: This simp argument is unused:
+  Finset.sum_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/WordMass.lean:189:31: warning: This simp argument is unused:
+  Finset.prod_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/lean_formalization/RiffleProfiles/WordMass.lean:226:6: error: Type mismatch: After simplification, term
+  Finset.sum_fiberwise_eq_sum_filter Finset.univ {S | h ≤ S.card} (badPositions bad) (wordWeight p)
+ has type
+  @Eq ℝ (∑ j with h ≤ j.card, ∑ i with badPositions bad i = j, wordWeight p i)
+    (∑ i with h ≤ (badPositions bad i).card, wordWeight p i)
+but is expected to have type
+  @Eq ℝ (∑ S with h ≤ S.card, ∑ x with badPositions bad x = S, wordWeight p x)
+    (∑ x with h ≤ (badPositions bad x).card, wordWeight p x)

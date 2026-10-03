@@ -1,0 +1,15 @@
+PROVED_AND_CHECKED
+
+Public endpoint: RiffleUpperV2.EmpiricalUpper.empiricalUpper : RiffleUpperV2.Contracts.V1.E
+Import: RiffleUpperV2.EmpiricalUpper.Main
+No extra probabilistic or certificate premise. Actual C and F are theorem dependencies.
+
+Fresh owned-source build command:
+python3 formalization/upper_bound_v2/scripts/build.py --lane U11 --fresh --run audit/U11/FinalCheck.lean
+Exit status0; exact literal expanded E checked, standard-only transitive axioms.
+Final evidence: final-build.json, final-check.txt, final-trust.json, final-source-closure.json, VERIFICATION.json.
+Project import closure363 modules; all source hashes match their4.33.1 compilation receipts, pinned mathlib0df444a360eaa60ab8c11dca51a86af692955474.
+
+All components and exact audit-only assembly independently accepted by U00; final production-E review/staging requested. U00 owns full integrated source rebuild and final global acceptance. No remaining U11 mathematical obligation.
+
+Earlier AssemblyPreparation.lean and its partial receipts remain historical preparation evidence; they are not imported by production Main.

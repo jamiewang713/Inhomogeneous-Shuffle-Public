@@ -1,0 +1,224 @@
+{
+  "status": "ALL_REQUIRED_ENDPOINT_PREMISES_DISCHARGED",
+  "recorded_at": "2026-10-02T22:07:51.278028+00:00",
+  "rule": "Intermediate generic helper hypotheses are permitted; none may survive as new public endpoint hypotheses. A proved helper is not proof of its premises.",
+  "entries": [
+    {
+      "consumer": "RiffleUpperV2.Localization.smallDensity_of_expected_edges",
+      "premise": "hexpect: expected internal edge count <= mu^2*tail/2",
+      "discharge_owner": "U04",
+      "concrete_discharge_site": "Localization.RestrictedMoments and CollisionMass.expected_anchoredEdges_le_collision derive actual anchored expected count; Density.smallDensity composes it. Root eventual-density-check and U04-eventual-density-review.json accepted.",
+      "status": "DISCHARGED_ON_ACTUAL_ANCHORED_MODEL"
+    },
+    {
+      "consumer": "RiffleUpperV2.Localization.largeDensity_of_atoms",
+      "premise": "hsplit,hatom,htotal,hfailure: actual good/bad edge submeasures",
+      "discharge_owner": "U04 using U03",
+      "concrete_discharge_site": "Localization.OffsetAtoms.goodEdge_atom and SmoothingDensity.densityFromSmoothing construct actual good/bad submeasures, expected offset cardinal, and actual U03 failure probability. Root concrete-bounds check and U04-window-density-review.json accepted.",
+      "status": "DISCHARGED_ON_ACTUAL_MODEL"
+    },
+    {
+      "consumer": "RiffleUpperV2.Localization.terminalDensity_of_expected_count",
+      "premise": "hexpect: expected terminal edge count <= mu",
+      "discharge_owner": "U04",
+      "concrete_discharge_site": "Localization.EdgeMoments.terminalDensity uses actual internal edge cardinal <= occupancy and prefixRows_expect; root model-progress and concrete-bounds trust checks accepted.",
+      "status": "DISCHARGED_ON_ACTUAL_MODEL"
+    },
+    {
+      "consumer": "RiffleUpperV2.Localization.per_edge_multiplicity",
+      "premise": "hparents: <=2 relevant parents per depth",
+      "discharge_owner": "U04",
+      "concrete_discharge_site": "Localization.Eventual.relevantParents discharges finite endpoint-error and gap comparisons using actual sideScale=N^(2F), nonempty proper-leaf F>=delta/2 and Shared.WindowRates. Public threshold precedes all arrays/anchors/histories.",
+      "status": "DISCHARGED_ON_ACTUAL_MODEL_WITH_UNIFORM_THRESHOLD"
+    },
+    {
+      "consumer": "RiffleUpperV2.Localization.stable_no_fallback",
+      "premise": "hterminal: negative normalized mean at every legal full word; hcomparison and hscale",
+      "discharge_owner": "U04 using U05/U06",
+      "concrete_discharge_site": "FirstMoment.ClassExponents.retainedClass_stops combines actual firstPileTerminalExponent, genuine join fluctuation comparison and the finite parameter gap; all probability/model premises are discharged.",
+      "status": "DISCHARGED_ON_ACTUAL_NONTERMINAL_RETAINED_CLASSES"
+    },
+    {
+      "consumer": "RiffleUpperV2.Exploration.historyGoodProbability",
+      "premise": "hH: probability H fails <= r",
+      "discharge_owner": "U07",
+      "concrete_discharge_site": "Exploration.UniformConcentration.uniformConcentration proves the actual full frozen H bound, uniformly before cut arrays; specialize D=clusterSpan gamma and xi=eta/10 in U09/U11.",
+      "status": "DISCHARGED_FULL_H"
+    },
+    {
+      "consumer": "RiffleUpperV2.Exploration.regularityFailure_of_bounds",
+      "premise": "hH and hsmall",
+      "discharge_owner": "U07",
+      "concrete_discharge_site": "Exploration.UniformRegularity.regularityFailure invokes uniformConcentration and smallPileFailure with Margins.maximalMean_le_of_terminalMargin.",
+      "status": "DISCHARGED_ON_ACTUAL_MODEL"
+    },
+    {
+      "consumer": "RiffleUpperV2.FirstMoment.empiricalLargeExponent",
+      "premise": "hmass,hQ,hstable,hfluc,hmax,hentropy,htail",
+      "discharge_owner": "U05 using U04",
+      "concrete_discharge_site": "FirstMoment.ClassExponents.retainedClass_largeExponent supplies every generic cost, stop, fluctuation, beta, entropy and tail exponent premise from actual first-pile retained blocks. Final density/cardinality sum and fixed parameter choices remain separate.",
+      "status": "DISCHARGED_ON_ACTUAL_CLASS_EXPONENT"
+    },
+    {
+      "consumer": "RiffleUpperV2.FirstMoment.empiricalSmallExponent",
+      "premise": "hS,hparent,hfluc,hmax,hsmall,hentropy,htail",
+      "discharge_owner": "U05 using U04",
+      "concrete_discharge_site": "FirstMoment.ClassExponents.retainedClass_smallProperExponent derives actual proper stopping cost bound and all remaining class/empirical premises. Immediate and terminal branches remain separate.",
+      "status": "DISCHARGED_ON_ACTUAL_PROPER_SMALL_CLASS_EXPONENT"
+    },
+    {
+      "consumer": "RiffleUpperV2.FirstMoment.empiricalImmediateExponent",
+      "premise": "hmax and htail",
+      "discharge_owner": "U05",
+      "concrete_discharge_site": "FirstMoment.ClassExponents.retainedClass_smallImmediateExponent proves singleton entropy and invokes actual firstPileExponent_le_beta plus terminal empirical margin. ClassDensity.retainedClass_smallImmediateDensity gives literal class-cardinality density.",
+      "status": "DISCHARGED_ON_ACTUAL_IMMEDIATE_CLASS"
+    },
+    {
+      "consumer": "RiffleUpperV2.Anchor.partialRevealSourceProbability",
+      "premise": "Application: fixed A,B,j,representative must be actual reveal atom data; endpoint shift absent",
+      "discharge_owner": "U03",
+      "concrete_discharge_site": "Anchor.EqualLaw.endpointShiftHypergeometric_equal and Anchor.UnequalLaw.endpointShiftHypergeometric_unequal, with fine-history refinement and fixed A/B proofs; quantitative good-event estimates separate.",
+      "status": "DISCHARGED_FOR_THREE_EXACT_REVEAL_CASES"
+    },
+    {
+      "consumer": "RiffleUpperV2.Margins.inducedMargin",
+      "premise": "coordinate closeness and subdeck size hypotheses",
+      "discharge_owner": "U09 with bounded U05 large-cylinder assistance",
+      "concrete_discharge_site": "Conditional.LargeConcentration/LargeMargin/LargeFirstMoment derive actual large-cylinder data; GraphSquares and HistoryAveraging use the exact induced law and erase auxiliary information; RegimeAveraging/OneHistory/Main discharge final C.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.Margins.profileToEmpiricalMargin_half",
+      "premise": "herrors: same-profile interval scalar errors; macro margin and large N",
+      "discharge_owner": "U12 using U06",
+      "concrete_discharge_site": "ProfileUpper.bufferedOfEmpirical instantiates anyFixedPartitionTransfer for the same arbitrary P, actual profile margin and floor threshold; bufferedUpper supplies actual E.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound",
+      "premise": "all localization/density/class-count finite sum premises",
+      "discharge_owner": "U05 using U04",
+      "concrete_discharge_site": "FirstMoment.GraphAssembly.actualGraphAssembly and UniformGraph.empiricalGraphDecay discharge all actual graph, class, active-count, density, discarded and omitted error premises; Empirical.empiricalFirstMoment proves frozen F.",
+      "status": "DISCHARGED_AT_EXACT_F_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.shiftedAnticoncentrationTransfer",
+      "premise": "hpoint, history factor, good-event containment",
+      "discharge_owner": "U03",
+      "concrete_discharge_site": "Public Anchor.conditionalEndpointAtoms and jointInternalOffsetAtoms now prove required actual endpoint estimates via Shared.GoodEventTransfer and HistoryEventBound; older shifted adapter is optional generic reuse, not an outstanding prerequisite.",
+      "status": "REQUIRED_CONCLUSION_DISCHARGED_VIA_PROVED_ALTERNATE_ADAPTER"
+    },
+    {
+      "consumer": "RiffleUpperV2.GraphOverlap.truncatedDensityTV",
+      "premise": "nonnegative normalized densities and exact physical density law",
+      "discharge_owner": "U01",
+      "concrete_discharge_site": "GraphOverlap.truncatedTV via density_nonneg, density_normalized, physical_density",
+      "status": "DISCHARGED"
+    },
+    {
+      "consumer": "RiffleUpperV2.Exponential.adaptedExcess",
+      "premise": "refining histories, adapted unit process, adapted good events, conditional tail on all positive good fibers including i0, C containment",
+      "discharge_owner": "U11 using U07/U09",
+      "concrete_discharge_site": "EmpiricalUpper.concreteExplorationTV discharges actual pair histories, adapted directionalProcess, unit increments, regularity and cover. EmpiricalUpper.Main supplies actual C at all times, including initial F and terminal zero.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.Exponential.boundedComponentExplorationTV",
+      "premise": "actual maximalMean bound; refining adapted unit directional processes; concrete conditional remainder; regularity, good-prefix inclusion and cover",
+      "discharge_owner": "U11 using U05/U06/U07/U09",
+      "concrete_discharge_site": "EmpiricalUpper.restartHypotheses supplies actual maximalMean, cluster and windows; concreteExplorationTV instantiates every U10 model premise; Main uses actual C and criterion_polynomial to prove E.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.unequalVarianceFromCounts",
+      "premise": "actual unequal endpoint parameters population n-|A|, |A|+draws<=|R|, draw and marked/complement fraction lower bounds",
+      "discharge_owner": "U03",
+      "concrete_discharge_site": "Anchor.UnequalParameters/UnequalQuantitative discharge actual counts; Anchor.Smoothing.endpointSmoothing performs extremal join selection and final min comparison. Public endpointVariance has no variance certificate premise.",
+      "status": "DISCHARGED_ON_ACTUAL_UNEQUAL_GOOD_EVENT"
+    },
+    {
+      "consumer": "RiffleUpperV2.conditionalUniformProjectionExpect",
+      "premise": "Explicit pairwise target-fiber bijections on actual conditional event; observable agreement",
+      "discharge_owner": "U08",
+      "concrete_discharge_site": "Reservoir.InteriorProjection/FutureCylinderLaw explicit fiber bijections; FutureGraphLaw literal induced graph; LabelAveraging exact label erasure; conditionalFutureCylinderLaw[_unlabeled] actual event-law exports. All550 Reservoir declarations accepted.",
+      "status": "DISCHARGED_ON_ACTUAL_FULL_FAMILY_MODEL"
+    },
+    {
+      "consumer": "RiffleUpperV2.conditionalSupportedGoodEvent_le",
+      "premise": "Fine-measurable good view and support, event support implication, positive good fiber bound",
+      "discharge_owner": "U08",
+      "concrete_discharge_site": "Reservoir.PrefixCount/ExtraCopies/TailCollisions and BackwardCounts instantiate the exact natural good view, positive fibers, support weights, current-removal convention and first-pile normalization.",
+      "status": "DISCHARGED_FOR_BOTH_DIRECTION_NATURAL_COUNTS"
+    },
+    {
+      "consumer": "RiffleUpperV2.Conditional.refinementCount",
+      "premise": "hM: actual final cylinder count <=2*k*K*k^windowLength",
+      "discharge_owner": "U09",
+      "concrete_discharge_site": "Conditional.FutureCylinders gives actual2*k*K bound; RefinedCylinders.refinedFuture_card proves cardinality after bounded refinement; GoodRefinement.chooseGoodRefinement_uniform chooses actual depths. C graph assembly remains separate.",
+      "status": "DISCHARGED_FOR_ACTUAL_REFINED_FUTURE_FAMILY"
+    },
+    {
+      "consumer": "RiffleUpperV2.Conditional.selfIntersectionJensen",
+      "premise": "Actual auxiliary Z refines natural history and block graph/collision bounds on fine fibers",
+      "discharge_owner": "U09 using U08",
+      "concrete_discharge_site": "Conditional.FinePartition/GraphSquares/FineMoments/HistoryAveraging implement actual full-family Z, exact induced graph law, square Jensen and exact tower back to literal natural histories; all regimes instantiated in RegimeAveraging and OneHistory.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.EmpiricalUpper.restartHypotheses",
+      "premise": "Actual endpoint margin and local-good hypotheses must yield retained C-side deterministic data",
+      "discharge_owner": "U11",
+      "concrete_discharge_site": "EmpiricalUpper.Restart supplies actual retained2eta margin, windows, cluster, maximalMean and chronological physical TV contraction. EmpiricalUpper.Main instantiates C and concreteExplorationTV on that retained array.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.Conditional.conditionalSquare_partition",
+      "premise": "fixed block assignment on fine histories",
+      "discharge_owner": "U09",
+      "concrete_discharge_site": "FinePartition.finePartition_exists constructs actual deterministic rank-slot assignment from literal futureFamilyView bounds and structurally separated strict-future cylinders.",
+      "status": "DISCHARGED_FOR_ACTUAL_FINE_PARTITION"
+    },
+    {
+      "consumer": "RiffleUpperV2.EmpiricalUpper.concreteExplorationTV",
+      "premise": "concentration hH and conditional remaining-edge htail",
+      "discharge_owner": "U09 then U11",
+      "concrete_discharge_site": "EmpiricalUpper.Main directly invokes Conditional.remainingCommonEdges on actual restartCuts and passes its H probability and literal pair-history tail conclusions into concreteExplorationTV.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.Conditional.intermediateCylinder_collisions",
+      "premise": "terminal empiricalBeta<=-eta",
+      "discharge_owner": "U09",
+      "concrete_discharge_site": "Conditional.RegimeAveraging derives empiricalBeta<=-eta from original2eta margin before instantiating intermediateCylinder_collisions in final C.",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.ProfileUpper.bufferedOfEmpirical",
+      "premise": "E",
+      "discharge_owner": "U12",
+      "concrete_discharge_site": "ProfileUpper.bufferedUpper supplies EmpiricalUpper.empiricalUpper",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.ProfileUpper.criticalOfBuffered",
+      "premise": "P",
+      "discharge_owner": "U12",
+      "concrete_discharge_site": "ProfileUpper.criticalTimeUpper supplies actual bufferedUpper",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.ProfileUpper.randomEmpiricalBoundOfEmpirical / randomEmpiricalOfEmpirical",
+      "premise": "E",
+      "discharge_owner": "U12",
+      "concrete_discharge_site": "ProfileUpper.randomEmpiricalBound/randomEmpiricalUpper supply actual empiricalUpper",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    },
+    {
+      "consumer": "RiffleUpperV2.ProfileUpper.randomProfileOfBuffered",
+      "premise": "P",
+      "discharge_owner": "U12",
+      "concrete_discharge_site": "ProfileUpper.randomProfileUpper supplies actual bufferedUpper",
+      "status": "DISCHARGED_AT_ACTUAL_PUBLIC_ENDPOINT"
+    }
+  ]
+}

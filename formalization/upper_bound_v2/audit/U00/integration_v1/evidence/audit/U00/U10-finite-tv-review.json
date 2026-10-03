@@ -1,0 +1,40 @@
+{
+  "status": "PASS_GENERIC_FINITE_TV_CRITERION",
+  "reviewer": "U00 independent of U10",
+  "recorded_at": "2026-10-02T09:54:49.086857+00:00",
+  "sources": {
+    "RiffleUpperV2/Exponential/Aggregation.lean": "fec6290a2e11f0b1ed617d937c0738db67478bd818401656edcb08c244297c07",
+    "RiffleUpperV2/Exponential/FiniteTV.lean": "f8ffe5368508dd8261f2f09adc064f41f49cfca16c7aef6f745c7aa37498be46",
+    "RiffleUpperV2/Exponential/Numerical.lean": "74c95bbf5b988ee6a0f9aa41ae7b0db94f86e4065f45a91b87da8e3a484c0af0"
+  },
+  "mathematics": [
+    "Finite Jensen at uniform weights bounds b^sum\u22121 by average exp(d log b X)\u22121; distinct histories and stopping lengths permitted.",
+    "Source adaptedExcess applied to each process under the same arbitrary final event. No mutual independence is used.",
+    "Actual independentPair_expect identifies the two-matrix product average. Monotonicity of integrated overlap and sqrt combines with U01 truncatedTV.",
+    "finiteExplorationTV discharges graph-majorization premise using only actual bounded components of second graph and U01 boundedComponentOverlap.",
+    "Fixed q,C,delta chooses an eventual N0 before N by power decay; finite geometric denominator bound gives ratio<=2qgamma."
+  ],
+  "model_quantifiers": [
+    "Actual physicalInverseLaw and uniformPermutation, central-binomial component constant, and same single-matrix event S1 on both copies.",
+    "Explicit adapted process/tail/coverage/good-event inputs belong to legitimate generic finite layer and must all be derived by U11.",
+    "Each exploration independently specifies finite history codomain and terminal time."
+  ],
+  "adversarial": [
+    "d>0 prevents empty Jensen denominator; b>=1 and bound>=2 valid.",
+    "m_a=0 allowed by adaptedExcess.",
+    "qgamma<1 explicit; no silent change from integrated variance to pointwise nonnegative overlap\u22121.",
+    "q,C can be arbitrary in eventual lemma; nonnegative q/gamma are required where multiplying inequalities."
+  ],
+  "missing": [
+    "actual component-tail truncation corollary awaiting U01",
+    "concrete U11 discharge"
+  ],
+  "independent_build": {
+    "status": "PASS",
+    "receipt": "finite-tv-check-build.json",
+    "log": "finite-tv-check.log",
+    "inventory": "finite-tv-declarations.json",
+    "declarations": 86,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

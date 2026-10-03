@@ -1,0 +1,15 @@
+{
+  "source": "lean/Shuffle/HypergeometricAntiConcentration.lean",
+  "source_sha256": "d859fcf6bf2fe77d6d148bb0e3c3c6b28d29ac92cba97ce5b5c5acba41d028df",
+  "destination": "RiffleUpperV2/Hypergeometric/AntiConcentration.lean",
+  "destination_sha256": "d1bbb4f5f373a98fcff65495dd022ba2e4d5b038fe9710fe7037b732eb0f0cf4",
+  "changes": [
+    "Import existing 4.33.1 Compat.HypergeometricMoments",
+    "Namespace RiffleUpperV2.Hypergeometric; explicitly open old parameter namespace",
+    "Two cancellation lemma API renames to mul_le_mul_iff_left\u2080",
+    "Remove two ring calls now already solved by field_simp",
+    "Use explicit application of ported pointMass_le_four_div_sqrt"
+  ],
+  "mathematical_change": false,
+  "status": "PROVED_AND_CHECKED"
+}

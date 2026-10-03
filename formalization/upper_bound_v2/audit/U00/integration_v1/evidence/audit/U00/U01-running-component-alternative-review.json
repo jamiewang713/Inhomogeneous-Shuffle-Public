@@ -1,0 +1,19 @@
+{
+  "status": "PASS_MATHEMATICAL_INTERFACE_ONLY",
+  "reviewer": "U00",
+  "recorded_at": "2026-10-02T09:43:02.807008+00:00",
+  "argument": [
+    "For each vertex i define rG(i) as number of vertices j<=i in its G component. The component factorial is product_i rG(i).",
+    "rUnion>=rG,rH. If predecessor edge is not shared, at least one numerator factor is1, hence ratio<=1. If shared ratio<=rH<=B using only H component size bound.",
+    "Vertex0 factor1; positions with shared predecessors count |G\u2229H|. This gives overlap<=B^intersection.",
+    "For B>=2, B<=choose(B,floor(B/2)), so the frozen source bound follows."
+  ],
+  "required_kernel_bridges": [
+    "component factorial to running product",
+    "run monotonicity and missing-edge run1",
+    "all denominators positive",
+    "shared-edge position bijection",
+    "central-binomial bound"
+  ],
+  "no_proof_claim": true
+}

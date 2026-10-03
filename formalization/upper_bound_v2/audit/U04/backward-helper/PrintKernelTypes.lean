@@ -1,0 +1,20 @@
+import RiffleUpperV2.Reservoir.BackwardRefinement
+set_option pp.all true
+#check @RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint
+#check @RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_iff
+#check @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint
+#check @RiffleUpperV2.Reservoir.backward_tupleCount_eq_selected_of_future
+#check @RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_future_iff
+#check @RiffleUpperV2.Reservoir.backward_reserve_tuple_allowed
+#check @RiffleUpperV2.Reservoir.backward_chosenReserve_tuple_allowed
+#check @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint_of_current_removal
+#check @RiffleUpperV2.Reservoir.backward_history_denominator_ge_reserveWeight
+#check @RiffleUpperV2.Reservoir.backward_history_denominator_lower_finite
+#check @RiffleUpperV2.Reservoir.backward_history_denominator_lower_uniform
+#check @RiffleUpperV2.Reservoir.backward_history_future_impossible
+#check @RiffleUpperV2.Reservoir.backward_history_prefixProbability_upper_uniform
+#check @RiffleUpperV2.Reservoir.backward_history_deletionPrefix_upper_uniform
+#check @RiffleUpperV2.Reservoir.backwardMarkedRefinement
+#check @RiffleUpperV2.Reservoir.backward_markedRefinement_fiber
+#check @RiffleUpperV2.Reservoir.backward_markedRefinement_prefix_upper_uniform
+#check @RiffleUpperV2.Reservoir.backward_markedRefinement_current_upper_uniform

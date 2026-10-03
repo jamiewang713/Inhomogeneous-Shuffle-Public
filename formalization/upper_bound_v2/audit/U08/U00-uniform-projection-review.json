@@ -1,0 +1,16 @@
+{
+  "reviewer": "U08",
+  "status": "PASS_SOURCE_REVIEW",
+  "generated_at": "2026-10-02T19:19:57.934540+00:00",
+  "source": "RiffleUpperV2/Shared/UniformProjection.lean",
+  "sha256": "2194059365e1e4e21ec301109b0ca2564806ccd9db68945a7d1b14e362291d1a",
+  "declarations": [
+    "uniformProjectionExpect",
+    "uniformProjectionLaw",
+    "conditionalUniformProjectionExpect"
+  ],
+  "mathematics": "Pairwise target fiber equivalences and a witness omega0 give a bijection Omega \u2243 Gamma \u00d7 fiber(X omega0). The first projection is definitionally X. Uniform measure transports across that bijection, and the nonempty reference fiber cardinal cancels from the finite average. Singleton observables recover PMF equality via finite ENNReal toReal injectivity.",
+  "model_and_quantifiers": "All spaces finite, source and target nonempty. No assumed distribution or independence. conditionalUniformProjectionExpect uses a genuine nonempty conditioning event, defines X only on its subtype, and requires observable agreement only inside that event. The actual fixedCount model is uniform and can instantiate this after explicit fiber bijections are proved.",
+  "boundaries": "Empty target fibers cannot be hidden: equivalences to the inhabited reference fiber force all fibers inhabited. Empty conditioning events are explicitly excluded, so no false normalization at zero. Singleton source/target/fibers work. No independence between multiple projections or future cylinders is claimed.",
+  "build_scope": "Independent source/type/boundary review; U00 owns compiled/source-staged proof evidence. No new local compile receipt claimed."
+}

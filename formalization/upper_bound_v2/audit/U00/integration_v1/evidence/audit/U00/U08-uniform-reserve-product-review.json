@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:48:43.093065+00:00",
+  "sources": {
+    "Reservoir/ReserveUniform.lean": "e24f95b73caa5a4517090753842342e5b5f8ac070c75ecfd97bf0e7553b0b086"
+  },
+  "mathematics": [
+    "Positive B fixes an eventual threshold for n^(2/3)+5<=Bn.",
+    "An actual good first column has a digit other than each chosen pile digit with count at least gn; hence c=n-np>=gn.",
+    "Actual H residual-count estimate supplies err=n^(2/3) and marked correction m.",
+    "The chosen uniform budget with B=g*d0/(4D) and c>=gn instantiates the finite reserve product theorem and preserves exact d0^m/2."
+  ],
+  "public_type_and_model": [
+    "Threshold precedes n,L,cuts,xi,p,M,omega,v. No independence or residual-law premise appears.",
+    "Remaining counts are literal fixed-count counts after deleting all unmarked rows of the chosen initial pile; denominator is falling(c+m,m)."
+  ],
+  "adversarial": [
+    "m=1 or2, D>=1,k>0,g>0 explicitly enforced. c>=1 follows from good column, not supplied at the uniform public export.",
+    "A qualifying reserve prefix is supplied by its actual tail mass; chosen-reserve existence is already proved U07.",
+    "This is the quantitative prefix product, not yet the conditional natural-history normalizing denominator."
+  ],
+  "remaining": [
+    "Compatible reserve completions, row-refinement conditioning, averaging, and quantitative count exports remain U08 obligations."
+  ],
+  "root_build_receipt": "reservoir-exploration-progress-check-build.json",
+  "trust_inventory": "reservoir-exploration-progress-declarations.json"
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:40:02.678216+00:00",
+  "sources": {
+    "Exploration/DirectionalRanks.lean": "6c250501968789766b9319cea7bc2cfea581aafff305905e405fac97c901cc9c",
+    "Exploration/DirectionalGuards.lean": "af16535fc15cea74517fda308ceebd40744d94a816c10918fb1a1b0d0ead9239"
+  },
+  "mathematics": [
+    "Tail prefix projection is monotone inside a fixed first-column pile; strict tail-prefix comparison therefore implies strict full-word comparison.",
+    "Stable-sort bijection reindexes exact pile counts; guard rank equivalences follow from the monotone spatial tuple.",
+    "The difference of the two guard means equals pile size times actual chosen middle reserve mass. Actual H bounds on both matrices yield strict interlacing."
+  ],
+  "public_type_and_model": [
+    "Uses actual pilePosition, stableSort, sortedWord, chosenReserves and concentrationEvent. Reserve existence comes from the proved retainedGoodCluster construction."
+  ],
+  "adversarial": [
+    "Empty piles are excluded only in interlacing by the positive large-pile lower bound.",
+    "Truncated tail length is min(D,L); comparisons retain common first digit.",
+    "Both matrices may be arbitrary dependent samples; no independence is asserted."
+  ],
+  "remaining": [
+    "Actual common-edge directional cover remains a separate lane obligation."
+  ],
+  "root_build_receipt": "quantitative-partial-check-build.json",
+  "trust_inventory": "quantitative-partial-declarations.json"
+}

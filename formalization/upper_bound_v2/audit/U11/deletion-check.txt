@@ -1,0 +1,527 @@
+CHECK RiffleUpperV2.EmpiricalUpper.FiniteTV
+CHECK RiffleUpperV2.EmpiricalUpper.Deletion
+theorem RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction : ∀ {k N K : ℕ} (cuts : RiffleUpperV2.Cuts k N K)
+  (r : ℕ),
+  LE.le.{0} r K →
+    LE.le.{0} (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw cuts) (RiffleUpperV2.uniformPermutation N))
+      (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.Margins.suffixCuts cuts r))
+        (RiffleUpperV2.uniformPermutation N)) :=
+fun {k N K} cuts r hr =>
+  Nat.recAux.{0} (motive := fun r =>
+    ∀ {K : ℕ} (cuts : RiffleUpperV2.Cuts k N K),
+      LE.le.{0} r K →
+        LE.le.{0} (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw cuts) (RiffleUpperV2.uniformPermutation N))
+          (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.Margins.suffixCuts cuts r))
+            (RiffleUpperV2.uniformPermutation N)))
+    (fun {K} cuts hr =>
+      have he :=
+        Eq.mpr.{0}
+          (id.{0}
+            (congrFun'.{1, 1}
+              (congrArg.{1, 1} Eq.{1}
+                (TimeProfile.Cuts.mk.congr_simp (fun j l => cuts.count (RiffleUpperV2.Margins.suffixIndex 0 j) l)
+                  (fun j l =>
+                    cuts.count ⟨↑j, Eq.ndrec.{0, 1} (RiffleUpperV2.Margins.suffixIndex._proof_2 0 j) (Nat.zero_add ↑j)⟩
+                      l)
+                  (funext.{1, 1} fun j =>
+                    funext.{1, 1} fun l =>
+                      congrFun'.{1, 1}
+                        (congrArg.{1, 1} cuts.count
+                          (Fin.mk.congr_simp (HAdd.hAdd.{0, 0, 0} 0 ↑j) (↑j) (Nat.zero_add ↑j)
+                            (RiffleUpperV2.Margins.suffixIndex._proof_2 0 j)))
+                        l)
+                  (RiffleUpperV2.Margins.suffixCuts._proof_1 cuts 0)))
+              cuts))
+          (Eq.refl.{1}
+            {
+              count := fun j l =>
+                cuts.count ⟨↑j, Eq.ndrec.{0, 1} (RiffleUpperV2.Margins.suffixIndex._proof_2 0 j) (Nat.zero_add ↑j)⟩ l,
+              sum_count :=
+                Eq.ndrec.{0, 1} (motive := fun count =>
+                  ∀ (j : Fin (HSub.hSub.{0, 0, 0} K 0)), Eq.{1} (∑ l, count j l) N)
+                  (RiffleUpperV2.Margins.suffixCuts._proof_1 cuts 0)
+                  (funext.{1, 1} fun j =>
+                    funext.{1, 1} fun l =>
+                      congrFun'.{1, 1}
+                        (congrArg.{1, 1} cuts.count
+                          (Fin.mk.congr_simp (HAdd.hAdd.{0, 0, 0} 0 ↑j) (↑j) (Nat.zero_add ↑j)
+                            (RiffleUpperV2.Margins.suffixIndex._proof_2 0 j)))
+                        l) });
+      Eq.mpr.{0}
+        (id.{0}
+          (congrArg.{1, 1}
+            (fun _a =>
+              LE.le.{0}
+                (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw cuts) (RiffleUpperV2.uniformPermutation N))
+                (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw _a) (RiffleUpperV2.uniformPermutation N)))
+            he))
+        (le_refl.{0}
+          (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw cuts) (RiffleUpperV2.uniformPermutation N))))
+    (fun r ih {K} cuts hr =>
+      Nat.casesAuxOn.{0} (motive := fun a =>
+        Eq.{1} K a →
+          LE.le.{0} (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw cuts) (RiffleUpperV2.uniformPermutation N))
+            (RiffleUpperV2.tv.{0}
+              (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.Margins.suffixCuts cuts (HAdd.hAdd.{0, 0, 0} r 1)))
+              (RiffleUpperV2.uniformPermutation N)))
+        K
+        (fun h =>
+          Eq.ndrec.{0, 1} (motive := fun {K} =>
+            ∀ (cuts : RiffleUpperV2.Cuts k N K),
+              LE.le.{0} (HAdd.hAdd.{0, 0, 0} r 1) K →
+                LE.le.{0}
+                  (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw cuts) (RiffleUpperV2.uniformPermutation N))
+                  (RiffleUpperV2.tv.{0}
+                    (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.Margins.suffixCuts cuts (HAdd.hAdd.{0, 0, 0} r 1)))
+                    (RiffleUpperV2.uniformPermutation N)))
+            (fun cuts hr =>
+              Decidable.byContradiction fun a =>
+                RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction._proof_1_4 r hr)
+            (Eq.symm.{1} h) cuts hr)
+        (fun K_1 h =>
+          Eq.ndrec.{0, 1} (motive := fun {K} =>
+            ∀ (cuts : RiffleUpperV2.Cuts k N K),
+              LE.le.{0} (HAdd.hAdd.{0, 0, 0} r 1) K →
+                LE.le.{0}
+                  (RiffleUpperV2.tv.{0} (RiffleUpperV2.physicalInverseLaw cuts) (RiffleUpperV2.uniformPermutation N))
+                  (RiffleUpperV2.tv.{0}
+                    (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.Margins.suffixCuts cuts (HAdd.hAdd.{0, 0, 0} r 1)))
+                    (RiffleUpperV2.uniformPermutation N)))
+            (fun cuts hr =>
+              have hh :=
+                ih (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)
+                  (Decidable.byContradiction fun a =>
+                    RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction._proof_1_5 r K_1 hr a);
+              LE.le.trans.{0} (RiffleUpperV2.EmpiricalUpper.deleteFirstTVContraction cuts)
+                (Eq.mpr.{0}
+                  (eq_of_heq.{1}
+                    ((fun α self self' e'_2 a a_1 a' e'_4 =>
+                        Eq.casesOn.{0, 1} (motive := fun a_2 x =>
+                          Eq.{1} self' a_2 → HEq.{0} e'_2 x → HEq.{1} (LE.le.{0} a a_1) (LE.le.{0} a a')) e'_2
+                          (fun h =>
+                            Eq.ndrec.{0, 1} (motive := fun self' =>
+                              ∀ (e_2 : Eq.{1} self self'),
+                                HEq.{0} e_2 (Eq.refl.{1} self) → HEq.{1} (LE.le.{0} a a_1) (LE.le.{0} a a'))
+                              (fun e_2 h =>
+                                Eq.casesOn.{0, 1} (motive := fun a_2 x =>
+                                  Eq.{1} a' a_2 → HEq.{0} e'_4 x → HEq.{1} (LE.le.{0} a a_1) (LE.le.{0} a a')) e'_4
+                                  (fun h =>
+                                    Eq.ndrec.{0, 1} (motive := fun a' =>
+                                      ∀ (e_4 : Eq.{1} a_1 a'),
+                                        HEq.{0} e_4 (Eq.refl.{1} a_1) → HEq.{1} (LE.le.{0} a a_1) (LE.le.{0} a a'))
+                                      (fun e_4 h => HEq.refl.{1} (LE.le.{0} a a_1)) (Eq.symm.{1} h) e'_4)
+                                  (Eq.refl.{1} a') (HEq.refl.{0} e'_4))
+                              (Eq.symm.{1} h) e'_2)
+                          (Eq.refl.{1} self') (HEq.refl.{0} e'_2))
+                      ℝ Preorder.toLE.{0} Real.instLE (Eq.refl.{1} Preorder.toLE.{0})
+                      (RiffleUpperV2.tv.{0}
+                        (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.EmpiricalUpper.tailCuts cuts))
+                        (RiffleUpperV2.uniformPermutation N))
+                      (RiffleUpperV2.tv.{0}
+                        (RiffleUpperV2.physicalInverseLaw
+                          (RiffleUpperV2.Margins.suffixCuts cuts (HAdd.hAdd.{0, 0, 0} r 1)))
+                        (RiffleUpperV2.uniformPermutation N))
+                      (RiffleUpperV2.tv.{0}
+                        (RiffleUpperV2.physicalInverseLaw
+                          (RiffleUpperV2.Margins.suffixCuts (RiffleUpperV2.EmpiricalUpper.tailCuts cuts) r))
+                        (RiffleUpperV2.uniformPermutation N))
+                      (Eq.mpr.{0}
+                        (id.{0}
+                          (congrFun'.{1, 1}
+                            (congrArg.{1, 1} Eq.{1}
+                              (congrFun'.{1, 1}
+                                (congrArg.{1, 1} RiffleUpperV2.tv.{0}
+                                  (congrArg.{1, 1} RiffleUpperV2.physicalInverseLaw
+                                    (TimeProfile.Cuts.mk.congr_simp
+                                      (fun j l =>
+                                        cuts.count (RiffleUpperV2.Margins.suffixIndex (HAdd.hAdd.{0, 0, 0} r 1) j) l)
+                                      (fun j l =>
+                                        cuts.count
+                                          ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                            Eq.ndrec.{0, 1}
+                                              (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)
+                                              (Nat.add_right_comm r 1 ↑j)⟩
+                                          l)
+                                      (funext.{1, 1} fun j =>
+                                        funext.{1, 1} fun l =>
+                                          congrFun'.{1, 1}
+                                            (congrArg.{1, 1} cuts.count
+                                              (Fin.mk.congr_simp (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r 1) ↑j)
+                                                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1)
+                                                (Nat.add_right_comm r 1 ↑j)
+                                                (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1)
+                                                  j)))
+                                            l)
+                                      (RiffleUpperV2.Margins.suffixCuts._proof_1 cuts (HAdd.hAdd.{0, 0, 0} r 1)))))
+                                (RiffleUpperV2.uniformPermutation N)))
+                            (RiffleUpperV2.tv.{0}
+                              (RiffleUpperV2.physicalInverseLaw
+                                {
+                                  count := fun j l =>
+                                    cuts.count
+                                      ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                        Nat.succ_lt_succ
+                                          ⟨HAdd.hAdd.{0, 0, 0} r ↑j,
+                                              RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                      l,
+                                  sum_count :=
+                                    Eq.ndrec.{0, 1} (motive := fun count =>
+                                      ∀ (j : Fin (HSub.hSub.{0, 0, 0} K_1 r)), Eq.{1} (∑ l, count j l) N)
+                                      (RiffleUpperV2.Margins.suffixCuts._proof_1
+                                        (RiffleUpperV2.EmpiricalUpper.tailCuts cuts) r)
+                                      (id.{0}
+                                        (Eq.refl.{1} fun j l =>
+                                          cuts.count
+                                            ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                              Nat.succ_lt_succ
+                                                ⟨HAdd.hAdd.{0, 0, 0} r ↑j,
+                                                    RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                            l)) })
+                              (RiffleUpperV2.uniformPermutation N))))
+                        ((fun {Ω} [Fintype.{0} Ω] P P_1 e_P =>
+                            Eq.rec.{0, 1} (motive := fun P_2 e_P =>
+                              ∀ (Q Q_1 : PMF.{0} Ω),
+                                Eq.{1} Q Q_1 → Eq.{1} (RiffleUpperV2.tv.{0} P Q) (RiffleUpperV2.tv.{0} P_2 Q_1))
+                              (fun Q Q_1 e_Q => Eq.rec.{0, 1} (Eq.refl.{1} (RiffleUpperV2.tv.{0} P Q)) e_Q) e_P)
+                          (RiffleUpperV2.physicalInverseLaw
+                            {
+                              count := fun j l =>
+                                cuts.count
+                                  ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                    Eq.ndrec.{0, 1}
+                                      (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)
+                                      (Nat.add_right_comm r 1 ↑j)⟩
+                                  l,
+                              sum_count :=
+                                Eq.ndrec.{0, 1} (motive := fun count =>
+                                  ∀
+                                    (j :
+                                      Fin (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} K_1 1) (HAdd.hAdd.{0, 0, 0} r 1))),
+                                    Eq.{1} (∑ l, count j l) N)
+                                  (RiffleUpperV2.Margins.suffixCuts._proof_1 cuts (HAdd.hAdd.{0, 0, 0} r 1))
+                                  (funext.{1, 1} fun j =>
+                                    funext.{1, 1} fun l =>
+                                      congrFun'.{1, 1}
+                                        (congrArg.{1, 1} cuts.count
+                                          (Fin.mk.congr_simp (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r 1) ↑j)
+                                            (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1)
+                                            (Nat.add_right_comm r 1 ↑j)
+                                            (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)))
+                                        l) })
+                          (RiffleUpperV2.physicalInverseLaw
+                            {
+                              count := fun j l =>
+                                cuts.count
+                                  ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                    Nat.succ_lt_succ
+                                      ⟨HAdd.hAdd.{0, 0, 0} r ↑j, RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                  l,
+                              sum_count :=
+                                Eq.ndrec.{0, 1} (motive := fun count =>
+                                  ∀ (j : Fin (HSub.hSub.{0, 0, 0} K_1 r)), Eq.{1} (∑ l, count j l) N)
+                                  (RiffleUpperV2.Margins.suffixCuts._proof_1
+                                    (RiffleUpperV2.EmpiricalUpper.tailCuts cuts) r)
+                                  (id.{0}
+                                    (Eq.refl.{1} fun j l =>
+                                      cuts.count
+                                        ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                          Nat.succ_lt_succ
+                                            ⟨HAdd.hAdd.{0, 0, 0} r ↑j,
+                                                RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                        l)) })
+                          (eq_of_heq.{1}
+                            ((fun k k' e_1 =>
+                                Eq.ndrec.{0, 1} (motive := fun k' =>
+                                  ∀ (N N' : ℕ),
+                                    Eq.{1} N N' →
+                                      ∀ (K K' : ℕ),
+                                        Eq.{1} K K' →
+                                          ∀ (cuts : TimeProfile.Cuts k N K) (cuts' : TimeProfile.Cuts k' N' K'),
+                                            HEq.{1} cuts cuts' →
+                                              HEq.{1} (RiffleUpperV2.physicalInverseLaw cuts)
+                                                (RiffleUpperV2.physicalInverseLaw cuts'))
+                                  (fun N N' e_2 =>
+                                    Eq.ndrec.{0, 1} (motive := fun N' =>
+                                      ∀ (K K' : ℕ),
+                                        Eq.{1} K K' →
+                                          ∀ (cuts : TimeProfile.Cuts k N K) (cuts' : TimeProfile.Cuts k N' K'),
+                                            HEq.{1} cuts cuts' →
+                                              HEq.{1} (RiffleUpperV2.physicalInverseLaw cuts)
+                                                (RiffleUpperV2.physicalInverseLaw cuts'))
+                                      (fun K K' e_3 =>
+                                        Eq.ndrec.{0, 1} (motive := fun K' =>
+                                          ∀ (cuts : TimeProfile.Cuts k N K) (cuts' : TimeProfile.Cuts k N K'),
+                                            HEq.{1} cuts cuts' →
+                                              HEq.{1} (RiffleUpperV2.physicalInverseLaw cuts)
+                                                (RiffleUpperV2.physicalInverseLaw cuts'))
+                                          (fun cuts cuts' e_4 =>
+                                            Eq.ndrec.{0, 1} (HEq.refl.{1} (RiffleUpperV2.physicalInverseLaw cuts))
+                                              (eq_of_heq.{1} e_4))
+                                          e_3)
+                                      e_2)
+                                  e_1)
+                              k k (Eq.refl.{1} k) N N (Eq.refl.{1} N)
+                              (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} K_1 1) (HAdd.hAdd.{0, 0, 0} r 1))
+                              (HSub.hSub.{0, 0, 0} K_1 r)
+                              (Decidable.byContradiction fun a =>
+                                RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction._proof_1_7 r K_1 hr a)
+                              {
+                                count := fun j l =>
+                                  cuts.count
+                                    ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                      Eq.ndrec.{0, 1}
+                                        (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)
+                                        (Nat.add_right_comm r 1 ↑j)⟩
+                                    l,
+                                sum_count :=
+                                  Eq.ndrec.{0, 1} (motive := fun count =>
+                                    ∀
+                                      (j :
+                                        Fin
+                                          (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} K_1 1) (HAdd.hAdd.{0, 0, 0} r 1))),
+                                      Eq.{1} (∑ l, count j l) N)
+                                    (RiffleUpperV2.Margins.suffixCuts._proof_1 cuts (HAdd.hAdd.{0, 0, 0} r 1))
+                                    (funext.{1, 1} fun j =>
+                                      funext.{1, 1} fun l =>
+                                        congrFun'.{1, 1}
+                                          (congrArg.{1, 1} cuts.count
+                                            (Fin.mk.congr_simp (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r 1) ↑j)
+                                              (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1)
+                                              (Nat.add_right_comm r 1 ↑j)
+                                              (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)))
+                                          l) }
+                              {
+                                count := fun j l =>
+                                  cuts.count
+                                    ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                      Nat.succ_lt_succ
+                                        ⟨HAdd.hAdd.{0, 0, 0} r ↑j, RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                    l,
+                                sum_count :=
+                                  Eq.ndrec.{0, 1} (motive := fun count =>
+                                    ∀ (j : Fin (HSub.hSub.{0, 0, 0} K_1 r)), Eq.{1} (∑ l, count j l) N)
+                                    (RiffleUpperV2.Margins.suffixCuts._proof_1
+                                      (RiffleUpperV2.EmpiricalUpper.tailCuts cuts) r)
+                                    (id.{0}
+                                      (Eq.refl.{1} fun j l =>
+                                        cuts.count
+                                          ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                            Nat.succ_lt_succ
+                                              ⟨HAdd.hAdd.{0, 0, 0} r ↑j,
+                                                  RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                          l)) }
+                              (RiffleUpperV2.EmpiricalUpper.cuts_heq
+                                (Decidable.byContradiction fun a =>
+                                  RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction._proof_1_7 r K_1 hr a)
+                                {
+                                  count := fun j l =>
+                                    cuts.count
+                                      ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                        Eq.ndrec.{0, 1}
+                                          (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)
+                                          (Nat.add_right_comm r 1 ↑j)⟩
+                                      l,
+                                  sum_count :=
+                                    Eq.ndrec.{0, 1} (motive := fun count =>
+                                      ∀
+                                        (j :
+                                          Fin
+                                            (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} K_1 1)
+                                              (HAdd.hAdd.{0, 0, 0} r 1))),
+                                        Eq.{1} (∑ l, count j l) N)
+                                      (RiffleUpperV2.Margins.suffixCuts._proof_1 cuts (HAdd.hAdd.{0, 0, 0} r 1))
+                                      (funext.{1, 1} fun j =>
+                                        funext.{1, 1} fun l =>
+                                          congrFun'.{1, 1}
+                                            (congrArg.{1, 1} cuts.count
+                                              (Fin.mk.congr_simp (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r 1) ↑j)
+                                                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1)
+                                                (Nat.add_right_comm r 1 ↑j)
+                                                (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1)
+                                                  j)))
+                                            l) }
+                                {
+                                  count := fun j l =>
+                                    cuts.count
+                                      ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                        Nat.succ_lt_succ
+                                          ⟨HAdd.hAdd.{0, 0, 0} r ↑j,
+                                              RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                      l,
+                                  sum_count :=
+                                    Eq.ndrec.{0, 1} (motive := fun count =>
+                                      ∀ (j : Fin (HSub.hSub.{0, 0, 0} K_1 r)), Eq.{1} (∑ l, count j l) N)
+                                      (RiffleUpperV2.Margins.suffixCuts._proof_1
+                                        (RiffleUpperV2.EmpiricalUpper.tailCuts cuts) r)
+                                      (id.{0}
+                                        (Eq.refl.{1} fun j l =>
+                                          cuts.count
+                                            ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                              Nat.succ_lt_succ
+                                                ⟨HAdd.hAdd.{0, 0, 0} r ↑j,
+                                                    RiffleUpperV2.Margins.suffixIndex._proof_2 r j⟩.isLt⟩
+                                            l)) }
+                                fun j j' hj l =>
+                                id.{0}
+                                  ((fun {k N K} self self_1 e_self =>
+                                      Eq.rec.{0, 1} (motive := fun self_2 e_self =>
+                                        ∀ (a a_1 : Fin K),
+                                          Eq.{1} a a_1 →
+                                            ∀ (a_2 a_3 : Fin k),
+                                              Eq.{1} a_2 a_3 → Eq.{1} (self.count a a_2) (self_2.count a_1 a_3))
+                                        (fun a a_1 e_a =>
+                                          Eq.rec.{0, 1} (motive := fun a_2 e_a =>
+                                            ∀ (a_3 a_4 : Fin k),
+                                              Eq.{1} a_3 a_4 → Eq.{1} (self.count a a_3) (self.count a_2 a_4))
+                                            (fun a_2 a_3 e_a => Eq.rec.{0, 1} (Eq.refl.{1} (self.count a a_2)) e_a) e_a)
+                                        e_self)
+                                    cuts cuts (Eq.refl.{1} cuts)
+                                    ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1,
+                                      Eq.ndrec.{0, 1}
+                                        (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)
+                                        (Nat.add_right_comm r 1 ↑j)⟩
+                                    ⟨HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j') 1,
+                                      Nat.succ_lt_succ
+                                        ⟨HAdd.hAdd.{0, 0, 0} r ↑j',
+                                            RiffleUpperV2.Margins.suffixIndex._proof_2 r j'⟩.isLt⟩
+                                    ((fun {n} val val_1 e_val =>
+                                        Eq.rec.{0, 1} (motive := fun val_2 e_val =>
+                                          ∀ (isLt : LT.lt.{0} val n),
+                                            Eq.{1} ⟨val, isLt⟩ ⟨val_2, Eq.ndrec.{0, 1} isLt e_val⟩)
+                                          (fun isLt => Eq.refl.{1} ⟨val, isLt⟩) e_val)
+                                      (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j) 1)
+                                      (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} r ↑j') 1)
+                                      (Decidable.byContradiction fun a =>
+                                        RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction._proof_1_8 r K_1 j j' hj
+                                          a)
+                                      (Eq.ndrec.{0, 1}
+                                        (RiffleUpperV2.Margins.suffixIndex._proof_2 (HAdd.hAdd.{0, 0, 0} r 1) j)
+                                        (Nat.add_right_comm r 1 ↑j)))
+                                    l l (Eq.refl.{1} l)))))
+                          (RiffleUpperV2.uniformPermutation N) (RiffleUpperV2.uniformPermutation N)
+                          (Eq.refl.{1} (RiffleUpperV2.uniformPermutation N))))))
+                  hh))
+            (Eq.symm.{1} h) cuts hr)
+        (Eq.refl.{1} K))
+    r cuts hr
+theorem RiffleUpperV2.EmpiricalUpper.physicalInverseLaw_head : ∀ {k N K : ℕ} (cuts : RiffleUpperV2.Cuts k N (K + 1)),
+  RiffleUpperV2.physicalInverseLaw cuts =
+    (TimeProfile.columnPMF cuts 0).bind fun a =>
+      PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.transLeftEquiv (Tuple.sort ↑a)))
+        (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)) :=
+fun {k N K} cuts =>
+  have he := RiffleLowerV2.Model.map_uniform_equiv (RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts);
+  have hp :=
+    id
+      (Eq.mp
+        (congrFun'
+          (congrArg Eq
+            (Eq.trans
+              (PMF.map_comp (⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts))
+                (PMF.uniformOfFintype (RiffleUpperV2.Sample cuts))
+                ⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm)
+              (Eq.trans
+                (congrFun' (congrArg PMF.map (Equiv.symm_comp_self (RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts)))
+                  (PMF.uniformOfFintype (RiffleUpperV2.Sample cuts)))
+                (PMF.map_id (PMF.uniformOfFintype (RiffleUpperV2.Sample cuts))))))
+          (PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm)
+            (PMF.uniformOfFintype
+              (TimeProfile.ColumnAssignments cuts 0 ×
+                RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))))
+        (congrArg (fun P => PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm) P) he));
+  id
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            PMF.map RiffleLowerV2.physicalInverse _a =
+              (TimeProfile.columnPMF cuts 0).bind fun a =>
+                PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.transLeftEquiv (Tuple.sort ↑a)))
+                  (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))
+          hp))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun _a =>
+              PMF.map RiffleLowerV2.physicalInverse
+                  (PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm) _a) =
+                (TimeProfile.columnPMF cuts 0).bind fun a =>
+                  PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.transLeftEquiv (Tuple.sort ↑a)))
+                    (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))
+            (Eq.symm RiffleUpperV2.EmpiricalUpper.uniformProduct)))
+        (Eq.mpr
+          (id
+            (congrFun'
+              (congrArg Eq
+                (Eq.trans
+                  (Eq.trans
+                    (congrArg (PMF.map RiffleLowerV2.physicalInverse)
+                      (Eq.trans
+                        (PMF.map_bind (PMF.uniformOfFintype (TimeProfile.ColumnAssignments cuts 0))
+                          (fun a =>
+                            PMF.map (fun b => (a, b))
+                              (PMF.uniformOfFintype
+                                (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts))))
+                          ⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm)
+                        (congrArg (PMF.uniformOfFintype (TimeProfile.ColumnAssignments cuts 0)).bind
+                          (funext fun a =>
+                            PMF.map_comp (fun b => (a, b))
+                              (PMF.uniformOfFintype (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))
+                              ⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm))))
+                    (PMF.map_bind (PMF.uniformOfFintype (TimeProfile.ColumnAssignments cuts 0))
+                      (fun a =>
+                        PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm ∘ fun b => (a, b))
+                          (PMF.uniformOfFintype (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts))))
+                      RiffleLowerV2.physicalInverse))
+                  (congrArg (PMF.uniformOfFintype (TimeProfile.ColumnAssignments cuts 0)).bind
+                    (funext fun a =>
+                      PMF.map_comp (⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm ∘ fun b => (a, b))
+                        (PMF.uniformOfFintype (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))
+                        RiffleLowerV2.physicalInverse))))
+              ((TimeProfile.columnPMF cuts 0).bind fun a =>
+                PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.transLeftEquiv (Tuple.sort ↑a)))
+                  (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))))
+          ((fun {α β} p p_1 e_p =>
+              Eq.rec (motive := fun p_2 e_p => ∀ (f f_1 : α → PMF β), f = f_1 → p.bind f = p_2.bind f_1)
+                (fun f f_1 e_f => e_f ▸ Eq.refl (p.bind f)) e_p)
+            (PMF.uniformOfFintype (TimeProfile.ColumnAssignments cuts 0)) (TimeProfile.columnPMF cuts 0)
+            (Eq.refl (PMF.uniformOfFintype (TimeProfile.ColumnAssignments cuts 0)))
+            (fun a =>
+              PMF.map
+                (RiffleLowerV2.physicalInverse ∘
+                  ⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm ∘ fun b => (a, b))
+                (PMF.uniformOfFintype (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts))))
+            (fun a =>
+              PMF.map (⇑(RiffleUpperV2.EmpiricalUpper.transLeftEquiv (Tuple.sort ↑a)))
+                (RiffleUpperV2.physicalInverseLaw (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))
+            (funext fun a =>
+              id
+                (Eq.mpr
+                  (id
+                    (congrArg
+                      (fun _a =>
+                        PMF.map
+                            (RiffleLowerV2.physicalInverse ∘
+                              ⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm ∘ fun b => (a, b))
+                            (PMF.uniformOfFintype (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts))) =
+                          _a)
+                      (PMF.map_comp RiffleLowerV2.physicalInverse
+                        (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.EmpiricalUpper.tailCuts cuts))
+                        ⇑(RiffleUpperV2.EmpiricalUpper.transLeftEquiv (Tuple.sort ↑a)))))
+                  ((fun {α β} f f_1 e_f =>
+                      Eq.rec (motive := fun f_2 e_f => ∀ (p p_1 : PMF α), p = p_1 → PMF.map f p = PMF.map f_2 p_1)
+                        (fun p p_1 e_p => e_p ▸ Eq.refl (PMF.map f p)) e_f)
+                    (RiffleLowerV2.physicalInverse ∘
+                      ⇑(RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm ∘ fun b => (a, b))
+                    (⇑(RiffleUpperV2.EmpiricalUpper.transLeftEquiv (Tuple.sort ↑a)) ∘ RiffleLowerV2.physicalInverse)
+                    (funext fun ω =>
+                      RiffleUpperV2.EmpiricalUpper.physicalInverse_head cuts
+                        ((RiffleUpperV2.EmpiricalUpper.sampleHeadEquiv cuts).symm (a, ω)))
+                    (PMF.uniformOfFintype (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))
+                    (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.EmpiricalUpper.tailCuts cuts))
+                    (Eq.refl
+                      (PMF.uniformOfFintype (RiffleUpperV2.Sample (RiffleUpperV2.EmpiricalUpper.tailCuts cuts)))))))))))
+'RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.physicalInverseLaw_head' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.randomEquivTVContraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U11

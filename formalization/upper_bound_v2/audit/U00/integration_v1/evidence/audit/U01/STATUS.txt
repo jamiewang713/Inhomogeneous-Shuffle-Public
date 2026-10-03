@@ -1,0 +1,27 @@
+PROVED_AND_CHECKED — finite U01 toolkit only
+
+All U01 finite mathematical obligations are proved and independently accepted.
+All 13 owned modules rebuilt freshly with Lean 4.33.1; all 166 GraphOverlap
+declarations, including generated and private declarations, have only propext,
+Classical.choice and Quot.sound. The 84 public source declarations have complete
+type/dependency inventories, with an additional pp.all kernel-type and
+definition-body report. Both U01 audits exited0. U00 independently read the
+proofs and verified mathematics, model/quantifiers and adversarial cases; its
+final GraphOverlap.Main closure/type/transitive-axiom audit also passed all166.
+
+Implemented: arbitrary path-graph component-sort fibers and densities; exact
+overlapIdentity; one-sided boundedComponentOverlap; actual physical-law
+truncatedTV and radicand nonnegativity; actual factorial largest-component tails
+including q>N; concrete graph-component/word-occupancy equivalence; cutoff
+choice before populations and cuts; exact, exponential and polynomial collision
+upper bounds. No unproved density-law or representation premise remains.
+
+The overlap proof uses a stronger B^|G intersect H| incoming-run-product bound,
+independently reviewed, instead of the manuscript shared-edge deletion proof.
+The frozen central-binomial bound is proved unchanged. The elementary run
+factorial inequality and edge-disjoint corollaries are also proved.
+
+No F/C/E/P/T/R endpoint completion is claimed. Other lanes assemble those targets.
+The optional sparse-factorial corollary is not needed by the current route.
+See VERIFICATION.json, PUBLIC_DECLARATIONS.json, SOURCE_MAP.json,
+PROOF_OBLIGATIONS.json, INDEPENDENT_REVIEW.json and RATIO_PORT_PROVENANCE.json.

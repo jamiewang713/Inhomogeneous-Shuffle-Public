@@ -1,0 +1,21 @@
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η g : ℝ),
+      0 < T →
+        0 < η →
+          0 < g →
+            g < 1 / ↑k →
+              ∃ (c : ℝ),
+                0 < c ∧
+                  ∃ (N0 : ℕ) (_ : 2 ≤ N0),
+                    ∀ (N : ℕ),
+                      N0 ≤ N →
+                        ∀ (n : ℕ) (hn : 2 ≤ n),
+                          n ≤ N →
+                            ∀ (a K : ℕ),
+                              a < K →
+                                ↑K ≤ T * Real.log ↑N →
+                                  ∀ (cuts : RiffleUpperV2.Cuts k n (K - a)),
+                                    RiffleUpperV2.FirstColumnGood cuts ⋯ g →
+                                      RiffleUpperV2.EmpiricalNegativeMargin N a cuts ⋯ η →
+                                        RiffleUpperV2.expectedCommonEdges cuts ≤ ↑N ^ (-c)

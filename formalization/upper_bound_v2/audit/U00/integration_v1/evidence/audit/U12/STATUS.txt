@@ -1,0 +1,27 @@
+PROVED_AND_CHECKED
+U12 owns only ProfileUpper/ and audit/U12/.
+
+Public exact frozen endpoints, without E or P premises:
+  RiffleUpperV2.ProfileUpper.bufferedUpper : Contracts.V1.P
+  RiffleUpperV2.ProfileUpper.criticalTimeUpper : Contracts.V1.T
+  RiffleUpperV2.ProfileUpper.randomEmpiricalBound : Contracts.V1.REmpiricalBound
+  RiffleUpperV2.ProfileUpper.randomEmpiricalUpper : Contracts.V1.REmpirical
+  RiffleUpperV2.ProfileUpper.randomProfileUpper : Contracts.V1.RProfile
+  RiffleUpperV2.ProfileUpper.randomUpper : Contracts.V1.R
+Also criticalHorizonUpper, mixingTimeUpper and fullCriticalTimeUpper.
+
+Every endpoint uses the actual EmpiricalUpper.empiricalUpper theorem. No
+unproved probabilistic estimate, E/P assumption, or endpoint proof remains.
+All source coefficients/domains, same-partition scalar integrability,
+g/gamma-before-rho and extended-time conventions are retained.
+
+Fresh owned closure: nine modules, exit 0, BUILD_OK U12. Exact command and
+source hashes in final-build.json. Literal expanded public types compile in
+FinalCheck.lean and are printed in expanded-public-types.txt. Full transitive
+trust inventory: final-declarations.json; only propext, Classical.choice,
+Quot.sound. Build/trust output: final-check.log.
+
+U00 independently accepted all nine production modules, covering math,
+model/type/quantifier and adversarial checks. Actual P/T/R Main accepted and
+root-staged: ../U00/U12-PTR-endpoint-review.json.
+Review paths and source correspondence: VERIFICATION.json.

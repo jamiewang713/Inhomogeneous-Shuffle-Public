@@ -1,0 +1,39 @@
+{
+  "status": "PASS_FOR_NARROW_SLICE",
+  "reviewer": "U00 independent of U08",
+  "recorded_at": "2026-10-02T09:29:42.822236+00:00",
+  "sources": {
+    "RiffleUpperV2/Reservoir/BackwardHistory.lean": "ffae3dec3a1b0381d91cbb25893f479f3d9bfc70effac473775e52b154537191",
+    "RiffleUpperV2/Reservoir/Counts.lean": "0c7b779ec731b94882a1aec884c38a2f22401cd3dbb3d023c64024cba2587ec0",
+    "RiffleUpperV2/Reservoir/MarkedLaw.lean": "fb2311dae1291ad15611374653e5c35637ab084e3d032a5170fa1b947e25e01e",
+    "RiffleUpperV2/Reservoir/Module.lean": "42590e5de4c8a612bb09445e656f8fa527b86e79aac8b5aaafea5c8787342afc"
+  },
+  "mathematics": [
+    "Backward history is spatial Fin.revPerm of the same forward full words; OrderDual reverses comparison, with exact greater-word counts and terminal lower bound.",
+    "Remaining count splits into disjoint outside-pile and marked-pile sets; H gives deviation at most n^(2/3)+|M| for future columns.",
+    "Removable-copy inequality charges only removable copies, and conditional collision bad event is charged once before summing over words.",
+    "Any tuple event with actual sample witness has positive weight sum by full support of the finite uniform law; impossible digit allocations have falling-factorial weight zero."
+  ],
+  "model_quantifiers": [
+    "Backward history has j:Fin pileSize, so is for nonempty revealed prefix; time zero remains separate.",
+    "concentration_remainingCount assumes actual H only for its deterministic implication; H probability is U07 obligation.",
+    "Positive denominator is qualitative and witness dependent; uniform reserve denominator remains unproved."
+  ],
+  "adversarial": [
+    "No reversal of time columns.",
+    "Null conditional events remain totalized consistently; do not use zero-denominator identity as a normalized law.",
+    "No residual c+m cancellation, quantitative reservoir estimate, future-cylinder law or C endpoint follows from these helpers."
+  ],
+  "independent_build": {
+    "receipt": "phase3-check-build.json",
+    "log": "phase3-check.log",
+    "audit": "Phase3Check.lean",
+    "exit_code": 0,
+    "all_imported_upper_declarations": 1143,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

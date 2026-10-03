@@ -1,0 +1,33 @@
+{
+  "reviewer": "U00 parent independent of U05 implementation",
+  "delivery": "collaboration messages in this task",
+  "status": "PASS_FOR_NARROW_SLICE",
+  "perspectives": [
+    "mathematics/source correspondence",
+    "Lean statement/model/quantifiers",
+    "adversarial and boundary cases"
+  ],
+  "findings": [
+    {
+      "finding": "Original-scale empirical objective and exact large/small losses verified.",
+      "resolution": "PASS; Exponents uses proved empiricalInf_attained."
+    },
+    {
+      "finding": "Descriptor Nat.floor differs from Entropy Int.floor.",
+      "resolution": "RESOLVED by goodCost_natBin_eq_intBin and mem_costClass_of_natBin using nonnegative legal selected costs."
+    },
+    {
+      "finding": "Boundary/routing refinements are subsets rather than equal entire cost classes.",
+      "resolution": "RESOLVED by refinedClassEntropy and prefixFamilyEntropy with canonical completion injection."
+    },
+    {
+      "finding": "Defaults must be actual chi-large extrema; mismatches before crossing must be rare.",
+      "resolution": "RESOLVED in BoundaryCosts using actual first-boundary no-earlier-crossing property."
+    },
+    {
+      "finding": "Empty/terminal boundary and zero selected probabilities must be handled.",
+      "resolution": "Empty sentinel and exact decoder checked; legal representative/family excludes selected zero probabilities and guards log(card). Terminal full-word mean retains original N."
+    }
+  ],
+  "limits": "Review confirms finite/entropy/numerical slice only; it does not certify missing N^epsilon, discard, stochastic density or F."
+}

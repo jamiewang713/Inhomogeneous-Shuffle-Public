@@ -1,0 +1,307 @@
+CHECK RiffleUpperV2.Reservoir.SortedHistory
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/SortedHistory.lean:87:19: warning: This simp argument is unused:
+  Nat.lt_succ_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Reservoir.History
+theorem RiffleUpperV2.Reservoir.sorted_history_iff.{u_1} : ∀ {α : Type u_1} [Fintype α] [inst : LinearOrder α]
+  [inst_1 : DecidableEq α] {n : ℕ} (f g : Fin n → α),
+  Monotone f →
+    Monotone g →
+      ∀ (j : Fin n),
+        (∀ (r : Fin n), ↑r < ↑j + 1 → g r = f r) ↔
+          (∀ a < f j, RiffleUpperV2.Reservoir.tupleCount g a = RiffleUpperV2.Reservoir.observedCount f (↑j + 1) a) ∧
+            RiffleUpperV2.Reservoir.observedCount f (↑j + 1) (f j) ≤ RiffleUpperV2.Reservoir.tupleCount g (f j) :=
+fun {α : Type u_1} [Fintype α] [LinearOrder α] [DecidableEq α] {n : ℕ} (f g : Fin n → α) (hf : Monotone f)
+    (hg : Monotone g) (j : Fin n) =>
+  {
+    mp := fun (he : ∀ (r : Fin n), ↑r < ↑j + 1 → g r = f r) =>
+      have hj :=
+        he j
+          (Decidable.byContradiction fun (a : ¬↑j < ↑j + 1) =>
+            RiffleUpperV2.Reservoir.sorted_history_iff._proof_1_1 j a);
+      have ho := fun (a : α) =>
+        congrArg Finset.card
+          (Finset.ext fun (r : Fin n) =>
+            Eq.mpr
+              (id
+                (congr
+                  (congrArg Iff
+                    (Eq.trans RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_2
+                      (Eq.trans
+                        (congrFun' (congrArg And (RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_3 r))
+                          (↑r < ↑j + 1 ∧ g r = a))
+                        (true_and (↑r < ↑j + 1 ∧ g r = a)))))
+                  (Eq.trans RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_2
+                    (Eq.trans
+                      (congrFun' (congrArg And (RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_3 r))
+                        (↑r < ↑j + 1 ∧ f r = a))
+                      (true_and (↑r < ↑j + 1 ∧ f r = a))))))
+              (if hr : ↑r < ↑j + 1 then
+                Eq.mpr (id (congrArg (fun (_a : α) => ↑r < ↑j + 1 ∧ _a = a ↔ ↑r < ↑j + 1 ∧ f r = a) (he r hr))) Iff.rfl
+              else
+                of_eq_true
+                  (Eq.trans
+                    (congr
+                      (congrArg Iff (Eq.trans (congrFun' (congrArg And (eq_false hr)) (g r = a)) (false_and (g r = a))))
+                      (Eq.trans (congrFun' (congrArg And (eq_false hr)) (f r = a)) (false_and (f r = a))))
+                    (iff_self False))));
+      ⟨fun (a : α) (ha : a < f j) =>
+        Eq.mpr
+          (id
+            (congrArg (fun (_a : ℕ) => _a = RiffleUpperV2.Reservoir.observedCount f (↑j + 1) a)
+              (Eq.symm
+                (RiffleUpperV2.Reservoir.observed_eq_full✝ g hg j a
+                  (Eq.mpr (id (congrArg (fun (_a : α) => a < _a) hj)) ha)))))
+          (Eq.mpr (id (congrArg (fun (_a : ℕ) => _a = RiffleUpperV2.Reservoir.observedCount f (↑j + 1) a) (ho a)))
+            (Eq.refl (RiffleUpperV2.Reservoir.observedCount f (↑j + 1) a))),
+        Eq.mpr (id (congrArg (fun (_a : ℕ) => _a ≤ RiffleUpperV2.Reservoir.tupleCount g (f j)) (Eq.symm (ho (f j)))))
+          (Finset.card_le_card fun ⦃r : Fin n⦄ (hr : r ∈ {r : Fin n | ↑r < ↑j + 1 ∧ g r = f j}) =>
+            Finset.mem_filter.mpr ⟨Finset.mem_univ r, (Finset.mem_filter.mp hr).right.right⟩)⟩,
+    mpr :=
+      fun
+        (a :
+          (∀ a < f j, RiffleUpperV2.Reservoir.tupleCount g a = RiffleUpperV2.Reservoir.observedCount f (↑j + 1) a) ∧
+            RiffleUpperV2.Reservoir.observedCount f (↑j + 1) (f j) ≤ RiffleUpperV2.Reservoir.tupleCount g (f j)) =>
+      And.casesOn (motive :=
+        fun
+          (x :
+            (∀ a < f j, RiffleUpperV2.Reservoir.tupleCount g a = RiffleUpperV2.Reservoir.observedCount f (↑j + 1) a) ∧
+              RiffleUpperV2.Reservoir.observedCount f (↑j + 1) (f j) ≤ RiffleUpperV2.Reservoir.tupleCount g (f j)) =>
+        ∀ (r : Fin n), ↑r < ↑j + 1 → g r = f r) a
+        fun
+          (hc : ∀ a < f j, RiffleUpperV2.Reservoir.tupleCount g a = RiffleUpperV2.Reservoir.observedCount f (↑j + 1) a)
+          (hs : RiffleUpperV2.Reservoir.observedCount f (↑j + 1) (f j) ≤ RiffleUpperV2.Reservoir.tupleCount g (f j))
+          (r : Fin n) (hr : ↑r < ↑j + 1) =>
+        have hc' := fun (a : α) (ha : a < f j) =>
+          Eq.mpr (id (congrArg (fun (_a : ℕ) => _a = RiffleUpperV2.Reservoir.tupleCount f a) (hc a ha)))
+            (Eq.mpr
+              (id
+                (congrArg (fun (_a : ℕ) => _a = RiffleUpperV2.Reservoir.tupleCount f a)
+                  (RiffleUpperV2.Reservoir.observed_eq_full✝ f hf j a ha)))
+              (Eq.refl (RiffleUpperV2.Reservoir.tupleCount f a)));
+        have hlt := RiffleUpperV2.Reservoir.cumulative_eq✝ g f (fun (a : α) => a < f j) hc';
+        have hfr :=
+          hf
+            (Decidable.byContradiction fun (a : ¬r ≤ j) =>
+              RiffleUpperV2.Reservoir.sorted_history_iff._proof_1_4 f g j r hr a);
+        have hlow :=
+          RiffleUpperV2.Reservoir.cumulative_eq✝ g f (fun (a : α) => a < f r) fun (a : α) (ha : a < f r) =>
+            hc' a (LT.lt.trans_le ha hfr);
+        le_antisymm
+          ((Tuple.lt_card_le_iff_apply_le_of_monotone hg).mp
+            (if heq : f r = f j then
+              Eq.mpr (id (congrArg (fun (_a : α) => ↑r < {i : Fin n | g i ≤ _a}.card) heq))
+                (Eq.mpr (id (congrArg (fun (_a : ℕ) => ↑r < _a) (RiffleUpperV2.Reservoir.le_count_split✝ g (f j))))
+                  (Eq.mpr (id (congrArg (fun (_a : ℕ) => ↑r < _a + RiffleUpperV2.Reservoir.tupleCount g (f j)) hlt))
+                    (have hi := RiffleUpperV2.Reservoir.initial_split✝ f hf j;
+                    Decidable.byContradiction
+                      fun (a : ¬↑r < {r : Fin n | f r < f j}.card + RiffleUpperV2.Reservoir.tupleCount g (f j)) =>
+                      RiffleUpperV2.Reservoir.sorted_history_iff._proof_1_5 f g j hs r hr hi a)))
+            else
+              have hstrict := lt_of_le_of_ne hfr heq;
+              have hle :=
+                RiffleUpperV2.Reservoir.cumulative_eq✝ g f (fun (a : α) => a ≤ f r) fun (a : α) (ha : a ≤ f r) =>
+                  hc' a (LE.le.trans_lt ha hstrict);
+              Eq.mpr (id (congrArg (fun (_a : ℕ) => ↑r < _a) hle))
+                ((Tuple.lt_card_le_iff_apply_le_of_monotone hf).mpr le_rfl)))
+          (le_of_not_gt fun (hh : g r < f r) =>
+            have hri := (Tuple.lt_card_lt_iff_apply_lt_of_monotone hg).mpr hh;
+            lt_irrefl (f r)
+              ((Tuple.lt_card_lt_iff_apply_lt_of_monotone hf).mp
+                (Eq.mp (congrArg (fun (_a : ℕ) => ↑r < _a) hlow) hri))) }
+theorem RiffleUpperV2.Reservoir.historyAtom : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (L + 1)) (p : Fin k)
+  (ω v : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward (↑j + 1) ω v ↔
+    (∀ (u : RiffleUpperV2.Word k (L + 1)),
+        List.Vector.get u 0 = p →
+          u < RiffleUpperV2.Reservoir.pileWords cuts p ω j →
+            RiffleUpperV2.Reservoir.wordCount v u =
+              RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1) u) ∧
+      RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+          (RiffleUpperV2.Reservoir.pileWords cuts p ω j) ≤
+        RiffleUpperV2.Reservoir.wordCount v (RiffleUpperV2.Reservoir.pileWords cuts p ω j) :=
+fun {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (L + 1)) (p : Fin k) (ω v : RiffleUpperV2.Sample cuts)
+    (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)) =>
+  have hh :=
+    {
+      mp :=
+        fun (h : RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward (↑j + 1) ω v)
+          (r : Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (hr : ↑r < ↑j + 1) =>
+        RiffleUpperV2.Exploration.revealed_word_eq cuts p RiffleUpperV2.Exploration.Direction.forward (↑j + 1) h r hr,
+      mpr :=
+        fun
+          (h :
+            ∀ (r : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+              ↑r < ↑j + 1 →
+                RiffleUpperV2.Reservoir.pileWords cuts p v r = RiffleUpperV2.Reservoir.pileWords cuts p ω r) =>
+        funext fun (r : Fin (RiffleUpperV2.Exploration.pileSize cuts p)) =>
+          if hr : ↑r < ↑j + 1 then
+            Eq.mpr
+              (id
+                (congr
+                  (congrArg Eq
+                    (Eq.trans
+                      (ite_congr (eq_true hr)
+                        (fun (a : True) =>
+                          Eq.refl
+                            (some
+                              (RiffleUpperV2.sortedWord v
+                                (RiffleUpperV2.Exploration.pilePosition cuts p
+                                  RiffleUpperV2.Exploration.Direction.forward r))))
+                        fun (a : ¬True) => Eq.refl none)
+                      (if_true
+                        (some
+                          (RiffleUpperV2.sortedWord v
+                            (RiffleUpperV2.Exploration.pilePosition cuts p RiffleUpperV2.Exploration.Direction.forward
+                              r)))
+                        none)))
+                  (Eq.trans
+                    (ite_congr (eq_true hr)
+                      (fun (a : True) =>
+                        Eq.refl
+                          (some
+                            (RiffleUpperV2.sortedWord ω
+                              (RiffleUpperV2.Exploration.pilePosition cuts p RiffleUpperV2.Exploration.Direction.forward
+                                r))))
+                      fun (a : ¬True) => Eq.refl none)
+                    (if_true
+                      (some
+                        (RiffleUpperV2.sortedWord ω
+                          (RiffleUpperV2.Exploration.pilePosition cuts p RiffleUpperV2.Exploration.Direction.forward
+                            r)))
+                      none))))
+              (congrArg some (h r hr))
+          else
+            of_eq_true
+              (Eq.trans
+                (congr
+                  (congrArg Eq
+                    (ite_cond_eq_false
+                      (some
+                        (RiffleUpperV2.sortedWord v
+                          (RiffleUpperV2.Exploration.pilePosition cuts p RiffleUpperV2.Exploration.Direction.forward
+                            r)))
+                      none (eq_false hr)))
+                  (ite_cond_eq_false
+                    (some
+                      (RiffleUpperV2.sortedWord ω
+                        (RiffleUpperV2.Exploration.pilePosition cuts p RiffleUpperV2.Exploration.Direction.forward r)))
+                    none (eq_false hr)))
+                (eq_self none)) };
+  Eq.mpr
+    (id
+      (congrArg
+        (fun (_a : Prop) =>
+          _a ↔
+            (∀ (u : RiffleUpperV2.Word k (L + 1)),
+                List.Vector.get u 0 = p →
+                  u < RiffleUpperV2.Reservoir.pileWords cuts p ω j →
+                    RiffleUpperV2.Reservoir.wordCount v u =
+                      RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1) u) ∧
+              RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                  (RiffleUpperV2.Reservoir.pileWords cuts p ω j) ≤
+                RiffleUpperV2.Reservoir.wordCount v (RiffleUpperV2.Reservoir.pileWords cuts p ω j))
+        (propext hh)))
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun (_a : Prop) =>
+            _a ↔
+              (∀ (u : RiffleUpperV2.Word k (L + 1)),
+                  List.Vector.get u 0 = p →
+                    u < RiffleUpperV2.Reservoir.pileWords cuts p ω j →
+                      RiffleUpperV2.Reservoir.wordCount v u =
+                        RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1) u) ∧
+                RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                    (RiffleUpperV2.Reservoir.pileWords cuts p ω j) ≤
+                  RiffleUpperV2.Reservoir.wordCount v (RiffleUpperV2.Reservoir.pileWords cuts p ω j))
+          (propext
+            (RiffleUpperV2.Reservoir.sorted_history_iff (RiffleUpperV2.Reservoir.pileWords cuts p ω)
+              (RiffleUpperV2.Reservoir.pileWords cuts p v) (RiffleUpperV2.Reservoir.pileWords_monotone cuts p ω)
+              (RiffleUpperV2.Reservoir.pileWords_monotone cuts p v) j))))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun (_a : ℕ) =>
+              (∀ a < RiffleUpperV2.Reservoir.pileWords cuts p ω j,
+                    RiffleUpperV2.Reservoir.tupleCount (RiffleUpperV2.Reservoir.pileWords cuts p v) a =
+                      RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1) a) ∧
+                  RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                      (RiffleUpperV2.Reservoir.pileWords cuts p ω j) ≤
+                    _a ↔
+                (∀ (u : RiffleUpperV2.Word k (L + 1)),
+                    List.Vector.get u 0 = p →
+                      u < RiffleUpperV2.Reservoir.pileWords cuts p ω j →
+                        RiffleUpperV2.Reservoir.wordCount v u =
+                          RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                            u) ∧
+                  RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                      (RiffleUpperV2.Reservoir.pileWords cuts p ω j) ≤
+                    RiffleUpperV2.Reservoir.wordCount v (RiffleUpperV2.Reservoir.pileWords cuts p ω j))
+            (RiffleUpperV2.Reservoir.pileWords_count cuts p v (RiffleUpperV2.Reservoir.pileWords cuts p ω j)
+              (RiffleUpperV2.Reservoir.pileWords_first cuts p ω j))))
+        (id
+          (and_congr_left
+            fun
+              (a :
+                RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                    (RiffleUpperV2.Reservoir.pileWords cuts p ω j) ≤
+                  {r : Fin n | RiffleUpperV2.rowWord v r = RiffleUpperV2.Reservoir.pileWords cuts p ω j}.card) =>
+            {
+              mp :=
+                fun
+                  (h :
+                    ∀ u < RiffleUpperV2.Reservoir.pileWords cuts p ω j,
+                      RiffleUpperV2.Reservoir.tupleCount (RiffleUpperV2.Reservoir.pileWords cuts p v) u =
+                        RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1) u)
+                  (u : RiffleUpperV2.Word k (L + 1)) (hu : List.Vector.get u 0 = p)
+                  (hlt : u < RiffleUpperV2.Reservoir.pileWords cuts p ω j) =>
+                Eq.trans (Eq.symm (RiffleUpperV2.Reservoir.pileWords_count cuts p v u hu)) (h u hlt),
+              mpr :=
+                fun
+                  (h :
+                    ∀ (u : RiffleUpperV2.Word k (L + 1)),
+                      List.Vector.get u 0 = p →
+                        u < RiffleUpperV2.Reservoir.pileWords cuts p ω j →
+                          RiffleUpperV2.Reservoir.wordCount v u =
+                            RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                              u)
+                  (u : RiffleUpperV2.Word k (L + 1)) (hlt : u < RiffleUpperV2.Reservoir.pileWords cuts p ω j) =>
+                if hu : List.Vector.get u 0 = p then
+                  Eq.mpr
+                    (id
+                      (congrArg
+                        (fun (_a : ℕ) =>
+                          _a =
+                            RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                              u)
+                        (RiffleUpperV2.Reservoir.pileWords_count cuts p v u hu)))
+                    (h u hu hlt)
+                else
+                  Eq.mpr
+                    (id
+                      (congrArg
+                        (fun (_a : ℕ) =>
+                          _a =
+                            RiffleUpperV2.Reservoir.observedCount (RiffleUpperV2.Reservoir.pileWords cuts p ω) (↑j + 1)
+                              u)
+                        (RiffleUpperV2.Reservoir.pileWords_count_zero cuts p v u hu)))
+                    (Eq.symm
+                      (Nat.eq_zero_of_le_zero
+                        (Trans.trans
+                          (Finset.card_le_card
+                            fun ⦃r : Fin (RiffleUpperV2.Exploration.pileSize cuts p)⦄
+                              (hr :
+                                r ∈
+                                  {r : Fin (RiffleUpperV2.Exploration.pileSize cuts p) |
+                                    ↑r < ↑j + 1 ∧ RiffleUpperV2.Reservoir.pileWords cuts p ω r = u}) =>
+                            Finset.mem_filter.mpr ⟨Finset.mem_univ r, (Finset.mem_filter.mp hr).right.right⟩)
+                          (RiffleUpperV2.Reservoir.pileWords_count_zero cuts p ω u hu)))) }))))
+'RiffleUpperV2.Reservoir.sorted_history_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Reservoir.historyAtom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Reservoir.pileWords_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

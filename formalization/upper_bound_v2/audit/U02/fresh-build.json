@@ -1,0 +1,98 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T08:21:19.289386+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U02",
+    "--fresh",
+    "RiffleUpperV2.Hypergeometric.Main"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U02",
+  "built": [
+    "RiffleUpperV2.Hypergeometric.AntiConcentration",
+    "RiffleUpperV2.Hypergeometric.Estimates",
+    "RiffleUpperV2.Hypergeometric.Sampling",
+    "RiffleUpperV2.Hypergeometric.Cylinder",
+    "RiffleUpperV2.Hypergeometric.CylinderMean",
+    "RiffleUpperV2.Hypergeometric.ConditionalAnchor",
+    "RiffleUpperV2.Hypergeometric.Main"
+  ],
+  "modules": {
+    "RiffleUpperV2.Hypergeometric.Main": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Main.lean",
+      "sha256": "87e8d91173993a3c0add432980a56c0f90fd62c16464a0a62cacbfd190854fe2",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Hypergeometric.Estimates": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Estimates.lean",
+      "sha256": "3f065a9b50b88b249ba359f6062b1acbd0c69da47280f9092047f36a01556b7b",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Hypergeometric.AntiConcentration": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/AntiConcentration.lean",
+      "sha256": "d1bbb4f5f373a98fcff65495dd022ba2e4d5b038fe9710fe7037b732eb0f0cf4",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleLowerV2.Thinning.Compat.HypergeometricMoments": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricMoments.lean",
+      "sha256": "683abd2e64966bb8dfd229b9f7d0ab93bb2c68a446f2f5ee1d0fbbaa47615ce0",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Thinning.Compat.HypergeometricConcentration": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean",
+      "sha256": "88d1a5b1dcaa900583ea8f7871d540af93a419a111dcb18787c3a177859d1915",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Thinning.Recursion": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Recursion.lean",
+      "sha256": "22c62d8a60143ecd5539bd15e068694a174da86bbda1d8e3b9d81005251832bb",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Thinning.Tails": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Tails.lean",
+      "sha256": "af3856e94508d3b68359f38db55c4f1eeb22adf94dfed8e10c5d145bba1b1d93",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.Sampling": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Sampling.lean",
+      "sha256": "b5194f3f5bc66eba0dac2e1aca755ddeb6ffbdb4a1b5967ef451a36b4e432a7b",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleLowerV2.Thinning.Compat.SubsetTransform": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetTransform.lean",
+      "sha256": "f961ee4d3a4fcf6b1f2c67b730689f8e68300f92e6d8940d92b055ae6340c9be",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.ConditionalAnchor": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/ConditionalAnchor.lean",
+      "sha256": "2ea180d9ab104be8e9e4eda271729dd28b05ff3356b3ae71d2f6bb15bb3aa6a6",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Hypergeometric.CylinderMean": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/CylinderMean.lean",
+      "sha256": "78f861bac52408f5888b01b2dfa1a3acfcffe8d725603e5a23da455ed81ea92b",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Hypergeometric.Cylinder": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Cylinder.lean",
+      "sha256": "30de991593d5a7ad8b155c53f8d09964b68fc2c86e612977f87c250c7296a368",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleLowerV2.Thinning.ColumnSampling": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean",
+      "sha256": "4a3d09f0bfecce0875db521d9bd565d0c86796b64cbe18c213bce77343e393d5",
+      "kind": "staged-read-only"
+    }
+  }
+}

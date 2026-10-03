@@ -1,0 +1,31 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T08:53:43.949881+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U03",
+    "RiffleUpperV2.Anchor.HypergeometricSymmetry"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U03",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U03/lib/lean",
+  "built": [
+    "RiffleUpperV2.Anchor.HypergeometricSymmetry"
+  ],
+  "modules": {
+    "RiffleUpperV2.Anchor.HypergeometricSymmetry": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/HypergeometricSymmetry.lean",
+      "sha256": "e77a0238b9954819e492e3a05920343556faa1599db96b6d3101f9b85b973aaa",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Hypergeometric.Main": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Main.lean",
+      "sha256": "87e8d91173993a3c0add432980a56c0f90fd62c16464a0a62cacbfd190854fe2",
+      "kind": "staged-read-only"
+    }
+  }
+}

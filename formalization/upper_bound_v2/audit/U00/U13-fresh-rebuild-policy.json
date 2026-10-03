@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-10-02T22:34:53.404449+00:00",
+  "status": "VERIFIED_ON_ACTUAL_INDEPENDENT_U13_FULL_BUILD",
+  "scope": "Only --lane U13 --fresh bypasses staged-project reuse; all project imports traverse and rebuild from read-only sources into .build/U13. Pinned external libraries retain caches. Existing symlink-detaching writer prevents writes into U00 staged output.",
+  "authorization": "U13 assignment explicitly requires a new output tree from source and permits .build/U13 only.",
+  "builder_sha256": "f00eb1bc26b8468376493bef8850676aab71e79d93b95d6dd4e0431e148c91b2",
+  "validation": "Independent U13 fresh build exit0. All398 project modules rebuilt into regular owned outputs with no symlink ancestry; source fingerprints match freeze and all398 .olean hashes match separate U00 clean output. Compiler and pinned libraries unchanged.",
+  "evidence": {
+    "receipt": "../U13/final-fresh-build-v2.json",
+    "receipt_sha256": "914142438bad53ac8a7e50402770389a8667703f8c560a71ade9eed839e61347",
+    "object_inventory": "../U13/final-object-inventory-v2.json",
+    "object_inventory_sha256": "98add710c207024530fc6f6dc56ba98395db29cdbfed51e1bdea5f96694dd158",
+    "coordinator_crosscheck": "U13-independent-evidence-crosscheck.json"
+  }
+}

@@ -1,0 +1,128 @@
+U13 INCREMENTAL CONCRETE REVIEW — 2026-10-02
+
+NARROW VERDICT: PASS for source correspondence of candidate F/E contracts and
+the supporting model/empirical/infimum definitions at the hashes below. PASS for
+mathematics and parameter order of FixedPartition's two proved helpers.
+OVERALL VERDICT remains PARTIAL: F and E are Prop specifications, not proved
+endpoints; C/P/T/R are not frozen/reviewed. No overall CONTRACTS_READY approval.
+
+FILES / REVIEWED SHA256
+Shared/Model.lean
+  583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e
+Shared/Empirical.lean
+  108ae31a7f9d966eb05ba2a5da78e8345191fc696328eaee13e95ab5aeadb7da
+Shared/Infimum.lean
+  47f1bda2874fe6da5fe8088b5739fd043e06f3cd26f127325fdd98f60300af52
+Contracts/V1/Empirical.lean
+  e20880b420fdb6ca72c38f823ded2670c7a9fc18132c9de41906b6eab9b37556
+Margins/FixedPartition.lean
+  12be78965a1c53cc41a41a02b6107f69b71504d0fcbf9cd8ef2ee6fda6a2fb43
+Paths above are relative to formalization/upper_bound_v2/RiffleUpperV2/.
+
+MODEL / FIRST MOMENT / EMPIRICAL UPPER
+
+1. Physical inverse shuffle, sample, half-L1 TV, and shuffle edges are direct
+   aliases to the completed concrete model. expectedCommonEdges is the iterated
+   finite expectation against two independent copies of fixedCountPMF, and the
+   physical-to-graph theorem is reused as a theorem, not assumed or defined away.
+
+2. The retained cut type Cuts k n (K-a), absoluteColumn a r=a+r+1, and gridSum
+   filter s-a<=r<u-a give exactly the manuscript sum over s<h<=u. The assumptions
+   a<=s<=u<=a+L prevent Nat subtraction truncation from changing this meaning.
+   F supplies a<K, hence a+(K-a)=K. These arithmetic correspondences were proved
+   in IncrementalCheck_v1.lean. The generic empirical functions are total outside
+   their intended interval, but no endpoint contract uses those out-of-range
+   values. No off-by-one mismatch found.
+
+3. F's parameters have the correct order and scope: k>=2,T,eta,g positive with
+   g<1/k; c,N0 fixed before N,n,a,K,cuts; 2<=n<=N; a<K<=T log N; only the first
+   retained column's goodness and full integer negative margin are assumed.
+   Empirical costs use log N, proportions use current n, and beta starts at
+   log n/log N. No lower polynomial restriction on n, profile, density, or hidden
+   first-moment hypothesis is present. Natural-number a correctly supplies a>=0.
+
+4. E allows arbitrary positive g0,gamma0, chooses rho0 before rho and c,N0 before
+   N,K,cuts, and covers all K<=T log N. LocalGood is the literal closed-window
+   condition on [0,K/log N]. Its conclusion uses actual physicalInverseLaw and
+   half-L1 TV. There are no assumed probabilistic conclusions or certificates.
+
+5. N0>=2 rules out N=0,1 in both public contracts. F separately has n>=2 and a<K;
+   E can syntactically take K=0, but strictly negative terminal margin is impossible
+   there, as proved in the audit check. Zero pile counts remain legal. Empty
+   empirical intervals cost zero and beta(a)=log n/log N, also checked in Lean.
+   The aliases prefixMean etc. remain current-full-population quantities; anchor
+   M still needs its separate U03/U04 definitions, not a silent alias reinterpretation.
+
+REAL INFIMUM
+
+empiricalInf is sInf of the image of the full real Icc 3 4. The module proves
+nonempty domain, continuity of psi in theta including zero coordinates, finite
+sum/expression continuity, bounded-below and bounded-above images, comparison
+with every theta, and attainment on the compact domain. powerSum_pos justifies
+the logarithm. There is no empty-set or unbounded-real-infimum escape. Helpers
+also make sense at totalized log N=0, but the public endpoint guards exclude
+that regime, so this totalization is not being used to obtain a false endpoint.
+
+FIXED PARTITION
+
+fixedPartitionQuadrature applies proved genericQuadrature separately to maxCost
+and psi_theta with M=4 log k. The same supplied partition P controls regularity,
+cell integrability, and AlmostLike. It assumes scalar integrability and makes no
+time-continuity inference. ProfileIntervalErrors covers every real interval up
+to floor(T log N)/log N and every theta in [2,4], as intended for the scalar
+quadrature helper. This is not yet transfer of the final horizon T or of the
+empirical negative margin; those adapters remain separate obligations.
+
+anyFixedPartitionTransfer fixes k,T,e,C before chi0, then allows any chi<=chi0
+and any supplied IsRegular chi C partition. It accepts the empirical rho ceiling
+only after the partition, chooses rho0 within that ceiling, then phi0 after rho,
+then N0 after phi. N0 is uniform over mu and cuts (slightly stronger than required).
+The four errors each receive e/4. The selected chi0=transferChi/(C+1) ensures
+C*chi<=transferChi even at C=0. M>=0 follows from k>=2. All denominator signs
+are justified by the stated positive parameters or N>=2.
+
+The auxiliary bound 4 log k in place of the manuscript proof's 3 log k is explicit
+and harmless here: transferRho, transferPhi, and transferThreshold are constructed
+for this M, and the theorem still reaches every requested e>0 in the same order.
+The actual future P endpoint must instantiate this proved helper and chosen C_k;
+this review does not certify that still-missing endpoint integration.
+
+COMMON C_k DECISION
+
+Selecting regularityConstant k := 1 is a legitimate explicit interpretation of
+the manuscript's unspecified fixed common C_k, because
+TimeProfile.exists_regular_partition constructs IsRegular chi 1 for every
+0<chi<1/k. Record that source convention and its existence theorem. P must then
+quantify over every partition satisfying IsRegular chi 1. The review does not
+approve a claim uniform over arbitrary changing C with chi0 independent of C.
+U06's generic result correctly allows arbitrary C fixed before chi0.
+
+CHECKABLE EVIDENCE
+
+1. Command (exit 0):
+   python3 formalization/upper_bound_v2/scripts/build.py --lane U13 --run
+     audit/U13/IncrementalCheck_v1.lean
+   Log: incremental_check_v1.log; receipt: incremental_check_v1_build.json.
+   This checked the arithmetic/empty-horizon lemmas, printed F/E, and invoked
+   Lean's transitive axiom collector for physical_graph_representation and
+   empiricalInf_attained. Each reported only propext, Classical.choice, Quot.sound.
+
+2. Command (exit 0):
+   python3 formalization/upper_bound_v2/scripts/build.py --lane U13 --run
+     audit/U13/FixedPartitionCheck_v1.lean
+   Log: fixed_partition_check_v1.log; receipt: fixed_partition_check_v1_build.json.
+   The audit file contains a verbatim source snapshot of FixedPartition at the
+   hash above, followed by transitive axiom queries. This independently compiled
+   the two helper proofs; both reported only the three allowed standard axioms.
+
+Runtime was pinned Lean 4.33.1 with mathlib
+0df444a360eaa60ab8c11dca51a86af692955474. Shared project dependencies were read-only
+U00 staging, with their receipts/hashes checked for the F/E files. These are fresh
+audit/check runs, not a fresh independent build of the entire project dependency
+closure. No final recursive proof-value audit or endpoint acceptance is claimed.
+
+ACTIONABLE FINDINGS
+
+No correction required for the reviewed hashes. Preserve these exact contracts
+when implementing F/E. Remaining work is implementation and the separately
+identified C/P/T/R interfaces, downstream adapters, and final trust/build review.

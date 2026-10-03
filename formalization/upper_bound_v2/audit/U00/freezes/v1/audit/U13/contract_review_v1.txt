@@ -1,0 +1,251 @@
+U13 EARLY INDEPENDENT SOURCE/CONTRACT REVIEW — 2026-10-02
+
+STATUS: PARTIAL. This is a pre-freeze source review, not FINAL_AUDIT and not
+kernel/build certification. U00 has not supplied CONTRACTS_READY or an immutable
+INTEGRATION_READY handoff. No upper endpoint is certified by this report.
+
+Reviewed source manuscript SHA256:
+284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+This matches the plan. No manuscript or upstream Lean file was modified.
+
+1. PHYSICAL MODEL AND REUSABLE DEFINITIONS
+
+MATCH (source inspection; no fresh build in this early review):
+  TimeProfile.Cuts k n J = {count : Fin J -> Fin k -> Nat,
+                            sum_count : forall j, sum_l count j l = n}.
+  TimeProfile.fixedCountPMF cuts uses independent uniform fixed-count columns.
+  RiffleLowerV2.physicalInverseLaw cuts is the inverse of chronological forward
+  composition, NOT a newly defined graph law. Its source-to-graph bridge is:
+    RiffleLowerV2.Model.physical_graph_representation
+      {k N K : Nat} (cuts : TimeProfile.Cuts k N K) :
+      physicalInverseLaw cuts = graphMixtureLaw cuts.
+  RiffleLowerV2.tv P Q = (sum w, |(P w).toReal - (Q w).toReal|)/2.
+  Permutations are Equiv.Perm (Fin N), interpreted as position -> label.
+  PathEdges n = Finset (Fin (n-1)); edge e joins zero-based positions e,e+1.
+  manuscriptRank i = i.val + 1. shuffleEdges tests adjacent sorted-word equality.
+
+Reuse files:
+  formalization/time_profile/RiffleTimeProfile/{Base,FixedCountModel}.lean
+  formalization/lower_bound_v2/RiffleLowerV2/Shared/{Model,Path}.lean
+  formalization/lower_bound_v2/RiffleLowerV2/Model/{Main,FiniteLaws}.lean
+
+WARNING: Shared.Empirical.A/B/beta in the completed lower package tie the log
+scale to Cuts' population argument. They are an exact whole-deck E/P adapter
+candidate, not direct F definitions on n<N. Shared.Model.prefixMean similarly
+means population * prefixMass; anchor M must remain a separate quantity.
+
+2. COMMON EMPIRICAL DEFINITIONS TO FREEZE
+
+Keep N (original logarithmic scale), n (full current population), M (one exposed
+anchor pile), and a (absolute start index) distinct. One convenient representation
+is cuts : Cuts k n (K-a), with a<K and explicit local-to-absolute map j -> a+j+1.
+Equivalent representations require a proved reindexing adapter.
+
+For integer a<=i<=j<=K, L=log N, q^(h)_l=counts(h,l)/n:
+  Ahat(i,j) = sum_(i<h<=j) maxCost(q^(h)) / L;
+  Bhat(theta,i,j) = sum_(i<h<=j) psi(q^(h),theta) / L;
+  betahat(s) = log n/log N - Ahat(a,s);
+  f(s,u,theta) = ((theta+3)/2)*betahat(s)
+                  - Bhat(theta,s,u) - 2*Bhat(2,u,K).
+  NegativeMargin eta means betahat(K)<=-eta AND
+    forall integer a<=s<=u<=K,
+      sInf (f(s,u,.) '' Set.Icc (3:Real) 4) <= -eta.
+
+The theta domain is the full real interval, not a finite grid. Required associated
+facts are nonempty domain, bounded-below image (and bounded-above when using
+suprema), continuity or compact attainment where a minimizer is actually used.
+The existing ProfileTransfer.alphaDomain_nonempty, alphaInf_bounds and
+alphaInf_le_add are useful exact generic inputs. JointPsiContinuity is proved
+in ProfileTransfer.Spatial. Its instantiated empirical boundedness/continuity
+and the retained-grid adapters still must be proved.
+
+N>=2 and n>=2 exclude log-zero shortcuts. Real.rpow at exponent theta is safe at
+zero coordinates since theta>=2; maxCost and psi logarithms have strictly
+positive arguments for a probability vector. Zero pile sizes remain permitted.
+
+3. F — prop:ub-empirical-first-moment
+
+Proposed expanded mathematical interface (not an existing Lean declaration):
+  forall k>=2, T>0, eta>0, 0<g<1/k,
+  exists c>0, exists N0>=2,
+  forall N>=N0, forall n with 2<=n<=N,
+  forall integers 0<=a<K with K<=T log N,
+  forall fixed-count cuts on n labels indexed by a<j<=K,
+  if q^(a+1) is g-good and NegativeMargin(N,n,a,K,cuts,eta), then
+    E_(S,S' independent fixedCountPMF cuts)
+      card(shuffleEdges(S) intersect shuffleEdges(S')) <= N^(-c).
+
+All c,N0 choices precede n,a,K,cuts. There is no lower polynomial size bound on
+n, no local-good density, profile, partition, assumed endpoint smoothing,
+localization, first-moment estimate, or ambient conditional-prefix law.
+Source setup explicitly supplies 0<=a. s=u=K is included, as are s=a and s=u.
+The first g-good column only fixes anchor sizes; subsequent columns retain the
+full n-label sampling population, with n-M labels outside a pile as reserve.
+
+4. C — lem:ub-conditional-first-moment
+
+Fix k>=2,T>0,0<eta<=1,0<g<1/k,0<gamma<=1. Put xi=eta/10 and
+D=ceil(6/gamma). There exists a sufficiently small rho threshold, fixed before
+arrays/histories. For every fixed admissible rho, there are zeta,C>0,N0>=2,
+uniformly for all N>=N0 and retained arrays of K<=T log N columns satisfying:
+  * NegativeMargin with n=N,a=0 and margin 2*eta;
+  * every m_N=ceil(rho log N)+1 consecutive-column interval that fits in the
+    horizon contains >= gamma*rho*log N-2 g-good columns;
+  * column 1 is g-good and two further good columns occur among the next D.
+For each initial pile p of size n_p>=N^xi, each direction separately, and each
+positive-mass pair of natural histories h_i,h'_i, 1<=i<n_p, lying in F_i,F'_i:
+  E[unrevealed common directional edges | h_i,h'_i] <= C*N^(-zeta).
+For i=0 the same conclusion holds for empty histories without F_0 as a premise;
+for i=n_p the remaining count is exactly zero.
+
+Natural one-matrix histories are exactly the first i sorted full words inside
+one initial pile, in forward or reversed spatial order. Backward histories do
+not reverse columns. No outside-pile words, previous-pile history, auxiliary
+cylinder rowsets/counts, or terminal good event may be added to this conditioning.
+Two matrices have independent histories and stay conditionally independent.
+
+F_i is literally Pr(H^c | h_i)<=sqrt(rBad_N), where H is the concrete finite
+intersection of U07's reserve/count/guard conditions and
+rBad_N=A*N^A*exp(-c*N^(xi/3)). Source F_i is only defined for 1<=i<n_p.
+The constants must come from U07's construction, not a caller-supplied event or
+proof certificate. This concrete H/F_i interface is a freeze dependency still
+requiring U07/U00 agreement. The source's exponent budget chooses delta_F from
+F first, then rho log k <= min(3xi/4,3eta/5,delta_F)/4. A source-faithful C can
+express existence of rho0 without exposing F as a public hypothesis.
+
+5. E — thm:ub-empirical-upper
+
+  forall k>=2, T>0, eta0>0, g0>0, gamma0>0,
+  exists rho0>0,
+  forall fixed rho with 0<rho<=rho0,
+  exists c>0, exists N0>=2,
+  forall N>=N0, forall K with K<=T log N,
+  forall cuts : Cuts k N K,
+  NegativeMargin(N,N,0,K,cuts,eta0) ->
+  LocalGood(cuts,g0,gamma0,rho,0,K/log N) ->
+  tv(physicalInverseLaw cuts, uniformPermutation N) <= N^(-c).
+
+Do not restrict public g0 to <1/k or gamma0 to <=1; the source reduces these
+internally by minimum. No F,C,density,exploration,moment,TV or localization
+certificate may appear in the public assumptions, including structure fields.
+K is arbitrary below the bound, not necessarily floor(T log N).
+
+The local-good condition is every closed macroscopic interval [r,r+rho] within
+the indicated horizon, with column times j/log N (j=1,...,K). TimeProfile.LocalGood
+already uses this convention. A short horizon makes it vacuous, but terminal
+margin implies K >= (1+eta0)log N/log k. With rho chosen small this supplies the
+initial restart window; do not add a separate horizon-length hypothesis.
+
+6. P — thm:deterministic-upper-bound
+
+  forall k>=2,T>0,eta>0,
+  exists chi0>0,
+  forall fixed 0<chi<=chi0,
+  forall finite chi-regular P with the common C_k,
+  forall 0<g<1/k, gamma>0,
+  exists rho0>0,
+  forall fixed 0<rho<=rho0,
+  exists phi0>0,
+  forall fixed 0<phi<=phi0,
+  forall mu with ScalarIntegrable(mu,P,T) and
+    max(Lambda0(mu,T),Lambda1(mu,T))<=-eta,
+  forall epsilon>0, exists N0>=2,
+  forall N>=N0, forall cuts : Cuts k N floor(T log N),
+  AlmostLike(cuts,mu,P,T,rho,phi) ->
+  LocalGood(cuts,g,gamma,rho,0,T) ->
+  tv(physicalInverseLaw cuts, uniformPermutation N)<=epsilon.
+
+chi0 depends only on k,T,eta; it cannot follow P,g,gamma. P is universally
+quantified after chi, not existentially chosen by the proof. N0 may depend on
+all fixed displayed choices, including mu, but not cuts. The same P appears in
+regularity, cell scalar integrability, and AlmostLike. The parameter order is
+not equivalent to a mesh or good-density sequence varying with N.
+
+MATCH candidates: TimeProfile.BorelPartition.IsRegular, AlmostLike, LocalGood;
+RiffleLowerV2.ScalarIntegrable; macroBeta/macroF/macroLambda1; and genericQuadrature
+on a specified P. Historical profileTransfer chooses P existentially and is not
+a substitute for P. genericQuadrature's proved bound with M=4 log k is a harmless
+larger auxiliary bound only after adjusting parameter choices; source proof uses
+M=3 log k. No sharper conclusion may be asserted without a proof.
+
+Regularity constant convention must be frozen: source calls it the common C_k.
+TimeProfile.exists_regular_partition constructs IsRegular chi 1. C_k=1 is an
+available fixed convention; accepting arbitrary C with chi0 independent of C
+would not follow. Prefer recording exactly which common constant is selected.
+
+7. T — def:ub-arbitrarily-fine-approximation; thm:upper-critical-reduced
+
+Represent cuts by one coherent infinite count sequence for every N. Prefixes at
+different horizons must agree. For every T>0 and chiStar>0, require existence of
+fixed 0<chi<=chiStar, chi-regular P with C_k, fixed 0<g<1/k, gamma>0, rhoBar>0,
+and selected-P scalar integrability, such that:
+  forall fixed 0<rho<=rhoBar, forall fixed phi>0, exists N0,
+  forall N>=N0, both AlmostLike and LocalGood hold for prefix floor(T log N).
+
+g,gamma,P are fixed before rho,phi. A single coarse mesh, or good constants that
+decay as rho decreases, is insufficient. Global standing scalar integrability
+on compact intervals is also required for a and every psi_theta, theta in [2,4].
+
+CriticalRed = inf {t>0 : max(Lambda0(t),Lambda1(t))<0}, with inf empty=+infinity.
+Use an extended nonnegative/real order such as ENNReal or EReal, not real sInf.
+For every finite T with CriticalRed<T:
+  tv(physicalInverseLaw(prefix floor(T log N)),uniformPermutation N) -> 0.
+For every fixed epsilon in (0,1):
+  limsup_N mixingTime_N(epsilon)/log N <= CriticalRed.
+mixingTime is the infimum of discrete times reaching TV<=epsilon and must also
+allow +infinity. No convergence at T=CriticalRed is claimed. If CriticalRed is
+infinite, no finite-time upper bound is asserted. N=0,1 may be assigned harmless
+values in the sequence but the theorem concerns the eventual N>=2 regime.
+
+8. R — cor:random-time-profile-upper-bound and empirical variant
+
+The entire random count array is conditioned on. Given it, columns have the
+independent uniform fixed-count law, so the unconditional physical law is
+  countLaw.bind (fun cuts => physicalInverseLaw cuts).
+Representing an arbitrary law on the finite count-array space allows every
+possible dependence among column-count vectors. Do not impose product counts.
+
+Empirical: with E's fixed parameters and chosen rho,c,N0, for N>=N0:
+  TV(mixture,uniform) <= Pr(E-admissibility fails) + N^(-c).
+Consequently the distance tends to zero if this failure probability tends to zero.
+Profile: with P's fixed profile, negative margin and ordered parameters, assume
+AlmostLike holds with probability 1-o(1), and LocalGood holds with probability
+1-o(1). Their intersection has probability 1-o(1) by a union bound, with no
+independence requirement; TV of the mixture tends to zero.
+
+9. ADVERSARIAL CASES / FREEZE CHECKLIST
+
+A. Test n=2 and N arbitrarily large; no substitution log n or n>=N^delta is allowed.
+B. Test all-deterministic columns and K=0. Terminal margin fails for N,n>=2;
+   these cases cannot establish the theorem via totalized log or empty infimum.
+C. Permit zero counts and empty initial piles. Do not require all piles >=g*n.
+D. Include every integer endpoint pair, in particular a=a and s=u=K.
+E. No probability-zero history is fed to conditional division; i=0 is positive
+   and handled explicitly, and i=n_p has zero remainder.
+F. Revealed copies of the current word are forced information. Unrevealed edges
+   use removable extra copies (C_s-t)_+, not all C_s fresh draws.
+G. Conditioning on sorted histories differs from prescribing fixed labeled rows;
+   a generic residual-without-replacement law alone does not prove C.
+H. Conditioning further on a future-cylinder disintegration is inside a Jensen
+   argument only; it must not enlarge the adapted exploration filtration.
+I. P ranges over a specified arbitrary partition. Coordinate closeness need not
+   preserve cell membership and may not be assumed to do so.
+J. T uses extended infimum and coherent horizons; real sInf(empty)=0 is wrong.
+K. R permits fully dependent random cut vectors and correlated good events.
+L. Empty prefix products equal one and yield identity/empty-column physical law
+   through the same canonical model rather than a new convenient definition.
+
+10. OPEN OBLIGATIONS / VERDICT
+
+No concrete F/C/E/P/T/R proof exists for review in the new package at this
+checkpoint. Exact Lean types cannot be finally accepted before U00 freezes them.
+Required freeze resolutions: independent N scale and absolute-index adapter;
+concrete H/F_i/directional count definitions with U07; canonical C_k; coherent
+infinite count-sequence and extended-time representation; random array mixture
+type. These are interface obligations, not findings that the manuscript endpoints
+are false. No newly discovered source-level counterexample is claimed here.
+
+Final acceptance still requires actual endpoint implementations, fresh pinned
+dependency-closure builds, expanded types, recursive proof-value and axiom audits,
+and all F/C/E/P/T/R verdicts. This early report deliberately supplies none of
+those missing proof certificates and does not mark CONTRACTS_READY.

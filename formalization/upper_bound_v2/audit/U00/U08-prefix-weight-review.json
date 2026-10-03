@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:40:02.679263+00:00",
+  "sources": {
+    "Reservoir/PrefixWeight.lean": "39c1c156e33076f0247e3435e070b614c74ef0ef4e3bc6303082121641d80435",
+    "Reservoir/PrefixConditional.lean": "1345a27c93804beaf186336e38e3daefeaa6ae91dfdeda868fea20d7071398d6"
+  },
+  "mathematics": [
+    "Exact common-digit column request probabilities and independent-column product give the finite prefix product, summing all unused columns out.",
+    "Existing actual residual fixed-count theorem applies after injective full-row prescription of b labels with positive probability.",
+    "First marked-pile-column factor is positive from m<=remaining first-digit count and cancels exactly; other selected coordinates retain population n-b."
+  ],
+  "public_type_and_model": [
+    "The conditioning is the actual row prescription AND marked first digits; no conditional law or column independence is supplied as premise.",
+    "Complement enumeration and marked embedding are explicit, with complete complement coverage. Later selected columns exclude zero."
+  ],
+  "adversarial": [
+    "m=0 and empty selected column set are included.",
+    "Positivity needed for division comes from actual count availability and positive original prescription event.",
+    "This remains a row-prescription refinement law; transfer to natural history requires the actual completion/fiber argument."
+  ],
+  "remaining": [
+    "Quantitative reserve denominator and averaging over natural-history refinements remain to be instantiated."
+  ],
+  "root_build_receipt": "quantitative-partial-check-build.json",
+  "trust_inventory": "quantitative-partial-declarations.json"
+}

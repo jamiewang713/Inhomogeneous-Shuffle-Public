@@ -1,0 +1,42 @@
+{
+  "status": "PASS_WITH_LIMITED_SCOPE",
+  "overall_status": "PARTIAL",
+  "source_hashes": {
+    "Shared/Model.lean": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+    "Shared/Empirical.lean": "108ae31a7f9d966eb05ba2a5da78e8345191fc696328eaee13e95ab5aeadb7da",
+    "Shared/Infimum.lean": "47f1bda2874fe6da5fe8088b5739fd043e06f3cd26f127325fdd98f60300af52",
+    "Contracts/V1/Empirical.lean": "e20880b420fdb6ca72c38f823ded2670c7a9fc18132c9de41906b6eab9b37556",
+    "Margins/FixedPartition.lean": "12be78965a1c53cc41a41a02b6107f69b71504d0fcbf9cd8ef2ee6fda6a2fb43"
+  },
+  "reviewed": [
+    "F/E source correspondence",
+    "model semantics",
+    "integer retained indexing",
+    "real infimum existence and attainment",
+    "FixedPartition mathematics and parameter order"
+  ],
+  "endpoint_proofs_certified": false,
+  "full_closure_fresh_build": false,
+  "checks": [
+    {
+      "source": "audit/U13/IncrementalCheck_v1.lean",
+      "exit_code": 0,
+      "log": "audit/U13/incremental_check_v1.log",
+      "receipt": "audit/U13/incremental_check_v1_build.json"
+    },
+    {
+      "source": "audit/U13/FixedPartitionCheck_v1.lean",
+      "exit_code": 0,
+      "log": "audit/U13/fixed_partition_check_v1.log",
+      "receipt": "audit/U13/fixed_partition_check_v1_build.json"
+    }
+  ],
+  "axioms_reported": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "actionable_corrections": [],
+  "regularity_constant_decision": "C_k=1 accepted as explicitly recorded fixed source convention backed by partition existence",
+  "report": "audit/U13/incremental_review_v1.txt"
+}

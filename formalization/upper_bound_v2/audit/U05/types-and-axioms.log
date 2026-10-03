@@ -1,0 +1,2851 @@
+@RiffleUpperV2.FirstMoment.validBlock_terminal_immediate : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {chi delta : ℝ} {b : RiffleUpperV2.FirstMoment.BlockTriple k d},
+  RiffleUpperV2.FirstMoment.ValidBlock N cuts R chi delta b →
+    RiffleUpperV2.Localization.TerminalBoundaryPair b.1 b.2.1 →
+      Eq.{1} b.2.2 (RiffleUpperV2.Localization.boundaryJoin b.1 b.2.1)
+'RiffleUpperV2.FirstMoment.validBlock_terminal_immediate' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.activeClasses : {k n d N : ℕ} →
+  (hk : LT.lt.{0} 0 k) →
+    (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) →
+      (hn : LT.lt.{0} 0 n) →
+        (c : TimeProfile.ColumnAssignments cuts 0) →
+          (C chi delta : ℝ) →
+            (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) →
+              (Fin k → ℤ) →
+                ℤ →
+                  ℝ →
+                    Finset.{0}
+                      (RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                        (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+'RiffleUpperV2.FirstMoment.activeClasses' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_proper_of_nonroot : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k),
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+      (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ),
+      LT.lt.{0} 0 chi →
+        ∀ (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+          (s :
+            RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+              (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+          LT.lt.{0} chi 1 →
+            ∀ (a₀ : ℕ) {eta : ℝ},
+              RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+                LT.lt.{0}
+                    (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) eta) 2)
+                    delta →
+                  Ne.{1} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)
+                      ((fun t =>
+                          RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1)
+                        s) →
+                    RiffleUpperV2.Localization.ProperStable N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                      ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+                      ((fun t =>
+                          RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1)
+                        s)
+                      delta ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)
+'RiffleUpperV2.FirstMoment.retainedClass_proper_of_nonroot' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.activeClasses_fiber_count : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s :
+    RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+      (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+  LT.lt.{0} chi 1 →
+    ∀ (a₀ : ℕ) {eta : ℝ},
+      RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+        LT.lt.{0} (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) eta) 2)
+            delta →
+          ∀ (c₀ : Fin k → ℤ) (m : ℤ) (epsilon : ℝ) (L : ℕ),
+            LE.le.{0}
+                (Finset.card.{0}
+                  (RiffleUpperV2.Localization.relevantLeaves N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                    (c₀ (Sigma.fst.{0, 0} s))
+                    ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+                    ((fun t =>
+                        RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1)
+                      s)
+                    delta m epsilon))
+                L →
+              LE.le.{0}
+                (Finset.card.{0}
+                  ({t ∈ RiffleUpperV2.FirstMoment.activeClasses hk cuts hn c C chi delta hchiK c₀ m epsilon |
+                    Eq.{1}
+                      (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                        hn (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi hchi1 hchiK
+                        hwidth hd t)
+                      (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                        hn (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi hchi1 hchiK
+                        hwidth hd s)}))
+                (HAdd.hAdd.{0, 0, 0} L 1)
+'RiffleUpperV2.FirstMoment.activeClasses_fiber_count' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.relevantLeaves_card_zero_of_full : ∀ {k n d N : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (c₀ : ℤ)
+  (R : Finset.{0} (Fin n)) (v : RiffleUpperV2.Prefix k d) (delta : ℝ) (m : ℤ) (epsilon : ℝ),
+  Eq.{1} (↑(Sigma.fst.{0, 0} v)) d →
+    Eq.{1} (Finset.card.{0} (RiffleUpperV2.Localization.relevantLeaves N cuts c₀ R v delta m epsilon)) 0
+'RiffleUpperV2.FirstMoment.relevantLeaves_card_zero_of_full' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.activeClasses_count_eventually : ∀ (k : ℕ) (hk : LT.lt.{0} 0 k) (T chi delta : ℝ),
+  LE.le.{0} 0 T →
+    ∀ (hchi : LT.lt.{0} 0 chi) (hchiLt : LT.lt.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)),
+      LT.lt.{0} 0 delta →
+        ∃ N0,
+          LE.le.{0} 2 N0 ∧
+            ∀ (N n d : ℕ),
+              LE.le.{0} N0 N →
+                ∀ (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+                  (c : TimeProfile.ColumnAssignments cuts 0) (a₀ : ℕ) (eta C width : ℝ),
+                  LT.lt.{0} 0 eta →
+                    RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+                      ∀ (hwidth : LT.lt.{0} 0 width)
+                        (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))) (c₀ : Fin k → ℤ) (m : ℤ),
+                        LE.le.{0}
+                          (Finset.card.{0}
+                            (RiffleUpperV2.FirstMoment.activeClasses hk cuts hn c C chi delta hchiK c₀ m
+                              (Real.exp (Neg.neg.{0} (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} delta 16))))))
+                          (HMul.hMul.{0, 0, 0}
+                            (Finset.card.{0}
+                              (RiffleUpperV2.FirstMoment.retainedClasses hk hN
+                                (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi ⋯ hchiK
+                                hwidth hd))
+                            (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 k) d) 1))
+'RiffleUpperV2.FirstMoment.activeClasses_count_eventually' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.legal_prefix_digits : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  (R : Finset.{0} (Fin n)) (default : Fin d → Fin k) (x : RiffleUpperV2.Prefix k d),
+  RiffleUpperV2.Anchor.Legal cuts R x →
+    ∀ (j : Fin d),
+      LT.lt.{0} ↑j ↑(Sigma.fst.{0, 0} x) →
+        LT.lt.{0} 0
+          (TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) (RiffleUpperV2.FirstMoment.completePrefix default x j))
+'RiffleUpperV2.FirstMoment.legal_prefix_digits' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.prefixMass_extension : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  (default : Fin d → Fin k) {v x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Anchor.IsPrefix v x →
+    Eq.{1} (RiffleUpperV2.prefixMass cuts x)
+      (HMul.hMul.{0, 0, 0} (RiffleUpperV2.prefixMass cuts v)
+        (∏ j ∈ RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x),
+          TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) (RiffleUpperV2.FirstMoment.completePrefix default x j)))
+'RiffleUpperV2.FirstMoment.prefixMass_extension' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchoredMean_extension : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  (R : Finset.{0} (Fin n)) (default : Fin d → Fin k) {v x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Anchor.IsPrefix v x →
+    Eq.{1} (RiffleUpperV2.Anchor.anchoredMean cuts R x)
+      (HMul.hMul.{0, 0, 0} (RiffleUpperV2.Anchor.anchoredMean cuts R v)
+        (∏ j ∈ RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x),
+          TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) (RiffleUpperV2.FirstMoment.completePrefix default x j)))
+'RiffleUpperV2.FirstMoment.anchoredMean_extension' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchoredExactCostSplit : ∀ {k n d N : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (default : Fin d → Fin k) {v x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Anchor.IsPrefix v x →
+    RiffleUpperV2.Anchor.Legal cuts R x →
+      ∀ (chi : ℝ),
+        Eq.{1} (RiffleUpperV2.Localization.meanExponent N cuts R x)
+          (HSub.hSub.{0, 0, 0}
+            (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.meanExponent N cuts R v)
+              (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                (RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x)) chi
+                (RiffleUpperV2.FirstMoment.completePrefix default x)))
+            (RiffleUpperV2.FirstMoment.exceptionalCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+              (RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x)) chi
+              (RiffleUpperV2.FirstMoment.completePrefix default x)))
+'RiffleUpperV2.FirstMoment.anchoredExactCostSplit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchoredCosts_nonneg : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (default : Fin d → Fin k)
+      (v x : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal cuts R x →
+        ∀ (chi : ℝ),
+          LE.le.{0} 0
+              (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                (RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x)) chi
+                (RiffleUpperV2.FirstMoment.completePrefix default x)) ∧
+            LE.le.{0} 0
+              (RiffleUpperV2.FirstMoment.exceptionalCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                (RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x)) chi
+                (RiffleUpperV2.FirstMoment.completePrefix default x))
+'RiffleUpperV2.FirstMoment.anchoredCosts_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.largeDigits : {k : ℕ} → TimeProfile.Simplex k → ℝ → Finset.{0} (Fin k)
+'RiffleUpperV2.FirstMoment.largeDigits' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.largeDigits_nonempty : ∀ {k : ℕ},
+  LT.lt.{0} 0 k →
+    ∀ (p : TimeProfile.Simplex k) {chi : ℝ},
+      LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) → Finset.Nonempty.{0} (RiffleUpperV2.FirstMoment.largeDigits p chi)
+'RiffleUpperV2.FirstMoment.largeDigits_nonempty' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.leftDefault : {k n d : ℕ} →
+  LT.lt.{0} 0 k →
+    RiffleUpperV2.Cuts k n d → LT.lt.{0} 0 n → (chi : ℝ) → LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) → Fin d → Fin k
+'RiffleUpperV2.FirstMoment.leftDefault' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rightDefault : {k n d : ℕ} →
+  LT.lt.{0} 0 k →
+    RiffleUpperV2.Cuts k n d → LT.lt.{0} 0 n → (chi : ℝ) → LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) → Fin d → Fin k
+'RiffleUpperV2.FirstMoment.rightDefault' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.leftDefault_large : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k) (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (j : Fin d),
+  LE.le.{0} chi
+    (RiffleUpperV2.Anchor.digitProbability cuts j (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchi j))
+'RiffleUpperV2.FirstMoment.leftDefault_large' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rightDefault_large : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k) (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (j : Fin d),
+  LE.le.{0} chi
+    (RiffleUpperV2.Anchor.digitProbability cuts j (RiffleUpperV2.FirstMoment.rightDefault hk cuts hn chi hchi j))
+'RiffleUpperV2.FirstMoment.rightDefault_large' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.below_leftDefault_rare : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k) (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (j : Fin d) (b : Fin k),
+  LT.lt.{0} b (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchi j) →
+    LT.lt.{0} (RiffleUpperV2.Anchor.digitProbability cuts j b) chi
+'RiffleUpperV2.FirstMoment.below_leftDefault_rare' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.above_rightDefault_rare : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (j : Fin d) (b : Fin k),
+  LT.lt.{0} (RiffleUpperV2.FirstMoment.rightDefault hk cuts hn chi hchi j) b →
+    LT.lt.{0} (RiffleUpperV2.Anchor.digitProbability cuts j b) chi
+'RiffleUpperV2.FirstMoment.above_rightDefault_rare' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.leftBoundary_before_default : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (R : Finset.{0} (Fin n)) (y : RiffleUpperV2.Prefix k d),
+  RiffleUpperV2.Localization.LeftBoundary cuts R chi y →
+    ∀ (j : Fin d),
+      LT.lt.{0} (HAdd.hAdd.{0, 0, 0} (↑j) 1) ↑(Sigma.fst.{0, 0} y) →
+        LE.le.{0}
+          (RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchi) y j)
+          (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchi j)
+'RiffleUpperV2.FirstMoment.leftBoundary_before_default' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rightBoundary_before_default : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (R : Finset.{0} (Fin n)) (y : RiffleUpperV2.Prefix k d),
+  RiffleUpperV2.Localization.RightBoundary cuts R chi y →
+    ∀ (j : Fin d),
+      LT.lt.{0} (HAdd.hAdd.{0, 0, 0} (↑j) 1) ↑(Sigma.fst.{0, 0} y) →
+        LE.le.{0} (RiffleUpperV2.FirstMoment.rightDefault hk cuts hn chi hchi j)
+          (RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.rightDefault hk cuts hn chi hchi) y j)
+'RiffleUpperV2.FirstMoment.rightBoundary_before_default' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.leftBoundary_exception_rare : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (R : Finset.{0} (Fin n)) (y : RiffleUpperV2.Prefix k d),
+  RiffleUpperV2.Localization.LeftBoundary cuts R chi y →
+    ∀ (j : Fin d),
+      Membership.mem.{0, 0}
+          (RiffleUpperV2.FirstMoment.boundaryExceptions (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchi) y)
+          j →
+        LT.lt.{0}
+          (RiffleUpperV2.Anchor.digitProbability cuts j
+            (RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchi) y j))
+          chi
+'RiffleUpperV2.FirstMoment.leftBoundary_exception_rare' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rightBoundary_exception_rare : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (chi : ℝ) (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (R : Finset.{0} (Fin n)) (y : RiffleUpperV2.Prefix k d),
+  RiffleUpperV2.Localization.RightBoundary cuts R chi y →
+    ∀ (j : Fin d),
+      Membership.mem.{0, 0}
+          (RiffleUpperV2.FirstMoment.boundaryExceptions (RiffleUpperV2.FirstMoment.rightDefault hk cuts hn chi hchi) y)
+          j →
+        LT.lt.{0}
+          (RiffleUpperV2.Anchor.digitProbability cuts j
+            (RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.rightDefault hk cuts hn chi hchi) y j))
+          chi
+'RiffleUpperV2.FirstMoment.rightBoundary_exception_rare' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedCandidate_count : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+  LE.le.{0} (Fintype.card.{0} (RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK))
+    (HMul.hMul.{0, 0, 0}
+      (Finset.card.{0}
+        (RiffleUpperV2.FirstMoment.retainedClasses hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd))
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} d 1) (HPow.hPow.{0, 0, 0} k d)))
+'RiffleUpperV2.FirstMoment.retainedCandidate_count' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.completePrefix_injective_of_length : ∀ {k d : ℕ} (default : Fin d → Fin k)
+  {x y : RiffleUpperV2.Prefix k d},
+  Eq.{1} (Sigma.fst.{0, 0} x) (Sigma.fst.{0, 0} y) →
+    Eq.{1} (RiffleUpperV2.FirstMoment.completePrefix default x) (RiffleUpperV2.FirstMoment.completePrefix default y) →
+      Eq.{1} x y
+'RiffleUpperV2.FirstMoment.completePrefix_injective_of_length' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.completePrefix_agree_outside_extension : ∀ {k d : ℕ} (default : Fin d → Fin k)
+  {v x y : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Anchor.IsPrefix v x →
+    RiffleUpperV2.Anchor.IsPrefix v y →
+      Eq.{1} ↑(Sigma.fst.{0, 0} x) ↑(Sigma.fst.{0, 0} y) →
+        ∀ j ∉ RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x),
+          Eq.{1} (RiffleUpperV2.FirstMoment.completePrefix default x j)
+            (RiffleUpperV2.FirstMoment.completePrefix default y j)
+'RiffleUpperV2.FirstMoment.completePrefix_agree_outside_extension' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.goodCost_natBin_eq_intBin.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi width : ℝ),
+      LT.lt.{0} 0 width →
+        ∀ (w : J → Fin k),
+          (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w j))) →
+            Eq.{1} (↑(Nat.floor.{0} (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w) width)))
+              (Int.floor.{0} (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w) width))
+'RiffleUpperV2.FirstMoment.goodCost_natBin_eq_intBin' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.mem_costClass_of_natBin.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi width : ℝ),
+      LT.lt.{0} 0 width →
+        ∀ (w0 w : J → Fin k),
+          (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w0 j))) →
+            (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w j))) →
+              (∀ j ∉ I, Eq.{1} (w j) (w0 j)) →
+                Eq.{u_1 + 1} (RiffleUpperV2.FirstMoment.exceptionalPositions.{u_1} p I chi w)
+                    (RiffleUpperV2.FirstMoment.exceptionalPositions.{u_1} p I chi w0) →
+                  (∀ (j : J),
+                      Membership.mem.{u_1, u_1} (RiffleUpperV2.FirstMoment.exceptionalPositions.{u_1} p I chi w0) j →
+                        Eq.{1} (w j) (w0 j)) →
+                    Eq.{1}
+                        (Nat.floor.{0}
+                          (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w) width))
+                        (Nat.floor.{0}
+                          (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w0) width)) →
+                      Membership.mem.{u_1, u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0) w
+'RiffleUpperV2.FirstMoment.mem_costClass_of_natBin' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.goodCost_le_horizon : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (I : Finset.{0} (Fin d)) (chi : ℝ),
+      LT.lt.{0} 0 chi →
+        LE.le.{0} chi 1 →
+          ∀ (w : Fin d → Fin k) {T : ℝ},
+            LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+              LE.le.{0} (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn) I chi w)
+                (HMul.hMul.{0, 0, 0} T (Real.log (HDiv.hDiv.{0, 0, 0} 1 chi)))
+'RiffleUpperV2.FirstMoment.goodCost_le_horizon' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.goodCost_bin_bound : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (I : Finset.{0} (Fin d)) (chi width : ℝ),
+      LT.lt.{0} 0 chi →
+        LE.le.{0} chi 1 →
+          LT.lt.{0} 0 width →
+            ∀ (w : Fin d → Fin k) {T : ℝ},
+              LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                LT.lt.{0}
+                  (Nat.floor.{0}
+                    (HDiv.hDiv.{0, 0, 0}
+                      (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn) I chi w) width))
+                  (HAdd.hAdd.{0, 0, 0} 1
+                    (Nat.floor.{0}
+                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} T (Real.log (HDiv.hDiv.{0, 0, 0} 1 chi))) width)))
+'RiffleUpperV2.FirstMoment.goodCost_bin_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.fullWordMean_eq_prefixMean : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (hn : LT.lt.{0} 0 n) (w : Fin L → Fin k),
+  Eq.{1} (RiffleUpperV2.FirstMoment.fullWordMean cuts hn w)
+    (RiffleUpperV2.prefixMean cuts (RiffleLowerV2.fullPrefix (List.Vector.ofFn.{0} w)))
+'RiffleUpperV2.FirstMoment.fullWordMean_eq_prefixMean' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.prefixFamilyEntropy : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 k →
+    LE.le.{0} 2 N →
+      ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (default : Fin d → Fin k)
+        (v w0 : RiffleUpperV2.Prefix k d) (W : Finset.{0} (RiffleUpperV2.Prefix k d)),
+        Membership.mem.{0, 0} W w0 →
+          ∀ (I : Finset.{0} (Fin d)),
+            Eq.{1} I (RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} w0)) →
+              ∀ (chi width theta alpha : ℝ),
+                LT.lt.{0} 0 width →
+                  Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+                    (∀ (x : RiffleUpperV2.Prefix k d),
+                        Membership.mem.{0, 0} W x → Eq.{1} ↑(Sigma.fst.{0, 0} x) ↑(Sigma.fst.{0, 0} w0)) →
+                      (∀ (x : RiffleUpperV2.Prefix k d),
+                          Membership.mem.{0, 0} W x → RiffleUpperV2.Anchor.IsPrefix v x) →
+                        (∀ (x : RiffleUpperV2.Prefix k d),
+                            Membership.mem.{0, 0} W x →
+                              ∀ (j : Fin d),
+                                Membership.mem.{0, 0} I j →
+                                  LT.lt.{0} 0
+                                    (TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j)
+                                      (RiffleUpperV2.FirstMoment.completePrefix default x j))) →
+                          (∀ (x : RiffleUpperV2.Prefix k d),
+                              Membership.mem.{0, 0} W x →
+                                Eq.{1}
+                                  (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+                                    I chi (RiffleUpperV2.FirstMoment.completePrefix default x))
+                                  (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+                                    I chi (RiffleUpperV2.FirstMoment.completePrefix default w0))) →
+                            (∀ (x : RiffleUpperV2.Prefix k d),
+                                Membership.mem.{0, 0} W x →
+                                  ∀ (j : Fin d),
+                                    Membership.mem.{0, 0}
+                                        (RiffleUpperV2.FirstMoment.exceptionalPositions.{0}
+                                          (TimeProfile.Cuts.profile cuts hn) I chi
+                                          (RiffleUpperV2.FirstMoment.completePrefix default w0))
+                                        j →
+                                      Eq.{1} (RiffleUpperV2.FirstMoment.completePrefix default x j)
+                                        (RiffleUpperV2.FirstMoment.completePrefix default w0 j)) →
+                              (∀ (x : RiffleUpperV2.Prefix k d),
+                                  Membership.mem.{0, 0} W x →
+                                    Eq.{1}
+                                      (Nat.floor.{0}
+                                        (HDiv.hDiv.{0, 0, 0}
+                                          (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn) I
+                                            chi (RiffleUpperV2.FirstMoment.completePrefix default x))
+                                          width))
+                                      (Nat.floor.{0}
+                                        (HDiv.hDiv.{0, 0, 0}
+                                          (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn) I
+                                            chi (RiffleUpperV2.FirstMoment.completePrefix default w0))
+                                          width))) →
+                                LE.le.{0}
+                                    (↑(Finset.card.{0}
+                                        (RiffleUpperV2.FirstMoment.exceptionalPositions.{0}
+                                          (TimeProfile.Cuts.profile cuts hn) I chi
+                                          (RiffleUpperV2.FirstMoment.completePrefix default w0))))
+                                    (HMul.hMul.{0, 0, 0} alpha (TimeProfile.logScale N)) →
+                                  LE.le.{0}
+                                    (HDiv.hDiv.{0, 0, 0} (Real.log ↑(Finset.card.{0} W)) (TimeProfile.logScale N))
+                                    (HAdd.hAdd.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0}
+                                        (HMul.hMul.{0, 0, 0} theta
+                                          (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn) I
+                                            chi (RiffleUpperV2.FirstMoment.completePrefix default w0)))
+                                        (HDiv.hDiv.{0, 0, 0}
+                                          (∑ j ∈ I, TimeProfile.psi (TimeProfile.Cuts.profile cuts hn j) theta)
+                                          (TimeProfile.logScale N)))
+                                      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                                        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k)) alpha)))
+'RiffleUpperV2.FirstMoment.prefixFamilyEntropy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_smallProperDensity : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+  LE.le.{0} 2 k →
+    ∀
+      (s :
+        RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+      LT.lt.{0} chi 1 →
+        ∀ (a₀ : ℕ) {eta : ℝ},
+          RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+            LE.le.{0} 0 delta →
+              LT.lt.{0}
+                  (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) eta) 2)
+                  delta →
+                ¬RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1 (↑(Sigma.snd.{0, 0} s)).2.1 →
+                  LT.lt.{0}
+                      ↑(Sigma.fst.{0, 0}
+                          ((fun t =>
+                              RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                                (↑(Sigma.snd.{0, 0} t)).2.1)
+                            s))
+                      ↑(Sigma.fst.{0, 0} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)) →
+                    LE.le.{0}
+                        ((fun t =>
+                            RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                              ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                              ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+                          s)
+                        (HMul.hMul.{0, 0, 0} 2 delta) →
+                      ∀ (c₀ : ℤ) (slots : Finset.{0} ℤ),
+                        LE.le.{0}
+                          (HMul.hMul.{0, 0, 0}
+                            (↑(Finset.card.{0}
+                                (RiffleUpperV2.FirstMoment.classPrefixes hk hN
+                                  (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                  (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi hchi1
+                                  hchiK hwidth hd s)))
+                            (RiffleUpperV2.Localization.anchoredDensity (RiffleUpperV2.Hypergeometric.tailCuts cuts) c₀
+                              ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+                              ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s) slots))
+                          (HPow.hPow.{0, 0, 0} (↑N)
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Neg.neg.{0} eta) (HMul.hMul.{0, 0, 0} 8 delta))
+                                (HDiv.hDiv.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0} 21 (RiffleUpperV2.Localization.crossingPenalty N chi)) 2))
+                              (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k))
+                                  (TimeProfile.exceptionalAllowance chi)))))
+'RiffleUpperV2.FirstMoment.retainedClass_smallProperDensity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_smallImmediateDensity : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s :
+    RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+      (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+  (a₀ : ℕ) {eta : ℝ},
+  RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+    Eq.{1} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)
+        ((fun t => RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1) s) →
+      LE.le.{0}
+          ((fun t =>
+              RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+            s)
+          (HMul.hMul.{0, 0, 0} 2 delta) →
+        ∀ (c₀ : ℤ) (slots : Finset.{0} ℤ),
+          LE.le.{0}
+            (HMul.hMul.{0, 0, 0}
+              (↑(Finset.card.{0}
+                  (RiffleUpperV2.FirstMoment.classPrefixes hk hN (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                    (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi hchi1 hchiK hwidth
+                    hd s)))
+              (RiffleUpperV2.Localization.anchoredDensity (RiffleUpperV2.Hypergeometric.tailCuts cuts) c₀
+                ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+                ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s) slots))
+            (HPow.hPow.{0, 0, 0} (↑N)
+              (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (-2) eta) (HMul.hMul.{0, 0, 0} 4 delta)))
+'RiffleUpperV2.FirstMoment.retainedClass_smallImmediateDensity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_terminalDensity : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s :
+    RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+      (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+  (a₀ : ℕ) {eta : ℝ},
+  RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+    RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1 (↑(Sigma.snd.{0, 0} s)).2.1 →
+      ∀ (c₀ : ℤ) (slots : Finset.{0} ℤ),
+        LE.le.{0}
+          (HMul.hMul.{0, 0, 0}
+            (↑(Finset.card.{0}
+                (RiffleUpperV2.FirstMoment.classPrefixes hk hN (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                  (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi hchi1 hchiK hwidth hd
+                  s)))
+            (RiffleUpperV2.Localization.anchoredDensity (RiffleUpperV2.Hypergeometric.tailCuts cuts) c₀
+              ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+              ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s) slots))
+          (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} eta))
+'RiffleUpperV2.FirstMoment.retainedClass_terminalDensity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_largeDensity : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+  LE.le.{0} 2 k →
+    ∀
+      (s :
+        RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+      LT.lt.{0} chi 1 →
+        ∀ (a₀ : ℕ) {eta g : ℝ},
+          RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+            LT.lt.{0} 0 g →
+              LT.lt.{0} g 1 →
+                RiffleUpperV2.FirstColumnGood cuts hn g →
+                  LE.le.{0} 0 delta →
+                    LT.lt.{0}
+                        (HDiv.hDiv.{0, 0, 0}
+                          (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) eta) 2)
+                        delta →
+                      ¬RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1
+                            (↑(Sigma.snd.{0, 0} s)).2.1 →
+                        ∀ (c₀ : ℤ) (slots : Finset.{0} ℤ),
+                          LE.le.{0}
+                            (HMul.hMul.{0, 0, 0}
+                              (↑(Finset.card.{0}
+                                  (RiffleUpperV2.FirstMoment.classPrefixes hk hN
+                                    (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                    (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi
+                                    hchi1 hchiK hwidth hd s)))
+                              (RiffleUpperV2.Localization.anchoredDensity (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                                c₀ ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+                                ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s) slots))
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0} 4
+                                  √(HDiv.hDiv.{0, 0, 0}
+                                      (RiffleUpperV2.Anchor.varianceDenominator chi
+                                        ((fun t =>
+                                            RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                                              (↑(Sigma.snd.{0, 0} t)).2.1)
+                                          s))
+                                      g))
+                                (HPow.hPow.{0, 0, 0} (↑N)
+                                  (HAdd.hAdd.{0, 0, 0}
+                                    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Neg.neg.{0} eta) delta)
+                                      (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) 2))
+                                    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                                      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k))
+                                        (TimeProfile.exceptionalAllowance chi))))))
+                              (HMul.hMul.{0, 0, 0}
+                                (↑(Finset.card.{0}
+                                    (RiffleUpperV2.FirstMoment.classPrefixes hk hN
+                                      (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                      (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi
+                                      hchi1 hchiK hwidth hd s)))
+                                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 6 ↑(Finset.card.{0} slots))
+                                  (Real.exp
+                                    (HMul.hMul.{0, 0, 0}
+                                      (HMul.hMul.{0, 0, 0} (Neg.neg.{0} RiffleLowerV2.chernoffConstant) g)
+                                      (RiffleUpperV2.Anchor.sideScale (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                                        ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+                                        ((fun t =>
+                                            RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                                              (↑(Sigma.snd.{0, 0} t)).2.1)
+                                          s)))))))
+'RiffleUpperV2.FirstMoment.retainedClass_largeDensity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_genuine : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ),
+  LT.lt.{0} 0 chi →
+    ∀ (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+      (s :
+        RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+      LT.lt.{0} chi 1 →
+        ¬RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1 (↑(Sigma.snd.{0, 0} s)).2.1 →
+          RiffleUpperV2.Anchor.GenuineBoundaryPair (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+            ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s)) chi (↑(Sigma.snd.{0, 0} s)).1
+            (↑(Sigma.snd.{0, 0} s)).2.1
+            ((fun t => RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1) s)
+'RiffleUpperV2.FirstMoment.retainedClass_genuine' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_stops : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k),
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+      (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ),
+      LT.lt.{0} 0 chi →
+        ∀ (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+          (s :
+            RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+              (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+          LT.lt.{0} chi 1 →
+            ∀ (a₀ : ℕ) {eta : ℝ},
+              RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+                LT.lt.{0}
+                    (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) eta) 2)
+                    delta →
+                  ¬RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1
+                        (↑(Sigma.snd.{0, 0} s)).2.1 →
+                    RiffleUpperV2.Localization.Stops N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                      ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} s))
+                      ((fun t =>
+                          RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1)
+                        s)
+                      delta ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)
+'RiffleUpperV2.FirstMoment.retainedClass_stops' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_originalEntropy : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+  LE.le.{0} 2 k →
+    ∀
+      (s :
+        RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+      (a₀ : ℕ) (theta : ℝ),
+      Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+        LE.le.{0}
+          ((fun t =>
+              HDiv.hDiv.{0, 0, 0}
+                (Real.log
+                  ↑(Finset.card.{0}
+                      (RiffleUpperV2.FirstMoment.classPrefixes hk hN (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                        (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi hchi1 hchiK
+                        hwidth hd t)))
+                (TimeProfile.logScale N))
+            s)
+          (HAdd.hAdd.{0, 0, 0}
+            (HSub.hSub.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0} theta
+                ((fun t =>
+                    RiffleUpperV2.FirstMoment.goodCost.{0} N ((RiffleUpperV2.Hypergeometric.tailCuts cuts).profile hn)
+                      ((fun t =>
+                          RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                            ↑(Sigma.fst.{0, 0}
+                                ((fun t =>
+                                    RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                                      (↑(Sigma.snd.{0, 0} t)).2.1)
+                                  t))
+                            ↑(Sigma.fst.{0, 0} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t)))
+                        t)
+                      chi
+                      (RiffleUpperV2.FirstMoment.completePrefix
+                        (RiffleUpperV2.FirstMoment.leftDefault hk (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn chi
+                          hchiK)
+                        ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t)))
+                  s))
+              (RiffleUpperV2.empiricalB N a₀ cuts hn theta
+                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a₀ 1)
+                  ↑(Sigma.fst.{0, 0}
+                      ((fun t =>
+                          RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1)
+                        s)))
+                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a₀ 1)
+                  ↑(Sigma.fst.{0, 0} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)))))
+            (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k)) (TimeProfile.exceptionalAllowance chi))))
+'RiffleUpperV2.FirstMoment.retainedClass_originalEntropy' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_largeExponent : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+  LE.le.{0} 2 k →
+    ∀
+      (s :
+        RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+      LT.lt.{0} chi 1 →
+        ∀ (a₀ : ℕ) {eta : ℝ},
+          RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+            LE.le.{0} 0 delta →
+              LT.lt.{0}
+                  (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) eta) 2)
+                  delta →
+                ¬RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1 (↑(Sigma.snd.{0, 0} s)).2.1 →
+                  LE.le.{0}
+                    (HSub.hSub.{0, 0, 0}
+                      (HSub.hSub.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          ((fun t =>
+                              HDiv.hDiv.{0, 0, 0}
+                                (Real.log
+                                  ↑(Finset.card.{0}
+                                      (RiffleUpperV2.FirstMoment.classPrefixes hk hN
+                                        (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                        (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi
+                                        hchi1 hchiK hwidth hd t)))
+                                (TimeProfile.logScale N))
+                            s)
+                          (HMul.hMul.{0, 0, 0} 4
+                            ((fun t =>
+                                RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                                  ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                                  ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+                              s)))
+                        ((fun t =>
+                            RiffleUpperV2.Localization.boundaryFluctuation N
+                              (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                              ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                              ((fun t =>
+                                  RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                                    (↑(Sigma.snd.{0, 0} t)).2.1)
+                                t))
+                          s))
+                      (HMul.hMul.{0, 0, 0} 2
+                        (RiffleUpperV2.empiricalB N a₀ cuts hn 2
+                          (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a₀ 1)
+                            ↑(Sigma.fst.{0, 0} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)))
+                          (HAdd.hAdd.{0, 0, 0} a₀ (HAdd.hAdd.{0, 0, 0} d 1)))))
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Neg.neg.{0} eta) delta)
+                        (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) 2))
+                      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k))
+                          (TimeProfile.exceptionalAllowance chi))))
+'RiffleUpperV2.FirstMoment.retainedClass_largeExponent' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_smallProperExponent : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+  LE.le.{0} 2 k →
+    ∀
+      (s :
+        RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK),
+      LT.lt.{0} chi 1 →
+        ∀ (a₀ : ℕ) {eta : ℝ},
+          RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+            LE.le.{0} 0 delta →
+              LT.lt.{0}
+                  (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.crossingPenalty N chi) eta) 2)
+                  delta →
+                ¬RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1 (↑(Sigma.snd.{0, 0} s)).2.1 →
+                  LT.lt.{0}
+                      ↑(Sigma.fst.{0, 0}
+                          ((fun t =>
+                              RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                                (↑(Sigma.snd.{0, 0} t)).2.1)
+                            s))
+                      ↑(Sigma.fst.{0, 0} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)) →
+                    LE.le.{0}
+                        ((fun t =>
+                            RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                              ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                              ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+                          s)
+                        (HMul.hMul.{0, 0, 0} 2 delta) →
+                      LE.le.{0}
+                        (HSub.hSub.{0, 0, 0}
+                          (HAdd.hAdd.{0, 0, 0}
+                            ((fun t =>
+                                HDiv.hDiv.{0, 0, 0}
+                                  (Real.log
+                                    ↑(Finset.card.{0}
+                                        (RiffleUpperV2.FirstMoment.classPrefixes hk hN
+                                          (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width
+                                          hchi hchi1 hchiK hwidth hd t)))
+                                  (TimeProfile.logScale N))
+                              s)
+                            (HMul.hMul.{0, 0, 0} 4
+                              ((fun t =>
+                                  RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                                    ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                                    ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+                                s)))
+                          (HMul.hMul.{0, 0, 0} 2
+                            (RiffleUpperV2.empiricalB N a₀ cuts hn 2
+                              (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a₀ 1)
+                                ↑(Sigma.fst.{0, 0} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)))
+                              (HAdd.hAdd.{0, 0, 0} a₀ (HAdd.hAdd.{0, 0, 0} d 1)))))
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Neg.neg.{0} eta) (HMul.hMul.{0, 0, 0} 8 delta))
+                            (HDiv.hDiv.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0} 21 (RiffleUpperV2.Localization.crossingPenalty N chi)) 2))
+                          (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k))
+                              (TimeProfile.exceptionalAllowance chi))))
+'RiffleUpperV2.FirstMoment.retainedClass_smallProperExponent' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_smallImmediateExponent : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi)
+  (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s :
+    RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+      (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+  (a₀ : ℕ) {eta : ℝ},
+  RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+    Eq.{1} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)
+        ((fun t => RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1) s) →
+      LE.le.{0}
+          ((fun t =>
+              RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+            s)
+          (HMul.hMul.{0, 0, 0} 2 delta) →
+        LE.le.{0}
+          (HSub.hSub.{0, 0, 0}
+            (HAdd.hAdd.{0, 0, 0}
+              ((fun t =>
+                  HDiv.hDiv.{0, 0, 0}
+                    (Real.log
+                      ↑(Finset.card.{0}
+                          (RiffleUpperV2.FirstMoment.classPrefixes hk hN (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                            (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta width hchi hchi1 hchiK
+                            hwidth hd t)))
+                    (TimeProfile.logScale N))
+                s)
+              (HMul.hMul.{0, 0, 0} 4
+                ((fun t =>
+                    RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                      ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                      ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+                  s)))
+            (HMul.hMul.{0, 0, 0} 2
+              (RiffleUpperV2.empiricalB N a₀ cuts hn 2
+                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a₀ 1)
+                  ↑(Sigma.fst.{0, 0} ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) s)))
+                (HAdd.hAdd.{0, 0, 0} a₀ (HAdd.hAdd.{0, 0, 0} d 1)))))
+          (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (-2) eta) (HMul.hMul.{0, 0, 0} 4 delta))
+'RiffleUpperV2.FirstMoment.retainedClass_smallImmediateExponent' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClass_terminalExponent : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k),
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+      (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+      (s :
+        RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+      (a₀ : ℕ) {eta : ℝ},
+      RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+        RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1 (↑(Sigma.snd.{0, 0} s)).2.1 →
+          LE.le.{0}
+            ((fun t =>
+                RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                  ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) (Sigma.fst.{0, 0} t))
+                  ((fun t => (↑(Sigma.snd.{0, 0} t)).2.2) t))
+              s)
+            (Neg.neg.{0} eta)
+'RiffleUpperV2.FirstMoment.retainedClass_terminalExponent' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.sparseDigit : {d k q : ℕ} →
+  InhomogeneousShuffle.FirstMoment.SparseAssignment d k q → Fin d → Option.{0} (Fin k)
+'RiffleUpperV2.FirstMoment.sparseDigit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.encodeExceptions_eq_data : ∀ {k n d q : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (I J : Finset.{0} (Fin d)) (chi : ℝ) (w w' : Fin d → Fin k)
+  (hq :
+    LE.le.{0}
+      (Finset.card.{0} (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn) I chi w))
+      q)
+  (hq' :
+    LE.le.{0}
+      (Finset.card.{0} (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn) J chi w'))
+      q),
+  Eq.{1} (RiffleUpperV2.FirstMoment.encodeExceptions cuts hn I chi w hq)
+      (RiffleUpperV2.FirstMoment.encodeExceptions cuts hn J chi w' hq') →
+    Eq.{1} (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn) I chi w)
+        (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn) J chi w') ∧
+      ∀ (j : Fin d),
+        Membership.mem.{0, 0}
+            (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn) J chi w') j →
+          Eq.{1} (w j) (w' j)
+'RiffleUpperV2.FirstMoment.encodeExceptions_eq_data' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedDescriptor_eq_geometry : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (t s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+  Eq.{1} (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd t)
+      (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd s) →
+    Eq.{1} (Sigma.fst.{0, 0} t) (Sigma.fst.{0, 0} s) ∧
+      Eq.{1} (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} s)).1 ∧
+        Eq.{1} (↑(Sigma.snd.{0, 0} t)).2.1 (↑(Sigma.snd.{0, 0} s)).2.1 ∧
+          Eq.{1} (Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2) (Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} s)).2.2)
+'RiffleUpperV2.FirstMoment.retainedDescriptor_eq_geometry' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedDescriptor_eq_costs : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (t s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+  Eq.{1} (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd t)
+      (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd s) →
+    Eq.{1}
+        (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+          ((fun t =>
+              RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                ↑(Sigma.fst.{0, 0}
+                    (RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1))
+                ↑(Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2))
+            t)
+          chi
+          ((fun t =>
+              RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK)
+                (↑(Sigma.snd.{0, 0} t)).2.2)
+            t))
+        (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+          ((fun t =>
+              RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                ↑(Sigma.fst.{0, 0}
+                    (RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1))
+                ↑(Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2))
+            s)
+          chi
+          ((fun t =>
+              RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK)
+                (↑(Sigma.snd.{0, 0} t)).2.2)
+            s)) ∧
+      (∀ (j : Fin d),
+          Membership.mem.{0, 0}
+              (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+                ((fun t =>
+                    RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                      ↑(Sigma.fst.{0, 0}
+                          (RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                            (↑(Sigma.snd.{0, 0} t)).2.1))
+                      ↑(Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2))
+                  s)
+                chi
+                ((fun t =>
+                    RiffleUpperV2.FirstMoment.completePrefix
+                      (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK) (↑(Sigma.snd.{0, 0} t)).2.2)
+                  s))
+              j →
+            Eq.{1}
+              ((fun t =>
+                  RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK)
+                    (↑(Sigma.snd.{0, 0} t)).2.2)
+                t j)
+              ((fun t =>
+                  RiffleUpperV2.FirstMoment.completePrefix (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK)
+                    (↑(Sigma.snd.{0, 0} t)).2.2)
+                s j)) ∧
+        Eq.{1}
+          (Nat.floor.{0}
+            (HDiv.hDiv.{0, 0, 0}
+              (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                ((fun t =>
+                    RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                      ↑(Sigma.fst.{0, 0}
+                          (RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                            (↑(Sigma.snd.{0, 0} t)).2.1))
+                      ↑(Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2))
+                  t)
+                chi
+                ((fun t =>
+                    RiffleUpperV2.FirstMoment.completePrefix
+                      (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK) (↑(Sigma.snd.{0, 0} t)).2.2)
+                  t))
+              width))
+          (Nat.floor.{0}
+            (HDiv.hDiv.{0, 0, 0}
+              (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                ((fun t =>
+                    RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                      ↑(Sigma.fst.{0, 0}
+                          (RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                            (↑(Sigma.snd.{0, 0} t)).2.1))
+                      ↑(Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2))
+                  s)
+                chi
+                ((fun t =>
+                    RiffleUpperV2.FirstMoment.completePrefix
+                      (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK) (↑(Sigma.snd.{0, 0} t)).2.2)
+                  s))
+              width))
+'RiffleUpperV2.FirstMoment.retainedDescriptor_eq_costs' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classPrefixes : {k n d N : ℕ} →
+  (hk : LT.lt.{0} 0 k) →
+    LE.le.{0} 2 N →
+      (cuts : RiffleUpperV2.Cuts k n d) →
+        (hn : LT.lt.{0} 0 n) →
+          (R : Fin k → Finset.{0} (Fin n)) →
+            (T C chi delta width : ℝ) →
+              LT.lt.{0} 0 chi →
+                LE.le.{0} chi 1 →
+                  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) →
+                    LT.lt.{0} 0 width →
+                      LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                        RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK →
+                          Finset.{0} (RiffleUpperV2.Prefix k d)
+'RiffleUpperV2.FirstMoment.classPrefixes' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.mem_classPrefixes : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+  Membership.mem.{0, 0}
+    (RiffleUpperV2.FirstMoment.classPrefixes hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd s)
+    (↑(Sigma.snd.{0, 0} s)).2.2
+'RiffleUpperV2.FirstMoment.mem_classPrefixes' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedDescriptor_prefix_injective : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n))
+  (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1)
+  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (t s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+  Eq.{1} (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd t)
+      (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd s) →
+    Eq.{1} (↑(Sigma.snd.{0, 0} t)).2.2 (↑(Sigma.snd.{0, 0} s)).2.2 → Eq.{1} t s
+'RiffleUpperV2.FirstMoment.retainedDescriptor_prefix_injective' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classPrefixes_card : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+  Eq.{1}
+    (Finset.card.{0}
+      (RiffleUpperV2.FirstMoment.classPrefixes hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd s))
+    (Finset.card.{0}
+      {t |
+        Eq.{1}
+          (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd
+            t)
+          (RiffleUpperV2.FirstMoment.retainedDescriptor hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd
+            s)})
+'RiffleUpperV2.FirstMoment.classPrefixes_card' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classPrefixes_singleton_of_immediate : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n))
+  (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1)
+  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+  Eq.{1} (↑(Sigma.snd.{0, 0} s)).2.2
+      ((fun t => RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1 (↑(Sigma.snd.{0, 0} t)).2.1) s) →
+    Eq.{1} (RiffleUpperV2.FirstMoment.classPrefixes hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd s)
+      (Singleton.singleton.{0, 0} (↑(Sigma.snd.{0, 0} s)).2.2)
+'RiffleUpperV2.FirstMoment.classPrefixes_singleton_of_immediate' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classPrefixes_singleton_of_terminal : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n))
+  (T C chi delta width : ℝ) (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1)
+  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+  (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+  (s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+  RiffleUpperV2.Localization.TerminalBoundaryPair (↑(Sigma.snd.{0, 0} s)).1 (↑(Sigma.snd.{0, 0} s)).2.1 →
+    Eq.{1} (RiffleUpperV2.FirstMoment.classPrefixes hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd s)
+      (Singleton.singleton.{0, 0} (↑(Sigma.snd.{0, 0} s)).2.2)
+'RiffleUpperV2.FirstMoment.classPrefixes_singleton_of_terminal' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClassEntropy : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+  LE.le.{0} 2 k →
+    ∀ (s : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK) (theta : ℝ),
+      Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+        LE.le.{0}
+          (HDiv.hDiv.{0, 0, 0}
+            (Real.log
+              ↑(Finset.card.{0}
+                  (RiffleUpperV2.FirstMoment.classPrefixes hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth
+                    hd s)))
+            (TimeProfile.logScale N))
+          (HAdd.hAdd.{0, 0, 0}
+            (HSub.hSub.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0} theta
+                (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                  ((fun t =>
+                      RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                        ↑(Sigma.fst.{0, 0}
+                            (RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                              (↑(Sigma.snd.{0, 0} t)).2.1))
+                        ↑(Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2))
+                    s)
+                  chi
+                  ((fun t =>
+                      RiffleUpperV2.FirstMoment.completePrefix
+                        (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchiK) (↑(Sigma.snd.{0, 0} t)).2.2)
+                    s)))
+              (HDiv.hDiv.{0, 0, 0}
+                (∑
+                  j ∈
+                    (fun t =>
+                        RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                          ↑(Sigma.fst.{0, 0}
+                              (RiffleUpperV2.Localization.boundaryJoin (↑(Sigma.snd.{0, 0} t)).1
+                                (↑(Sigma.snd.{0, 0} t)).2.1))
+                          ↑(Sigma.fst.{0, 0} (↑(Sigma.snd.{0, 0} t)).2.2))
+                      s,
+                  TimeProfile.psi (TimeProfile.Cuts.profile cuts hn j) theta)
+                (TimeProfile.logScale N)))
+            (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k)) (TimeProfile.exceptionalAllowance chi))))
+'RiffleUpperV2.FirstMoment.retainedClassEntropy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.boundaryBudget : ℕ → ℝ → ℝ → ℕ
+'RiffleUpperV2.FirstMoment.boundaryBudget' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.extensionBudget : ℕ → ℝ → ℕ
+'RiffleUpperV2.FirstMoment.extensionBudget' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.empiricalBinCount : ℝ → ℝ → ℝ → ℕ
+'RiffleUpperV2.FirstMoment.empiricalBinCount' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.card_empiricalKey_eq_profileCount : ∀ (k d qb qe bins : ℕ),
+  Eq.{1} (Fintype.card.{0} (RiffleUpperV2.FirstMoment.EmpiricalKey k d qb qe bins))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} k bins) (InhomogeneousShuffle.FirstMoment.profileCountBound d k qb qe 0))
+'RiffleUpperV2.FirstMoment.card_empiricalKey_eq_profileCount' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.empiricalCostClassCount : ∀ (k : ℕ) (T C epsilon : ℝ),
+  LE.le.{0} 2 k →
+    LE.le.{0} 0 T →
+      LT.lt.{0} 0 C →
+        LT.lt.{0} 0 epsilon →
+          ∃ chi0,
+            LT.lt.{0} 0 chi0 ∧
+              LT.lt.{0} chi0 (Min.min.{0} 1 (HDiv.hDiv.{0, 0, 0} 1 ↑k)) ∧
+                ∀ (chi : ℝ),
+                  LT.lt.{0} 0 chi →
+                    LT.lt.{0} chi chi0 →
+                      ∀ (width : ℝ),
+                        LT.lt.{0} 0 width →
+                          ∃ N0,
+                            LE.le.{0} 2 N0 ∧
+                              ∀ (N d : ℕ),
+                                LE.le.{0} N0 N →
+                                  LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                                    LE.le.{0}
+                                      (↑(Fintype.card.{0}
+                                          (RiffleUpperV2.FirstMoment.EmpiricalKey k d
+                                            (RiffleUpperV2.FirstMoment.boundaryBudget N C chi)
+                                            (RiffleUpperV2.FirstMoment.extensionBudget N chi)
+                                            (RiffleUpperV2.FirstMoment.empiricalBinCount T chi width))))
+                                      (HPow.hPow.{0, 0, 0} (↑N) epsilon)
+'RiffleUpperV2.FirstMoment.empiricalCostClassCount' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.realizedClassCount_le.{u_1} : ∀ {A : Type u_1} [inst : Fintype.{u_1} A]
+  {k d qb qe bins N : ℕ} (descriptor : A → RiffleUpperV2.FirstMoment.EmpiricalKey k d qb qe bins) {epsilon : ℝ},
+  LE.le.{0} (↑(Fintype.card.{0} (RiffleUpperV2.FirstMoment.EmpiricalKey k d qb qe bins)))
+      (HPow.hPow.{0, 0, 0} (↑N) epsilon) →
+    LE.le.{0} (↑(Finset.card.{0} (Finset.image.{u_1, 0} descriptor Finset.univ.{u_1})))
+      (HPow.hPow.{0, 0, 0} (↑N) epsilon)
+'RiffleUpperV2.FirstMoment.realizedClassCount_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedDensity_sum_le : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))) (c₀ : Fin k → ℤ)
+  (slots : Finset.{0} ℤ) (U : ℝ),
+  (∀ (t : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+      LE.le.{0}
+        (HMul.hMul.{0, 0, 0}
+          (↑(Finset.card.{0}
+              (RiffleUpperV2.FirstMoment.classPrefixes hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd
+                t)))
+          (RiffleUpperV2.Localization.anchoredDensity cuts (c₀ (Sigma.fst.{0, 0} t)) (R (Sigma.fst.{0, 0} t))
+            (↑(Sigma.snd.{0, 0} t)).2.2 slots))
+        U) →
+    LE.le.{0}
+      (∑ t,
+        RiffleUpperV2.Localization.anchoredDensity cuts (c₀ (Sigma.fst.{0, 0} t)) (R (Sigma.fst.{0, 0} t))
+          (↑(Sigma.snd.{0, 0} t)).2.2 slots)
+      (HMul.hMul.{0, 0, 0}
+        (↑(Finset.card.{0}
+            (RiffleUpperV2.FirstMoment.retainedClasses hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd)))
+        U)
+'RiffleUpperV2.FirstMoment.retainedDensity_sum_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedDensity_sum_power : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (hN : LE.le.{0} 2 N)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (T C chi delta width : ℝ)
+  (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (hwidth : LT.lt.{0} 0 width) (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))) (c₀ : Fin k → ℤ)
+  (slots : Finset.{0} ℤ) (epsilon eta : ℝ),
+  LE.le.{0}
+      (↑(Finset.card.{0}
+          (RiffleUpperV2.FirstMoment.retainedClasses hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd)))
+      (HPow.hPow.{0, 0, 0} (↑N) epsilon) →
+    (∀ (t : RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK),
+        LE.le.{0}
+          (HMul.hMul.{0, 0, 0}
+            (↑(Finset.card.{0}
+                (RiffleUpperV2.FirstMoment.classPrefixes hk hN cuts hn R T C chi delta width hchi hchi1 hchiK hwidth hd
+                  t)))
+            (RiffleUpperV2.Localization.anchoredDensity cuts (c₀ (Sigma.fst.{0, 0} t)) (R (Sigma.fst.{0, 0} t))
+              (↑(Sigma.snd.{0, 0} t)).2.2 slots))
+          (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} (Neg.neg.{0} eta) 2))) →
+      LE.le.{0}
+        (∑ t,
+          RiffleUpperV2.Localization.anchoredDensity cuts (c₀ (Sigma.fst.{0, 0} t)) (R (Sigma.fst.{0, 0} t))
+            (↑(Sigma.snd.{0, 0} t)).2.2 slots)
+        (HPow.hPow.{0, 0, 0} (↑N) (HSub.hSub.{0, 0, 0} epsilon (HDiv.hDiv.{0, 0, 0} eta 2)))
+'RiffleUpperV2.FirstMoment.retainedDensity_sum_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.card_mean_tail_rpow.{u_1} : ∀ {A : Type u_1} {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal cuts R x →
+        ∀ (W : Finset.{u_1} A),
+          Finset.Nonempty.{u_1} W →
+            ∀ (a : ℕ),
+              Eq.{1}
+                (HMul.hMul.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0} (↑(Finset.card.{u_1} W))
+                    (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Anchor.anchoredMean cuts R x) 4))
+                  (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Localization.tailSquareMass cuts x) 2))
+                (HPow.hPow.{0, 0, 0} (↑N)
+                  (HSub.hSub.{0, 0, 0}
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HDiv.hDiv.{0, 0, 0} (Real.log ↑(Finset.card.{u_1} W)) (TimeProfile.logScale N))
+                      (HMul.hMul.{0, 0, 0} 4 (RiffleUpperV2.Localization.meanExponent N cuts R x)))
+                    (HMul.hMul.{0, 0, 0} 2
+                      (RiffleUpperV2.empiricalB N a cuts hn 2 (HAdd.hAdd.{0, 0, 0} a ↑(Sigma.fst.{0, 0} x))
+                        (HAdd.hAdd.{0, 0, 0} a d)))))
+'RiffleUpperV2.FirstMoment.card_mean_tail_rpow' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.smallDensity_power.{u_1} : ∀ {A : Type u_1} {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (c₀ : ℤ) (R : Finset.{0} (Fin n))
+      (x : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal cuts R x →
+        ∀ (slots : Finset.{0} ℤ) (W : Finset.{u_1} A),
+          Finset.Nonempty.{u_1} W →
+            ∀ (a : ℕ) {E : ℝ},
+              LE.le.{0}
+                  (HSub.hSub.{0, 0, 0}
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HDiv.hDiv.{0, 0, 0} (Real.log ↑(Finset.card.{u_1} W)) (TimeProfile.logScale N))
+                      (HMul.hMul.{0, 0, 0} 4 (RiffleUpperV2.Localization.meanExponent N cuts R x)))
+                    (HMul.hMul.{0, 0, 0} 2
+                      (RiffleUpperV2.empiricalB N a cuts hn 2 (HAdd.hAdd.{0, 0, 0} a ↑(Sigma.fst.{0, 0} x))
+                        (HAdd.hAdd.{0, 0, 0} a d))))
+                  E →
+                LE.le.{0}
+                  (HMul.hMul.{0, 0, 0} (↑(Finset.card.{u_1} W))
+                    (RiffleUpperV2.Localization.anchoredDensity cuts c₀ R x slots))
+                  (HPow.hPow.{0, 0, 0} (↑N) E)
+'RiffleUpperV2.FirstMoment.smallDensity_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.smoothingFactor_power : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d),
+      LT.lt.{0} 0 n →
+        ∀ (R : Finset.{0} (Fin n)) {g chi : ℝ},
+          LT.lt.{0} 0 g →
+            ∀ {y z v : RiffleUpperV2.Prefix k d},
+              RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R chi y z v →
+                Eq.{1}
+                  (√(HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.Anchor.varianceDenominator chi v)
+                      (HMul.hMul.{0, 0, 0} g (RiffleUpperV2.Anchor.sideScale cuts R v))))
+                  (HDiv.hDiv.{0, 0, 0} (√(HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.Anchor.varianceDenominator chi v) g))
+                    (HPow.hPow.{0, 0, 0} (↑N) (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v)))
+'RiffleUpperV2.FirstMoment.smoothingFactor_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.largeDensity_power.{u_1} : ∀ {A : Type u_1} {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LE.le.{0} 2 n),
+      LE.le.{0} 1 d →
+        ∀ (c₀ : ℤ) (R : Finset.{0} (Fin n)) {g chi : ℝ},
+          RiffleUpperV2.Anchor.Reserve R g →
+            ∀ {y z v x : RiffleUpperV2.Prefix k d},
+              RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R chi y z v →
+                RiffleUpperV2.Anchor.IsPrefix v x →
+                  RiffleUpperV2.Anchor.Legal cuts R x →
+                    ∀ (slots : Finset.{0} ℤ) (W : Finset.{u_1} A),
+                      Finset.Nonempty.{u_1} W →
+                        ∀ (a : ℕ) {E : ℝ},
+                          LE.le.{0}
+                              (HSub.hSub.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (HAdd.hAdd.{0, 0, 0}
+                                    (HDiv.hDiv.{0, 0, 0} (Real.log ↑(Finset.card.{u_1} W)) (TimeProfile.logScale N))
+                                    (HMul.hMul.{0, 0, 0} 4 (RiffleUpperV2.Localization.meanExponent N cuts R x)))
+                                  (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v))
+                                (HMul.hMul.{0, 0, 0} 2
+                                  (RiffleUpperV2.empiricalB N a cuts ⋯ 2 (HAdd.hAdd.{0, 0, 0} a ↑(Sigma.fst.{0, 0} x))
+                                    (HAdd.hAdd.{0, 0, 0} a d))))
+                              E →
+                            LE.le.{0}
+                              (HMul.hMul.{0, 0, 0} (↑(Finset.card.{u_1} W))
+                                (RiffleUpperV2.Localization.anchoredDensity cuts c₀ R x slots))
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0} 4
+                                    √(HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.Anchor.varianceDenominator chi v) g))
+                                  (HPow.hPow.{0, 0, 0} (↑N) E))
+                                (HMul.hMul.{0, 0, 0} (↑(Finset.card.{u_1} W))
+                                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 6 ↑(Finset.card.{0} slots))
+                                    (Real.exp
+                                      (HMul.hMul.{0, 0, 0}
+                                        (HMul.hMul.{0, 0, 0} (Neg.neg.{0} RiffleLowerV2.chernoffConstant) g)
+                                        (RiffleUpperV2.Anchor.sideScale cuts R v))))))
+'RiffleUpperV2.FirstMoment.largeDensity_power' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.smoothingPrefactor_eventually : ∀ (T chi g epsilon : ℝ),
+  LE.le.{0} 0 T →
+    LT.lt.{0} 0 chi →
+      LT.lt.{0} 0 g →
+        LT.lt.{0} 0 epsilon →
+          ∃ N0,
+            LE.le.{0} 2 N0 ∧
+              ∀ (N d : ℕ),
+                LE.le.{0} N0 N →
+                  LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                    ∀ (k : ℕ) (v : RiffleUpperV2.Prefix k d),
+                      LE.le.{0}
+                        (HMul.hMul.{0, 0, 0} 4
+                          √(HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.Anchor.varianceDenominator chi v) g))
+                        (HPow.hPow.{0, 0, 0} (↑N) epsilon)
+'RiffleUpperV2.FirstMoment.smoothingPrefactor_eventually' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.stretchedExp_le_power_eventually : ∀ (a M : ℝ),
+  LT.lt.{0} 0 a →
+    ∃ N0,
+      LE.le.{0} 2 N0 ∧
+        ∀ (N : ℕ),
+          LE.le.{0} N0 N →
+            LE.le.{0} (Real.exp (Neg.neg.{0} (HPow.hPow.{0, 0, 0} (↑N) a))) (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} M))
+'RiffleUpperV2.FirstMoment.stretchedExp_le_power_eventually' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.classFailure_eventually : ∀ (k : ℕ),
+  LE.le.{0} 1 k →
+    ∀ (T g delta M : ℝ),
+      LE.le.{0} 0 T →
+        LT.lt.{0} 0 g →
+          LT.lt.{0} 0 delta →
+            ∃ N0,
+              LE.le.{0} 2 N0 ∧
+                ∀ (N n d : ℕ),
+                  LE.le.{0} N0 N →
+                    LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                      ∀ (cuts : RiffleUpperV2.Cuts k n d),
+                        LT.lt.{0} 0 n →
+                          ∀ (R : Finset.{0} (Fin n)) (chi : ℝ) (y z v x : RiffleUpperV2.Prefix k d),
+                            RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R chi y z v →
+                              RiffleUpperV2.Localization.Stops N cuts R v delta x →
+                                LE.le.{0} (HMul.hMul.{0, 0, 0} 2 delta)
+                                    (RiffleUpperV2.Localization.meanExponent N cuts R x) →
+                                  ∀ (slots : Finset.{0} ℤ),
+                                    LE.le.{0} (Finset.card.{0} slots) N →
+                                      ∀ (W : Finset.{0} (RiffleUpperV2.Prefix k d)),
+                                        LE.le.{0}
+                                          (HMul.hMul.{0, 0, 0} (↑(Finset.card.{0} W))
+                                            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 6 ↑(Finset.card.{0} slots))
+                                              (Real.exp
+                                                (HMul.hMul.{0, 0, 0}
+                                                  (HMul.hMul.{0, 0, 0} (Neg.neg.{0} RiffleLowerV2.chernoffConstant) g)
+                                                  (RiffleUpperV2.Anchor.sideScale cuts R v)))))
+                                          (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} M))
+'RiffleUpperV2.FirstMoment.classFailure_eventually' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.completePrefix : {k d : ℕ} → (Fin d → Fin k) → RiffleUpperV2.Prefix k d → Fin d → Fin k
+'RiffleUpperV2.FirstMoment.completePrefix' does not depend on any axioms
+@RiffleUpperV2.FirstMoment.boundaryExceptions : {k d : ℕ} →
+  (Fin d → Fin k) → RiffleUpperV2.Prefix k d → Finset.{0} (Fin d)
+'RiffleUpperV2.FirstMoment.boundaryExceptions' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.BoundedBoundary : (k d : ℕ) → ℕ → (Fin d → Fin k) → Type
+'RiffleUpperV2.FirstMoment.BoundedBoundary' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.encodeBoundary : {k d qb : ℕ} →
+  (default : Fin d → Fin k) →
+    RiffleUpperV2.FirstMoment.BoundedBoundary k d qb default → InhomogeneousShuffle.FirstMoment.BoundaryCode d k qb
+'RiffleUpperV2.FirstMoment.encodeBoundary' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.decodeBoundary : {k d qb : ℕ} →
+  LT.lt.{0} 0 k → (Fin d → Fin k) → InhomogeneousShuffle.FirstMoment.BoundaryCode d k qb → RiffleUpperV2.Prefix k d
+'RiffleUpperV2.FirstMoment.decodeBoundary' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.decode_encode_boundary : ∀ {k d qb : ℕ} (hk : LT.lt.{0} 0 k) (default : Fin d → Fin k)
+  (x : RiffleUpperV2.FirstMoment.BoundedBoundary k d qb default),
+  Eq.{1} (RiffleUpperV2.FirstMoment.decodeBoundary hk default (RiffleUpperV2.FirstMoment.encodeBoundary default x)) ↑x
+'RiffleUpperV2.FirstMoment.decode_encode_boundary' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.encodeBoundary_injective : ∀ {k d qb : ℕ},
+  LT.lt.{0} 0 k →
+    ∀ (default : Fin d → Fin k), Function.Injective.{1, 1} (RiffleUpperV2.FirstMoment.encodeBoundary default)
+'RiffleUpperV2.FirstMoment.encodeBoundary_injective' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.boundary_card_le : ∀ {k d qb : ℕ},
+  LT.lt.{0} 0 k →
+    ∀ (default : Fin d → Fin k),
+      LE.le.{0} (Fintype.card.{0} (RiffleUpperV2.FirstMoment.BoundedBoundary k d qb default))
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} d 1) (HAdd.hAdd.{0, 0, 0} k 1))
+          (InhomogeneousShuffle.FirstMoment.sparseCount d k qb))
+'RiffleUpperV2.FirstMoment.boundary_card_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.EmpiricalKey : ℕ → ℕ → ℕ → ℕ → ℕ → Type
+'RiffleUpperV2.FirstMoment.EmpiricalKey' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.card_empiricalKey : ∀ (k d qb qe bins : ℕ),
+  Eq.{1} (Fintype.card.{0} (RiffleUpperV2.FirstMoment.EmpiricalKey k d qb qe bins))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 k) (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} k 1) 2))
+            (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} d 1) 3))
+          (HPow.hPow.{0, 0, 0} (InhomogeneousShuffle.FirstMoment.sparseCount d k qb) 2))
+        (InhomogeneousShuffle.FirstMoment.sparseCount d k qe))
+      bins)
+'RiffleUpperV2.FirstMoment.card_empiricalKey' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.encodeExceptions : {k n d qe : ℕ} →
+  (cuts : RiffleUpperV2.Cuts k n d) →
+    (hn : LT.lt.{0} 0 n) →
+      (I : Finset.{0} (Fin d)) →
+        (chi : ℝ) →
+          (w : Fin d → Fin k) →
+            LE.le.{0}
+                (Finset.card.{0}
+                  (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn) I chi w))
+                qe →
+              InhomogeneousShuffle.FirstMoment.SparseAssignment d k qe
+'RiffleUpperV2.FirstMoment.encodeExceptions' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalDescriptor : {k n d qb qe bins N : ℕ} →
+  (cuts : RiffleUpperV2.Cuts k n d) →
+    (hn : LT.lt.{0} 0 n) →
+      (leftDefault rightDefault : Fin d → Fin k) →
+        Fin k →
+          (y : RiffleUpperV2.FirstMoment.BoundedBoundary k d qb leftDefault) →
+            (z : RiffleUpperV2.FirstMoment.BoundedBoundary k d qb rightDefault) →
+              (x : RiffleUpperV2.Prefix k d) →
+                (chi width : ℝ) →
+                  ℝ →
+                    Finset.{0} (Fin n) →
+                      LE.le.{0}
+                          (Finset.card.{0}
+                            (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+                              (RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                                ↑(Sigma.fst.{0, 0} (RiffleUpperV2.Localization.boundaryJoin ↑y ↑z))
+                                ↑(Sigma.fst.{0, 0} x))
+                              chi (RiffleUpperV2.FirstMoment.completePrefix leftDefault x)))
+                          qe →
+                        LT.lt.{0}
+                            (Nat.floor.{0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                                  (RiffleUpperV2.FirstMoment.empiricalPositions d 0
+                                    ↑(Sigma.fst.{0, 0} (RiffleUpperV2.Localization.boundaryJoin ↑y ↑z))
+                                    ↑(Sigma.fst.{0, 0} x))
+                                  chi (RiffleUpperV2.FirstMoment.completePrefix leftDefault x))
+                                width))
+                            bins →
+                          RiffleUpperV2.FirstMoment.EmpiricalKey k d qb qe bins
+'RiffleUpperV2.FirstMoment.empiricalDescriptor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalDescriptorImage_card_le.{u_1} : ∀ {A : Type u_1} [inst : Fintype.{u_1} A]
+  {k d qb qe bins : ℕ} (descriptor : A → RiffleUpperV2.FirstMoment.EmpiricalKey k d qb qe bins),
+  LE.le.{0} (Finset.card.{0} (Finset.image.{u_1, 0} descriptor Finset.univ.{u_1}))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 k) (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} k 1) 2))
+            (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} d 1) 3))
+          (HPow.hPow.{0, 0, 0} (InhomogeneousShuffle.FirstMoment.sparseCount d k qb) 2))
+        (InhomogeneousShuffle.FirstMoment.sparseCount d k qe))
+      bins)
+'RiffleUpperV2.FirstMoment.empiricalDescriptorImage_card_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.wordRows : {k n d : ℕ} →
+  {cuts : RiffleUpperV2.Cuts k n d} →
+    Finset.{0} (Fin n) → (Fin d → Fin k) → RiffleUpperV2.Sample cuts → Finset.{0} (Fin n)
+'RiffleUpperV2.FirstMoment.wordRows' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rowsInWords : {k n d : ℕ} →
+  {cuts : RiffleUpperV2.Cuts k n d} →
+    Finset.{0} (Fin n) → Finset.{0} (Fin d → Fin k) → RiffleUpperV2.Sample cuts → Finset.{0} (Fin n)
+'RiffleUpperV2.FirstMoment.rowsInWords' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.wordRows_expect : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  (R : Finset.{0} (Fin n)) (w : Fin d → Fin k),
+  Eq.{1}
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+      ↑(Finset.card.{0} (RiffleUpperV2.FirstMoment.wordRows R w omega)))
+    (HMul.hMul.{0, 0, 0} (↑(Finset.card.{0} R))
+      (RiffleUpperV2.Compat.wordWeight.{0, 0} (fun j b => TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) b) w))
+'RiffleUpperV2.FirstMoment.wordRows_expect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rowsInWords_expect : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  (R : Finset.{0} (Fin n)) (W : Finset.{0} (Fin d → Fin k)),
+  Eq.{1}
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+      ↑(Finset.card.{0} (RiffleUpperV2.FirstMoment.rowsInWords R W omega)))
+    (HMul.hMul.{0, 0, 0} (↑(Finset.card.{0} R))
+      (∑ w ∈ W,
+        RiffleUpperV2.Compat.wordWeight.{0, 0} (fun j b => TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) b) w))
+'RiffleUpperV2.FirstMoment.rowsInWords_expect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rareDigits : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → LT.lt.{0} 0 n → ℝ → Fin d → Finset.{0} (Fin k)
+'RiffleUpperV2.FirstMoment.rareDigits' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rareWords : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → LT.lt.{0} 0 n → ℝ → ℕ → Finset.{0} (Fin d → Fin k)
+'RiffleUpperV2.FirstMoment.rareWords' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rareRows_expect_le_tail : ∀ {k n d N : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n),
+  LE.le.{0} n N →
+    ∀ (R : Finset.{0} (Fin n)) {chi : ℝ},
+      LT.lt.{0} 0 chi →
+        ∀ (h : ℕ),
+          LE.le.{0}
+            (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+              ↑(Finset.card.{0}
+                  (RiffleUpperV2.FirstMoment.rowsInWords R (RiffleUpperV2.FirstMoment.rareWords cuts hn chi h) omega)))
+            (HMul.hMul.{0, 0, 0} (↑N) (RiffleProfiles.tailWeight d h (HMul.hMul.{0, 0, 0} (↑k) chi)))
+'RiffleUpperV2.FirstMoment.rareRows_expect_le_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rowsInWords_union_expect_le : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (R : Finset.{0} (Fin n)) (W V : Finset.{0} (Fin d → Fin k)),
+  LE.le.{0}
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+      ↑(Finset.card.{0} (RiffleUpperV2.FirstMoment.rowsInWords R (Union.union.{0} W V) omega)))
+    (HAdd.hAdd.{0, 0, 0}
+      (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+        ↑(Finset.card.{0} (RiffleUpperV2.FirstMoment.rowsInWords R W omega)))
+      (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+        ↑(Finset.card.{0} (RiffleUpperV2.FirstMoment.rowsInWords R V omega))))
+'RiffleUpperV2.FirstMoment.rowsInWords_union_expect_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rareWords_mono : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  {chi chi' : ℝ},
+  LE.le.{0} chi chi' →
+    ∀ (h : ℕ), RiffleUpperV2.FirstMoment.rareWords cuts hn chi h ⊆ RiffleUpperV2.FirstMoment.rareWords cuts hn chi' h
+'RiffleUpperV2.FirstMoment.rareWords_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rowsInWords_expect_mono : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (R : Finset.{0} (Fin n)) {W V : Finset.{0} (Fin d → Fin k)},
+  W ⊆ V →
+    LE.le.{0}
+      (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+        ↑(Finset.card.{0} (RiffleUpperV2.FirstMoment.rowsInWords R W omega)))
+      (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+        ↑(Finset.card.{0} (RiffleUpperV2.FirstMoment.rowsInWords R V omega)))
+'RiffleUpperV2.FirstMoment.rowsInWords_expect_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardEnvelope : {k n d : ℕ} →
+  ℕ →
+    (cuts : RiffleUpperV2.Cuts k n d) →
+      LT.lt.{0} 0 n → Finset.{0} (Fin n) → ℝ → ℝ → RiffleUpperV2.Sample cuts → Finset.{0} (Fin n)
+'RiffleUpperV2.FirstMoment.discardEnvelope' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.discardEnvelope_power_bound : ∀ (k : ℕ) (T D C : ℝ),
+  LE.le.{0} 0 T →
+    LT.lt.{0} 0 D →
+      LE.le.{0} (HAdd.hAdd.{0, 0, 0} D 3) C →
+        ∃ chi0,
+          LT.lt.{0} 0 chi0 ∧
+            LT.lt.{0} chi0 1 ∧
+              ∀ (chi : ℝ),
+                LT.lt.{0} 0 chi →
+                  LT.lt.{0} chi chi0 →
+                    ∀ (N n d : ℕ),
+                      LE.le.{0} 2 N →
+                        ∀ (hn : LT.lt.{0} 0 n),
+                          LE.le.{0} n N →
+                            LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                              ∀ (cuts : RiffleUpperV2.Cuts k n d) (R : Finset.{0} (Fin n)),
+                                LE.le.{0}
+                                  (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+                                    ↑(Finset.card.{0}
+                                        (RiffleUpperV2.FirstMoment.discardEnvelope N cuts hn R C chi omega)))
+                                  (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} D))
+'RiffleUpperV2.FirstMoment.discardEnvelope_power_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.edgeSlots : ℕ → Finset.{0} ℤ
+'RiffleUpperV2.FirstMoment.edgeSlots' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.edgeRank_injective : ∀ (n : ℕ), Function.Injective.{1, 1} fun e => ↑↑e
+'RiffleUpperV2.FirstMoment.edgeRank_injective' depends on axioms: [propext]
+RiffleUpperV2.FirstMoment.edgeSlots_card : ∀ (n : ℕ),
+  Eq.{1} (Finset.card.{0} (RiffleUpperV2.FirstMoment.edgeSlots n)) (HSub.hSub.{0, 0, 0} n 1)
+'RiffleUpperV2.FirstMoment.edgeSlots_card' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.sum_edgeSlots : ∀ (n : ℕ) (f : ℤ → ℝ),
+  Eq.{1} (∑ m ∈ RiffleUpperV2.FirstMoment.edgeSlots n, f m) (∑ e, f ↑↑e)
+'RiffleUpperV2.FirstMoment.sum_edgeSlots' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchoredDensity_edgeSlots : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (c₀ : ℤ)
+  (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d),
+  Eq.{1} (RiffleUpperV2.Localization.anchoredDensity cuts c₀ R x (RiffleUpperV2.FirstMoment.edgeSlots n))
+    (∑ e, HPow.hPow.{0, 0, 0} (RiffleUpperV2.Localization.anchoredEdgeProbability cuts c₀ R x ↑↑e) 2)
+'RiffleUpperV2.FirstMoment.anchoredDensity_edgeSlots' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.empiricalFirstMoment : RiffleUpperV2.Contracts.V1.F
+'RiffleUpperV2.FirstMoment.empiricalFirstMoment' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.card_mul_lower_mass_le_one.{u_1,
+    u_2} : ∀ {J : Type u_1} {D : Type u_2} [inst : Fintype.{u_1} J] [inst_1 : Fintype.{u_2} D] (p : J → D → ℝ),
+  (∀ (j : J) (l : D), LE.le.{0} 0 (p j l)) →
+    (∀ (j : J), Eq.{1} (∑ l, p j l) 1) →
+      ∀ (W : Finset.{max u_1 u_2} (J → D)) (m : ℝ),
+        (∀ (w : J → D), Membership.mem.{max u_1 u_2, max u_1 u_2} W w → LE.le.{0} m (∏ j, p j (w j))) →
+          LE.le.{0} (HMul.hMul.{0, 0, 0} (↑(Finset.card.{max u_1 u_2} W)) m) 1
+'RiffleUpperV2.FirstMoment.card_mul_lower_mass_le_one' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.log_card_le_of_lower_mass.{u_1,
+    u_2} : ∀ {J : Type u_1} {D : Type u_2} [inst : Fintype.{u_1} J] [inst_1 : Fintype.{u_2} D] (p : J → D → ℝ),
+  (∀ (j : J) (l : D), LE.le.{0} 0 (p j l)) →
+    (∀ (j : J), Eq.{1} (∑ l, p j l) 1) →
+      ∀ (W : Finset.{max u_1 u_2} (J → D)),
+        Finset.Nonempty.{max u_1 u_2} W →
+          ∀ (H : ℝ),
+            (∀ (w : J → D),
+                Membership.mem.{max u_1 u_2, max u_1 u_2} W w → LE.le.{0} (Real.exp (Neg.neg.{0} H)) (∏ j, p j (w j))) →
+              LE.le.{0} (Real.log ↑(Finset.card.{max u_1 u_2} W)) H
+'RiffleUpperV2.FirstMoment.log_card_le_of_lower_mass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.exceptionalPositions.{u_1} : {J : Type u_1} →
+  [Fintype.{u_1} J] →
+    [DecidableEq.{u_1 + 1} J] →
+      {k : ℕ} → (J → TimeProfile.Simplex k) → Finset.{u_1} J → ℝ → (J → Fin k) → Finset.{u_1} J
+'RiffleUpperV2.FirstMoment.exceptionalPositions' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.goodPositions.{u_1} : {J : Type u_1} →
+  [Fintype.{u_1} J] →
+    [DecidableEq.{u_1 + 1} J] →
+      {k : ℕ} → (J → TimeProfile.Simplex k) → Finset.{u_1} J → ℝ → (J → Fin k) → Finset.{u_1} J
+'RiffleUpperV2.FirstMoment.goodPositions' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.selectedCost.{u_1} : {J : Type u_1} →
+  [Fintype.{u_1} J] →
+    [DecidableEq.{u_1 + 1} J] → {k : ℕ} → ℕ → (J → TimeProfile.Simplex k) → Finset.{u_1} J → (J → Fin k) → ℝ
+'RiffleUpperV2.FirstMoment.selectedCost' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.goodCost.{u_1} : {J : Type u_1} →
+  [Fintype.{u_1} J] →
+    [DecidableEq.{u_1 + 1} J] → {k : ℕ} → ℕ → (J → TimeProfile.Simplex k) → Finset.{u_1} J → ℝ → (J → Fin k) → ℝ
+'RiffleUpperV2.FirstMoment.goodCost' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.exceptionalCost.{u_1} : {J : Type u_1} →
+  [Fintype.{u_1} J] →
+    [DecidableEq.{u_1 + 1} J] → {k : ℕ} → ℕ → (J → TimeProfile.Simplex k) → Finset.{u_1} J → ℝ → (J → Fin k) → ℝ
+'RiffleUpperV2.FirstMoment.exceptionalCost' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.selectedCost_split.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k : ℕ} (N : ℕ) (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi : ℝ)
+  (w : J → Fin k),
+  Eq.{1} (RiffleUpperV2.FirstMoment.selectedCost.{u_1} N p I w)
+    (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w)
+      (RiffleUpperV2.FirstMoment.exceptionalCost.{u_1} N p I chi w))
+'RiffleUpperV2.FirstMoment.selectedCost_split' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.selectedCost_nonneg.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (w : J → Fin k),
+      (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w j))) →
+        LE.le.{0} 0 (RiffleUpperV2.FirstMoment.selectedCost.{u_1} N p I w)
+'RiffleUpperV2.FirstMoment.selectedCost_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.costClass.{u_1} : {J : Type u_1} →
+  [Fintype.{u_1} J] →
+    [DecidableEq.{u_1 + 1} J] →
+      {k : ℕ} → ℕ → (J → TimeProfile.Simplex k) → Finset.{u_1} J → ℝ → ℝ → (J → Fin k) → Finset.{u_1} (J → Fin k)
+'RiffleUpperV2.FirstMoment.costClass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.self_mem_costClass.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k : ℕ} (N : ℕ) (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J)
+  (chi width : ℝ) (w0 : J → Fin k),
+  (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w0 j))) →
+    Membership.mem.{u_1, u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0) w0
+'RiffleUpperV2.FirstMoment.self_mem_costClass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.costClass_goodCost_le.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k : ℕ} (N : ℕ) (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J)
+  (chi width : ℝ),
+  LT.lt.{0} 0 width →
+    ∀ (w0 w : J → Fin k),
+      Membership.mem.{u_1, u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0) w →
+        LE.le.{0} (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w)
+          (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w0) width)
+'RiffleUpperV2.FirstMoment.costClass_goodCost_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classTilt.{u_1} : {J : Type u_1} →
+  [Fintype.{u_1} J] →
+    [DecidableEq.{u_1 + 1} J] → {k : ℕ} → (J → TimeProfile.Simplex k) → Finset.{u_1} J → ℝ → (J → Fin k) → J → Fin k → ℝ
+'RiffleUpperV2.FirstMoment.classTilt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classTilt_nonneg.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k : ℕ} (p : J → TimeProfile.Simplex k) (G : Finset.{u_1} J) (theta : ℝ)
+  (w0 : J → Fin k) (j : J) (d : Fin k), LE.le.{0} 0 (RiffleUpperV2.FirstMoment.classTilt.{u_1} p G theta w0 j d)
+'RiffleUpperV2.FirstMoment.classTilt_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classTilt_sum.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k : ℕ} (p : J → TimeProfile.Simplex k) (G : Finset.{u_1} J) (theta : ℝ),
+  LE.le.{0} 1 theta →
+    ∀ (w0 : J → Fin k) (j : J), Eq.{1} (∑ d, RiffleUpperV2.FirstMoment.classTilt.{u_1} p G theta w0 j d) 1
+'RiffleUpperV2.FirstMoment.classTilt_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.costClass_tilt_log.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi width theta : ℝ),
+      LE.le.{0} 1 theta →
+        ∀ (w0 w : J → Fin k),
+          Membership.mem.{u_1, u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0) w →
+            Eq.{1}
+              (Real.log
+                (∏ j,
+                  RiffleUpperV2.FirstMoment.classTilt.{u_1} p (RiffleUpperV2.FirstMoment.goodPositions.{u_1} p I chi w0)
+                    theta w0 j (w j)))
+              (HAdd.hAdd.{0, 0, 0}
+                (HMul.hMul.{0, 0, 0}
+                  (HMul.hMul.{0, 0, 0} (Neg.neg.{0} theta) (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w))
+                  (TimeProfile.logScale N))
+                (∑ j ∈ RiffleUpperV2.FirstMoment.goodPositions.{u_1} p I chi w0, TimeProfile.psi (p j) theta))
+'RiffleUpperV2.FirstMoment.costClass_tilt_log' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.costClass_tilt_pos.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k : ℕ} (N : ℕ) (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J)
+  (chi width theta : ℝ),
+  LE.le.{0} 1 theta →
+    ∀ (w0 w : J → Fin k),
+      Membership.mem.{u_1, u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0) w →
+        LT.lt.{0} 0
+          (∏ j,
+            RiffleUpperV2.FirstMoment.classTilt.{u_1} p (RiffleUpperV2.FirstMoment.goodPositions.{u_1} p I chi w0) theta
+              w0 j (w j))
+'RiffleUpperV2.FirstMoment.costClass_tilt_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classEntropy_goodPositions.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi width theta : ℝ),
+      LT.lt.{0} 0 width →
+        LE.le.{0} 1 theta →
+          ∀ (w0 : J → Fin k),
+            (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w0 j))) →
+              LE.le.{0}
+                (HDiv.hDiv.{0, 0, 0}
+                  (Real.log ↑(Finset.card.{u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0)))
+                  (TimeProfile.logScale N))
+                (HAdd.hAdd.{0, 0, 0}
+                  (HSub.hSub.{0, 0, 0}
+                    (HMul.hMul.{0, 0, 0} theta (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w0))
+                    (HDiv.hDiv.{0, 0, 0}
+                      (∑ j ∈ RiffleUpperV2.FirstMoment.goodPositions.{u_1} p I chi w0, TimeProfile.psi (p j) theta)
+                      (TimeProfile.logScale N)))
+                  (HMul.hMul.{0, 0, 0} theta width))
+'RiffleUpperV2.FirstMoment.classEntropy_goodPositions' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classEntropy.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 k →
+    LE.le.{0} 2 N →
+      ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi width theta : ℝ),
+        LT.lt.{0} 0 width →
+          Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+            ∀ (w0 : J → Fin k),
+              (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w0 j))) →
+                LE.le.{0}
+                  (HDiv.hDiv.{0, 0, 0}
+                    (Real.log ↑(Finset.card.{u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0)))
+                    (TimeProfile.logScale N))
+                  (HAdd.hAdd.{0, 0, 0}
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HSub.hSub.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} theta (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w0))
+                        (HDiv.hDiv.{0, 0, 0} (∑ j ∈ I, TimeProfile.psi (p j) theta) (TimeProfile.logScale N)))
+                      (HMul.hMul.{0, 0, 0} 4 width))
+                    (HDiv.hDiv.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k))
+                        ↑(Finset.card.{u_1} (RiffleUpperV2.FirstMoment.exceptionalPositions.{u_1} p I chi w0)))
+                      (TimeProfile.logScale N)))
+'RiffleUpperV2.FirstMoment.classEntropy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.classEntropy_of_exceptionalBudget.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 k →
+    LE.le.{0} 2 N →
+      ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi width theta alpha : ℝ),
+        LT.lt.{0} 0 width →
+          Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+            ∀ (w0 : J → Fin k),
+              (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w0 j))) →
+                LE.le.{0} (↑(Finset.card.{u_1} (RiffleUpperV2.FirstMoment.exceptionalPositions.{u_1} p I chi w0)))
+                    (HMul.hMul.{0, 0, 0} alpha (TimeProfile.logScale N)) →
+                  LE.le.{0}
+                    (HDiv.hDiv.{0, 0, 0}
+                      (Real.log ↑(Finset.card.{u_1} (RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0)))
+                      (TimeProfile.logScale N))
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HSub.hSub.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} theta (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w0))
+                        (HDiv.hDiv.{0, 0, 0} (∑ j ∈ I, TimeProfile.psi (p j) theta) (TimeProfile.logScale N)))
+                      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k)) alpha)))
+'RiffleUpperV2.FirstMoment.classEntropy_of_exceptionalBudget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.empiricalPositions : (L : ℕ) → ℕ → ℕ → ℕ → Finset.{0} (Fin L)
+'RiffleUpperV2.FirstMoment.empiricalPositions' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalClassEntropy : ∀ {k n L N : ℕ},
+  LE.le.{0} 2 k →
+    LE.le.{0} 2 N →
+      ∀ (a s u : ℕ) (cuts : RiffleUpperV2.Cuts k n L) (hn : LT.lt.{0} 0 n) (chi width theta alpha : ℝ),
+        LT.lt.{0} 0 width →
+          Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+            ∀ (w0 : Fin L → Fin k),
+              (∀ (j : Fin L),
+                  Membership.mem.{0, 0} (RiffleUpperV2.FirstMoment.empiricalPositions L a s u) j →
+                    LT.lt.{0} 0 (TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) (w0 j))) →
+                LE.le.{0}
+                    (↑(Finset.card.{0}
+                        (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+                          (RiffleUpperV2.FirstMoment.empiricalPositions L a s u) chi w0)))
+                    (HMul.hMul.{0, 0, 0} alpha (TimeProfile.logScale N)) →
+                  LE.le.{0}
+                    (HDiv.hDiv.{0, 0, 0}
+                      (Real.log
+                        ↑(Finset.card.{0}
+                            (RiffleUpperV2.FirstMoment.costClass.{0} N (TimeProfile.Cuts.profile cuts hn)
+                              (RiffleUpperV2.FirstMoment.empiricalPositions L a s u) chi width w0)))
+                      (TimeProfile.logScale N))
+                    (HAdd.hAdd.{0, 0, 0}
+                      (HSub.hSub.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} theta
+                          (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                            (RiffleUpperV2.FirstMoment.empiricalPositions L a s u) chi w0))
+                        (RiffleUpperV2.empiricalB N a cuts hn theta s u))
+                      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k)) alpha)))
+'RiffleUpperV2.FirstMoment.empiricalClassEntropy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardedMarginal_bounds : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (m : ℤ),
+  LE.le.{0} 0 (RiffleUpperV2.FirstMoment.discardedMarginal hk cuts hn c C chi delta hchiK m) ∧
+    LE.le.{0} (RiffleUpperV2.FirstMoment.discardedMarginal hk cuts hn c C chi delta hchiK m) ↑k
+'RiffleUpperV2.FirstMoment.discardedMarginal_bounds' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardedMarginal_total : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (B : ℝ),
+  (∀ (p : Fin k),
+      LE.le.{0}
+        (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.Hypergeometric.tailCuts cuts))
+          fun omega =>
+          ↑(Finset.card.{0}
+              (RiffleUpperV2.FirstMoment.rowsInWords ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) p)
+                (RiffleUpperV2.FirstMoment.discardedWords hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                  ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) p) C chi delta hchiK)
+                omega)))
+        B) →
+    LE.le.{0} (∑ e, RiffleUpperV2.FirstMoment.discardedMarginal hk cuts hn c C chi delta hchiK ↑↑e)
+      (HMul.hMul.{0, 0, 0} (↑k) B)
+'RiffleUpperV2.FirstMoment.discardedMarginal_total' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardedMarginal_squares : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (B : ℝ),
+  (∀ (p : Fin k),
+      LE.le.{0}
+        (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.Hypergeometric.tailCuts cuts))
+          fun omega =>
+          ↑(Finset.card.{0}
+              (RiffleUpperV2.FirstMoment.rowsInWords ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) p)
+                (RiffleUpperV2.FirstMoment.discardedWords hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                  ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) p) C chi delta hchiK)
+                omega)))
+        B) →
+    LE.le.{0}
+      (∑ e, HPow.hPow.{0, 0, 0} (RiffleUpperV2.FirstMoment.discardedMarginal hk cuts hn c C chi delta hchiK ↑↑e) 2)
+      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑k) 2) B)
+'RiffleUpperV2.FirstMoment.discardedMarginal_squares' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.graphError_squares : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (B z : ℝ),
+  (∀ (p : Fin k),
+      LE.le.{0}
+        (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.Hypergeometric.tailCuts cuts))
+          fun omega =>
+          ↑(Finset.card.{0}
+              (RiffleUpperV2.FirstMoment.rowsInWords ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) p)
+                (RiffleUpperV2.FirstMoment.discardedWords hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                  ((fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) p) C chi delta hchiK)
+                omega)))
+        B) →
+    LE.le.{0}
+      (∑ e,
+        HPow.hPow.{0, 0, 0}
+          (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.FirstMoment.discardedMarginal hk cuts hn c C chi delta hchiK ↑↑e) z) 2)
+      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (HPow.hPow.{0, 0, 0} (↑k) 2)) B)
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ↑(HSub.hSub.{0, 0, 0} n 1)) (HPow.hPow.{0, 0, 0} z 2)))
+'RiffleUpperV2.FirstMoment.graphError_squares' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.largeExponent_core : ∀ {ell V F E H S Q beta B D theta delta q eH : ℝ},
+  Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+    LE.le.{0} 0 delta →
+      LE.le.{0} 0 q →
+        Eq.{1} ell (HSub.hSub.{0, 0, 0} (HSub.hSub.{0, 0, 0} V S) Q) →
+          LE.le.{0} 0 Q →
+            LE.le.{0} (HSub.hSub.{0, 0, 0} ell F) delta →
+              LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+                LE.le.{0} V beta →
+                  LE.le.{0} H (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} theta S) B) eH) →
+                    Eq.{1} E (Neg.neg.{0} D) →
+                      LE.le.{0}
+                        (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} H (HMul.hMul.{0, 0, 0} 4 ell)) F)
+                          (HMul.hMul.{0, 0, 0} 2 E))
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HSub.hSub.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0}
+                                  (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} theta 3) 2) beta) B)
+                                (HMul.hMul.{0, 0, 0} 2 D))
+                              delta)
+                            (HDiv.hDiv.{0, 0, 0} q 2))
+                          eH)
+'RiffleUpperV2.FirstMoment.largeExponent_core' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.smallExponent_core : ∀ {ell V F E H S beta B D theta delta q eH : ℝ},
+  Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+    LE.le.{0} 0 q →
+      LE.le.{0} 0 S →
+        LE.le.{0} S (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} V F) q) →
+          LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+            LE.le.{0} V beta →
+              LE.le.{0} ell (HMul.hMul.{0, 0, 0} 2 delta) →
+                LE.le.{0} H (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} theta S) B) eH) →
+                  Eq.{1} E (Neg.neg.{0} D) →
+                    LE.le.{0}
+                      (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} H (HMul.hMul.{0, 0, 0} 4 ell))
+                        (HMul.hMul.{0, 0, 0} 2 E))
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HSub.hSub.{0, 0, 0}
+                              (HSub.hSub.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} theta 3) 2) beta) B)
+                              (HMul.hMul.{0, 0, 0} 2 D))
+                            (HMul.hMul.{0, 0, 0} 8 delta))
+                          (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 21 q) 2))
+                        eH)
+'RiffleUpperV2.FirstMoment.smallExponent_core' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalLargeExponent : ∀ {k n L N a s u : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (hn : LT.lt.{0} 0 n) {eta ell V F E H S Q delta q eH : ℝ},
+  RiffleUpperV2.EmpiricalNegativeMargin N a cuts hn eta →
+    LE.le.{0} a s →
+      LE.le.{0} s u →
+        LE.le.{0} u (HAdd.hAdd.{0, 0, 0} a L) →
+          LE.le.{0} 0 delta →
+            LE.le.{0} 0 q →
+              Eq.{1} ell (HSub.hSub.{0, 0, 0} (HSub.hSub.{0, 0, 0} V S) Q) →
+                LE.le.{0} 0 Q →
+                  LE.le.{0} (HSub.hSub.{0, 0, 0} ell F) delta →
+                    LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+                      LE.le.{0} V (RiffleUpperV2.empiricalBeta N a cuts hn s) →
+                        (∀ (theta : ℝ),
+                            Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+                              LE.le.{0} H
+                                (HAdd.hAdd.{0, 0, 0}
+                                  (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} theta S)
+                                    (RiffleUpperV2.empiricalB N a cuts hn theta s u))
+                                  eH)) →
+                          Eq.{1} E (Neg.neg.{0} (RiffleUpperV2.empiricalB N a cuts hn 2 u (HAdd.hAdd.{0, 0, 0} a L))) →
+                            LE.le.{0}
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} H (HMul.hMul.{0, 0, 0} 4 ell)) F)
+                                (HMul.hMul.{0, 0, 0} 2 E))
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Neg.neg.{0} eta) delta)
+                                  (HDiv.hDiv.{0, 0, 0} q 2))
+                                eH)
+'RiffleUpperV2.FirstMoment.empiricalLargeExponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalSmallExponent : ∀ {k n L N a s u : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (hn : LT.lt.{0} 0 n) {eta ell V F E H S delta q eH : ℝ},
+  RiffleUpperV2.EmpiricalNegativeMargin N a cuts hn eta →
+    LE.le.{0} a s →
+      LE.le.{0} s u →
+        LE.le.{0} u (HAdd.hAdd.{0, 0, 0} a L) →
+          LE.le.{0} 0 q →
+            LE.le.{0} 0 S →
+              LE.le.{0} S (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} V F) q) →
+                LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+                  LE.le.{0} V (RiffleUpperV2.empiricalBeta N a cuts hn s) →
+                    LE.le.{0} ell (HMul.hMul.{0, 0, 0} 2 delta) →
+                      (∀ (theta : ℝ),
+                          Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+                            LE.le.{0} H
+                              (HAdd.hAdd.{0, 0, 0}
+                                (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} theta S)
+                                  (RiffleUpperV2.empiricalB N a cuts hn theta s u))
+                                eH)) →
+                        Eq.{1} E (Neg.neg.{0} (RiffleUpperV2.empiricalB N a cuts hn 2 u (HAdd.hAdd.{0, 0, 0} a L))) →
+                          LE.le.{0}
+                            (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} H (HMul.hMul.{0, 0, 0} 4 ell))
+                              (HMul.hMul.{0, 0, 0} 2 E))
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (Neg.neg.{0} eta) (HMul.hMul.{0, 0, 0} 8 delta))
+                                (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 21 q) 2))
+                              eH)
+'RiffleUpperV2.FirstMoment.empiricalSmallExponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.maxCost_le_psi_two : ∀ {k : ℕ} (p : TimeProfile.Simplex k),
+  LE.le.{0} (TimeProfile.maxCost p) (TimeProfile.psi p 2)
+'RiffleUpperV2.FirstMoment.maxCost_le_psi_two' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalA_le_B_two : ∀ {k n L N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (a : ℕ) (cuts : RiffleUpperV2.Cuts k n L) (hn : LT.lt.{0} 0 n) (s u : ℕ),
+      LE.le.{0} (RiffleUpperV2.empiricalA N a cuts hn s u) (RiffleUpperV2.empiricalB N a cuts hn 2 s u)
+'RiffleUpperV2.FirstMoment.empiricalA_le_B_two' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalImmediateExponent : ∀ {k n L N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (a : ℕ) (cuts : RiffleUpperV2.Cuts k n L) (hn : LT.lt.{0} 0 n) {s : ℕ} {eta ell E : ℝ},
+      LE.le.{0} a s →
+        LE.le.{0} s (HAdd.hAdd.{0, 0, 0} a L) →
+          LE.le.{0} (RiffleUpperV2.empiricalBeta N a cuts hn (HAdd.hAdd.{0, 0, 0} a L)) (Neg.neg.{0} eta) →
+            LE.le.{0} ell (RiffleUpperV2.empiricalBeta N a cuts hn s) →
+              Eq.{1} E (Neg.neg.{0} (RiffleUpperV2.empiricalB N a cuts hn 2 s (HAdd.hAdd.{0, 0, 0} a L))) →
+                LE.le.{0} (HAdd.hAdd.{0, 0, 0} ell E) (Neg.neg.{0} eta)
+'RiffleUpperV2.FirstMoment.empiricalImmediateExponent' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.immediateSmallDensityExponent : ∀ {ell E eta delta : ℝ},
+  LE.le.{0} (HAdd.hAdd.{0, 0, 0} ell E) (Neg.neg.{0} eta) →
+    LE.le.{0} ell (HMul.hMul.{0, 0, 0} 2 delta) →
+      LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 ell) (HMul.hMul.{0, 0, 0} 2 E))
+        (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (-2) eta) (HMul.hMul.{0, 0, 0} 4 delta))
+'RiffleUpperV2.FirstMoment.immediateSmallDensityExponent' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchoredEdges_expect_of_card_eq : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (c₀ : ℤ)
+  (R S : Finset.{0} (Fin n)),
+  Eq.{1} (Finset.card.{0} R) (Finset.card.{0} S) →
+    ∀ (x : RiffleUpperV2.Prefix k d) (f : Finset.{0} ℤ → ℝ),
+      Eq.{1}
+        (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+          f (RiffleUpperV2.Localization.anchoredEdges c₀ R x ω))
+        (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+          f (RiffleUpperV2.Localization.anchoredEdges c₀ S x ω))
+'RiffleUpperV2.FirstMoment.anchoredEdges_expect_of_card_eq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchorRows_card : ∀ {k n d : ℕ} {cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)}
+  (c : TimeProfile.ColumnAssignments cuts 0) (a : Fin k),
+  Eq.{1} (Finset.card.{0} (RiffleUpperV2.Hypergeometric.anchorRows c a)) (cuts.count 0 a)
+'RiffleUpperV2.FirstMoment.anchorRows_card' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstColumnAnchoredLaw : ∀ {k n d : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (c c' : TimeProfile.ColumnAssignments cuts 0) (a : Fin k)
+  (c₀ : ℤ) (x : RiffleUpperV2.Prefix k d) (f : Finset.{0} ℤ → ℝ),
+  Eq.{1}
+    (RiffleUpperV2.conditionalExpect.{0} (RiffleUpperV2.fixedCountPMF cuts)
+      (fun ω =>
+        f
+          (RiffleUpperV2.Localization.anchoredEdges c₀ (RiffleUpperV2.Hypergeometric.anchorRows c a) x
+            (RiffleUpperV2.Hypergeometric.tailSample ω)))
+      fun ω => Eq.{1} (ω 0) c)
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.Hypergeometric.tailCuts cuts)) fun ω =>
+      f (RiffleUpperV2.Localization.anchoredEdges c₀ (RiffleUpperV2.Hypergeometric.anchorRows c' a) x ω))
+'RiffleUpperV2.FirstMoment.firstColumnAnchoredLaw' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileStart : {k n d : ℕ} → RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1) → Fin k → ℤ
+'RiffleUpperV2.FirstMoment.firstPileStart' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileEdges : {k n d : ℕ} →
+  {cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)} →
+    Fin k → RiffleUpperV2.Prefix k d → RiffleUpperV2.Sample cuts → Finset.{0} ℤ
+'RiffleUpperV2.FirstMoment.firstPileEdges' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileEdges_expect : ∀ {k n d : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (c : TimeProfile.ColumnAssignments cuts 0) (a : Fin k)
+  (x : RiffleUpperV2.Prefix k d) (f : Finset.{0} ℤ → ℝ),
+  Eq.{1}
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+      f (RiffleUpperV2.FirstMoment.firstPileEdges a x ω))
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.Hypergeometric.tailCuts cuts)) fun ω =>
+      f
+        (RiffleUpperV2.Localization.anchoredEdges (RiffleUpperV2.FirstMoment.firstPileStart cuts a)
+          (RiffleUpperV2.Hypergeometric.anchorRows c a) x ω))
+'RiffleUpperV2.FirstMoment.firstPileEdges_expect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileEdges_probability : ∀ {k n d : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (c : TimeProfile.ColumnAssignments cuts 0) (a : Fin k)
+  (x : RiffleUpperV2.Prefix k d) (m : ℤ),
+  Eq.{1}
+    (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+      Membership.mem.{0, 0} (RiffleUpperV2.FirstMoment.firstPileEdges a x ω) m)
+    (RiffleUpperV2.Localization.anchoredEdgeProbability (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+      (RiffleUpperV2.FirstMoment.firstPileStart cuts a) (RiffleUpperV2.Hypergeometric.anchorRows c a) x m)
+'RiffleUpperV2.FirstMoment.firstPileEdges_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.goodColumn_pile_bound : ∀ {k n d : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n) {g : ℝ},
+  TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+    ∀ (p : Fin k), LE.le.{0} (↑(cuts.count 0 p)) (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 g) ↑n)
+'RiffleUpperV2.FirstMoment.goodColumn_pile_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileReserve : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1))
+  (hn : LT.lt.{0} 0 n) {g : ℝ},
+  LT.lt.{0} 0 g →
+    LT.lt.{0} g 1 →
+      RiffleUpperV2.FirstColumnGood cuts hn g →
+        ∀ (c : TimeProfile.ColumnAssignments cuts 0) (p : Fin k),
+          RiffleUpperV2.Anchor.Reserve (RiffleUpperV2.Hypergeometric.anchorRows c p) g
+'RiffleUpperV2.FirstMoment.firstPileReserve' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstColumnGood_population : ∀ {k n d : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n) {g : ℝ},
+  LT.lt.{0} 0 g → RiffleUpperV2.FirstColumnGood cuts hn g → LE.le.{0} 2 n
+'RiffleUpperV2.FirstMoment.firstColumnGood_population' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.actualGraphAssembly : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (epsilon B U : ℝ),
+  LE.le.{0} 0 epsilon →
+    ∀ (L : ℕ),
+      (∀ (e : Fin (HSub.hSub.{0, 0, 0} n 1)),
+          LE.le.{0}
+            (Finset.card.{0}
+              (RiffleUpperV2.FirstMoment.activeClasses hk cuts hn c C chi delta hchiK
+                (RiffleUpperV2.FirstMoment.firstPileStart cuts) (↑↑e) epsilon))
+            L) →
+        (∀ (p : Fin k),
+            LE.le.{0}
+              (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF (RiffleUpperV2.Hypergeometric.tailCuts cuts))
+                fun omega =>
+                ↑(Finset.card.{0}
+                    (RiffleUpperV2.FirstMoment.rowsInWords (RiffleUpperV2.Hypergeometric.anchorRows c p)
+                      (RiffleUpperV2.FirstMoment.discardedWords hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                        (RiffleUpperV2.Hypergeometric.anchorRows c p) C chi delta hchiK)
+                      omega)))
+              B) →
+          LE.le.{0}
+              (∑ t,
+                RiffleUpperV2.Localization.anchoredDensity (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                  (RiffleUpperV2.FirstMoment.firstPileStart cuts (Sigma.fst.{0, 0} t))
+                  (RiffleUpperV2.Hypergeometric.anchorRows c (Sigma.fst.{0, 0} t)) (↑(Sigma.snd.{0, 0} t)).2.2
+                  (RiffleUpperV2.FirstMoment.edgeSlots n))
+              U →
+            LE.le.{0} (RiffleUpperV2.expectedCommonEdges cuts)
+              (HAdd.hAdd.{0, 0, 0}
+                (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} (↑k) 2)) B)
+                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 ↑(HSub.hSub.{0, 0, 0} n 1))
+                    (HPow.hPow.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0}
+                        (↑(Fintype.card.{0}
+                            (RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                              hn (fun p => RiffleUpperV2.Hypergeometric.anchorRows c p) C chi delta hchiK)))
+                        epsilon)
+                      2)))
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ↑L) U))
+'RiffleUpperV2.FirstMoment.actualGraphAssembly' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.edgeMarginal_eq_probability : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (e : Fin (HSub.hSub.{0, 0, 0} n 1)),
+  Eq.{1} (InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.edgeMarginal.{0, 0} (RiffleUpperV2.toFirstMomentLaw cuts) e)
+    (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+      Membership.mem.{0, 0} (RiffleUpperV2.shuffleEdges omega) e)
+'RiffleUpperV2.FirstMoment.edgeMarginal_eq_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedMarginal : {k n d N : ℕ} →
+  (hk : LT.lt.{0} 0 k) →
+    (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) →
+      (hn : LT.lt.{0} 0 n) →
+        (c : TimeProfile.ColumnAssignments cuts 0) →
+          (C chi delta : ℝ) →
+            (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) →
+              RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                  (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK →
+                ℤ → ℝ
+'RiffleUpperV2.FirstMoment.retainedMarginal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardedMarginal : {k n d : ℕ} →
+  {N : ℕ} →
+    LT.lt.{0} 0 k →
+      (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) →
+        LT.lt.{0} 0 n →
+          TimeProfile.ColumnAssignments cuts 0 → ℝ → (chi : ℝ) → ℝ → LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) → ℤ → ℝ
+'RiffleUpperV2.FirstMoment.discardedMarginal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.edgeMarginal_retained_cover : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (e : Fin (HSub.hSub.{0, 0, 0} n 1)),
+  LE.le.{0}
+    (InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.edgeMarginal.{0, 0} (RiffleUpperV2.toFirstMomentLaw cuts) e)
+    (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.FirstMoment.discardedMarginal hk cuts hn c C chi delta hchiK ↑↑e)
+      (∑ t, RiffleUpperV2.FirstMoment.retainedMarginal hk cuts hn c C chi delta hchiK t ↑↑e))
+'RiffleUpperV2.FirstMoment.edgeMarginal_retained_cover' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedMarginal_le_of_inactive : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (t :
+    RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+      (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+  (m : ℤ) (epsilon : ℝ),
+  t ∉
+      RiffleUpperV2.FirstMoment.activeClasses hk cuts hn c C chi delta hchiK
+        (RiffleUpperV2.FirstMoment.firstPileStart cuts) m epsilon →
+    LE.le.{0} (RiffleUpperV2.FirstMoment.retainedMarginal hk cuts hn c C chi delta hchiK t m) epsilon
+'RiffleUpperV2.FirstMoment.retainedMarginal_le_of_inactive' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.edgeMarginal_active_cover : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+  (c : TimeProfile.ColumnAssignments cuts 0) (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+  (e : Fin (HSub.hSub.{0, 0, 0} n 1)) (epsilon : ℝ),
+  LE.le.{0} 0 epsilon →
+    LE.le.{0}
+      (InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.edgeMarginal.{0, 0} (RiffleUpperV2.toFirstMomentLaw cuts) e)
+      (HAdd.hAdd.{0, 0, 0}
+        (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.FirstMoment.discardedMarginal hk cuts hn c C chi delta hchiK ↑↑e)
+          (HMul.hMul.{0, 0, 0}
+            (↑(Fintype.card.{0}
+                (RiffleUpperV2.FirstMoment.RetainedAtPile hk N (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                  (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)))
+            epsilon))
+        (∑
+          t ∈
+            RiffleUpperV2.FirstMoment.activeClasses hk cuts hn c C chi delta hchiK
+              (RiffleUpperV2.FirstMoment.firstPileStart cuts) (↑↑e) epsilon,
+          RiffleUpperV2.FirstMoment.retainedMarginal hk cuts hn c C chi delta hchiK t ↑↑e))
+'RiffleUpperV2.FirstMoment.edgeMarginal_active_cover' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.prefixMass_selected_product : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (default : Fin d → Fin k) (x : RiffleUpperV2.Prefix k d),
+  Eq.{1} (RiffleUpperV2.prefixMass cuts x)
+    (∏ j ∈ RiffleUpperV2.FirstMoment.empiricalPositions d 0 0 ↑(Sigma.fst.{0, 0} x),
+      TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) (RiffleUpperV2.FirstMoment.completePrefix default x j))
+'RiffleUpperV2.FirstMoment.prefixMass_selected_product' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchoredExponent_le_beta : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (a : ℕ) (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (default : Fin d → Fin k)
+      (x : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal cuts R x →
+        LE.le.{0} (RiffleUpperV2.Localization.meanExponent N cuts R x)
+          (RiffleUpperV2.empiricalBeta N a cuts hn (HAdd.hAdd.{0, 0, 0} a ↑(Sigma.fst.{0, 0} x)))
+'RiffleUpperV2.FirstMoment.anchoredExponent_le_beta' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchorPrefix : {k d : ℕ} →
+  Fin k → RiffleUpperV2.Prefix k d → RiffleUpperV2.Prefix k (HAdd.hAdd.{0, 0, 0} d 1)
+'RiffleUpperV2.FirstMoment.anchorPrefix' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchorPrefix_mass : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1))
+  (a : Fin k) (x : RiffleUpperV2.Prefix k d),
+  Eq.{1} (RiffleUpperV2.prefixMass cuts (RiffleUpperV2.FirstMoment.anchorPrefix a x))
+    (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} ↑(cuts.count 0 a) ↑n)
+      (RiffleUpperV2.prefixMass (RiffleUpperV2.Hypergeometric.tailCuts cuts) x))
+'RiffleUpperV2.FirstMoment.anchorPrefix_mass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPile_anchoredMean : ∀ {k n d : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)),
+  LT.lt.{0} 0 n →
+    ∀ (c : TimeProfile.ColumnAssignments cuts 0) (a : Fin k) (x : RiffleUpperV2.Prefix k d),
+      Eq.{1}
+        (RiffleUpperV2.Anchor.anchoredMean (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+          (RiffleUpperV2.Hypergeometric.anchorRows c a) x)
+        (RiffleUpperV2.Anchor.anchoredMean cuts Finset.univ.{0} (RiffleUpperV2.FirstMoment.anchorPrefix a x))
+'RiffleUpperV2.FirstMoment.firstPile_anchoredMean' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileExponent_le_beta : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (a₀ : ℕ) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+      (c : TimeProfile.ColumnAssignments cuts 0) (a : Fin k) (x : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+          (RiffleUpperV2.Hypergeometric.anchorRows c a) x →
+        LE.le.{0}
+          (RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+            (RiffleUpperV2.Hypergeometric.anchorRows c a) x)
+          (RiffleUpperV2.empiricalBeta N a₀ cuts hn
+            (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a₀ 1) ↑(Sigma.fst.{0, 0} x)))
+'RiffleUpperV2.FirstMoment.firstPileExponent_le_beta' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileTerminalExponent : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (a₀ : ℕ) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n)
+      (c : TimeProfile.ColumnAssignments cuts 0) (a : Fin k) (x : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+          (RiffleUpperV2.Hypergeometric.anchorRows c a) x →
+        Eq.{1} (↑(Sigma.fst.{0, 0} x)) d →
+          ∀ {eta : ℝ},
+            LE.le.{0} (RiffleUpperV2.empiricalBeta N a₀ cuts hn (HAdd.hAdd.{0, 0, 0} a₀ (HAdd.hAdd.{0, 0, 0} d 1)))
+                (Neg.neg.{0} eta) →
+              LE.le.{0}
+                (RiffleUpperV2.Localization.meanExponent N (RiffleUpperV2.Hypergeometric.tailCuts cuts)
+                  (RiffleUpperV2.Hypergeometric.anchorRows c a) x)
+                (Neg.neg.{0} eta)
+'RiffleUpperV2.FirstMoment.firstPileTerminalExponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.BlockTriple : ℕ → ℕ → Type
+'RiffleUpperV2.FirstMoment.BlockTriple' does not depend on any axioms
+@RiffleUpperV2.FirstMoment.ValidBlock : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → ℝ → ℝ → RiffleUpperV2.FirstMoment.BlockTriple k d → Prop
+'RiffleUpperV2.FirstMoment.ValidBlock' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.Blocks : {k n d : ℕ} → ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → ℝ → ℝ → Type
+'RiffleUpperV2.FirstMoment.Blocks' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.blockPartition : ∀ {k n d : ℕ} (N : ℕ) (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) (chi delta : ℝ) (w : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal cuts R w →
+        Eq.{1} (↑(Sigma.fst.{0, 0} w)) d → ExistsUnique.{1} fun b => RiffleUpperV2.Anchor.IsPrefix (↑b).2.2 w
+'RiffleUpperV2.FirstMoment.blockPartition' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.terminalBlock_full : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {chi delta : ℝ} (b : RiffleUpperV2.FirstMoment.Blocks N cuts R chi delta),
+  RiffleUpperV2.Localization.TerminalBoundaryPair (↑b).1 (↑b).2.1 → Eq.{1} (↑(Sigma.fst.{0, 0} (↑b).2.2)) d
+'RiffleUpperV2.FirstMoment.terminalBlock_full' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.terminalBlock_singleton : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {chi delta : ℝ} (b : RiffleUpperV2.FirstMoment.Blocks N cuts R chi delta),
+  RiffleUpperV2.Localization.TerminalBoundaryPair (↑b).1 (↑b).2.1 →
+    ∀ {w : RiffleUpperV2.Prefix k d}, RiffleUpperV2.Anchor.IsPrefix (↑b).2.2 w → Eq.{1} w (↑b).2.2
+'RiffleUpperV2.FirstMoment.terminalBlock_singleton' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.completePrefix_eq_fullword : ∀ {k d : ℕ} (default : Fin d → Fin k)
+  (x : RiffleUpperV2.Prefix k d) (w : Fin d → Fin k),
+  RiffleUpperV2.Anchor.IsPrefix x (RiffleLowerV2.fullPrefix (List.Vector.ofFn.{0} w)) →
+    ∀ (j : Fin d),
+      LT.lt.{0} ↑j ↑(Sigma.fst.{0, 0} x) → Eq.{1} (RiffleUpperV2.FirstMoment.completePrefix default x j) (w j)
+'RiffleUpperV2.FirstMoment.completePrefix_eq_fullword' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.extensionExceptions_le_badCount : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (default : Fin d → Fin k) (v x : RiffleUpperV2.Prefix k d) (w : Fin d → Fin k),
+  RiffleUpperV2.Anchor.IsPrefix x (RiffleLowerV2.fullPrefix (List.Vector.ofFn.{0} w)) →
+    ∀ (chi : ℝ),
+      LE.le.{0}
+        (Finset.card.{0}
+          (RiffleUpperV2.FirstMoment.exceptionalPositions.{0} (TimeProfile.Cuts.profile cuts hn)
+            (RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x)) chi
+            (RiffleUpperV2.FirstMoment.completePrefix default x)))
+        (RiffleUpperV2.Compat.badCount.{0, 0} (RiffleUpperV2.FirstMoment.rareDigits cuts hn chi) w)
+'RiffleUpperV2.FirstMoment.extensionExceptions_le_badCount' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.leftBoundaryExceptions_le_badCount : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (chi : ℝ)
+  (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (y : RiffleUpperV2.Prefix k d) (w : Fin d → Fin k),
+  RiffleUpperV2.Localization.LeftBoundary cuts R chi y →
+    RiffleUpperV2.Anchor.IsPrefix y (RiffleLowerV2.fullPrefix (List.Vector.ofFn.{0} w)) →
+      LE.le.{0}
+        (Finset.card.{0}
+          (RiffleUpperV2.FirstMoment.boundaryExceptions (RiffleUpperV2.FirstMoment.leftDefault hk cuts hn chi hchi) y))
+        (RiffleUpperV2.Compat.badCount.{0, 0} (RiffleUpperV2.FirstMoment.rareDigits cuts hn chi) w)
+'RiffleUpperV2.FirstMoment.leftBoundaryExceptions_le_badCount' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rightBoundaryExceptions_le_badCount : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (chi : ℝ)
+  (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (y : RiffleUpperV2.Prefix k d) (w : Fin d → Fin k),
+  RiffleUpperV2.Localization.RightBoundary cuts R chi y →
+    RiffleUpperV2.Anchor.IsPrefix y (RiffleLowerV2.fullPrefix (List.Vector.ofFn.{0} w)) →
+      LE.le.{0}
+        (Finset.card.{0}
+          (RiffleUpperV2.FirstMoment.boundaryExceptions (RiffleUpperV2.FirstMoment.rightDefault hk cuts hn chi hchi) y))
+        (RiffleUpperV2.Compat.badCount.{0, 0} (RiffleUpperV2.FirstMoment.rareDigits cuts hn chi) w)
+'RiffleUpperV2.FirstMoment.rightBoundaryExceptions_le_badCount' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.RetainedBlock : {k n d : ℕ} →
+  LT.lt.{0} 0 k →
+    ℕ →
+      RiffleUpperV2.Cuts k n d →
+        LT.lt.{0} 0 n →
+          ℝ → (chi : ℝ) → LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) → RiffleUpperV2.FirstMoment.BlockTriple k d → Prop
+'RiffleUpperV2.FirstMoment.RetainedBlock' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardedWords : {k n d : ℕ} →
+  LT.lt.{0} 0 k →
+    ℕ →
+      RiffleUpperV2.Cuts k n d →
+        LT.lt.{0} 0 n →
+          Finset.{0} (Fin n) → ℝ → (chi : ℝ) → ℝ → LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) → Finset.{0} (Fin d → Fin k)
+'RiffleUpperV2.FirstMoment.discardedWords' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardedWords_subset_envelope : ∀ {k n d : ℕ} (hk : LT.lt.{0} 0 k) (N : ℕ)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (C chi delta : ℝ)
+  (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)),
+  RiffleUpperV2.FirstMoment.discardedWords hk N cuts hn R C chi delta hchi ⊆
+    Union.union.{0}
+      (RiffleUpperV2.FirstMoment.rareWords cuts hn chi
+        (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.FirstMoment.boundaryBudget N C chi) 1))
+      (RiffleUpperV2.FirstMoment.rareWords cuts hn chi
+        (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.FirstMoment.extensionBudget N chi) 1))
+'RiffleUpperV2.FirstMoment.discardedWords_subset_envelope' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.discardedRows_power_bound : ∀ (k : ℕ) (T D C : ℝ) (hk : LE.le.{0} 2 k),
+  LE.le.{0} 0 T →
+    LT.lt.{0} 0 D →
+      LE.le.{0} (HAdd.hAdd.{0, 0, 0} D 3) C →
+        ∃ chi0,
+          LT.lt.{0} 0 chi0 ∧
+            LT.lt.{0} chi0 (Min.min.{0} 1 (HDiv.hDiv.{0, 0, 0} 1 ↑k)) ∧
+              ∀ (chi : ℝ),
+                LT.lt.{0} 0 chi →
+                  LT.lt.{0} chi chi0 →
+                    ∀ (hchi : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (N n d : ℕ),
+                      LE.le.{0} 2 N →
+                        ∀ (hn : LT.lt.{0} 0 n),
+                          LE.le.{0} n N →
+                            LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                              ∀ (cuts : RiffleUpperV2.Cuts k n d) (R : Finset.{0} (Fin n)) (delta : ℝ),
+                                LE.le.{0}
+                                  (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+                                    ↑(Finset.card.{0}
+                                        (RiffleUpperV2.FirstMoment.rowsInWords R
+                                          (RiffleUpperV2.FirstMoment.discardedWords ⋯ N cuts hn R C chi delta hchi)
+                                          omega)))
+                                  (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} D))
+'RiffleUpperV2.FirstMoment.discardedRows_power_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.retainedOmitted_eventually : ∀ (k : ℕ) (hk : LT.lt.{0} 0 k) (T delta epsilon M : ℝ),
+  LE.le.{0} 0 T →
+    LT.lt.{0} 0 delta →
+      ∃ N0,
+        LE.le.{0} 2 N0 ∧
+          ∀ (N n d : ℕ),
+            LE.le.{0} N0 N →
+              ∀ (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+                (R : Fin k → Finset.{0} (Fin n)) (C chi width : ℝ) (hchi : LT.lt.{0} 0 chi) (hchi1 : LE.le.{0} chi 1)
+                (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (hwidth : LT.lt.{0} 0 width)
+                (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N))),
+                LE.le.{0}
+                    (↑(Finset.card.{0}
+                        (RiffleUpperV2.FirstMoment.retainedClasses hk hN cuts hn R T C chi delta width hchi hchi1 hchiK
+                          hwidth hd)))
+                    (HPow.hPow.{0, 0, 0} (↑N) epsilon) →
+                  LE.le.{0}
+                    (HMul.hMul.{0, 0, 0}
+                      (↑(Fintype.card.{0} (RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK)))
+                      (Real.exp (Neg.neg.{0} (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} delta 16)))))
+                    (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} M))
+'RiffleUpperV2.FirstMoment.retainedOmitted_eventually' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.graphError_power_bound : ∀ {N n k : ℕ},
+  LE.le.{0} 2 N →
+    LE.le.{0} n N →
+      ∀ (eta z : ℝ),
+        LT.lt.{0} 0 eta →
+          LE.le.{0} 0 z →
+            LE.le.{0} z (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} (HAdd.hAdd.{0, 0, 0} eta 4))) →
+              LE.le.{0} (HMul.hMul.{0, 0, 0} 4 (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑k) 2) 1)) ↑N →
+                LE.le.{0}
+                  (HAdd.hAdd.{0, 0, 0}
+                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} (↑k) 2))
+                      (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} (HAdd.hAdd.{0, 0, 0} eta 4))))
+                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 ↑(HSub.hSub.{0, 0, 0} n 1)) (HPow.hPow.{0, 0, 0} z 2)))
+                  (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} eta))
+'RiffleUpperV2.FirstMoment.graphError_power_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.RetainedAtPile : {k n d : ℕ} →
+  LT.lt.{0} 0 k →
+    ℕ →
+      RiffleUpperV2.Cuts k n d →
+        LT.lt.{0} 0 n →
+          (Fin k → Finset.{0} (Fin n)) → ℝ → (chi : ℝ) → ℝ → LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) → Type
+'RiffleUpperV2.FirstMoment.RetainedAtPile' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedDescriptor : {k n d N : ℕ} →
+  (hk : LT.lt.{0} 0 k) →
+    LE.le.{0} 2 N →
+      (cuts : RiffleUpperV2.Cuts k n d) →
+        (hn : LT.lt.{0} 0 n) →
+          (R : Fin k → Finset.{0} (Fin n)) →
+            (T C chi delta width : ℝ) →
+              LT.lt.{0} 0 chi →
+                LE.le.{0} chi 1 →
+                  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) →
+                    LT.lt.{0} 0 width →
+                      LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                        RiffleUpperV2.FirstMoment.RetainedAtPile hk N cuts hn R C chi delta hchiK →
+                          RiffleUpperV2.FirstMoment.EmpiricalKey k d (RiffleUpperV2.FirstMoment.boundaryBudget N C chi)
+                            (RiffleUpperV2.FirstMoment.extensionBudget N chi)
+                            (RiffleUpperV2.FirstMoment.empiricalBinCount T chi width)
+'RiffleUpperV2.FirstMoment.retainedDescriptor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedClasses : {k n d N : ℕ} →
+  LT.lt.{0} 0 k →
+    LE.le.{0} 2 N →
+      RiffleUpperV2.Cuts k n d →
+        LT.lt.{0} 0 n →
+          (Fin k → Finset.{0} (Fin n)) →
+            (T C chi : ℝ) →
+              ℝ →
+                (width : ℝ) →
+                  LT.lt.{0} 0 chi →
+                    LE.le.{0} chi 1 →
+                      LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+                        LT.lt.{0} 0 width →
+                          LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                            Finset.{0}
+                              (RiffleUpperV2.FirstMoment.EmpiricalKey k d
+                                (RiffleUpperV2.FirstMoment.boundaryBudget N C chi)
+                                (RiffleUpperV2.FirstMoment.extensionBudget N chi)
+                                (RiffleUpperV2.FirstMoment.empiricalBinCount T chi width))
+'RiffleUpperV2.FirstMoment.retainedClasses' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.retainedClasses_uniform_count : ∀ (k : ℕ) (T C epsilon : ℝ) (hk : LE.le.{0} 2 k),
+  LE.le.{0} 0 T →
+    LT.lt.{0} 0 C →
+      LT.lt.{0} 0 epsilon →
+        ∃ chi0,
+          LT.lt.{0} 0 chi0 ∧
+            LT.lt.{0} chi0 (Min.min.{0} 1 (HDiv.hDiv.{0, 0, 0} 1 ↑k)) ∧
+              ∀ (chi : ℝ) (hchi : LT.lt.{0} 0 chi),
+                LT.lt.{0} chi chi0 →
+                  ∀ (width : ℝ) (hwidth : LT.lt.{0} 0 width),
+                    ∃ N0,
+                      LE.le.{0} 2 N0 ∧
+                        ∀ (N n d : ℕ),
+                          LE.le.{0} N0 N →
+                            ∀ (hN : LE.le.{0} 2 N) (hn : LT.lt.{0} 0 n)
+                              (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+                              (hchi1 : LE.le.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k))
+                              (cuts : RiffleUpperV2.Cuts k n d) (R : Fin k → Finset.{0} (Fin n)) (delta : ℝ),
+                              LE.le.{0}
+                                (↑(Finset.card.{0}
+                                    (RiffleUpperV2.FirstMoment.retainedClasses ⋯ hN cuts hn R T C chi delta width hchi
+                                      hchi1 hchiK hwidth hd)))
+                                (HPow.hPow.{0, 0, 0} (↑N) epsilon)
+'RiffleUpperV2.FirstMoment.retainedClasses_uniform_count' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.fullWord_retained_or_discarded : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (pile : Fin k)
+  (C chi delta : ℝ) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (w : Fin d → Fin k),
+  RiffleUpperV2.Anchor.Legal cuts (R pile) (RiffleLowerV2.fullPrefix (List.Vector.ofFn.{0} w)) →
+    (∃ t,
+        Eq.{1} (Sigma.fst.{0, 0} t) pile ∧
+          RiffleUpperV2.Anchor.IsPrefix (↑(Sigma.snd.{0, 0} t)).2.2
+            (RiffleLowerV2.fullPrefix (List.Vector.ofFn.{0} w))) ∨
+      Membership.mem.{0, 0} (RiffleUpperV2.FirstMoment.discardedWords hk N cuts hn (R pile) C chi delta hchiK) w
+'RiffleUpperV2.FirstMoment.fullWord_retained_or_discarded' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.vectorWords : {k d : ℕ} → Finset.{0} (Fin d → Fin k) → Finset.{0} (RiffleUpperV2.Word k d)
+'RiffleUpperV2.FirstMoment.vectorWords' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.vector_ofFn_get : ∀ {k d : ℕ} (w : RiffleUpperV2.Word k d),
+  Eq.{1} (List.Vector.ofFn.{0} (List.Vector.get.{0} w)) w
+'RiffleUpperV2.FirstMoment.vector_ofFn_get' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.mem_vectorWords : ∀ {k d : ℕ} (W : Finset.{0} (Fin d → Fin k)) (w : RiffleUpperV2.Word k d),
+  Membership.mem.{0, 0} (RiffleUpperV2.FirstMoment.vectorWords W) w ↔ Membership.mem.{0, 0} W (List.Vector.get.{0} w)
+'RiffleUpperV2.FirstMoment.mem_vectorWords' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rowsInWords_vectorWords : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (R : Finset.{0} (Fin n)) (W : Finset.{0} (Fin d → Fin k)) (omega : RiffleUpperV2.Sample cuts),
+  Eq.{1} (RiffleUpperV2.Localization.rowsInWords R (RiffleUpperV2.FirstMoment.vectorWords W) omega)
+    (RiffleUpperV2.FirstMoment.rowsInWords R W omega)
+'RiffleUpperV2.FirstMoment.rowsInWords_vectorWords' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.discardedEdges_total_le_discardedRows : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (C chi delta : ℝ)
+  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (c₀ : ℤ) (slots : Finset.{0} ℤ),
+  LE.le.{0}
+    (∑ m ∈ slots,
+      RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+        Membership.mem.{0, 0}
+          (RiffleUpperV2.Localization.edgesInWords c₀ R
+            (RiffleUpperV2.FirstMoment.vectorWords
+              (RiffleUpperV2.FirstMoment.discardedWords hk N cuts hn R C chi delta hchiK))
+            omega)
+          m)
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+      ↑(Finset.card.{0}
+          (RiffleUpperV2.FirstMoment.rowsInWords R
+            (RiffleUpperV2.FirstMoment.discardedWords hk N cuts hn R C chi delta hchiK) omega)))
+'RiffleUpperV2.FirstMoment.discardedEdges_total_le_discardedRows' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.retainedGraphCover : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k) (cuts : RiffleUpperV2.Cuts k n d)
+  (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (p : Fin k) (C chi delta : ℝ)
+  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (c₀ : ℤ) (omega : RiffleUpperV2.Sample cuts) (m : ℤ),
+  Membership.mem.{0, 0}
+      (RiffleUpperV2.Localization.anchoredEdges c₀ (R p) (RiffleUpperV2.Localization.emptyPrefix k d) omega) m →
+    Membership.mem.{0, 0}
+        (RiffleUpperV2.Localization.edgesInWords c₀ (R p)
+          (RiffleUpperV2.FirstMoment.vectorWords
+            (RiffleUpperV2.FirstMoment.discardedWords hk N cuts hn (R p) C chi delta hchiK))
+          omega)
+        m ∨
+      ∃ t,
+        Eq.{1} (Sigma.fst.{0, 0} t) p ∧
+          Membership.mem.{0, 0} (RiffleUpperV2.Localization.anchoredEdges c₀ (R p) (↑(Sigma.snd.{0, 0} t)).2.2 omega) m
+'RiffleUpperV2.FirstMoment.retainedGraphCover' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchored_empty_probability_le : ∀ {k n d N : ℕ} (hk : LT.lt.{0} 0 k)
+  (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Fin k → Finset.{0} (Fin n)) (p : Fin k) (C chi delta : ℝ)
+  (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)) (c₀ m : ℤ),
+  LE.le.{0}
+    (RiffleUpperV2.Localization.anchoredEdgeProbability cuts c₀ (R p) (RiffleUpperV2.Localization.emptyPrefix k d) m)
+    (HAdd.hAdd.{0, 0, 0}
+      (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun omega =>
+        Membership.mem.{0, 0}
+          (RiffleUpperV2.Localization.edgesInWords c₀ (R p)
+            (RiffleUpperV2.FirstMoment.vectorWords
+              (RiffleUpperV2.FirstMoment.discardedWords hk N cuts hn (R p) C chi delta hchiK))
+            omega)
+          m)
+      (∑ t,
+        ite.{1} (Eq.{1} (Sigma.fst.{0, 0} t) p)
+          (RiffleUpperV2.Localization.anchoredEdgeProbability cuts c₀ (R p) (↑(Sigma.snd.{0, 0} t)).2.2 m) 0))
+'RiffleUpperV2.FirstMoment.anchored_empty_probability_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.goodCost_le_previousSelected : ∀ {k d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (p : Fin d → TimeProfile.Simplex k) (w : Fin d → Fin k) (s u : ℕ),
+      LT.lt.{0} 0 u →
+        LE.le.{0} u d →
+          ∀ (chi : ℝ),
+            LT.lt.{0} 0 chi →
+              LE.le.{0} chi 1 →
+                (∀ (j : Fin d),
+                    Membership.mem.{0, 0} (RiffleUpperV2.FirstMoment.empiricalPositions d 0 s u) j →
+                      LT.lt.{0} 0 (TimeProfile.prob (p j) (w j))) →
+                  LE.le.{0}
+                    (RiffleUpperV2.FirstMoment.goodCost.{0} N p (RiffleUpperV2.FirstMoment.empiricalPositions d 0 s u)
+                      chi w)
+                    (HAdd.hAdd.{0, 0, 0}
+                      (RiffleUpperV2.FirstMoment.selectedCost.{0} N p
+                        (RiffleUpperV2.FirstMoment.empiricalPositions d 0 s (HSub.hSub.{0, 0, 0} u 1)) w)
+                      (RiffleUpperV2.Localization.crossingPenalty N chi))
+'RiffleUpperV2.FirstMoment.goodCost_le_previousSelected' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.properStable_goodCost : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (R : Finset.{0} (Fin n)) (default : Fin d → Fin k)
+      (v x : RiffleUpperV2.Prefix k d) (delta chi : ℝ),
+      LE.le.{0} 0 delta →
+        LT.lt.{0} 0 chi →
+          LE.le.{0} chi 1 →
+            RiffleUpperV2.Localization.ProperStable N cuts R v delta x →
+              LE.le.{0}
+                (RiffleUpperV2.FirstMoment.goodCost.{0} N (TimeProfile.Cuts.profile cuts hn)
+                  (RiffleUpperV2.FirstMoment.empiricalPositions d 0 ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x)) chi
+                  (RiffleUpperV2.FirstMoment.completePrefix default x))
+                (HAdd.hAdd.{0, 0, 0}
+                  (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.meanExponent N cuts R v)
+                    (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v))
+                  (RiffleUpperV2.Localization.crossingPenalty N chi))
+'RiffleUpperV2.FirstMoment.properStable_goodCost' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.tailSquareMass_product : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  (x : RiffleUpperV2.Prefix k d),
+  Eq.{1} (RiffleUpperV2.Localization.tailSquareMass cuts x)
+    (∏ j ∈ RiffleUpperV2.FirstMoment.empiricalPositions d 0 (↑(Sigma.fst.{0, 0} x)) d,
+      TimeProfile.powerSum (TimeProfile.Cuts.profile cuts hn j) 2)
+'RiffleUpperV2.FirstMoment.tailSquareMass_product' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.tailSquareMass_pos : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n → ∀ (x : RiffleUpperV2.Prefix k d), LT.lt.{0} 0 (RiffleUpperV2.Localization.tailSquareMass cuts x)
+'RiffleUpperV2.FirstMoment.tailSquareMass_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.tailSquareMass_log : ∀ {k n d N : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n)
+  (a : ℕ) (x : RiffleUpperV2.Prefix k d),
+  Eq.{1} (HDiv.hDiv.{0, 0, 0} (Real.log (RiffleUpperV2.Localization.tailSquareMass cuts x)) (TimeProfile.logScale N))
+    (Neg.neg.{0}
+      (RiffleUpperV2.empiricalB N a cuts hn 2 (HAdd.hAdd.{0, 0, 0} a ↑(Sigma.fst.{0, 0} x)) (HAdd.hAdd.{0, 0, 0} a d)))
+'RiffleUpperV2.FirstMoment.tailSquareMass_log' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.rpow_normalizedExponent : ∀ {N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (mu : ℝ),
+      LT.lt.{0} 0 mu → Eq.{1} (HPow.hPow.{0, 0, 0} (↑N) (RiffleUpperV2.Localization.normalizedExponent N mu)) mu
+'RiffleUpperV2.FirstMoment.rpow_normalizedExponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.tailSquareMass_rpow : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (hn : LT.lt.{0} 0 n) (a : ℕ) (x : RiffleUpperV2.Prefix k d),
+      Eq.{1} (RiffleUpperV2.Localization.tailSquareMass cuts x)
+        (HPow.hPow.{0, 0, 0} (↑N)
+          (Neg.neg.{0}
+            (RiffleUpperV2.empiricalB N a cuts hn 2 (HAdd.hAdd.{0, 0, 0} a ↑(Sigma.fst.{0, 0} x))
+              (HAdd.hAdd.{0, 0, 0} a d))))
+'RiffleUpperV2.FirstMoment.tailSquareMass_rpow' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.firstPileTail_rpow : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n) (a : ℕ)
+      (x : RiffleUpperV2.Prefix k d),
+      Eq.{1} (RiffleUpperV2.Localization.tailSquareMass (RiffleUpperV2.Hypergeometric.tailCuts cuts) x)
+        (HPow.hPow.{0, 0, 0} (↑N)
+          (Neg.neg.{0}
+            (RiffleUpperV2.empiricalB N a cuts hn 2
+              (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a 1) ↑(Sigma.fst.{0, 0} x))
+              (HAdd.hAdd.{0, 0, 0} a (HAdd.hAdd.{0, 0, 0} d 1)))))
+'RiffleUpperV2.FirstMoment.firstPileTail_rpow' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.anchoredMean_rpow : ∀ {k n d N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d) (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d),
+      RiffleUpperV2.Anchor.Legal cuts R x →
+        Eq.{1} (RiffleUpperV2.Anchor.anchoredMean cuts R x)
+          (HPow.hPow.{0, 0, 0} (↑N) (RiffleUpperV2.Localization.meanExponent N cuts R x))
+'RiffleUpperV2.FirstMoment.anchoredMean_rpow' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.gridSum_tail : ∀ {N d : ℕ} (f : Fin (HAdd.hAdd.{0, 0, 0} d 1) → ℝ) (a s u : ℕ),
+  LE.le.{0} (HAdd.hAdd.{0, 0, 0} a 1) s →
+    Eq.{1}
+      (RiffleLowerV2.gridSum N (fun j => f j.succ) (HSub.hSub.{0, 0, 0} s (HAdd.hAdd.{0, 0, 0} a 1))
+        (HSub.hSub.{0, 0, 0} u (HAdd.hAdd.{0, 0, 0} a 1)))
+      (RiffleLowerV2.gridSum N f (HSub.hSub.{0, 0, 0} s a) (HSub.hSub.{0, 0, 0} u a))
+'RiffleUpperV2.FirstMoment.gridSum_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalB_tailCuts : ∀ {k n d N : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n) (a s u : ℕ),
+  LE.le.{0} (HAdd.hAdd.{0, 0, 0} a 1) s →
+    ∀ (theta : ℝ),
+      Eq.{1}
+        (RiffleUpperV2.empiricalB N (HAdd.hAdd.{0, 0, 0} a 1) (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn theta s u)
+        (RiffleUpperV2.empiricalB N a cuts hn theta s u)
+'RiffleUpperV2.FirstMoment.empiricalB_tailCuts' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalA_tailCuts : ∀ {k n d N : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n) (a s u : ℕ),
+  LE.le.{0} (HAdd.hAdd.{0, 0, 0} a 1) s →
+    Eq.{1} (RiffleUpperV2.empiricalA N (HAdd.hAdd.{0, 0, 0} a 1) (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn s u)
+      (RiffleUpperV2.empiricalA N a cuts hn s u)
+'RiffleUpperV2.FirstMoment.empiricalA_tailCuts' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.selectedPsi_eq_originalB : ∀ {k n d N : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (hn : LT.lt.{0} 0 n) (a s u : ℕ) (theta : ℝ),
+  Eq.{1}
+    (HDiv.hDiv.{0, 0, 0}
+      (∑ j ∈ RiffleUpperV2.FirstMoment.empiricalPositions d 0 s u,
+        TimeProfile.psi ((RiffleUpperV2.Hypergeometric.tailCuts cuts).profile hn j) theta)
+      (TimeProfile.logScale N))
+    (RiffleUpperV2.empiricalB N a cuts hn theta (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a 1) s)
+      (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a 1) u))
+'RiffleUpperV2.FirstMoment.selectedPsi_eq_originalB' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.retainedClassDensity_eventually : ∀ (k : ℕ) (hk : LE.le.{0} 2 k)
+  (T eta g C chi delta width : ℝ),
+  LE.le.{0} 0 T →
+    LT.lt.{0} 0 eta →
+      LT.lt.{0} 0 g →
+        LT.lt.{0} g 1 →
+          ∀ (hchi : LT.lt.{0} 0 chi) (hchiLt : LT.lt.{0} chi 1) (hchiK : LE.le.{0} chi (HDiv.hDiv.{0, 0, 0} 1 ↑k)),
+            LT.lt.{0} 0 delta →
+              LE.le.{0} delta (HDiv.hDiv.{0, 0, 0} eta 256) →
+                ∀ (hwidth : LT.lt.{0} 0 width),
+                  LE.le.{0} width (HDiv.hDiv.{0, 0, 0} eta 256) →
+                    LE.le.{0}
+                        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k))
+                          (TimeProfile.exceptionalAllowance chi))
+                        (HDiv.hDiv.{0, 0, 0} eta 256) →
+                      ∃ N0,
+                        LE.le.{0} 2 N0 ∧
+                          ∀ (N n d : ℕ),
+                            LE.le.{0} N0 N →
+                              ∀ (hN : LE.le.{0} 2 N) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1))
+                                (hn : LT.lt.{0} 0 n) (c : TimeProfile.ColumnAssignments cuts 0) (a₀ : ℕ),
+                                RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+                                  RiffleUpperV2.FirstColumnGood cuts hn g →
+                                    ∀ (hd : LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)))
+                                      (s :
+                                        RiffleUpperV2.FirstMoment.RetainedAtPile ⋯ N
+                                          (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                          (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) C chi delta hchiK)
+                                      (c₀ : ℤ) (slots : Finset.{0} ℤ),
+                                      LE.le.{0} (Finset.card.{0} slots) N →
+                                        LE.le.{0}
+                                          (HMul.hMul.{0, 0, 0}
+                                            (↑(Finset.card.{0}
+                                                (RiffleUpperV2.FirstMoment.classPrefixes ⋯ hN
+                                                  (RiffleUpperV2.Hypergeometric.tailCuts cuts) hn
+                                                  (fun a => RiffleUpperV2.Hypergeometric.anchorRows c a) T C chi delta
+                                                  width hchi ⋯ hchiK hwidth hd s)))
+                                            (RiffleUpperV2.Localization.anchoredDensity
+                                              (RiffleUpperV2.Hypergeometric.tailCuts cuts) c₀
+                                              (RiffleUpperV2.Hypergeometric.anchorRows c (Sigma.fst.{0, 0} s))
+                                              (↑(Sigma.snd.{0, 0} s)).2.2 slots))
+                                          (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} (Neg.neg.{0} eta) 2))
+'RiffleUpperV2.FirstMoment.retainedClassDensity_eventually' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.FirstMoment.empiricalGraphDecay : ∀ (k : ℕ),
+  LE.le.{0} 2 k →
+    ∀ (T eta g : ℝ),
+      LT.lt.{0} 0 T →
+        LT.lt.{0} 0 eta →
+          LT.lt.{0} 0 g →
+            LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+              ∃ N0,
+                LE.le.{0} 2 N0 ∧
+                  ∀ (N n d : ℕ),
+                    LE.le.{0} N0 N →
+                      ∀ (hn : LT.lt.{0} 0 n),
+                        LE.le.{0} n N →
+                          ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (a₀ : ℕ),
+                            LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                              RiffleUpperV2.FirstColumnGood cuts hn g →
+                                RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+                                  LE.le.{0} (RiffleUpperV2.expectedCommonEdges cuts)
+                                    (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} (Neg.neg.{0} eta) 8))
+'RiffleUpperV2.FirstMoment.empiricalGraphDecay' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.selectedCost_log_product.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ} (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (w : J → Fin k),
+  (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w j))) →
+    Eq.{1} (RiffleUpperV2.FirstMoment.selectedCost.{u_1} N p I w)
+      (HDiv.hDiv.{0, 0, 0} (Neg.neg.{0} (Real.log (∏ j ∈ I, TimeProfile.prob (p j) (w j)))) (TimeProfile.logScale N))
+'RiffleUpperV2.FirstMoment.selectedCost_log_product' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.exactWordCostSplit.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ} (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (w : J → Fin k)
+  (chi mu : ℝ),
+  LT.lt.{0} 0 mu →
+    (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w j))) →
+      Eq.{1}
+        (HDiv.hDiv.{0, 0, 0} (Real.log (HMul.hMul.{0, 0, 0} mu (∏ j ∈ I, TimeProfile.prob (p j) (w j))))
+          (TimeProfile.logScale N))
+        (HSub.hSub.{0, 0, 0}
+          (HSub.hSub.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (Real.log mu) (TimeProfile.logScale N))
+            (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w))
+          (RiffleUpperV2.FirstMoment.exceptionalCost.{u_1} N p I chi w))
+'RiffleUpperV2.FirstMoment.exactWordCostSplit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.fullWordMean : {k n L : ℕ} → RiffleUpperV2.Cuts k n L → LT.lt.{0} 0 n → (Fin L → Fin k) → ℝ
+'RiffleUpperV2.FirstMoment.fullWordMean' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.fullWordMean_le_maximalMean : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (hn : LT.lt.{0} 0 n) (w : Fin L → Fin k),
+  LE.le.{0} (RiffleUpperV2.FirstMoment.fullWordMean cuts hn w) (RiffleLowerV2.maximalMean cuts hn)
+'RiffleUpperV2.FirstMoment.fullWordMean_le_maximalMean' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.empiricalTerminalExponent : ∀ {k n L N : ℕ},
+  LE.le.{0} 2 N →
+    ∀ (a : ℕ) (cuts : RiffleUpperV2.Cuts k n L) (hn : LT.lt.{0} 0 n) (w : Fin L → Fin k),
+      (∀ (j : Fin L), LT.lt.{0} 0 (TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) (w j))) →
+        ∀ {eta : ℝ},
+          LE.le.{0} (RiffleUpperV2.empiricalBeta N a cuts hn (HAdd.hAdd.{0, 0, 0} a L)) (Neg.neg.{0} eta) →
+            LE.le.{0}
+              (HDiv.hDiv.{0, 0, 0} (Real.log (RiffleUpperV2.FirstMoment.fullWordMean cuts hn w))
+                (TimeProfile.logScale N))
+              (Neg.neg.{0} eta)
+'RiffleUpperV2.FirstMoment.empiricalTerminalExponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.refinedClassEntropy.{u_1} : ∀ {J : Type u_1} [inst : Fintype.{u_1} J]
+  [inst_1 : DecidableEq.{u_1 + 1} J] {k N : ℕ},
+  LE.le.{0} 2 k →
+    LE.le.{0} 2 N →
+      ∀ (p : J → TimeProfile.Simplex k) (I : Finset.{u_1} J) (chi width theta alpha : ℝ),
+        LT.lt.{0} 0 width →
+          Membership.mem.{0, 0} (Set.Icc.{0} 3 4) theta →
+            ∀ (w0 : J → Fin k),
+              (∀ (j : J), Membership.mem.{u_1, u_1} I j → LT.lt.{0} 0 (TimeProfile.prob (p j) (w0 j))) →
+                LE.le.{0} (↑(Finset.card.{u_1} (RiffleUpperV2.FirstMoment.exceptionalPositions.{u_1} p I chi w0)))
+                    (HMul.hMul.{0, 0, 0} alpha (TimeProfile.logScale N)) →
+                  ∀ (W : Finset.{u_1} (J → Fin k)),
+                    Finset.Nonempty.{u_1} W →
+                      W ⊆ RiffleUpperV2.FirstMoment.costClass.{u_1} N p I chi width w0 →
+                        LE.le.{0} (HDiv.hDiv.{0, 0, 0} (Real.log ↑(Finset.card.{u_1} W)) (TimeProfile.logScale N))
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HSub.hSub.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0} theta (RiffleUpperV2.FirstMoment.goodCost.{u_1} N p I chi w0))
+                              (HDiv.hDiv.{0, 0, 0} (∑ j ∈ I, TimeProfile.psi (p j) theta) (TimeProfile.logScale N)))
+                            (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 width)
+                              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (Real.log ↑k)) alpha)))
+'RiffleUpperV2.FirstMoment.refinedClassEntropy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.FirstMoment.sum_emptyClass.{u_1} : ∀ {A : Type u_1} (f : A → ℝ),
+  Eq.{1} (∑ x ∈ EmptyCollection.emptyCollection.{u_1}, f x) 0
+'RiffleUpperV2.FirstMoment.sum_emptyClass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def RiffleUpperV2.Contracts.V1.F : Prop :=
+∀ (k : ℕ),
+  LE.le.{0} 2 k →
+    ∀ (T η g : ℝ),
+      LT.lt.{0} 0 T →
+        LT.lt.{0} 0 η →
+          LT.lt.{0} 0 g →
+            LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+              ∃ c,
+                LT.lt.{0} 0 c ∧
+                  ∃ N0,
+                    ∃ (_ : LE.le.{0} 2 N0),
+                      ∀ (N : ℕ),
+                        LE.le.{0} N0 N →
+                          ∀ (n : ℕ) (hn : LE.le.{0} 2 n),
+                            LE.le.{0} n N →
+                              ∀ (a K : ℕ),
+                                LT.lt.{0} a K →
+                                  LE.le.{0} (↑K) (HMul.hMul.{0, 0, 0} T (Real.log ↑N)) →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k n (HSub.hSub.{0, 0, 0} K a)),
+                                      RiffleUpperV2.FirstColumnGood cuts ⋯ g →
+                                        RiffleUpperV2.EmpiricalNegativeMargin N a cuts ⋯ η →
+                                          LE.le.{0} (RiffleUpperV2.expectedCommonEdges cuts)
+                                            (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} c))
+BUILD_OK U05

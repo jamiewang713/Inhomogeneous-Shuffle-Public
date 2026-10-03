@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of lane author",
+  "recorded_at": "2026-10-02T10:29:53.617393+00:00",
+  "sources": {
+    "Reservoir/Cancellation.lean": "9cbb736a745c680c6359cd3f30c9726b984ca4339ad0c2a45ba4b63417b0e173",
+    "Reservoir/FirstColumn.lean": "fe7ff31a0d8eb4075bf78bf5b8bf35d161d41a21ceacfad7dac2418f26125d32"
+  },
+  "mathematics_and_model": [
+    "Natural subtraction identity n-|A|=(n-pileSize)+m gives exact c+m residual population.",
+    "Under full first-pile conditioning, marked first digits all equal p. The first-column factor is falling(m,m)/falling(c+m,m), strictly positive including m=0.",
+    "All other digit first-column factors equal1 because their marked counts are zero. Exposed and first-column factors cancel without assuming positive total history probability.",
+    "The remaining exact normalized weights run only over later columns and retain all residual counts and actual full history constraints."
+  ],
+  "adversarial": [
+    "Marked count zero gives factorial0=1, so no cancellation by zero.",
+    "Impossible full histories retain zero-quotient behavior; exposed data has a concrete witness.",
+    "Cancellation helper renamed/public as weightedRatio_cancel_factor to permit reuse; proof content unchanged.",
+    "Still a full-tuple normalized law, not yet a quantitative denominator estimate or future-cylinder factorization."
+  ],
+  "remaining": "Prefix marginal, uniform reserve denominator, history averaging and future law",
+  "independent_build": {
+    "receipt": "concrete-constructions-check-build.json",
+    "log": "concrete-constructions-check.log",
+    "inventory": "concrete-constructions-declarations.json",
+    "declarations": 675,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "reviewer": "U04 independent mathematical/source review",
+  "file": "formalization/upper_bound_v2/RiffleUpperV2/Shared/WindowRates.lean",
+  "sha256": "8199acfbc8112cb1fc82377533bf99827313aaf07deb1d953230b792d5641c96",
+  "result": "PASS",
+  "scope": [
+    "powerExp_eventually_le: real-power prefactor controlled by log(N)/N^a and N^(b-a), valid for arbitrary real b<a and s; N>=2 eliminates zero-base issues.",
+    "endpointWindow_rate: F>=delta/2 implies w<=V=N^(2F), w^2=V*N^(delta/2); fixed polynomial absorption gives denominator<=V*N^(delta/4), uniformly over F and d<=T log N.",
+    "countedWindowError_rate: (d+1)*k^d<=N^(1+T log k), k>=1 supplies log k>=0, and larger stretched exponent absorbs this fixed power."
+  ],
+  "quantifier_audit": "N0 depends only on fixed theorem parameters, never on d,F,N or model cuts, anchor or prefix. endpoint threshold order is exists N0, forall N d, forall F.",
+  "guards": "N0>=2, T>=0, chi>0, delta>0; k>=1 for counted error. No population n or anchor M replacement occurs.",
+  "dependencies_reviewed": [
+    "Compat/FixedPolynomial.lean"
+  ],
+  "limitations": "Independent source and mathematical review; root performed source/kernel staging build. No claim of complete localization lane."
+}

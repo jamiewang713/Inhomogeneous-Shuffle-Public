@@ -1,0 +1,28 @@
+CHECK RiffleUpperV2.Exponential.Pathwise
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Pathwise.lean:35:52: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 1
+  d ≥ 1
+  c ≥ 0
+  c - d ≤ -1
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑m
+ b := ↑j
+ c := ↑(X j.succ)
+ d := ↑(X (j + 1))
+Finset.sum_Ico_sub.{u_4} {M : Type u_4} (f : ℕ → M) {m n : ℕ} [AddCommGroup M] (hmn : m ≤ n) :
+  ∑ i ∈ Finset.Ico m n, (f (i + 1) - f i) = f n - f m
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Pathwise.lean:41:7: error(lean.unknownIdentifier): Unknown constant `Finset.sum_Ico_sub'`
+Finset.sum_Ico_sub_bot.{u_4} {M : Type u_4} (f : ℕ → M) {m n : ℕ} [AddCommGroup M] (hmn : m < n) :
+  ∑ i ∈ Finset.Ico m n, f i - f m = ∑ i ∈ Finset.Ico (m + 1) n, f i
+Finset.sum_Ico_succ_sub_top.{u_4} {M : Type u_4} (f : ℕ → M) {m n : ℕ} [AddCommGroup M] (hmn : m ≤ n) :
+  ∑ i ∈ Finset.Ico m (n + 1), f i - f n = ∑ i ∈ Finset.Ico m n, f i
+Finset.sum_Ico_eq_sub.{u_4} {δ : Type u_4} [AddCommGroup δ] (f : ℕ → δ) {m n : ℕ} (h : m ≤ n) :
+  ∑ k ∈ Finset.Ico m n, f k = ∑ k ∈ Finset.range n, f k - ∑ k ∈ Finset.range m, f k
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Pathwise.lean:45:7: error(lean.unknownIdentifier): Unknown constant `Finset.sum_Ico_succ_sub`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Pathwise.lean:46:7: error(lean.unknownIdentifier): Unknown constant `Finset.sum_Ico_sub_self`
+Finset.sum_range_sub.{u_3} {G : Type u_3} [AddCommGroup G] (f : ℕ → G) (n : ℕ) :
+  ∑ i ∈ Finset.range n, (f (i + 1) - f i) = f n - f 0

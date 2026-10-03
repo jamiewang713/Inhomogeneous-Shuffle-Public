@@ -1,0 +1,21 @@
+{
+  "status": "PASS_GENERIC_PORT_ONLY",
+  "source": "lean_formalization/RiffleProfiles/TailLimits.lean",
+  "destination": "formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalTailLimits.lean",
+  "source_sha256": "c5e2b0a3a523d4d8ad6acf8ba7401b22bdc5c1bdbe5ed22576a00afffccb8b76",
+  "destination_sha256": "b5adb0c18ffdb42290cc654e29ee8170f4faca061ad2368707125f9718f59047",
+  "public_statement_byte_equality": {
+    "boundary_tailWeight_small_chi": true,
+    "exceptional_tailWeight_small_chi": true
+  },
+  "reviewer": "U07 independent of U00 author",
+  "mathematical_review": [
+    "Boundary cutoff fixes chi0 after k,T,C,epsilon and before chi,N,K; leading exponent 1-C preserved exactly.",
+    "Exceptional cutoff fixes chi0 after k,T,C0 and before chi,N,K; beats every prescribed real power including the N multiplier.",
+    "All three proof edits are elaboration-only: unfolding composition, removing a solved ring goal, and applying the already-proved square-root square identity. No premise or threshold order change.",
+    "Uses original deterministic weighted-tail law, no model-specific discarded-row adapter or empirical-profile descriptor is inferred."
+  ],
+  "limitations": [
+    "Generic tail estimates only; U05 must discharge actual discarded-row weights."
+  ]
+}

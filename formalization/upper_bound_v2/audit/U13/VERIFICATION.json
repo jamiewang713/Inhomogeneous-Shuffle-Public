@@ -1,0 +1,227 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "phase": "INDEPENDENT_FINAL_ACCEPTANCE",
+  "recorded_at": "2026-10-02T22:36:49.175321+00:00",
+  "final_acceptance": true,
+  "endpoint_verdicts": {
+    "F": {
+      "status": "PROVED_AND_CHECKED",
+      "declaration": "RiffleUpperV2.FirstMoment.empiricalFirstMoment",
+      "source_label": "prop:ub-empirical-first-moment"
+    },
+    "C": {
+      "status": "PROVED_AND_CHECKED",
+      "declaration": "RiffleUpperV2.Conditional.remainingCommonEdges",
+      "source_label": "lem:ub-conditional-first-moment"
+    },
+    "E": {
+      "status": "PROVED_AND_CHECKED",
+      "declaration": "RiffleUpperV2.EmpiricalUpper.empiricalUpper",
+      "source_label": "thm:ub-empirical-upper"
+    },
+    "P": {
+      "status": "PROVED_AND_CHECKED",
+      "declaration": "RiffleUpperV2.ProfileUpper.bufferedUpper",
+      "source_label": "thm:deterministic-upper-bound"
+    },
+    "T": {
+      "status": "PROVED_AND_CHECKED",
+      "declaration": "RiffleUpperV2.ProfileUpper.criticalTimeUpper",
+      "source_label": "thm:upper-critical-reduced"
+    },
+    "R": {
+      "status": "PROVED_AND_CHECKED",
+      "declaration": "RiffleUpperV2.ProfileUpper.randomUpper",
+      "source_label": "cor:random-time-profile-upper-bound"
+    }
+  },
+  "fresh_lean_build": true,
+  "fresh_project_module_count": 398,
+  "build_exit_code": 0,
+  "integration_ready_reviewed": true,
+  "handoff_sha256": "875e62edcecfe8ba4aac2ec595ec7fcd459e479adfd22d22981e481b23f25ef5",
+  "manifest_sha256": "d5d25bf0a2272b5dc9687c414be6220cc9174994b4f1d28ffd6906c5a67ab2c0",
+  "frozen_artifacts_verified": 552,
+  "transitive_axiom_audit": true,
+  "root_count": 12,
+  "recursive_declaration_count": 45162,
+  "upper_declaration_count": 3907,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "external_library_trust_boundary": "Acceptance trusts the recorded Lean runtime and pinned external package/core objects. U13 independently rebuilt every project source; it did not rebuild all external library or core sources. Exact resolved object paths, SHA256 hashes, companion objects, and package revisions are in final-object-inventory-v2.json.",
+  "coordinator_built_pinned_library_exceptions": [
+    "Mathlib.Probability.Distributions.Uniform",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting",
+    "Mathlib.Combinatorics.Pigeonhole"
+  ],
+  "source_hash_matches_plan": true,
+  "manuscript_to_lean_mismatches": [],
+  "remaining_imported_proof_assumptions": [],
+  "remaining_obligations": [],
+  "final_audit": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/FINAL_AUDIT.json",
+    "sha256": "a486f281da790fecf816c67307b9e78be0c16f64a5c410ddc263e5ba48dd0f29"
+  },
+  "report": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/FINAL_REPORT.txt",
+    "sha256": "34a4bd0e66841e468ca8af585f196830b335c3eb263880e7ae451f550a48c6fd"
+  },
+  "reproduction": [
+    {
+      "cwd": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle",
+      "argv": [
+        "python3",
+        "formalization/upper_bound_v2/scripts/build.py",
+        "--lane",
+        "U13",
+        "--fresh",
+        "--run",
+        "audit/U13/FinalCheck_v2.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "cwd": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2",
+      "env": {
+        "LEAN_PATH": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U13/lib/lean"
+      },
+      "argv": [
+        "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
+        "-R",
+        "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2",
+        "audit/U13/MetadataCheck_v2.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "cwd": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle",
+      "argv": [
+        "python3",
+        "formalization/upper_bound_v2/audit/U13/record_build_inventory_v2.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "evidence": {
+    "FinalCheck_v2.lean": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/FinalCheck_v2.lean",
+      "sha256": "b329809161a547161d12b823e99e046b53904b799c19bba1733e1f2dae0a7123"
+    },
+    "MetadataCheck_v2.lean": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/MetadataCheck_v2.lean",
+      "sha256": "afdb58d4024951f6432d6e976d5d21f99ebe650213dae382a092134a92c4179f"
+    },
+    "record_build_inventory_v2.py": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/record_build_inventory_v2.py",
+      "sha256": "e1919b812266f44c3496ad94bd7b2b66f50cbaa10d5e480398f0e2c4a872b8a3"
+    },
+    "final-source-snapshot-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-source-snapshot-v2.json",
+      "sha256": "49121cd8636ccded08ec53f15ea5fc01b49f1520028f0d48d0419e6c07088819"
+    },
+    "final-fresh-build-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-fresh-build-v2.json",
+      "sha256": "914142438bad53ac8a7e50402770389a8667703f8c560a71ade9eed839e61347"
+    },
+    "final-fresh-build-v2.log": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-fresh-build-v2.log",
+      "sha256": "472d3e35cb0a9cec79d419268967fb9abb440142b8ad64d9f8903e2f8657ceec"
+    },
+    "final-trust-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-trust-v2.json",
+      "sha256": "6442a4d960041a1a7978e49eca9d4f4d7cd0527fc46569edde6b628f65678437"
+    },
+    "final-metadata-build-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-metadata-build-v2.json",
+      "sha256": "8dd2f236c148a2c351a0e49e782385c336dd2791af5334f46b04af782797faae"
+    },
+    "final-metadata-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-metadata-v2.json",
+      "sha256": "d3cc368d171a6328bb761a51ab2e0a01509a1369f580c58e166a03135587b48a"
+    },
+    "final-metadata-v2.log": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-metadata-v2.log",
+      "sha256": "5043bc7eda1244a0b9217953873db78916477bd56214700765053144f6dbf198"
+    },
+    "final-object-inventory-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-object-inventory-v2.json",
+      "sha256": "98add710c207024530fc6f6dc56ba98395db29cdbfed51e1bdea5f96694dd158"
+    },
+    "object-inventory-v2.log": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/object-inventory-v2.log",
+      "sha256": "4b7c2e4bb27feb8206caa24a732b424a3715f5380011c138f7c52d276e86f88f"
+    },
+    "integration-reconciliation-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/integration-reconciliation-v2.json",
+      "sha256": "601c07df5272bfa49355ed091bf1b3f3c15ebcf2dcaaed0f5059952f971b7b5d"
+    },
+    "preservation-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/preservation-v2.json",
+      "sha256": "f9397a20b49f9be4871cf91fc87f1b71804e8f41cab2cfd3554ec3788c0d515e"
+    },
+    "source-proof-review-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/source-proof-review-v2.txt",
+      "sha256": "c80a4471a6cb9fd51ec28d7da3b13b45c4343e152859bc2509e811254f3ef170"
+    },
+    "endpoint-map-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/endpoint-map-v2.json",
+      "sha256": "5f7d12610814cf506b7557504b0957534210ae2df55f5af3fddbdfa373d88ee4"
+    },
+    "public-expanded-types-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/public-expanded-types-v2.json",
+      "sha256": "8120651eab893107394f0c428d6774555ea046ccd250e9189d92cc80fa99dbac"
+    },
+    "STATUS_pre_final_v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/STATUS_pre_final_v2.txt",
+      "sha256": "d0ee00359bcf30ec7041cab18903f7476555b79cf9c3781a7c38f1d54283d167"
+    },
+    "VERIFICATION_pre_final_v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/VERIFICATION_pre_final_v2.json",
+      "sha256": "b7175de1a067188e6dc7a78c0fd2ce23bf8298b3c79d713051031b96d14bf754"
+    },
+    "F-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/F-expanded-type-v2.txt",
+      "sha256": "92fbfd19fe94fc8a7a09b03188a11b96b52138980082ec8f7ca56c8b6af84c2e"
+    },
+    "C-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/C-expanded-type-v2.txt",
+      "sha256": "8bc7802eed8ad3d6e2a814283788ca9bcb9fb76f53f28795da1996d02e758c39"
+    },
+    "E-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/E-expanded-type-v2.txt",
+      "sha256": "f19eb6bcfda4a5e26745b10b570f3f9f1c0452d1c1c37163b20ba228069f3195"
+    },
+    "P-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/P-expanded-type-v2.txt",
+      "sha256": "586627910793eba40699346657d2c2b6a738d7d91cd5735b753dde2c488c9e51"
+    },
+    "T-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/T-expanded-type-v2.txt",
+      "sha256": "d256982285608de582c3465b51e883bc00959304af31e40eddaaf98a3948bf93"
+    },
+    "R-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/R-expanded-type-v2.txt",
+      "sha256": "e8d25b7866133d55294df68f576f686a20d453e03d447c63e5f8078f4a5ad58e"
+    },
+    "REmpiricalBound-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/REmpiricalBound-expanded-type-v2.txt",
+      "sha256": "710d1d988a6d35b704d8c3dfa313b13c39e81a46f1dc1c1bbad7033f93c5d9a3"
+    },
+    "REmpirical-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/REmpirical-expanded-type-v2.txt",
+      "sha256": "b1f4f368344fb7c11b521dda4141301b5f5a0da7fbf5b8711dc423908b0dce14"
+    },
+    "RProfile-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/RProfile-expanded-type-v2.txt",
+      "sha256": "6bf7378331b24c696254201fd27ea62b1d0b8d1a16db000b2953a5d9057da654"
+    }
+  },
+  "changes_scope": [
+    "audit/U13/",
+    ".build/U13/"
+  ]
+}

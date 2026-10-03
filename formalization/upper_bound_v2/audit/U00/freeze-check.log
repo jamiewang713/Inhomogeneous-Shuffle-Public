@@ -1,0 +1,311 @@
+def RiffleUpperV2.Contracts.V1.F : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η g : ℝ),
+      0 < T →
+        0 < η →
+          0 < g →
+            g < 1 / ↑k →
+              ∃ c,
+                0 < c ∧
+                  ∃ N0,
+                    ∃ (_ : 2 ≤ N0),
+                      ∀ (N : ℕ),
+                        N0 ≤ N →
+                          ∀ (n : ℕ) (hn : 2 ≤ n),
+                            n ≤ N →
+                              ∀ (a K : ℕ),
+                                a < K →
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k n (K - a)),
+                                      RiffleUpperV2.FirstColumnGood cuts ⋯ g →
+                                        RiffleUpperV2.EmpiricalNegativeMargin N a cuts ⋯ η →
+                                          RiffleUpperV2.expectedCommonEdges cuts ≤ ↑N ^ (-c)
+def RiffleUpperV2.Contracts.V1.C : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η g γ : ℝ),
+      0 < T →
+        0 < η →
+          η ≤ 1 →
+            0 < g →
+              g < 1 / ↑k →
+                0 < γ →
+                  γ ≤ 1 →
+                    ∃ ρ0,
+                      0 < ρ0 ∧
+                        ∀ (ρ : ℝ),
+                          0 < ρ →
+                            ρ ≤ ρ0 →
+                              ∃ A cH ζ C,
+                                0 < A ∧
+                                  0 < cH ∧
+                                    0 < ζ ∧
+                                      0 < C ∧
+                                        ∃ N0,
+                                          ∃ (hN0 : 2 ≤ N0),
+                                            ∀ (N : ℕ) (hN : N0 ≤ N) (L : ℕ),
+                                              ↑(L + 1) ≤ T * Real.log ↑N →
+                                                ∀ (cuts : RiffleUpperV2.Cuts k N (L + 1)),
+                                                  RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ (2 * η) →
+                                                    RiffleUpperV2.Exploration.integerWindowGood N cuts ⋯ ρ γ g →
+                                                      RiffleUpperV2.Exploration.retainedGoodCluster cuts ⋯
+                                                          (RiffleUpperV2.Exploration.clusterSpan γ) g →
+                                                        (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts)
+                                                              fun ω =>
+                                                              ¬RiffleUpperV2.Exploration.concentrationEvent cuts
+                                                                  (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10)
+                                                                  ω) ≤
+                                                            RiffleUpperV2.Exploration.badBound N (η / 10) A cH ∧
+                                                          (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction),
+                                                              ↑N ^ (η / 10) ≤
+                                                                  ↑(RiffleUpperV2.Exploration.pileSize cuts p) →
+                                                                ∀ i ≤ RiffleUpperV2.Exploration.pileSize cuts p,
+                                                                  ∀
+                                                                    (ω :
+                                                                      RiffleUpperV2.Sample cuts ×
+                                                                        RiffleUpperV2.Sample cuts),
+                                                                    (0 <
+                                                                        RiffleUpperV2.probability
+                                                                          (RiffleUpperV2.independentPairLaw cuts)
+                                                                          fun v =>
+                                                                          RiffleUpperV2.Exploration.pairHistory cuts p d
+                                                                              i v =
+                                                                            RiffleUpperV2.Exploration.pairHistory cuts p
+                                                                              d i ω) →
+                                                                      RiffleUpperV2.Exploration.pairHistoryGood cuts
+                                                                          (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                          (η / 10)
+                                                                          (√(RiffleUpperV2.Exploration.badBound N
+                                                                              (η / 10) A cH))
+                                                                          p d i ω →
+                                                                        (RiffleUpperV2.conditionalExpect
+                                                                            (RiffleUpperV2.independentPairLaw cuts)
+                                                                            (fun v =>
+                                                                              ↑(RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                                  cuts
+                                                                                  (RiffleUpperV2.Exploration.clusterSpan
+                                                                                    γ)
+                                                                                  g (η / 10) p d i v.1 v.2))
+                                                                            fun v =>
+                                                                            RiffleUpperV2.Exploration.pairHistory cuts p
+                                                                                d i v =
+                                                                              RiffleUpperV2.Exploration.pairHistory cuts
+                                                                                p d i ω) ≤
+                                                                          C * ↑N ^ (-ζ)) ∧
+                                                            ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                                              (ω ω' : RiffleUpperV2.Sample cuts),
+                                                              RiffleUpperV2.Exploration.remainingDirectionalCount cuts
+                                                                  (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10) p
+                                                                  d (RiffleUpperV2.Exploration.pileSize cuts p) ω ω' =
+                                                                0
+def RiffleUpperV2.Contracts.V1.E : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∃ c,
+                          0 < c ∧
+                            ∃ N0,
+                              ∃ (hN0 : 2 ≤ N0),
+                                ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k N K),
+                                      RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 →
+                                        RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N) →
+                                          RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw cuts)
+                                              (RiffleUpperV2.uniformPermutation N) ≤
+                                            ↑N ^ (-c)
+def RiffleUpperV2.Contracts.V1.P : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η : ℝ),
+      0 < T →
+        0 < η →
+          ∃ χ0,
+            0 < χ0 ∧
+              ∀ (χ : ℝ),
+                0 < χ →
+                  χ ≤ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : ℝ),
+                          0 < g →
+                            g < 1 / ↑k →
+                              0 < γ →
+                                ∃ ρ0,
+                                  0 < ρ0 ∧
+                                    ∀ (ρ : ℝ),
+                                      0 < ρ →
+                                        ρ ≤ ρ0 →
+                                          ∃ φ0,
+                                            0 < φ0 ∧
+                                              ∀ (φ : ℝ),
+                                                0 < φ →
+                                                  φ ≤ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleUpperV2.ScalarIntegrable μ P T →
+                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →
+                                                          ∀ (ε : ℝ),
+                                                            0 < ε →
+                                                              ∃ N0,
+                                                                ∃ (hN0 : 2 ≤ N0),
+                                                                  ∀ (N : ℕ) (hN : N0 ≤ N)
+                                                                    (cuts :
+                                                                      RiffleUpperV2.Cuts k N
+                                                                        (TimeProfile.horizonDepth N T)),
+                                                                    TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ →
+                                                                      RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T →
+                                                                        RiffleUpperV2.tv
+                                                                            (RiffleUpperV2.physicalInverseLaw cuts)
+                                                                            (RiffleUpperV2.uniformPermutation N) ≤
+                                                                          ε
+def RiffleUpperV2.Contracts.V1.T : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),
+      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →
+        (∀ (t : ℝ),
+            0 ≤ t →
+              RiffleUpperV2.criticalTime μ < ENNReal.ofReal t →
+                Filter.Tendsto
+                  (fun N =>
+                    RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw ((cuts N).take (TimeProfile.horizonDepth N t)))
+                      (RiffleUpperV2.uniformPermutation N))
+                  Filter.atTop (nhds 0)) ∧
+          ∀ (ε : ℝ),
+            0 < ε →
+              ε < 1 →
+                Filter.limsup (fun N => RiffleUpperV2.mixingTime (cuts N) ε / ENNReal.ofReal (Real.log ↑N))
+                    Filter.atTop ≤
+                  RiffleUpperV2.criticalTime μ
+def RiffleUpperV2.Contracts.V1.R : Prop :=
+RiffleUpperV2.Contracts.V1.REmpiricalBound ∧ RiffleUpperV2.Contracts.V1.REmpirical ∧ RiffleUpperV2.Contracts.V1.RProfile
+def RiffleUpperV2.Contracts.V1.REmpiricalBound : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∃ c,
+                          0 < c ∧
+                            ∃ N0,
+                              ∃ (hN0 : 2 ≤ N0),
+                                ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (Q : PMF (RiffleUpperV2.Cuts k N K)),
+                                      RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw Q)
+                                          (RiffleUpperV2.uniformPermutation N) ≤
+                                        (RiffleUpperV2.probability Q fun cuts =>
+                                            ¬(RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧
+                                                RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N))) +
+                                          ↑N ^ (-c)
+def RiffleUpperV2.Contracts.V1.REmpirical : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∀ (K : ℕ → ℕ),
+                          (∀ (N : ℕ), 2 ≤ N → ↑(K N) ≤ T * Real.log ↑N) →
+                            ∀ (Q : (N : ℕ) → PMF (RiffleUpperV2.Cuts k N (K N))),
+                              Filter.Tendsto
+                                  (fun N =>
+                                    RiffleUpperV2.probability (Q N) fun cuts =>
+                                      ∃ (hN : 2 ≤ N),
+                                        RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧
+                                          RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑(K N) / Real.log ↑N))
+                                  Filter.atTop (nhds 1) →
+                                Filter.Tendsto
+                                  (fun N =>
+                                    RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw (Q N))
+                                      (RiffleUpperV2.uniformPermutation N))
+                                  Filter.atTop (nhds 0)
+def RiffleUpperV2.Contracts.V1.RProfile : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η : ℝ),
+      0 < T →
+        0 < η →
+          ∃ χ0,
+            0 < χ0 ∧
+              ∀ (χ : ℝ),
+                0 < χ →
+                  χ ≤ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : ℝ),
+                          0 < g →
+                            g < 1 / ↑k →
+                              0 < γ →
+                                ∃ ρ0,
+                                  0 < ρ0 ∧
+                                    ∀ (ρ : ℝ),
+                                      0 < ρ →
+                                        ρ ≤ ρ0 →
+                                          ∃ φ0,
+                                            0 < φ0 ∧
+                                              ∀ (φ : ℝ),
+                                                0 < φ →
+                                                  φ ≤ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleUpperV2.ScalarIntegrable μ P T →
+                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →
+                                                          ∀
+                                                            (Q :
+                                                              (N : ℕ) →
+                                                                PMF
+                                                                  (RiffleUpperV2.Cuts k N
+                                                                    (TimeProfile.horizonDepth N T))),
+                                                            Filter.Tendsto
+                                                                (fun N =>
+                                                                  RiffleUpperV2.probability (Q N) fun cuts =>
+                                                                    ∃ (hN : 2 ≤ N),
+                                                                      TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ)
+                                                                Filter.atTop (nhds 1) →
+                                                              Filter.Tendsto
+                                                                  (fun N =>
+                                                                    RiffleUpperV2.probability (Q N) fun cuts =>
+                                                                      ∃ (hN : 2 ≤ N),
+                                                                        RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T)
+                                                                  Filter.atTop (nhds 1) →
+                                                                Filter.Tendsto
+                                                                  (fun N =>
+                                                                    RiffleUpperV2.tv
+                                                                      (RiffleUpperV2.randomInverseLaw (Q N))
+                                                                      (RiffleUpperV2.uniformPermutation N))
+                                                                  Filter.atTop (nhds 0)
+'RiffleUpperV2.physical_graph_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.expectedCommonEdges_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.empiricalInf_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.independentPair_expect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.positive_history_has_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.regularPartitions_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.criticalTime_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.mixingTime_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.anchoredAbsoluteEnd_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.anchoredInterval_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Localization.meanExponent_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

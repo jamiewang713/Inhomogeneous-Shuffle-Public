@@ -1,0 +1,15 @@
+{
+  "state": "ACTIVE",
+  "recorded_at": "2026-10-02T21:06:50.454130+00:00",
+  "worker": "u05_first_moment",
+  "supported_lane": "U09",
+  "owned_new_modules": [
+    "RiffleUpperV2.Conditional.PrefixAdapters",
+    "RiffleUpperV2.Conditional.SmallCylinderBounds"
+  ],
+  "audit_directory": "audit/U05/small-helper",
+  "build_overlay": "U05",
+  "scope": "Literal arbitrary prefix adapter and tiny/intermediate natural-history count estimates in both spatial directions. U09 retains graph geometry/Jensen and final C.",
+  "model_premises": "Actual positive natural history, historyGood, direction eligibility, strict-future prefix in pile, actual first good column and horizon; mean regime and terminal/maximal-word mass input explicitly tracked.",
+  "build_isolation": "Exact EXTRA_OWNED allowlist, unrelated Conditional modules remain read-only."
+}

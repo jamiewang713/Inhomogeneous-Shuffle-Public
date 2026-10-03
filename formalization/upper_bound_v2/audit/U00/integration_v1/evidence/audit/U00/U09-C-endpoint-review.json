@@ -1,0 +1,37 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+  "recorded_at": "2026-10-02T21:59:35.978636+00:00",
+  "reviewer": "U00 independent of U09",
+  "endpoint": "RiffleUpperV2.Conditional.remainingCommonEdges",
+  "exact_frozen_type": "RiffleUpperV2.Contracts.V1.C",
+  "implementation_sha256": "74d1462f2dfd33172cb7a737437a0a69572cfbaf77a253f1919427d63bb6061b",
+  "expanded_type": "C-expanded-type.txt",
+  "root_receipt": "conditional-endpoint-check-build.json",
+  "trust_inventory": "conditional-endpoint-declarations.json",
+  "declaration_count": 422,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "mathematics": [
+    "Fixed tau,rho0 satisfy all tiny/intermediate/current budgets and rho logk<=a/4, where a=decayBudget eta(eta/8)>0. For each fixed rho, actual full H concentration constants and one-history/F thresholds are chosen before N,L,cuts.",
+    "Interior positive pair-history fibers factor into two positive natural-history fibers. Actual pairHistoryGood gives the two required adapted historyGood events. Each actual one-history squared-marginal sum is bounded after proved auxiliary disintegration, all three cylinder regimes and current-run absorption.",
+    "The exact two-history arithmetic square bound supplies literal conditional expected remainingDirectionalCount, with no enlarged filtration.",
+    "At time zero the actual unconditional first moment with original N supplies the bound; actual2eta margin is lowered to eta. At terminal time the remainder is identically zero.",
+    "The concentration failure estimate is a conclusion from actual uniformConcentration, not a premise."
+  ],
+  "model_quantifiers": [
+    "Every frozen C quantifier is preserved, including original N, horizon L+1, integer-window-good condition, actual retained cluster, all positive natural pair-history fibers and terminal zero for every pair.",
+    "No first-moment, reservoir law, localization, block-law, density, exploration or moment certificate survives as a public premise.",
+    "The auxiliary numerical eta/8 F rate has a proved positive downstream decayBudget and uniform rho restriction; final existential C endpoint unchanged."
+  ],
+  "adversarial": [
+    "Empty/tiny piles retain their actual guards; C large-pile premise is used only by the exact pair process reduction.",
+    "Null histories excluded exactly by positive-fiber hypothesis; zero-mass cylinders handled in tiny regime; induced0/1 populations never passed to F.",
+    "Backward direction reverses spatial rank only, preserving chronological suffix columns."
+  ],
+  "remaining": [
+    "U09 final lane evidence packaging and U13 independent final audit remain; E/P/T/R instantiation follows."
+  ]
+}

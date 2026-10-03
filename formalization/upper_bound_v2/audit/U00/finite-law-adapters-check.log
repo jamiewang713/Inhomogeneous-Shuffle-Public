@@ -1,0 +1,63 @@
+@RiffleUpperV2.toCompatFiniteLaw : {Ω : Type u_1} →
+  [inst : Fintype Ω] → PMF Ω → @RiffleLowerV2.Thinning.Compat.FiniteLaw Ω inst
+'RiffleUpperV2.toCompatFiniteLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RiffleUpperV2.toCompatFiniteLaw_toPMF : ∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω),
+  @Eq (PMF Ω) (@RiffleLowerV2.Thinning.Compat.FiniteLaw.toPMF Ω inst (@RiffleUpperV2.toCompatFiniteLaw Ω inst P)) P
+'RiffleUpperV2.toCompatFiniteLaw_toPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RiffleUpperV2.toCompatFiniteLaw_expect : ∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (f : Ω → Real),
+  @Eq Real (@RiffleLowerV2.Thinning.Compat.FiniteLaw.expect Ω inst (@RiffleUpperV2.toCompatFiniteLaw Ω inst P) f)
+    (@RiffleUpperV2.expect Ω inst P f)
+'RiffleUpperV2.toCompatFiniteLaw_expect' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RiffleUpperV2.toCompatFiniteLaw_probability : ∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (E : Ω → Prop),
+  @Eq Real (@RiffleLowerV2.Thinning.Compat.FiniteLaw.prob Ω inst (@RiffleUpperV2.toCompatFiniteLaw Ω inst P) E)
+    (@RiffleUpperV2.probability Ω inst P E)
+'RiffleUpperV2.toCompatFiniteLaw_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RiffleUpperV2.toCompatFiniteLaw_conditionalProbability : ∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω)
+  (E B : Ω → Prop),
+  @Eq Real
+    (@RiffleLowerV2.Thinning.Compat.FiniteLaw.conditionalProb Ω inst (@RiffleUpperV2.toCompatFiniteLaw Ω inst P) E B)
+    (@RiffleUpperV2.conditionalProbability Ω inst P B E)
+'RiffleUpperV2.toCompatFiniteLaw_conditionalProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RiffleUpperV2.toCompatFiniteLaw_conditionalExpect : ∀ {Ω : Type u_1} [inst : Fintype Ω] (P : PMF Ω) (E : Ω → Prop)
+  (f : Ω → Real),
+  @Eq Real
+    (@RiffleLowerV2.Thinning.Compat.FiniteLaw.conditionalExpect Ω inst (@RiffleUpperV2.toCompatFiniteLaw Ω inst P) E f)
+    (@RiffleUpperV2.conditionalExpect Ω inst P f E)
+'RiffleUpperV2.toCompatFiniteLaw_conditionalExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RiffleUpperV2.history_refinement_factors : ∀ {Ω : Type u_1} {Γ : Type u_2} {Δ : Type u_3} (Z : Ω → Γ) (U : Ω → Δ)
+  (default : Δ),
+  (∀ (ω ω' : Ω), @Eq Γ (Z ω) (Z ω') → @Eq Δ (U ω) (U ω')) → ∃ (g : Γ → Δ), ∀ (ω : Ω), @Eq Δ (U ω) (g (Z ω))
+'RiffleUpperV2.history_refinement_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RiffleUpperV2.shiftedAnticoncentrationTransfer : ∀ {Ω : Type u_1} {Γ : Type u_2} {Δ : Type u_3} [inst : Fintype Ω]
+  [Fintype Γ] [Fintype Δ] (P : PMF Ω) (Z : Ω → Γ) (U : Ω → Δ) (g : Γ → Δ),
+  (∀ (ω : Ω), @Eq Δ (U ω) (g (Z ω))) →
+    ∀ (A : Γ → Int) (Y : Ω → Nat) (H : Γ → Prop) (S : Ω → Prop),
+      (∀ (ω : Ω), S ω → H (Z ω)) →
+        ∀ (b : Real),
+          @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) b →
+            (∀ (z : Γ),
+                @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@RiffleUpperV2.probability Ω inst P fun (ω : Ω) => @Eq Γ (Z ω) z) →
+                  H z →
+                    ∀ (q : Nat),
+                      @LE.le Real Real.instLE
+                        (@RiffleUpperV2.conditionalProbability Ω inst P (fun (ω : Ω) => @Eq Nat (Y ω) q) fun (ω : Ω) =>
+                          @Eq Γ (Z ω) z)
+                        b) →
+              ∀ (u : Δ),
+                @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@RiffleUpperV2.probability Ω inst P fun (ω : Ω) => @Eq Δ (U ω) u) →
+                  ∀ (j : Int),
+                    @LE.le Real Real.instLE
+                      (@RiffleUpperV2.conditionalProbability Ω inst P
+                        (fun (ω : Ω) =>
+                          And
+                            (@Eq Int
+                              (@HAdd.hAdd Int Int Int (@instHAdd Int Int.instAdd) (A (Z ω))
+                                (@Nat.cast Int instNatCastInt (Y ω)))
+                              j)
+                            (S ω))
+                        fun (ω : Ω) => @Eq Δ (U ω) u)
+                      b
+'RiffleUpperV2.shiftedAnticoncentrationTransfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

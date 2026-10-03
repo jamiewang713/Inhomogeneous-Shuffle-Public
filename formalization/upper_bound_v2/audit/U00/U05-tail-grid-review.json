@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:58:59.149402+00:00",
+  "sources": {
+    "FirstMoment/TailGrid.lean": "0c587c158006ec53b0d7070f7e34cf61ffe4440417b16e41a65dfea282298db5",
+    "FirstMoment/TailCosts.lean": "0887213331c7b90afce75fb72cbda1853b68338120fcf9d872cf0c34c4cf2c82"
+  },
+  "mathematics": [
+    "Fin.succ gives an exact filtered-grid bijection after exposing the first column. For s>=a+1, future absolute offset a+1 has exactly the original interval sum at offset a.",
+    "The literal square tail product is the product of powerSum(profile,2) over all suffix columns. Each factor is positive since n>0, so its logarithm equals minus the empirical B2 sum.",
+    "Recovering the scalar from its normalized exponent uses N>=2. The exact future tail exponent is original B2 on [a+1+|x|,a+d+1], with no exposed digit counted twice."
+  ],
+  "public_type_and_model": [
+    "Cuts still use full population n, while every exponent and empirical grid sum uses original N.",
+    "No lower bound on any selected individual pile probability is needed for positive powerSum; zero coordinates are allowed.",
+    "The log equality is an algebraic equality for all N, while real-power recovery explicitly has N>=2."
+  ],
+  "adversarial": [
+    "Empty suffix product is one with B2=0.",
+    "If u precedes s or the exposed coordinate, the filtered intervals and sums remain empty as appropriate."
+  ],
+  "root_build_receipt": "tail-failure-check-build.json",
+  "trust_inventory": "tail-failure-declarations.json",
+  "remaining": [
+    "Concrete final finite sums and public endpoint F remain unproved."
+  ]
+}

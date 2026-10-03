@@ -1,0 +1,32 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:35:46.554581+00:00",
+  "reviewer": "U00 independent of U09",
+  "sources": {
+    "Conditional/RemainingCover.lean": "64cc29a08cff2e986b2fad771bc3988448fe603417a66cfb855f5cd08b34fe64",
+    "Conditional/DisjointSquares.lean": "c0d74e22d3667992c9a202a2d53c5c765360f399a19da6c158aab95b9a6abc90",
+    "Conditional/FinePartition.lean": "968952fce3cb957d2819b488d7abe4177c8026660e065f93a793c5a6d11ca52b"
+  },
+  "root_build_receipt": "partition-exploration-check-build.json",
+  "trust_inventory": "partition-exploration-declarations.json",
+  "mathematics": [
+    "Actual remaining directional edges lie either in the currently revealed word run or in an absolute block graph of the strict-future same-pile family. Backward left-endpoint translation uses equality of the actual edge words.",
+    "Refinement preserves the actual same-pile strict future cover, nonroot depth and the single count bound 2*k^3*T*logN*N^(rho*logk).",
+    "Auxiliary futureFamilyView stores actual lower and upper rank bounds, so blockSlots are fixed on its fibers. Structural prefix separation makes these slots pairwise disjoint.",
+    "The fixed Option assignment selects one unique block per slot; any remaining edge in an assigned slot is in that actual block graph. An unassigned remaining edge belongs to currentRunEdges.",
+    "The square inequality uses q^2<=q for current-run edges and monotonicity for a single assigned block, then sums. It introduces no block-number multiplier."
+  ],
+  "quantifiers": [
+    "Fine partition uses actual futureFamilyView equality, actual remainingEdgeEvent and actual absoluteBlockGraph, without probability/model certificate premises.",
+    "Generic cover and separation inputs are finite structural properties already proved for the refined actual family.",
+    "Conditional-square inequalities hold on zero-mass fibers using totalized conditional probability; final C still requires positive natural-history mass."
+  ],
+  "adversarial": [
+    "Crossing edge at e=i-1 is retained in the current-run alternative.",
+    "Empty blocks and zero-mass words need no positive-mass assumption.",
+    "Backward spatial direction never reverses chronological columns."
+  ],
+  "remaining": [
+    "Instantiate the fine partition on the refined actual family and use U08 block law before tower averaging; C not yet proved."
+  ]
+}

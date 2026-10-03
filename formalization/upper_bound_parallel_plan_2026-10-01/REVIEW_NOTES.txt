@@ -1,0 +1,20 @@
+UPPER-ONLY PLAN REVIEW — 2026-10-01
+
+This records review of the plan and prompts, not a Lean proof certificate.
+
+Three independent reviewers examined the planned interfaces against the current manuscript and existing Lean modules:
+- First-moment reviewer: anchored smoothing, stopping, localization, density, cost classes and existing probability ports.
+- Conditional/profile reviewer: reservoir laws, natural filtrations, parameter order, empirical assembly and macroscopic/random consequences.
+- Graph/exponential reviewer: graph density, truncation, adapted moments, exact-type acceptance, runtime compatibility and coordinator milestones.
+
+Corrections incorporated before release:
+1. Large-density coverage includes all nonterminal large stable blocks, including an immediate-stop join.
+2. Hypergeometric and anchored-cylinder concentration already use denominator 4*(mu+t). Only the later exploration display uses denominator 2*(mu+t); any weaker replacement there needs an explicit downstream proof.
+3. Existing 4.33.1 hypergeometric-moment and conditioning ports are reused before creating another port or law.
+4. Cylinder concentration covers arbitrary fixed row subsets and allowed digit sets, without requiring a reserve. The reserve belongs to the endpoint variance argument.
+5. CONTRACTS_READY, INTEGRATION_READY and final coordinator completion are distinct milestones, avoiding circular completion requirements.
+6. The theta infimum is over the real interval [3,4], not a finite grid; conditional bounds apply on the adapted good histories.
+
+All reviewers returned PASS after the applicable corrections. Their reviews do not assert that the planned upper-bound Lean declarations are implemented.
+
+Mechanical validation: fourteen standalone /goal prompts; all referenced source labels found uniquely; input-provider DAG acyclic; generated combined prompts and archive consistent; file hashes recorded in MANIFEST.json; authoritative manuscript hash unchanged.

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independently of lane author",
+  "recorded_at": "2026-10-02T10:18:26.796766+00:00",
+  "sources": {
+    "Exploration/AllCylinders.lean": "1c503aac692f4bc2002f37c8fd6781e3ee40cca88c73ad619ac993f54faa5ae1"
+  },
+  "mathematics_and_model": [
+    "Actual fixed-column cylinder tail uses tolerance M^(2/3)/2 with M=max(mean,n^xi). n>0,xi>=0 imply M>=1.",
+    "Bernstein denominator 4(mean+t)<=6M gives the exact factor 1/24. Power monotonicity gives the n^(xi/3) exponent.",
+    "Finite union over all Fin K to Finset(Fin k) digit arrays has cardinality (2^k)^K; no random cylinder selection or independence between cylinders.",
+    "The deterministic bound permits any upper mean m covering both actual mean and n^xi."
+  ],
+  "adversarial": [
+    "K=0, zero expected cylinder counts and xi=0 included.",
+    "False/empty constraints contribute valid events and are counted harmlessly.",
+    "Full H and its uniform large-N polynomial union cost remain downstream tasks."
+  ],
+  "independent_build": {
+    "receipt": "quantitative-inputs-check-build.json",
+    "log": "quantitative-inputs-check.log",
+    "inventory": "quantitative-inputs-declarations.json",
+    "declarations": 474,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

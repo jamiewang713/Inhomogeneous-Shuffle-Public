@@ -1,0 +1,78 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T10:41:45.733893+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U08",
+    "RiffleUpperV2.Reservoir.HistoryExtension"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U08",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U08/lib/lean",
+  "built": [
+    "RiffleUpperV2.Reservoir.HistoryExtension"
+  ],
+  "modules": {
+    "RiffleUpperV2.Reservoir.HistoryExtension": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/HistoryExtension.lean",
+      "sha256": "61090e65ce4ed1eed0edcba7557c78f25b91ff733fa036637f9c93ee81370935",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Reservoir.FirstColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/FirstColumn.lean",
+      "sha256": "fe7ff31a0d8eb4075bf78bf5b8bf35d161d41a21ceacfad7dac2418f26125d32",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Reservoir.Cancellation": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/Cancellation.lean",
+      "sha256": "9cbb736a745c680c6359cd3f30c9726b984ca4339ad0c2a45ba4b63417b0e173",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Reservoir.MarkedLaw": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/MarkedLaw.lean",
+      "sha256": "fb2311dae1291ad15611374653e5c35637ab084e3d032a5170fa1b947e25e01e",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Reservoir.History": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/History.lean",
+      "sha256": "6252fb5914b65e1d63f602b0f11311115982e85afd3eb1b73340ffd8dac5ef6e",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Reservoir.SortedHistory": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/SortedHistory.lean",
+      "sha256": "e9f2270153ba7560c93aa209f65ca80032bd312a9e2db4380d142efeee4c9a41",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Exploration.Positions": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Positions.lean",
+      "sha256": "75f0d5684f27f0948b63e2df257e0f434ba2ffb6c7d77ce70aea897a47da869e",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exploration.Histories": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Histories.lean",
+      "sha256": "2a19de77bf5c29b6e18aa5dfae534a076d19d934949294f906085dfab9f197a7",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Factorial.Exact": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Exact.lean",
+      "sha256": "65640e94b727947d46db81b5a6e8f4241b041ba959df3d8ba36ed9e459855900",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Shared.Conditioning": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Conditioning.lean",
+      "sha256": "d8bda996455920c09f14ac8db648724c5d14094c7a4bd62b457aa64d0a18a6b5",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exploration.DirectionalRanks": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/DirectionalRanks.lean",
+      "sha256": "6c250501968789766b9319cea7bc2cfea581aafff305905e405fac97c901cc9c",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "87b7dc02d6b8b7eb6331751e6e6398a58c12946e04ca00e6dc9f73bb9265e083"
+}

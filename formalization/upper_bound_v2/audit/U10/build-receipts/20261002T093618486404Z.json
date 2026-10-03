@@ -1,0 +1,48 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T09:36:18.485916+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U10",
+    "RiffleUpperV2.Exponential.Stopping"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U10",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U10/lib/lean",
+  "built": [
+    "RiffleUpperV2.Exponential.Stopping"
+  ],
+  "modules": {
+    "RiffleUpperV2.Exponential.Stopping": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Stopping.lean",
+      "sha256": "ae477694549a259a1f314d9b183c2aa0a7e3eca007bc982a31d4a601c6c347e1",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Pathwise": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Pathwise.lean",
+      "sha256": "e69127659872854606fde943e88479dfceb6984d257aeac6c0da1f472b0ecf72",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Conditioning": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Conditioning.lean",
+      "sha256": "d8bda996455920c09f14ac8db648724c5d14094c7a4bd62b457aa64d0a18a6b5",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Thinning.PMFTools": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean",
+      "sha256": "2eeef3e8d1b2e7921371484ba3ed9a8abe35c776eb582bf5a77d5d2fc6e82104",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exponential.Conditioning": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean",
+      "sha256": "1644324664e8cddd216d980f54dae2fca7ffdf0c06c87077c10808bae5a6fc63",
+      "kind": "project"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "b25e0e84c9193f8a997bfe5b44a951518ac4aef13491f923e8c4ebad56586cb0"
+}

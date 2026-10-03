@@ -1,0 +1,24 @@
+import RiffleUpperV2.FirstMoment.Entropy
+set_option pp.funBinderTypes true
+#check RiffleUpperV2.FirstMoment.card_mul_lower_mass_le_one
+#print axioms RiffleUpperV2.FirstMoment.card_mul_lower_mass_le_one
+#check RiffleUpperV2.FirstMoment.log_card_le_of_lower_mass
+#print axioms RiffleUpperV2.FirstMoment.log_card_le_of_lower_mass
+#check RiffleUpperV2.FirstMoment.selectedCost_split
+#print axioms RiffleUpperV2.FirstMoment.selectedCost_split
+#check RiffleUpperV2.FirstMoment.self_mem_costClass
+#print axioms RiffleUpperV2.FirstMoment.self_mem_costClass
+#check RiffleUpperV2.FirstMoment.costClass_goodCost_le
+#print axioms RiffleUpperV2.FirstMoment.costClass_goodCost_le
+#check RiffleUpperV2.FirstMoment.classTilt_sum
+#print axioms RiffleUpperV2.FirstMoment.classTilt_sum
+#check RiffleUpperV2.FirstMoment.costClass_tilt_log
+#print axioms RiffleUpperV2.FirstMoment.costClass_tilt_log
+#check RiffleUpperV2.FirstMoment.classEntropy_goodPositions
+#print axioms RiffleUpperV2.FirstMoment.classEntropy_goodPositions
+#check RiffleUpperV2.FirstMoment.classEntropy
+#print axioms RiffleUpperV2.FirstMoment.classEntropy
+#check RiffleUpperV2.FirstMoment.classEntropy_of_exceptionalBudget
+#print axioms RiffleUpperV2.FirstMoment.classEntropy_of_exceptionalBudget
+#check RiffleUpperV2.FirstMoment.empiricalClassEntropy
+#print axioms RiffleUpperV2.FirstMoment.empiricalClassEntropy

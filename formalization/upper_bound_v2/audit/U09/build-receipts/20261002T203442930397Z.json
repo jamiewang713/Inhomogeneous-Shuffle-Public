@@ -1,0 +1,43 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T20:34:42.930032+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U09",
+    "RiffleUpperV2.Conditional.PastCylinders"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U09",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U09/lib/lean",
+  "built": [
+    "RiffleUpperV2.Conditional.PastCylinders"
+  ],
+  "modules": {
+    "RiffleUpperV2.Conditional.PastCylinders": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/PastCylinders.lean",
+      "sha256": "0403491efb8af2f475a252ded3be825da2bb8fa452799f4915274dbc974c6bb5",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Conditional.FutureCylinders": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/FutureCylinders.lean",
+      "sha256": "4fd266a9f29435a8f62b58421e309f455540346e7df365798940ebbcd4fcb11f",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Model": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Model.lean",
+      "sha256": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+      "kind": "staged-read-only"
+    },
+    "RiffleShuffle.Words": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/foundations/RiffleShuffle/Words.lean",
+      "sha256": "8ccf347ffc2ec243c6a98888aea50d371abac59c1ecf3780987e49b569039748",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "67925715d215594396263d81e78af9f37faa40297a75918efdbaa6dc90500eb5"
+}

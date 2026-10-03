@@ -1,0 +1,47 @@
+{
+  "scope": "Generic finite criterion; these are mathematical hypotheses, not extra hypotheses allowed in the public empirical endpoint.",
+  "premises": [
+    {
+      "name": "Refining, UnitIncrements, X0=0, HistoryMeasurable X and B",
+      "owner": "U07 / U11 adapter",
+      "site": "Exploration.Histories and Processes, pairHistoryGood adaptation; explicit U10 type bridge needed."
+    },
+    {
+      "name": "conditional terminal remainder <= gamma on each positive B_i history, including i=0",
+      "owner": "U09 / U11",
+      "site": "Concrete conditional-first-moment theorem; finite criterion has no missing assumed conclusion."
+    },
+    {
+      "name": "product S1\u00d7S1 included in all good events",
+      "owner": "U07 / U11",
+      "site": "regularity event definition and pair good histories"
+    },
+    {
+      "name": "common-edge count covered by sum of terminal directional counts",
+      "owner": "U07 / U11",
+      "site": "directional cover and edge-freeness of small piles"
+    },
+    {
+      "name": "maximalMean<=N^-eta",
+      "owner": "U06 / U11",
+      "site": "terminal empirical negative margin and original-N maximal-word adapter"
+    },
+    {
+      "name": "probability of regularity failure tends to zero",
+      "owner": "U07 / U09 / U11",
+      "site": "full concentration event, reserves, and conditional regularity assembly"
+    },
+    {
+      "name": "fixed B,d and positive polynomial tail exponent, N selected beyond geometric threshold",
+      "owner": "U11",
+      "site": "parameter choice before N; U10 numerical threshold and limiting RHS are proved"
+    }
+  ],
+  "discharged_here": [
+    "No exploration independence needed.",
+    "No intermediate measurability of final event C needed.",
+    "Graph-majorization is discharged by U01 boundedComponentOverlap in finiteExplorationTV.",
+    "The chronological physical inverse law is bound directly through U01 truncatedTV.",
+    "The component-tail term is discharged by U01 boundedComponentTail in boundedComponentTruncation."
+  ]
+}

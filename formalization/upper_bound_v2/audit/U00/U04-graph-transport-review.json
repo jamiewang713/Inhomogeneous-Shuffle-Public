@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T20:09:23.308726+00:00",
+  "sources": {
+    "Localization/EdgeRanks.lean": "bf3b4df2f6aae4960c9156ca9d280f94e00794f27a57a9f1fbc93346140017e7",
+    "Localization/GlobalRanks.lean": "2158ca4f4cebb3a86ba71a93566c19e5e75c6a76681d3746f72cfac2106cfce2",
+    "Localization/FirstPileTransport.lean": "02e5f7597231f60ef21d467a55ad5c5740f3aede4c6d5f5093e5f072c40c0a2c"
+  },
+  "mathematics": [
+    "Prefix lower rank splits exactly into rows below the prefix and smaller full words inside it. Equal-word graph components are integer intervals of length count minus one.",
+    "Actual sorted-word rank characterization converts the zero-based global shuffle edge predicate to those intervals.",
+    "Reattaching the exposed first digit preserves exact absolute rank via firstPileStart; every actual graph edge belongs to one first-pile graph."
+  ],
+  "public_type_and_model": [
+    "Literal shuffleEdges and firstPileEdges under the actual fixed-column sample; no independent population model or graph-cover certificate.",
+    "All translations use actual random first-pile position, never an unproved density invariance under random shifts.",
+    "Cross-lane import uses the low FirstColumn module and remains acyclic."
+  ],
+  "adversarial": [
+    "Zero, singleton and empty piles give empty edge intervals.",
+    "Fin(n-1) retains the zero-based edge/right-endpoint convention for n=0/1.",
+    "Tail horizon zero and zero-count words are included."
+  ],
+  "root_build_receipt": "graph-transport-check-build.json",
+  "trust_inventory": "graph-transport-check-declarations.json",
+  "remaining": [
+    "The retained-class finite-sum assembly and F endpoint remain open."
+  ]
+}

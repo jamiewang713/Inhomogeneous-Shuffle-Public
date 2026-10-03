@@ -1,0 +1,37 @@
+{
+  "lane": "U01",
+  "remaining_mathematical_obligations": [],
+  "remaining_acceptance": [],
+  "generic_premise_discharge": [
+    {
+      "helper": "truncatedDensityTV",
+      "premises": "nonnegative normalized component densities and physical law density",
+      "sites": [
+        "density_nonneg",
+        "density_normalized",
+        "physical_density",
+        "truncatedTV"
+      ]
+    },
+    {
+      "helper": "descFactorial_ratio_le_pow",
+      "premise": "selected count \u2264 population",
+      "site": "count_le_population"
+    },
+    {
+      "helper": "boundedComponentOverlap",
+      "premise": "H components \u2264 B",
+      "nature": "intentional finite theorem hypothesis; concrete occupancy equivalence supplied by boundedComponents_shuffle_iff and failure controlled by boundedComponentTail"
+    },
+    {
+      "helper": "wordFactorialMoment",
+      "premise": "q\u2264N",
+      "site": "largestComponentTail_factorial uses q>N zero branch separately"
+    }
+  ],
+  "excluded_scope": [
+    "No proof of F/C/E/P/T/R claimed",
+    "Optional sparse-factorial corollary not needed by current route"
+  ],
+  "acceptance": "U00 independent final audit PASS"
+}

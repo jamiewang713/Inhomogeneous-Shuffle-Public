@@ -1,0 +1,44 @@
+{
+  "status": "PASS_FOR_NARROW_SLICE",
+  "reviewer": "U00 independent of U01",
+  "recorded_at": "2026-10-02T09:43:02.807008+00:00",
+  "sources": {
+    "RiffleUpperV2/GraphOverlap/Fibers.lean": "288ffd4cf0cfe6515f87b76b8e78f0d7fdbd90bba3550ff7e2e8fd64e482597a",
+    "RiffleUpperV2/GraphOverlap/Support.lean": "b5862634616469d4c5f551953b7914942f86b79fbcc2704a0431ae784cedf99a",
+    "RiffleUpperV2/GraphOverlap/Density.lean": "f6d7df97f86947bd53d98406ed3c5e7a6aded7cb5ea5b54fbc5f1ad8a5db564a",
+    "RiffleUpperV2/GraphOverlap/FiniteProbability.lean": "e071e24ff118ecf3e9bde0fba1356921ab5be8cce79fbf82c1a24dd7391f2a48",
+    "RiffleUpperV2/GraphOverlap/Truncation.lean": "9f612694b741ada003672d4bb6d13d5742124ecc066a7af39240c8aa9d0e6f09"
+  },
+  "mathematics": [
+    "Arbitrary graph components are encoded by finite componentIndex keys; supported component-sort fiber equivalence uses generic KeyAssignmentFiber exactly. Missing keys contribute 0!=1.",
+    "Block increase equals increase along every present path edge; union support is intersection. Normalized graph density follows from actual uniform permutation pushforward, yielding cG*cH/cUnion.",
+    "Finite Fubini and normalization identify truncated pair integral of overlap\u22121 with centered square of truncated density around its mass.",
+    "TV triangle inequality and Cauchy\u2013Schwarz give sqrt(variance)/2 plus the atypical probability once. All generic density premises are discharged from physical_graph_representation and exact densities."
+  ],
+  "model_quantifiers": [
+    "Arbitrary path graphs G/H and G\u222aH, not only shuffle realizations.",
+    "Truncation uses S1(\u03c9)\u2227S1(\u03c9\u2032) under iterated independent fixedCountPMF expectations.",
+    "Final TV concerns original physical inverse law, not a law redefined as graph mixture."
+  ],
+  "adversarial": [
+    "N=0/1 handled by empty path graphs/permutation singleton/positive factorial products.",
+    "Overlap\u22121 may be negative pointwise; only its integrated radicand is shown nonnegative.",
+    "S1 empty gives radicand0/atypical1, S1 full gives ordinary variance.",
+    "No bounded-component, first-moment or TV endpoint premise appears in concrete truncatedTV."
+  ],
+  "missing": [
+    "one-sided bounded-component factorial inequality",
+    "actual maximal occupancy tail and collision upper"
+  ],
+  "independent_build": {
+    "receipt": "phase4-check-build.json",
+    "log": "phase4-check.log",
+    "exit_code": 0,
+    "upper_declarations": 1302,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

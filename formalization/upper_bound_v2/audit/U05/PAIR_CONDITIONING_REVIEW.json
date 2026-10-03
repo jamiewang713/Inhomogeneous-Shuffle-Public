@@ -1,0 +1,22 @@
+{
+  "reviewer": "U05",
+  "module": "RiffleUpperV2.Shared.PairConditioning",
+  "source_sha256": "0ea04492d15e00ccd0521fc14cb894246ee45a107ae459b1a726029596437554",
+  "source_review": "PASS",
+  "declarations": [
+    "uniformProductExpect_mul",
+    "uniformProductProbability",
+    "uniformProductConditionalExpect",
+    "uniformProductConditionalProbability",
+    "uniformProductProbability_pos_iff"
+  ],
+  "findings": [
+    "Product expectation factors by exact uniform product Fubini and finite scalar distributivity.",
+    "Each conditioning event is a conjunction of an \u03a9-only event and a \u0393-only event; no correlated joint event is silently split.",
+    "Conditional-expectation numerator factors after a pointwise indicator identity; denominator factors as product of marginal event probabilities.",
+    "Conditional-probability numerator uses the literal coordinatewise events E\u2227A and F\u2227B; propositional reassociation is correct.",
+    "The division identity mul_div_mul_comm is valid under Lean real zero division, so null fibers require no positivity assumption and both sides vanish when either marginal denominator is zero.",
+    "The positive-pair iff uses nonnegativity of both marginal probabilities; strict positivity is equivalent to both positive."
+  ],
+  "scope": "Independent mathematical/source/type-shape review. Parent owns compilation, exact type and transitive axiom validation. No defects found."
+}

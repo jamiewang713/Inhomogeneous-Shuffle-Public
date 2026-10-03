@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "reviewer": "U06 independent source/model review",
+  "hashes": {
+    "RiffleUpperV2/Hypergeometric/AntiConcentration.lean": "d1bbb4f5f373a98fcff65495dd022ba2e4d5b038fe9710fe7037b732eb0f0cf4",
+    "RiffleUpperV2/Hypergeometric/CylinderMean.lean": "78f861bac52408f5888b01b2dfa1a3acfcffe8d725603e5a23da455ed81ea92b",
+    "RiffleUpperV2/Hypergeometric/Sampling.lean": "b5194f3f5bc66eba0dac2e1aca755ddeb6ffbdb4a1b5967ef451a36b4e432a7b",
+    "RiffleUpperV2/Hypergeometric/ConditionalAnchor.lean": "2ea180d9ab104be8e9e4eda271729dd28b05ff3356b3ae71d2f6bb15bb3aa6a6"
+  },
+  "resolved": [
+    "AntiConcentration provenance header now correctly lists the compatibility-only edits.",
+    "ConditionalAnchor supplies the previously absent first-column conditional future-column independence adapter."
+  ],
+  "findings": [],
+  "checks": [
+    "CylinderMean derives actual expectation from uniform allowed-subset intersection and independent-column integration, including zero population and zero columns. \u03bc/M display correctly isolates M>0, while transform/tail base versions cover M=0.",
+    "Complementation is a true involutive bijection of fixed-size sample spaces, with integer cardinal subtraction justified by subset membership and m\u2264|V|. Boundary m=0,m=|V| included.",
+    "ConditionalSamplingLaw derives B\u2286R, |B|\u2264m, and residual admissibility from one sample in a positive-probability event. No impossible fiber receives a claimed conditional law. A\u2286V\\R is an explicit necessary model hypothesis.",
+    "ConditionalSamplingTransport upgrades point-mass equality to all count events/observables under same positive fiber, using established finite-law conversion.",
+    "ConditionalAnchor conditions on an admissible first-column assignment subtype c. Uniform-product conditional integration is proved explicitly; all c have positive mass, separately derived. Future columns retain full n counts/population, and anchorRows depends only on fixed c. No reserve positivity or independent-row premise inserted.",
+    "Empty anchor gives cylinderMean=0; half-mean bound is \u22641, and tail remains valid. d=0 future retains exactly anchorRows with mass product=1. first-column conditioning includes n=0 via nonempty assignment singleton.",
+    "No source-type mismatch found for these exports. Later arbitrary reveal/sorted-history laws remain U03/U08 and are not claimed."
+  ],
+  "trust_scope": "Read-only source review; U00/U13 independently compile and audit transitive declarations."
+}

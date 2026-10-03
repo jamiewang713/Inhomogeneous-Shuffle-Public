@@ -1,0 +1,29 @@
+{
+  "status": "PASS_CONDITIONAL_RANDOM_PREPARATION",
+  "recorded_at": "2026-10-02T21:48:55.136793+00:00",
+  "reviewer": "U00 independent of U12",
+  "sources": {
+    "Mixture.lean": "cb7eaf102da8bd4464f59cd514d5708f5d81ebdef607e6e4b601f37334d5586d",
+    "Random.lean": "208dc3db28b14e3cd2b73018e933040d2a2efd038b081a2168afbf1b7d74bfa0"
+  },
+  "root_receipt": "random-preparation-check-build.json",
+  "trust_inventory": "random-preparation-declarations.json",
+  "mathematics": [
+    "Actual finite half-L1 TV lies in[0,1]. The accepted PMF-bind convexity gives the exact typical-event bound failure probability plus expectation of deterministic TV on the event.",
+    "Uniform good-event control and event probability tending to one imply mixture TV tends to zero even with population-dependent finite sample spaces.",
+    "Intersection probability tends to one using only the union bound; no independence between profile and local-good events is assumed.",
+    "Actual randomInverseLaw conditions on the entire integer count array. Internal E=>REmpiricalBound, E=>REmpirical and P=>RProfile exactly compose frozen deterministic endpoints."
+  ],
+  "quantifiers": [
+    "Empirical rho0 is selected before rho and common across all random count-array laws.",
+    "Profile chi0/rho0/phi0 order and same-P scalar integrability are unchanged.",
+    "No supremum over an admissible set is used; empty good events are allowed in finite bounds."
+  ],
+  "adversarial": [
+    "Count vectors may be mutually dependent and approximation/good events dependent. Conditional shuffle randomness is exactly the concrete independent-column law given the whole array.",
+    "N<2 is handled by the event guard and eventual thresholds, without making zero/one logarithms carry mathematical content."
+  ],
+  "remaining": [
+    "Public random endpoints must instantiate actual E/P implementations; these are explicitly named internal implications."
+  ]
+}

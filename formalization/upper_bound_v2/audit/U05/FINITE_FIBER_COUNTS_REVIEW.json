@@ -1,0 +1,14 @@
+{
+  "reviewer": "U05",
+  "module": "RiffleUpperV2.Shared.FiniteFiberCounts",
+  "source_sha256": "8090f76b81ce24be73ea133a9fba87b0ea55ca00a50628dfa326f549d11c983a",
+  "source_review": "PASS",
+  "mathematical_review": "PASS",
+  "findings": [
+    "Exact finite partition of active by keys in univ.image key; every active element belongs to that image, so no active elements omitted.",
+    "Each active fiber is counted once, then its given natural bound is summed.",
+    "Empty active/domain and L=0 have no exceptional cancellation or hidden positivity issue.",
+    "No finiteness assumption on C or unrelated family count is introduced."
+  ],
+  "scope": "Independent source/math/type-shape review; root owns compile and axiom check."
+}

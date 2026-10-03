@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independently of lane author",
+  "recorded_at": "2026-10-02T10:18:26.795838+00:00",
+  "sources": {
+    "Anchor/UnequalGood.lean": "23175d918a588edad9a6e34817bd3ce27383274624123514aa62bcb5535af31a",
+    "Anchor/UnequalParameters.lean": "5f6505358b2b6e1a3d93077d4f3a95b726231bb583d19792792b83bb12499dd1",
+    "Anchor/UnequalSideBounds.lean": "2d22f91402eb6c0442beab4062aca0e50e02ab688263f7a827e740f14db23d17",
+    "Anchor/UnequalQuantitative.lean": "f7f1e3ac28e8ce40f81d48ae439ec9f488dbbbab7eefe525684dec666ff5c570"
+  },
+  "mathematics_and_model": [
+    "The actual fine good event comprises a witness half-mean count plus marked and unmarked residual half-mean counts. All are fixed on the reveal atom.",
+    "Its failure is contained in three lower-tail events; strict failure is enlarged to the proved closed half-mean tail. The adaptive exposed set is constant under all-other-columns conditioning.",
+    "Residual marked plus unmarked count is exactly the residual population, avoiding lost finite-population complement factors. A+B is bounded by reserve R.",
+    "Actual source parameters discharge every root scalar variance premise. Positive witness mean forces positive draws and at least two residual labels.",
+    "Both orientations reduce to containing/opposite digit sets, with factors interchanged but symmetric product unchanged. The resulting failure bound is 3exp(-cCh*g*min) and variance g*side*opposite/(8|R|)."
+  ],
+  "adversarial": [
+    "No side ordering or lower bound by one.",
+    "The only strict witness order j<i is explicit.",
+    "Zero side means allowed in failure estimate; positive witness-side mean required in variance to justify division by |R|.",
+    "No additional unconditional independence or final-event conditioning."
+  ],
+  "independent_build": {
+    "receipt": "quantitative-inputs-check-build.json",
+    "log": "quantitative-inputs-check.log",
+    "inventory": "quantitative-inputs-declarations.json",
+    "declarations": 474,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

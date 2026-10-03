@@ -1,0 +1,14 @@
+{
+  "status": "PASS_INCREMENTAL_TRUST_INVENTORY",
+  "recorded_at": "2026-10-02T09:31:28.526265+00:00",
+  "declarations": 1143,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "receipt": "phase3-check-build.json",
+  "log": "phase3-check.log",
+  "audit_source": "Phase3Check.lean",
+  "scope": "Partial root umbrella plus FirstMoment.Main, Reservoir.Module, Anchor.EqualLaw and VarianceAlgebra. No full endpoint proof claim."
+}

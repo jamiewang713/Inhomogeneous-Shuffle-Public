@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:43:42.579134+00:00",
+  "sources": {
+    "Exploration/DirectionalCover.lean": "808981ee2859b3cbcbc3af33913831d8ec10dde96d0172aee28c9a98f6a604f8",
+    "Exploration/UniformRegularity.lean": "ca40d22a3ac89b017aa07a2fe985965750aca9199c71f8f87ebf034b3a464fe5"
+  },
+  "mathematics": [
+    "Guard interlacing forbids one actual sample being strictly left and the other strictly right of the middle reserve at the same spatial rank. This proves a common direction.",
+    "Backward edge maps via m-2-e; its two endpoints swap, while full-word coordinates retain their original order.",
+    "Actual directionalCover combines common direction with both equal-word edge predicates.",
+    "uniformConcentration and Margins.maximalMean_le_of_terminalMargin discharge both generic regularityFailure_of_bounds inputs."
+  ],
+  "public_type_and_model": [
+    "Every sample is under the actual fixed-count law, and both H events are explicit in deterministic cover.",
+    "A,c,N0 precede n,L,cuts,a; n>=2 and horizon (L+1)<=T log n are retained.",
+    "The bound is badBound+2n sqrt(badBound)+(k/2)n^(xi-eta), with actual frozen regularityEvent."
+  ],
+  "adversarial": [
+    "Empty/singleton piles provide no Fin(m-1) edge. Large-pile positivity is derived.",
+    "At the middle reserve prefix both directions may hold, which is permitted by cover.",
+    "Good-cluster hypothesis is required only for cover, not for the unconditional concentration/regularity probability estimate.",
+    "Aggregate cardinal coverage remains a separate finite-combinatorial export."
+  ],
+  "root_build_receipt": "partial-integration-check-build.json",
+  "trust_inventory": "partial-integration-declarations.json"
+}

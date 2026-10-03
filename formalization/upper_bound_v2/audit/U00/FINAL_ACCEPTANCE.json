@@ -1,0 +1,102 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "recorded_at": "2026-10-02T22:39:58.744766+00:00",
+  "goal_complete": true,
+  "final_acceptance": true,
+  "scope": "U00 coordinator assignment completed: all six exact upper endpoints integrated and independently accepted by U13.",
+  "completed_import": "RiffleUpperV2.Completed",
+  "endpoints": {
+    "F": {
+      "theorem": "RiffleUpperV2.FirstMoment.empiricalFirstMoment",
+      "alias": "RiffleUpperV2.Completed.firstMoment",
+      "specification": "RiffleUpperV2.Contracts.V1.F",
+      "source_label": "prop:ub-empirical-first-moment",
+      "status": "PROVED_AND_CHECKED"
+    },
+    "C": {
+      "theorem": "RiffleUpperV2.Conditional.remainingCommonEdges",
+      "alias": "RiffleUpperV2.Completed.conditionalEdges",
+      "specification": "RiffleUpperV2.Contracts.V1.C",
+      "source_label": "lem:ub-conditional-first-moment",
+      "status": "PROVED_AND_CHECKED"
+    },
+    "E": {
+      "theorem": "RiffleUpperV2.EmpiricalUpper.empiricalUpper",
+      "alias": "RiffleUpperV2.Completed.empiricalUpper",
+      "specification": "RiffleUpperV2.Contracts.V1.E",
+      "source_label": "thm:ub-empirical-upper",
+      "status": "PROVED_AND_CHECKED"
+    },
+    "P": {
+      "theorem": "RiffleUpperV2.ProfileUpper.bufferedUpper",
+      "alias": "RiffleUpperV2.Completed.profileUpper",
+      "specification": "RiffleUpperV2.Contracts.V1.P",
+      "source_label": "thm:deterministic-upper-bound",
+      "status": "PROVED_AND_CHECKED"
+    },
+    "T": {
+      "theorem": "RiffleUpperV2.ProfileUpper.criticalTimeUpper",
+      "alias": "RiffleUpperV2.Completed.criticalUpper",
+      "specification": "RiffleUpperV2.Contracts.V1.T",
+      "source_label": "thm:upper-critical-reduced",
+      "status": "PROVED_AND_CHECKED"
+    },
+    "R": {
+      "theorem": "RiffleUpperV2.ProfileUpper.randomUpper",
+      "alias": "RiffleUpperV2.Completed.randomUpper",
+      "specification": "RiffleUpperV2.Contracts.V1.R",
+      "source_label": "cor:random-time-profile-upper-bound",
+      "status": "PROVED_AND_CHECKED"
+    }
+  },
+  "independent_final_audit": {
+    "path": "../U13/FINAL_AUDIT.json",
+    "sha256": "a486f281da790fecf816c67307b9e78be0c16f64a5c410ddc263e5ba48dd0f29"
+  },
+  "independent_evidence_index": {
+    "path": "../U13/SHA256_v2.json",
+    "sha256": "73c851e89fb2345bf05cb686f8d15e0309f6947f3ecdad9f28cd96d1e954515b",
+    "verified_files": 33
+  },
+  "immutable_handoff": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/INTEGRATION_READY.json",
+    "sha256": "875e62edcecfe8ba4aac2ec595ec7fcd459e479adfd22d22981e481b23f25ef5",
+    "manifest": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U00/integration_v1/MANIFEST.json",
+    "manifest_sha256": "d5d25bf0a2272b5dc9687c414be6220cc9174994b4f1d28ffd6906c5a67ab2c0",
+    "immutable_artifacts_verified": 552,
+    "project_source_hashes_match": true,
+    "root_and_independent_project_objects_byte_identical": 398
+  },
+  "coordinator_checks": "U13-independent-evidence-crosscheck.json",
+  "clean_builds": {
+    "coordinator": "integration-v1-clean-build.json",
+    "independent": "../U13/final-fresh-build-v2.json",
+    "project_modules_each": 398,
+    "project_objects_byte_identical": 398
+  },
+  "trust": {
+    "all_upper_declarations": 3907,
+    "recursive_endpoint_declarations": 45162,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "external_boundary": "Acceptance trusts the recorded Lean runtime and pinned external package/core objects. U13 independently rebuilt every project source; it did not rebuild all external library or core sources. Exact resolved object paths, SHA256 hashes, companion objects, and package revisions are in final-object-inventory-v2.json."
+  },
+  "source_preservation": {
+    "recorded_at": "2026-10-02T22:19:43.508856+00:00",
+    "status": "PASS",
+    "lower_v20_source_snapshot_sha256": "921bd61af4faa76243112defa3db9c2551cfc2e6ef4473f467693d99461b8c3a",
+    "lower_sources_checked": 183,
+    "lower_changed": [],
+    "initial_input_hashes_checked": 23,
+    "initial_input_drift": [],
+    "git_status_matches_initial": true,
+    "git_status": " M formalization/.DS_Store\n M time_inhomogeneous_riffle_shuffle_unified_article.pdf\n M time_inhomogeneous_riffle_shuffle_unified_article.tex\n?? formalization/lower_bound_parallel_plan_2026-10-01/\n?? formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt\n?? formalization/upper_bound_parallel_plan_2026-10-01/\n?? formalization/upper_bound_v2/\n",
+    "scope": "Read-only preservation check. Rebuilding reused lower model/helper sources in U13 overlay is not new lower-bound theorem work."
+  },
+  "remaining_obligations": [],
+  "manuscript_to_lean_mismatches": [],
+  "proof_sources_modified_after_handoff": false
+}

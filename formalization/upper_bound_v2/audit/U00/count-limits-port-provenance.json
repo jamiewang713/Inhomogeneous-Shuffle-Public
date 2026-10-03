@@ -1,0 +1,23 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_COMPATIBILITY_PORT",
+  "source": "formalization/first_moment/FirstMomentModel/ProfileCountLimit.lean",
+  "source_sha256": "b1d28e2066343c32e1a9c49fea565f4574904fd8bf1394af3c8f7687e1958d29",
+  "destination": "formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean",
+  "destination_sha256": "e72d43eabfa5e10b8eac298765a67e2978cf73d2a22c1b5b6569c3c6d9b3555c",
+  "declarations": [
+    "profileCount_uniform_eventually",
+    "profileCount_small_chi"
+  ],
+  "reason": "Direct immutable source build requires Riffle.Boundary; Lean4.33.1 failed at old Set.eq_empty_iff_forall_not_mem.mpr. Generic first two theorems use only Counting and analytic parameters; isolated port avoids model-specific legacy dependency and leaves upstream unchanged.",
+  "failed_direct_build_log": "audit/U00/ordered-reuse-stage.log",
+  "changes": [
+    "Import FirstMoment.Counting instead of ProfileClasses",
+    "New RiffleUpperV2.Compat namespace and open generic source namespace",
+    "Exclude legacy model-specific profileClass_small_chi; preserve first two full theorem bodies and statements"
+  ],
+  "diff": "audit/U00/count-limits-port.diff",
+  "build_receipt": "audit/U00/unequal-counts-stage-build.json",
+  "proof_and_statement_text_exact_match": true,
+  "independent_review": "audit/U07/count-limits-port-independent-review.json",
+  "types_and_trust": "audit/U00/quantitative-inputs-declarations.json"
+}

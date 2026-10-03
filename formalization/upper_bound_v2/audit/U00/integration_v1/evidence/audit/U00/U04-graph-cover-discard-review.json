@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T20:10:40.995526+00:00",
+  "sources": {
+    "Localization/EdgeCover.lean": "d9800a22dc7de060268bf1ac4b38e1905ee6f60da7c7b1fc3b21d6acf91a0a91",
+    "Localization/EdgeGeometry.lean": "66f877775e89535f2304343037bcd9815c598ef24f6eda36a1ef548efb9d3404",
+    "Localization/DiscardedEdges.lean": "9bfae5f0fb62ff1f591243cf6d13909b693a0f2f839e14f6b8f6162bc134c1a1",
+    "Localization/Stochastic.lean": "3c230756dbaecb3d3e1cacc39b91e7c53851d389d63ebe268d57ad0dfe4eb6e1"
+  },
+  "mathematics": [
+    "An actual edge has at least two equal-word rows, hence a legal full-word witness. The proved stableCover gives an exact pointwise stable edge cover.",
+    "Distinct stable words form an antichain; ordered full-word edge intervals and common-word prefix comparability prove their edge ranks disjoint.",
+    "Union of edge intervals costs at most the sum of corresponding row counts, with disjoint full-word row fibers. Actual expected count, total marginals, and squared density follow with constant one."
+  ],
+  "public_type_and_model": [
+    "All statements use the actual fixed-column sample and literal absolute integer ranks. Stable fallback is retained in the deterministic cover and removed by U05 retainedClass_stops from the empirical margin.",
+    "The interval bound places both m and m+1 inside the actual prefix interval. The arbitrary deterministic W discard bound does not assume independence or random-word deletion."
+  ],
+  "adversarial": [
+    "Empty word sets, zero/singleton counts and empty anchors are covered.",
+    "The legality conversion requires n>0 explicitly; deterministic row/card bounds do not.",
+    "No edge crossing a stable cylinder boundary is silently counted inside it."
+  ],
+  "root_build_receipt": "partial-global-check2-build.json",
+  "trust_inventory": "partial-global-check2-declarations.json",
+  "remaining": [
+    "Final whole-graph first-moment finite aggregation remains U05-owned."
+  ]
+}

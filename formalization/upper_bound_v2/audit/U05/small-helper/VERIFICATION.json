@@ -1,0 +1,132 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "recorded_at": "2026-10-02T21:34:54.861058+00:00",
+  "scope": "Bounded U09 assistance: literal arbitrary prefix adapter and actual tiny/intermediate cylinder conditional count bounds in both spatial directions. Full C remains U09.",
+  "assignment": {
+    "file": "audit/U00/small-cylinder-helper-assignment.json",
+    "sha256": "3d4179081d4f63157c358bbb8e1ed24a6d6b26bc7f9157a6113dbaa17173bf09"
+  },
+  "endpoints": {
+    "names": [
+      "RiffleUpperV2.Conditional.tinyCylinder_count",
+      "RiffleUpperV2.Conditional.intermediateCylinder_collisions"
+    ],
+    "exact_types": "audit/U05/small-helper/ENDPOINT_TYPES.txt",
+    "kernel_types": "audit/U05/small-helper/kernel-types.log"
+  },
+  "source_map": "audit/U05/small-helper/SOURCE_MAP.json",
+  "source_labels": [
+    "lem:ub-conditional-first-moment (tiny and intermediate final cylinders)",
+    "eq:ub-conditional-cylinder-count",
+    "eq:ub-conditional-tail-collisions"
+  ],
+  "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "owned_sources": {
+    "RiffleUpperV2/Conditional/PrefixAdapters.lean": "e97aa5c3776c174b9bdf71bc99dd1d14f53b417330dedb0128d097a758325937",
+    "RiffleUpperV2/Conditional/SmallCylinderBounds.lean": "ef490e1c451889ac11fde21b214039c062f44896a3e0cc89894c09cd4faf0d61"
+  },
+  "build": {
+    "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "receipts": [
+      {
+        "file": "audit/U05/small-helper/BUILD_RECEIPT.json",
+        "sha256": "ee2d7a490d94d5d7d4ad6a7ba27d898fd23963336d0649d4ae19130b2accb175",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "RiffleUpperV2.Conditional.SmallCylinderBounds"
+        ],
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U05/small-helper/Check-build.json",
+        "sha256": "fe872de668116c02b4f044c7c897551c66328d06b3bf83fabd15b464d53feca1",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/small-helper/Check.lean"
+        ],
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U05/small-helper/KernelTypes-build.json",
+        "sha256": "27396b2e0ce330c1ab3cbe1cf920edaeabe6eaa129916451887bb7424829457d",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/small-helper/KernelTypes.lean"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "root_receipt": "audit/U00/small-cylinder-check-build.json",
+    "root_receipt_sha256": "8d3bccdbaa6b9c243e620fa769279d816751c2f98367be343acc373235fb1648"
+  },
+  "public_declarations": {
+    "total": 8,
+    "index": "audit/U05/small-helper/DECLARATIONS.json",
+    "exact_types_and_axioms": "audit/U05/small-helper/types-and-trust.log"
+  },
+  "all_declarations": {
+    "total": 20,
+    "including_generated_and_private": true,
+    "index": "audit/U05/small-helper/ALL_DECLARATIONS.json",
+    "transitive_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "dependency_closure": {
+    "file": "audit/U05/small-helper/PROJECT_DEPENDENCY_CLOSURE.json",
+    "source_count": 191,
+    "every_source_hash_matches_independent_root_receipt": true
+  },
+  "independent_review": {
+    "reviewer": "U00",
+    "mathematics": "PASS",
+    "model_quantifiers": "PASS",
+    "adversarial": "PASS",
+    "build_types_trust": "PASS",
+    "file": "audit/U00/U09-small-cylinder-review.json",
+    "sha256": "34ad900fb88c9348b67547a77e76a2e51ed0834d4c547a260a62e92be4399079",
+    "root_trust_inventory": "audit/U00/small-cylinder-declarations.json",
+    "root_conditional_declarations_checked": 90,
+    "exact_helper_declarations_checked": 20
+  },
+  "actual_input_discharge": {
+    "prefix_adapter": "Constructive E=length-1 gives literal equality with tailBinPrefix for arbitrary nonroot first-pile cylinders, including zero-mass words.",
+    "direction": "Actual forward/backward reservoir estimates are instantiated at the same positive natural-history fiber and actual sorted current word; common constants are chosen by max and thresholds by sum+2.",
+    "tiny": "Actual prefixMean bound is converted into exponent -xi+alpha*(1+xi), preserving n*epsilon.",
+    "intermediate": "Actual lower and upper means plus explicit terminal beta imply maximal tail bound; literal tail power mass gives exponent -eta+3xi+2alpha*(1+eta-2xi), preserving n^2*epsilon."
+  },
+  "uniformity": "C1/C2 and N0>=2 depend only on fixed k,D,g,tau,T and are selected before n,L,cuts,xi,eta,epsilon,p,d,omega,j,x. Here n is original ambient population, not a cylinder count.",
+  "intended_model_premises": [
+    "Positive literal natural-history fiber at j+1",
+    "historyGood and actual current-word hasDirection",
+    "Strict-future nonroot prefix contained in the first pile",
+    "Good first column and original horizon bound",
+    "Tiny/intermediate actual mean regime"
+  ],
+  "explicit_terminal_premise": {
+    "statement": "empiricalBeta n 0 cuts hn (L+1)<=-eta",
+    "used_by": "intermediateCylinder_collisions",
+    "status": "Allowed explicit input by bounded assignment; U09 discharges from its original margin in full C."
+  },
+  "remaining_obligations": [],
+  "out_of_scope": [
+    "Graph/collision comparison, disjoint block-square decomposition, Jensen/history averaging, terminal-premise discharge and final Contracts.V1.C remain U09."
+  ],
+  "frozen_prior_deliveries": {
+    "first_moment_36_sources_unchanged": true,
+    "large_helper_3_sources_unchanged": true,
+    "first_moment_verification_sha256": "bedc7201407cb5a7ffedc50e43355af0579fd06c1d2c35dbedc2f1757f2d8830",
+    "large_helper_verification_sha256": "476e123f49d9ddaae4bec41f90cb93be9fd452853e260895b41c88e7199dc0c1"
+  }
+}

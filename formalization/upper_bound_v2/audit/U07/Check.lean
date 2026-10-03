@@ -1,0 +1,322 @@
+import RiffleUpperV2.Exploration.Module
+
+set_option pp.fullNames true
+set_option pp.explicit true
+set_option pp.universes true
+
+#check RiffleUpperV2.Exploration.allCylinderEvent
+#print axioms RiffleUpperV2.Exploration.allCylinderEvent
+#check RiffleUpperV2.Exploration.half_twoThirds_exponent
+#print axioms RiffleUpperV2.Exploration.half_twoThirds_exponent
+#check RiffleUpperV2.Exploration.cylinder_half_concentration
+#print axioms RiffleUpperV2.Exploration.cylinder_half_concentration
+#check RiffleUpperV2.Exploration.allCylinderFailure
+#print axioms RiffleUpperV2.Exploration.allCylinderFailure
+#check RiffleUpperV2.Exploration.allCylinderEvent_bound
+#print axioms RiffleUpperV2.Exploration.allCylinderEvent_bound
+#check RiffleUpperV2.Exploration.goodCluster_finite
+#print axioms RiffleUpperV2.Exploration.goodCluster_finite
+#check RiffleUpperV2.Exploration.cluster_count_threshold
+#print axioms RiffleUpperV2.Exploration.cluster_count_threshold
+#check RiffleUpperV2.Exploration.goodCluster
+#print axioms RiffleUpperV2.Exploration.goodCluster
+#check RiffleUpperV2.Exploration.spatialPileEdge
+#print axioms RiffleUpperV2.Exploration.spatialPileEdge
+#check RiffleUpperV2.Exploration.spatialPileEdge_left
+#print axioms RiffleUpperV2.Exploration.spatialPileEdge_left
+#check RiffleUpperV2.Exploration.spatialPileEdge_right
+#print axioms RiffleUpperV2.Exploration.spatialPileEdge_right
+#check RiffleUpperV2.Exploration.shuffleEdge_in_pile
+#print axioms RiffleUpperV2.Exploration.shuffleEdge_in_pile
+#check RiffleUpperV2.Exploration.directionalProcess_terminal
+#print axioms RiffleUpperV2.Exploration.directionalProcess_terminal
+#check RiffleUpperV2.Exploration.sharedEdges_le_directionalProcesses
+#print axioms RiffleUpperV2.Exploration.sharedEdges_le_directionalProcesses
+#check RiffleUpperV2.Exploration.prefixCylinder_count
+#print axioms RiffleUpperV2.Exploration.prefixCylinder_count
+#check RiffleUpperV2.Exploration.prefixCylinder_mean
+#print axioms RiffleUpperV2.Exploration.prefixCylinder_mean
+#check RiffleUpperV2.Exploration.prefixLaterDigits
+#print axioms RiffleUpperV2.Exploration.prefixLaterDigits
+#check RiffleUpperV2.Exploration.prefixLaterCylinder_count
+#print axioms RiffleUpperV2.Exploration.prefixLaterCylinder_count
+#check RiffleUpperV2.Exploration.prefixLaterCylinder_mean
+#print axioms RiffleUpperV2.Exploration.prefixLaterCylinder_mean
+#check RiffleUpperV2.Exploration.outsideDigits
+#print axioms RiffleUpperV2.Exploration.outsideDigits
+#check RiffleUpperV2.Exploration.outsideCylinder_count
+#print axioms RiffleUpperV2.Exploration.outsideCylinder_count
+#check RiffleUpperV2.Exploration.allowedCount_erase
+#print axioms RiffleUpperV2.Exploration.allowedCount_erase
+#check RiffleUpperV2.Exploration.outsideCylinder_mean
+#print axioms RiffleUpperV2.Exploration.outsideCylinder_mean
+#check RiffleUpperV2.Exploration.digitFraction_bounds
+#print axioms RiffleUpperV2.Exploration.digitFraction_bounds
+#check RiffleUpperV2.Exploration.allCylinder_prefix_and_later
+#print axioms RiffleUpperV2.Exploration.allCylinder_prefix_and_later
+#check RiffleUpperV2.Exploration.allCylinder_outside
+#print axioms RiffleUpperV2.Exploration.allCylinder_outside
+#check RiffleUpperV2.Exploration.commonDirection_on_concentration
+#print axioms RiffleUpperV2.Exploration.commonDirection_on_concentration
+#check RiffleUpperV2.Exploration.reversePileEdge
+#print axioms RiffleUpperV2.Exploration.reversePileEdge
+#check RiffleUpperV2.Exploration.reversePileEdge_involutive
+#print axioms RiffleUpperV2.Exploration.reversePileEdge_involutive
+#check RiffleUpperV2.Exploration.directionalEdge_backward_iff
+#print axioms RiffleUpperV2.Exploration.directionalEdge_backward_iff
+#check RiffleUpperV2.Exploration.directionalCover
+#print axioms RiffleUpperV2.Exploration.directionalCover
+#check RiffleUpperV2.Exploration.tailBinMean_eq
+#print axioms RiffleUpperV2.Exploration.tailBinMean_eq
+#check RiffleUpperV2.Exploration.guardMean_gap
+#print axioms RiffleUpperV2.Exploration.guardMean_gap
+#check RiffleUpperV2.Exploration.guards_interlace_on_concentration
+#print axioms RiffleUpperV2.Exploration.guards_interlace_on_concentration
+#check RiffleUpperV2.Exploration.tailPrefix_mono_same_head
+#print axioms RiffleUpperV2.Exploration.tailPrefix_mono_same_head
+#check RiffleUpperV2.Exploration.fullWord_lt_of_tailPrefix_lt
+#print axioms RiffleUpperV2.Exploration.fullWord_lt_of_tailPrefix_lt
+#check RiffleUpperV2.Exploration.pileTailPrefix_monotone
+#print axioms RiffleUpperV2.Exploration.pileTailPrefix_monotone
+#check RiffleUpperV2.Exploration.pile_filter_card
+#print axioms RiffleUpperV2.Exploration.pile_filter_card
+#check RiffleUpperV2.Exploration.guardCount_positions
+#print axioms RiffleUpperV2.Exploration.guardCount_positions
+#check RiffleUpperV2.Exploration.guard_before_rank
+#print axioms RiffleUpperV2.Exploration.guard_before_rank
+#check RiffleUpperV2.Exploration.guard_through_rank
+#print axioms RiffleUpperV2.Exploration.guard_through_rank
+#check RiffleUpperV2.Exploration.tailBinPrefix
+#print axioms RiffleUpperV2.Exploration.tailBinPrefix
+#check RiffleUpperV2.Exploration.tailBinPrefix_word
+#print axioms RiffleUpperV2.Exploration.tailBinPrefix_word
+#check RiffleUpperV2.Exploration.tailBinCount
+#print axioms RiffleUpperV2.Exploration.tailBinCount
+#check RiffleUpperV2.Exploration.tailBinCount_prefix
+#print axioms RiffleUpperV2.Exploration.tailBinCount_prefix
+#check RiffleUpperV2.Exploration.tailBinCount_le_pile
+#print axioms RiffleUpperV2.Exploration.tailBinCount_le_pile
+#check RiffleUpperV2.Exploration.tailBinMean_le_pile
+#print axioms RiffleUpperV2.Exploration.tailBinMean_le_pile
+#check RiffleUpperV2.Exploration.guardBins
+#print axioms RiffleUpperV2.Exploration.guardBins
+#check RiffleUpperV2.Exploration.guardCount_sum
+#print axioms RiffleUpperV2.Exploration.guardCount_sum
+#check RiffleUpperV2.Exploration.guardMean_sum
+#print axioms RiffleUpperV2.Exploration.guardMean_sum
+#check RiffleUpperV2.Exploration.guardBins_card_le
+#print axioms RiffleUpperV2.Exploration.guardBins_card_le
+#check RiffleUpperV2.Exploration.allCylinder_guard_deviation
+#print axioms RiffleUpperV2.Exploration.allCylinder_guard_deviation
+#check RiffleUpperV2.Exploration.guard_scale_bound
+#print axioms RiffleUpperV2.Exploration.guard_scale_bound
+#check RiffleUpperV2.Exploration.allCylinder_implies_concentration
+#print axioms RiffleUpperV2.Exploration.allCylinder_implies_concentration
+#check RiffleUpperV2.Exploration.chosenReserves_spec
+#print axioms RiffleUpperV2.Exploration.chosenReserves_spec
+#check RiffleUpperV2.Exploration.chosenReserves_exists_iff
+#print axioms RiffleUpperV2.Exploration.chosenReserves_exists_iff
+#check RiffleUpperV2.Exploration.reserveMass_pos
+#print axioms RiffleUpperV2.Exploration.reserveMass_pos
+#check RiffleUpperV2.Exploration.direction_cover_word
+#print axioms RiffleUpperV2.Exploration.direction_cover_word
+#check RiffleUpperV2.Exploration.direction_overlap_iff
+#print axioms RiffleUpperV2.Exploration.direction_overlap_iff
+#check RiffleUpperV2.Exploration.guard_interlace
+#print axioms RiffleUpperV2.Exploration.guard_interlace
+#check RiffleUpperV2.Exploration.no_crossed_edge
+#print axioms RiffleUpperV2.Exploration.no_crossed_edge
+#check RiffleUpperV2.Exploration.naturalHistory_zero
+#print axioms RiffleUpperV2.Exploration.naturalHistory_zero
+#check RiffleUpperV2.Exploration.history_refinement
+#print axioms RiffleUpperV2.Exploration.history_refinement
+#check RiffleUpperV2.Exploration.revealed_word_eq
+#print axioms RiffleUpperV2.Exploration.revealed_word_eq
+#check RiffleUpperV2.Exploration.historyFiber_eq
+#print axioms RiffleUpperV2.Exploration.historyFiber_eq
+#check RiffleUpperV2.Exploration.historyGood_adapted
+#print axioms RiffleUpperV2.Exploration.historyGood_adapted
+#check RiffleUpperV2.Exploration.naturalHistory_positive
+#print axioms RiffleUpperV2.Exploration.naturalHistory_positive
+#check RiffleUpperV2.Exploration.historyGood_of_null
+#print axioms RiffleUpperV2.Exploration.historyGood_of_null
+#check RiffleUpperV2.Exploration.conditionalProbability_tower
+#print axioms RiffleUpperV2.Exploration.conditionalProbability_tower
+#check RiffleUpperV2.Exploration.conditionalProbability_markov
+#print axioms RiffleUpperV2.Exploration.conditionalProbability_markov
+#check RiffleUpperV2.Exploration.historyGoodProbability
+#print axioms RiffleUpperV2.Exploration.historyGoodProbability
+#check RiffleUpperV2.Exploration.localGood_integerWindow
+#print axioms RiffleUpperV2.Exploration.localGood_integerWindow
+#check RiffleUpperV2.Exploration.Direction
+#print axioms RiffleUpperV2.Exploration.Direction
+#check RiffleUpperV2.Exploration.windowLength
+#print axioms RiffleUpperV2.Exploration.windowLength
+#check RiffleUpperV2.Exploration.clusterSpan
+#print axioms RiffleUpperV2.Exploration.clusterSpan
+#check RiffleUpperV2.Exploration.integerWindowGood
+#print axioms RiffleUpperV2.Exploration.integerWindowGood
+#check RiffleUpperV2.Exploration.retainedGoodCluster
+#print axioms RiffleUpperV2.Exploration.retainedGoodCluster
+#check RiffleUpperV2.Exploration.pileOffset
+#print axioms RiffleUpperV2.Exploration.pileOffset
+#check RiffleUpperV2.Exploration.pileSize
+#print axioms RiffleUpperV2.Exploration.pileSize
+#check RiffleUpperV2.Exploration.pileOffset_add_size_le
+#print axioms RiffleUpperV2.Exploration.pileOffset_add_size_le
+#check RiffleUpperV2.Exploration.spatialIndex
+#print axioms RiffleUpperV2.Exploration.spatialIndex
+#check RiffleUpperV2.Exploration.pilePosition
+#print axioms RiffleUpperV2.Exploration.pilePosition
+#check RiffleUpperV2.Exploration.naturalHistory
+#print axioms RiffleUpperV2.Exploration.naturalHistory
+#check RiffleUpperV2.Exploration.historyFiber
+#print axioms RiffleUpperV2.Exploration.historyFiber
+#check RiffleUpperV2.Exploration.positiveHistory
+#print axioms RiffleUpperV2.Exploration.positiveHistory
+#check RiffleUpperV2.Exploration.tailPrefix
+#print axioms RiffleUpperV2.Exploration.tailPrefix
+#check RiffleUpperV2.Exploration.tailMass
+#print axioms RiffleUpperV2.Exploration.tailMass
+#check RiffleUpperV2.Exploration.reserveMass
+#print axioms RiffleUpperV2.Exploration.reserveMass
+#check RiffleUpperV2.Exploration.reserveCandidates
+#print axioms RiffleUpperV2.Exploration.reserveCandidates
+#check RiffleUpperV2.Exploration.chosenReserves
+#print axioms RiffleUpperV2.Exploration.chosenReserves
+#check RiffleUpperV2.Exploration.hasDirection
+#print axioms RiffleUpperV2.Exploration.hasDirection
+#check RiffleUpperV2.Exploration.beforeMiddle
+#print axioms RiffleUpperV2.Exploration.beforeMiddle
+#check RiffleUpperV2.Exploration.throughMiddle
+#print axioms RiffleUpperV2.Exploration.throughMiddle
+#check RiffleUpperV2.Exploration.guardCount
+#print axioms RiffleUpperV2.Exploration.guardCount
+#check RiffleUpperV2.Exploration.guardMean
+#print axioms RiffleUpperV2.Exploration.guardMean
+#check RiffleUpperV2.Exploration.outsideCount
+#print axioms RiffleUpperV2.Exploration.outsideCount
+#check RiffleUpperV2.Exploration.prefixLaterCount
+#print axioms RiffleUpperV2.Exploration.prefixLaterCount
+#check RiffleUpperV2.Exploration.concentrationEvent
+#print axioms RiffleUpperV2.Exploration.concentrationEvent
+#check RiffleUpperV2.Exploration.badBound
+#print axioms RiffleUpperV2.Exploration.badBound
+#check RiffleUpperV2.Exploration.historyGood
+#print axioms RiffleUpperV2.Exploration.historyGood
+#check RiffleUpperV2.Exploration.directionalEdge
+#print axioms RiffleUpperV2.Exploration.directionalEdge
+#check RiffleUpperV2.Exploration.directionalProcess
+#print axioms RiffleUpperV2.Exploration.directionalProcess
+#check RiffleUpperV2.Exploration.remainingDirectionalCount
+#print axioms RiffleUpperV2.Exploration.remainingDirectionalCount
+#check RiffleUpperV2.Exploration.pairHistory
+#print axioms RiffleUpperV2.Exploration.pairHistory
+#check RiffleUpperV2.Exploration.pairHistoryGood
+#print axioms RiffleUpperV2.Exploration.pairHistoryGood
+#check RiffleUpperV2.Exploration.pileEdgeFree
+#print axioms RiffleUpperV2.Exploration.pileEdgeFree
+#check RiffleUpperV2.Exploration.regularityEvent
+#print axioms RiffleUpperV2.Exploration.regularityEvent
+#check RiffleUpperV2.Exploration.pairHistory_refinement
+#print axioms RiffleUpperV2.Exploration.pairHistory_refinement
+#check RiffleUpperV2.Exploration.pairHistoryGood_adapted
+#print axioms RiffleUpperV2.Exploration.pairHistoryGood_adapted
+#check RiffleUpperV2.Exploration.regularity_pairHistoryGood
+#print axioms RiffleUpperV2.Exploration.regularity_pairHistoryGood
+#check RiffleUpperV2.Exploration.pilePrefix
+#print axioms RiffleUpperV2.Exploration.pilePrefix
+#check RiffleUpperV2.Exploration.row_take_one
+#print axioms RiffleUpperV2.Exploration.row_take_one
+#check RiffleUpperV2.Exploration.pilePrefix_count
+#print axioms RiffleUpperV2.Exploration.pilePrefix_count
+#check RiffleUpperV2.Exploration.pilePrefix_lowerRank
+#print axioms RiffleUpperV2.Exploration.pilePrefix_lowerRank
+#check RiffleUpperV2.Exploration.pilePrefix_upperRank
+#print axioms RiffleUpperV2.Exploration.pilePrefix_upperRank
+#check RiffleUpperV2.Exploration.pilePosition_firstDigit
+#print axioms RiffleUpperV2.Exploration.pilePosition_firstDigit
+#check RiffleUpperV2.Exploration.prefixSizeFailureSum
+#print axioms RiffleUpperV2.Exploration.prefixSizeFailureSum
+#check RiffleUpperV2.Exploration.prefixSizeConcentration
+#print axioms RiffleUpperV2.Exploration.prefixSizeConcentration
+#check RiffleUpperV2.Exploration.allPrefixSizesConcentration
+#print axioms RiffleUpperV2.Exploration.allPrefixSizesConcentration
+#check RiffleUpperV2.Exploration.bernstein_twoThirds_exponent
+#print axioms RiffleUpperV2.Exploration.bernstein_twoThirds_exponent
+#check RiffleUpperV2.Exploration.prefixSizeFailureSum_le
+#print axioms RiffleUpperV2.Exploration.prefixSizeFailureSum_le
+#check RiffleUpperV2.Exploration.directionalProcess_zero
+#print axioms RiffleUpperV2.Exploration.directionalProcess_zero
+#check RiffleUpperV2.Exploration.directionalProcess_one
+#print axioms RiffleUpperV2.Exploration.directionalProcess_one
+#check RiffleUpperV2.Exploration.directionalEdge_adapted
+#print axioms RiffleUpperV2.Exploration.directionalEdge_adapted
+#check RiffleUpperV2.Exploration.directionalProcess_adapted
+#print axioms RiffleUpperV2.Exploration.directionalProcess_adapted
+#check RiffleUpperV2.Exploration.revealedEdges_step
+#print axioms RiffleUpperV2.Exploration.revealedEdges_step
+#check RiffleUpperV2.Exploration.unitIncrements
+#print axioms RiffleUpperV2.Exploration.unitIncrements
+#check RiffleUpperV2.Exploration.remainingDirectionalCount_eq
+#print axioms RiffleUpperV2.Exploration.remainingDirectionalCount_eq
+#check RiffleUpperV2.Exploration.remaining_terminal
+#print axioms RiffleUpperV2.Exploration.remaining_terminal
+#check RiffleUpperV2.Exploration.pairHistoryGood_initial
+#print axioms RiffleUpperV2.Exploration.pairHistoryGood_initial
+#check RiffleUpperV2.Exploration.pairHistoryGood_terminal
+#print axioms RiffleUpperV2.Exploration.pairHistoryGood_terminal
+#check RiffleUpperV2.Exploration.direction_card
+#print axioms RiffleUpperV2.Exploration.direction_card
+#check RiffleUpperV2.Exploration.HistoryIndex
+#print axioms RiffleUpperV2.Exploration.HistoryIndex
+#check RiffleUpperV2.Exploration.historyIndex_card
+#print axioms RiffleUpperV2.Exploration.historyIndex_card
+#check RiffleUpperV2.Exploration.historyGood_unionBound
+#print axioms RiffleUpperV2.Exploration.historyGood_unionBound
+#check RiffleUpperV2.Exploration.regularityFailure_of_bounds
+#print axioms RiffleUpperV2.Exploration.regularityFailure_of_bounds
+#check RiffleUpperV2.Exploration.stretchedExp_tendsto_zero
+#print axioms RiffleUpperV2.Exploration.stretchedExp_tendsto_zero
+#check RiffleUpperV2.Exploration.power_badBound_tendsto_zero
+#print axioms RiffleUpperV2.Exploration.power_badBound_tendsto_zero
+#check RiffleUpperV2.Exploration.power_sqrt_badBound_tendsto_zero
+#print axioms RiffleUpperV2.Exploration.power_sqrt_badBound_tendsto_zero
+#check RiffleUpperV2.Exploration.historyErrors_eventually_le_power
+#print axioms RiffleUpperV2.Exploration.historyErrors_eventually_le_power
+#check RiffleUpperV2.Exploration.regularityError_tendsto_zero
+#print axioms RiffleUpperV2.Exploration.regularityError_tendsto_zero
+#check RiffleUpperV2.Exploration.reserve_product_lower
+#print axioms RiffleUpperV2.Exploration.reserve_product_lower
+#check RiffleUpperV2.Exploration.exists_large_digits
+#print axioms RiffleUpperV2.Exploration.exists_large_digits
+#check RiffleUpperV2.Exploration.modifiedTail
+#print axioms RiffleUpperV2.Exploration.modifiedTail
+#check RiffleUpperV2.Exploration.reserveCandidates_nonempty
+#print axioms RiffleUpperV2.Exploration.reserveCandidates_nonempty
+#check RiffleUpperV2.Exploration.chosenReserves_of_retainedGoodCluster
+#print axioms RiffleUpperV2.Exploration.chosenReserves_of_retainedGoodCluster
+#check RiffleUpperV2.Exploration.pile_not_edgeFree_has_collision
+#print axioms RiffleUpperV2.Exploration.pile_not_edgeFree_has_collision
+#check RiffleUpperV2.Exploration.pileWordMass_sum
+#print axioms RiffleUpperV2.Exploration.pileWordMass_sum
+#check RiffleUpperV2.Exploration.wordCollision_set_bound
+#print axioms RiffleUpperV2.Exploration.wordCollision_set_bound
+#check RiffleUpperV2.Exploration.smallPileFailure_mean
+#print axioms RiffleUpperV2.Exploration.smallPileFailure_mean
+#check RiffleUpperV2.Exploration.smallPileFailure
+#print axioms RiffleUpperV2.Exploration.smallPileFailure
+#check RiffleUpperV2.Exploration.uniformConcentration_finite
+#print axioms RiffleUpperV2.Exploration.uniformConcentration_finite
+#check RiffleUpperV2.Exploration.cylinder_testCount_polynomial
+#print axioms RiffleUpperV2.Exploration.cylinder_testCount_polynomial
+#check RiffleUpperV2.Exploration.uniformConcentration
+#print axioms RiffleUpperV2.Exploration.uniformConcentration
+#check RiffleUpperV2.Exploration.regularityFailure
+#print axioms RiffleUpperV2.Exploration.regularityFailure
+#check RiffleUpperV2.Exploration.integerWindow_cluster
+#print axioms RiffleUpperV2.Exploration.integerWindow_cluster
+#check RiffleUpperV2.Exploration.cluster_threshold_eventually
+#print axioms RiffleUpperV2.Exploration.cluster_threshold_eventually
+#check RiffleUpperV2.Exploration.goodCluster_uniform
+#print axioms RiffleUpperV2.Exploration.goodCluster_uniform

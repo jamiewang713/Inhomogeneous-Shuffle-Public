@@ -1,0 +1,54 @@
+{
+  "status": "PREPARATORY_REUSE_NOTES_NOT_ENDPOINT_PROOF",
+  "recorded_at": "2026-10-02T21:01:42.316028+00:00",
+  "owner": "U12 (queued)",
+  "authoritative_prompt": "formalization/upper_bound_parallel_plan_2026-10-01/12_profile_critical_and_random_upper.txt",
+  "frozen_targets": "RiffleUpperV2/Contracts/V1/Profile.lean contains P,T,REmpiricalBound,REmpirical,RProfile,R",
+  "actual_shared_definitions": "Shared/Profile.lean and Shared/Random.lean",
+  "accepted_provider": "U06 all six Margins modules independently accepted; U11 E active but not proved",
+  "reuse": [
+    {
+      "declaration": "RiffleUpperV2.Margins.anyFixedPartitionTransfer",
+      "source": "RiffleUpperV2/Margins/FixedPartition.lean",
+      "notes": "chi0 before arbitrary given partition; accepts positive rhoCeiling to intersect with E mesh restriction. Scalar integrability is for this same partition. Produces ProfileIntervalErrors uniformly before mu and cuts."
+    },
+    {
+      "declaration": "RiffleUpperV2.Margins.profileToEmpiricalMargin_half",
+      "source": "RiffleUpperV2/Margins/ProfileMargin.lean",
+      "notes": "Use e=eta/100 errors, explicit floor threshold14logk/logN<=eta/4, macroBeta and macroLambda1<=-eta, then empirical margin eta/2 on horizonDepth(N,T)."
+    },
+    {
+      "declaration": "RiffleUpperV2.criticalTime / mixingTime",
+      "source": "RiffleUpperV2/Shared/Profile.lean",
+      "notes": "ENNReal sInf; empty set correctly top. Coherent InfiniteCuts.take supplied. T requires finite-horizon convergence above critical time and limsup mixing/logN; no continuity at critical time is assumed."
+    },
+    {
+      "declaration": "RiffleUpperV2.ArbitrarilyFineApproximation",
+      "source": "RiffleUpperV2/Shared/Profile.lean",
+      "notes": "For each T and chiStar obtains a regular partition and fixed g,gamma,rhoBar BEFORE forall decreasing rho and phi. Preserve this order."
+    },
+    {
+      "declaration": "RiffleUpperV2.randomInverseLaw",
+      "source": "RiffleUpperV2/Shared/Random.lean",
+      "notes": "PMF.bind entire count-array law to actual physicalInverseLaw; Cuts has finite encoding/injective proof. No independence between count vectors is required."
+    },
+    {
+      "declaration": "RiffleUpperV2.EmpiricalUpper.tv_bind_le",
+      "source": "RiffleUpperV2/EmpiricalUpper/FiniteTV.lean",
+      "notes": "Independently accepted exact finite half-L1 mixture convexity; root staged. randomEquivTVContraction/Deletion handle physical prefix deletion; no stationarity."
+    }
+  ],
+  "possible_analytic_reuse": [
+    "RiffleLowerV2/ProfileTransfer/Spatial.lean profileMaxCost_bounds/profilePsi_bounds and scalar_integral_bounds",
+    "RiffleLowerV2/ProfileTransfer/Margin.lean has private scalar interval comparison patterns, but private helper names may not be reusable directly",
+    "RiffleLowerV2/Shared/Empirical.lean defines macroF/macroLambda1; do not confuse empirical piecewise-grid F with upper endpoint F"
+  ],
+  "missing_proofs": [
+    "U11 actual E, then P ordered composition",
+    "one-column inequality/dominance and temporal upper-margin monotonicity on proper scalar-integrability domains",
+    "critical negativity propagation and threshold equality",
+    "coherent finite-horizon mixing upper and extended limsup",
+    "finite mixture TV bound and actual random limits"
+  ],
+  "warning": "These are inspected definitions/reuse candidates, not claims that P/T/R are already proved. No old existential-partition endpoint may replace P."
+}

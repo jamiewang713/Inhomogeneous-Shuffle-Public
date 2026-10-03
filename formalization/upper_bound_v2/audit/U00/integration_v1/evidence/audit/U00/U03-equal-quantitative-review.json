@@ -1,0 +1,49 @@
+{
+  "status": "PASS_EQUAL_CASE_QUANTITATIVE_SLICE",
+  "reviewer": "U00 independent of U03",
+  "recorded_at": "2026-10-02T09:53:06.391233+00:00",
+  "sources": {
+    "RiffleUpperV2/Anchor/CylinderExtension.lean": "024a33877255870b2ff1a8c0ecf66e8f7b04dc65dd42a46fce7399b3c7ac8697",
+    "RiffleUpperV2/Anchor/EqualCylinder.lean": "adedcdadda59fdcb156fcc9947dcf166b87f54ec5ad161f144ec9caaed440c0d",
+    "RiffleUpperV2/Anchor/EqualFailure.lean": "cb0ce697b3d6ecab067d9bd2cb51ef23f34102c4619eb05264e8dc79820a8e5a",
+    "RiffleUpperV2/Anchor/EqualMeans.lean": "c566878167bbaaefd412e8390b0df31d3f0c1ade9cb33d7803d2666d640eb55a",
+    "RiffleUpperV2/Anchor/EqualVarianceAlgebra.lean": "57671162a523fc99c82329752a65fce35ba2171e8f7d774f31587cf7ba53f858",
+    "RiffleUpperV2/Anchor/EqualVariance.lean": "4c536aae76463606c14216fde2f56a38296e2d410f930ce7a7ac936363213233"
+  },
+  "mathematics": [
+    "Matching-before/non-equal rows are an actual independent-column cylinder. Outside-R non-equal reserve is a one-column cylinder. Their exact means and disjointness are proved.",
+    "The two half-mean conditions form a fine-history measurable event; actual cylinder lower tails bound failure by2exp(-cCh*g*leftMean). This is at most source3exp(-cCh*g*min(left,right)).",
+    "On the event, draws and complement lower bounds yield positive integer draws and a nonempty complement, hence population>=2 without a variance positivity assumption.",
+    "Exact hypergeometric parameters and fraction bounds give variance>=g*min(leftMean,rightMean)/8. Harmonic-side inequality handles either ordering, with no alphabet reflection."
+  ],
+  "model_quantifiers": [
+    "All sampling is full n-label fixedCountPMF; R only determines counted rows/reserve.",
+    "Variance assumes positive actual side means, to be derived from selected coincident maxima of a genuine pair.",
+    "Continuation may equal join or full word, selected digit valid in all cases."
+  ],
+  "adversarial": [
+    "Empty R or zero side means do not accidentally imply positive variance; those hypotheses are explicit and source genuine pair must discharge them.",
+    "No assumption mean>=1; actual count lower bounds force the needed integral population guard.",
+    "Good event is not inserted into conditioning; bad event probability and good-atom variance are distinct statements."
+  ],
+  "alternate_source_proof": [
+    "Uses two unconditional cylinders instead of source three-step random-T conditional calculation.",
+    "Uses symmetric min bound instead of alphabet reflection. Both strengthen intermediate constants and preserve16D/3-exponential target."
+  ],
+  "missing": [
+    "select equal-case extremal digit and connect to global side scales",
+    "unequal quantitative cases",
+    "combine and average atoms to internal history"
+  ],
+  "independent_build": {
+    "receipt": "equal-quantitative-check-build.json",
+    "log": "equal-quantitative-check.log",
+    "exit_code": 0,
+    "declarations": 281,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

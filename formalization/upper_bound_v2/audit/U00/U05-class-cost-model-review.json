@@ -1,0 +1,33 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:50:11.662692+00:00",
+  "sources": {
+    "FirstMoment/ClassFibers.lean": "e608a6c7f662a91f762007c519f76aab117e7b95adf01acaded3afd8faaf06c5",
+    "FirstMoment/StoppingCosts.lean": "d305ba47bec88fb8b277098fa0eb98022f6d1783d6578e9224d7ee096fbba757",
+    "FirstMoment/MaximalCosts.lean": "070a35b9a52c095cd767f74227ae3a24e398db158843e2c3647c090eea6bce8a"
+  },
+  "mathematics": [
+    "Actual descriptor equality recovers full boundary words, pile and stopped depth, then exceptional position set, stored rare digits, and cost bin. The resulting actual nonempty prefix family satisfies every prefixFamilyEntropy hypothesis.",
+    "Exceptional budget floor is bounded by exceptionalAllowance*log N using its actual nonnegativity. The entropy inequality retains the source slack 4*width+4*log(k)*exceptionalAllowance.",
+    "Proper stable parent has not stopped. Removing the final digit bounds goodCost by the full selected parent cost plus log(1/chi)/log N; a rare final digit contributes zero. Exact cost split gives S<=V-F+q.",
+    "Legal anchored prefixes have exponent bounded by current-array empiricalBeta. Reattaching the exposed first digit proves the stronger original-array beta comparison at a0+1+future depth, with original log N.",
+    "Terminal original-array negative margin therefore bounds every legal full future anchored word, even in small positive first piles."
+  ],
+  "public_type_and_model": [
+    "The class entropy applies to every actual retained descriptor fiber; no chosen family membership/cost/legality premises remain.",
+    "First-column anchor matching uses literal anchorRows cardinal and full-population tailCuts. Neither n nor log N is replaced by pile size.",
+    "MaximalCosts terminal theorem takes only the source terminal margin and actual full-word legality. Full stable no-fallback assembly is still separate."
+  ],
+  "adversarial": [
+    "Sparse record reading avoids dependent equality assumptions; boundary reconstruction is injective, fixing actual boundary words.",
+    "Proper stopping implies positive stopped depth, so the final selected digit is well-defined; empty parent interval contributes zero.",
+    "Rare final digits and zero unselected probabilities are allowed. Legal selected digits are strictly positive before applying logarithms.",
+    "Integer a0 grid is shifted exactly by the exposed column; no off-by-one reuse of future-array beta is made."
+  ],
+  "remaining": [
+    "Exact class cardinal versus prefix image, normalized density exponents, global physical graph finite sums, and F."
+  ],
+  "root_build_receipt": "natural-count-check-build.json",
+  "trust_inventory": "natural-count-declarations.json"
+}

@@ -1,0 +1,254 @@
+have this := RiffleUpperV2.Conditional.remainingCommonEdges;
+this : RiffleUpperV2.Contracts.V1.C
+def RiffleUpperV2.Contracts.V1.C : Prop :=
+∀ (k : ℕ),
+  LE.le.{0} 2 k →
+    ∀ (T η g γ : ℝ),
+      LT.lt.{0} 0 T →
+        LT.lt.{0} 0 η →
+          LE.le.{0} η 1 →
+            LT.lt.{0} 0 g →
+              LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+                LT.lt.{0} 0 γ →
+                  LE.le.{0} γ 1 →
+                    ∃ ρ0,
+                      LT.lt.{0} 0 ρ0 ∧
+                        ∀ (ρ : ℝ),
+                          LT.lt.{0} 0 ρ →
+                            LE.le.{0} ρ ρ0 →
+                              ∃ A cH ζ C,
+                                LT.lt.{0} 0 A ∧
+                                  LT.lt.{0} 0 cH ∧
+                                    LT.lt.{0} 0 ζ ∧
+                                      LT.lt.{0} 0 C ∧
+                                        ∃ N0,
+                                          ∃ (hN0 : LE.le.{0} 2 N0),
+                                            ∀ (N : ℕ) (hN : LE.le.{0} N0 N) (L : ℕ),
+                                              LE.le.{0} (↑(HAdd.hAdd.{0, 0, 0} L 1))
+                                                  (HMul.hMul.{0, 0, 0} T (Real.log ↑N)) →
+                                                ∀ (cuts : RiffleUpperV2.Cuts k N (HAdd.hAdd.{0, 0, 0} L 1)),
+                                                  RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯
+                                                      (HMul.hMul.{0, 0, 0} 2 η) →
+                                                    RiffleUpperV2.Exploration.integerWindowGood N cuts ⋯ ρ γ g →
+                                                      RiffleUpperV2.Exploration.retainedGoodCluster cuts ⋯
+                                                          (RiffleUpperV2.Exploration.clusterSpan γ) g →
+                                                        LE.le.{0}
+                                                            (RiffleUpperV2.probability.{0}
+                                                              (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+                                                              ¬RiffleUpperV2.Exploration.concentrationEvent cuts
+                                                                  (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                  (HDiv.hDiv.{0, 0, 0} η 10) ω)
+                                                            (RiffleUpperV2.Exploration.badBound N
+                                                              (HDiv.hDiv.{0, 0, 0} η 10) A cH) ∧
+                                                          (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction),
+                                                              LE.le.{0}
+                                                                  (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} η 10))
+                                                                  ↑(RiffleUpperV2.Exploration.pileSize cuts p) →
+                                                                ∀ (i : ℕ),
+                                                                  LE.le.{0} i
+                                                                      (RiffleUpperV2.Exploration.pileSize cuts p) →
+                                                                    ∀
+                                                                      (ω :
+                                                                        Prod.{0, 0} (RiffleUpperV2.Sample cuts)
+                                                                          (RiffleUpperV2.Sample cuts)),
+                                                                      LT.lt.{0} 0
+                                                                          (RiffleUpperV2.probability.{0}
+                                                                            (RiffleUpperV2.independentPairLaw cuts)
+                                                                            fun v =>
+                                                                            Eq.{1}
+                                                                              (RiffleUpperV2.Exploration.pairHistory
+                                                                                cuts p d i v)
+                                                                              (RiffleUpperV2.Exploration.pairHistory
+                                                                                cuts p d i ω)) →
+                                                                        RiffleUpperV2.Exploration.pairHistoryGood cuts
+                                                                            (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                            (HDiv.hDiv.{0, 0, 0} η 10)
+                                                                            (√(RiffleUpperV2.Exploration.badBound N
+                                                                                (HDiv.hDiv.{0, 0, 0} η 10) A cH))
+                                                                            p d i ω →
+                                                                          LE.le.{0}
+                                                                            (RiffleUpperV2.conditionalExpect.{0}
+                                                                              (RiffleUpperV2.independentPairLaw cuts)
+                                                                              (fun v =>
+                                                                                ↑(RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                                    cuts
+                                                                                    (RiffleUpperV2.Exploration.clusterSpan
+                                                                                      γ)
+                                                                                    g (HDiv.hDiv.{0, 0, 0} η 10) p d i
+                                                                                    v.1 v.2))
+                                                                              fun v =>
+                                                                              Eq.{1}
+                                                                                (RiffleUpperV2.Exploration.pairHistory
+                                                                                  cuts p d i v)
+                                                                                (RiffleUpperV2.Exploration.pairHistory
+                                                                                  cuts p d i ω))
+                                                                            (HMul.hMul.{0, 0, 0} C
+                                                                              (HPow.hPow.{0, 0, 0} (↑N)
+                                                                                (Neg.neg.{0} ζ)))) ∧
+                                                            ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                                              (ω ω' : RiffleUpperV2.Sample cuts),
+                                                              Eq.{1}
+                                                                (RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                  cuts (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                  (HDiv.hDiv.{0, 0, 0} η 10) p d
+                                                                  (RiffleUpperV2.Exploration.pileSize cuts p) ω ω')
+                                                                0
+'RiffleUpperV2.Conditional.remainingCommonEdges' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+U09_C_EXPANDED_TYPE ∀ (k : ℕ),
+  LE.le.{0} 2 k →
+    ∀ (T η g γ : ℝ),
+      LT.lt.{0} 0 T →
+        LT.lt.{0} 0 η →
+          LE.le.{0} η 1 →
+            LT.lt.{0} 0 g →
+              LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+                LT.lt.{0} 0 γ →
+                  LE.le.{0} γ 1 →
+                    ∃ ρ0,
+                      LT.lt.{0} 0 ρ0 ∧
+                        ∀ (ρ : ℝ),
+                          LT.lt.{0} 0 ρ →
+                            LE.le.{0} ρ ρ0 →
+                              ∃ A cH ζ C,
+                                LT.lt.{0} 0 A ∧
+                                  LT.lt.{0} 0 cH ∧
+                                    LT.lt.{0} 0 ζ ∧
+                                      LT.lt.{0} 0 C ∧
+                                        ∃ N0,
+                                          ∃ (hN0 : LE.le.{0} 2 N0),
+                                            ∀ (N : ℕ) (hN : LE.le.{0} N0 N) (L : ℕ),
+                                              LE.le.{0} (↑(HAdd.hAdd.{0, 0, 0} L 1))
+                                                  (HMul.hMul.{0, 0, 0} T (Real.log ↑N)) →
+                                                ∀ (cuts : RiffleUpperV2.Cuts k N (HAdd.hAdd.{0, 0, 0} L 1)),
+                                                  RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯
+                                                      (HMul.hMul.{0, 0, 0} 2 η) →
+                                                    RiffleUpperV2.Exploration.integerWindowGood N cuts ⋯ ρ γ g →
+                                                      RiffleUpperV2.Exploration.retainedGoodCluster cuts ⋯
+                                                          (RiffleUpperV2.Exploration.clusterSpan γ) g →
+                                                        LE.le.{0}
+                                                            (RiffleUpperV2.probability.{0}
+                                                              (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+                                                              ¬RiffleUpperV2.Exploration.concentrationEvent cuts
+                                                                  (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                  (HDiv.hDiv.{0, 0, 0} η 10) ω)
+                                                            (RiffleUpperV2.Exploration.badBound N
+                                                              (HDiv.hDiv.{0, 0, 0} η 10) A cH) ∧
+                                                          (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction),
+                                                              LE.le.{0}
+                                                                  (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} η 10))
+                                                                  ↑(RiffleUpperV2.Exploration.pileSize cuts p) →
+                                                                ∀ (i : ℕ),
+                                                                  LE.le.{0} i
+                                                                      (RiffleUpperV2.Exploration.pileSize cuts p) →
+                                                                    ∀
+                                                                      (ω :
+                                                                        Prod.{0, 0} (RiffleUpperV2.Sample cuts)
+                                                                          (RiffleUpperV2.Sample cuts)),
+                                                                      LT.lt.{0} 0
+                                                                          (RiffleUpperV2.probability.{0}
+                                                                            (RiffleUpperV2.independentPairLaw cuts)
+                                                                            fun v =>
+                                                                            Eq.{1}
+                                                                              (RiffleUpperV2.Exploration.pairHistory
+                                                                                cuts p d i v)
+                                                                              (RiffleUpperV2.Exploration.pairHistory
+                                                                                cuts p d i ω)) →
+                                                                        RiffleUpperV2.Exploration.pairHistoryGood cuts
+                                                                            (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                            (HDiv.hDiv.{0, 0, 0} η 10)
+                                                                            (√(RiffleUpperV2.Exploration.badBound N
+                                                                                (HDiv.hDiv.{0, 0, 0} η 10) A cH))
+                                                                            p d i ω →
+                                                                          LE.le.{0}
+                                                                            (RiffleUpperV2.conditionalExpect.{0}
+                                                                              (RiffleUpperV2.independentPairLaw cuts)
+                                                                              (fun v =>
+                                                                                ↑(RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                                    cuts
+                                                                                    (RiffleUpperV2.Exploration.clusterSpan
+                                                                                      γ)
+                                                                                    g (HDiv.hDiv.{0, 0, 0} η 10) p d i
+                                                                                    v.1 v.2))
+                                                                              fun v =>
+                                                                              Eq.{1}
+                                                                                (RiffleUpperV2.Exploration.pairHistory
+                                                                                  cuts p d i v)
+                                                                                (RiffleUpperV2.Exploration.pairHistory
+                                                                                  cuts p d i ω))
+                                                                            (HMul.hMul.{0, 0, 0} C
+                                                                              (HPow.hPow.{0, 0, 0} (↑N)
+                                                                                (Neg.neg.{0} ζ)))) ∧
+                                                            ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                                              (ω ω' : RiffleUpperV2.Sample cuts),
+                                                              Eq.{1}
+                                                                (RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                  cuts (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                  (HDiv.hDiv.{0, 0, 0} η 10) p d
+                                                                  (RiffleUpperV2.Exploration.pileSize cuts p) ω ω')
+                                                                0
+RiffleUpperV2.Conditional.oneHistory_uniform : ∀ (k D : ℕ),
+  LE.le.{0} 2 k →
+    LE.le.{0} 1 D →
+      ∀ (T η g γ τ ρ A cH : ℝ),
+        LT.lt.{0} 0 T →
+          LT.lt.{0} 0 η →
+            LT.lt.{0} 0 g →
+              LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+                LT.lt.{0} 0 γ →
+                  LE.le.{0} γ 1 →
+                    LT.lt.{0} 0 τ →
+                      LT.lt.{0} τ g →
+                        LT.lt.{0} 0 ρ →
+                          LT.lt.{0} 0 cH →
+                            LT.lt.{0}
+                                (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g))
+                                  (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))
+                                (1 / 2) →
+                              LE.le.{0}
+                                  (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g))
+                                    (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))
+                                  (HDiv.hDiv.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} η 10)
+                                    (HMul.hMul.{0, 0, 0} 4 (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} η 10)))) →
+                                LE.le.{0}
+                                    (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g))
+                                      (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))
+                                    (HDiv.hDiv.{0, 0, 0} η (HMul.hMul.{0, 0, 0} 40 (HAdd.hAdd.{0, 0, 0} 1 η))) →
+                                  LE.le.{0} (HMul.hMul.{0, 0, 0} ρ (Real.log ↑k))
+                                      (HDiv.hDiv.{0, 0, 0}
+                                        (RiffleUpperV2.Conditional.decayBudget η (HDiv.hDiv.{0, 0, 0} η 8)) 4) →
+                                    ∃ C,
+                                      LT.lt.{0} 0 C ∧
+                                        ∃ N0,
+                                          LE.le.{0} 2 N0 ∧
+                                            ∀ (N : ℕ),
+                                              LE.le.{0} N0 N →
+                                                ∀ (L : ℕ) (cuts : RiffleUpperV2.Cuts k N (HAdd.hAdd.{0, 0, 0} L 1))
+                                                  (hN : LT.lt.{0} 0 N),
+                                                  LE.le.{0} (↑(HAdd.hAdd.{0, 0, 0} L 1))
+                                                      (HMul.hMul.{0, 0, 0} T (Real.log ↑N)) →
+                                                    TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hN 0) g →
+                                                      RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts hN
+                                                          (HMul.hMul.{0, 0, 0} 2 η) →
+                                                        RiffleUpperV2.Exploration.integerWindowGood N cuts hN ρ γ g →
+                                                          ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                                            (ω : RiffleUpperV2.Sample cuts)
+                                                            (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                                                            RiffleUpperV2.Exploration.positiveHistory cuts p d
+                                                                (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω →
+                                                              RiffleUpperV2.Exploration.historyGood cuts D g
+                                                                  (HDiv.hDiv.{0, 0, 0} η 10)
+                                                                  (√(RiffleUpperV2.Exploration.badBound N
+                                                                      (HDiv.hDiv.{0, 0, 0} η 10) A cH))
+                                                                  p d (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω →
+                                                                LE.le.{0}
+                                                                  (RiffleUpperV2.Conditional.historySelfIntersection
+                                                                    cuts D g p d (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω)
+                                                                  (HMul.hMul.{0, 0, 0} C
+                                                                    (HPow.hPow.{0, 0, 0} (↑N)
+                                                                      (HDiv.hDiv.{0, 0, 0}
+                                                                        (Neg.neg.{0}
+                                                                          (RiffleUpperV2.Conditional.decayBudget η
+                                                                            (HDiv.hDiv.{0, 0, 0} η 8)))
+                                                                        2)))
+'RiffleUpperV2.Conditional.oneHistory_uniform' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+BUILD_OK U09

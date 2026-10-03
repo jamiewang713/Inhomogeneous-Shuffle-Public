@@ -1,0 +1,296 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "lane": "U03",
+  "scope": "Reserved-population endpoint smoothing and joint internal-offset atoms",
+  "recorded_at": "2026-10-02T10:42:56.800377+00:00",
+  "mathematical_obligations_remaining": [],
+  "public_exports": [
+    {
+      "name": "RiffleUpperV2.Anchor.endpointSmoothing",
+      "module": "RiffleUpperV2.Anchor.Smoothing",
+      "type": "{k n d : \u2115} \u2192\n  (cuts : RiffleUpperV2.Cuts k n d) \u2192\n    0 < n \u2192\n      (c\u2080 : \u2124) \u2192\n        (R : Finset (Fin n)) \u2192\n          {g \u03c7 : \u211d} \u2192\n            {y z v x : RiffleUpperV2.Prefix k d} \u2192\n              RiffleUpperV2.Anchor.Reserve R g \u2192\n                RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R \u03c7 y z v \u2192\n                  RiffleUpperV2.Anchor.IsPrefix v x \u2192\n                    RiffleUpperV2.Anchor.EndpointSmoothingData cuts c\u2080 R x g (RiffleUpperV2.Anchor.sideScale cuts R v)\n                      (RiffleUpperV2.Anchor.varianceDenominator \u03c7 v)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "RiffleUpperV2.Anchor.endpointShiftHypergeometric",
+      "module": "RiffleUpperV2.Anchor.Smoothing",
+      "type": "\u2200 {k n d : \u2115} (cuts : RiffleUpperV2.Cuts k n d) (hn : 0 < n) (c\u2080 : \u2124) (R : Finset (Fin n)) {g \u03c7 : \u211d}\n  {y z v x : RiffleUpperV2.Prefix k d} (hg : RiffleUpperV2.Anchor.Reserve R g)\n  (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R \u03c7 y z v) (hvx : RiffleUpperV2.Anchor.IsPrefix v x)\n  (\u03c9\u2080 : RiffleUpperV2.Sample cuts) (f : \u2124 \u2192 \u211d),\n  have data := RiffleUpperV2.Anchor.endpointSmoothing cuts hn c\u2080 R hg h hvx;\n  ((RiffleUpperV2.conditionalExpect (RiffleUpperV2.fixedCountPMF cuts)\n        (fun (\u03c9 : TimeProfile.ShuffleSample cuts) => f (RiffleUpperV2.Anchor.lowerEndpoint c\u2080 R x \u03c9))\n        fun (\u03c9 : TimeProfile.ShuffleSample cuts) => data.history \u03c9 = data.history \u03c9\u2080) =\n      RiffleUpperV2.expect (data.params \u03c9\u2080).law.toPMF fun (q : Fin ((data.params \u03c9\u2080).draws + 1)) =>\n        f (data.shift \u03c9\u2080 + \u2191\u2191q)) \u2227\n    (RiffleUpperV2.conditionalExpect (RiffleUpperV2.fixedCountPMF cuts)\n        (fun (\u03c9 : TimeProfile.ShuffleSample cuts) => f (RiffleUpperV2.Anchor.upperEndpoint c\u2080 R x \u03c9))\n        fun (\u03c9 : TimeProfile.ShuffleSample cuts) => data.history \u03c9 = data.history \u03c9\u2080) =\n      RiffleUpperV2.expect (data.params \u03c9\u2080).law.toPMF fun (q : Fin ((data.params \u03c9\u2080).draws + 1)) =>\n        f (data.shift \u03c9\u2080 + \u2191\u2191q + \u2191(RiffleUpperV2.Anchor.prefixRows R x \u03c9\u2080).card)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "RiffleUpperV2.Anchor.smoothingFailure",
+      "module": "RiffleUpperV2.Anchor.Smoothing",
+      "type": "\u2200 {k n d : \u2115} (cuts : RiffleUpperV2.Cuts k n d) (hn : 0 < n) (c\u2080 : \u2124) (R : Finset (Fin n)) {g \u03c7 : \u211d}\n  {y z v x : RiffleUpperV2.Prefix k d} (hg : RiffleUpperV2.Anchor.Reserve R g)\n  (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R \u03c7 y z v) (hvx : RiffleUpperV2.Anchor.IsPrefix v x),\n  (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n      \u00ac(RiffleUpperV2.Anchor.endpointSmoothing cuts hn c\u2080 R hg h hvx).good \u03c9) \u2264\n    3 * Real.exp (-RiffleLowerV2.chernoffConstant * g * RiffleUpperV2.Anchor.sideScale cuts R v)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "RiffleUpperV2.Anchor.endpointVariance",
+      "module": "RiffleUpperV2.Anchor.Smoothing",
+      "type": "\u2200 {k n d : \u2115} (cuts : RiffleUpperV2.Cuts k n d) (hn : 0 < n) (c\u2080 : \u2124) (R : Finset (Fin n)) {g \u03c7 : \u211d}\n  {y z v x : RiffleUpperV2.Prefix k d} (hg : RiffleUpperV2.Anchor.Reserve R g)\n  (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R \u03c7 y z v) (hvx : RiffleUpperV2.Anchor.IsPrefix v x)\n  (\u03c9 : RiffleUpperV2.Sample cuts),\n  (RiffleUpperV2.Anchor.endpointSmoothing cuts hn c\u2080 R hg h hvx).good \u03c9 \u2192\n    g * RiffleUpperV2.Anchor.sideScale cuts R v / (16 * RiffleUpperV2.Anchor.varianceDenominator \u03c7 v) \u2264\n      ((RiffleUpperV2.Anchor.endpointSmoothing cuts hn c\u2080 R hg h hvx).params \u03c9).varianceFormula",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "RiffleUpperV2.Anchor.conditionalEndpointAtoms",
+      "module": "RiffleUpperV2.Anchor.ConditionalAtoms",
+      "type": "\u2200 {k n d : \u2115} (cuts : RiffleUpperV2.Cuts k n d) (hn : 2 \u2264 n),\n  1 \u2264 d \u2192\n    \u2200 (c\u2080 : \u2124) (R : Finset (Fin n)) {g \u03c7 : \u211d} {y z v x : RiffleUpperV2.Prefix k d}\n      (hg : RiffleUpperV2.Anchor.Reserve R g) (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R \u03c7 y z v)\n      (hvx : RiffleUpperV2.Anchor.IsPrefix v x) (u : RiffleUpperV2.Anchor.InternalHistory k n d),\n      (0 <\n          RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n            RiffleUpperV2.Anchor.internalHistory R x \u03c9 = u) \u2192\n        \u2200 (rank : \u2124),\n          have data := RiffleUpperV2.Anchor.endpointSmoothing cuts \u22ef c\u2080 R hg h hvx;\n          (RiffleUpperV2.conditionalProbability (RiffleUpperV2.fixedCountPMF cuts)\n                (fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n                  RiffleUpperV2.Anchor.lowerEndpoint c\u2080 R x \u03c9 = rank \u2227 data.good \u03c9)\n                fun (\u03c9 : TimeProfile.ShuffleSample cuts) => RiffleUpperV2.Anchor.internalHistory R x \u03c9 = u) \u2264\n              16 * \u221a(RiffleUpperV2.Anchor.varianceDenominator \u03c7 v / (g * RiffleUpperV2.Anchor.sideScale cuts R v)) \u2227\n            (RiffleUpperV2.conditionalProbability (RiffleUpperV2.fixedCountPMF cuts)\n                (fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n                  RiffleUpperV2.Anchor.upperEndpoint c\u2080 R x \u03c9 = rank \u2227 data.good \u03c9)\n                fun (\u03c9 : TimeProfile.ShuffleSample cuts) => RiffleUpperV2.Anchor.internalHistory R x \u03c9 = u) \u2264\n              16 * \u221a(RiffleUpperV2.Anchor.varianceDenominator \u03c7 v / (g * RiffleUpperV2.Anchor.sideScale cuts R v))",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "RiffleUpperV2.Anchor.jointInternalOffsetAtoms",
+      "module": "RiffleUpperV2.Anchor.JointAtoms",
+      "type": "\u2200 {k n d : \u2115} (cuts : RiffleUpperV2.Cuts k n d) (hn : 2 \u2264 n),\n  1 \u2264 d \u2192\n    \u2200 (c\u2080 : \u2124) (R : Finset (Fin n)) {g \u03c7 : \u211d} {y z v x : RiffleUpperV2.Prefix k d}\n      (hg : RiffleUpperV2.Anchor.Reserve R g) (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R \u03c7 y z v)\n      (hvx : RiffleUpperV2.Anchor.IsPrefix v x) (offset : RiffleUpperV2.Anchor.InternalHistory k n d \u2192 \u2124)\n      (H : RiffleUpperV2.Anchor.InternalHistory k n d \u2192 Prop) (rank : \u2124),\n      have data := RiffleUpperV2.Anchor.endpointSmoothing cuts \u22ef c\u2080 R hg h hvx;\n      ((RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n            RiffleUpperV2.Anchor.lowerEndpoint c\u2080 R x \u03c9 + offset (RiffleUpperV2.Anchor.internalHistory R x \u03c9) = rank \u2227\n              data.good \u03c9 \u2227 H (RiffleUpperV2.Anchor.internalHistory R x \u03c9)) \u2264\n          16 * \u221a(RiffleUpperV2.Anchor.varianceDenominator \u03c7 v / (g * RiffleUpperV2.Anchor.sideScale cuts R v)) *\n            RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n              H (RiffleUpperV2.Anchor.internalHistory R x \u03c9)) \u2227\n        (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n            RiffleUpperV2.Anchor.upperEndpoint c\u2080 R x \u03c9 + offset (RiffleUpperV2.Anchor.internalHistory R x \u03c9) = rank \u2227\n              data.good \u03c9 \u2227 H (RiffleUpperV2.Anchor.internalHistory R x \u03c9)) \u2264\n          16 * \u221a(RiffleUpperV2.Anchor.varianceDenominator \u03c7 v / (g * RiffleUpperV2.Anchor.sideScale cuts R v)) *\n            RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (\u03c9 : TimeProfile.ShuffleSample cuts) =>\n              H (RiffleUpperV2.Anchor.internalHistory R x \u03c9)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "fully_explicit_public_types": "public-types.json (Lean pp.all=true, no hidden binders or proof arguments)",
+  "input_hashes": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+    "formalization/upper_bound_parallel_plan_2026-10-01/00_coordinator_and_contracts.txt": "d76646f4fb60aa98d8a7f796d012dbb703c07122a39316b937a634e3515aaeca",
+    "formalization/upper_bound_parallel_plan_2026-10-01/03_anchored_endpoint_smoothing.txt": "31b18ebd3a67c37516cea25a6e31ee5bbb89be522fe8e7f9d5a87524dc2a3d1c",
+    "formalization/upper_bound_parallel_plan_2026-10-01/PLAN.txt": "f661237393292885776d684e77f9e3836476dfea34b1ed21c29feceda80a3ca1",
+    "formalization/upper_bound_v2/CONTRACTS_READY.json": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6"
+  },
+  "owned_source_hashes": {
+    "RiffleUpperV2/Anchor/ConditionalAtoms.lean": "4a292d4812ca9d5c7497db6a0690f980a1c5cff97d740ede1b05ada962fcc75b",
+    "RiffleUpperV2/Anchor/ConditionalColumn.lean": "1aeed9e84e70da60e9c2b5bdadaf8effb8c26b11ca2baae35c58f8d9f21b2669",
+    "RiffleUpperV2/Anchor/CylinderExtension.lean": "024a33877255870b2ff1a8c0ecf66e8f7b04dc65dd42a46fce7399b3c7ac8697",
+    "RiffleUpperV2/Anchor/Definitions.lean": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+    "RiffleUpperV2/Anchor/Degenerate.lean": "d697ca2e72efc4d29fb32513f5eeec0294282bd6bf09fe3d100249639541441d",
+    "RiffleUpperV2/Anchor/EqualCylinder.lean": "adedcdadda59fdcb156fcc9947dcf166b87f54ec5ad161f144ec9caaed440c0d",
+    "RiffleUpperV2/Anchor/EqualEndpoint.lean": "b6bd5c0ab176dbc2e920ff807f302b4e317864c4b5c84770115098ca56e82901",
+    "RiffleUpperV2/Anchor/EqualFailure.lean": "cb0ce697b3d6ecab067d9bd2cb51ef23f34102c4619eb05264e8dc79820a8e5a",
+    "RiffleUpperV2/Anchor/EqualHistory.lean": "1a6a7e535286703cf6e78b5750d87d1146b6994f8087cd2d8e31dfea0e57eb5c",
+    "RiffleUpperV2/Anchor/EqualLaw.lean": "75906d3faf69a1d75db4616b63fd54c9a382494b8dc938e4cf3796aa71287972",
+    "RiffleUpperV2/Anchor/EqualMeans.lean": "c566878167bbaaefd412e8390b0df31d3f0c1ade9cb33d7803d2666d640eb55a",
+    "RiffleUpperV2/Anchor/EqualMeasurability.lean": "21c7b0f7cef3a1ae2ff669c41b3c73fda36c9d9bab718bd72460cbc3bbb40f6b",
+    "RiffleUpperV2/Anchor/EqualReveal.lean": "70f2f1fba794684ffdcac55eee421dbda7fbd9f4b3494170d5aa37b5c1f37da1",
+    "RiffleUpperV2/Anchor/EqualVariance.lean": "4c536aae76463606c14216fde2f56a38296e2d410f930ce7a7ac936363213233",
+    "RiffleUpperV2/Anchor/EqualVarianceAlgebra.lean": "57671162a523fc99c82329752a65fce35ba2171e8f7d774f31587cf7ba53f858",
+    "RiffleUpperV2/Anchor/FineAtoms.lean": "9610978d32c6873793f4cc33bf5a50a6bbdaedcdc3edc55e42350274afe8a02a",
+    "RiffleUpperV2/Anchor/History.lean": "b07b495a4e9c3e9731b0b7cf4bc3c44f520ef12256d470ad43082e9e37593a11",
+    "RiffleUpperV2/Anchor/HypergeometricSymmetry.lean": "e77a0238b9954819e492e3a05920343556faa1599db96b6d3101f9b85b973aaa",
+    "RiffleUpperV2/Anchor/JoinMaximizers.lean": "4e32604f1ad68dfe764f3ca793f09fa6d8621a32ef6e5368c2d010b5c0962cb6",
+    "RiffleUpperV2/Anchor/JointAtoms.lean": "bc6d734fe5b2b5c8fdc06fd3215d25ac81b74952d8c80d896291eae63a5aa4fb",
+    "RiffleUpperV2/Anchor/LexSplit.lean": "4b59b3b6e7473d8f104c3386025c6e56b29e08d04b9e5d9b5a45da7a2075135e",
+    "RiffleUpperV2/Anchor/Main.lean": "b754190bfb54cea18e9c34f28af7ba05cd9598344f69a7c2689a003b4bb86fa0",
+    "RiffleUpperV2/Anchor/PartialColumn.lean": "b8cfe01ea219417d9ef1cf761c99462ddf74d3e698a2e8c3de664c12ecbefdfb",
+    "RiffleUpperV2/Anchor/PartialReveal.lean": "103ebb9060691cb88692f59e6f5618db42254f4a2a0751a8cada5299abf78c8b",
+    "RiffleUpperV2/Anchor/ResidualOtherLaw.lean": "cf6b22bf75a7a88385414b7bedaf5b4a65af13790d39c518e372f071e2b430fe",
+    "RiffleUpperV2/Anchor/ResidualOtherTail.lean": "5d49106a664836d246116d73be0188f88e0d533a1ec10fbcd2174f5649cc185f",
+    "RiffleUpperV2/Anchor/RowSlices.lean": "a370497153b8a77d40552b40c6b8bafa2f978bdfe40bd28f7c65da79aee2ec70",
+    "RiffleUpperV2/Anchor/Scales.lean": "dcf3bc2bcb27f716630cc8dda3a92bcc5d997adca04bd6194ff4c28300ee1cdc",
+    "RiffleUpperV2/Anchor/SliceOrder.lean": "e685c8bcf59e5d5b331e58d01b77ec79c86eab639f9d442cce98f99de82895b7",
+    "RiffleUpperV2/Anchor/Smoothing.lean": "ded4de450baa759f3de1bc5c6694fab5548d30bfc82c6ef2949a65f781b4fcbc",
+    "RiffleUpperV2/Anchor/SmoothingData.lean": "93085848e6fd447f49456a471b62da7b81b35a19ccf996bf0a0f45e5ac05f0c9",
+    "RiffleUpperV2/Anchor/SourceSampling.lean": "1496f324b25e5af5d765474f8a984ccb316d3dadf06d7bd3bc82c78ac0a14b6b",
+    "RiffleUpperV2/Anchor/UnequalDefinitions.lean": "8c039f30f8b11b5c01b6a120829708035fd829f6c2f183d6a6e5f6569d53679c",
+    "RiffleUpperV2/Anchor/UnequalEndpoint.lean": "7d599e74df6fed52ed19aa5ea20cd1360d2c1f2e4a9740f78f028c5b48788882",
+    "RiffleUpperV2/Anchor/UnequalGood.lean": "23175d918a588edad9a6e34817bd3ce27383274624123514aa62bcb5535af31a",
+    "RiffleUpperV2/Anchor/UnequalHistory.lean": "709c829368c60e9d3e7ae1c37beef3d32b2712bb7fbba3eec221d14ad61ba3f7",
+    "RiffleUpperV2/Anchor/UnequalLaw.lean": "604616ac6e7a36a41945a214b997a827c39acfcc6ba437d486385001b0b76330",
+    "RiffleUpperV2/Anchor/UnequalMeasurability.lean": "2a9d226b689e25cc35114f053af0dee60028dc0b6f27b65041d95926e9411946",
+    "RiffleUpperV2/Anchor/UnequalParameters.lean": "5f6505358b2b6e1a3d93077d4f3a95b726231bb583d19792792b83bb12499dd1",
+    "RiffleUpperV2/Anchor/UnequalQuantitative.lean": "f7f1e3ac28e8ce40f81d48ae439ec9f488dbbbab7eefe525684dec666ff5c570",
+    "RiffleUpperV2/Anchor/UnequalSideBounds.lean": "2d22f91402eb6c0442beab4062aca0e50e02ab688263f7a827e740f14db23d17",
+    "RiffleUpperV2/Anchor/VarianceAlgebra.lean": "d4d55b279f864a56d3c55f9e0663bb788be998455df26b3c20682e2d38e6bf2d",
+    "RiffleUpperV2/Anchor/WitnessCylinder.lean": "c83839354519d39c9c584294033d239da82fbcf5c3485eacf3c5d05b0e2138a7",
+    "RiffleUpperV2/Anchor/WitnessInclusion.lean": "9b2f568e69c4c9dc140e93a38e6b393e01381951df49080116586bbbae949f3b"
+  },
+  "build": {
+    "command": [
+      "formalization/upper_bound_v2/scripts/build.py",
+      "--lane",
+      "U03",
+      "--fresh",
+      "--run",
+      "audit/U03/Check.lean"
+    ],
+    "exit_code": 0,
+    "receipt": "fresh-check-build.json",
+    "log": "fresh-check.log",
+    "fresh_owned_modules": 44,
+    "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "dependency_closure_hashes": "fresh-check-build.json modules table"
+  },
+  "public_type_build": {
+    "command": [
+      "python3",
+      "formalization/upper_bound_v2/scripts/build.py",
+      "--lane",
+      "U03",
+      "--run",
+      "audit/U03/PublicTypes.lean"
+    ],
+    "exit_code": 0,
+    "receipt": "public-types-build.json"
+  },
+  "trust": {
+    "declarations_checked": 590,
+    "scope": "Every transitive Anchor declaration imported by Anchor.Main, including private/generated declarations and Degenerate",
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "observed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "unexpected_axioms": [],
+    "project_axioms": [],
+    "inventory": "declarations.json",
+    "checker": "Check.lean"
+  },
+  "independent_reviews": {
+    "reviewer": "U00, independent of U03 author",
+    "perspectives": [
+      "mathematics",
+      "Lean model, statement and quantifiers",
+      "adversarial examples and hidden premises"
+    ],
+    "status": "PASS for full public smoothing/atom result",
+    "source_hashed_reports": {
+      "audit/U00/U03-alternative-reveal-review.json": "99430dd41de299184ae54bd62c39fa980b4d14639bab07b09e43294d811c83e8",
+      "audit/U00/U03-conditional-law-review.json": "befd6a4dade0aa8d77849d20cba60702ad407139f418de8ae8c59c0259699f61",
+      "audit/U00/U03-equal-closure-review.json": "f81dbba4a3ac2474664c422d629801987179db8bb9580096ebdbb0d5a8b9a8b1",
+      "audit/U00/U03-equal-quantitative-review.json": "27d9aab3ef1889ae85676119fc5fe066af7bad2a104b5f07bb5fe57cb8405ae2",
+      "audit/U00/U03-final-review.json": "f398eeb419f904c1ccc61e60c54aca00126985a01d836bbce00e61eb6be28713",
+      "audit/U00/U03-residual-review.json": "1cc44d27989dc010abcd7c50a010576c97bb3215f45340977421e0779a384e5a",
+      "audit/U00/U03-smoothing-construction-review.json": "ab32a9c9c6af15f55324928b2279b11b4469c86fb5e47cc2e9ac40bad52d1c2c",
+      "audit/U00/U03-symmetry-review.json": "a97e45f9f48b759a679dfa3f189dbe6c86a2aae01cc1cd5aa3cd03cf3c5c6eac",
+      "audit/U00/U03-unequal-closure-review.json": "eeeb8603e46f42603508b9bb6317956893039570c87103ec12552e9e9de40cad",
+      "audit/U00/U03-unequal-quantitative-review.json": "6af33d8c76d7def53f64ce0c8877b774c4a74bc3392713a817c8309afbd32a35",
+      "audit/U00/U03-witness-review.json": "1834940e97d841671b20604e2e49929c5afb716cb4c933ca9d192be25697ce0c"
+    },
+    "root_final_receipt": "../U00/anchor-final-check-build.json",
+    "root_final_inventory": "../U00/anchor-final-declarations.json",
+    "root_final_declaration_count": 579,
+    "supplemental_degenerate_review": "U00 reviewing additional 11 declarations from Degenerate/Main; these do not add premises or dependencies to the public smoothing result"
+  },
+  "generic_inputs_and_concrete_discharge": [
+    {
+      "generic_input": "Exact partial-column hypergeometric law",
+      "discharge": [
+        "PartialColumn.lean",
+        "ConditionalColumn.lean",
+        "PartialReveal.lean",
+        "SourceSampling.lean"
+      ],
+      "detail": "Constructed from actual fixed histogram column fibers, relabeling, and positive representatives; full population n."
+    },
+    {
+      "generic_input": "Adaptive exposed A depends only on other columns",
+      "discharge": [
+        "UnequalDefinitions.lean",
+        "UnequalGood.lean",
+        "ResidualOtherLaw.lean"
+      ],
+      "detail": "OtherDetermined is proved for the exact A=T\\B; conditional sampling and tail averaging use the actual other-column history."
+    },
+    {
+      "generic_input": "Source witness cylinder and its mean",
+      "discharge": [
+        "WitnessCylinder.lean",
+        "WitnessInclusion.lean"
+      ],
+      "detail": "Omitted-digit witness mean identity and actual B0 subset B are proved."
+    },
+    {
+      "generic_input": "Variance count/fraction and reserve hypotheses",
+      "discharge": [
+        "EqualCylinder.lean",
+        "EqualMeans.lean",
+        "EqualVariance.lean",
+        "UnequalParameters.lean",
+        "UnequalSideBounds.lean",
+        "UnequalQuantitative.lean"
+      ],
+      "detail": "All population, sample, marked, unmarked, and complement lower bounds derive from actual good events and Reserve."
+    },
+    {
+      "generic_input": "Join maximizing indices and side comparison",
+      "discharge": [
+        "JoinMaximizers.lean",
+        "Smoothing.lean",
+        "Shared/SideMass.lean"
+      ],
+      "detail": "Positive scales are attained, preserved by arbitrary prefix extension including x=v, and M<=D*max is proved."
+    },
+    {
+      "generic_input": "Exact shifted laws and fine-history measurability",
+      "discharge": [
+        "EqualLaw.lean",
+        "UnequalLaw.lean",
+        "SmoothingData.lean",
+        "Smoothing.lean"
+      ],
+      "detail": "Both endpoints have actual conditional expectation identities for every integer test function. Fine history refines full internal history; good and shift are measurable."
+    },
+    {
+      "generic_input": "Hypergeometric atom bound with positive variance",
+      "discharge": [
+        "FineAtoms.lean",
+        "ConditionalAtoms.lean"
+      ],
+      "detail": "U02 bound instantiated using the constructed law and proved good-event variance; arbitrary integer shifts and unsupported atoms handled."
+    },
+    {
+      "generic_input": "Coarse and joint event averaging",
+      "discharge": [
+        "ConditionalAtoms.lean",
+        "JointAtoms.lean",
+        "Shared/GoodEventTransfer.lean",
+        "Shared/HistoryEventBound.lean"
+      ],
+      "detail": "Actual refinement and good-event measurability instantiated. Good indicator remains inside event. Joint result permits arbitrary full internal-history offset and event, with null atoms handled."
+    }
+  ],
+  "external_unproved_mathematical_premises": [],
+  "output_structures_are_not_assumptions": "Public exports invoke endpointSmoothing from Reserve, GenuineBoundaryPair and IsPrefix; caller never supplies EndpointReveal or EndpointSmoothingData.",
+  "adversarial_evidence": {
+    "kernel_degenerate_module": "RiffleUpperV2.Anchor.Degenerate",
+    "supplemental_finite_experiment": "ADVERSARIAL_FINITE.json",
+    "finite_script": "adversarial_finite.py",
+    "command": [
+      "python3",
+      "formalization/upper_bound_v2/audit/U03/adversarial_finite.py"
+    ],
+    "exit_code": 0,
+    "arrays": 16056,
+    "exact_checks": [
+      "conditional law on every positive fine fiber",
+      "both shifted endpoints",
+      "history refinement",
+      "actual good-event variance"
+    ],
+    "scope_note": "Finite tests are supplemental only. Failure bound comparisons use floating point; proof certificate is Lean."
+  },
+  "out_of_scope": "This completes U03 only. No first-moment or total-variation upper bound completion is asserted."
+}

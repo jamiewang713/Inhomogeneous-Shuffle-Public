@@ -1,0 +1,56 @@
+{
+  "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "contract_sha256": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+  "mapping": [
+    {
+      "label": "lem:ub-graph-representation",
+      "declarations": [
+        "RiffleUpperV2.physical_graph_representation",
+        "RiffleUpperV2.GraphOverlap.physical_density"
+      ],
+      "status": "PROVED; physical chronology reused from immutable lower implementation"
+    },
+    {
+      "label": "lem:ub-component-factorial",
+      "declarations": [
+        "RiffleUpperV2.GraphOverlap.componentSort_fiber_card",
+        "RiffleUpperV2.GraphOverlap.graphLaw_density",
+        "RiffleUpperV2.GraphOverlap.overlapIdentity",
+        "RiffleUpperV2.GraphOverlap.boundedComponentOverlap",
+        "RiffleUpperV2.GraphOverlap.edgeDisjointOverlap",
+        "RiffleUpperV2.GraphOverlap.runFactorial"
+      ],
+      "status": "PROVED; stronger incoming-run-product alternate replaces shared-edge deletion bookkeeping without altering target"
+    },
+    {
+      "label": "lem:ub-truncated-chi-square",
+      "declarations": [
+        "RiffleUpperV2.GraphOverlap.truncatedVariance_eq",
+        "RiffleUpperV2.GraphOverlap.truncatedTV",
+        "RiffleUpperV2.GraphOverlap.shuffleTruncatedRadicand_nonneg"
+      ],
+      "status": "PROVED; independent copies and same single-matrix event; no sign assumption on overlap-1"
+    },
+    {
+      "label": "lem:ub-largest-component-tail",
+      "declarations": [
+        "RiffleUpperV2.GraphOverlap.largestComponentTail",
+        "RiffleUpperV2.GraphOverlap.largestComponentTail_factorial",
+        "RiffleUpperV2.GraphOverlap.largestComponentTail_zero",
+        "RiffleUpperV2.GraphOverlap.boundedComponents_shuffle_iff",
+        "RiffleUpperV2.GraphOverlap.boundedComponentTail",
+        "RiffleUpperV2.GraphOverlap.exists_boundedComponentTail"
+      ],
+      "status": "PROVED; actual fixed-column factorial law and all q>N handled"
+    },
+    {
+      "label": "prop:ub-collision-upper",
+      "declarations": [
+        "RiffleUpperV2.GraphOverlap.collisionUpper",
+        "RiffleUpperV2.GraphOverlap.collisionUpper_exponential",
+        "RiffleUpperV2.GraphOverlap.collisionUpper_polynomial"
+      ],
+      "status": "PROVED; actual chronological inverse law"
+    }
+  ]
+}

@@ -1,0 +1,1288 @@
+@RiffleUpperV2.Conditional.inCylinder_iff_take : ∀ {k K : Nat} (x : RiffleUpperV2.Prefix k K)
+  (w : RiffleUpperV2.Word k K),
+  Iff (@RiffleUpperV2.Conditional.inCylinder k K x w)
+    (@Eq.{1} (List.{0} (Fin k))
+      (@List.take.{0} (Fin k)
+        (@Fin.val
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@Sigma.fst.{0, 0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (fun
+                (m :
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+              RiffleShuffle.Word k
+                (@Fin.val
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  m))
+            x))
+        (@List.Vector.toList.{0} (Fin k) K w))
+      (@List.Vector.toList.{0} (Fin k)
+        (@Fin.val
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@Sigma.fst.{0, 0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (fun
+                (m :
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+              RiffleShuffle.Word k
+                (@Fin.val
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  m))
+            x))
+        (@Sigma.snd.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun
+              (m :
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+            RiffleShuffle.Word k
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                m))
+          x)))
+@RiffleUpperV2.Conditional.inCylinder_exists : ∀ {k K : Nat} (p : Fin k) (x : RiffleUpperV2.Prefix k K),
+  @Exists.{1} (RiffleUpperV2.Word k K) fun (w : RiffleUpperV2.Word k K) => @RiffleUpperV2.Conditional.inCylinder k K x w
+@RiffleUpperV2.Conditional.prefixFirst_of_cylinder : ∀ {k L : Nat} (p : Fin k)
+  (x :
+    RiffleUpperV2.Prefix k
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hx :
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@Fin.val
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@Sigma.fst.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun
+              (m :
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+            RiffleShuffle.Word k
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                m))
+          x)))
+  (hp :
+    ∀
+      (w :
+        RiffleUpperV2.Word k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+      @RiffleUpperV2.Conditional.inCylinder k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          x w →
+        @Eq.{1} (Fin k)
+          (@List.Vector.get.{0} (Fin k)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            w
+            (@OfNat.ofNat.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (nat_lit 0)
+              (@Fin.instOfNat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                (nat_lit 0))))
+          p),
+  @Eq.{1} (Fin k)
+    (@List.Vector.get.{0} (Fin k)
+      (@Fin.val
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@Sigma.fst.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun
+              (m :
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+            RiffleShuffle.Word k
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                m))
+          x))
+      (@Sigma.snd.{0, 0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (fun
+            (m :
+              Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+          RiffleShuffle.Word k
+            (@Fin.val
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              m))
+        x)
+      (@Fin.mk
+        (@Fin.val
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@Sigma.fst.{0, 0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (fun
+                (m :
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+              RiffleShuffle.Word k
+                (@Fin.val
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  m))
+            x))
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) hx))
+    p
+@RiffleUpperV2.Conditional.tailBinPrefix_of_first : ∀ {k L : Nat} (p : Fin k)
+  (x :
+    RiffleUpperV2.Prefix k
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hx :
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@Fin.val
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@Sigma.fst.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun
+              (m :
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+            RiffleShuffle.Word k
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                m))
+          x)))
+  (hp :
+    @Eq.{1} (Fin k)
+      (@List.Vector.get.{0} (Fin k)
+        (@Fin.val
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@Sigma.fst.{0, 0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (fun
+                (m :
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+              RiffleShuffle.Word k
+                (@Fin.val
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  m))
+            x))
+        (@Sigma.snd.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun
+              (m :
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+            RiffleShuffle.Word k
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                m))
+          x)
+        (@Fin.mk
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@Sigma.fst.{0, 0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun
+                  (m :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                RiffleShuffle.Word k
+                  (@Fin.val
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    m))
+              x))
+          (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) hx))
+      p),
+  @Exists.{1}
+    (RiffleUpperV2.Word k
+      (@Min.min.{0} Nat instMinNat
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@Sigma.fst.{0, 0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun
+                  (m :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                RiffleShuffle.Word k
+                  (@Fin.val
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    m))
+              x))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        L))
+    fun
+      (v :
+        RiffleUpperV2.Word k
+          (@Min.min.{0} Nat instMinNat
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@Sigma.fst.{0, 0}
+                  (Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (fun
+                      (m :
+                        Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                    RiffleShuffle.Word k
+                      (@Fin.val
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        m))
+                  x))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            L)) =>
+    @Eq.{1}
+      (RiffleUpperV2.Prefix k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleUpperV2.Exploration.tailBinPrefix k L
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@Sigma.fst.{0, 0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun
+                  (m :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                RiffleShuffle.Word k
+                  (@Fin.val
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    m))
+              x))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        p v)
+      x
+@RiffleUpperV2.Conditional.tailBinPrefix_of_cylinder : ∀ {k L : Nat} (p : Fin k)
+  (x :
+    RiffleUpperV2.Prefix k
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hx :
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@Fin.val
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@Sigma.fst.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun
+              (m :
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+            RiffleShuffle.Word k
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                m))
+          x)))
+  (hp :
+    ∀
+      (w :
+        RiffleUpperV2.Word k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+      @RiffleUpperV2.Conditional.inCylinder k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          x w →
+        @Eq.{1} (Fin k)
+          (@List.Vector.get.{0} (Fin k)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            w
+            (@OfNat.ofNat.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (nat_lit 0)
+              (@Fin.instOfNat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                (nat_lit 0))))
+          p),
+  @Exists.{1} Nat fun (E : Nat) =>
+    @Exists.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+      fun (v : RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L)) =>
+      @Eq.{1}
+        (RiffleUpperV2.Prefix k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@RiffleUpperV2.Exploration.tailBinPrefix k L E p v) x
+@RiffleUpperV2.Conditional.inCylinder_tailBinPrefix : ∀ {k L : Nat} (E : Nat) (p : Fin k)
+  (v : RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+  (w :
+    RiffleUpperV2.Word k
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+  Iff
+    (@RiffleUpperV2.Conditional.inCylinder k
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (@RiffleUpperV2.Exploration.tailBinPrefix k L E p v) w)
+    (And
+      (@Eq.{1} (Fin k)
+        (@List.Vector.get.{0} (Fin k)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          w
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+              (nat_lit 0))))
+        p)
+      (@Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L)) (@RiffleUpperV2.Exploration.tailPrefix k L E w)
+        v))
+RiffleUpperV2.Conditional.tinyCylinder_count : ∀ (k D : Nat)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (g tau T : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g)
+  (hg1 : @LT.lt.{0} Real Real.instLT g (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (htau : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) tau)
+  (htaug : @LT.lt.{0} Real Real.instLT tau g)
+  (hT : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T)
+  (halpha :
+    @LT.lt.{0} Real Real.instLT
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) g))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) tau)))
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@OfNat.ofNat.{0} Real (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))),
+  @Exists.{1} Real fun (C1 : Real) =>
+    And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C1)
+      (@Exists.{1} Nat fun (N0 : Nat) =>
+        And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N0)
+          (∀ (n : Nat),
+            @LE.le.{0} Nat instLENat N0 n →
+              ∀ (L : Nat),
+                @LE.le.{0} Real Real.instLE
+                    (@Nat.cast.{0} Real Real.instNatCast
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast n))) →
+                  ∀
+                    (cuts :
+                      RiffleUpperV2.Cuts k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+                    @TimeProfile.GoodColumn k
+                        (@TimeProfile.Cuts.profile k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts hn
+                          (@OfNat.ofNat.{0}
+                            (Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (nat_lit 0)
+                            (@Fin.instOfNat
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                              (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                              (nat_lit 0))))
+                        g →
+                      ∀ (xi epsilon : Real),
+                        @LE.le.{0} Real Real.instLE
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) epsilon →
+                          ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                            (omega :
+                              @RiffleUpperV2.Sample k n
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                cuts)
+                            (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                            @RiffleUpperV2.Exploration.positiveHistory k n L cuts p d
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                  (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                omega →
+                              @RiffleUpperV2.Exploration.historyGood k n L cuts D g xi epsilon p d
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                  omega →
+                                @RiffleUpperV2.Exploration.hasDirection k n L cuts D g d
+                                    (@RiffleUpperV2.sortedWord k n
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      cuts omega (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d j)) →
+                                  ∀
+                                    (x :
+                                      RiffleUpperV2.Prefix k
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                    @LT.lt.{0} Nat instLTNat
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                                        (@Fin.val
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          (@Sigma.fst.{0, 0}
+                                            (Fin
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                            (fun
+                                                (m :
+                                                  Fin
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                                              RiffleShuffle.Word k
+                                                (@Fin.val
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                  m))
+                                            x)) →
+                                      (∀
+                                          (w :
+                                            RiffleUpperV2.Word k
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                          @RiffleUpperV2.Conditional.inCylinder k
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                              x w →
+                                            @Eq.{1} (Fin k)
+                                              (@List.Vector.get.{0} (Fin k)
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                w
+                                                (@OfNat.ofNat.{0}
+                                                  (Fin
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (nat_lit 0)
+                                                  (@Fin.instOfNat
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    (@instNeZeroNatHAdd_1 L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                      (@Nat.instNeZeroSucc
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                                                    (nat_lit 0))))
+                                              p) →
+                                        (∀
+                                            (w :
+                                              RiffleUpperV2.Word k
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                            @RiffleUpperV2.Conditional.inCylinder k
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                x w →
+                                              RiffleUpperV2.Conditional.tinyCylinder_count.match_1.{1}
+                                                (fun (d : RiffleUpperV2.Exploration.Direction) => Prop) d
+                                                (fun (_ : Unit) =>
+                                                  @LT.lt.{0}
+                                                    (RiffleLowerV2.Word k
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                    (@Preorder.toLT.{0}
+                                                      (RiffleLowerV2.Word k
+                                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                          L
+                                                          (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                            (instOfNatNat (nat_lit 1)))))
+                                                      (@PartialOrder.toPreorder.{0}
+                                                        (RiffleLowerV2.Word k
+                                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                            (@instHAdd.{0} Nat instAddNat) L
+                                                            (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                              (instOfNatNat (nat_lit 1)))))
+                                                        (@SemilatticeInf.toPartialOrder.{0}
+                                                          (RiffleLowerV2.Word k
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1)))))
+                                                          (@Lattice.toSemilatticeInf.{0}
+                                                            (RiffleLowerV2.Word k
+                                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                (@instHAdd.{0} Nat instAddNat) L
+                                                                (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                  (instOfNatNat (nat_lit 1)))))
+                                                            (@DistribLattice.toLattice.{0}
+                                                              (RiffleLowerV2.Word k
+                                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                  (@instHAdd.{0} Nat instAddNat) L
+                                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1)))))
+                                                              (@instDistribLatticeOfLinearOrder.{0}
+                                                                (RiffleLowerV2.Word k
+                                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                    (@instHAdd.{0} Nat instAddNat) L
+                                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                      (instOfNatNat (nat_lit 1)))))
+                                                                (@RiffleShuffle.wordLinearOrder k
+                                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                    (@instHAdd.{0} Nat instAddNat) L
+                                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                      (instOfNatNat (nat_lit 1)))))))))))
+                                                    (@RiffleUpperV2.sortedWord k n
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      cuts omega
+                                                      (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d j))
+                                                    w)
+                                                fun (_ : Unit) =>
+                                                @LT.lt.{0}
+                                                  (RiffleUpperV2.Word k
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (@Preorder.toLT.{0}
+                                                    (RiffleUpperV2.Word k
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                    (@PartialOrder.toPreorder.{0}
+                                                      (RiffleUpperV2.Word k
+                                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                          L
+                                                          (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                            (instOfNatNat (nat_lit 1)))))
+                                                      (@SemilatticeInf.toPartialOrder.{0}
+                                                        (RiffleUpperV2.Word k
+                                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                            (@instHAdd.{0} Nat instAddNat) L
+                                                            (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                              (instOfNatNat (nat_lit 1)))))
+                                                        (@Lattice.toSemilatticeInf.{0}
+                                                          (RiffleUpperV2.Word k
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1)))))
+                                                          (@DistribLattice.toLattice.{0}
+                                                            (RiffleUpperV2.Word k
+                                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                (@instHAdd.{0} Nat instAddNat) L
+                                                                (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                  (instOfNatNat (nat_lit 1)))))
+                                                            (@instDistribLatticeOfLinearOrder.{0}
+                                                              (RiffleUpperV2.Word k
+                                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                  (@instHAdd.{0} Nat instAddNat) L
+                                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1)))))
+                                                              (@RiffleShuffle.wordLinearOrder k
+                                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                  (@instHAdd.{0} Nat instAddNat) L
+                                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1)))))))))))
+                                                  w
+                                                  (@RiffleUpperV2.sortedWord k n
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    cuts omega
+                                                    (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d j))) →
+                                          @LE.le.{0} Real Real.instLE
+                                              (@RiffleUpperV2.prefixMean k n
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                cuts x)
+                                              (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                (@instHPow.{0, 0} Real Real Real.instPow)
+                                                (@Nat.cast.{0} Real Real.instNatCast n)
+                                                (@Neg.neg.{0} Real Real.instNeg xi)) →
+                                            @LE.le.{0} Real Real.instLE
+                                              (@RiffleUpperV2.conditionalExpect.{0}
+                                                (@TimeProfile.ShuffleSample k n
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                  cuts)
+                                                (@TimeProfile.instFintypeShuffleSample k n
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                  cuts)
+                                                (@RiffleUpperV2.fixedCountPMF k n
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                  cuts)
+                                                (fun
+                                                    (z :
+                                                      @TimeProfile.ShuffleSample k n
+                                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                          L
+                                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                        cuts) =>
+                                                  @Nat.cast.{0} Real Real.instNatCast
+                                                    (@RiffleUpperV2.prefixCount k n
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      cuts x z))
+                                                (@RiffleUpperV2.Exploration.historyFiber k n L cuts p d
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                    (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                  omega))
+                                              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                  C1
+                                                  (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                    (@instHPow.{0, 0} Real Real Real.instPow)
+                                                    (@Nat.cast.{0} Real Real.instNatCast n)
+                                                    (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                      (@instHAdd.{0} Real Real.instAdd)
+                                                      (@Neg.neg.{0} Real Real.instNeg xi)
+                                                      (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                        (@instHMul.{0} Real Real.instMul)
+                                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                          (@instHDiv.{0} Real
+                                                            (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                          (Real.log
+                                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                              (@instHDiv.{0} Real
+                                                                (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                              (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                (@One.toOfNat1.{0} Real Real.instOne))
+                                                              g))
+                                                          (Real.log
+                                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                              (@instHDiv.{0} Real
+                                                                (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                              (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                (@One.toOfNat1.{0} Real Real.instOne))
+                                                              tau)))
+                                                        (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                          (@instHAdd.{0} Real Real.instAdd)
+                                                          (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                            (@One.toOfNat1.{0} Real Real.instOne))
+                                                          xi)))))
+                                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                  (@Nat.cast.{0} Real Real.instNatCast n) epsilon))))
+RiffleUpperV2.Conditional.intermediateCylinder_collisions : ∀ (k D : Nat)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (g tau T : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g)
+  (hg1 : @LT.lt.{0} Real Real.instLT g (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (htau : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) tau)
+  (htaug : @LT.lt.{0} Real Real.instLT tau g)
+  (hT : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T)
+  (halpha :
+    @LT.lt.{0} Real Real.instLT
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) g))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) tau)))
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@OfNat.ofNat.{0} Real (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))),
+  @Exists.{1} Real fun (C2 : Real) =>
+    And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C2)
+      (@Exists.{1} Nat fun (N0 : Nat) =>
+        And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N0)
+          (∀ (n : Nat),
+            @LE.le.{0} Nat instLENat N0 n →
+              ∀ (L : Nat),
+                @LE.le.{0} Real Real.instLE
+                    (@Nat.cast.{0} Real Real.instNatCast
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast n))) →
+                  ∀
+                    (cuts :
+                      RiffleUpperV2.Cuts k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+                    @TimeProfile.GoodColumn k
+                        (@TimeProfile.Cuts.profile k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts hn
+                          (@OfNat.ofNat.{0}
+                            (Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (nat_lit 0)
+                            (@Fin.instOfNat
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                              (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                              (nat_lit 0))))
+                        g →
+                      ∀ (xi eta epsilon : Real),
+                        @LE.le.{0} Real Real.instLE
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) epsilon →
+                          ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                            (omega :
+                              @RiffleUpperV2.Sample k n
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                cuts)
+                            (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                            @RiffleUpperV2.Exploration.positiveHistory k n L cuts p d
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                  (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                omega →
+                              @RiffleUpperV2.Exploration.historyGood k n L cuts D g xi epsilon p d
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                  omega →
+                                @RiffleUpperV2.Exploration.hasDirection k n L cuts D g d
+                                    (@RiffleUpperV2.sortedWord k n
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      cuts omega (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d j)) →
+                                  ∀
+                                    (x :
+                                      RiffleUpperV2.Prefix k
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                    @LT.lt.{0} Nat instLTNat
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                                        (@Fin.val
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          (@Sigma.fst.{0, 0}
+                                            (Fin
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                            (fun
+                                                (m :
+                                                  Fin
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                                              RiffleShuffle.Word k
+                                                (@Fin.val
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                  m))
+                                            x)) →
+                                      (∀
+                                          (w :
+                                            RiffleUpperV2.Word k
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                          @RiffleUpperV2.Conditional.inCylinder k
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                              x w →
+                                            @Eq.{1} (Fin k)
+                                              (@List.Vector.get.{0} (Fin k)
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                w
+                                                (@OfNat.ofNat.{0}
+                                                  (Fin
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (nat_lit 0)
+                                                  (@Fin.instOfNat
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    (@instNeZeroNatHAdd_1 L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                      (@Nat.instNeZeroSucc
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                                                    (nat_lit 0))))
+                                              p) →
+                                        (∀
+                                            (w :
+                                              RiffleUpperV2.Word k
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                            @RiffleUpperV2.Conditional.inCylinder k
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                x w →
+                                              RiffleUpperV2.Conditional.tinyCylinder_count.match_1.{1}
+                                                (fun (d : RiffleUpperV2.Exploration.Direction) => Prop) d
+                                                (fun (_ : Unit) =>
+                                                  @LT.lt.{0}
+                                                    (RiffleLowerV2.Word k
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                    (@Preorder.toLT.{0}
+                                                      (RiffleLowerV2.Word k
+                                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                          L
+                                                          (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                            (instOfNatNat (nat_lit 1)))))
+                                                      (@PartialOrder.toPreorder.{0}
+                                                        (RiffleLowerV2.Word k
+                                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                            (@instHAdd.{0} Nat instAddNat) L
+                                                            (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                              (instOfNatNat (nat_lit 1)))))
+                                                        (@SemilatticeInf.toPartialOrder.{0}
+                                                          (RiffleLowerV2.Word k
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1)))))
+                                                          (@Lattice.toSemilatticeInf.{0}
+                                                            (RiffleLowerV2.Word k
+                                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                (@instHAdd.{0} Nat instAddNat) L
+                                                                (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                  (instOfNatNat (nat_lit 1)))))
+                                                            (@DistribLattice.toLattice.{0}
+                                                              (RiffleLowerV2.Word k
+                                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                  (@instHAdd.{0} Nat instAddNat) L
+                                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1)))))
+                                                              (@instDistribLatticeOfLinearOrder.{0}
+                                                                (RiffleLowerV2.Word k
+                                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                    (@instHAdd.{0} Nat instAddNat) L
+                                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                      (instOfNatNat (nat_lit 1)))))
+                                                                (@RiffleShuffle.wordLinearOrder k
+                                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                    (@instHAdd.{0} Nat instAddNat) L
+                                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                      (instOfNatNat (nat_lit 1)))))))))))
+                                                    (@RiffleUpperV2.sortedWord k n
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      cuts omega
+                                                      (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d j))
+                                                    w)
+                                                fun (_ : Unit) =>
+                                                @LT.lt.{0}
+                                                  (RiffleUpperV2.Word k
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (@Preorder.toLT.{0}
+                                                    (RiffleUpperV2.Word k
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                    (@PartialOrder.toPreorder.{0}
+                                                      (RiffleUpperV2.Word k
+                                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                          L
+                                                          (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                            (instOfNatNat (nat_lit 1)))))
+                                                      (@SemilatticeInf.toPartialOrder.{0}
+                                                        (RiffleUpperV2.Word k
+                                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                            (@instHAdd.{0} Nat instAddNat) L
+                                                            (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                              (instOfNatNat (nat_lit 1)))))
+                                                        (@Lattice.toSemilatticeInf.{0}
+                                                          (RiffleUpperV2.Word k
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1)))))
+                                                          (@DistribLattice.toLattice.{0}
+                                                            (RiffleUpperV2.Word k
+                                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                (@instHAdd.{0} Nat instAddNat) L
+                                                                (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                  (instOfNatNat (nat_lit 1)))))
+                                                            (@instDistribLatticeOfLinearOrder.{0}
+                                                              (RiffleUpperV2.Word k
+                                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                  (@instHAdd.{0} Nat instAddNat) L
+                                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1)))))
+                                                              (@RiffleShuffle.wordLinearOrder k
+                                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                  (@instHAdd.{0} Nat instAddNat) L
+                                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1)))))))))))
+                                                  w
+                                                  (@RiffleUpperV2.sortedWord k n
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    cuts omega
+                                                    (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d j))) →
+                                          @LE.le.{0} Real Real.instLE
+                                              (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                (@instHPow.{0, 0} Real Real Real.instPow)
+                                                (@Nat.cast.{0} Real Real.instNatCast n)
+                                                (@Neg.neg.{0} Real Real.instNeg xi))
+                                              (@RiffleUpperV2.prefixMean k n
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                cuts x) →
+                                            @LE.le.{0} Real Real.instLE
+                                                (@RiffleUpperV2.prefixMean k n
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                  cuts x)
+                                                (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                  (@instHPow.{0, 0} Real Real Real.instPow)
+                                                  (@Nat.cast.{0} Real Real.instNatCast n) xi) →
+                                              @LE.le.{0} Real Real.instLE
+                                                  (@RiffleUpperV2.empiricalBeta k n
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    n (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) cuts
+                                                    hn
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (@Neg.neg.{0} Real Real.instNeg eta) →
+                                                @LE.le.{0} Real Real.instLE
+                                                  (@RiffleUpperV2.conditionalExpect.{0}
+                                                    (@TimeProfile.ShuffleSample k n
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      cuts)
+                                                    (@TimeProfile.instFintypeShuffleSample k n
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      cuts)
+                                                    (@RiffleUpperV2.fixedCountPMF k n
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      cuts)
+                                                    (fun
+                                                        (z :
+                                                          @TimeProfile.ShuffleSample k n
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1))))
+                                                            cuts) =>
+                                                      @Finset.sum.{0, 0}
+                                                        (RiffleUpperV2.Word k
+                                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                            (@instHAdd.{0} Nat instAddNat) L
+                                                            (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                              (instOfNatNat (nat_lit 1)))))
+                                                        Real Real.instAddCommMonoid
+                                                        (@Finset.univ.{0}
+                                                          (RiffleUpperV2.Word k
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1)))))
+                                                          (@List.Vector.instFintype.{0} (Fin k) (Fin.fintype k)
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1))))))
+                                                        fun
+                                                          (w :
+                                                            RiffleUpperV2.Word k
+                                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                (@instHAdd.{0} Nat instAddNat) L
+                                                                (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                  (instOfNatNat (nat_lit 1))))) =>
+                                                        @ite.{1} Real
+                                                          (@RiffleUpperV2.Conditional.inCylinder k
+                                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                              (@instHAdd.{0} Nat instAddNat) L
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                (instOfNatNat (nat_lit 1))))
+                                                            x w)
+                                                          (Classical.propDecidable
+                                                            (@RiffleUpperV2.Conditional.inCylinder k
+                                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                (@instHAdd.{0} Nat instAddNat) L
+                                                                (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                  (instOfNatNat (nat_lit 1))))
+                                                              x w))
+                                                          (@Nat.cast.{0} Real Real.instNatCast
+                                                            (Nat.choose
+                                                              (@RiffleUpperV2.Reservoir.wordCount k n
+                                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                                  (@instHAdd.{0} Nat instAddNat) L
+                                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1))))
+                                                                cuts z w)
+                                                              (@OfNat.ofNat.{0} Nat (nat_lit 2)
+                                                                (instOfNatNat (nat_lit 2)))))
+                                                          (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                            (@Zero.toOfNat0.{0} Real Real.instZero)))
+                                                    (@RiffleUpperV2.Exploration.historyFiber k n L cuts p d
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                        (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      omega))
+                                                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                                    (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                      (@instHMul.{0} Real Real.instMul) C2
+                                                      (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                        (@instHPow.{0, 0} Real Real Real.instPow)
+                                                        (@Nat.cast.{0} Real Real.instNatCast n)
+                                                        (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                          (@instHAdd.{0} Real Real.instAdd)
+                                                          (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                            (@instHAdd.{0} Real Real.instAdd)
+                                                            (@Neg.neg.{0} Real Real.instNeg eta)
+                                                            (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                              (@instHMul.{0} Real Real.instMul)
+                                                              (@OfNat.ofNat.{0} Real (nat_lit 3)
+                                                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 3)
+                                                                  Real.instNatCast
+                                                                  (@Nat.instAtLeastTwoHAddOfNat
+                                                                    (@OfNat.ofNat.{0} Nat (nat_lit 2)
+                                                                      (instOfNatNat (nat_lit 2)))
+                                                                    (@Nat.instNeZeroSucc
+                                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                        (instOfNatNat (nat_lit 1)))))))
+                                                              xi))
+                                                          (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                            (@instHMul.{0} Real Real.instMul)
+                                                            (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                              (@instHMul.{0} Real Real.instMul)
+                                                              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2)
+                                                                  Real.instNatCast
+                                                                  (@Nat.instAtLeastTwoHAddOfNat
+                                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                      (instOfNatNat (nat_lit 1)))
+                                                                    (@Nat.instNeZeroSucc
+                                                                      (@OfNat.ofNat.{0} Nat (nat_lit 0)
+                                                                        (instOfNatNat (nat_lit 0)))))))
+                                                              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                                (@instHDiv.{0} Real
+                                                                  (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                                (Real.log
+                                                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                                    (@instHDiv.{0} Real
+                                                                      (@DivInvMonoid.toDiv.{0} Real
+                                                                        Real.instDivInvMonoid))
+                                                                    (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                      (@One.toOfNat1.{0} Real Real.instOne))
+                                                                    g))
+                                                                (Real.log
+                                                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                                    (@instHDiv.{0} Real
+                                                                      (@DivInvMonoid.toDiv.{0} Real
+                                                                        Real.instDivInvMonoid))
+                                                                    (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                      (@One.toOfNat1.{0} Real Real.instOne))
+                                                                    tau))))
+                                                            (@HSub.hSub.{0, 0, 0} Real Real Real
+                                                              (@instHSub.{0} Real Real.instSub)
+                                                              (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                                (@instHAdd.{0} Real Real.instAdd)
+                                                                (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                  (@One.toOfNat1.{0} Real Real.instOne))
+                                                                eta)
+                                                              (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                                (@instHMul.{0} Real Real.instMul)
+                                                                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                                                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2)
+                                                                    Real.instNatCast
+                                                                    (@Nat.instAtLeastTwoHAddOfNat
+                                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                                        (instOfNatNat (nat_lit 1)))
+                                                                      (@Nat.instNeZeroSucc
+                                                                        (@OfNat.ofNat.{0} Nat (nat_lit 0)
+                                                                          (instOfNatNat (nat_lit 0)))))))
+                                                                xi))))))
+                                                    (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                      (@instHMul.{0} Real Real.instMul)
+                                                      (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                                        (@instHPow.{0, 0} Real Nat
+                                                          (@NPow.toPow.{0} Real
+                                                            (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                                        (@Nat.cast.{0} Real Real.instNatCast n)
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                                                      epsilon))))
+BUILD_OK U05

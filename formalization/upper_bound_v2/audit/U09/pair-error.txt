@@ -1,0 +1,757 @@
+CHECK RiffleUpperV2.Conditional.PairReduction
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/PairReduction.lean:83:4: error: Type mismatch
+  @Eq.trans.{1} Real
+    (@RiffleUpperV2.conditionalExpect.{0}
+      (Prod.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (@instFintypeProd.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (@RiffleUpperV2.independentPairLaw k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun
+          (ω :
+            Prod.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)) =>
+        @Nat.cast.{0} Real Real.instNatCast
+          (@Finset.card.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Finset.filter.{0}
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                  (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun
+                  (e :
+                    Fin
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                And
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+                    (@Prod.fst.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      ω))
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+                    (@Prod.snd.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      ω)))
+              (fun
+                  (a :
+                    Fin
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                Classical.propDecidable
+                  (And
+                    (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                      (@Prod.fst.{0, 0}
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        ω))
+                    (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                      (@Prod.snd.{0, 0}
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        ω))))
+              (@Finset.univ.{0}
+                (Fin
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Fin.fintype
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))))
+      fun
+        (v :
+          Prod.{0, 0}
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)) =>
+      @Eq.{1}
+        (Prod.{0, 0}
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i v)
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i ω))
+    (@Finset.sum.{0, 0}
+      (Fin
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      Real Real.instAddCommMonoid
+      (@Finset.univ.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+            (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+            (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      fun
+        (e :
+          Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+              (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+      @RiffleUpperV2.conditionalProbability.{0}
+        (Prod.{0, 0}
+          (@RiffleUpperV2.Sample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@RiffleUpperV2.Sample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts))
+        (@instFintypeProd.{0, 0}
+          (@RiffleUpperV2.Sample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@RiffleUpperV2.Sample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@TimeProfile.instFintypeShuffleSample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@TimeProfile.instFintypeShuffleSample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts))
+        (@RiffleUpperV2.independentPairLaw k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (fun
+            (v :
+              Prod.{0, 0}
+                (@RiffleUpperV2.Sample k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts)
+                (@RiffleUpperV2.Sample k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts)) =>
+          And
+            (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+              (@Prod.fst.{0, 0}
+                (@RiffleUpperV2.Sample k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts)
+                (@RiffleUpperV2.Sample k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts)
+                v))
+            (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+              (@Prod.snd.{0, 0}
+                (@RiffleUpperV2.Sample k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts)
+                (@RiffleUpperV2.Sample k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts)
+                v)))
+        fun
+          (v :
+            Prod.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)) =>
+        @Eq.{1}
+          (Prod.{0, 0}
+            (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+              Option.{0}
+                (RiffleUpperV2.Word k
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+              Option.{0}
+                (RiffleUpperV2.Word k
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+          (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i v)
+          (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i ω))
+    ?m.202
+    (@RiffleUpperV2.Conditional.conditionalExpect_card.{0, 0}
+      (Prod.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (Fin
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@instFintypeProd.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (Fin.fintype
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleUpperV2.independentPairLaw k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun
+          (e :
+            Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (v :
+            Prod.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)) =>
+        And
+          (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+            (@Prod.fst.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              v))
+          (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+            (@Prod.snd.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              v)))
+      fun
+        (v :
+          Prod.{0, 0}
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)) =>
+      @Eq.{1}
+        (Prod.{0, 0}
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i v)
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i ω))
+    ?m.203
+has type
+  @Eq.{1} Real
+    (@RiffleUpperV2.conditionalExpect.{0}
+      (Prod.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (@instFintypeProd.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (@RiffleUpperV2.independentPairLaw k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun
+          (ω :
+            Prod.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)) =>
+        @Nat.cast.{0} Real Real.instNatCast
+          (@Finset.card.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Finset.filter.{0}
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                  (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun
+                  (e :
+                    Fin
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                And
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+                    (@Prod.fst.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      ω))
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+                    (@Prod.snd.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      ω)))
+              (fun
+                  (a :
+                    Fin
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                Classical.propDecidable
+                  (And
+                    (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                      (@Prod.fst.{0, 0}
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        ω))
+                    (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                      (@Prod.snd.{0, 0}
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        ω))))
+              (@Finset.univ.{0}
+                (Fin
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Fin.fintype
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))))
+      fun
+        (v :
+          Prod.{0, 0}
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)) =>
+      @Eq.{1}
+        (Prod.{0, 0}
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i v)
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i ω))
+    ?m.202
+but is expected to have type
+  @Eq.{1} Real
+    (@RiffleUpperV2.conditionalExpect.{0}
+      (Prod.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (@instFintypeProd.{0, 0}
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts))
+      (@RiffleUpperV2.independentPairLaw k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun
+          (v :
+            Prod.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)) =>
+        @Nat.cast.{0} Real Real.instNatCast
+          (@Finset.card.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Finset.filter.{0}
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                  (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun
+                  (e :
+                    Fin
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                And
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+                    (@Prod.fst.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      v))
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e
+                    (@Prod.snd.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      v)))
+              (fun
+                  (a :
+                    Fin
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                @instDecidableAnd
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                    (@Prod.fst.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      v))
+                  (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                    (@Prod.snd.{0, 0}
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      (@RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                      v))
+                  (Classical.propDecidable
+                    (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                      (@Prod.fst.{0, 0}
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        v)))
+                  (Classical.propDecidable
+                    (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i a
+                      (@Prod.snd.{0, 0}
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        (@RiffleUpperV2.Sample k n
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          cuts)
+                        v))))
+              (@Finset.univ.{0}
+                (Fin
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Fin.fintype
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))))
+      fun
+        (v :
+          Prod.{0, 0}
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)
+            (@RiffleUpperV2.Sample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts)) =>
+      @Eq.{1}
+        (Prod.{0, 0}
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i v)
+        (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i ω))
+    (@Finset.sum.{0, 0}
+      (Fin
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      Real Real.instAddCommMonoid
+      (@Finset.univ.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+            (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+            (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      fun
+        (e :
+          Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+              (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@RiffleUpperV2.conditionalProbability.{0}
+          (@TimeProfile.ShuffleSample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@TimeProfile.instFintypeShuffleSample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@RiffleUpperV2.fixedCountPMF k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e)
+          (@RiffleUpperV2.Exploration.historyFiber k n L cuts p d i
+            (@Prod.fst.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              ω)))
+        (@RiffleUpperV2.conditionalProbability.{0}
+          (@TimeProfile.ShuffleSample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@TimeProfile.instFintypeShuffleSample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@RiffleUpperV2.fixedCountPMF k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts)
+          (@RiffleUpperV2.Conditional.remainingEdgeEvent k n L cuts D g p d i e)
+          (@RiffleUpperV2.Exploration.historyFiber k n L cuts p d i
+            (@Prod.snd.{0, 0}
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              (@RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts)
+              ω))))

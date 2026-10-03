@@ -1,0 +1,87 @@
+{
+  "status": "SIX_IMPLEMENTATIONS_PROVED_U00_REVIEWED_FINAL_U13_PENDING",
+  "recorded_at": "2026-10-02T22:26:33.504350+00:00",
+  "completed_import": "RiffleUpperV2.Completed",
+  "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "contract_freeze_sha256": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+  "endpoints": {
+    "F": {
+      "theorem": "RiffleUpperV2.FirstMoment.empiricalFirstMoment",
+      "contract": "RiffleUpperV2.Contracts.V1.F",
+      "source": "RiffleUpperV2/FirstMoment/Empirical.lean",
+      "source_sha256": "c048583ed32d6beafa8ef0fc22ed3908381ef35914dda913a356b7e3341639ab",
+      "source_label": "prop:ub-empirical-first-moment",
+      "expanded_type": "audit/U00/F-expanded-type.txt",
+      "independent_review": "audit/U00/U05-F-endpoint-review.json",
+      "additional_endpoint_assumptions": []
+    },
+    "C": {
+      "theorem": "RiffleUpperV2.Conditional.remainingCommonEdges",
+      "contract": "RiffleUpperV2.Contracts.V1.C",
+      "source": "RiffleUpperV2/Conditional/Main.lean",
+      "source_sha256": "74d1462f2dfd33172cb7a737437a0a69572cfbaf77a253f1919427d63bb6061b",
+      "source_label": "lem:ub-conditional-first-moment",
+      "expanded_type": "audit/U00/C-expanded-type.txt",
+      "independent_review": "audit/U00/U09-C-endpoint-review.json",
+      "additional_endpoint_assumptions": []
+    },
+    "E": {
+      "theorem": "RiffleUpperV2.EmpiricalUpper.empiricalUpper",
+      "contract": "RiffleUpperV2.Contracts.V1.E",
+      "source": "RiffleUpperV2/EmpiricalUpper/Main.lean",
+      "source_sha256": "5b68e76a979c8d7a3a995f1db79aace2a75c683cca5eb0634f728ffdc6df3253",
+      "source_label": "thm:ub-empirical-upper",
+      "expanded_type": "audit/U00/E-expanded-type.txt",
+      "independent_review": "audit/U00/U11-E-endpoint-review.json",
+      "additional_endpoint_assumptions": []
+    },
+    "P": {
+      "theorem": "RiffleUpperV2.ProfileUpper.bufferedUpper",
+      "contract": "RiffleUpperV2.Contracts.V1.P",
+      "source": "RiffleUpperV2/ProfileUpper/Main.lean",
+      "source_sha256": "2c48c1957b5ea96a928dc17fbb97da66e1e686d1374e452e2cabc761d5aa4bf7",
+      "source_label": "thm:deterministic-upper-bound",
+      "expanded_type": "audit/U00/P-expanded-type.txt",
+      "independent_review": "audit/U00/U12-PTR-endpoint-review.json",
+      "additional_endpoint_assumptions": []
+    },
+    "T": {
+      "theorem": "RiffleUpperV2.ProfileUpper.criticalTimeUpper",
+      "contract": "RiffleUpperV2.Contracts.V1.T",
+      "source": "RiffleUpperV2/ProfileUpper/Main.lean",
+      "source_sha256": "2c48c1957b5ea96a928dc17fbb97da66e1e686d1374e452e2cabc761d5aa4bf7",
+      "source_label": "thm:upper-critical-reduced",
+      "expanded_type": "audit/U00/T-expanded-type.txt",
+      "independent_review": "audit/U00/U12-PTR-endpoint-review.json",
+      "additional_endpoint_assumptions": []
+    },
+    "R": {
+      "theorem": "RiffleUpperV2.ProfileUpper.randomUpper",
+      "contract": "RiffleUpperV2.Contracts.V1.R",
+      "source": "RiffleUpperV2/ProfileUpper/Main.lean",
+      "source_sha256": "2c48c1957b5ea96a928dc17fbb97da66e1e686d1374e452e2cabc761d5aa4bf7",
+      "source_label": "cor:random-time-profile-upper-bound",
+      "expanded_type": "audit/U00/R-expanded-type.txt",
+      "independent_review": "audit/U00/U12-PTR-endpoint-review.json",
+      "additional_endpoint_assumptions": []
+    }
+  },
+  "R_components": [
+    "ProfileUpper.randomEmpiricalBound : REmpiricalBound",
+    "ProfileUpper.randomEmpiricalUpper : REmpirical",
+    "ProfileUpper.randomProfileUpper : RProfile"
+  ],
+  "additional_consequences": [
+    "ProfileUpper.dominanceReduction",
+    "ProfileUpper.allMarginMonotonicity",
+    "ProfileUpper.fineThresholdEquality",
+    "ProfileUpper.criticalHorizonUpper",
+    "ProfileUpper.mixingTimeUpper",
+    "ProfileUpper.fullCriticalTimeUpper"
+  ],
+  "remaining_acceptance": [
+    "U13 final source/build/trust acceptance"
+  ],
+  "clean_build": "integration-v1-clean-build.json",
+  "integration_ready_sha256": "875e62edcecfe8ba4aac2ec595ec7fcd459e479adfd22d22981e481b23f25ef5"
+}

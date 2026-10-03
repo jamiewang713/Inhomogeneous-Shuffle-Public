@@ -1,0 +1,497 @@
+CHECK RiffleTimeProfile.Base
+CHECK RiffleTimeProfile.Ambient
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:91:13: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:95:29: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:110:53: warning: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:128:19: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:138:50: warning: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/time_profile/RiffleTimeProfile/Ambient.lean:168:5: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK Mathlib.Probability.Distributions.Uniform
+CHECK Mathlib.Probability.ProbabilityMassFunction.Integrals
+CHECK RiffleTimeProfile.FixedCountModel
+CHECK RiffleShuffle.Basic
+CHECK RiffleShuffle.Profiles
+CHECK RiffleShuffle.Words
+CHECK RiffleShuffle.Matrices
+CHECK RiffleShuffle.Graphs
+CHECK RiffleLowerV2.Shared.Smoke
+CHECK RiffleLowerV2.Shared.Model
+CHECK RiffleLowerV2.Shared.Empirical
+CHECK RiffleLowerV2.Shared.Path
+CHECK RiffleLowerV2.Shared.Statistics
+CHECK Contracts.v1.ModelThinning
+CHECK Contracts.v1.FactorialOccupancy
+CHECK Contracts.v1.Ascent
+CHECK Contracts.v1.Endpoints
+CHECK Contracts.v1.AdditionalFinite
+CHECK RiffleLowerV2.Model.Sorting
+CHECK RiffleLowerV2.Shared.Adapters
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Shared/Adapters.lean:59:2: warning: Unused tactic linter: `change (sortedWord ω (edgeLeft e) = sortedWord ω (edgeRight e)) ↔ _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CHECK RiffleLowerV2.Model.FiniteLaws
+CHECK RiffleLowerV2.Model.GraphSorting
+CHECK RiffleLowerV2.Model.GraphLaw
+CHECK RiffleLowerV2.Model.FiberCounts
+CHECK RiffleLowerV2.Model.ComponentFibers
+CHECK RiffleLowerV2.Model.Physical
+CHECK RiffleLowerV2.Model.Main
+CHECK RiffleUpperV2.Shared.Model
+CHECK RiffleTimeProfile.Analysis
+CHECK RiffleUpperV2.Shared.Empirical
+CHECK RiffleUpperV2.Contracts.V1.Empirical
+CHECK RiffleUpperV2.Shared.Conditioning
+CHECK RiffleUpperV2.Exploration.Objects
+CHECK RiffleUpperV2.Contracts.V1.Conditional
+CHECK RiffleUpperV2.Shared.Infimum
+CHECK RiffleUpperV2.Shared.Profile
+CHECK RiffleUpperV2.Shared.Random
+CHECK RiffleUpperV2.Contracts.V1.Profile
+CHECK RiffleUpperV2.Contracts.V1.Main
+CHECK RiffleLowerV2.Thinning.PMFTools
+CHECK RiffleLowerV2.Thinning.Compat.FiniteLaw
+CHECK RiffleLowerV2.Thinning.Compat.Hypergeometric
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Hypergeometric.lean:74:8: warning: This simp argument is unused:
+  mul_pos_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.pos_iff_ne_zero, Nat.choose_eq_zero_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleLowerV2.Thinning.Compat.HypergeometricMoments
+CHECK RiffleLowerV2.Thinning.Compat.HypergeometricConcentration
+CHECK RiffleLowerV2.Thinning.Compat.Conditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:172:0: warning: automatically included section variable(s) unused in theorem `RiffleLowerV2.Thinning.Compat.FiniteLaw.coarse_total_probability`:
+  [Fintype Δ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Δ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/Conditioning.lean:391:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleLowerV2.Thinning.Compat.SubsetSampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/SubsetSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleLowerV2.Thinning.Compat.ResidualSampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:80:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:106:24: warning: Variable name `hres` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hres
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:148:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/ResidualSampling.lean:151:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleLowerV2.Thinning.Compat.SubsetTransform
+CHECK RiffleLowerV2.Thinning.ColumnSampling
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/ColumnSampling.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleLowerV2.Thinning.Recursion
+CHECK RiffleLowerV2.Thinning.Tails
+CHECK RiffleUpperV2.Hypergeometric.Cylinder
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Cylinder.lean:65:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Anchor.Definitions
+CHECK RiffleUpperV2.Shared.Anchored
+CHECK FirstMoment.Assembly
+CHECK RiffleUpperV2.Shared.FirstMomentAPI
+CHECK RiffleLowerV2.Thinning.PrefixCoordinates
+CHECK RiffleUpperV2.Localization.Prefixes
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Prefixes.lean:53:13: warning: This simp argument is unused:
+  parent
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [takePrefix_list, List.length_take, List.Vector.toList_length]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Localization.Scalars
+CHECK RiffleUpperV2.Localization.Definitions
+def RiffleUpperV2.Contracts.V1.F : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η g : ℝ),
+      0 < T →
+        0 < η →
+          0 < g →
+            g < 1 / ↑k →
+              ∃ c,
+                0 < c ∧
+                  ∃ N0,
+                    ∃ (_ : 2 ≤ N0),
+                      ∀ (N : ℕ),
+                        N0 ≤ N →
+                          ∀ (n : ℕ) (hn : 2 ≤ n),
+                            n ≤ N →
+                              ∀ (a K : ℕ),
+                                a < K →
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k n (K - a)),
+                                      RiffleUpperV2.FirstColumnGood cuts ⋯ g →
+                                        RiffleUpperV2.EmpiricalNegativeMargin N a cuts ⋯ η →
+                                          RiffleUpperV2.expectedCommonEdges cuts ≤ ↑N ^ (-c)
+def RiffleUpperV2.Contracts.V1.C : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η g γ : ℝ),
+      0 < T →
+        0 < η →
+          η ≤ 1 →
+            0 < g →
+              g < 1 / ↑k →
+                0 < γ →
+                  γ ≤ 1 →
+                    ∃ ρ0,
+                      0 < ρ0 ∧
+                        ∀ (ρ : ℝ),
+                          0 < ρ →
+                            ρ ≤ ρ0 →
+                              ∃ A cH ζ C,
+                                0 < A ∧
+                                  0 < cH ∧
+                                    0 < ζ ∧
+                                      0 < C ∧
+                                        ∃ N0,
+                                          ∃ (hN0 : 2 ≤ N0),
+                                            ∀ (N : ℕ) (hN : N0 ≤ N) (L : ℕ),
+                                              ↑(L + 1) ≤ T * Real.log ↑N →
+                                                ∀ (cuts : RiffleUpperV2.Cuts k N (L + 1)),
+                                                  RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ (2 * η) →
+                                                    RiffleUpperV2.Exploration.integerWindowGood N cuts ⋯ ρ γ g →
+                                                      RiffleUpperV2.Exploration.retainedGoodCluster cuts ⋯
+                                                          (RiffleUpperV2.Exploration.clusterSpan γ) g →
+                                                        (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts)
+                                                              fun ω =>
+                                                              ¬RiffleUpperV2.Exploration.concentrationEvent cuts
+                                                                  (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10)
+                                                                  ω) ≤
+                                                            RiffleUpperV2.Exploration.badBound N (η / 10) A cH ∧
+                                                          (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction),
+                                                              ↑N ^ (η / 10) ≤
+                                                                  ↑(RiffleUpperV2.Exploration.pileSize cuts p) →
+                                                                ∀ i ≤ RiffleUpperV2.Exploration.pileSize cuts p,
+                                                                  ∀
+                                                                    (ω :
+                                                                      RiffleUpperV2.Sample cuts ×
+                                                                        RiffleUpperV2.Sample cuts),
+                                                                    (0 <
+                                                                        RiffleUpperV2.probability
+                                                                          (RiffleUpperV2.independentPairLaw cuts)
+                                                                          fun v =>
+                                                                          RiffleUpperV2.Exploration.pairHistory cuts p d
+                                                                              i v =
+                                                                            RiffleUpperV2.Exploration.pairHistory cuts p
+                                                                              d i ω) →
+                                                                      RiffleUpperV2.Exploration.pairHistoryGood cuts
+                                                                          (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                          (η / 10)
+                                                                          (√(RiffleUpperV2.Exploration.badBound N
+                                                                              (η / 10) A cH))
+                                                                          p d i ω →
+                                                                        (RiffleUpperV2.conditionalExpect
+                                                                            (RiffleUpperV2.independentPairLaw cuts)
+                                                                            (fun v =>
+                                                                              ↑(RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                                  cuts
+                                                                                  (RiffleUpperV2.Exploration.clusterSpan
+                                                                                    γ)
+                                                                                  g (η / 10) p d i v.1 v.2))
+                                                                            fun v =>
+                                                                            RiffleUpperV2.Exploration.pairHistory cuts p
+                                                                                d i v =
+                                                                              RiffleUpperV2.Exploration.pairHistory cuts
+                                                                                p d i ω) ≤
+                                                                          C * ↑N ^ (-ζ)) ∧
+                                                            ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                                              (ω ω' : RiffleUpperV2.Sample cuts),
+                                                              RiffleUpperV2.Exploration.remainingDirectionalCount cuts
+                                                                  (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10) p
+                                                                  d (RiffleUpperV2.Exploration.pileSize cuts p) ω ω' =
+                                                                0
+def RiffleUpperV2.Contracts.V1.E : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∃ c,
+                          0 < c ∧
+                            ∃ N0,
+                              ∃ (hN0 : 2 ≤ N0),
+                                ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k N K),
+                                      RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 →
+                                        RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N) →
+                                          RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw cuts)
+                                              (RiffleUpperV2.uniformPermutation N) ≤
+                                            ↑N ^ (-c)
+def RiffleUpperV2.Contracts.V1.P : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η : ℝ),
+      0 < T →
+        0 < η →
+          ∃ χ0,
+            0 < χ0 ∧
+              ∀ (χ : ℝ),
+                0 < χ →
+                  χ ≤ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : ℝ),
+                          0 < g →
+                            g < 1 / ↑k →
+                              0 < γ →
+                                ∃ ρ0,
+                                  0 < ρ0 ∧
+                                    ∀ (ρ : ℝ),
+                                      0 < ρ →
+                                        ρ ≤ ρ0 →
+                                          ∃ φ0,
+                                            0 < φ0 ∧
+                                              ∀ (φ : ℝ),
+                                                0 < φ →
+                                                  φ ≤ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleUpperV2.ScalarIntegrable μ P T →
+                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →
+                                                          ∀ (ε : ℝ),
+                                                            0 < ε →
+                                                              ∃ N0,
+                                                                ∃ (hN0 : 2 ≤ N0),
+                                                                  ∀ (N : ℕ) (hN : N0 ≤ N)
+                                                                    (cuts :
+                                                                      RiffleUpperV2.Cuts k N
+                                                                        (TimeProfile.horizonDepth N T)),
+                                                                    TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ →
+                                                                      RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T →
+                                                                        RiffleUpperV2.tv
+                                                                            (RiffleUpperV2.physicalInverseLaw cuts)
+                                                                            (RiffleUpperV2.uniformPermutation N) ≤
+                                                                          ε
+def RiffleUpperV2.Contracts.V1.T : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),
+      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →
+        (∀ (t : ℝ),
+            0 ≤ t →
+              RiffleUpperV2.criticalTime μ < ENNReal.ofReal t →
+                Filter.Tendsto
+                  (fun N =>
+                    RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw ((cuts N).take (TimeProfile.horizonDepth N t)))
+                      (RiffleUpperV2.uniformPermutation N))
+                  Filter.atTop (nhds 0)) ∧
+          ∀ (ε : ℝ),
+            0 < ε →
+              ε < 1 →
+                Filter.limsup (fun N => RiffleUpperV2.mixingTime (cuts N) ε / ENNReal.ofReal (Real.log ↑N))
+                    Filter.atTop ≤
+                  RiffleUpperV2.criticalTime μ
+def RiffleUpperV2.Contracts.V1.R : Prop :=
+RiffleUpperV2.Contracts.V1.REmpiricalBound ∧ RiffleUpperV2.Contracts.V1.REmpirical ∧ RiffleUpperV2.Contracts.V1.RProfile
+def RiffleUpperV2.Contracts.V1.REmpiricalBound : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∃ c,
+                          0 < c ∧
+                            ∃ N0,
+                              ∃ (hN0 : 2 ≤ N0),
+                                ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (Q : PMF (RiffleUpperV2.Cuts k N K)),
+                                      RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw Q)
+                                          (RiffleUpperV2.uniformPermutation N) ≤
+                                        (RiffleUpperV2.probability Q fun cuts =>
+                                            ¬(RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧
+                                                RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N))) +
+                                          ↑N ^ (-c)
+def RiffleUpperV2.Contracts.V1.REmpirical : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∀ (K : ℕ → ℕ),
+                          (∀ (N : ℕ), 2 ≤ N → ↑(K N) ≤ T * Real.log ↑N) →
+                            ∀ (Q : (N : ℕ) → PMF (RiffleUpperV2.Cuts k N (K N))),
+                              Filter.Tendsto
+                                  (fun N =>
+                                    RiffleUpperV2.probability (Q N) fun cuts =>
+                                      ∃ (hN : 2 ≤ N),
+                                        RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧
+                                          RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑(K N) / Real.log ↑N))
+                                  Filter.atTop (nhds 1) →
+                                Filter.Tendsto
+                                  (fun N =>
+                                    RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw (Q N))
+                                      (RiffleUpperV2.uniformPermutation N))
+                                  Filter.atTop (nhds 0)
+def RiffleUpperV2.Contracts.V1.RProfile : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η : ℝ),
+      0 < T →
+        0 < η →
+          ∃ χ0,
+            0 < χ0 ∧
+              ∀ (χ : ℝ),
+                0 < χ →
+                  χ ≤ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : ℝ),
+                          0 < g →
+                            g < 1 / ↑k →
+                              0 < γ →
+                                ∃ ρ0,
+                                  0 < ρ0 ∧
+                                    ∀ (ρ : ℝ),
+                                      0 < ρ →
+                                        ρ ≤ ρ0 →
+                                          ∃ φ0,
+                                            0 < φ0 ∧
+                                              ∀ (φ : ℝ),
+                                                0 < φ →
+                                                  φ ≤ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleUpperV2.ScalarIntegrable μ P T →
+                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →
+                                                          ∀
+                                                            (Q :
+                                                              (N : ℕ) →
+                                                                PMF
+                                                                  (RiffleUpperV2.Cuts k N
+                                                                    (TimeProfile.horizonDepth N T))),
+                                                            Filter.Tendsto
+                                                                (fun N =>
+                                                                  RiffleUpperV2.probability (Q N) fun cuts =>
+                                                                    ∃ (hN : 2 ≤ N),
+                                                                      TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ)
+                                                                Filter.atTop (nhds 1) →
+                                                              Filter.Tendsto
+                                                                  (fun N =>
+                                                                    RiffleUpperV2.probability (Q N) fun cuts =>
+                                                                      ∃ (hN : 2 ≤ N),
+                                                                        RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T)
+                                                                  Filter.atTop (nhds 1) →
+                                                                Filter.Tendsto
+                                                                  (fun N =>
+                                                                    RiffleUpperV2.tv
+                                                                      (RiffleUpperV2.randomInverseLaw (Q N))
+                                                                      (RiffleUpperV2.uniformPermutation N))
+                                                                  Filter.atTop (nhds 0)
+'RiffleUpperV2.physical_graph_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.expectedCommonEdges_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.empiricalInf_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.independentPair_expect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.positive_history_has_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.regularPartitions_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.criticalTime_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.mixingTime_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.anchoredAbsoluteEnd_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.anchoredInterval_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Localization.meanExponent_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

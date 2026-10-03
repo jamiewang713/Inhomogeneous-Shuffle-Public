@@ -1,0 +1,34 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:12:20.041588+00:00",
+  "reviewer": "U00 independent of lane owner",
+  "sources": {
+    "Reservoir/CollisionPower.lean": "c898f5503fbff69604c90a02338f1a21487ad444195925917fc7972ad7aa8185",
+    "Reservoir/CollisionEvents.lean": "c71ca71ec6e739b544176cae171afee038856392be6d80bbb3c41372f09688f4",
+    "Reservoir/CollisionNormalization.lean": "3cea3057c9a5b7d042e785a3b07509d752c0788143a576dfd383ddf0951af8bf",
+    "Reservoir/CollisionConditional.lean": "e29dd75291afa3fd370505c3ffb2218772e8b29d53ad5b801e5e0e648005b628",
+    "Reservoir/TailCollisions.lean": "1fd671b5e0e86e397deae13e58336591e75cbc7595db029b118c052591282b46"
+  },
+  "mathematics": [
+    "General nonnegative real-power extension sum factorizes into prefixMass^q times the remaining-column power sums, retaining zero counts.",
+    "Equal-full-word events for one marked pair form a disjoint partition. Good probabilities are summed over words first, then the concentration complement is charged once per marked pair.",
+    "Exact marked pile-support sums give falling(pileSize,2). Initial-pile normalization restores the full-word mass exponent, including the first column.",
+    "Unordered choose2 collisions are bounded by ordered falling-factorial pairs. The resulting C2=8/reserveMass^2 is positive, fixed before arrays and histories; the error is n^2*epsilon, with no word-count multiplier."
+  ],
+  "public_type_and_model": [
+    "tailCollisions is an actual positive forward natural-history conditional expectation of sum choose(wordCount,2) over all extensions of the specified strict future cylinder.",
+    "No denominator certificate, conditional law or collision bound is assumed. The explicit future predicate is a geometric cylinder condition for U09 to discharge.",
+    "The fixed k,D,g,tau,T and exponent budget precede C2,N0, arrays, natural histories, cylinders and epsilon."
+  ],
+  "adversarial": [
+    "Impossible marked events and empty extension sets contribute zero. Zero pile sizes cannot carry a positive indexed natural history.",
+    "No forced current-run copies occur in a strict future cylinder.",
+    "The ordered-pair upper bound deliberately loses a factor two, harmless for the existential constant and final polynomial rate; no claim of the sharper constant.",
+    "Backward counterparts and the exact future-cylinder law remain separate obligations."
+  ],
+  "root_build_receipt": "tail-collision-check-build.json",
+  "trust_inventory": "tail-collision-declarations.json",
+  "remaining": [
+    "Backward quantitative prefix/current/collision bounds, actual auxiliary future-cylinder law, U09 geometric and conditional endpoint integration."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "recorded_at": "2026-10-02T21:05:56.274749+00:00",
+  "scope": "Bounded U09 assistance: actual large-cylinder concentration, induced-margin/goodness preservation and specialization of proved F. Full C remains U09.",
+  "assignment": {
+    "file": "audit/U00/large-cylinder-helper-assignment.json",
+    "sha256": "3386c59af26b015b9670a51528d22eed6c8c2dbb9bc86341c6376b143d0113a4"
+  },
+  "endpoint": {
+    "name": "RiffleUpperV2.Conditional.largeCylinder_firstMoment",
+    "type": "audit/U05/large-helper/ENDPOINT_TYPE.txt",
+    "kernel_type": "audit/U05/large-helper/kernel-types.log",
+    "decay_exponent": "eta/8"
+  },
+  "source_labels": [
+    "lem:ub-conditional-first-moment (large final cylinder paragraph)",
+    "lem:ub-conditional-preservation",
+    "eq:ub-exploration-prefix-concentration"
+  ],
+  "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "owned_sources": {
+    "RiffleUpperV2/Conditional/LargeConcentration.lean": "870a7d1f00ea4ed5cbe6123bf74aef4e3f4ab30aaeee48fdce894859bcb423d3",
+    "RiffleUpperV2/Conditional/LargeMargin.lean": "a4ade118b9e60d5041ee7b24b2a68f96b83f4c2a4bb29efc0d6dc1e0947cb631",
+    "RiffleUpperV2/Conditional/LargeFirstMoment.lean": "fcb7b0401a1b21fea5dd60dc93bef3d8e40be6dd412e4b4511ae59a04ed93fc4"
+  },
+  "build": {
+    "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "receipts": [
+      {
+        "file": "audit/U05/large-helper/BUILD_RECEIPT.json",
+        "sha256": "0de48aed5a8967d2350e2e8ca33b13d86a52f71ba64169a174ce81db8c314145",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "RiffleUpperV2.Conditional.LargeFirstMoment"
+        ],
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U05/large-helper/Check-build.json",
+        "sha256": "1f3109477958c3e5df300ae4920d4fa44bb80bf82926231737e77aa4b688404d",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/large-helper/Check.lean"
+        ],
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U05/large-helper/KernelTypes-build.json",
+        "sha256": "5068ede10ccfa1f43f0e98f9338a45fbabad21ebab61e9d5f9fb39cd3d94f2ee",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/large-helper/KernelTypes.lean"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "root_receipt": "audit/U00/large-cylinder-check-build.json",
+    "root_receipt_sha256": "ac06a91569890470fa524ccfb152ba6c57b7522ff15f4372968d2e3847883996"
+  },
+  "public_declarations": {
+    "total": 7,
+    "index": "audit/U05/large-helper/DECLARATIONS.json",
+    "exact_types_and_axioms": "audit/U05/large-helper/types-and-trust.log"
+  },
+  "all_declarations": {
+    "total": 40,
+    "including_generated_and_private": true,
+    "index": "audit/U05/large-helper/ALL_DECLARATIONS.json",
+    "transitive_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "dependency_closure": {
+    "file": "audit/U05/large-helper/PROJECT_DEPENDENCY_CLOSURE.json",
+    "source_count": 246,
+    "every_source_hash_matches_independent_root_receipt": true
+  },
+  "independent_review": {
+    "reviewer": "U00",
+    "mathematics": "PASS",
+    "model_quantifiers": "PASS",
+    "adversarial": "PASS",
+    "build_types_trust": "PASS",
+    "file": "audit/U00/U09-large-cylinder-review.json",
+    "sha256": "a002c90458686e66554b78736e2dd9ed779cbea99a776b9c7f6470e96c3ec0d0"
+  },
+  "actual_input_discharge": {
+    "induced_counts": "inducedCylinder_count identifies literal sampleEntry-filter counts with H prefixLaterCount; rowWord_get preserves the original column index.",
+    "size_and_coordinates": "largeCylinder_concentration uses H and mu>=N^xi to derive mu/2<=m<=2mu,2<=m<=N and every coordinate error<=2N^(-xi/3).",
+    "log_population": "largeCylinder_sizeExponent proves log_N m<=1-A(0,r)+log2/logN from actual positive mean and m<=2mu using literal maximal prefix bound.",
+    "margin": "largeCylinder_errors and Margins.inducedMargin absorb exact loss (7/2)(e+kTz)+12k^4Tz into eta, starting from2eta.",
+    "first_goodness": "Actual coordinate closeness preserves the next original g-good column as induced first g/2-good column; existential next index implies nonempty suffix.",
+    "first_moment": "largeCylinder_firstMoment specializes proved FirstMoment.empiricalGraphDecay at actual m with original N and absolute start r."
+  },
+  "uniformity": "N0 depends only on fixed k,T,eta,g, before N,L,cuts,D,x,omega; independent of histories and cluster span D.",
+  "boundary_checks": [
+    "Empty cylinders excluded by H and large positive mean, yielding2<=m",
+    "Zero digit counts allowed; only literal profile coordinates used",
+    "A terminal prefix has no next index and cannot satisfy the displayed next-good-column premise",
+    "Empty prefix permitted, yielding a legitimate whole-deck specialization",
+    "No log m normalization appears",
+    "Only first good anchor is needed by F; no unnecessary three-anchor assumption added"
+  ],
+  "remaining_obligations": [],
+  "out_of_scope": [
+    "Conditional Jensen/history averaging and complete Contracts.V1.C remain U09"
+  ],
+  "frozen_prior_F": "The36 FirstMoment sources and prior U05 verification remained unchanged."
+}

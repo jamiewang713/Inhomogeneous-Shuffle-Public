@@ -1,0 +1,20 @@
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T eta g : ℝ),
+      0 < T →
+        0 < eta →
+          0 < g →
+            g < 1 / ↑k →
+              ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),
+                ∀ (N : ℕ) (hNN : N0 ≤ N) (L : ℕ) (cuts : RiffleUpperV2.Cuts k N (L + 1)) (D : ℕ)
+                  (x : RiffleUpperV2.Prefix k (L + 1)) (omega : RiffleUpperV2.Sample cuts),
+                  ↑(L + 1) ≤ T * TimeProfile.logScale N →
+                    RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ (2 * eta) →
+                      RiffleUpperV2.Exploration.concentrationEvent cuts D g (eta / 10) omega →
+                        ↑N ^ (eta / 10) ≤ RiffleUpperV2.prefixMean cuts x →
+                          (∃ (a : Fin (L + 1)),
+                              ↑a = ↑x.fst ∧ TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts ⋯ a) g) →
+                            RiffleUpperV2.expectedCommonEdges
+                                (RiffleUpperV2.Reservoir.inducedCuts cuts (RiffleUpperV2.Reservoir.cylinderRows x omega)
+                                  x omega) ≤
+                              ↑N ^ (-eta / 8)

@@ -1,0 +1,33 @@
+{
+  "status": "COORDINATOR_CROSSCHECK_PASS_FINAL_AUDITOR_VERDICT_PENDING",
+  "recorded_at": "2026-10-02T22:31:08.118605+00:00",
+  "checks": [
+    "Independent U13 receipt BUILD_OK at identical compiler/mathlib and398 exact frozen project source hashes",
+    "All398 output and source receipt files owned regular with no symlink ancestor",
+    "All3907 upper declaration names identical to coordinator inventory; no custom axioms",
+    "All12 actual/Completed endpoint dependency closures independently reconstructed from direct dependency inventory;45162 declaration union; all theorem/definition/opaque bodies available; manual axioms match Lean collector and only standard3",
+    "All398 project object and receipt hashes rechecked against U13 inventory",
+    "All recorded runtime object hashes rechecked; external package revisions match initial pinned inputs",
+    "All four coordinator-rebuilt mathlib source/object/companion hashes rechecked and .olean byte-identical to clean integration output"
+  ],
+  "fresh_project_modules": 398,
+  "upper_declarations": 3907,
+  "recursive_reachable_declarations": 45162,
+  "external_imported_modules": 4933,
+  "rebuilt_pinned_libraries": [
+    "Mathlib.Probability.Distributions.Uniform",
+    "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting",
+    "Mathlib.Combinatorics.Pigeonhole"
+  ],
+  "external_trust_scope": "U13 records every imported external object hash. Coordinator cross-check rehashes runtime, all398 independently rebuilt project objects and4 locally rebuilt pinned libraries; standard prebuilt external caches remain trusted pinned libraries.",
+  "evidence_sha256": {
+    "final-fresh-build-v2.json": "914142438bad53ac8a7e50402770389a8667703f8c560a71ade9eed839e61347",
+    "final-trust-v2.json": "6442a4d960041a1a7978e49eca9d4f4d7cd0527fc46569edde6b628f65678437",
+    "final-metadata-build-v2.json": "8dd2f236c148a2c351a0e49e782385c336dd2791af5334f46b04af782797faae",
+    "final-metadata-v2.json": "d3cc368d171a6328bb761a51ab2e0a01509a1369f580c58e166a03135587b48a",
+    "final-object-inventory-v2.json": "98add710c207024530fc6f6dc56ba98395db29cdbfed51e1bdea5f96694dd158",
+    "source-proof-review-v2.txt": "c80a4471a6cb9fd51ec28d7da3b13b45c4343e152859bc2509e811254f3ef170",
+    "preservation-v2.json": "f9397a20b49f9be4871cf91fc87f1b71804e8f41cab2cfd3554ec3788c0d515e"
+  }
+}

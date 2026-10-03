@@ -1,0 +1,31 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:30:29.536452+00:00",
+  "reviewer": "U00 independent of lane owner",
+  "sources": {
+    "Conditional/Jensen.lean": "fbb9750677af5fff695daeaa9e388691acbc2677c4306120bbb9eed7a6336737",
+    "Conditional/PairReduction.lean": "9a7ee03243ced0536883564d9e1af45352a0cf6bdd411b7ab602893aab28501c",
+    "Conditional/RefinementCount.lean": "9bd6c9931bc68556b5f3178451487e3d0ab5ffce022241bae972c41e91782323"
+  },
+  "mathematics": [
+    "Conditional fine-atom probabilities on a positive coarse fiber define a normalized finite law. Its variance inequality and exact conditional tower give square Jensen; summing edges yields selfIntersectionJensen.",
+    "Actual pair-history equality is exactly separate coordinate history equality. Conditional product independence converts the literal remainingDirectionalCount to the sum of products of two single-history edge probabilities.",
+    "The square difference inequality bounds this product sum by one half the sum of the two separate self-intersection sums. No history is discarded by symmetry.",
+    "The ceil refinement window costs k^2*N^(rho*log k). A supplied actual cylinder-count bound M<=2kK*k^window gives the displayed genuine real power with coefficient2k^3T."
+  ],
+  "public_type_and_model": [
+    "No R or S1 is inserted in natural-history conditioning. Auxiliary Jensen requires only an actual refinement map Z with U=g\u2218Z.",
+    "remainingEdgeEvent keeps i<=e+1, retaining the crossing edge e=i-1. Pair reduction works on the actual directional process and both orientations.",
+    "The combinatorial hM in refinementCount is explicit and still needs actual geometric discharge; the public planned name alone is not completion."
+  ],
+  "adversarial": [
+    "Null fine histories have zero weight; coarse positivity is required exactly where normalization is used. Pair product identities also respect zero conditional denominators.",
+    "Empty edge family and terminal pile times give no omitted crossing edge or extra count.",
+    "k=1,N=1 and rho=0 satisfy the scalar window helper; endpoint C retains stronger frozen guards."
+  ],
+  "root_build_receipt": "conditional-reduction-check-build.json",
+  "trust_inventory": "conditional-reduction-declarations.json",
+  "remaining": [
+    "Actual future-cylinder decomposition/refinement cardinality, applying Jensen to actual future Z, three block-size regimes, current runs, unconditional time zero, terminal handling and frozen C."
+  ]
+}

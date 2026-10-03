@@ -1,0 +1,76 @@
+/goal
+You are a Lean formalization agent assigned ONE bounded part of the UPPER BOUND for time-inhomogeneous riffle shuffles. Implement the assignment below and produce checkable proof evidence. The lower-bound formalization is finished; it is a read-only source of reusable lemmas, not another task.
+
+AUTHORITATIVE INPUTS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Manuscript SHA256 when this plan was prepared: 284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+Plan and all sibling prompts: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_parallel_plan_2026-10-01
+Proposed NEW integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2
+Proposed namespace: RiffleUpperV2. Proposed names below are deliverable names, NOT claims that these Lean declarations already exist.
+
+Use the CURRENT empirical/reserved-population proof. The old formalization/upper_bound/STATUS.md and PROOF_STRUCTURE.md describe an earlier manuscript and are historical. Their ambient partition-preservation route is not the new target. The current repair map is formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt. A manuscript review is not a Lean certificate. Locate statements by their LaTeX labels, not old line numbers.
+
+Reuse existing checked mathematics where its FULL type matches. Important candidates are formalization/foundations, formalization/time_profile, formalization/lower_bound_v2/RiffleLowerV2/{Model,Thinning,Factorial,ProfileTransfer}, formalization/first_moment, formalization/stable_blocks, lean/EdgeLocalization, and lean probability modules. Inspect actual proofs and provenance. The first_moment package has proved generic aggregation and model adapters, but its model-specific first-moment theorem remains unproved. It records successful 4.33.1 compatibility; do not repeat its older compatibility failure as current. Old stable/profile definitions require a proved adapter to the new anchored empirical construction.
+
+MATHEMATICAL CONTRACT
+The primary endpoint is thm:ub-empirical-upper: for fixed k>=2 and T,eta0,g0,gamma0>0 there exists rho0>0; for every fixed 0<rho<=rho0 there exist c>0,N0 such that ALL N>=N0, ALL K<=T log N and ALL fixed-count cut arrays satisfying the empirical negative margin and local-good condition have TV(physical inverse shuffle, uniform)<=N^(-c). The theorem must not assume a first-moment bound, conditional-edge estimate, exploration certificate, witness, density bound or exponential-moment bound.
+
+Its first-moment input prop:ub-empirical-first-moment is uniform over 2<=n<=N, integer a<K<=T log N and arrays on the n labels, with a g-good first retained column and eq:ub-empirical-negative-margin. The costs and beta use log N, including in subdecks: beta(s)=log(n)/log(N)-Ahat(a,s). Never substitute log n. Terminal beta(K)<=-eta and every integer pair a<=s<=u<=K are included; the theta infimum is over [3,4]. This input requires no time profile, profile partition, local-good density, or arbitrary ambient-prefix law.
+
+The other public endpoints are the buffered deterministic profile upper bound, the reduced critical-time/mixing-time upper bound under def:ub-arbitrarily-fine-approximation, and the random-cut upper bound. Preserve the exact scalar-integrability and parameter order. The critical-time hypothesis has g,gamma fixed BEFORE rho decreases and coherent cut sequences across horizons. It is stronger than one arbitrary fixed coarse mesh; do not silently weaken it. Infinite thresholds must be represented faithfully.
+
+WORKFLOW AND INDEPENDENT REVIEW
+1. Read your source labels and their definitions; inspect the exact reusable Lean types. Produce a source-to-declaration map and identify real missing proofs versus adapters.
+2. Coordinate with U00 on shared definitions and exact interfaces. U00 publishes CONTRACTS_READY with versioned hashes. Mathematical investigation and isolated experiments may begin beforehand; integration must use the agreed definitions. A Target : Prop definition is a specification, not a proof.
+3. Obtain independent checks of (a) the mathematics, (b) the Lean statement/model/quantifiers, and (c) adversarial examples/hidden hypotheses. Schedule these through U00 using spare workers or cross-review; do not recursively demand three new agents per lane or exceed the available worker count. Never audit your own new proof as the only reviewer.
+4. Prove each assigned result, compile its actual dependency closure, and instantiate generic inputs from the fixed-column law. Generic helper hypotheses are allowed only when every one is discharged before the public model endpoint. If an imported theorem is conditional, record who proves its premises.
+5. If a real obstruction appears, record the exact failing claim and test at least two substantively different approaches. Continue independent useful work. Do not weaken the frozen target or add the missing conclusion as a premise. Propose any necessary statement change separately, with consequences for the public endpoints.
+
+No sorry, admit, custom axiom, unproved placeholder, circular typeclass/structure certificate, native proof oracle or vacuous reformulation counts as completion. Standard Lean axioms Classical.choice, Quot.sound and propext are allowed. Finite computation through kernel-checked proofs is allowed. Check N=0/1 guards, empty products, zero pile sizes, impossible histories and endpoint conventions explicitly where relevant; asymptotic targets may set N0>=2.
+
+An auxiliary numerical constant may be weakened only with a recorded proof that every downstream frozen endpoint is preserved and an independent interface review. Freeze the selected helper version before downstream integration; do not silently claim the original sharper inequality. No public hypothesis or endpoint is changed by this allowance.
+
+BUILD AND FILE OWNERSHIP
+Use Lean 4.33.1 and mathlib 0df444a360eaa60ab8c11dca51a86af692955474, subject to U00 confirming the actual installation. There is no root Lake project. Do not upgrade dependencies, mix 4.19/4.24 compiled caches, or overwrite frozen upstream files. Existing completed packages and the manuscript are read-only. If the proposed new package already exists, inspect its state and ownership before continuing; never reinitialize it blindly.
+
+U00 owns new package configuration, shared modules, contracts, import umbrellas, dependency staging and integration. You own only the module and audit directories listed in your assignment. Compile into your lane's isolated output directory .build/Uxx/ against immutable reviewed dependencies; only U00 writes shared outputs and performs integrated builds. Do not run broad reset/clean commands or alter another lane's files. Request a shared-interface change from U00 with a concrete proposed signature.
+
+DELIVERY AND ACCEPTANCE
+Return exact public declaration names and fully expanded types, source labels, proof/dependency files, command and exit-status build evidence, input hashes, transitive axiom evidence, and independent review findings/resolutions. Save a concise STATUS.txt and machine-readable VERIFICATION.json in your audit directory. Use PROVED_AND_CHECKED, PARTIAL, or BLOCKED_WITH_EXACT_OBLIGATION honestly. List remaining imported assumptions and their concrete discharge sites. A successful import, absence of textual sorry, numerical experiment or conditional wrapper alone is not completion. Do not claim a fresh build from an old receipt. The assignment below determines your scope; do not start sibling work or reopen the finished lower bound.
+
+ASSIGNMENT: U00 — Shared model, exact contracts, reuse inventory and integration
+
+OWNED PATHS (inside the proposed new package)
+Package configuration; RiffleUpperV2/Shared/; RiffleUpperV2/Contracts/V1/; RiffleUpperV2/Compat/; RiffleUpperV2.lean; RiffleUpperV2/Completed.lean; scripts/; audit/U00/
+UPSTREAM INPUT PROVIDERS
+None: start first
+These are input milestones, not whole-agent completion requirements. U00 means CONTRACTS_READY for proof workers and INTEGRATION_READY for U13's final audit. Other lanes supply their reviewed proved exports. Read their exact planned exports in PLAN.txt and bind them to the frozen versions before use. Independent partial work may start sooner as specified below. U00 itself completes only after U13 accepts the integrated package.
+
+SOURCE LABELS
+eq:ub-empirical-costs
+eq:ub-empirical-negative-margin
+prop:ub-empirical-first-moment
+lem:ub-conditional-first-moment
+thm:ub-empirical-upper
+thm:deterministic-upper-bound
+def:ub-arbitrarily-fine-approximation
+thm:upper-critical-reduced
+cor:random-time-profile-upper-bound
+
+Start first. Your assignment is to make the parallel work coherent and integrate it; do not implement every mathematical lane yourself.
+
+1. Record Git status, manuscript hash, current source definitions, toolchain, mathlib identity, package graph and existing proof receipts. Create the new upper package without changing finished packages. Inspect compatibility/provenance before importing old first_moment or EdgeLocalization artifacts. Prefer narrow direct imports from the completed package to copying its mathematics. If a compatibility copy is necessary, keep it additive and record the exact source diff and a proved model bridge.
+2. Publish a reuse ledger: exact theorem/type, source path, runtime, trust closure, MATCH/ADAPTER_NEEDED/MISSING. In particular inspect RiffleLowerV2.Model.physical_graph_representation, finite PMF laws, factorial moments, residual thinning and generic profile quadrature. Do not treat the old first-moment assembly as a completed concrete theorem.
+3. Freeze coherent upper-only shared definitions: actual fixed-count sample and physical inverse law; half-L1 TV; graph edge rank and component conventions; legal prefixes, lexicographic intervals and absolute offsets; original N versus current n; integer absolute/retained column maps; empirical costs and infimum margin; local-good windows; anchor/boundary/stable data; finite natural history maps/conditional probability; good events; directional unit counts; profile approximation and extended critical times. Let lane owners propose interfaces before freeze. Use RiffleUpperV2.Contracts.V1, not the existing generic Contracts namespace. Shuffle.FiniteLaw, EdgeLocalization.FiniteLaw, RiffleLowerV2.Thinning.Compat.FiniteLaw and PMF are distinct APIs: choose one primary API and prove explicit adapters.
+4. Freeze fully expanded target types for F (empirical first moment), C (conditional remaining edges), E (empirical TV), P (buffered profile), T (critical time and mixing time), and R (random empirical/profile upper). The theta infimum is a REAL infimum over the nonempty interval [3,4], not a finite grid. Prove the boundedness/continuity facts needed to encode it; no infimum-of-empty or totalized-log shortcut is acceptable. F must retain 2<=n<=N and log N, while E has n=N. C quantifies over every positive-mass natural history satisfying its adapted F_i intersect F'_i good event; time zero is handled by the unconditional first-moment bound, and the terminal remainder is zero.
+5. Obtain the three review perspectives, resolve interfaces, then issue CONTRACTS_READY.json containing source/dependency hashes, expected exports, owners and version. A frozen statement can be a Prop with a separately tracked missing proof; it must never masquerade as an axiom or proved input. Review cycles must not block independent U02/U06/U10 mathematics unnecessarily.
+6. Schedule U01-U12 by PLAN.txt. Count yourself against worker capacity. Release narrowly proved modules as their owners finish; review and serialize integration rather than waiting for each entire lane. Maintain an explicit missing-obligation ledger. If a later interface correction is necessary, preserve the prior freeze, explain it and re-audit all affected consumers.
+7. Build Completed so it imports actual implementations of all required exports, including U11's E and U12's P/T/R. Record exact theorem types, source correspondence, dependency closure and a clean output build. Do not let an implementation structure supplied by the user become an endpoint hypothesis. Issue INTEGRATION_READY with immutable evidence to U13; fix findings through the owning lane and repeat only affected checks. Workers depend on your CONTRACTS_READY milestone, U13's final audit depends on INTEGRATION_READY, and your final goal completion follows U13 acceptance. These are distinct milestones, not circular whole-agent completion prerequisites.
+
+DONE WHEN: the complete upper package and endpoints have independently accepted evidence. Do not declare your coordinator goal complete at the contract-freeze milestone. A meaningful interim handoff is CONTRACTS_READY plus the ready-lane schedule.
+
+PLANNED EXPORTS / EVIDENCE
+- F/C/E/P/T/R frozen specifications and exact source map
+- CONTRACTS_READY.json
+- Completed import and integrated proof ledger

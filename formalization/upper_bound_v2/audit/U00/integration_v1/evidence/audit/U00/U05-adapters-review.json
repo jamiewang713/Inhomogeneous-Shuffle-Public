@@ -1,0 +1,32 @@
+{
+  "status": "PASS_FINITE_DESCRIPTOR_COST_AND_ENTROPY_ADAPTERS",
+  "reviewer": "U00 independent of U05",
+  "recorded_at": "2026-10-02T09:20:29.015179+00:00",
+  "files": {
+    "RiffleUpperV2/FirstMoment/Descriptors.lean": "aa2b29880a909c9a62a79781585724787175eea541d8c59c6a391c61daffb6d3",
+    "RiffleUpperV2/FirstMoment/WordCosts.lean": "215f69c83d9d2ddb998b5fc168a50fbdd49847aee71937ecfbff0c45e03e9a9d",
+    "RiffleUpperV2/FirstMoment/BoundaryCosts.lean": "c67b43795d71fcc4f37037bde4d2fab4fdc110e2817fb70c70617ea7f2d1ba07",
+    "RiffleUpperV2/FirstMoment/ClassAdapters.lean": "991d44d7fcae44771653bd195b7420033813d5c00717fe23b8a7a1b03570f982"
+  },
+  "mathematics": [
+    "Sparse boundary encoder has exact decoder at fixed length, including final sentinel; two boundary records, first pile, extension length, rare record, bin and4 routes all counted.",
+    "Min/max chi-large defaults exist from sum probabilities1 for chi<=1/k; before first crossing, nondefault digits are strictly rare.",
+    "Actual good-cost bin uniformly bounded by horizon*Tlog(1/chi); nonnegative good cost identifies Nat.floor with Int.floor.",
+    "Canonical completion is injective for recorded common length, fixed prefix guarantees agreement outside extension interval.",
+    "prefixFamilyEntropy proves actual family image contained in costClass, so extra descriptor restrictions only improve entropy.",
+    "Exact positive-product logarithm cost split and actual full-word terminal exponent use original log N."
+  ],
+  "adversarial": [
+    "Empty prefix decoder checked vacuously; empty entropy class excluded before log via nonempty representative.",
+    "Terminal first boundary still uses strict-before-last exception set.",
+    "No lower bound imposed on exceptional probability beyond legal selected digits; zero unused digits allowed.",
+    "Family legality is still an explicit model premise to be discharged from actual legal stable words."
+  ],
+  "missing": [
+    "Exceptional total-cost truncation and rare-row expected-mass estimate",
+    "uniform subpolynomial descriptor/class count in source parameter order",
+    "actual retained stable descriptor family definition and full cover",
+    "anchored extension product identity/current-n first-column law integration",
+    "U04 actual densities and final F"
+  ]
+}

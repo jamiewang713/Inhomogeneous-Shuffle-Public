@@ -1,0 +1,25 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:09:45.926206+00:00",
+  "reviewer": "U00 independent of U11",
+  "sources": {
+    "EmpiricalUpper/FiniteTV.lean": "c9fb96ca2c96b1189ba04942ef311de58c21a27054538d2eec1e4dd68cf9c7ae",
+    "EmpiricalUpper/Deletion.lean": "febe74efc8270376653482bdc2b19e457953fdf30a74f059b1a57e89937dc5a6"
+  },
+  "root_build_receipt": "physical-deletion-check-build.json",
+  "trust_inventory": "physical-deletion-declarations.json",
+  "mathematics": [
+    "Finite half-L1 TV is convex under the same mixing PMF, by exact finite bind mass formulas, triangle inequality and exchanged finite sums.",
+    "Pushforward under a bijection preserves uniform law and TV; arbitrary independent random permutation composition contracts TV.",
+    "sampleHeadEquiv factors the exact full fixed-count sample law into the head-column law and the chronological suffix sample. physicalInverse_head proves the actual inverse composition order using the existing physicalInverseList.",
+    "Induction deletes exactly r initial columns and identifies the retained law with literal Margins.suffixCuts; the final statement has no convolution/model certificate premise."
+  ],
+  "adversarial": [
+    "No stationary or identical column assumption; nonstationary chronological order is fixed.",
+    "Empty population and zero/full deleted prefixes remain valid, using nonempty finite permutation spaces.",
+    "No premature application of a composition identity for an independently redefined law: physicalInverseLaw_head proves the actual PMF equality."
+  ],
+  "remaining": [
+    "Uniform restart and actual exploration instantiation to E; C remains external pending provider."
+  ]
+}

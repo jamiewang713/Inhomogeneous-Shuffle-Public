@@ -1,0 +1,60 @@
+PROVED_AND_CHECKED — U07 concrete exploration package
+
+All assigned exploration conclusions are proved from the fixed-column model:
+- local-good integer windows and uniform bounded-span good triples;
+- deterministic reserve existence, exact mass/order guarantees;
+- full literal H concentration uniformly over all arrays;
+- separate forward/backward own-pile histories, refinement, positive/null fiber conventions,
+  adapted F_i, and the exact 2n sqrt(r_bad) history union bound;
+- actual small-pile edge-free failure <=(k/2)n^(xi-eta);
+- common-direction coverage on H×H and shared graph cardinality bounded by the sum
+  of the 2k terminal processes on R×R;
+- zero/one starts, actual 0/1 increments, adaptedness, terminal remainder zero,
+  and the crossing reveal-boundary edge included;
+- concrete R failure bound, exact source o(1), and all inverse-power bounds for
+  the concentration/history errors.
+
+Primary exports
+RiffleUpperV2.Exploration.goodCluster_uniform
+RiffleUpperV2.Exploration.chosenReserves_of_retainedGoodCluster
+RiffleUpperV2.Exploration.uniformConcentration
+RiffleUpperV2.Exploration.historyGoodProbability
+RiffleUpperV2.Exploration.directionalCover
+RiffleUpperV2.Exploration.sharedEdges_le_directionalProcesses
+RiffleUpperV2.Exploration.unitIncrements
+RiffleUpperV2.Exploration.regularityFailure
+RiffleUpperV2.Exploration.historyErrors_eventually_le_power
+RiffleUpperV2.Exploration.regularityError_tendsto_zero
+
+Conventions / input discharge
+Objects.lean is unchanged from CONTRACTS_READY v1, SHA256
+8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e.
+Every probability uses the actual original-n independent fixed-column PMF.
+No history contains earlier piles, H, future cylinders, or reversed word columns.
+Concentration constants are selected before the arrays. The denominator-four
+Bernstein input gives c=1/24, with all frozen H tolerances retained exactly.
+No H failure bound, small-pile estimate, or directional coverage certificate is
+left in the public model conclusions. Internal generic assembly lemmas remain
+explicitly named; regularityFailure discharges them using uniformConcentration
+and Margins.maximalMean_le_of_terminalMargin at the original clock n.
+
+Downstream responsibilities (not missing U07 conclusions)
+U11 owns the concrete suffix/restart cut construction and applies the uniform
+window triple. U08 consumes reserves/guards/literal histories. U09 proves the
+conditional remaining-edge expectation; it is never encoded in a definition.
+U10/U11 consume PairHistories, actual processes, R inclusion and graph coverage.
+No manuscript, upstream, shared, contract, or sibling source was modified.
+
+Evidence / independent review
+source-to-declaration-map.json maps every source obligation to declarations.
+Check.lean checks every public declaration with explicit types and transitive
+axioms. final-fresh-build.log and final-signatures-and-axioms.log are the final
+pinned compiler evidence. VERIFICATION.json records commands, hashes and status.
+Independent source/model/quantifier/adversarial/kernel reviews by U00 are
+recorded in audit/U00/U07-*-review.json, including the complete H, reserve,
+small-pile, rank/guard, coverage, regularity, scalar decay and pair-history slices.
+
+Final own-lane evidence: fresh Module build exit0; 158 public declarations
+(standard axioms only: propext, Classical.choice, Quot.sound), explicit-type
+and transitive-trust check exit0. Compiler/mathlib identities and all source
+hashes are recorded in the final build JSON receipts.

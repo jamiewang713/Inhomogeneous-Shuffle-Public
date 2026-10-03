@@ -1,0 +1,2080 @@
+@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint : {k n L : Nat} →
+  (cuts :
+      RiffleUpperV2.Cuts k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) →
+    (p : Fin k) →
+      (ω :
+          @RiffleUpperV2.Sample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts) →
+        (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) →
+          (w :
+              Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                RiffleUpperV2.Word k
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) →
+            Prop
+@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_iff : ∀ {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (e : Function.Embedding.{1, 1} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n))
+  (ω v :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+  Iff
+    (@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint k n L cuts p ω j
+      (@RiffleUpperV2.Reservoir.tupleWords k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@RiffleUpperV2.Exploration.pileSize k n L cuts p) cuts e v))
+    (And
+      (∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+        @Eq.{1} (Fin k)
+          (@List.Vector.get.{0} (Fin k)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@RiffleUpperV2.Reservoir.tupleWords k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@RiffleUpperV2.Exploration.pileSize k n L cuts p) cuts e v q)
+            (@OfNat.ofNat.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (nat_lit 0)
+              (@Fin.instOfNat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                (nat_lit 0))))
+          p)
+      (@RiffleUpperV2.Exploration.historyFiber k n L cuts p RiffleUpperV2.Exploration.Direction.backward
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        ω v))
+@RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint : {k n L : Nat} →
+  (cuts :
+      RiffleUpperV2.Cuts k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) →
+    (p : Fin k) →
+      (ω :
+          @RiffleUpperV2.Sample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts) →
+        (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) →
+          (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))) →
+            (a :
+                Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                  RiffleUpperV2.Word k
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) →
+              Prop
+@RiffleUpperV2.Reservoir.backward_tupleCount_eq_selected_of_future : ∀ {k L r : Nat} (A : Finset.{0} (Fin r))
+  (w : Fin r → RiffleUpperV2.Word k L) (s u : RiffleUpperV2.Word k L)
+  (hu :
+    @LE.le.{0} (RiffleUpperV2.Word k L)
+      (@Preorder.toLE.{0} (RiffleUpperV2.Word k L)
+        (@PartialOrder.toPreorder.{0} (RiffleUpperV2.Word k L)
+          (@SemilatticeInf.toPartialOrder.{0} (RiffleUpperV2.Word k L)
+            (@Lattice.toSemilatticeInf.{0} (RiffleUpperV2.Word k L)
+              (@DistribLattice.toLattice.{0} (RiffleUpperV2.Word k L)
+                (@instDistribLatticeOfLinearOrder.{0} (RiffleUpperV2.Word k L)
+                  (@RiffleShuffle.wordLinearOrder k L)))))))
+      s u)
+  (hf :
+    ∀ (q : Fin r),
+      Not
+          (@Membership.mem.{0, 0} (Fin r) (Finset.{0} (Fin r))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin r)) (Fin r) (@Finset.instSetLike.{0} (Fin r))) A q) →
+        @LT.lt.{0} (RiffleUpperV2.Word k L)
+          (@Preorder.toLT.{0} (RiffleUpperV2.Word k L)
+            (@PartialOrder.toPreorder.{0} (RiffleUpperV2.Word k L)
+              (@SemilatticeInf.toPartialOrder.{0} (RiffleUpperV2.Word k L)
+                (@Lattice.toSemilatticeInf.{0} (RiffleUpperV2.Word k L)
+                  (@DistribLattice.toLattice.{0} (RiffleUpperV2.Word k L)
+                    (@instDistribLatticeOfLinearOrder.{0} (RiffleUpperV2.Word k L)
+                      (@RiffleShuffle.wordLinearOrder k L)))))))
+          (w q) s),
+  @Eq.{1} Nat
+    (@RiffleUpperV2.Reservoir.tupleCount.{0} (RiffleUpperV2.Word k L) (@RiffleUpperV2.Reservoir.wordDecEq k L) r w u)
+    (@RiffleUpperV2.Reservoir.selectedWordCount k L r A w u)
+@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_future_iff : ∀ {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (a w :
+    Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      RiffleUpperV2.Word k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hfix :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      @Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+          (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+          A q →
+        @Eq.{1}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (w q) (a q))
+  (hfirst :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      @Eq.{1} (Fin k)
+        (@List.Vector.get.{0} (Fin k)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (w q)
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+              (nat_lit 0))))
+        p)
+  (hf :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      Not
+          (@Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+            A q) →
+        @LT.lt.{0}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Preorder.toLT.{0}
+            (RiffleUpperV2.Word k
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@PartialOrder.toPreorder.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@SemilatticeInf.toPartialOrder.{0}
+                (RiffleUpperV2.Word k
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Lattice.toSemilatticeInf.{0}
+                  (RiffleUpperV2.Word k
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (@DistribLattice.toLattice.{0}
+                    (RiffleUpperV2.Word k
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@instDistribLatticeOfLinearOrder.{0}
+                      (RiffleUpperV2.Word k
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@RiffleShuffle.wordLinearOrder k
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))))))
+          (w q) (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j)),
+  Iff (@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint k n L cuts p ω j w)
+    (@RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a)
+@RiffleUpperV2.Reservoir.backward_reserve_tuple_allowed : ∀ {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (a w :
+    Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      RiffleUpperV2.Word k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (ha : @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a)
+  (hfix :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      @Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+          (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+          A q →
+        @Eq.{1}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (w q) (a q))
+  (hfirst :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      @Eq.{1} (Fin k)
+        (@List.Vector.get.{0} (Fin k)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (w q)
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+              (nat_lit 0))))
+        p)
+  (hf :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      Not
+          (@Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+            A q) →
+        @LT.lt.{0}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Preorder.toLT.{0}
+            (RiffleUpperV2.Word k
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@PartialOrder.toPreorder.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@SemilatticeInf.toPartialOrder.{0}
+                (RiffleUpperV2.Word k
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Lattice.toSemilatticeInf.{0}
+                  (RiffleUpperV2.Word k
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (@DistribLattice.toLattice.{0}
+                    (RiffleUpperV2.Word k
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@instDistribLatticeOfLinearOrder.{0}
+                      (RiffleUpperV2.Word k
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@RiffleShuffle.wordLinearOrder k
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))))))
+          (w q) (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j)),
+  @RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint k n L cuts p ω j w
+@RiffleUpperV2.Reservoir.backward_chosenReserve_tuple_allowed : ∀ {k n L D : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (g : Real)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (a w :
+    Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      RiffleUpperV2.Word k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (v :
+    Lex.{0}
+      (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))))
+  (hv :
+    @Eq.{1}
+      (Option.{0}
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (Lex.{0}
+              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L)))))))
+      (@RiffleUpperV2.Exploration.chosenReserves k n L cuts D g)
+      (@Option.some.{0}
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (Lex.{0}
+              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))))
+        v))
+  (hd :
+    @RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward
+      (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j))
+  (ha : @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a)
+  (hfix :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      @Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+          (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+          A q →
+        @Eq.{1}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (w q) (a q))
+  (hfirst :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      @Eq.{1} (Fin k)
+        (@List.Vector.get.{0} (Fin k)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (w q)
+          (@OfNat.ofNat.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+              (nat_lit 0))))
+        p)
+  (hreserve :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      Not
+          (@Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+            A q) →
+        @Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+          (@RiffleUpperV2.Exploration.tailPrefix k L D (w q))
+          (@Prod.fst.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (Lex.{0}
+              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))
+            v)),
+  @RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint k n L cuts p ω j w
+@RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint_of_current_removal : ∀ {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (a w :
+    Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      RiffleUpperV2.Word k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hm :
+    @Eq.{1} Nat
+      (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+        (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          A))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+  (hfix :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      @Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+          (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+          A q →
+        @Eq.{1}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (w q) (a q))
+  (hh : @RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint k n L cuts p ω j w)
+  (hs :
+    ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+      Not
+          (@Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+            A q) →
+        @Eq.{1}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (w q) (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j))
+  (hremove :
+    @LE.le.{0} Nat instLENat
+      (@RiffleUpperV2.Reservoir.observedCount.{0}
+        (RiffleUpperV2.Word k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@RiffleUpperV2.Reservoir.wordDecEq k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@RiffleUpperV2.Exploration.pileSize k n L cuts p) (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j))
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+        (@RiffleUpperV2.Reservoir.tupleCount.{0}
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@RiffleUpperV2.Reservoir.wordDecEq k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@RiffleUpperV2.Exploration.pileSize k n L cuts p) w
+          (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+  @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a
+@RiffleUpperV2.Reservoir.backward_history_denominator_ge_reserveWeight : ∀ {k n L D : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (g : Real)
+  (e : Function.Embedding.{1, 1} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n))
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (a :
+    Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      RiffleUpperV2.Word k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (ω₀ :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (hreal : @RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a ω₀)
+  (v :
+    Lex.{0}
+      (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))))
+  (hv :
+    @Eq.{1}
+      (Option.{0}
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (Lex.{0}
+              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L)))))))
+      (@RiffleUpperV2.Exploration.chosenReserves k n L cuts D g)
+      (@Option.some.{0}
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (Lex.{0}
+              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))))
+        v))
+  (hd :
+    @RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward
+      (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j))
+  (ha : @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a),
+  @LE.le.{0} Real Real.instLE
+    (@Finset.prod.{0, 0} (Fin (@Min.min.{0} Nat instMinNat D L)) Real Real.instCommMonoid
+      (@Finset.univ.{0} (Fin (@Min.min.{0} Nat instMinNat D L)) (Fin.fintype (@Min.min.{0} Nat instMinNat D L)))
+      fun (r : Fin (@Min.min.{0} Nat instMinNat D L)) =>
+      @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (RiffleLowerV2.falling
+          (@RiffleUpperV2.Reservoir.remainingCount k n L cuts p
+            (@Finset.map.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n) e
+              (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                  (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                  (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                A))
+            (@Fin.mk
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val (@Min.min.{0} Nat instMinNat D L) r)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (have this :
+                @LT.lt.{0} Nat instLTNat (@Fin.val (@Min.min.{0} Nat instMinNat D L) r)
+                  (@Min.min.{0} Nat instMinNat D L) :=
+                @Fin.isLt (@Min.min.{0} Nat instMinNat D L) r;
+              @Decidable.byContradiction
+                (@LT.lt.{0} Nat instLTNat
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@Fin.val (@Min.min.{0} Nat instMinNat D L) r)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Nat.decLt
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@Fin.val (@Min.min.{0} Nat instMinNat D L) r)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                fun
+                  (a :
+                    Not
+                      (@LT.lt.{0} Nat instLTNat
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                          (@Fin.val (@Min.min.{0} Nat instMinNat D L) r)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))) =>
+                @RiffleUpperV2.Reservoir.backward_history_denominator_ge_reserveWeight._proof_1 L D r this a))
+            (@List.Vector.get.{0} (Fin k) (@Min.min.{0} Nat instMinNat D L)
+              (@Prod.fst.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (Lex.{0}
+                  (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                    (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))
+                v)
+              r)
+            ω₀)
+          (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              A)))
+        (RiffleLowerV2.falling
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n
+              (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                  (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                  (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                A)))
+          (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+            (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              A))))
+    (@RiffleUpperV2.conditionalProbability.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.Exploration.historyFiber k n L cuts p RiffleUpperV2.Exploration.Direction.backward
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        ω)
+      (@RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a))
+@RiffleUpperV2.Reservoir.backward_history_denominator_lower_finite : ∀ {k n L D : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (p : Fin k)
+  (g ξ : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g)
+  (e : Function.Embedding.{1, 1} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n))
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (a :
+    Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      RiffleUpperV2.Word k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hm :
+    Or
+      (@Eq.{1} Nat
+        (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+          (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            A))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (@Eq.{1} Nat
+        (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+          (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            A))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+  (ω₀ :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (hreal : @RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a ω₀)
+  (hH : @RiffleUpperV2.Exploration.concentrationEvent k n L cuts D g ξ ω₀)
+  (hc :
+    @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n
+        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (hbudget :
+    @LE.le.{0} Real Real.instLE
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+          (@Nat.cast.{0} Real Real.instNatCast n)
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+            (@OfNat.ofNat.{0} Real (nat_lit 3)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+                (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))))
+        (@OfNat.ofNat.{0} Real (nat_lit 5)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 5) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n
+              (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 4)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                  (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                    (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+              (@Nat.cast.{0} Real Real.instNatCast D))))
+        (RiffleUpperV2.Exploration.reserveMass k D g)))
+  (v :
+    Lex.{0}
+      (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))))
+  (hv :
+    @Eq.{1}
+      (Option.{0}
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (Lex.{0}
+              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L)))))))
+      (@RiffleUpperV2.Exploration.chosenReserves k n L cuts D g)
+      (@Option.some.{0}
+        (Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+            (Lex.{0}
+              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))))
+        v))
+  (hd :
+    @RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward
+      (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j))
+  (ha : @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a),
+  @LE.le.{0} Real Real.instLE
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (RiffleUpperV2.Exploration.reserveMass k D g)
+        (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+          (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+            A)))
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+    (@RiffleUpperV2.conditionalProbability.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.Exploration.historyFiber k n L cuts p RiffleUpperV2.Exploration.Direction.backward
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        ω)
+      (@RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a))
+RiffleUpperV2.Reservoir.backward_history_denominator_lower_uniform : ∀ (k D : Nat)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (g : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g),
+  @Exists.{1} Nat fun (N0 : Nat) =>
+    And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) N0)
+      (∀ (n : Nat),
+        @LE.le.{0} Nat instLENat N0 n →
+          ∀ (L : Nat)
+            (cuts :
+              RiffleUpperV2.Cuts k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+            @TimeProfile.GoodColumn k
+                (@TimeProfile.Cuts.profile k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts hn
+                  (@OfNat.ofNat.{0}
+                    (Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (nat_lit 0)
+                    (@Fin.instOfNat
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                      (nat_lit 0))))
+                g →
+              ∀ (ξ : Real) (p : Fin k)
+                (e : Function.Embedding.{1, 1} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n))
+                (ω :
+                  @RiffleUpperV2.Sample k n
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    cuts)
+                (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                (a :
+                  Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                    RiffleUpperV2.Word k
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                Or
+                    (@Eq.{1} Nat
+                      (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                        (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                          (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                            (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                          (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                            (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                          A))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@Eq.{1} Nat
+                      (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                        (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                          (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                            (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                          (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                            (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                          A))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) →
+                  ∀
+                    (ω₀ :
+                      @RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts),
+                    @RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a ω₀ →
+                      @RiffleUpperV2.Exploration.concentrationEvent k n L cuts D g ξ ω₀ →
+                        ∀
+                          (v :
+                            Lex.{0}
+                              (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                                (Lex.{0}
+                                  (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                                    (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L)))))),
+                          @Eq.{1}
+                              (Option.{0}
+                                (Lex.{0}
+                                  (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                                    (Lex.{0}
+                                      (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                                        (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L)))))))
+                              (@RiffleUpperV2.Exploration.chosenReserves k n L cuts D g)
+                              (@Option.some.{0}
+                                (Lex.{0}
+                                  (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                                    (Lex.{0}
+                                      (Prod.{0, 0} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))
+                                        (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat D L))))))
+                                v) →
+                            @RiffleUpperV2.Exploration.hasDirection k n L cuts D g
+                                RiffleUpperV2.Exploration.Direction.backward
+                                (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j) →
+                              @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a →
+                                @LE.le.{0} Real Real.instLE
+                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                    (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                      (@instHPow.{0, 0} Real Nat
+                                        (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                      (RiffleUpperV2.Exploration.reserveMass k D g)
+                                      (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                        (@SDiff.sdiff.{0}
+                                          (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                          (@Finset.instSDiff.{0}
+                                            (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                            (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                          (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                            (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                          A)))
+                                    (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                        (@Nat.instAtLeastTwoHAddOfNat
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                          (@Nat.instNeZeroSucc
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+                                  (@RiffleUpperV2.conditionalProbability.{0}
+                                    (@TimeProfile.ShuffleSample k n
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      cuts)
+                                    (@TimeProfile.instFintypeShuffleSample k n
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      cuts)
+                                    (@RiffleUpperV2.fixedCountPMF k n
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      cuts)
+                                    (@RiffleUpperV2.Exploration.historyFiber k n L cuts p
+                                      RiffleUpperV2.Exploration.Direction.backward
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      ω)
+                                    (@RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a)))
+@RiffleUpperV2.Reservoir.backward_history_future_impossible : ∀ {k n L E : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (e : Function.Embedding.{1, 1} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n))
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+  (a :
+    Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      RiffleUpperV2.Word k
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (v : RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+  (hfuture :
+    ∀
+      (w :
+        RiffleUpperV2.Word k
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+      @Eq.{1} (Fin k)
+          (@List.Vector.get.{0} (Fin k)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            w
+            (@OfNat.ofNat.{0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (nat_lit 0)
+              (@Fin.instOfNat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                (nat_lit 0))))
+          p →
+        @Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L)) (@RiffleUpperV2.Exploration.tailPrefix k L E w)
+            v →
+          @LT.lt.{0}
+            (RiffleUpperV2.Word k
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Preorder.toLT.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@PartialOrder.toPreorder.{0}
+                (RiffleUpperV2.Word k
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@SemilatticeInf.toPartialOrder.{0}
+                  (RiffleUpperV2.Word k
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (@Lattice.toSemilatticeInf.{0}
+                    (RiffleUpperV2.Word k
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@DistribLattice.toLattice.{0}
+                      (RiffleUpperV2.Word k
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@instDistribLatticeOfLinearOrder.{0}
+                        (RiffleUpperV2.Word k
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@RiffleShuffle.wordLinearOrder k
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))))))
+            w (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j))
+  (ha : Not (@RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω j A a)),
+  @Eq.{1} Real
+    (@RiffleUpperV2.conditionalProbability.{0}
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (fun
+          (z :
+            @TimeProfile.ShuffleSample k n
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts) =>
+        ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+          Not
+              (@Membership.mem.{0, 0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                  (@Finset.instSetLike.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+                A q) →
+            @Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+              (@RiffleUpperV2.Exploration.tailPrefix k L E
+                (@RiffleUpperV2.Reservoir.tupleWords k n
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@RiffleUpperV2.Exploration.pileSize k n L cuts p) cuts e z q))
+              v)
+      fun
+        (z :
+          @TimeProfile.ShuffleSample k n
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts) =>
+      And (@RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a z)
+        (@RiffleUpperV2.Exploration.historyFiber k n L cuts p RiffleUpperV2.Exploration.Direction.backward
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ω z))
+    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+RiffleUpperV2.Reservoir.backward_history_prefixProbability_upper_uniform : ∀ (k D : Nat)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (g τ T : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g)
+  (hg1 : @LT.lt.{0} Real Real.instLT g (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hτ : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) τ)
+  (hτg : @LT.lt.{0} Real Real.instLT τ g)
+  (hT : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T)
+  (hα :
+    @LT.lt.{0} Real Real.instLT
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) g))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) τ)))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @Exists.{1} Nat fun (N0 : Nat) =>
+    And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) N0)
+      (∀ (n : Nat),
+        @LE.le.{0} Nat instLENat N0 n →
+          ∀ (L : Nat),
+            @LE.le.{0} Real Real.instLE
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                  (Real.log (@Nat.cast.{0} Real Real.instNatCast n))) →
+              ∀
+                (cuts :
+                  RiffleUpperV2.Cuts k n
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+                @TimeProfile.GoodColumn k
+                    (@TimeProfile.Cuts.profile k n
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      cuts hn
+                      (@OfNat.ofNat.{0}
+                        (Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (nat_lit 0)
+                        (@Fin.instOfNat
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                          (nat_lit 0))))
+                    g →
+                  ∀ (ξ : Real) (p : Fin k)
+                    (e : Function.Embedding.{1, 1} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n))
+                    (ω :
+                      @RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                    (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                    @RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward
+                        (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j) →
+                      ∀ (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                        (a :
+                          Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                            RiffleUpperV2.Word k
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                        Or
+                            (@Eq.{1} Nat
+                              (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  A))
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            (@Eq.{1} Nat
+                              (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  A))
+                              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) →
+                          ∀
+                            (ω₀ :
+                              @RiffleUpperV2.Sample k n
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                cuts),
+                            @RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a ω₀ →
+                              @RiffleUpperV2.Exploration.concentrationEvent k n L cuts D g ξ ω₀ →
+                                ∀ (E : Nat) (v : RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L)),
+                                  (∀
+                                      (w :
+                                        RiffleUpperV2.Word k
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                      @Eq.{1} (Fin k)
+                                          (@List.Vector.get.{0} (Fin k)
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            w
+                                            (@OfNat.ofNat.{0}
+                                              (Fin
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                              (nat_lit 0)
+                                              (@Fin.instOfNat
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                (@instNeZeroNatHAdd_1 L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                  (@Nat.instNeZeroSucc
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                                                (nat_lit 0))))
+                                          p →
+                                        @Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+                                            (@RiffleUpperV2.Exploration.tailPrefix k L E w) v →
+                                          @LT.lt.{0}
+                                            (RiffleUpperV2.Word k
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                            (@Preorder.toLT.{0}
+                                              (RiffleUpperV2.Word k
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                              (@PartialOrder.toPreorder.{0}
+                                                (RiffleUpperV2.Word k
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                (@SemilatticeInf.toPartialOrder.{0}
+                                                  (RiffleUpperV2.Word k
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (@Lattice.toSemilatticeInf.{0}
+                                                    (RiffleUpperV2.Word k
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                    (@DistribLattice.toLattice.{0}
+                                                      (RiffleUpperV2.Word k
+                                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                          L
+                                                          (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                            (instOfNatNat (nat_lit 1)))))
+                                                      (@instDistribLatticeOfLinearOrder.{0}
+                                                        (RiffleUpperV2.Word k
+                                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                            (@instHAdd.{0} Nat instAddNat) L
+                                                            (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                              (instOfNatNat (nat_lit 1)))))
+                                                        (@RiffleShuffle.wordLinearOrder k
+                                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat
+                                                            (@instHAdd.{0} Nat instAddNat) L
+                                                            (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                              (instOfNatNat (nat_lit 1)))))))))))
+                                            w (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j)) →
+                                    @LE.le.{0} Real Real.instLE
+                                      (@RiffleUpperV2.conditionalProbability.{0}
+                                        (@TimeProfile.ShuffleSample k n
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          cuts)
+                                        (@TimeProfile.instFintypeShuffleSample k n
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          cuts)
+                                        (@RiffleUpperV2.fixedCountPMF k n
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          cuts)
+                                        (fun
+                                            (z :
+                                              @TimeProfile.ShuffleSample k n
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                cuts) =>
+                                          ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                                            Not
+                                                (@Membership.mem.{0, 0}
+                                                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                  (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  (@SetLike.instMembership.{0, 0}
+                                                    (Finset.{0}
+                                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                    (@Finset.instSetLike.{0}
+                                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+                                                  A q) →
+                                              @Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+                                                (@RiffleUpperV2.Exploration.tailPrefix k L E
+                                                  (@RiffleUpperV2.Reservoir.tupleWords k n
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p) cuts e z q))
+                                                v)
+                                        fun
+                                          (z :
+                                            @TimeProfile.ShuffleSample k n
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                              cuts) =>
+                                        And (@RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a z)
+                                          (@RiffleUpperV2.Exploration.historyFiber k n L cuts p
+                                            RiffleUpperV2.Exploration.Direction.backward
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                              (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            ω z))
+                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                            (@instHPow.{0, 0} Real Nat
+                                              (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                            (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                                (@Nat.instAtLeastTwoHAddOfNat
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                  (@Nat.instNeZeroSucc
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+                                            (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                              (@SDiff.sdiff.{0}
+                                                (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                (@Finset.instSDiff.{0}
+                                                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                  (instDecidableEqFin
+                                                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                (@Finset.univ.{0}
+                                                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                  (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                A)))
+                                          (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                                            (@RiffleUpperV2.Exploration.tailMass k n L cuts E v)
+                                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                              (@Nat.cast.{0} Real Real.instNatCast
+                                                (@Finset.card.{0}
+                                                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                  (@SDiff.sdiff.{0}
+                                                    (Finset.{0}
+                                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                    (@Finset.instSDiff.{0}
+                                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                      (instDecidableEqFin
+                                                        (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                    (@Finset.univ.{0}
+                                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                      (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                    A)))
+                                              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                                (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                  (@One.toOfNat1.{0} Real Real.instOne))
+                                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                  (@instHDiv.{0} Real
+                                                    (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                  (Real.log
+                                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                      (@instHDiv.{0} Real
+                                                        (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                      (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                        (@One.toOfNat1.{0} Real Real.instOne))
+                                                      g))
+                                                  (Real.log
+                                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                      (@instHDiv.{0} Real
+                                                        (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                      (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                        (@One.toOfNat1.{0} Real Real.instOne))
+                                                      τ)))))))
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                            (@instHPow.{0, 0} Real Nat
+                                              (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                            (RiffleUpperV2.Exploration.reserveMass k D g)
+                                            (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                              (@SDiff.sdiff.{0}
+                                                (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                (@Finset.instSDiff.{0}
+                                                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                  (instDecidableEqFin
+                                                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                (@Finset.univ.{0}
+                                                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                  (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                A)))
+                                          (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                              (@Nat.instAtLeastTwoHAddOfNat
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                (@Nat.instNeZeroSucc
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))))
+RiffleUpperV2.Reservoir.backward_history_deletionPrefix_upper_uniform : ∀ (k D : Nat)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (g τ T : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g)
+  (hg1 : @LT.lt.{0} Real Real.instLT g (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hτ : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) τ)
+  (hτg : @LT.lt.{0} Real Real.instLT τ g)
+  (hT : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T)
+  (hα :
+    @LT.lt.{0} Real Real.instLT
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) g))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) τ)))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @Exists.{1} Nat fun (N0 : Nat) =>
+    And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) N0)
+      (∀ (n : Nat),
+        @LE.le.{0} Nat instLENat N0 n →
+          ∀ (L : Nat),
+            @LE.le.{0} Real Real.instLE
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                  (Real.log (@Nat.cast.{0} Real Real.instNatCast n))) →
+              ∀
+                (cuts :
+                  RiffleUpperV2.Cuts k n
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+                @TimeProfile.GoodColumn k
+                    (@TimeProfile.Cuts.profile k n
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      cuts hn
+                      (@OfNat.ofNat.{0}
+                        (Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (nat_lit 0)
+                        (@Fin.instOfNat
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                          (nat_lit 0))))
+                    g →
+                  ∀ (ξ : Real) (p : Fin k)
+                    (e : Function.Embedding.{1, 1} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)) (Fin n))
+                    (ω :
+                      @RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                    (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                    @RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward
+                        (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j) →
+                      ∀ (A : Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                        (a :
+                          Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                            RiffleUpperV2.Word k
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                        Or
+                            (@Eq.{1} Nat
+                              (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  A))
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            (@Eq.{1} Nat
+                              (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                (@SDiff.sdiff.{0} (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.instSDiff.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (instDecidableEqFin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  (@Finset.univ.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                    (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                  A))
+                              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) →
+                          ∀
+                            (ω₀ :
+                              @RiffleUpperV2.Sample k n
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                cuts),
+                            @RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a ω₀ →
+                              @RiffleUpperV2.Exploration.concentrationEvent k n L cuts D g ξ ω₀ →
+                                ∀ (E : Nat) (v : RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+                                  (Target :
+                                    @RiffleUpperV2.Sample k n
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                        cuts →
+                                      Prop),
+                                  (∀
+                                      (z :
+                                        @RiffleUpperV2.Sample k n
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          cuts),
+                                      @RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a z →
+                                        Target z →
+                                          ∀ (q : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                                            Not
+                                                (@Membership.mem.{0, 0}
+                                                  (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                  (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  (@SetLike.instMembership.{0, 0}
+                                                    (Finset.{0}
+                                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                    (@Finset.instSetLike.{0}
+                                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))))
+                                                  A q) →
+                                              @Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+                                                (@RiffleUpperV2.Exploration.tailPrefix k L E
+                                                  (@RiffleUpperV2.Reservoir.tupleWords k n
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                    (@RiffleUpperV2.Exploration.pileSize k n L cuts p) cuts e z q))
+                                                v) →
+                                    (∀
+                                        (z :
+                                          @RiffleUpperV2.Sample k n
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            cuts),
+                                        @RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a z →
+                                          @RiffleUpperV2.Exploration.historyFiber k n L cuts p
+                                              RiffleUpperV2.Exploration.Direction.backward
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                              ω z →
+                                            Target z →
+                                              @RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint k n L cuts p ω
+                                                j A a) →
+                                      @LE.le.{0} Real Real.instLE
+                                        (@RiffleUpperV2.conditionalProbability.{0}
+                                          (@TimeProfile.ShuffleSample k n
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            cuts)
+                                          (@TimeProfile.instFintypeShuffleSample k n
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            cuts)
+                                          (@RiffleUpperV2.fixedCountPMF k n
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            cuts)
+                                          Target
+                                          fun
+                                            (z :
+                                              @TimeProfile.ShuffleSample k n
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                cuts) =>
+                                          And (@RiffleUpperV2.Reservoir.pileBase k n L cuts p e A a z)
+                                            (@RiffleUpperV2.Exploration.historyFiber k n L cuts p
+                                              RiffleUpperV2.Exploration.Direction.backward
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                              ω z))
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                            (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                              (@instHPow.{0, 0} Real Nat
+                                                (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                                  (@Nat.instAtLeastTwoHAddOfNat
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                    (@Nat.instNeZeroSucc
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+                                              (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                (@SDiff.sdiff.{0}
+                                                  (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  (@Finset.instSDiff.{0}
+                                                    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                    (instDecidableEqFin
+                                                      (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  (@Finset.univ.{0}
+                                                    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                    (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  A)))
+                                            (@HPow.hPow.{0, 0, 0} Real Real Real
+                                              (@instHPow.{0, 0} Real Real Real.instPow)
+                                              (@RiffleUpperV2.Exploration.tailMass k n L cuts E v)
+                                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                (@Nat.cast.{0} Real Real.instNatCast
+                                                  (@Finset.card.{0}
+                                                    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                    (@SDiff.sdiff.{0}
+                                                      (Finset.{0}
+                                                        (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                      (@Finset.instSDiff.{0}
+                                                        (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                        (instDecidableEqFin
+                                                          (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                      (@Finset.univ.{0}
+                                                        (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                        (Fin.fintype
+                                                          (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                      A)))
+                                                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                                  (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                    (@One.toOfNat1.{0} Real Real.instOne))
+                                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                    (@instHDiv.{0} Real
+                                                      (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                    (Real.log
+                                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                        (@instHDiv.{0} Real
+                                                          (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                        (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                          (@One.toOfNat1.{0} Real Real.instOne))
+                                                        g))
+                                                    (Real.log
+                                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                        (@instHDiv.{0} Real
+                                                          (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                        (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                          (@One.toOfNat1.{0} Real Real.instOne))
+                                                        τ)))))))
+                                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                            (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                              (@instHPow.{0, 0} Real Nat
+                                                (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                              (RiffleUpperV2.Exploration.reserveMass k D g)
+                                              (@Finset.card.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                (@SDiff.sdiff.{0}
+                                                  (Finset.{0} (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  (@Finset.instSDiff.{0}
+                                                    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                    (instDecidableEqFin
+                                                      (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  (@Finset.univ.{0}
+                                                    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+                                                    (Fin.fintype (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                                                  A)))
+                                            (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                                (@Nat.instAtLeastTwoHAddOfNat
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                  (@Nat.instNeZeroSucc
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))))
+@RiffleUpperV2.Reservoir.backwardMarkedRefinement : {k n L : Nat} →
+  (cuts :
+      RiffleUpperV2.Cuts k n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) →
+    (p : Fin k) →
+      (i : Nat) →
+        (M : Finset.{0} (Fin n)) →
+          (ω :
+              @RiffleUpperV2.Sample k n
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts) →
+            Prod.{0, 0}
+              (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                Option.{0}
+                  (RiffleUpperV2.Word k
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+              (Prod.{0, 0} (Finset.{0} (Fin n))
+                (Fin n →
+                  Option.{0}
+                    (RiffleUpperV2.Word k
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+@RiffleUpperV2.Reservoir.backward_markedRefinement_fiber : ∀ {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (i : Nat) (M : Finset.{0} (Fin n))
+  (ω₀ z :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts),
+  Iff
+    (@Eq.{1}
+      (Prod.{0, 0}
+        (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+          Option.{0}
+            (RiffleUpperV2.Word k
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+        (Prod.{0, 0} (Finset.{0} (Fin n))
+          (Fin n →
+            Option.{0}
+              (RiffleUpperV2.Word k
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))))
+      (@RiffleUpperV2.Reservoir.backwardMarkedRefinement k n L cuts p i M z)
+      (@RiffleUpperV2.Reservoir.backwardMarkedRefinement k n L cuts p i M ω₀))
+    (And
+      (@RiffleUpperV2.Reservoir.pileBase k n L cuts p (@RiffleUpperV2.Reservoir.pileEnumeration k n L cuts p ω₀)
+        (@RiffleUpperV2.Reservoir.unmarkedIndices n (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+          (@RiffleUpperV2.Reservoir.pileEnumeration k n L cuts p ω₀) M)
+        (@RiffleUpperV2.Reservoir.tupleWords k n
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@RiffleUpperV2.Exploration.pileSize k n L cuts p) cuts
+          (@RiffleUpperV2.Reservoir.pileEnumeration k n L cuts p ω₀) ω₀)
+        z)
+      (@RiffleUpperV2.Exploration.historyFiber k n L cuts p RiffleUpperV2.Exploration.Direction.backward i ω₀ z))
+RiffleUpperV2.Reservoir.backward_markedRefinement_prefix_upper_uniform : ∀ (k D : Nat)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (g τ T : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g)
+  (hg1 : @LT.lt.{0} Real Real.instLT g (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hτ : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) τ)
+  (hτg : @LT.lt.{0} Real Real.instLT τ g)
+  (hT : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T)
+  (hα :
+    @LT.lt.{0} Real Real.instLT
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) g))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) τ)))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @Exists.{1} Nat fun (N0 : Nat) =>
+    And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) N0)
+      (∀ (n : Nat),
+        @LE.le.{0} Nat instLENat N0 n →
+          ∀ (L : Nat),
+            @LE.le.{0} Real Real.instLE
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                  (Real.log (@Nat.cast.{0} Real Real.instNatCast n))) →
+              ∀
+                (cuts :
+                  RiffleUpperV2.Cuts k n
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+                @TimeProfile.GoodColumn k
+                    (@TimeProfile.Cuts.profile k n
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      cuts hn
+                      (@OfNat.ofNat.{0}
+                        (Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (nat_lit 0)
+                        (@Fin.instOfNat
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                          (nat_lit 0))))
+                    g →
+                  ∀ (ξ : Real) (p : Fin k)
+                    (ω :
+                      @RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                    (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                    @RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward
+                        (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j) →
+                      ∀ (m : Nat),
+                        Or (@Eq.{1} Nat m (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            (@Eq.{1} Nat m (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) →
+                          ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin n)) (E : Nat)
+                            (v : RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L)),
+                            (∀
+                                (w :
+                                  RiffleUpperV2.Word k
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                @Eq.{1} (Fin k)
+                                    (@List.Vector.get.{0} (Fin k)
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      w
+                                      (@OfNat.ofNat.{0}
+                                        (Fin
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (nat_lit 0)
+                                        (@Fin.instOfNat
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          (@instNeZeroNatHAdd_1 L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                            (@Nat.instNeZeroSucc
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                                          (nat_lit 0))))
+                                    p →
+                                  @Eq.{1} (RiffleUpperV2.Word k (@Min.min.{0} Nat instMinNat E L))
+                                      (@RiffleUpperV2.Exploration.tailPrefix k L E w) v →
+                                    @LT.lt.{0}
+                                      (RiffleUpperV2.Word k
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@Preorder.toLT.{0}
+                                        (RiffleUpperV2.Word k
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (@PartialOrder.toPreorder.{0}
+                                          (RiffleUpperV2.Word k
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                          (@SemilatticeInf.toPartialOrder.{0}
+                                            (RiffleUpperV2.Word k
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                            (@Lattice.toSemilatticeInf.{0}
+                                              (RiffleUpperV2.Word k
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                              (@DistribLattice.toLattice.{0}
+                                                (RiffleUpperV2.Word k
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                (@instDistribLatticeOfLinearOrder.{0}
+                                                  (RiffleUpperV2.Word k
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (@RiffleShuffle.wordLinearOrder k
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                        (instOfNatNat (nat_lit 1)))))))))))
+                                      w (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j)) →
+                              ∀
+                                (ω₀ :
+                                  @RiffleUpperV2.Sample k n
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                    cuts),
+                                @RiffleUpperV2.Exploration.historyFiber k n L cuts p
+                                    RiffleUpperV2.Exploration.Direction.backward
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                    ω ω₀ →
+                                  @RiffleUpperV2.Reservoir.markedPileEvent k n L m cuts p f ω₀ →
+                                    @RiffleUpperV2.Reservoir.goodMarkedView k n L cuts D g ξ p
+                                        (@Finset.map.{0, 0} (Fin m) (Fin n) f
+                                          (@Finset.univ.{0} (Fin m) (Fin.fintype m)))
+                                        ω₀ →
+                                      @LE.le.{0} Real Real.instLE
+                                        (@RiffleUpperV2.conditionalProbability.{0}
+                                          (@TimeProfile.ShuffleSample k n
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            cuts)
+                                          (@TimeProfile.instFintypeShuffleSample k n
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            cuts)
+                                          (@RiffleUpperV2.fixedCountPMF k n
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                            cuts)
+                                          (@RiffleUpperV2.Reservoir.markedTailEvent k n L m E cuts p f v)
+                                          fun
+                                            (z :
+                                              @TimeProfile.ShuffleSample k n
+                                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                cuts) =>
+                                          @Eq.{1}
+                                            (Prod.{0, 0}
+                                              (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                                                Option.{0}
+                                                  (RiffleUpperV2.Word k
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                                              (Prod.{0, 0} (Finset.{0} (Fin n))
+                                                (Fin n →
+                                                  Option.{0}
+                                                    (RiffleUpperV2.Word k
+                                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1)
+                                                          (instOfNatNat (nat_lit 1))))))))
+                                            (@RiffleUpperV2.Reservoir.backwardMarkedRefinement k n L cuts p
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                              (@Finset.map.{0, 0} (Fin m) (Fin n) f
+                                                (@Finset.univ.{0} (Fin m) (Fin.fintype m)))
+                                              z)
+                                            (@RiffleUpperV2.Reservoir.backwardMarkedRefinement k n L cuts p
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                              (@Finset.map.{0, 0} (Fin m) (Fin n) f
+                                                (@Finset.univ.{0} (Fin m) (Fin.fintype m)))
+                                              ω₀))
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                            (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                              (@instHPow.{0, 0} Real Nat
+                                                (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                                  (@Nat.instAtLeastTwoHAddOfNat
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                    (@Nat.instNeZeroSucc
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+                                              m)
+                                            (@HPow.hPow.{0, 0, 0} Real Real Real
+                                              (@instHPow.{0, 0} Real Real Real.instPow)
+                                              (@RiffleUpperV2.Exploration.tailMass k n L cuts E v)
+                                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                (@Nat.cast.{0} Real Real.instNatCast m)
+                                                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                                  (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                    (@One.toOfNat1.{0} Real Real.instOne))
+                                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                    (@instHDiv.{0} Real
+                                                      (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                    (Real.log
+                                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                        (@instHDiv.{0} Real
+                                                          (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                        (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                          (@One.toOfNat1.{0} Real Real.instOne))
+                                                        g))
+                                                    (Real.log
+                                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                        (@instHDiv.{0} Real
+                                                          (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                        (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                          (@One.toOfNat1.{0} Real Real.instOne))
+                                                        τ)))))))
+                                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                            (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                              (@instHPow.{0, 0} Real Nat
+                                                (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                              (RiffleUpperV2.Exploration.reserveMass k D g) m)
+                                            (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                                (@Nat.instAtLeastTwoHAddOfNat
+                                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                  (@Nat.instNeZeroSucc
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))))
+RiffleUpperV2.Reservoir.backward_markedRefinement_current_upper_uniform : ∀ (k D : Nat)
+  (hk : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k)
+  (hD : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) D) (g τ T : Real)
+  (hg : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g)
+  (hg1 : @LT.lt.{0} Real Real.instLT g (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hτ : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) τ)
+  (hτg : @LT.lt.{0} Real Real.instLT τ g)
+  (hT : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T)
+  (hα :
+    @LT.lt.{0} Real Real.instLT
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) g))
+        (Real.log
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) τ)))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @Exists.{1} Nat fun (N0 : Nat) =>
+    And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) N0)
+      (∀ (n : Nat),
+        @LE.le.{0} Nat instLENat N0 n →
+          ∀ (L : Nat),
+            @LE.le.{0} Real Real.instLE
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                  (Real.log (@Nat.cast.{0} Real Real.instNatCast n))) →
+              ∀
+                (cuts :
+                  RiffleUpperV2.Cuts k n
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+                @TimeProfile.GoodColumn k
+                    (@TimeProfile.Cuts.profile k n
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      cuts hn
+                      (@OfNat.ofNat.{0}
+                        (Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (nat_lit 0)
+                        (@Fin.instOfNat
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                          (@instNeZeroNatHAdd_1 L (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                          (nat_lit 0))))
+                    g →
+                  ∀ (ξ : Real) (p : Fin k)
+                    (ω :
+                      @RiffleUpperV2.Sample k n
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        cuts)
+                    (j : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)),
+                    @RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward
+                        (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j) →
+                      ∀
+                        (f :
+                          Function.Embedding.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            (Fin n))
+                        (ω₀ :
+                          @RiffleUpperV2.Sample k n
+                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            cuts),
+                        @RiffleUpperV2.Exploration.historyFiber k n L cuts p
+                            RiffleUpperV2.Exploration.Direction.backward
+                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                              (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            ω ω₀ →
+                          @RiffleUpperV2.Reservoir.markedPileEvent k n L
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) cuts p f ω₀ →
+                            @RiffleUpperV2.Reservoir.goodMarkedView k n L cuts D g ξ p
+                                (@Finset.map.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                  (Fin n) f
+                                  (@Finset.univ.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                    (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                                ω₀ →
+                              @LE.le.{0} Real Real.instLE
+                                (@RiffleUpperV2.conditionalProbability.{0}
+                                  (@TimeProfile.ShuffleSample k n
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                    cuts)
+                                  (@TimeProfile.instFintypeShuffleSample k n
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                    cuts)
+                                  (@RiffleUpperV2.fixedCountPMF k n
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                    cuts)
+                                  (@RiffleUpperV2.Reservoir.markedCurrentEvent k n L cuts f
+                                    (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j)
+                                    (@RiffleUpperV2.Reservoir.observedCount.{0}
+                                      (RiffleUpperV2.Word k
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@RiffleUpperV2.Reservoir.wordDecEq k
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                                      (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω)
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j)))
+                                  fun
+                                    (z :
+                                      @TimeProfile.ShuffleSample k n
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                        cuts) =>
+                                  @Eq.{1}
+                                    (Prod.{0, 0}
+                                      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+                                        Option.{0}
+                                          (RiffleUpperV2.Word k
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                                      (Prod.{0, 0} (Finset.{0} (Fin n))
+                                        (Fin n →
+                                          Option.{0}
+                                            (RiffleUpperV2.Word k
+                                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) L
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))))
+                                    (@RiffleUpperV2.Reservoir.backwardMarkedRefinement k n L cuts p
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      (@Finset.map.{0, 0}
+                                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) (Fin n) f
+                                        (@Finset.univ.{0}
+                                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                                      z)
+                                    (@RiffleUpperV2.Reservoir.backwardMarkedRefinement k n L cuts p
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) j)
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      (@Finset.map.{0, 0}
+                                        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) (Fin n) f
+                                        (@Finset.univ.{0}
+                                          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                                      ω₀))
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                        (@Nat.instAtLeastTwoHAddOfNat
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                          (@Nat.instNeZeroSucc
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+                                    (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                                      (@RiffleUpperV2.Exploration.tailMass k n L cuts L
+                                        (@RiffleUpperV2.Exploration.tailPrefix k L L
+                                          (@RiffleUpperV2.Reservoir.backwardWords k n L cuts p ω j)))
+                                      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                          (Real.log
+                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                              g))
+                                          (Real.log
+                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                              τ))))))
+                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                    (RiffleUpperV2.Exploration.reserveMass k D g)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                        (@Nat.instAtLeastTwoHAddOfNat
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                          (@Nat.instNeZeroSucc
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))))
+BUILD_OK U04

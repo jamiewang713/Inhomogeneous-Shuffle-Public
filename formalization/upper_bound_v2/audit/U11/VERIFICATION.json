@@ -1,0 +1,83 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "release": "Exact frozen empirical endpoint E",
+  "proved": [
+    "RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction",
+    "RiffleUpperV2.EmpiricalUpper.physicalInverseLaw_head",
+    "RiffleUpperV2.EmpiricalUpper.randomEquivTVContraction",
+    "RiffleUpperV2.EmpiricalUpper.restartHypotheses",
+    "RiffleUpperV2.EmpiricalUpper.restartMargin",
+    "RiffleUpperV2.EmpiricalUpper.restartWindowGood",
+    "RiffleUpperV2.EmpiricalUpper.concreteExplorationTV",
+    "RiffleUpperV2.EmpiricalUpper.criterion_polynomial",
+    "RiffleUpperV2.EmpiricalUpper.completionRho",
+    "RiffleUpperV2.EmpiricalUpper.componentBoundExists",
+    "RiffleUpperV2.EmpiricalUpper.empiricalUpper"
+  ],
+  "source_labels": [
+    "thm:ub-empirical-upper",
+    "eq:ub-completion-rho-budget",
+    "eq:ub-empirical-tv-conclusion"
+  ],
+  "contract": "Literal frozen E; only empirical negative margin and local-good conditions remain as endpoint hypotheses. Actual F and C and all process/regularity/exponential premises are discharged.",
+  "remaining": [],
+  "independent_review": "All U11 components and exact C=>E assembly independently accepted by U00. Final actual-C-instantiated E review requested; U00 owns final integration acceptance.",
+  "files": {
+    "RiffleUpperV2/EmpiricalUpper/Rates.lean": "d80bb067ce5a43c9522743b8285e18c4e64c54f78b1ac864cc38ac4e92e9dbce",
+    "RiffleUpperV2/EmpiricalUpper/Restart.lean": "b628c442dded746760aaeb83f1ad4c00523e73ed309892297d269b6955278d34",
+    "RiffleUpperV2/EmpiricalUpper/Deletion.lean": "febe74efc8270376653482bdc2b19e457953fdf30a74f059b1a57e89937dc5a6",
+    "RiffleUpperV2/EmpiricalUpper/ExplorationTV.lean": "4928a7d02f1f971496d939e9e8fa47f2d6a02dc89492e9be108996f0659f0444",
+    "RiffleUpperV2/EmpiricalUpper/Parameters.lean": "78a23a7a013736321c57527061f9147dfd34b895e7b8d6d2e4328c2f96ba4f58",
+    "RiffleUpperV2/EmpiricalUpper/Main.lean": "5b68e76a979c8d7a3a995f1db79aace2a75c683cca5eb0634f728ffdc6df3253",
+    "RiffleUpperV2/EmpiricalUpper/FiniteTV.lean": "c9fb96ca2c96b1189ba04942ef311de58c21a27054538d2eec1e4dd68cf9c7ae",
+    "audit/U11/FinalCheck.lean": "69469212daf6d1abd100e3622e8bcf3422d75ebcac830f6e1059b903ad9c7227",
+    "audit/U11/final-check.txt": "c25fd071ab7d756cc03628474fc9efe44df42329e47e64ad30426ec36651055b",
+    "audit/U11/final-trust.json": "2c18e3c9e78d0ef07d33d6ce00db72fa8d1b1490cd4aa66d4bf30bda409081ef",
+    "audit/U11/final-source-closure.json": "a131b86a17cf2f2affccf8ced2b0f593170372e0ede5e12ba14ec6718949e515"
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "build_receipt": "audit/U11/final-build.json",
+  "explicit_remaining_imported_assumptions": [],
+  "input_hashes": {
+    "manuscript": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+    "CONTRACTS_READY.json": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+    "Contracts/V1/Empirical.lean": "e20880b420fdb6ca72c38f823ded2670c7a9fc18132c9de41906b6eab9b37556",
+    "Conditional/Main.lean": "74d1462f2dfd33172cb7a737437a0a69572cfbaf77a253f1919427d63bb6061b",
+    "FirstMoment/Empirical.lean": "c048583ed32d6beafa8ef0fc22ed3908381ef35914dda913a356b7e3341639ab"
+  },
+  "bounded_cross_lane_assistance": {
+    "authorization": "audit/U00/current-run-scale-helper-assignment.json",
+    "modules": [
+      "Conditional.CurrentRunBound",
+      "Conditional.ConditionalScale"
+    ],
+    "verification": "audit/U11/conditional-helper/VERIFICATION.json",
+    "status": "Both proved, checked, independently accepted/staged by U00"
+  },
+  "public_endpoint": {
+    "declaration": "RiffleUpperV2.EmpiricalUpper.empiricalUpper",
+    "type": "RiffleUpperV2.Contracts.V1.E",
+    "import": "RiffleUpperV2.EmpiricalUpper.Main",
+    "expanded_type_check": "audit/U11/FinalCheck.lean:empiricalUpper_expanded",
+    "additional_endpoint_hypotheses": []
+  },
+  "build_scope": "Fresh rebuild of all owned EmpiricalUpper source dependencies and exact FinalCheck; immutable reviewed U00 dependency sources crosschecked through363-module import closure. Full integrated source rebuild remains U00 integration work.",
+  "transitive_trust": "audit/U11/final-trust.json",
+  "source_closure": "audit/U11/final-source-closure.json",
+  "discharge_sites": {
+    "first_moment": "FirstMoment.empiricalFirstMoment, used before rho to select deltaF; C closure uses actual empiricalGraphDecay",
+    "conditional_remainder": "Conditional.remainingCommonEdges, imported and applied in EmpiricalUpper.Main",
+    "initial_restart": "EmpiricalUpper.restartHypotheses",
+    "maximal_word": "Margins.maximalMean_le_of_terminalMargin via restartHypotheses",
+    "natural_history_and_unit_increments": "EmpiricalUpper.concreteExplorationTV with Exploration.PairHistories/Processes",
+    "single_matrix_regularity": "regularityFailure_of_bounds from actual C concentration conclusion and smallPileFailure",
+    "graph_component_truncation": "Exponential.boundedComponentExplorationTV with concrete maximalMean and fixed B",
+    "exponential_control": "Exponential.boundedComponentExplorationTV and concrete2k hypotheses",
+    "uniform_power_absorption": "EmpiricalUpper.criterion_polynomial",
+    "physical_prefix_contraction": "EmpiricalUpper.deletedPrefixTVContraction and restartTVContraction"
+  }
+}

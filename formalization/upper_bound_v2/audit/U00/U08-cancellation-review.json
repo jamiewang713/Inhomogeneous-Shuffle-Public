@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of U08",
+  "recorded_at": "2026-10-02T10:19:40.628430+00:00",
+  "source_sha256": "6ba947968180da0ab1ea5b84444b770cd45c7d5159b1be9a3ed8cc152df82808",
+  "mathematics": [
+    "Selected exposed and complementary marked counts partition every column digit count. Falling factorial multiplicative identity works with truncated natural subtraction, including overflow.",
+    "Full tuple weight factors exactly into exposed weight times residual tuple weight. Ratio identity remains valid for zero residual denominators; only the common exposed factor is cancelled.",
+    "A concrete realization of exposed rows together with injective label enumeration proves exposedWeight>0 from actual histogram bounds.",
+    "The natural-history conditional law is the previously checked actual full-pile law, now with exposed factors cancelled. The residual denominator is falling(n-|A|,m), namely c+m for a full-pile marked set."
+  ],
+  "adversarial": [
+    "No positive residual normalizer assumed; impossible histories keep zero-over-zero semantics.",
+    "Full first-column factor is still present; its cancellation is a separate forthcoming theorem.",
+    "The exposed witness omega0 need not itself satisfy the complete history; exposed positivity is all the cancellation uses.",
+    "No independent sorted-row model or residual law certificate is substituted."
+  ],
+  "remaining": [
+    "First-column cancellation and prefix marginal",
+    "Quantitative denominator reserve and natural-history averaging",
+    "Future-cylinder law"
+  ],
+  "independent_build": {
+    "receipt": "cancellation-check-build.json",
+    "log": "cancellation-check.log",
+    "inventory": "cancellation-declarations.json",
+    "declarations": 74,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

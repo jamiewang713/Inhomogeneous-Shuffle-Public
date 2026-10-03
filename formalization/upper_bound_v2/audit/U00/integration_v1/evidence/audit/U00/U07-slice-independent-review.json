@@ -1,0 +1,37 @@
+{
+  "status": "PASS_RELEASED_SLICE_NOT_FULL_LANE",
+  "reviewer": "U00 independent of author",
+  "recorded_at": "2026-10-02T08:56:29.082750+00:00",
+  "source_hashes": {
+    "RiffleUpperV2/Exploration/Clusters.lean": "4809cd86bab5de71010375c952c5fb8fcbcf3c0bac12818aa80a289299b6af0c",
+    "RiffleUpperV2/Exploration/Guards.lean": "fd11662dc9dd8278a1e91a8609500a8a254fd39cc11cccf4d9e74a39b05172d5",
+    "RiffleUpperV2/Exploration/Histories.lean": "2a19de77bf5c29b6e18aa5dfae534a076d19d934949294f906085dfab9f197a7",
+    "RiffleUpperV2/Exploration/HistoryProbability.lean": "14bd9f7b1b58c947e1dbe0af89ef34ce7af8e36b3e28a3015c3017ce1ec374af",
+    "RiffleUpperV2/Exploration/LocalGood.lean": "c5cce65298f1866265f28ab361f7de8fe704bfdc03244650a80f6b8b293904cb",
+    "RiffleUpperV2/Exploration/Module.lean": "017b0a5756e3b59f5425309525df2d7e4eb54ba83d4e9c4aeeecdebf6bf9a95c",
+    "RiffleUpperV2/Exploration/Objects.lean": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e",
+    "RiffleUpperV2/Exploration/Positions.lean": "75f0d5684f27f0948b63e2df257e0f434ba2ffb6c7d77ce70aea897a47da869e",
+    "RiffleUpperV2/Exploration/PrefixConcentration.lean": "9aad9833d0364bc032bccb6a42f5e5544186e377e007d292c26cf0672f1bc758",
+    "RiffleUpperV2/Exploration/Processes.lean": "75016be4d6efd1dc0e2165c70e9781ca4acbe3bb394b3047c09d12e49f7c4f95",
+    "RiffleUpperV2/Exploration/Regularity.lean": "518923fd16275a6a0f5f74844259a4d564db4a2b6af990849322c965fc7f88c3"
+  },
+  "owner_public_count": 45,
+  "build": "audit/U00/narrow-check-build.json",
+  "trust": "All imported upper declarations including private/generated passed transitive standard-axiom check",
+  "full_lane_complete": false,
+  "findings": [
+    "Natural histories contain current-pile sorted words only; exact rank adapter confirms named first digit.",
+    "Processes are adapted with unit increments and boundary-inclusive remainder; terminal remainder zero.",
+    "Conditional tower/Markov handles positive actual fibers and explicit null convention; hH remains helper premise.",
+    "Finite goodCluster pigeonhole proof explicit gamma*x>8 and gamma\u22641; localGood translation valid integer endpoints.",
+    "All prefix-size deviations unioned, denominator4 gives proved exponent1/8; no sharper source constant claimed.",
+    "Regularity union cost2n includes every preterminal history and zero piles; missing H and small-pile bounds still explicit."
+  ],
+  "missing": [
+    "Reserve candidate nonemptiness from retainedGoodCluster",
+    "Full H model probability estimate incl later/outside/guards",
+    "Small-pile edge failure from factorial moments",
+    "H x H common-direction coverage and graph count comparison",
+    "Eventual logarithmic thresholds/restart integration and unconditional regularity bound"
+  ]
+}

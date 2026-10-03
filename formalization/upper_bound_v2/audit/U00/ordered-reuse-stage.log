@@ -1,0 +1,29 @@
+CHECK Riffle.Definitions
+CHECK Riffle.Model
+CHECK Riffle.Words
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:39:16: warning: This simp argument is unused:
+  Nat.min_eq_left (Nat.sub_le _ _)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [parent]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:67:27: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:161:55: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Words.lean:181:17: warning: This simp argument is unused:
+  List.getElem?_append_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [digit]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK Riffle.Boundary
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Boundary.lean:204:8: error(lean.unknownIdentifier): Unknown constant `Set.eq_empty_iff_forall_not_mem.mpr`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/stable_blocks/Riffle/Boundary.lean:205:2: error: No goals to be solved

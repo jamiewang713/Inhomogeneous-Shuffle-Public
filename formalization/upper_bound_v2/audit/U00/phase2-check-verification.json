@@ -1,0 +1,33 @@
+{
+  "status": "PASS_INCREMENTAL_TRUST_INVENTORY",
+  "recorded_at": "2026-10-02T09:28:21.477196+00:00",
+  "declarations": 1041,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "receipt": "phase2-check-build.json",
+  "log": "phase2-check.log",
+  "audit_source": "Phase2Check.lean",
+  "scope": "Partial root umbrella plus FirstMoment.Main and Reservoir.MarkedLaw; not six endpoints or full package acceptance.",
+  "release_source_hashes_match": {
+    "U05": {
+      "RiffleUpperV2/FirstMoment/BoundaryCosts.lean": true,
+      "RiffleUpperV2/FirstMoment/ClassAdapters.lean": true,
+      "RiffleUpperV2/FirstMoment/Descriptors.lean": true,
+      "RiffleUpperV2/FirstMoment/Entropy.lean": true,
+      "RiffleUpperV2/FirstMoment/Exponents.lean": true,
+      "RiffleUpperV2/FirstMoment/Main.lean": true,
+      "RiffleUpperV2/FirstMoment/WordCosts.lean": true
+    },
+    "U08": {
+      "RiffleUpperV2/Reservoir/BackwardHistory.lean": true,
+      "RiffleUpperV2/Reservoir/Counts.lean": true,
+      "RiffleUpperV2/Reservoir/History.lean": true,
+      "RiffleUpperV2/Reservoir/MarkedLaw.lean": true,
+      "RiffleUpperV2/Reservoir/Module.lean": true,
+      "RiffleUpperV2/Reservoir/SortedHistory.lean": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:58:59.149402+00:00",
+  "sources": {
+    "Localization/FailureRate.lean": "964599770c5481c98526b12cd2f7b65347ca0a0fa9afa60c1f875284c5ad4a3d"
+  },
+  "mathematics": [
+    "Large stopped block has mean exponent at least2delta and stop inequality ell-F<delta, hence fluctuation F>delta.",
+    "Actual sideScale=N^(2F) is at least N^(2delta). With slots.card<=N and N>=6, the prefactor6|slots| is bounded by N\u00b2.",
+    "Shared.powerExp_eventually_le absorbs N\u00b2 at coefficient chernoffConstant*g>0 into exp(-N^delta)."
+  ],
+  "public_type_and_model": [
+    "N0 depends only on g,delta and precedes all cuts,chi,anchors,words,slots and populations.",
+    "The source large/stopped/genuine hypotheses are actual scalar/model predicates; no probability or failure certificate is supplied.",
+    "Immediate and proper stops are both included; g>0 is sufficient for this scalar failure conversion."
+  ],
+  "adversarial": [
+    "N0>=6 supplies positive logarithms and the prefactor estimate.",
+    "Arbitrary empty slots allowed.",
+    "No comparison of current n with original N is needed beyond the explicit slot cardinal bound."
+  ],
+  "root_build_receipt": "tail-failure-check-build.json",
+  "trust_inventory": "tail-failure-declarations.json",
+  "remaining": [
+    "Concrete final finite sums and public endpoint F remain unproved."
+  ]
+}

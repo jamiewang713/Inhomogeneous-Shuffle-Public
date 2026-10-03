@@ -1,0 +1,12 @@
+CHECK RiffleUpperV2.Reservoir.InducedMatrix
+CHECK RiffleUpperV2.Reservoir.TailWords
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/TailWords.lean:43:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CHECK RiffleUpperV2.Reservoir.FutureGraphLaw
+CHECK RiffleUpperV2.Reservoir.ErasedLabels
+CHECK RiffleUpperV2.Reservoir.LabelAveraging
+CHECK RiffleUpperV2.Conditional.AuxiliaryJensen
+CHECK RiffleUpperV2.Conditional.TailPower
+CHECK RiffleUpperV2.Conditional.Parameters
+BUILD_OK U00

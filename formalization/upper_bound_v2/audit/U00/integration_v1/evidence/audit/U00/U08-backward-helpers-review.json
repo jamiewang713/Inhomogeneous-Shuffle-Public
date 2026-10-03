@@ -1,0 +1,34 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T20:21:23.723636+00:00",
+  "sources": {
+    "Reservoir/BackwardConstraint.lean": "feda555973f894b8b3f73488b17068b51f18028d4313cc31c68608382ed52168",
+    "Reservoir/BackwardDenominator.lean": "7793664009b995909566f1935e2fd9c6283f4b28568b59f0d1a5f11f90951008",
+    "Reservoir/BackwardRestricted.lean": "c5ab3023032822dd31c125f3494a03659bae5d2b87d5e0fe21f8191019179973",
+    "Reservoir/BackwardRefinement.lean": "9c6740b7ab04197834e2611d2191674bfb15dedb7877f4e90427cd4f71034d18"
+  },
+  "mathematics": [
+    "Backward natural history records exact counts strictly above the current word and a lower bound for the current multiplicity. Tuple exhaustion identifies it exactly with the frozen history fiber.",
+    "Deleting strictly smaller marked words preserves those constraints. The actual left reserve lies strictly below the current backward word because left<middle<=current tail; no column or time reversal.",
+    "The actual residual law and left-reserve mass give the denominator at least reserveMass^m/2 for m=1 or2. Impossible deletion targets have zero probability, including null fine fibers.",
+    "The regular/rare product numerator and exact denominator bound give prefix bounds; generic current-deletion premises are discharged using actual one-row count subtraction.",
+    "BackwardMarkedRefinement is exactly (naturalHistory backward, exposedPileView). Labels and the view are only auxiliary refinement; fine bounds transfer through actual pile enumeration to the originally marked rows."
+  ],
+  "public_type_and_model": [
+    "All uniform thresholds precede arrays, histories, labels and target prefixes.",
+    "Positive-support/H-realization and good-view hypotheses remain intermediate fine-fiber premises; U08 must discharge them by supported averaging before natural-history endpoints.",
+    "Existing product, capacity and finite-law theorems reused unchanged; source spatial direction is respected."
+  ],
+  "adversarial": [
+    "Terminal/current forced copies are never treated as fresh; t<=C_s-1 is required and retained.",
+    "Strict future direction is w<s for backward, versus s<w for forward.",
+    "The view exposes only pile labels and unmarked pile words; outside-pile later columns remain unrevealed.",
+    "No nonexistent reserve is selected: direction implies chosenReserves=some."
+  ],
+  "root_build_receipt": "backward-refinement-check-build.json",
+  "trust_inventory": "backward-refinement-declarations.json",
+  "remaining": [
+    "U08 backward supported averaging/count/current/collision endpoints; exact future-cylinder law; U09 C."
+  ]
+}

@@ -1,0 +1,837 @@
+CHECK RiffleUpperV2.Shared.FirstMomentAPI
+CHECK RiffleUpperV2.Contracts.V1.Profile
+@RiffleLowerV2.Model.physical_graph_representation : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K),
+  @Eq.{1} (PMF.{0} (RiffleLowerV2.Permutation N)) (@RiffleLowerV2.physicalInverseLaw k N K cuts)
+    (@RiffleLowerV2.graphMixtureLaw k N K cuts)
+@RiffleLowerV2.Model.expect_bind.{u_1,
+    u_2} : ∀ {α : Type u_1} {β : Type u_2} [inst : Fintype.{u_1} α] [inst_1 : Fintype.{u_2} β] (P : PMF.{u_1} α)
+  (Q : α → PMF.{u_2} β) (f : β → Real),
+  @Eq.{1} Real (@RiffleLowerV2.expect.{u_2} β inst_1 (@PMF.bind.{u_1, u_2} α β P Q) f)
+    (@RiffleLowerV2.expect.{u_1} α inst P fun a => @RiffleLowerV2.expect.{u_2} β inst_1 (Q a) f)
+@RiffleLowerV2.Model.columnIndependence : RiffleLowerV2.Targets.ColumnIndependence
+@RiffleLowerV2.Model.columnMarginal : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K) (j : Fin K),
+  @Eq.{1} (PMF.{0} (@TimeProfile.ColumnAssignments k N K cuts j))
+    (@PMF.map.{0, 0} (@TimeProfile.ShuffleSample k N K cuts) (@TimeProfile.ColumnAssignments k N K cuts j)
+      (fun ω => ω j) (@TimeProfile.fixedCountPMF k N K cuts))
+    (@TimeProfile.columnPMF k N K cuts j)
+@RiffleLowerV2.Model.shuffle_componentSort_fiber_card_eq : ∀ {N k K : Nat} {cuts : TimeProfile.Cuts k N K}
+  (ω : @RiffleLowerV2.Sample k N K cuts) (σ : RiffleLowerV2.Permutation N),
+  @Eq.{1} Nat
+    (@Fintype.card.{0} (@RiffleLowerV2.Model.ComponentSortFiber N (@RiffleLowerV2.shuffleEdges k N K cuts ω) σ)
+      (@Subtype.fintype.{0} (RiffleLowerV2.Permutation N)
+        (fun π =>
+          @Eq.{1} (RiffleLowerV2.Permutation N)
+            (@RiffleLowerV2.componentSort N (@RiffleLowerV2.shuffleEdges k N K cuts ω) π) σ)
+        (fun a =>
+          @Fintype.decidableEqEquivFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (Fin.fintype N)
+            (@RiffleLowerV2.componentSort N (@RiffleLowerV2.shuffleEdges k N K cuts ω) a) σ)
+        (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+          (Fin.fintype N))))
+    (@ite.{1} Nat (@RiffleLowerV2.Model.BlockIncreasing N (@RiffleLowerV2.shuffleEdges k N K cuts ω) σ)
+      (Classical.propDecidable (@RiffleLowerV2.Model.BlockIncreasing N (@RiffleLowerV2.shuffleEdges k N K cuts ω) σ))
+      (∏ w,
+        (@Finset.card.{0} (Fin N)
+            {i | @Eq.{1} (RiffleLowerV2.Word k K) (@RiffleLowerV2.sortedWord k N K cuts ω i) w}).factorial)
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+@RiffleLowerV2.Thinning.prefixTransform : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K),
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N →
+    ∀ (w : RiffleLowerV2.Prefix k K) (s : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s →
+        And
+          (@LE.le.{0} Real Real.instLE
+            (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+              (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts) fun ω =>
+              @HPow.hPow.{0, 0, 0} Real Nat Real
+                (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) s
+                (@RiffleLowerV2.prefixCount k N K cuts w ω))
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                  (@RiffleLowerV2.prefixMass k N K cuts w))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@RiffleLowerV2.prefixMass k N K cuts w) s))
+              N))
+          (@LE.le.{0} Real Real.instLE
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                  (@RiffleLowerV2.prefixMass k N K cuts w))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@RiffleLowerV2.prefixMass k N K cuts w) s))
+              N)
+            (Real.exp
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@RiffleLowerV2.prefixMean k N K cuts w)
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) s
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))))
+@RiffleLowerV2.Thinning.prefixTails : RiffleLowerV2.Targets.PrefixTails
+@RiffleLowerV2.Thinning.residualPrefixTransform : ∀ {N k K b : Nat} (cuts : TimeProfile.Cuts k N K)
+  (r : RiffleLowerV2.RowPrescription N k K b),
+  @LT.lt.{0} Nat instLTNat b N →
+    @Function.Injective.{1, 1} (Fin b) (Fin N) (@RiffleLowerV2.RowPrescription.row N k K b r) →
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+            (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+            (@RiffleLowerV2.prescriptionEvent N k K b cuts r)) →
+        ∀ (w : RiffleLowerV2.Prefix k K) (s : Real),
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s →
+            And
+              (@LE.le.{0} Real Real.instLE
+                (@RiffleLowerV2.conditionalExpect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+                  (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+                  (fun ω =>
+                    @HPow.hPow.{0, 0, 0} Real Nat Real
+                      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) s
+                      (@RiffleLowerV2.Thinning.residualPrefixCount N k K b cuts r w ω))
+                  (@RiffleLowerV2.prescriptionEvent N k K b cuts r))
+                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                      (@RiffleLowerV2.Thinning.residualPrefixMass N k K b cuts r w))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@RiffleLowerV2.Thinning.residualPrefixMass N k K b cuts r w) s))
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N b)))
+              (@LE.le.{0} Real Real.instLE
+                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                      (@RiffleLowerV2.Thinning.residualPrefixMass N k K b cuts r w))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@RiffleLowerV2.Thinning.residualPrefixMass N k K b cuts r w) s))
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N b))
+                (Real.exp
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@RiffleLowerV2.Thinning.residualPrefixMean N k K b cuts r w)
+                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) s
+                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))))
+@RiffleLowerV2.Thinning.residualPrefixTails : ∀ {N k K b : Nat} (cuts : TimeProfile.Cuts k N K)
+  (r : RiffleLowerV2.RowPrescription N k K b),
+  @LT.lt.{0} Nat instLTNat b N →
+    @Function.Injective.{1, 1} (Fin b) (Fin N) (@RiffleLowerV2.RowPrescription.row N k K b r) →
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+            (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+            (@RiffleLowerV2.prescriptionEvent N k K b cuts r)) →
+        ∀ (w : RiffleLowerV2.Prefix k K),
+          And
+            (∀ (t : Real),
+              @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  t →
+                @LE.le.{0} Real Real.instLE
+                  (@RiffleLowerV2.conditionalProbability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+                    (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+                    (fun ω =>
+                      @LE.le.{0} Real Real.instLE t
+                        (@abs.{0} Real Real.lattice Real.instAddGroup
+                          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                            (@Nat.cast.{0} Real Real.instNatCast
+                              (@RiffleLowerV2.Thinning.residualPrefixCount N k K b cuts r w ω))
+                            (@RiffleLowerV2.Thinning.residualPrefixMean N k K b cuts r w))))
+                    (@RiffleLowerV2.prescriptionEvent N k K b cuts r))
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                    (Real.exp
+                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                        (@Neg.neg.{0} Real Real.instNeg
+                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                            t (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@OfNat.ofNat.{0} Real (nat_lit 4)
+                            (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                            (@RiffleLowerV2.Thinning.residualPrefixMean N k K b cuts r w) t))))))
+            (And
+              (@LE.le.{0} Real Real.instLE
+                (@RiffleLowerV2.conditionalProbability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+                  (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+                  (fun ω =>
+                    @LE.le.{0} Real Real.instLE
+                      (@Nat.cast.{0} Real Real.instNatCast
+                        (@RiffleLowerV2.Thinning.residualPrefixCount N k K b cuts r w ω))
+                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                        (@RiffleLowerV2.Thinning.residualPrefixMean N k K b cuts r w)
+                        (@OfNat.ofNat.{0} Real (nat_lit 2)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+                  (@RiffleLowerV2.prescriptionEvent N k K b cuts r))
+                (Real.exp
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@Neg.neg.{0} Real Real.instNeg RiffleLowerV2.chernoffConstant)
+                    (@RiffleLowerV2.Thinning.residualPrefixMean N k K b cuts r w))))
+              (@LE.le.{0} Real Real.instLE
+                (@RiffleLowerV2.conditionalProbability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+                  (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+                  (fun ω =>
+                    @LT.lt.{0} Nat instLTNat (@RiffleLowerV2.Thinning.residualPrefixCount N k K b cuts r w ω)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@RiffleLowerV2.prescriptionEvent N k K b cuts r))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                  (Real.exp
+                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                      (@Neg.neg.{0} Real Real.instNeg (@RiffleLowerV2.Thinning.residualPrefixMean N k K b cuts r w))
+                      (@OfNat.ofNat.{0} Real (nat_lit 2)
+                        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)))))))
+@RiffleLowerV2.Factorial.exactJointFactorial : RiffleLowerV2.Targets.ExactJointFactorial
+def RiffleLowerV2.Targets.ExactJointFactorial : Prop :=
+∀ {k N K d : Nat} (cuts : TimeProfile.Cuts k N K) (w : Fin d → RiffleLowerV2.Word k K) (r : Fin d → Nat),
+  @Function.Injective.{1, 1} (Fin d) (RiffleLowerV2.Word k K) w →
+    @LE.le.{0} Nat instLENat (∑ i, r i) N →
+      @Eq.{1} Real
+        (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+          (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+          (@RiffleLowerV2.factorialProduct N k K d cuts w r))
+        (@RiffleLowerV2.exactFactorial N k K d cuts w r)
+RiffleLowerV2.ProfileTransfer.genericQuadrature : RiffleLowerV2.Targets.GenericQuadrature
+def RiffleLowerV2.Targets.GenericQuadrature : Prop :=
+∀ (k N : Nat) (hN : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N)
+  (T rho phi omega M : Real),
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) rho →
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) phi →
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) omega →
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M →
+            ∀ (P : TimeProfile.BorelPartition k) (μ : TimeProfile.TimeLaw k) (f : TimeProfile.Simplex k → Real),
+              @Continuous.{0, 0} (TimeProfile.Simplex k) Real
+                  (@instTopologicalSpaceSubtype.{0} (Fin k → Real)
+                    (fun x =>
+                      @Membership.mem.{0, 0} (Fin k → Real) (Set.{0} (Fin k → Real))
+                        (@Set.instMembership.{0} (Fin k → Real))
+                        (@stdSimplex.{0, 0} Real (Fin k) Real.semiring Real.partialOrder (Fin.fintype k)) x)
+                    (@Pi.topologicalSpace.{0, 0} (Fin k) (fun a => Real) fun i =>
+                      @UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)))
+                  (@UniformSpace.toTopologicalSpace.{0} Real
+                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                  f →
+                (∀ (p : TimeProfile.Simplex k),
+                    And
+                      (@LE.le.{0} Real Real.instLE
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f p))
+                      (@LE.le.{0} Real Real.instLE (f p) M)) →
+                  (∀ (i : Fin (@TimeProfile.BorelPartition.cellCount k P)) (p q : TimeProfile.Simplex k),
+                      @Eq.{1} (Fin (@TimeProfile.BorelPartition.cellCount k P))
+                          (@TimeProfile.BorelPartition.classify k P p) i →
+                        @Eq.{1} (Fin (@TimeProfile.BorelPartition.cellCount k P))
+                            (@TimeProfile.BorelPartition.classify k P q) i →
+                          @LE.le.{0} Real Real.instLE
+                            (@abs.{0} Real Real.lattice Real.instAddGroup
+                              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (f p) (f q)))
+                            omega) →
+                    (∀ (i : Fin (@TimeProfile.BorelPartition.cellCount k P)),
+                        @IntervalIntegrable.{0} Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          (@NormedAddGroup.toENormedAddMonoid.{0} Real
+                            (@NormedAddCommGroup.toNormedAddGroup.{0} Real Real.normedAddCommGroup))
+                          (@TimeProfile.cellMass k μ P i) (@MeasureTheory.volume.{0} Real Real.measureSpace)
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T) →
+                      @IntervalIntegrable.{0} Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          (@NormedAddGroup.toENormedAddMonoid.{0} Real
+                            (@NormedAddCommGroup.toNormedAddGroup.{0} Real Real.normedAddCommGroup))
+                          (fun t =>
+                            @MeasureTheory.integral.{0, 0} (TimeProfile.Simplex k) Real Real.normedAddCommGroup
+                              (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                              (@Subtype.instMeasurableSpace.{0} (Fin k → Real)
+                                (fun x =>
+                                  @Membership.mem.{0, 0} (Fin k → Real) (Set.{0} (Fin k → Real))
+                                    (@Set.instMembership.{0} (Fin k → Real))
+                                    (@stdSimplex.{0, 0} Real (Fin k) Real.semiring Real.partialOrder (Fin.fintype k)) x)
+                                (@MeasurableSpace.pi.{0, 0} (Fin k) (fun a => Real) fun a => Real.measurableSpace))
+                              (@MeasureTheory.ProbabilityMeasure.toMeasure.{0} (TimeProfile.Simplex k)
+                                (@Subtype.instMeasurableSpace.{0} (Fin k → Real)
+                                  (fun x =>
+                                    @Membership.mem.{0, 0} (Fin k → Real) (Set.{0} (Fin k → Real))
+                                      (@Set.instMembership.{0} (Fin k → Real))
+                                      (@stdSimplex.{0, 0} Real (Fin k) Real.semiring Real.partialOrder (Fin.fintype k))
+                                      x)
+                                  (@MeasurableSpace.pi.{0, 0} (Fin k) (fun a => Real) fun a => Real.measurableSpace))
+                                (μ t))
+                              fun p => f p)
+                          (@MeasureTheory.volume.{0} Real Real.measureSpace)
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+                        ∀ (cuts : RiffleLowerV2.Targets.HorizonCuts k N T),
+                          @TimeProfile.AlmostLike k N (TimeProfile.horizonDepth N T) cuts ⋯ μ P T rho phi →
+                            ∀ (r s : Real),
+                              @LE.le.{0} Real Real.instLE
+                                  (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) r →
+                                @LE.le.{0} Real Real.instLE r s →
+                                  @LE.le.{0} Real Real.instLE s
+                                      (RiffleLowerV2.horizon N (TimeProfile.horizonDepth N T)) →
+                                    @LE.le.{0} Real Real.instLE
+                                      (@abs.{0} Real Real.lattice Real.instAddGroup
+                                        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                          (@RiffleLowerV2.empiricalIntegral (TimeProfile.horizonDepth N T) N
+                                            (fun j =>
+                                              f (@TimeProfile.Cuts.profile k N (TimeProfile.horizonDepth N T) cuts ⋯ j))
+                                            r s)
+                                          (@intervalIntegral.{0} Real Real.normedAddCommGroup
+                                            (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                              (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real
+                                                Real.normedAddCommGroup)
+                                              (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                            (fun t =>
+                                              @MeasureTheory.integral.{0, 0} (TimeProfile.Simplex k) Real
+                                                Real.normedAddCommGroup
+                                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real
+                                                    Real.normedAddCommGroup)
+                                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                                (@Subtype.instMeasurableSpace.{0} (Fin k → Real)
+                                                  (fun x =>
+                                                    @Membership.mem.{0, 0} (Fin k → Real) (Set.{0} (Fin k → Real))
+                                                      (@Set.instMembership.{0} (Fin k → Real))
+                                                      (@stdSimplex.{0, 0} Real (Fin k) Real.semiring Real.partialOrder
+                                                        (Fin.fintype k))
+                                                      x)
+                                                  (@MeasurableSpace.pi.{0, 0} (Fin k) (fun a => Real) fun a =>
+                                                    Real.measurableSpace))
+                                                (@MeasureTheory.ProbabilityMeasure.toMeasure.{0} (TimeProfile.Simplex k)
+                                                  (@Subtype.instMeasurableSpace.{0} (Fin k → Real)
+                                                    (fun x =>
+                                                      @Membership.mem.{0, 0} (Fin k → Real) (Set.{0} (Fin k → Real))
+                                                        (@Set.instMembership.{0} (Fin k → Real))
+                                                        (@stdSimplex.{0, 0} Real (Fin k) Real.semiring Real.partialOrder
+                                                          (Fin.fintype k))
+                                                        x)
+                                                    (@MeasurableSpace.pi.{0, 0} (Fin k) (fun a => Real) fun a =>
+                                                      Real.measurableSpace))
+                                                  (μ t))
+                                                fun p => f p)
+                                            r s (@MeasureTheory.volume.{0} Real Real.measureSpace))))
+                                      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                                    RiffleLowerV2.Targets.GenericQuadrature._proof_1))
+                                                T)
+                                              omega)
+                                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) M
+                                                  (@Nat.cast.{0} Real Real.instNatCast
+                                                    (@TimeProfile.BorelPartition.cellCount k P)))
+                                                phi)
+                                              T))
+                                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                              (@OfNat.ofNat.{0} Real (nat_lit 4)
+                                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                                                  RiffleLowerV2.Targets.GenericQuadrature._proof_2))
+                                              M)
+                                            rho))
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                  (@OfNat.ofNat.{0} Real (nat_lit 4)
+                                                    (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                                                      RiffleLowerV2.Targets.GenericQuadrature._proof_2))
+                                                  M)
+                                                (@Nat.cast.{0} Real Real.instNatCast
+                                                  (@TimeProfile.BorelPartition.cellCount k P)))
+                                              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                  (@instHDiv.{0} Real
+                                                    (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                  T rho)
+                                                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                                    RiffleLowerV2.Targets.GenericQuadrature._proof_1))))
+                                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                              (@OfNat.ofNat.{0} Real (nat_lit 6)
+                                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 6) Real.instNatCast
+                                                  RiffleLowerV2.Targets.GenericQuadrature._proof_3))
+                                              M))
+                                          (TimeProfile.logScale N)))
+@InhomogeneousShuffle.FirstMoment.expectedCommonEdges_eq_sum_sq.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {M : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} M]
+  (law : @InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.{u_1, u_2} Ω M inst inst_1),
+  @Eq.{1} Real (@InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.expectedCommonEdges.{u_1, u_2} Ω M inst inst_1 law)
+    (∑ m,
+      @HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.edgeMarginal.{u_1, u_2} Ω M inst inst_1 law m)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@InhomogeneousShuffle.FirstMoment.expectedCommonEdges_power_bound.{u_1, u_2, u_3,
+    u_4} : ∀ {Ω : Type u_1} {M : Type u_2} {I : Type u_3} {C : Type u_4} [inst : Fintype.{u_1} Ω]
+  [inst_1 : Fintype.{u_2} M] [inst_2 : Fintype.{u_3} I] [inst_3 : Fintype.{u_4} C] [DecidableEq.{u_3 + 1} I]
+  [inst_5 : DecidableEq.{u_4 + 1} C] (law : @InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.{u_1, u_2} Ω M inst inst_1)
+  (classOf : I → C) (active : M → Finset.{u_3} I) (err : M → Real) (q : I → M → Real) (L : Nat) (D U : Real),
+  (∀ (m : M),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (err m)) →
+    (∀ (i : I) (m : M),
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (q i m)) →
+      (∀ (m : M), @LE.le.{0} Nat instLENat (@Finset.card.{u_3} I (active m)) L) →
+        (∀ (m : M),
+            @LE.le.{0} Real Real.instLE
+              (@InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.edgeMarginal.{u_1, u_2} Ω M inst inst_1 law m)
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (err m) (∑ i ∈ active m, q i m))) →
+          @LE.le.{0} Real Real.instLE
+              (∑ m,
+                @HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) (err m)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              D →
+            (∀ (c : C),
+                @LE.le.{0} Real Real.instLE
+                  (∑ i with @Eq.{u_4 + 1} C (classOf i) c,
+                    ∑ m,
+                      @HPow.hPow.{0, 0, 0} Real Nat Real
+                        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                        (q i m) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  U) →
+              ∀ (N d a ell c : Real),
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                    N →
+                  @LE.le.{0} Real Real.instLE D
+                      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) N
+                        (@Neg.neg.{0} Real Real.instNeg d)) →
+                    @LE.le.{0} Real Real.instLE (@Nat.cast.{0} Real Real.instNatCast L)
+                        (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) N ell) →
+                      @LE.le.{0} Real Real.instLE (@Nat.cast.{0} Real Real.instNatCast (@Fintype.card.{u_4} C inst_3))
+                          (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) N c) →
+                        @LE.le.{0} Real Real.instLE U
+                            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) N
+                              (@Neg.neg.{0} Real Real.instNeg a)) →
+                          @LE.le.{0} Real Real.instLE
+                            (@InhomogeneousShuffle.FirstMoment.FiniteGraphLaw.expectedCommonEdges.{u_1, u_2} Ω M inst
+                              inst_1 law)
+                            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                                (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) N
+                                  (@Neg.neg.{0} Real Real.instNeg d)))
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                                (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) N
+                                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) ell c) a))))
+def RiffleUpperV2.Contracts.V1.F : Prop :=
+∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (T η g : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) η →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g →
+            @LT.lt.{0} Real Real.instLT g
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                  (@Nat.cast.{0} Real Real.instNatCast k)) →
+              ∃ c,
+                And
+                  (@LT.lt.{0} Real Real.instLT
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+                  (∃ N0,
+                    ∃ (_ : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N0),
+                      ∀ (N : Nat),
+                        @LE.le.{0} Nat instLENat N0 N →
+                          ∀ (n : Nat)
+                            (hn :
+                              @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n),
+                            @LE.le.{0} Nat instLENat n N →
+                              ∀ (a K : Nat),
+                                @LT.lt.{0} Nat instLTNat a K →
+                                  @LE.le.{0} Real Real.instLE (@Nat.cast.{0} Real Real.instNatCast K)
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                                        (Real.log (@Nat.cast.{0} Real Real.instNatCast N))) →
+                                    ∀
+                                      (cuts :
+                                        RiffleUpperV2.Cuts k n
+                                          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K a)),
+                                      @RiffleUpperV2.FirstColumnGood k n
+                                          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K a) cuts ⋯
+                                          g →
+                                        @RiffleUpperV2.EmpiricalNegativeMargin k n
+                                            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K a) N a
+                                            cuts ⋯ η →
+                                          @LE.le.{0} Real Real.instLE
+                                            (@RiffleUpperV2.expectedCommonEdges k n
+                                              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K a)
+                                              cuts)
+                                            (@HPow.hPow.{0, 0, 0} Real Real Real
+                                              (@instHPow.{0, 0} Real Real Real.instPow)
+                                              (@Nat.cast.{0} Real Real.instNatCast N)
+                                              (@Neg.neg.{0} Real Real.instNeg c)))
+def RiffleUpperV2.Contracts.V1.E : Prop :=
+∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (T η0 g0 γ0 : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) η0 →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g0 →
+            @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ0 →
+              ∃ ρ0,
+                And
+                  (@LT.lt.{0} Real Real.instLT
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ0)
+                  (∀ (ρ : Real),
+                    @LT.lt.{0} Real Real.instLT
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ →
+                      @LE.le.{0} Real Real.instLE ρ ρ0 →
+                        ∃ c,
+                          And
+                            (@LT.lt.{0} Real Real.instLT
+                              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+                            (∃ N0,
+                              ∃ (hN0 :
+                                @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                                  N0),
+                                ∀ (N : Nat) (hN : @LE.le.{0} Nat instLENat N0 N) (K : Nat),
+                                  @LE.le.{0} Real Real.instLE (@Nat.cast.{0} Real Real.instNatCast K)
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                                        (Real.log (@Nat.cast.{0} Real Real.instNatCast N))) →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k N K),
+                                      @RiffleUpperV2.EmpiricalNegativeMargin k N K N
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) cuts ⋯ η0 →
+                                        @RiffleUpperV2.LocalGood k N K cuts ⋯ g0 γ0 ρ
+                                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                              (@Nat.cast.{0} Real Real.instNatCast K)
+                                              (Real.log (@Nat.cast.{0} Real Real.instNatCast N))) →
+                                          @LE.le.{0} Real Real.instLE
+                                            (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+                                              (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N)
+                                                (instDecidableEqFin N) (Fin.fintype N) (Fin.fintype N))
+                                              (@RiffleUpperV2.physicalInverseLaw k N K cuts)
+                                              (RiffleUpperV2.uniformPermutation N))
+                                            (@HPow.hPow.{0, 0, 0} Real Real Real
+                                              (@instHPow.{0, 0} Real Real Real.instPow)
+                                              (@Nat.cast.{0} Real Real.instNatCast N)
+                                              (@Neg.neg.{0} Real Real.instNeg c))))
+def RiffleUpperV2.Contracts.V1.P : Prop :=
+∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (T η : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) η →
+          ∃ χ0,
+            And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                χ0)
+              (∀ (χ : Real),
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    χ →
+                  @LE.le.{0} Real Real.instLE χ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      @TimeProfile.BorelPartition.IsRegular k P χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : Real),
+                          @LT.lt.{0} Real Real.instLT
+                              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g →
+                            @LT.lt.{0} Real Real.instLT g
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                  (@Nat.cast.{0} Real Real.instNatCast k)) →
+                              @LT.lt.{0} Real Real.instLT
+                                  (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ →
+                                ∃ ρ0,
+                                  And
+                                    (@LT.lt.{0} Real Real.instLT
+                                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ0)
+                                    (∀ (ρ : Real),
+                                      @LT.lt.{0} Real Real.instLT
+                                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                                          ρ →
+                                        @LE.le.{0} Real Real.instLE ρ ρ0 →
+                                          ∃ φ0,
+                                            And
+                                              (@LT.lt.{0} Real Real.instLT
+                                                (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                  (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                φ0)
+                                              (∀ (φ : Real),
+                                                @LT.lt.{0} Real Real.instLT
+                                                    (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                      (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                    φ →
+                                                  @LE.le.{0} Real Real.instLE φ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      @RiffleUpperV2.ScalarIntegrable k μ P T →
+                                                        @LE.le.{0} Real Real.instLE (@RiffleUpperV2.reducedMargin k μ T)
+                                                            (@Neg.neg.{0} Real Real.instNeg η) →
+                                                          ∀ (ε : Real),
+                                                            @LT.lt.{0} Real Real.instLT
+                                                                (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                                  (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                                ε →
+                                                              ∃ N0,
+                                                                ∃ (hN0 :
+                                                                  @LE.le.{0} Nat instLENat
+                                                                    (@OfNat.ofNat.{0} Nat (nat_lit 2)
+                                                                      (instOfNatNat (nat_lit 2)))
+                                                                    N0),
+                                                                  ∀ (N : Nat) (hN : @LE.le.{0} Nat instLENat N0 N)
+                                                                    (cuts :
+                                                                      RiffleUpperV2.Cuts k N
+                                                                        (TimeProfile.horizonDepth N T)),
+                                                                    @TimeProfile.AlmostLike k N
+                                                                        (TimeProfile.horizonDepth N T) cuts ⋯ μ P T ρ
+                                                                        φ →
+                                                                      @RiffleUpperV2.LocalGood k N
+                                                                          (TimeProfile.horizonDepth N T) cuts ⋯ g γ ρ
+                                                                          (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                                            (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                                          T →
+                                                                        @LE.le.{0} Real Real.instLE
+                                                                          (@RiffleUpperV2.tv.{0}
+                                                                            (RiffleLowerV2.Permutation N)
+                                                                            (@Equiv.instFintype.{0, 0} (Fin N) (Fin N)
+                                                                              (instDecidableEqFin N)
+                                                                              (instDecidableEqFin N) (Fin.fintype N)
+                                                                              (Fin.fintype N))
+                                                                            (@RiffleUpperV2.physicalInverseLaw k N
+                                                                              (TimeProfile.horizonDepth N T) cuts)
+                                                                            (RiffleUpperV2.uniformPermutation N))
+                                                                          ε)))
+def RiffleUpperV2.Contracts.V1.T : Prop :=
+∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : Nat) → RiffleUpperV2.InfiniteCuts k N),
+      @RiffleUpperV2.ArbitrarilyFineApproximation k μ cuts →
+        And
+          (∀ (t : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) t →
+              @LT.lt.{0} ENNReal
+                  (@Preorder.toLT.{0} ENNReal (@PartialOrder.toPreorder.{0} ENNReal ENNReal.instPartialOrder))
+                  (@RiffleUpperV2.criticalTime k μ) (ENNReal.ofReal t) →
+                @Filter.Tendsto.{0, 0} Nat Real
+                  (fun N =>
+                    @RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+                      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N)
+                        (Fin.fintype N) (Fin.fintype N))
+                      (@RiffleUpperV2.physicalInverseLaw k N (TimeProfile.horizonDepth N t)
+                        (@RiffleUpperV2.InfiniteCuts.take k N (cuts N) (TimeProfile.horizonDepth N t)))
+                      (RiffleUpperV2.uniformPermutation N))
+                  (@Filter.atTop.{0} Nat Nat.instPreorder)
+                  (@nhds.{0} Real
+                    (@UniformSpace.toTopologicalSpace.{0} Real
+                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+          (∀ (ε : Real),
+            @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε →
+              @LT.lt.{0} Real Real.instLT ε (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+                @LE.le.{0} ENNReal ENNReal.instLE
+                  (@Filter.limsup.{0, 0} ENNReal Nat
+                    (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} ENNReal
+                      (@ConditionallyCompleteLinearOrderBot.toConditionallyCompleteLinearOrder.{0} ENNReal
+                        (@CompleteLinearOrder.toConditionallyCompleteLinearOrderBot.{0} ENNReal
+                          ENNReal.instCompleteLinearOrder)))
+                    (fun N =>
+                      @HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+                        (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+                        (@RiffleUpperV2.mixingTime k N (cuts N) ε)
+                        (ENNReal.ofReal (Real.log (@Nat.cast.{0} Real Real.instNatCast N))))
+                    (@Filter.atTop.{0} Nat Nat.instPreorder))
+                  (@RiffleUpperV2.criticalTime k μ))
+def RiffleUpperV2.Contracts.V1.RProfile : Prop :=
+∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (T η : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) η →
+          ∃ χ0,
+            And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                χ0)
+              (∀ (χ : Real),
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    χ →
+                  @LE.le.{0} Real Real.instLE χ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      @TimeProfile.BorelPartition.IsRegular k P χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : Real),
+                          @LT.lt.{0} Real Real.instLT
+                              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g →
+                            @LT.lt.{0} Real Real.instLT g
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                  (@Nat.cast.{0} Real Real.instNatCast k)) →
+                              @LT.lt.{0} Real Real.instLT
+                                  (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ →
+                                ∃ ρ0,
+                                  And
+                                    (@LT.lt.{0} Real Real.instLT
+                                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ0)
+                                    (∀ (ρ : Real),
+                                      @LT.lt.{0} Real Real.instLT
+                                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                                          ρ →
+                                        @LE.le.{0} Real Real.instLE ρ ρ0 →
+                                          ∃ φ0,
+                                            And
+                                              (@LT.lt.{0} Real Real.instLT
+                                                (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                  (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                φ0)
+                                              (∀ (φ : Real),
+                                                @LT.lt.{0} Real Real.instLT
+                                                    (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                      (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                    φ →
+                                                  @LE.le.{0} Real Real.instLE φ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      @RiffleUpperV2.ScalarIntegrable k μ P T →
+                                                        @LE.le.{0} Real Real.instLE (@RiffleUpperV2.reducedMargin k μ T)
+                                                            (@Neg.neg.{0} Real Real.instNeg η) →
+                                                          ∀
+                                                            (Q :
+                                                              (N : Nat) →
+                                                                PMF.{0}
+                                                                  (RiffleUpperV2.Cuts k N
+                                                                    (TimeProfile.horizonDepth N T))),
+                                                            @Filter.Tendsto.{0, 0} Nat Real
+                                                                (fun N =>
+                                                                  @RiffleUpperV2.probability.{0}
+                                                                    (RiffleUpperV2.Cuts k N
+                                                                      (TimeProfile.horizonDepth N T))
+                                                                    (RiffleUpperV2.cutsFintype k N
+                                                                      (TimeProfile.horizonDepth N T))
+                                                                    (Q N) fun cuts =>
+                                                                    ∃ (hN :
+                                                                      @LE.le.{0} Nat instLENat
+                                                                        (@OfNat.ofNat.{0} Nat (nat_lit 2)
+                                                                          (instOfNatNat (nat_lit 2)))
+                                                                        N),
+                                                                      @TimeProfile.AlmostLike k N
+                                                                        (TimeProfile.horizonDepth N T) cuts ⋯ μ P T ρ φ)
+                                                                (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                                                (@nhds.{0} Real
+                                                                  (@UniformSpace.toTopologicalSpace.{0} Real
+                                                                    (@PseudoMetricSpace.toUniformSpace.{0} Real
+                                                                      Real.pseudoMetricSpace))
+                                                                  (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                    (@One.toOfNat1.{0} Real Real.instOne))) →
+                                                              @Filter.Tendsto.{0, 0} Nat Real
+                                                                  (fun N =>
+                                                                    @RiffleUpperV2.probability.{0}
+                                                                      (RiffleUpperV2.Cuts k N
+                                                                        (TimeProfile.horizonDepth N T))
+                                                                      (RiffleUpperV2.cutsFintype k N
+                                                                        (TimeProfile.horizonDepth N T))
+                                                                      (Q N) fun cuts =>
+                                                                      ∃ (hN :
+                                                                        @LE.le.{0} Nat instLENat
+                                                                          (@OfNat.ofNat.{0} Nat (nat_lit 2)
+                                                                            (instOfNatNat (nat_lit 2)))
+                                                                          N),
+                                                                        @RiffleUpperV2.LocalGood k N
+                                                                          (TimeProfile.horizonDepth N T) cuts ⋯ g γ ρ
+                                                                          (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                                            (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                                          T)
+                                                                  (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                                                  (@nhds.{0} Real
+                                                                    (@UniformSpace.toTopologicalSpace.{0} Real
+                                                                      (@PseudoMetricSpace.toUniformSpace.{0} Real
+                                                                        Real.pseudoMetricSpace))
+                                                                    (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                      (@One.toOfNat1.{0} Real Real.instOne))) →
+                                                                @Filter.Tendsto.{0, 0} Nat Real
+                                                                  (fun N =>
+                                                                    @RiffleUpperV2.tv.{0} (RiffleUpperV2.Permutation N)
+                                                                      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N)
+                                                                        (instDecidableEqFin N) (instDecidableEqFin N)
+                                                                        (Fin.fintype N) (Fin.fintype N))
+                                                                      (@RiffleUpperV2.randomInverseLaw k N
+                                                                        (TimeProfile.horizonDepth N T) (Q N))
+                                                                      (RiffleUpperV2.uniformPermutation N))
+                                                                  (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                                                  (@nhds.{0} Real
+                                                                    (@UniformSpace.toTopologicalSpace.{0} Real
+                                                                      (@PseudoMetricSpace.toUniformSpace.{0} Real
+                                                                        Real.pseudoMetricSpace))
+                                                                    (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                                      (@Zero.toOfNat0.{0} Real Real.instZero))))))
+def RiffleUpperV2.Contracts.V1.REmpirical : Prop :=
+∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (T η0 g0 γ0 : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) η0 →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g0 →
+            @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ0 →
+              ∃ ρ0,
+                And
+                  (@LT.lt.{0} Real Real.instLT
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ0)
+                  (∀ (ρ : Real),
+                    @LT.lt.{0} Real Real.instLT
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ →
+                      @LE.le.{0} Real Real.instLE ρ ρ0 →
+                        ∀ (K : Nat → Nat),
+                          (∀ (N : Nat),
+                              @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N →
+                                @LE.le.{0} Real Real.instLE (@Nat.cast.{0} Real Real.instNatCast (K N))
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                                    (Real.log (@Nat.cast.{0} Real Real.instNatCast N)))) →
+                            ∀ (Q : (N : Nat) → PMF.{0} (RiffleUpperV2.Cuts k N (K N))),
+                              @Filter.Tendsto.{0, 0} Nat Real
+                                  (fun N =>
+                                    @RiffleUpperV2.probability.{0} (RiffleUpperV2.Cuts k N (K N))
+                                      (RiffleUpperV2.cutsFintype k N (K N)) (Q N) fun cuts =>
+                                      ∃ (hN :
+                                        @LE.le.{0} Nat instLENat
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N),
+                                        And
+                                          (@RiffleUpperV2.EmpiricalNegativeMargin k N (K N) N
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) cuts ⋯ η0)
+                                          (@RiffleUpperV2.LocalGood k N (K N) cuts ⋯ g0 γ0 ρ
+                                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                              (@Nat.cast.{0} Real Real.instNatCast (K N))
+                                              (Real.log (@Nat.cast.{0} Real Real.instNatCast N)))))
+                                  (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                  (@nhds.{0} Real
+                                    (@UniformSpace.toTopologicalSpace.{0} Real
+                                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) →
+                                @Filter.Tendsto.{0, 0} Nat Real
+                                  (fun N =>
+                                    @RiffleUpperV2.tv.{0} (RiffleUpperV2.Permutation N)
+                                      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N)
+                                        (instDecidableEqFin N) (Fin.fintype N) (Fin.fintype N))
+                                      (@RiffleUpperV2.randomInverseLaw k N (K N) (Q N))
+                                      (RiffleUpperV2.uniformPermutation N))
+                                  (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                  (@nhds.{0} Real
+                                    (@UniformSpace.toTopologicalSpace.{0} Real
+                                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+'RiffleUpperV2.physical_graph_representation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleUpperV2.expectedCommonEdges_eq_sum_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleUpperV2.empiricalInf_attained' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleUpperV2.criticalTime_empty' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleUpperV2.mixingTime_empty' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleLowerV2.Thinning.residualPrefixTransform' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleLowerV2.Thinning.residualPrefixTails' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleLowerV2.Factorial.exactJointFactorial' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'RiffleLowerV2.ProfileTransfer.genericQuadrature' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+BUILD_OK U00

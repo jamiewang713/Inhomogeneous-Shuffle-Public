@@ -1,0 +1,31 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:17:57.657040+00:00",
+  "reviewer": "U00 independent of lane owner",
+  "sources": {
+    "FirstMoment/DensityRates.lean": "4bdad680130f0baaa63e352ef9736a201baaacc64af812cc45dbd1a356a7e07e",
+    "FirstMoment/UniformClassDensity.lean": "29e525403da8f4bc92fe93f86592854121cb7eba8ecb1d97dd170fd13723201e"
+  },
+  "mathematics": [
+    "The square-root variance prefactor is bounded by a fixed degree-one polynomial in d+1 and absorbed by N^epsilon uniformly over d<=T log N.",
+    "The large-block failure is multiplied by the full possible prefix count (d+1)k^d before being absorbed into any inverse power. No class-size multiplier is dropped.",
+    "With delta,width<=eta/256 and rare entropy<=eta/256, eventually q<=delta makes both large and small-proper numerical exponents <=-3eta/4. Large prefactor costs eta/16; its failure is <=N^-eta; fixed factor two costs3eta/16.",
+    "Terminal, large, immediate-small and proper-small branches exhaust all actual retained classes. The result is classCard*literalDensity<=N^(-eta/2)."
+  ],
+  "public_type_and_model": [
+    "N0 is chosen from fixed k,T,eta,g,chi,delta,width before N,n,d,cuts,first assignment,absolute offset,descriptor or edge slots.",
+    "All stochastic, reserve, mean, entropy and stopping premises have concrete discharges. Parameter smallness is explicit and must be selected in the final F assembly.",
+    "Original N controls logarithms, all mean/cost exponents and cardinality comparisons; n is not silently substituted."
+  ],
+  "adversarial": [
+    "No genuine nonterminal branch at d=0; terminal branch handles it.",
+    "Arbitrary integer translations and slot sets with card<=N are allowed.",
+    "Empty class domain is harmless; every referenced individual class is nonempty by its own descriptor.",
+    "Large classes include immediate stops; small-proper branch derives strict prefix length from inequality of leaf and join."
+  ],
+  "root_build_receipt": "uniform-class-check-build.json",
+  "trust_inventory": "uniform-class-declarations.json",
+  "remaining": [
+    "Fixed choice of class-count parameters and global graph/localization/class finite sums; F remains unproved."
+  ]
+}

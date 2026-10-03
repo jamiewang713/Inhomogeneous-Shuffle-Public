@@ -1,0 +1,22 @@
+CHECK RiffleUpperV2.Shared.PairConditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/PairConditioning.lean:21:13: warning: This simp argument is unused:
+  expect
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RiffleLowerV2.expect, Finset.sum_mul, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/PairConditioning.lean:43:2: error: 'change' tactic failed, pattern
+  ((expect (PMF.uniformOfFintype (Ω × Γ)) fun ω => @ite ℝ (A ω.1 ∧ B ω.2) instDecidableAnd (f ω.1 * g ω.2) 0) /
+      probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => A ω.1 ∧ B ω.2) =
+    (expect (PMF.uniformOfFintype Ω) fun a => if A a then f a else 0) / probability (PMF.uniformOfFintype Ω) A *
+      ((expect (PMF.uniformOfFintype Γ) fun b => if B b then g b else 0) / probability (PMF.uniformOfFintype Γ) B)
+is not definitionally equal to target
+  ((RiffleLowerV2.expect (PMF.uniformOfFintype (Ω × Γ)) fun ω =>
+        @ite ℝ ((fun ω => A ω.1 ∧ B ω.2) ω) (Classical.propDecidable ((fun ω => A ω.1 ∧ B ω.2) ω))
+          ((fun ω => f ω.1 * g ω.2) ω) 0) /
+      RiffleLowerV2.probability (PMF.uniformOfFintype (Ω × Γ)) fun ω => A ω.1 ∧ B ω.2) =
+    (RiffleLowerV2.expect (PMF.uniformOfFintype Ω) fun ω => if A ω then f ω else 0) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Ω) A *
+      ((RiffleLowerV2.expect (PMF.uniformOfFintype Γ) fun ω => if B ω then g ω else 0) /
+        RiffleLowerV2.probability (PMF.uniformOfFintype Γ) B)

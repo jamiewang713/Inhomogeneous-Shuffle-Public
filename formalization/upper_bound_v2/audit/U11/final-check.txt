@@ -1,0 +1,49 @@
+CHECK RiffleUpperV2.EmpiricalUpper.FiniteTV
+CHECK RiffleUpperV2.EmpiricalUpper.Deletion
+CHECK RiffleUpperV2.EmpiricalUpper.Restart
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/EmpiricalUpper/Restart.lean:96:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.EmpiricalUpper.Parameters
+CHECK RiffleUpperV2.EmpiricalUpper.ExplorationTV
+CHECK RiffleUpperV2.EmpiricalUpper.Rates
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CHECK RiffleUpperV2.EmpiricalUpper.Main
+RiffleUpperV2.EmpiricalUpper.empiricalUpper : RiffleUpperV2.Contracts.V1.E
+theorem RiffleUpperV2.EmpiricalUpper.Audit.empiricalUpper_expanded : ∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∃ c,
+                          0 < c ∧
+                            ∃ N0,
+                              ∃ (hN0 : 2 ≤ N0),
+                                ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k N K),
+                                      RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 →
+                                        RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N) →
+                                          RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw cuts)
+                                              (RiffleUpperV2.uniformPermutation N) ≤
+                                            ↑N ^ (-c) :=
+RiffleUpperV2.EmpiricalUpper.empiricalUpper
+'RiffleUpperV2.EmpiricalUpper.empiricalUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.restartHypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.concreteExplorationTV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Conditional.remainingCommonEdges' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.FirstMoment.empiricalFirstMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U11

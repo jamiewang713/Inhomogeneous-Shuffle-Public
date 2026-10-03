@@ -1,0 +1,35 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:50:11.662692+00:00",
+  "sources": {
+    "Reservoir/GoodView.lean": "99c4f964002fac00f0cdfb58c4948d792ab215b8123b7f454226c38fcc19ede0",
+    "Reservoir/NaturalAveraging.lean": "934576445165ed1274317ea2f1d706449cbda0c81a8597a48afe383dabf2d107",
+    "Reservoir/TupleCounting.lean": "e606d62569892995b60286337d236308105aa71f144ad5c0ca7b34821d9f9e76",
+    "Reservoir/Normalization.lean": "075982694d09182735b9cfa50f8d770848ef4e5223e42f4fbc1410d121062590",
+    "Reservoir/PrefixCount.lean": "b9d5861cfaac4dec9d336807083517418fd5e7adf00c841052d3f383476db730"
+  },
+  "mathematics": [
+    "Good exposed view and marked-pile support are invariant on the fine auxiliary fibers. Shared.SupportedAveraging is instantiated with S equal to the target coarse history intersected with good view; this restricts pointwise use to the chosen history without conditioning on S.",
+    "The resulting marked good-event bound retains the exact conditional marked-pile support probability. Good/bad decomposition charges H complement once per whole marked event.",
+    "Summing ordered embedding indicators is exactly a falling factorial count. Summing conditional pile support probabilities gives falling(pileSize,m), since pile size is deterministic even under the natural history.",
+    "initialPile_normalization converts falling(r,m)*q^[m(1-alpha)] to n^m*[(r/n)q]^[m(1-alpha)] in the correct direction, using alpha>=0. The ambient bad-event sum costs at most n^m epsilon.",
+    "Specializing m=1 and the literal tail-bin prefix identity yields actual forward prefixCount with C1=4/reserveMass, before all arrays and histories."
+  ],
+  "public_type_and_model": [
+    "Ambient n in these modules is manuscript N: all Cuts, full row embeddings, and logarithmic horizons use n. First-pile size is separately pileSize.",
+    "prefixCount assumes alpha<1/2 as in source, positive natural history, actual historyGood, forward terminal direction and a strict future target cylinder. No residual law, count bound, denominator, or supplied concentration probability appears as a hypothesis.",
+    "The intermediate factorial theorem needs only alpha<1. Its m=2 prefix count is not yet the tail-equal-word collision theorem."
+  ],
+  "adversarial": [
+    "Impossible marked pile membership contributes zero through the retained support; replacing this support by one would lose the required normalization and is not done.",
+    "Zero pile and zero tail mass are valid in the scalar normalization; positive terminal history already excludes an empty pile in the public application.",
+    "Null fine fibers are handled by total probability. Positive coarse history is used exactly to evaluate conditional expectation of a constant.",
+    "The count bad event is charged once per tuple, not per suffix word. Future tailCollisions must preserve this property before summing words."
+  ],
+  "remaining": [
+    "Removable current copies, full-word tail collision sum with once-per-pair bad error, backward versions and exact future-cylinder law."
+  ],
+  "root_build_receipt": "natural-count-check-build.json",
+  "trust_inventory": "natural-count-declarations.json"
+}

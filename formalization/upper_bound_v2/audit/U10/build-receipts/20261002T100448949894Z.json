@@ -1,0 +1,139 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T10:04:48.948686+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U10",
+    "--fresh",
+    "RiffleUpperV2.Exponential.Main"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U10",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U10/lib/lean",
+  "built": [
+    "RiffleUpperV2.Exponential.Pathwise",
+    "RiffleUpperV2.Exponential.Conditioning",
+    "RiffleUpperV2.Exponential.Stopping",
+    "RiffleUpperV2.Exponential.Moments",
+    "RiffleUpperV2.Exponential.Excess",
+    "RiffleUpperV2.Exponential.Aggregation",
+    "RiffleUpperV2.Exponential.FiniteTV",
+    "RiffleUpperV2.Exponential.Numerical",
+    "RiffleUpperV2.Exponential.Truncation",
+    "RiffleUpperV2.Exponential.Asymptotic",
+    "RiffleUpperV2.Exponential.Main"
+  ],
+  "modules": {
+    "RiffleUpperV2.Exponential.Main": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Main.lean",
+      "sha256": "b4e598c88fcc7352f200f9ae4fa98971b0623fcb56b99a0a012aa10aa45f0246",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Truncation": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Truncation.lean",
+      "sha256": "d6672acba1b25599078b1e541fa382ecd0eb1dd41a3b84a2115ca49351eddc95",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Numerical": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Numerical.lean",
+      "sha256": "74c95bbf5b988ee6a0f9aa41ae7b0db94f86e4065f45a91b87da8e3a484c0af0",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.FiniteTV": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/FiniteTV.lean",
+      "sha256": "f8ffe5368508dd8261f2f09adc064f41f49cfca16c7aef6f745c7aa37498be46",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Aggregation": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Aggregation.lean",
+      "sha256": "fec6290a2e11f0b1ed617d937c0738db67478bd818401656edcb08c244297c07",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Excess": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Excess.lean",
+      "sha256": "312a053e114cb242ff3984de31a1407d70d664288bc74d3f3f42461fa7947465",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Moments": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean",
+      "sha256": "44d386ff6631e7fef0ad6f56e780c6184b4c88f7957465620fe7e380f3f563f5",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Stopping": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Stopping.lean",
+      "sha256": "ae477694549a259a1f314d9b183c2aa0a7e3eca007bc982a31d4a601c6c347e1",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exponential.Pathwise": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Pathwise.lean",
+      "sha256": "9641d61887ccacc85010fbccf478bf608555652ef61099365ac457447889c821",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Shared.Conditioning": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Conditioning.lean",
+      "sha256": "d8bda996455920c09f14ac8db648724c5d14094c7a4bd62b457aa64d0a18a6b5",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Thinning.PMFTools": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean",
+      "sha256": "2eeef3e8d1b2e7921371484ba3ed9a8abe35c776eb582bf5a77d5d2fc6e82104",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exponential.Conditioning": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean",
+      "sha256": "f5460e12ae5e5be8b1f715388a4c12e5417967a375f1a0f8bf825f9d3c896645",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "Mathlib.Analysis.Convex.SpecificFunctions.Basic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/SpecificFunctions/Basic.lean",
+      "sha256": "e79c5a4a582d71e9e21968dc2fc23aa2be280de780ffdedd1d50ba23cffc9c32",
+      "kind": "staged-read-only"
+    },
+    "Mathlib.Analysis.Convex.Jensen": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/Convex/Jensen.lean",
+      "sha256": "86d5bbd0a1b1f514448aabadd5d43ef50eac3873ab1af684378f3fab7fff66fe",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.GraphOverlap.Truncation": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Truncation.lean",
+      "sha256": "9f612694b741ada003672d4bb6d13d5742124ecc066a7af39240c8aa9d0e6f09",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.GraphOverlap.RunProduct": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/RunProduct.lean",
+      "sha256": "cc3057872f7b6c13bddc7cd19be000e294e2931790a5786ea5c5d5ee5f104a49",
+      "kind": "staged-read-only"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+      "sha256": "004e4d6013b20f95feedfcb23b257c07eb1ee4c7645b9d81fd6e4cb684a116d6",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.GraphOverlap.LargestComponent": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/LargestComponent.lean",
+      "sha256": "3060916cdc81f152a647a73a025721dc1598d372c4359ace8dab3439e53afbd7",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exponential.Asymptotic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Asymptotic.lean",
+      "sha256": "ede43e2b471e0a134716d3155cc489046e593300ed18774a888dcef33ec9357b",
+      "kind": "project",
+      "exit_code": 0
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "b25e0e84c9193f8a997bfe5b44a951518ac4aef13491f923e8c4ebad56586cb0"
+}

@@ -1,0 +1,574 @@
+@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint : {k n L : ℕ} →
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) →
+    (p : Fin k) →
+      RiffleUpperV2.Sample cuts →
+        Fin (RiffleUpperV2.Exploration.pileSize cuts p) →
+          (Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)) → Prop
+'RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_iff : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω v : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint cuts p ω j (RiffleUpperV2.Reservoir.tupleWords e v) ↔
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+        Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.tupleWords e v q) 0) p) ∧
+      RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.backward
+        (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω v
+'RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint : {k n L : ℕ} →
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) →
+    (p : Fin k) →
+      RiffleUpperV2.Sample cuts →
+        Fin (RiffleUpperV2.Exploration.pileSize cuts p) →
+          Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) →
+            (Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)) → Prop
+'RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backward_tupleCount_eq_selected_of_future : ∀ {k L r : ℕ} (A : Finset.{0} (Fin r))
+  (w : Fin r → RiffleUpperV2.Word k L) (s u : RiffleUpperV2.Word k L),
+  LE.le.{0} s u →
+    (∀ q ∉ A, LT.lt.{0} (w q) s) →
+      Eq.{1} (RiffleUpperV2.Reservoir.tupleCount.{0} w u) (RiffleUpperV2.Reservoir.selectedWordCount A w u)
+'RiffleUpperV2.Reservoir.backward_tupleCount_eq_selected_of_future' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_future_iff : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (ω : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Eq.{1} (List.Vector.get.{0} (w q) 0) p) →
+      (∀ q ∉ A, LT.lt.{0} (w q) (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)) →
+        (RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint cuts p ω j w ↔
+          RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a)
+'RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint_future_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backward_reserve_tuple_allowed : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (ω : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+      (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Eq.{1} (List.Vector.get.{0} (w q) 0) p) →
+        (∀ q ∉ A, LT.lt.{0} (w q) (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)) →
+          RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint cuts p ω j w
+'RiffleUpperV2.Reservoir.backward_reserve_tuple_allowed' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backward_chosenReserve_tuple_allowed : ∀ {k n L D : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (g : ℝ) (ω : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (v :
+    Lex.{0}
+      (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L))
+        (Lex.{0} (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L)) (RiffleUpperV2.Word k (Min.min.{0} D L)))))),
+  Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (Option.some.{0} v) →
+    RiffleUpperV2.Exploration.hasDirection cuts D g RiffleUpperV2.Exploration.Direction.backward
+        (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+      RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a →
+        (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+          (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Eq.{1} (List.Vector.get.{0} (w q) 0) p) →
+            (∀ q ∉ A, Eq.{1} (RiffleUpperV2.Exploration.tailPrefix D (w q)) v.1) →
+              RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint cuts p ω j w
+'RiffleUpperV2.Reservoir.backward_chosenReserve_tuple_allowed' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint_of_current_removal : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (ω : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 1 →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+      RiffleUpperV2.Reservoir.backwardTupleHistoryConstraint cuts p ω j w →
+        (∀ q ∉ A, Eq.{1} (w q) (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)) →
+          LE.le.{0}
+              (RiffleUpperV2.Reservoir.observedCount.{0} (RiffleUpperV2.Reservoir.backwardWords cuts p ω)
+                (HAdd.hAdd.{0, 0, 0} (↑j) 1) (RiffleUpperV2.Reservoir.backwardWords cuts p ω j))
+              (HSub.hSub.{0, 0, 0}
+                (RiffleUpperV2.Reservoir.tupleCount.{0} w (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)) 1) →
+            RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a
+'RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint_of_current_removal' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backward_history_denominator_ge_reserveWeight : ∀ {k n L D : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (g : ℝ)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (ω₀ : RiffleUpperV2.Sample cuts),
+  RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+    ∀
+      (v :
+        Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L))
+            (Lex.{0} (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L)) (RiffleUpperV2.Word k (Min.min.{0} D L)))))),
+      Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (Option.some.{0} v) →
+        RiffleUpperV2.Exploration.hasDirection cuts D g RiffleUpperV2.Exploration.Direction.backward
+            (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+          RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a →
+            LE.le.{0}
+              (∏ r,
+                HDiv.hDiv.{0, 0, 0}
+                  (RiffleLowerV2.falling
+                    (RiffleUpperV2.Reservoir.remainingCount p (Finset.map.{0, 0} e (SDiff.sdiff.{0} Finset.univ.{0} A))
+                      ⟨HAdd.hAdd.{0, 0, 0} (↑r) 1, ⋯⟩ (List.Vector.get.{0} v.1 r) ω₀)
+                    (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                  (RiffleLowerV2.falling
+                    (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p))
+                      (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                    (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A))))
+              (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                (RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.backward
+                  (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω)
+                (RiffleUpperV2.Reservoir.pileBase cuts p e A a))
+'RiffleUpperV2.Reservoir.backward_history_denominator_ge_reserveWeight' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backward_history_denominator_lower_finite : ∀ {k n L D : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)),
+  LT.lt.{0} 0 n →
+    LT.lt.{0} 0 k →
+      LE.le.{0} 1 D →
+        ∀ (p : Fin k) (g ξ : ℝ),
+          LT.lt.{0} 0 g →
+            ∀ (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+              (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+              (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+              (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+              Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 1 ∨
+                  Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 2 →
+                ∀ (ω₀ : RiffleUpperV2.Sample cuts),
+                  RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+                    RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω₀ →
+                      LE.le.{0} 1 (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p)) →
+                        LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (2 / 3)) 5)
+                            (HMul.hMul.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (↑(HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p)))
+                                (HDiv.hDiv.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 4 ↑D)))
+                              (RiffleUpperV2.Exploration.reserveMass k D g)) →
+                          ∀
+                            (v :
+                              Lex.{0}
+                                (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L))
+                                  (Lex.{0}
+                                    (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L))
+                                      (RiffleUpperV2.Word k (Min.min.{0} D L)))))),
+                            Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (Option.some.{0} v) →
+                              RiffleUpperV2.Exploration.hasDirection cuts D g
+                                  RiffleUpperV2.Exploration.Direction.backward
+                                  (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+                                RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a →
+                                  LE.le.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                                        (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                      2)
+                                    (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                                      (RiffleUpperV2.Exploration.historyFiber cuts p
+                                        RiffleUpperV2.Exploration.Direction.backward (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω)
+                                      (RiffleUpperV2.Reservoir.pileBase cuts p e A a))
+'RiffleUpperV2.Reservoir.backward_history_denominator_lower_finite' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Reservoir.backward_history_denominator_lower_uniform : ∀ (k D : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} 1 D →
+      ∀ (g : ℝ),
+        LT.lt.{0} 0 g →
+          ∃ N0,
+            LE.le.{0} 1 N0 ∧
+              ∀ (n : ℕ),
+                LE.le.{0} N0 n →
+                  ∀ (L : ℕ) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n),
+                    TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                      ∀ (ξ : ℝ) (p : Fin k)
+                        (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+                        (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+                        (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+                        (a :
+                          Fin (RiffleUpperV2.Exploration.pileSize cuts p) →
+                            RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+                        Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 1 ∨
+                            Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 2 →
+                          ∀ (ω₀ : RiffleUpperV2.Sample cuts),
+                            RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+                              RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω₀ →
+                                ∀
+                                  (v :
+                                    Lex.{0}
+                                      (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L))
+                                        (Lex.{0}
+                                          (Prod.{0, 0} (RiffleUpperV2.Word k (Min.min.{0} D L))
+                                            (RiffleUpperV2.Word k (Min.min.{0} D L)))))),
+                                  Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (Option.some.{0} v) →
+                                    RiffleUpperV2.Exploration.hasDirection cuts D g
+                                        RiffleUpperV2.Exploration.Direction.backward
+                                        (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+                                      RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a →
+                                        LE.le.{0}
+                                          (HDiv.hDiv.{0, 0, 0}
+                                            (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                                              (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                            2)
+                                          (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                                            (RiffleUpperV2.Exploration.historyFiber cuts p
+                                              RiffleUpperV2.Exploration.Direction.backward (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                              ω)
+                                            (RiffleUpperV2.Reservoir.pileBase cuts p e A a))
+'RiffleUpperV2.Reservoir.backward_history_denominator_lower_uniform' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backward_history_future_impossible : ∀ {k n L E : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (v : RiffleUpperV2.Word k (Min.min.{0} E L)),
+  (∀ (w : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+      Eq.{1} (List.Vector.get.{0} w 0) p →
+        Eq.{1} (RiffleUpperV2.Exploration.tailPrefix E w) v →
+          LT.lt.{0} w (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)) →
+    ¬RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint cuts p ω j A a →
+      Eq.{1}
+        (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+          (fun z =>
+            ∀ q ∉ A, Eq.{1} (RiffleUpperV2.Exploration.tailPrefix E (RiffleUpperV2.Reservoir.tupleWords e z q)) v)
+          fun z =>
+          RiffleUpperV2.Reservoir.pileBase cuts p e A a z ∧
+            RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.backward
+              (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω z)
+        0
+'RiffleUpperV2.Reservoir.backward_history_future_impossible' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Reservoir.backward_history_prefixProbability_upper_uniform : ∀ (k D : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} 1 D →
+      ∀ (g τ T : ℝ),
+        LT.lt.{0} 0 g →
+          LT.lt.{0} g 1 →
+            LT.lt.{0} 0 τ →
+              LT.lt.{0} τ g →
+                LT.lt.{0} 0 T →
+                  LT.lt.{0}
+                      (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g)) (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))
+                      1 →
+                    ∃ N0,
+                      LE.le.{0} 1 N0 ∧
+                        ∀ (n : ℕ),
+                          LE.le.{0} N0 n →
+                            ∀ (L : ℕ),
+                              LE.le.{0} (↑(HAdd.hAdd.{0, 0, 0} L 1)) (HMul.hMul.{0, 0, 0} T (Real.log ↑n)) →
+                                ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n),
+                                  TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                                    ∀ (ξ : ℝ) (p : Fin k)
+                                      (e :
+                                        Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+                                          (Fin n))
+                                      (ω : RiffleUpperV2.Sample cuts)
+                                      (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                                      RiffleUpperV2.Exploration.hasDirection cuts D g
+                                          RiffleUpperV2.Exploration.Direction.backward
+                                          (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+                                        ∀ (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+                                          (a :
+                                            Fin (RiffleUpperV2.Exploration.pileSize cuts p) →
+                                              RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+                                          Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 1 ∨
+                                              Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 2 →
+                                            ∀ (ω₀ : RiffleUpperV2.Sample cuts),
+                                              RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+                                                RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω₀ →
+                                                  ∀ (E : ℕ) (v : RiffleUpperV2.Word k (Min.min.{0} E L)),
+                                                    (∀ (w : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+                                                        Eq.{1} (List.Vector.get.{0} w 0) p →
+                                                          Eq.{1} (RiffleUpperV2.Exploration.tailPrefix E w) v →
+                                                            LT.lt.{0} w
+                                                              (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)) →
+                                                      LE.le.{0}
+                                                        (RiffleUpperV2.conditionalProbability.{0}
+                                                          (RiffleUpperV2.fixedCountPMF cuts)
+                                                          (fun z =>
+                                                            ∀ q ∉ A,
+                                                              Eq.{1}
+                                                                (RiffleUpperV2.Exploration.tailPrefix E
+                                                                  (RiffleUpperV2.Reservoir.tupleWords e z q))
+                                                                v)
+                                                          fun z =>
+                                                          RiffleUpperV2.Reservoir.pileBase cuts p e A a z ∧
+                                                            RiffleUpperV2.Exploration.historyFiber cuts p
+                                                              RiffleUpperV2.Exploration.Direction.backward
+                                                              (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω z)
+                                                        (HDiv.hDiv.{0, 0, 0}
+                                                          (HMul.hMul.{0, 0, 0}
+                                                            (HPow.hPow.{0, 0, 0} 2
+                                                              (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                                            (HPow.hPow.{0, 0, 0}
+                                                              (RiffleUpperV2.Exploration.tailMass cuts E v)
+                                                              (HMul.hMul.{0, 0, 0}
+                                                                (↑(Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                                                (HSub.hSub.{0, 0, 0} 1
+                                                                  (HDiv.hDiv.{0, 0, 0}
+                                                                    (Real.log (HDiv.hDiv.{0, 0, 0} 1 g))
+                                                                    (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))))))
+                                                          (HDiv.hDiv.{0, 0, 0}
+                                                            (HPow.hPow.{0, 0, 0}
+                                                              (RiffleUpperV2.Exploration.reserveMass k D g)
+                                                              (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                                            2))
+'RiffleUpperV2.Reservoir.backward_history_prefixProbability_upper_uniform' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Reservoir.backward_history_deletionPrefix_upper_uniform : ∀ (k D : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} 1 D →
+      ∀ (g τ T : ℝ),
+        LT.lt.{0} 0 g →
+          LT.lt.{0} g 1 →
+            LT.lt.{0} 0 τ →
+              LT.lt.{0} τ g →
+                LT.lt.{0} 0 T →
+                  LT.lt.{0}
+                      (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g)) (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))
+                      1 →
+                    ∃ N0,
+                      LE.le.{0} 1 N0 ∧
+                        ∀ (n : ℕ),
+                          LE.le.{0} N0 n →
+                            ∀ (L : ℕ),
+                              LE.le.{0} (↑(HAdd.hAdd.{0, 0, 0} L 1)) (HMul.hMul.{0, 0, 0} T (Real.log ↑n)) →
+                                ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n),
+                                  TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                                    ∀ (ξ : ℝ) (p : Fin k)
+                                      (e :
+                                        Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+                                          (Fin n))
+                                      (ω : RiffleUpperV2.Sample cuts)
+                                      (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                                      RiffleUpperV2.Exploration.hasDirection cuts D g
+                                          RiffleUpperV2.Exploration.Direction.backward
+                                          (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+                                        ∀ (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+                                          (a :
+                                            Fin (RiffleUpperV2.Exploration.pileSize cuts p) →
+                                              RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+                                          Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 1 ∨
+                                              Eq.{1} (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)) 2 →
+                                            ∀ (ω₀ : RiffleUpperV2.Sample cuts),
+                                              RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+                                                RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω₀ →
+                                                  ∀ (E : ℕ) (v : RiffleUpperV2.Word k (Min.min.{0} E L))
+                                                    (Target : RiffleUpperV2.Sample cuts → Prop),
+                                                    (∀ (z : RiffleUpperV2.Sample cuts),
+                                                        RiffleUpperV2.Reservoir.pileBase cuts p e A a z →
+                                                          Target z →
+                                                            ∀ q ∉ A,
+                                                              Eq.{1}
+                                                                (RiffleUpperV2.Exploration.tailPrefix E
+                                                                  (RiffleUpperV2.Reservoir.tupleWords e z q))
+                                                                v) →
+                                                      (∀ (z : RiffleUpperV2.Sample cuts),
+                                                          RiffleUpperV2.Reservoir.pileBase cuts p e A a z →
+                                                            RiffleUpperV2.Exploration.historyFiber cuts p
+                                                                RiffleUpperV2.Exploration.Direction.backward
+                                                                (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω z →
+                                                              Target z →
+                                                                RiffleUpperV2.Reservoir.backwardUnmarkedHistoryConstraint
+                                                                  cuts p ω j A a) →
+                                                        LE.le.{0}
+                                                          (RiffleUpperV2.conditionalProbability.{0}
+                                                            (RiffleUpperV2.fixedCountPMF cuts) Target fun z =>
+                                                            RiffleUpperV2.Reservoir.pileBase cuts p e A a z ∧
+                                                              RiffleUpperV2.Exploration.historyFiber cuts p
+                                                                RiffleUpperV2.Exploration.Direction.backward
+                                                                (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω z)
+                                                          (HDiv.hDiv.{0, 0, 0}
+                                                            (HMul.hMul.{0, 0, 0}
+                                                              (HPow.hPow.{0, 0, 0} 2
+                                                                (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                                              (HPow.hPow.{0, 0, 0}
+                                                                (RiffleUpperV2.Exploration.tailMass cuts E v)
+                                                                (HMul.hMul.{0, 0, 0}
+                                                                  (↑(Finset.card.{0}
+                                                                      (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                                                  (HSub.hSub.{0, 0, 0} 1
+                                                                    (HDiv.hDiv.{0, 0, 0}
+                                                                      (Real.log (HDiv.hDiv.{0, 0, 0} 1 g))
+                                                                      (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))))))
+                                                            (HDiv.hDiv.{0, 0, 0}
+                                                              (HPow.hPow.{0, 0, 0}
+                                                                (RiffleUpperV2.Exploration.reserveMass k D g)
+                                                                (Finset.card.{0} (SDiff.sdiff.{0} Finset.univ.{0} A)))
+                                                              2))
+'RiffleUpperV2.Reservoir.backward_history_deletionPrefix_upper_uniform' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardMarkedRefinement : {k n L : ℕ} →
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) →
+    (p : Fin k) →
+      ℕ →
+        Finset.{0} (Fin n) →
+          RiffleUpperV2.Sample cuts →
+            Prod.{0, 0}
+              (Fin (RiffleUpperV2.Exploration.pileSize cuts p) →
+                Option.{0} (RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)))
+              (Prod.{0, 0} (Finset.{0} (Fin n)) (Fin n → Option.{0} (RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))))
+'RiffleUpperV2.Reservoir.backwardMarkedRefinement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backward_markedRefinement_fiber : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (i : ℕ) (M : Finset.{0} (Fin n))
+  (ω₀ z : RiffleUpperV2.Sample cuts),
+  Eq.{1} (RiffleUpperV2.Reservoir.backwardMarkedRefinement cuts p i M z)
+      (RiffleUpperV2.Reservoir.backwardMarkedRefinement cuts p i M ω₀) ↔
+    RiffleUpperV2.Reservoir.pileBase cuts p (RiffleUpperV2.Reservoir.pileEnumeration cuts p ω₀)
+        (RiffleUpperV2.Reservoir.unmarkedIndices (RiffleUpperV2.Reservoir.pileEnumeration cuts p ω₀) M)
+        (RiffleUpperV2.Reservoir.tupleWords (RiffleUpperV2.Reservoir.pileEnumeration cuts p ω₀) ω₀) z ∧
+      RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.backward i ω₀ z
+'RiffleUpperV2.Reservoir.backward_markedRefinement_fiber' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Reservoir.backward_markedRefinement_prefix_upper_uniform : ∀ (k D : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} 1 D →
+      ∀ (g τ T : ℝ),
+        LT.lt.{0} 0 g →
+          LT.lt.{0} g 1 →
+            LT.lt.{0} 0 τ →
+              LT.lt.{0} τ g →
+                LT.lt.{0} 0 T →
+                  LT.lt.{0}
+                      (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g)) (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))
+                      1 →
+                    ∃ N0,
+                      LE.le.{0} 1 N0 ∧
+                        ∀ (n : ℕ),
+                          LE.le.{0} N0 n →
+                            ∀ (L : ℕ),
+                              LE.le.{0} (↑(HAdd.hAdd.{0, 0, 0} L 1)) (HMul.hMul.{0, 0, 0} T (Real.log ↑n)) →
+                                ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n),
+                                  TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                                    ∀ (ξ : ℝ) (p : Fin k) (ω : RiffleUpperV2.Sample cuts)
+                                      (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                                      RiffleUpperV2.Exploration.hasDirection cuts D g
+                                          RiffleUpperV2.Exploration.Direction.backward
+                                          (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+                                        ∀ (m : ℕ),
+                                          Eq.{1} m 1 ∨ Eq.{1} m 2 →
+                                            ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin n)) (E : ℕ)
+                                              (v : RiffleUpperV2.Word k (Min.min.{0} E L)),
+                                              (∀ (w : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+                                                  Eq.{1} (List.Vector.get.{0} w 0) p →
+                                                    Eq.{1} (RiffleUpperV2.Exploration.tailPrefix E w) v →
+                                                      LT.lt.{0} w (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)) →
+                                                ∀ (ω₀ : RiffleUpperV2.Sample cuts),
+                                                  RiffleUpperV2.Exploration.historyFiber cuts p
+                                                      RiffleUpperV2.Exploration.Direction.backward
+                                                      (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω ω₀ →
+                                                    RiffleUpperV2.Reservoir.markedPileEvent p f ω₀ →
+                                                      RiffleUpperV2.Reservoir.goodMarkedView cuts D g ξ p
+                                                          (Finset.map.{0, 0} f Finset.univ.{0}) ω₀ →
+                                                        LE.le.{0}
+                                                          (RiffleUpperV2.conditionalProbability.{0}
+                                                            (RiffleUpperV2.fixedCountPMF cuts)
+                                                            (RiffleUpperV2.Reservoir.markedTailEvent p f v) fun z =>
+                                                            Eq.{1}
+                                                              (RiffleUpperV2.Reservoir.backwardMarkedRefinement cuts p
+                                                                (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                                                (Finset.map.{0, 0} f Finset.univ.{0}) z)
+                                                              (RiffleUpperV2.Reservoir.backwardMarkedRefinement cuts p
+                                                                (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                                                (Finset.map.{0, 0} f Finset.univ.{0}) ω₀))
+                                                          (HDiv.hDiv.{0, 0, 0}
+                                                            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 2 m)
+                                                              (HPow.hPow.{0, 0, 0}
+                                                                (RiffleUpperV2.Exploration.tailMass cuts E v)
+                                                                (HMul.hMul.{0, 0, 0} (↑m)
+                                                                  (HSub.hSub.{0, 0, 0} 1
+                                                                    (HDiv.hDiv.{0, 0, 0}
+                                                                      (Real.log (HDiv.hDiv.{0, 0, 0} 1 g))
+                                                                      (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))))))
+                                                            (HDiv.hDiv.{0, 0, 0}
+                                                              (HPow.hPow.{0, 0, 0}
+                                                                (RiffleUpperV2.Exploration.reserveMass k D g) m)
+                                                              2))
+'RiffleUpperV2.Reservoir.backward_markedRefinement_prefix_upper_uniform' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Reservoir.backward_markedRefinement_current_upper_uniform : ∀ (k D : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} 1 D →
+      ∀ (g τ T : ℝ),
+        LT.lt.{0} 0 g →
+          LT.lt.{0} g 1 →
+            LT.lt.{0} 0 τ →
+              LT.lt.{0} τ g →
+                LT.lt.{0} 0 T →
+                  LT.lt.{0}
+                      (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g)) (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ)))
+                      1 →
+                    ∃ N0,
+                      LE.le.{0} 1 N0 ∧
+                        ∀ (n : ℕ),
+                          LE.le.{0} N0 n →
+                            ∀ (L : ℕ),
+                              LE.le.{0} (↑(HAdd.hAdd.{0, 0, 0} L 1)) (HMul.hMul.{0, 0, 0} T (Real.log ↑n)) →
+                                ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n),
+                                  TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                                    ∀ (ξ : ℝ) (p : Fin k) (ω : RiffleUpperV2.Sample cuts)
+                                      (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                                      RiffleUpperV2.Exploration.hasDirection cuts D g
+                                          RiffleUpperV2.Exploration.Direction.backward
+                                          (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) →
+                                        ∀ (f : Function.Embedding.{1, 1} (Fin 1) (Fin n))
+                                          (ω₀ : RiffleUpperV2.Sample cuts),
+                                          RiffleUpperV2.Exploration.historyFiber cuts p
+                                              RiffleUpperV2.Exploration.Direction.backward (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                              ω ω₀ →
+                                            RiffleUpperV2.Reservoir.markedPileEvent p f ω₀ →
+                                              RiffleUpperV2.Reservoir.goodMarkedView cuts D g ξ p
+                                                  (Finset.map.{0, 0} f Finset.univ.{0}) ω₀ →
+                                                LE.le.{0}
+                                                  (RiffleUpperV2.conditionalProbability.{0}
+                                                    (RiffleUpperV2.fixedCountPMF cuts)
+                                                    (RiffleUpperV2.Reservoir.markedCurrentEvent f
+                                                      (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)
+                                                      (RiffleUpperV2.Reservoir.observedCount.{0}
+                                                        (RiffleUpperV2.Reservoir.backwardWords cuts p ω)
+                                                        (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                                        (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)))
+                                                    fun z =>
+                                                    Eq.{1}
+                                                      (RiffleUpperV2.Reservoir.backwardMarkedRefinement cuts p
+                                                        (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                                        (Finset.map.{0, 0} f Finset.univ.{0}) z)
+                                                      (RiffleUpperV2.Reservoir.backwardMarkedRefinement cuts p
+                                                        (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                                        (Finset.map.{0, 0} f Finset.univ.{0}) ω₀))
+                                                  (HDiv.hDiv.{0, 0, 0}
+                                                    (HMul.hMul.{0, 0, 0} 2
+                                                      (HPow.hPow.{0, 0, 0}
+                                                        (RiffleUpperV2.Exploration.tailMass cuts L
+                                                          (RiffleUpperV2.Exploration.tailPrefix L
+                                                            (RiffleUpperV2.Reservoir.backwardWords cuts p ω j)))
+                                                        (HSub.hSub.{0, 0, 0} 1
+                                                          (HDiv.hDiv.{0, 0, 0} (Real.log (HDiv.hDiv.{0, 0, 0} 1 g))
+                                                            (Real.log (HDiv.hDiv.{0, 0, 0} 1 τ))))))
+                                                    (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                                                      2))
+'RiffleUpperV2.Reservoir.backward_markedRefinement_current_upper_uniform' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+BUILD_OK U04

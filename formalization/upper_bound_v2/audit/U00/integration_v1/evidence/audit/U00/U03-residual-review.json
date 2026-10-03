@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of lane author",
+  "recorded_at": "2026-10-02T10:04:49.949359+00:00",
+  "sources": {
+    "Anchor/ResidualOtherLaw.lean": "cf6b22bf75a7a88385414b7bedaf5b4a65af13790d39c518e372f071e2b430fe",
+    "Anchor/ResidualOtherTail.lean": "5d49106a664836d246116d73be0188f88e0d533a1ec10fbcd2174f5649cc185f"
+  },
+  "mathematics_and_model": [
+    "All-other-columns fiber equals the actual partial reveal with empty exposed set. A random set determined by these columns is constant there.",
+    "Residual digit count is the intersection of its complement with the selected digit subset. Exact finite-population law has population n, marked full-column allowedCount, draws n-|A|.",
+    "Half-mean threshold retains the atom-specific random |A|. Replacing it by a representative value is justified only on that fiber.",
+    "The reserve A subset R gives residual mean at least g times full-column allowedCount; averaging all positive history atoms gives the unconditional tail."
+  ],
+  "adversarial": [
+    "No independence of A from other columns or suffixes required. It must be determined by all columns except the tested one.",
+    "Zero marked count yields a valid bound of one; no division by a potentially zero residual population introduced.",
+    "Fine-history impossibility is handled by actual reveal APIs and averaging only positive fibers; no conclusion is conditioned on the final good event."
+  ],
+  "remaining_obligations": [
+    "Actual unequal witness cylinders, failure union, variance and coarse endpoint atom transfer remain U03 tasks."
+  ],
+  "independent_build": {
+    "receipt": "finite-lanes-check-build.json",
+    "log": "finite-lanes-check.log",
+    "inventory": "finite-lanes-declarations.json",
+    "declarations": 578,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

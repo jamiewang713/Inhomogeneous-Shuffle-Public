@@ -1,0 +1,43 @@
+{
+  "status": "PASS_FOR_NARROW_SLICE",
+  "reviewer": "U00 independent of U03",
+  "recorded_at": "2026-10-02T09:37:34.101614+00:00",
+  "sources": {
+    "RiffleUpperV2/Anchor/UnequalDefinitions.lean": "8c039f30f8b11b5c01b6a120829708035fd829f6c2f183d6a6e5f6569d53679c",
+    "RiffleUpperV2/Anchor/UnequalEndpoint.lean": "7d599e74df6fed52ed19aa5ea20cd1360d2c1f2e4a9740f78f028c5b48788882",
+    "RiffleUpperV2/Anchor/UnequalHistory.lean": "709c829368c60e9d3e7ae1c37beef3d32b2712bb7fbba3eec221d14ad61ba3f7",
+    "RiffleUpperV2/Anchor/UnequalLaw.lean": "604616ac6e7a36a41945a214b997a827c39acfcc6ba437d486385001b0b76330",
+    "RiffleUpperV2/Anchor/UnequalMeasurability.lean": "2a9d226b689e25cc35114f053af0dee60028dc0b6f27b65041d95926e9411946"
+  },
+  "mathematics": [
+    "A and B depend on all columns other than selected j; history equality exactly identifies partialRevealFiber.",
+    "The suffix comparison ends at |x|, so every prefix-x row belongs to the exposed complement A and internalHistory is a coarsening.",
+    "Full lexicographic comparison on B yields <= selected digit in lower-suffix case, < selected digit in upper-suffix case; A contributes a revealed shift.",
+    "Sample/exposed sets and shifts are constant on the fine fiber; exact partialRevealSourceExpect applies to both endpoints under actual fixedCountPMF."
+  ],
+  "model_quantifiers": [
+    "No assumed conditional law, no positive variance premise, no proper continuation hypothesis.",
+    "R selects counted rows; residual sampling still uses all n labels.",
+    "Alternative enlarged B has prior mathematical interface review; B0 inclusion remains to be proved before quantitative lower bounds."
+  ],
+  "adversarial": [
+    "x=v and full word are included.",
+    "Selected j last coordinate gives empty unequal B and deterministic law; no positive variance then claimed.",
+    "A is sample dependent but proven constant under the other-column reveal, so fixed-set sampling theorem is used legitimately."
+  ],
+  "missing": [
+    "B0 inclusion, good-event probability and variance lower bound",
+    "extremal choices, reflection and final coarser atom bound"
+  ],
+  "independent_build": {
+    "receipt": "unequal-check-build.json",
+    "log": "unequal-check.log",
+    "exit_code": 0,
+    "upper_declarations": 1218,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

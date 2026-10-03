@@ -1,0 +1,200 @@
+{
+  "recorded_at": "2026-10-02T08:49:13.262286+00:00",
+  "status": "PARTIAL",
+  "endpoints": {
+    "F": {
+      "declaration": "RiffleUpperV2.Contracts.V1.F",
+      "kind": "SPECIFICATION_ONLY",
+      "owner": "U05",
+      "proof_status": "MISSING"
+    },
+    "C": {
+      "declaration": "RiffleUpperV2.Contracts.V1.C",
+      "kind": "SPECIFICATION_ONLY",
+      "owner": "U09",
+      "proof_status": "MISSING"
+    },
+    "E": {
+      "declaration": "RiffleUpperV2.Contracts.V1.E",
+      "kind": "SPECIFICATION_ONLY",
+      "owner": "U11",
+      "proof_status": "MISSING"
+    },
+    "P": {
+      "declaration": "RiffleUpperV2.Contracts.V1.P",
+      "kind": "SPECIFICATION_ONLY",
+      "owner": "U12",
+      "proof_status": "MISSING"
+    },
+    "T": {
+      "declaration": "RiffleUpperV2.Contracts.V1.T",
+      "kind": "SPECIFICATION_ONLY",
+      "owner": "U12",
+      "proof_status": "MISSING"
+    },
+    "R": {
+      "declaration": "RiffleUpperV2.Contracts.V1.R",
+      "kind": "SPECIFICATION_ONLY",
+      "owner": "U12",
+      "proof_status": "MISSING"
+    }
+  },
+  "lanes": {
+    "U00": {
+      "state": "ACTIVE",
+      "expected_exports": [
+        "- F/C/E/P/T/R frozen specifications and exact source map",
+        "- CONTRACTS_READY.json",
+        "- Completed import and integrated proof ledger"
+      ]
+    },
+    "U01": {
+      "state": "QUEUED",
+      "expected_exports": [
+        "- GraphOverlap.overlapIdentity",
+        "- GraphOverlap.boundedComponentOverlap",
+        "- GraphOverlap.truncatedTV",
+        "- GraphOverlap.largestComponentTail",
+        "- GraphOverlap.collisionUpper"
+      ]
+    },
+    "U02": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Hypergeometric.transformBound",
+        "- Hypergeometric.twoSidedTail",
+        "- Hypergeometric.atomBound",
+        "- Hypergeometric.anchorCylinderTransform",
+        "- Hypergeometric.anchorCylinderTail"
+      ]
+    },
+    "U03": {
+      "state": "ACTIVE",
+      "expected_exports": [
+        "- Anchor.endpointShiftHypergeometric",
+        "- Anchor.smoothingFailure",
+        "- Anchor.endpointVariance",
+        "- Anchor.conditionalEndpointAtoms"
+      ]
+    },
+    "U04": {
+      "state": "ACTIVE_RELEASING_DETERMINISTIC_SLICE; full density proofs pending",
+      "expected_exports": [
+        "- Localization.stableCover",
+        "- Localization.endpointWindow",
+        "- Localization.relevantParents",
+        "- Localization.irrelevantLoss",
+        "- Localization.smallDensity",
+        "- Localization.largeDensity",
+        "- Localization.terminalDensity"
+      ]
+    },
+    "U05": {
+      "state": "QUEUED",
+      "expected_exports": [
+        "- FirstMoment.empiricalCostClassCount",
+        "- FirstMoment.classEntropy",
+        "- FirstMoment.empiricalExponentBounds",
+        "- FirstMoment.empiricalFirstMoment"
+      ]
+    },
+    "U06": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Margins.costStability",
+        "- Margins.inducedMargin",
+        "- Margins.deletePrefixMargin",
+        "- Margins.maximalWordIdentity",
+        "- Margins.fixedPartitionQuadrature",
+        "- Margins.profileToEmpiricalMargin"
+      ]
+    },
+    "U07": {
+      "state": "ACTIVE",
+      "expected_exports": [
+        "- Exploration.goodCluster",
+        "- Exploration.uniformConcentration",
+        "- Exploration.naturalHistory",
+        "- Exploration.historyGoodProbability",
+        "- Exploration.directionalCover",
+        "- Exploration.unitIncrements",
+        "- Exploration.regularityFailure"
+      ]
+    },
+    "U08": {
+      "state": "QUEUED",
+      "expected_exports": [
+        "- Reservoir.historyAtom",
+        "- Reservoir.exactMarkedRowLaw",
+        "- Reservoir.prefixCount",
+        "- Reservoir.extraCurrentCopies",
+        "- Reservoir.tailCollisions",
+        "- Reservoir.conditionalFutureCylinderLaw"
+      ]
+    },
+    "U09": {
+      "state": "QUEUED",
+      "expected_exports": [
+        "- Conditional.futureCylinderDecomposition",
+        "- Conditional.refinementCount",
+        "- Conditional.selfIntersectionJensen",
+        "- Conditional.remainingCommonEdges"
+      ]
+    },
+    "U10": {
+      "state": "QUEUED",
+      "expected_exports": [
+        "- Exponential.stoppedBinomialMoment",
+        "- Exponential.adaptedExcess",
+        "- Exponential.finiteExplorationTV",
+        "- Exponential.boundedComponentTruncation"
+      ]
+    },
+    "U11": {
+      "state": "QUEUED",
+      "expected_exports": [
+        "- EmpiricalUpper.deletedPrefixTVContraction",
+        "- EmpiricalUpper.restartHypotheses",
+        "- EmpiricalUpper.empiricalUpper"
+      ]
+    },
+    "U12": {
+      "state": "QUEUED",
+      "expected_exports": [
+        "- ProfileUpper.bufferedUpper",
+        "- ProfileUpper.marginMonotonicity",
+        "- ProfileUpper.dominanceReduction",
+        "- ProfileUpper.criticalTimeUpper",
+        "- ProfileUpper.mixingTimeUpper",
+        "- ProfileUpper.randomEmpiricalUpper",
+        "- ProfileUpper.randomProfileUpper"
+      ]
+    },
+    "U13": {
+      "state": "INCREMENTAL_REVIEW_COMPLETE; FINAL_AUDIT_QUEUED",
+      "expected_exports": [
+        "- Independent final exact-type/source correspondence report",
+        "- Fresh-build and transitive trust evidence",
+        "- FINAL_AUDIT.json with separate F/C/E/P/T/R verdicts"
+      ]
+    }
+  },
+  "remaining_obligations": [
+    "U01 actual graph factorial overlap, truncation and component tail",
+    "U03 concrete endpoint smoothing event, conditional shift law, variance lower bound and atoms",
+    "U04 actual endpoint windows, relevant parents, small/large/terminal density estimates",
+    "U05 uniform cost-class entropy, exponent estimates and concrete F",
+    "U07 full concentration H, reserve construction, common-edge directional coverage and regularity",
+    "U08 exact natural-history reservoir and future-cylinder disintegration",
+    "U09 conditional remaining-edge C with all generic inputs discharged",
+    "U10 adapted exponential excess and actual finite TV criterion",
+    "U11 deletion/restart and E",
+    "U12 deterministic profile P, critical/mixing T, random R",
+    "fresh complete source build, transitive trust and U13 final acceptance"
+  ],
+  "not_completion": [
+    "Prop definitions compile but prove no endpoints",
+    "conditional helper premises are tracked until discharged",
+    "CONTRACTS_READY is distinct from INTEGRATION_READY"
+  ]
+}

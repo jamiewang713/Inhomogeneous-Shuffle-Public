@@ -1,0 +1,243 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T20:37:26.461822+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U05",
+    "RiffleUpperV2.FirstMoment.CandidateCount"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U05",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U05/lib/lean",
+  "built": [
+    "RiffleUpperV2.FirstMoment.CandidateCount"
+  ],
+  "modules": {
+    "RiffleUpperV2.FirstMoment.CandidateCount": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/CandidateCount.lean",
+      "sha256": "bf1496f9825d365070c971a1ceec920c3c2dfa3cc83df28cad3f8cab3957bd4c",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.FirstMoment.DensityAggregation": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/DensityAggregation.lean",
+      "sha256": "b56e873457d574176844ad13e1c0cf8907d296f9dfcccef486f86f7d3736876e",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.UniformClassDensity": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/UniformClassDensity.lean",
+      "sha256": "29e525403da8f4bc92fe93f86592854121cb7eba8ecb1d97dd170fd13723201e",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.ClassDensity": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassDensity.lean",
+      "sha256": "423b46c762c22642a0c38c1215c31f95735f25b5ca1b9d504a20209659d44a2a",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.ClassExponents": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassExponents.lean",
+      "sha256": "53a115d8f8f0c42e607bbe0db0394022e47d008c311b104a2f42056f7be8cf6a",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.ClassFibers": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassFibers.lean",
+      "sha256": "865452768020e1f5b04132efeeeefcf5f1a9cacdd7304131f8500527fedc11af",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.RetainedClasses": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/RetainedClasses.lean",
+      "sha256": "1bf5f9744be38990a0538c5d3f593b72aec58ca4cbfd72e5906712398c2cdcf4",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.Partition": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/Partition.lean",
+      "sha256": "c87edd21b6648690073e018525a12b1832def66e0ab5b49fd75895bf62b4975c",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.Discard": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/Discard.lean",
+      "sha256": "56325a50dfba5e221d6df69f0560e65223923ab7123a0860f441445f657a39e2",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.Count": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/Count.lean",
+      "sha256": "4ff343f45ed7d8de5f73a9d44d01b6d2ea962ed857e6924c687c1e7c14c10fbe",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.ClassAdapters": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassAdapters.lean",
+      "sha256": "991d44d7fcae44771653bd195b7420033813d5c00717fe23b8a7a1b03570f982",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.WordCosts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/WordCosts.lean",
+      "sha256": "215f69c83d9d2ddb998b5fc168a50fbdd49847aee71937ecfbff0c45e03e9a9d",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.Entropy": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/Entropy.lean",
+      "sha256": "a1269fc52407da663893167f873df0381cb175aa479a525c7de4802aa2433402",
+      "kind": "project"
+    },
+    "FirstMoment.Entropy": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/FirstMoment/Entropy.lean",
+      "sha256": "7989028dd7addb46b87a9176e85560d9c9f5edb3497ede44b7b0ded9964563b2",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Shared.Empirical": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Empirical.lean",
+      "sha256": "108ae31a7f9d966eb05ba2a5da78e8345191fc696328eaee13e95ab5aeadb7da",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.FirstMoment.Exponents": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/Exponents.lean",
+      "sha256": "b759874e38e22e786ec614653db161b82fb4dbb46800d684d41141576ffde864",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Infimum": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Infimum.lean",
+      "sha256": "47f1bda2874fe6da5fe8088b5739fd043e06f3cd26f127325fdd98f60300af52",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Margins.Suffix": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Margins/Suffix.lean",
+      "sha256": "586e66b16878f7e9f816f52abc2a442947f9e52aae38e60f366d507f18d66a0c",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.FirstMoment.BoundaryCosts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/BoundaryCosts.lean",
+      "sha256": "c67b43795d71fcc4f37037bde4d2fab4fdc110e2817fb70c70617ea7f2d1ba07",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.Descriptors": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/Descriptors.lean",
+      "sha256": "aa2b29880a909c9a62a79781585724787175eea541d8c59c6a391c61daffb6d3",
+      "kind": "project"
+    },
+    "FirstMoment.Counting": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/first_moment/FirstMoment/Counting.lean",
+      "sha256": "32f569c056a825ae389cc5d9e5e2104f3701af6b24adce60c3a170f89d515728",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.Boundary": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Boundary.lean",
+      "sha256": "5183e8f1a59c135231d898aee39b7501665bf1a04b5da44c2285ef850c567f7d",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Compat.EmpiricalCountLimits": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean",
+      "sha256": "e72d43eabfa5e10b8eac298765a67e2978cf73d2a22c1b5b6569c3c6d9b3555c",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Compat.FixedPolynomial": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/FixedPolynomial.lean",
+      "sha256": "0939833601bb41cdcac1a85af9d8307622adaf693163ac1992ca09068d803d7f",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Compat.EmpiricalTailLimits": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalTailLimits.lean",
+      "sha256": "b5adb0c18ffdb42290cc654e29ee8170f4faca061ad2368707125f9718f59047",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Compat.EmpiricalWordMass": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalWordMass.lean",
+      "sha256": "7389d816d63021b2fdf36b29103078edbce55109edc9e635ad273e6d20e70852",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.CylinderMean": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/CylinderMean.lean",
+      "sha256": "78f861bac52408f5888b01b2dfa1a3acfcffe8d725603e5a23da455ed81ea92b",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.FirstMoment.AnchoredCosts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/AnchoredCosts.lean",
+      "sha256": "e02ae824475e733ba7a4eb121df23d8bc4cf3ddd4b4adaa92dc87647e7246769",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.StoppingCosts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/StoppingCosts.lean",
+      "sha256": "d305ba47bec88fb8b277098fa0eb98022f6d1783d6578e9224d7ee096fbba757",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.MaximalCosts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/MaximalCosts.lean",
+      "sha256": "070a35b9a52c095cd767f74227ae3a24e398db158843e2c3647c090eea6bce8a",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.FirstColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/FirstColumn.lean",
+      "sha256": "3b24762b8a1a307a683dab84704e44566deea866438304b20d46ae1600b9419c",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Hypergeometric.ConditionalAnchor": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/ConditionalAnchor.lean",
+      "sha256": "2ea180d9ab104be8e9e4eda271729dd28b05ff3356b3ae71d2f6bb15bb3aa6a6",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.EdgeRelabel": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EdgeRelabel.lean",
+      "sha256": "675374020d854228279529a17bc7c68b37168da1daaa1837d135d5fc810f75cc",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.FirstMoment.TailCosts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/TailCosts.lean",
+      "sha256": "0887213331c7b90afce75fb72cbda1853b68338120fcf9d872cf0c34c4cf2c82",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.TailGrid": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/TailGrid.lean",
+      "sha256": "0c587c158006ec53b0d7070f7e34cf61ffe4440417b16e41a65dfea282298db5",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Localization.CollisionMass": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/CollisionMass.lean",
+      "sha256": "e52b4a2c1a84101fb5a7af2f381125c8378388e957c337e35703f4bb777b1c4b",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.StableScales": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/StableScales.lean",
+      "sha256": "f09c641308340d4e01b4cc1d2a0528f650bd4c19e618fba48a3169ddda23fca7",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.FirstMoment.DensityPowers": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/DensityPowers.lean",
+      "sha256": "cff3894f2e994ef649d889ede525564b9c38e8be5871a2a58fcffc5a3901ce16",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Localization.Eventual": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Eventual.lean",
+      "sha256": "77aafc16475bee1d5858115fb1f75b7576ef40681ddf19cd0a1691a809e15633",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.FirstMoment.FirstPileReserve": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/FirstPileReserve.lean",
+      "sha256": "2db61f79934d6f71c2f639e7e9facba63a78724f53f8077e48002010f9d61391",
+      "kind": "project"
+    },
+    "RiffleUpperV2.FirstMoment.DensityRates": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/DensityRates.lean",
+      "sha256": "4bdad680130f0baaa63e352ef9736a201baaacc64af812cc45dbd1a356a7e07e",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Localization.FailureRate": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/FailureRate.lean",
+      "sha256": "964599770c5481c98526b12cd2f7b65347ca0a0fa9afa60c1f875284c5ad4a3d",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Shared.FiniteFibers": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/FiniteFibers.lean",
+      "sha256": "fc6554015323ca66ac18db92c2c3d5e765c35a717c6054bb7fbab25cc77173c1",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Shared.FiniteFiberCounts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/FiniteFiberCounts.lean",
+      "sha256": "8090f76b81ce24be73ea133a9fba87b0ea55ca00a50628dfa326f549d11c983a",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "67925715d215594396263d81e78af9f37faa40297a75918efdbaa6dc90500eb5"
+}

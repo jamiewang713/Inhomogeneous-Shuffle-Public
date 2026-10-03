@@ -1,0 +1,84 @@
+CHECK RiffleUpperV2.Exponential.Conditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:30:8: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:73:37: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [masked_expect_zero P _ hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:101:0: warning: automatically included section variable(s) unused in theorem `RiffleUpperV2.Exponential.conditional_le_of_weighted`:
+  [Fintype H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CHECK RiffleUpperV2.Exponential.Stopping
+CHECK RiffleUpperV2.Exponential.Moments
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean:13:0: warning: automatically included section variable(s) unused in theorem `RiffleUpperV2.Exponential.stoppedTail`:
+  [Fintype H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean:86:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  w ω
+in the target expression
+  (fun ω => w ω * ↑(X (j + 1) ω - X j ω)) ω = (fun ω => w ω * ↑(X (j + 1) ω - X j ω)) v
+
+Ω : Type u_1
+H : Type u_2
+inst✝¹ : Fintype Ω
+inst✝ : Fintype H
+P : PMF Ω
+h : ℕ → Ω → H
+X : ℕ → Ω → ℕ
+m : ℕ
+γ : ℝ
+hγ : 0 ≤ γ
+href : Refining h m
+hunit : ∀ (ω : Ω), UnitIncrements (fun i => X i ω) m
+had : ∀ i ≤ m, HistoryMeasurable (h i) (X i)
+htail :
+  ∀ i ≤ m,
+    ∀ (a : Ω),
+      (0 < probability P fun ω => h i ω = h i a) →
+        (conditionalExpect P (fun ω => ↑(X m ω - X i ω)) fun ω => h i ω = h i a) ≤ γ
+r : ℕ
+ih :
+  ∀ i ≤ m,
+    ∀ (w : Ω → ℝ),
+      (∀ (ω : Ω), 0 ≤ w ω) →
+        HistoryMeasurable (h i) w → (expect P fun ω => w ω * ↑((X m ω - X i ω).choose r)) ≤ γ ^ r * expect P w
+i : ℕ
+hi : i ≤ m
+w : Ω → ℝ
+hw : ∀ (ω : Ω), 0 ≤ w ω
+haw : HistoryMeasurable (h i) w
+he :
+  (expect P fun ω => w ω * ↑((X m ω - X i ω).choose (r + 1))) =
+    ∑ j ∈ Finset.Ico i m, expect P fun ω => w ω * ↑(X (j + 1) ω - X j ω) * ↑((X m ω - X (j + 1) ω).choose r)
+j : ℕ
+hj : j ∈ Finset.Ico i m
+hij : i ≤ j
+hjm : j < m
+ω v : Ω
+hv : h (j + 1) ω = h (j + 1) v
+hwv : w ω = w v
+hx1 : X (j + 1) ω = X (j + 1) v
+hx0 : X j ω = X j v
+⊢ (fun ω => w ω * ↑(X (j + 1) ω - X j ω)) ω = (fun ω => w ω * ↑(X (j + 1) ω - X j ω)) v
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean:124:39: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

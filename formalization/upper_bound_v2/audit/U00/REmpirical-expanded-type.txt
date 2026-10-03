@@ -1,0 +1,27 @@
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ (ρ0 : ℝ),
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∀ (K : ℕ → ℕ),
+                          (∀ (N : ℕ), 2 ≤ N → ↑(K N) ≤ T * Real.log ↑N) →
+                            ∀ (Q : (N : ℕ) → PMF (RiffleUpperV2.Cuts k N (K N))),
+                              Filter.Tendsto
+                                  (fun (N : ℕ) =>
+                                    RiffleUpperV2.probability (Q N) fun (cuts : RiffleUpperV2.Cuts k N (K N)) =>
+                                      ∃ (hN : 2 ≤ N),
+                                        RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧
+                                          RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑(K N) / Real.log ↑N))
+                                  Filter.atTop (nhds 1) →
+                                Filter.Tendsto
+                                  (fun (N : ℕ) =>
+                                    RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw (Q N))
+                                      (RiffleUpperV2.uniformPermutation N))
+                                  Filter.atTop (nhds 0)

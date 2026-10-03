@@ -1,0 +1,10 @@
+import RiffleUpperV2.EmpiricalUpper.Parameters
+#print RiffleUpperV2.EmpiricalUpper.completionRho
+#print RiffleUpperV2.EmpiricalUpper.upperEta_spec
+#print RiffleUpperV2.EmpiricalUpper.upperGood_spec
+#print RiffleUpperV2.EmpiricalUpper.upperDensity_spec
+#print RiffleUpperV2.EmpiricalUpper.componentBoundExists
+#print axioms RiffleUpperV2.EmpiricalUpper.completionRho
+#print axioms RiffleUpperV2.EmpiricalUpper.upperEta_spec
+#print axioms RiffleUpperV2.EmpiricalUpper.upperGood_spec
+#print axioms RiffleUpperV2.EmpiricalUpper.componentBoundExists

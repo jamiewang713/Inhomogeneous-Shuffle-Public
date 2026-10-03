@@ -1,0 +1,14 @@
+CHECK RiffleUpperV2.GraphOverlap.LargestComponent
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/LargestComponent.lean:18:46: error: No goals to be solved
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/LargestComponent.lean:33:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  RiffleLowerV2.probability (TimeProfile.fixedCountPMF cuts) fun ω => ∃ w, q ≤ wordCount w ω
+in the target expression
+  (probability (fixedCountPMF cuts) fun ω => ∃ w, q ≤ wordCount w ω) ≤ ↑N * maximalMean cuts hN ^ (q - 1) / ↑q.factorial
+
+case neg
+k N K q : ℕ
+cuts : Cuts k N K
+hN : 0 < N
+hq : 2 ≤ q
+hqN : ¬q ≤ N
+⊢ (probability (fixedCountPMF cuts) fun ω => ∃ w, q ≤ wordCount w ω) ≤ ↑N * maximalMean cuts hN ^ (q - 1) / ↑q.factorial

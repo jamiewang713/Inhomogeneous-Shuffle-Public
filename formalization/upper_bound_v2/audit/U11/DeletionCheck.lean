@@ -1,0 +1,7 @@
+import RiffleUpperV2.EmpiricalUpper.Deletion
+set_option pp.universes true in
+#print RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction
+#print RiffleUpperV2.EmpiricalUpper.physicalInverseLaw_head
+#print axioms RiffleUpperV2.EmpiricalUpper.deletedPrefixTVContraction
+#print axioms RiffleUpperV2.EmpiricalUpper.physicalInverseLaw_head
+#print axioms RiffleUpperV2.EmpiricalUpper.randomEquivTVContraction

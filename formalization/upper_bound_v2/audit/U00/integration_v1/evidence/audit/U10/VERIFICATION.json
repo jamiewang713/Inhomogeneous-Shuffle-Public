@@ -1,0 +1,105 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "scope": "U10 generic finite adapted-exponential and TV lane only. Does not prove the concrete empirical endpoint E or any other public model endpoint.",
+  "recorded_at": "2026-10-02T10:08:50.455776+00:00",
+  "main_import": "RiffleUpperV2.Exponential.Main",
+  "source_files": {
+    "RiffleUpperV2/Exponential/Aggregation.lean": "fec6290a2e11f0b1ed617d937c0738db67478bd818401656edcb08c244297c07",
+    "RiffleUpperV2/Exponential/Asymptotic.lean": "ede43e2b471e0a134716d3155cc489046e593300ed18774a888dcef33ec9357b",
+    "RiffleUpperV2/Exponential/Conditioning.lean": "f5460e12ae5e5be8b1f715388a4c12e5417967a375f1a0f8bf825f9d3c896645",
+    "RiffleUpperV2/Exponential/Excess.lean": "312a053e114cb242ff3984de31a1407d70d664288bc74d3f3f42461fa7947465",
+    "RiffleUpperV2/Exponential/FiniteTV.lean": "f8ffe5368508dd8261f2f09adc064f41f49cfca16c7aef6f745c7aa37498be46",
+    "RiffleUpperV2/Exponential/Main.lean": "b4e598c88fcc7352f200f9ae4fa98971b0623fcb56b99a0a012aa10aa45f0246",
+    "RiffleUpperV2/Exponential/Moments.lean": "44d386ff6631e7fef0ad6f56e780c6184b4c88f7957465620fe7e380f3f563f5",
+    "RiffleUpperV2/Exponential/Numerical.lean": "74c95bbf5b988ee6a0f9aa41ae7b0db94f86e4065f45a91b87da8e3a484c0af0",
+    "RiffleUpperV2/Exponential/Pathwise.lean": "9641d61887ccacc85010fbccf478bf608555652ef61099365ac457447889c821",
+    "RiffleUpperV2/Exponential/Stopping.lean": "ae477694549a259a1f314d9b183c2aa0a7e3eca007bc982a31d4a601c6c347e1",
+    "RiffleUpperV2/Exponential/Truncation.lean": "d6672acba1b25599078b1e541fa382ecd0eb1dd41a3b84a2115ca49351eddc95"
+  },
+  "planned_exports": [
+    "RiffleUpperV2.Exponential.stoppedBinomialMoment",
+    "RiffleUpperV2.Exponential.adaptedExcess",
+    "RiffleUpperV2.Exponential.finiteExplorationTV",
+    "RiffleUpperV2.Exponential.boundedComponentTruncation"
+  ],
+  "additional_main_exports": [
+    "RiffleUpperV2.Exponential.stoppedTail",
+    "RiffleUpperV2.Exponential.finiteExplorationExcess",
+    "RiffleUpperV2.Exponential.boundedComponentExplorationTV",
+    "RiffleUpperV2.Exponential.eventually_geometricDenominator",
+    "RiffleUpperV2.Exponential.geometric_ratio_le_power",
+    "RiffleUpperV2.Exponential.truncationRHS_tendsto"
+  ],
+  "public_theorems": 44,
+  "public_definitions": 7,
+  "all_lane_declarations_including_generated": 91,
+  "exact_explicit_types": "public-exports.json",
+  "transitive_types_dependencies_axioms": "declarations.json",
+  "build": {
+    "command": [
+      "python3",
+      "formalization/upper_bound_v2/scripts/build.py",
+      "--lane",
+      "U10",
+      "--fresh",
+      "RiffleUpperV2.Exponential.Main"
+    ],
+    "exit_code": 0,
+    "receipt": "fresh-build.json",
+    "log": "fresh-build.log",
+    "meaning": "Fresh source rebuild of all 11 owned modules against hash-checked U00-staged project dependencies built with the pinned compiler; no older Lean project cache is used."
+  },
+  "audit": {
+    "command": [
+      "python3",
+      "formalization/upper_bound_v2/scripts/build.py",
+      "--lane",
+      "U10",
+      "--run",
+      "audit/U10/Check.lean"
+    ],
+    "exit_code": 0,
+    "receipt": "type-axiom-build.json",
+    "log": "signatures-and-axioms.log",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "coverage": "Every imported Exponential declaration including generated and private declarations; Lean.collectAxioms checks transitive proof dependencies."
+  },
+  "independent_review": {
+    "reviewer": "U00, independent of U10 author",
+    "perspectives": [
+      "mathematics",
+      "statement/model/quantifiers",
+      "adversarial/boundary examples"
+    ],
+    "receipts": [
+      "../U00/U10-excess-review.json",
+      "../U00/U10-finite-tv-review.json",
+      "../U00/U10-final-review.json"
+    ],
+    "independent_build": "../U00/finite-lanes-check-build.json",
+    "independent_declarations": "../U00/finite-lanes-declarations.json",
+    "findings": "PASS; no unresolved findings. All source hashes match reviewed versions."
+  },
+  "invariants": [
+    "Initial tail bound i=0 included.",
+    "Stopped multiplier uses current time j, without predictability at j-1.",
+    "Natural monotonicity is proved before interpreting subtraction.",
+    "Null fibers contribute zero under exact PMF quotient law.",
+    "Final C is only a pointwise truncation, never a conditioning history.",
+    "Different explorations may have distinct finite histories and horizons, with no mutual independence.",
+    "Final TV uses the chronological physical inverse law and a product of the same single-matrix event.",
+    "Central-binomial component constant unchanged.",
+    "No assumption that overlap minus one is pointwise nonnegative.",
+    "Fixed constants select eventual N0 before N."
+  ],
+  "remaining_lane_proof_obligations": [],
+  "downstream_premises": "PREMISE_DISCHARGE.json (U07/U09/U11 construct actual explorations, tails, cover, regularity, and parameter choices before E)",
+  "manuscript_unchanged_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "contracts_sha256": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474"
+}

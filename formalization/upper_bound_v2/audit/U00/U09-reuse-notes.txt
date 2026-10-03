@@ -1,0 +1,52 @@
+U09 continuation: exact probability reuse (U00, 2026-10-02)
+
+The authoritative frozen target is Contracts/V1/Conditional.lean C. U09 still owns
+its complete proof, geometric future-cylinder decomposition/refinement, Jensen,
+three size regimes, current run/crossing accounting and both histories. This file
+records accepted reusable inputs, not an implementation or endpoint certificate.
+
+Shared/PairConditioning.lean is now compiled with full exact-type/trust inventory
+in natural-count-declarations.json. Independent review: U05/PAIR_CONDITIONING_REVIEW.json.
+Five exports: uniformProductExpect_mul, uniformProductProbability,
+uniformProductConditionalExpect, uniformProductConditionalProbability,
+uniformProductProbability_pos_iff. They operate on uniform finite product laws,
+which are definitionally the frozen independentPairLaw for fixed-count samples.
+The conditional identities require literal separate events A(omega1) and B(omega2).
+Use pair-history equality iff coordinate history equalities. Positive pair histories
+then imply each positive single history. No regularity event may enter conditioning.
+Null conditional fibers retain the existing real-zero-division convention.
+
+Shared/FiniteLawAdapters.lean identifies PMF probabilities/expectations with the
+completed lower-bound Compat.FiniteLaw exactly, including reversed conditional
+argument order. Compat.Conditioning.coarse_total_probability gives exact conditional
+fine-fiber weights and conditional fine event probabilities; its weights sum to one
+on every positive coarse fiber. Null fine fibers have zero weight. These are the
+source inputs for one-history Jensen, without guessing a conditional PMF.
+Compat.FiniteLaw.variance_nonneg and variance_eq yield Jensen for squares after
+conditioning, or Mathlib Finset.sum_sq_le_sum_mul_sum_of_sq_le_mul proves the finite
+weighted version. A concrete Jensen/decomposition theorem still belongs to U09.
+
+Shared/SupportedAveraging.lean retains support probability when averaging a bound
+valid on good fine fibers; S remains inside the target event. U08 has instantiated
+it for actual marked labels, and PrefixCount.prefixCount is checked for forward
+positive natural histories. It assumes only source good/direction/history conditions,
+not residual-law/count/denominator certificates. Backward, removable-copy,
+tail-collision and future-cylinder laws are still U08 work as of this note.
+
+Shared/UniformProjection.lean provides exact uniform pushforward expectation/law
+from explicit equal target-fiber bijections. conditionalUniformProjectionExpect
+works on a nonempty event subtype, so a dependent induced-cut sample map need only
+be defined on that fiber. U08 must supply concrete within-cylinder permutations;
+the helper does not itself prove the future-cylinder law.
+
+Accepted U07 inputs cover full literal H probability, adapted F_i and pair-history
+good events, directional rank/count processes, terminal-zero remainder and actual
+regularity cover. Never add R/S1 to histories. U06 inducedMargin still needs actual
+Z concentration and size premises. F remains unproved: a Prop specification is not
+an input theorem. U05 is discharging actual classes and density exponents.
+
+Parameter order and original scale remain exactly source: fixed k,T,eta,g,gamma;
+xi=eta/10; actual uniform F exponent delta_F at margin eta, first-good g/2; tau;
+small rho; then N0. Refinement count keeps N^(rho*log k), not a subpolynomial label.
+
+Update: U04 provider is fully accepted. U08 forward prefixCount, extraCurrentCopies, tailCollisions and backward fine-history helpers are now accepted. Backward natural averaging/endpoints and actual future-cylinder law remain open. U05 uniform actual class density <= N^(-eta/2) and retained graph cover are accepted; F remains open. Shared.FiniteFibers/FiniteFiberCounts are independently reviewed and staged.

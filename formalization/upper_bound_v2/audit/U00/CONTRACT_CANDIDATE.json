@@ -1,0 +1,27 @@
+{
+  "status": "CANDIDATE_NOT_FROZEN",
+  "version": "v1-candidate",
+  "recorded_at": "2026-10-02T08:32:55.768913+00:00",
+  "source_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "files": {
+    "RiffleUpperV2/Shared/Anchored.lean": "2bced93d992f5266d7bc7b917f6cbaa2a01a964c6b0ffac2a83d4947e394a128",
+    "RiffleUpperV2/Shared/Conditioning.lean": "1b1ee6babd8641af3853f6f9cd2792f4e694ec612da32dd366f789ebf0a3337e",
+    "RiffleUpperV2/Shared/Empirical.lean": "108ae31a7f9d966eb05ba2a5da78e8345191fc696328eaee13e95ab5aeadb7da",
+    "RiffleUpperV2/Shared/FirstMomentAPI.lean": "bf84bd6a3be4fae918ab774287ffa07a063e750629747ffc7ea9bb2b7525f521",
+    "RiffleUpperV2/Shared/Infimum.lean": "47f1bda2874fe6da5fe8088b5739fd043e06f3cd26f127325fdd98f60300af52",
+    "RiffleUpperV2/Shared/Model.lean": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+    "RiffleUpperV2/Shared/Profile.lean": "ce49ffeaaffbeb2e66d67353fcdd63c6b6476e13f0074499636ebe59479f771b",
+    "RiffleUpperV2/Shared/Random.lean": "578c4f4f61eb8351a0af4186474abbe7a3868872deac1b3b696776c4b8204881",
+    "RiffleUpperV2/Contracts/V1/Conditional.lean": "d4994216cd483e6432ba70734045cce43c2213f1358a2ca314a5da10b00c36be",
+    "RiffleUpperV2/Contracts/V1/Empirical.lean": "e20880b420fdb6ca72c38f823ded2670c7a9fc18132c9de41906b6eab9b37556",
+    "RiffleUpperV2/Contracts/V1/Main.lean": "6445376d75d22e3c89dd0bf9534878eb02db5b32b6214a64c0c0d2fb14a65972",
+    "RiffleUpperV2/Contracts/V1/Profile.lean": "233f10859831fb959b6bea09f0a859a2d738b00439d45c20b9feb3423bd194fb",
+    "RiffleUpperV2/Anchor/Definitions.lean": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+    "RiffleUpperV2/Exploration/Objects.lean": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e"
+  },
+  "awaiting": [
+    "Localization base definition review",
+    "final cross-review of all frozen shared dependency interfaces"
+  ],
+  "specification_status": "All six endpoints are definitions of Prop; zero endpoint proofs claimed."
+}

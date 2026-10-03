@@ -1,0 +1,73 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T21:05:36.053716+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U09",
+    "RiffleUpperV2.Conditional.CurrentRunGeometry"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U09",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U09/lib/lean",
+  "built": [
+    "RiffleUpperV2.Conditional.CurrentRunGeometry"
+  ],
+  "modules": {
+    "RiffleUpperV2.Conditional.CurrentRunGeometry": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/CurrentRunGeometry.lean",
+      "sha256": "54ca01a54e323fa5eb34372f1bfc9fb940a82765b20e5e3c7da10b6b8705277c",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Conditional.DirectionalGeometry": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/DirectionalGeometry.lean",
+      "sha256": "9b6ee45f58fe4abb878e5f446e165bf872465249df1706b468691e51787e7c54",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Conditional.PairReduction": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/PairReduction.lean",
+      "sha256": "9a7ee03243ced0536883564d9e1af45352a0cf6bdd411b7ab602893aab28501c",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Conditional.Jensen": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/Jensen.lean",
+      "sha256": "fbb9750677af5fff695daeaa9e388691acbc2677c4306120bbb9eed7a6336737",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.FiniteLawAdapters": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/FiniteLawAdapters.lean",
+      "sha256": "eb1ab9181b0e4cab5c7a0dd8ea47ed1796ac772a2695f8a45b00e51b639f48e8",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Shared.PairConditioning": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/PairConditioning.lean",
+      "sha256": "0ea04492d15e00ccd0521fc14cb894246ee45a107ae459b1a726029596437554",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exploration.Processes": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Processes.lean",
+      "sha256": "75016be4d6efd1dc0e2165c70e9781ca4acbe3bb394b3047c09d12e49f7c4f95",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exploration.CoverageCount": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/CoverageCount.lean",
+      "sha256": "5810fa73c07161e8b8a099446e7b6c8593458d5178697a4459e1a15e7160a0d8",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exploration.Histories": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Histories.lean",
+      "sha256": "2a19de77bf5c29b6e18aa5dfae534a076d19d934949294f906085dfab9f197a7",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Reservoir.BackwardHistory": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/BackwardHistory.lean",
+      "sha256": "ffae3dec3a1b0381d91cbb25893f479f3d9bfc70effac473775e52b154537191",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "4ecad7f3f8d6d0a26e803543e58457dcd331dd71f93d618779e7fc7c62a3ca92"
+}

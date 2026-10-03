@@ -1,0 +1,85 @@
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η g γ : ℝ),
+      0 < T →
+        0 < η →
+          η ≤ 1 →
+            0 < g →
+              g < 1 / ↑k →
+                0 < γ →
+                  γ ≤ 1 →
+                    ∃ (ρ0 : ℝ),
+                      0 < ρ0 ∧
+                        ∀ (ρ : ℝ),
+                          0 < ρ →
+                            ρ ≤ ρ0 →
+                              ∃ (A : ℝ) (cH : ℝ) (ζ : ℝ) (C : ℝ),
+                                0 < A ∧
+                                  0 < cH ∧
+                                    0 < ζ ∧
+                                      0 < C ∧
+                                        ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),
+                                          ∀ (N : ℕ) (hN : N0 ≤ N) (L : ℕ),
+                                            ↑(L + 1) ≤ T * Real.log ↑N →
+                                              ∀ (cuts : RiffleUpperV2.Cuts k N (L + 1)),
+                                                RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ (2 * η) →
+                                                  RiffleUpperV2.Exploration.integerWindowGood N cuts ⋯ ρ γ g →
+                                                    RiffleUpperV2.Exploration.retainedGoodCluster cuts ⋯
+                                                        (RiffleUpperV2.Exploration.clusterSpan γ) g →
+                                                      (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts)
+                                                            fun (ω : TimeProfile.ShuffleSample cuts) =>
+                                                            ¬RiffleUpperV2.Exploration.concentrationEvent cuts
+                                                                (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10)
+                                                                ω) ≤
+                                                          RiffleUpperV2.Exploration.badBound N (η / 10) A cH ∧
+                                                        (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction),
+                                                            ↑N ^ (η / 10) ≤
+                                                                ↑(RiffleUpperV2.Exploration.pileSize cuts p) →
+                                                              ∀ i ≤ RiffleUpperV2.Exploration.pileSize cuts p,
+                                                                ∀
+                                                                  (ω :
+                                                                    RiffleUpperV2.Sample cuts ×
+                                                                      RiffleUpperV2.Sample cuts),
+                                                                  (0 <
+                                                                      RiffleUpperV2.probability
+                                                                        (RiffleUpperV2.independentPairLaw cuts)
+                                                                        fun
+                                                                          (v :
+                                                                            RiffleUpperV2.Sample cuts ×
+                                                                              RiffleUpperV2.Sample cuts) =>
+                                                                        RiffleUpperV2.Exploration.pairHistory cuts p d i
+                                                                            v =
+                                                                          RiffleUpperV2.Exploration.pairHistory cuts p d
+                                                                            i ω) →
+                                                                    RiffleUpperV2.Exploration.pairHistoryGood cuts
+                                                                        (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                        (η / 10)
+                                                                        (√(RiffleUpperV2.Exploration.badBound N (η / 10)
+                                                                            A cH))
+                                                                        p d i ω →
+                                                                      (RiffleUpperV2.conditionalExpect
+                                                                          (RiffleUpperV2.independentPairLaw cuts)
+                                                                          (fun
+                                                                              (v :
+                                                                                RiffleUpperV2.Sample cuts ×
+                                                                                  RiffleUpperV2.Sample cuts) =>
+                                                                            ↑(RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                                cuts
+                                                                                (RiffleUpperV2.Exploration.clusterSpan
+                                                                                  γ)
+                                                                                g (η / 10) p d i v.1 v.2))
+                                                                          fun
+                                                                            (v :
+                                                                              RiffleUpperV2.Sample cuts ×
+                                                                                RiffleUpperV2.Sample cuts) =>
+                                                                          RiffleUpperV2.Exploration.pairHistory cuts p d
+                                                                              i v =
+                                                                            RiffleUpperV2.Exploration.pairHistory cuts p
+                                                                              d i ω) ≤
+                                                                        C * ↑N ^ (-ζ)) ∧
+                                                          ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                                            (ω ω' : RiffleUpperV2.Sample cuts),
+                                                            RiffleUpperV2.Exploration.remainingDirectionalCount cuts
+                                                                (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10) p d
+                                                                (RiffleUpperV2.Exploration.pileSize cuts p) ω ω' =
+                                                              0

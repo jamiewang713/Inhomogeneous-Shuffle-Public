@@ -1,0 +1,42 @@
+CHECK RiffleUpperV2.Exponential.Conditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:30:8: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:39:45: error: Tactic `split_ifs` failed: no if-then-else conditions to split
+
+Ω : Type u_1
+inst✝ : Fintype Ω
+P : PMF Ω
+A : Ω → Prop
+hA : probability P A = 0
+ω : Ω
+hω : A ω
+v : Ω
+x✝ : v ∈ Finset.univ
+⊢ 0 ≤ ?m.67 v
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:37:4: error: Type mismatch: After simplification, term
+  Finset.single_le_sum (fun v x => mul_nonneg ENNReal.toReal_nonneg ?m.68) (Finset.mem_univ ω)
+ has type
+  ENNReal.toReal (?m.66 ω) * ?m.67 ω ≤ ∑ x, ENNReal.toReal (?m.66 x) * ?m.67 x
+but is expected to have type
+  (P ω).toReal ≤ ∑ v, (P v).toReal * if A v then 1 else 0
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:88:10: error: Failed to rewrite using equation theorems for `RiffleLowerV2.probability`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:73:37: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [masked_expect_zero P _ hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:100:0: warning: automatically included section variable(s) unused in theorem `RiffleUpperV2.Exponential.conditional_le_of_weighted`:
+  [Fintype H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

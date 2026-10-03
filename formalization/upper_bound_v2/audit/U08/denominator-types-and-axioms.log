@@ -1,0 +1,985 @@
+@RiffleUpperV2.Reservoir.backwardWords_eq_rev : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (r : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  Eq.{1} (RiffleUpperV2.Reservoir.backwardWords cuts p ω r) (RiffleUpperV2.Reservoir.pileWords cuts p ω (Fin.revPerm r))
+'RiffleUpperV2.Reservoir.backwardWords_eq_rev' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardWords_antitone : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (ω : RiffleUpperV2.Sample cuts),
+  Antitone.{0, 0} (RiffleUpperV2.Reservoir.backwardWords cuts p ω)
+'RiffleUpperV2.Reservoir.backwardWords_antitone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardWords_first : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (r : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.backwardWords cuts p ω r) 0) p
+'RiffleUpperV2.Reservoir.backwardWords_first' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.backwardWords_count : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (u : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  Eq.{1} (RiffleUpperV2.Reservoir.tupleCount.{0} (RiffleUpperV2.Reservoir.backwardWords cuts p ω) u)
+    (RiffleUpperV2.Reservoir.tupleCount.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω) u)
+'RiffleUpperV2.Reservoir.backwardWords_count' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.historyAtom_backward : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω v : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.backward
+      (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω v ↔
+    (∀ (u : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+        Eq.{1} (List.Vector.get.{0} u 0) p →
+          LT.lt.{0} (RiffleUpperV2.Reservoir.backwardWords cuts p ω j) u →
+            Eq.{1} (RiffleUpperV2.Reservoir.wordCount v u)
+              (RiffleUpperV2.Reservoir.observedCount.{0} (RiffleUpperV2.Reservoir.backwardWords cuts p ω)
+                (HAdd.hAdd.{0, 0, 0} (↑j) 1) u)) ∧
+      LE.le.{0}
+        (RiffleUpperV2.Reservoir.observedCount.{0} (RiffleUpperV2.Reservoir.backwardWords cuts p ω)
+          (HAdd.hAdd.{0, 0, 0} (↑j) 1) (RiffleUpperV2.Reservoir.backwardWords cuts p ω j))
+        (RiffleUpperV2.Reservoir.wordCount v (RiffleUpperV2.Reservoir.backwardWords cuts p ω j))
+'RiffleUpperV2.Reservoir.historyAtom_backward' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.selectedDigitCount_congr : ∀ {k L r : ℕ} (A : Finset.{0} (Fin r))
+  (a w : Fin r → RiffleUpperV2.Word k L),
+  (∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+    ∀ (j : Fin L) (d : Fin k),
+      Eq.{1} (RiffleUpperV2.Reservoir.selectedDigitCount A w j d) (RiffleUpperV2.Reservoir.selectedDigitCount A a j d)
+'RiffleUpperV2.Reservoir.selectedDigitCount_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.selectedDigitCount_split : ∀ {k L r : ℕ} (A : Finset.{0} (Fin r))
+  (w : Fin r → RiffleUpperV2.Word k L) (j : Fin L) (d : Fin k),
+  Eq.{1} (RiffleUpperV2.Reservoir.selectedDigitCount Finset.univ.{0} w j d)
+    (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.Reservoir.selectedDigitCount A w j d)
+      (RiffleUpperV2.Reservoir.selectedDigitCount (sdiff.{0} Finset.univ.{0} A) w j d))
+'RiffleUpperV2.Reservoir.selectedDigitCount_split' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.Reservoir.falling_add : ∀ (n b m : ℕ),
+  Eq.{1} (RiffleLowerV2.falling n (HAdd.hAdd.{0, 0, 0} b m))
+    (HMul.hMul.{0, 0, 0} (RiffleLowerV2.falling n b) (RiffleLowerV2.falling (HSub.hSub.{0, 0, 0} n b) m))
+'RiffleUpperV2.Reservoir.falling_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleWeight_factor : ∀ {k n L r : ℕ} (cuts : RiffleUpperV2.Cuts k n L) (A : Finset.{0} (Fin r))
+  (a w : Fin r → RiffleUpperV2.Word k L),
+  (∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+    Eq.{1} (RiffleUpperV2.Reservoir.tupleWeight cuts w)
+      (HMul.hMul.{0, 0, 0} (RiffleUpperV2.Reservoir.exposedWeight cuts A a)
+        (RiffleUpperV2.Reservoir.residualTupleWeight cuts A a w))
+'RiffleUpperV2.Reservoir.tupleWeight_factor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.selectedDigitCount_le_cut : ∀ {k n L r : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin r) (Fin n)) (A : Finset.{0} (Fin r)) (a : Fin r → RiffleUpperV2.Word k L)
+  (ω : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω q) (a q)) →
+    ∀ (j : Fin L) (d : Fin k), LE.le.{0} (RiffleUpperV2.Reservoir.selectedDigitCount A a j d) (cuts.count j d)
+'RiffleUpperV2.Reservoir.selectedDigitCount_le_cut' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exposedWeight_pos : ∀ {k n L r : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin r) (Fin n)) (A : Finset.{0} (Fin r)) (a : Fin r → RiffleUpperV2.Word k L)
+  (ω : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω q) (a q)) →
+    LT.lt.{0} 0 (RiffleUpperV2.Reservoir.exposedWeight cuts A a)
+'RiffleUpperV2.Reservoir.exposedWeight_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.weightedRatio_cancel_factor.{u_1} : ∀ {Ω : Type u_1} [inst : Fintype.{u_1} Ω] (B : Ω → Prop)
+  [inst_1 : DecidablePred.{u_1 + 1} B] (W V F : Ω → ℝ) (c : ℝ),
+  Ne.{1} c 0 →
+    (∀ (w : Ω), B w → Eq.{1} (W w) (HMul.hMul.{0, 0, 0} c (V w))) →
+      Eq.{1} (HDiv.hDiv.{0, 0, 0} (∑ w, ite.{1} (B w) (HMul.hMul.{0, 0, 0} (W w) (F w)) 0) (∑ w, ite.{1} (B w) (W w) 0))
+        (HDiv.hDiv.{0, 0, 0} (∑ w, ite.{1} (B w) (HMul.hMul.{0, 0, 0} (V w) (F w)) 0) (∑ w, ite.{1} (B w) (V w) 0))
+'RiffleUpperV2.Reservoir.weightedRatio_cancel_factor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exactResidualMarkedRowLaw : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (ω₀ : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+      Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω₀ q) (a q)) →
+    ∀ (F : (Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)) → ℝ),
+      Eq.{1}
+        (RiffleUpperV2.conditionalExpect.{0} (RiffleUpperV2.fixedCountPMF cuts)
+          (fun v => F (RiffleUpperV2.Reservoir.tupleWords e v)) fun v =>
+          (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+              Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.tupleWords e v q) 0) p) ∧
+            RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward
+                (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω v ∧
+              ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e v q) (a q))
+        (HDiv.hDiv.{0, 0, 0}
+          (∑ w,
+            ite.{1}
+              (RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧
+                ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q))
+              (HMul.hMul.{0, 0, 0} (RiffleUpperV2.Reservoir.residualTupleWeight cuts A a w) (F w)) 0)
+          (∑ w,
+            ite.{1}
+              (RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧
+                ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q))
+              (RiffleUpperV2.Reservoir.residualTupleWeight cuts A a w) 0))
+'RiffleUpperV2.Reservoir.exactResidualMarkedRowLaw' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.remainingCount_eq : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (M : Finset.{0} (Fin n)) (ω : RiffleUpperV2.Sample cuts),
+  (∀ (r : Fin n), Membership.mem.{0, 0} M r → Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.rowWord ω r) 0) p) →
+    ∀ (j : Fin (HAdd.hAdd.{0, 0, 0} L 1)) (a : Fin k),
+      Eq.{1} (RiffleUpperV2.Reservoir.remainingCount p M j a ω)
+        (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.Exploration.outsideCount cuts p j a ω)
+          (Finset.card.{0} ({r ∈ M | Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.rowWord ω r) j) a})))
+'RiffleUpperV2.Reservoir.remainingCount_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.concentration_remainingCount : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (D : ℕ) (g ξ : ℝ) (p : Fin k) (M : Finset.{0} (Fin n))
+  (ω : RiffleUpperV2.Sample cuts),
+  RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω →
+    (∀ (r : Fin n), Membership.mem.{0, 0} M r → Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.rowWord ω r) 0) p) →
+      ∀ (j : Fin (HAdd.hAdd.{0, 0, 0} L 1)) (a : Fin k),
+        LT.lt.{0} 0 ↑j →
+          LE.le.{0}
+            (abs.{0}
+              (HSub.hSub.{0, 0, 0} (↑(RiffleUpperV2.Reservoir.remainingCount p M j a ω))
+                (HMul.hMul.{0, 0, 0} (↑(HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p)))
+                  (HDiv.hDiv.{0, 0, 0} ↑(cuts.count j a) ↑n))))
+            (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (2 / 3)) ↑(Finset.card.{0} M))
+'RiffleUpperV2.Reservoir.concentration_remainingCount' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.removableCopies : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (ω : RiffleUpperV2.Sample cuts) (s : RiffleUpperV2.Word k L) (t : ℕ),
+  LE.le.{0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Reservoir.wordCount ω s) t)
+    (Finset.card.{0}
+      {r |
+        Eq.{1} (RiffleUpperV2.rowWord ω r) s ∧
+          LE.le.{0} t (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Reservoir.wordCount ω s) 1)})
+'RiffleUpperV2.Reservoir.removableCopies' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.collision_bad_event_le : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n L) (r s : Fin n)
+  (B H : RiffleUpperV2.Sample cuts → Prop),
+  LE.le.{0}
+    (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+      (fun ω => Eq.{1} (RiffleUpperV2.rowWord ω r) (RiffleUpperV2.rowWord ω s) ∧ B ω) H)
+    (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts) B H)
+'RiffleUpperV2.Reservoir.collision_bad_event_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.conditionalProbability_mono_on.{u_1} : ∀ {Ω : Type u_1} [inst : Fintype.{u_1} Ω]
+  (P : PMF.{u_1} Ω) (E F B : Ω → Prop),
+  (∀ (ω : Ω), B ω → E ω → F ω) →
+    LE.le.{0} (RiffleUpperV2.conditionalProbability.{u_1} P E B) (RiffleUpperV2.conditionalProbability.{u_1} P F B)
+'RiffleUpperV2.Reservoir.conditionalProbability_mono_on' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.history_denominator_ge_reserveWeight : ∀ {k n L D : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (g : ℝ)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (ω₀ : RiffleUpperV2.Sample cuts),
+  RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+    ∀
+      (v :
+        Lex.{0}
+          (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L))
+            (Lex.{0} (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L)) (RiffleUpperV2.Word k (min.{0} D L)))))),
+      Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (some.{0} v) →
+        RiffleUpperV2.Exploration.hasDirection cuts D g RiffleUpperV2.Exploration.Direction.forward
+            (RiffleUpperV2.Reservoir.pileWords cuts p ω j) →
+          RiffleUpperV2.Reservoir.unmarkedHistoryConstraint cuts p ω j A a →
+            LE.le.{0}
+              (∏ r,
+                HDiv.hDiv.{0, 0, 0}
+                  (RiffleLowerV2.falling
+                    (RiffleUpperV2.Reservoir.remainingCount p (Finset.map.{0, 0} e (sdiff.{0} Finset.univ.{0} A))
+                      ⟨HAdd.hAdd.{0, 0, 0} (↑r) 1, ⋯⟩ (List.Vector.get.{0} v.2.2 r) ω₀)
+                    (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)))
+                  (RiffleLowerV2.falling
+                    (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p))
+                      (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)))
+                    (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A))))
+              (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                (RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward
+                  (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω)
+                (RiffleUpperV2.Reservoir.pileBase cuts p e A a))
+'RiffleUpperV2.Reservoir.history_denominator_ge_reserveWeight' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.history_denominator_lower_finite : ∀ {k n L D : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)),
+  LT.lt.{0} 0 n →
+    LT.lt.{0} 0 k →
+      LE.le.{0} 1 D →
+        ∀ (p : Fin k) (g ξ : ℝ),
+          LT.lt.{0} 0 g →
+            ∀ (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+              (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+              (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+              (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+              Eq.{1} (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)) 1 ∨
+                  Eq.{1} (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)) 2 →
+                ∀ (ω₀ : RiffleUpperV2.Sample cuts),
+                  RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+                    RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω₀ →
+                      LE.le.{0} 1 (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p)) →
+                        LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (2 / 3)) 5)
+                            (HMul.hMul.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0}
+                                (↑(HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p)))
+                                (HDiv.hDiv.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 4 ↑D)))
+                              (RiffleUpperV2.Exploration.reserveMass k D g)) →
+                          ∀
+                            (v :
+                              Lex.{0}
+                                (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L))
+                                  (Lex.{0}
+                                    (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L))
+                                      (RiffleUpperV2.Word k (min.{0} D L)))))),
+                            Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (some.{0} v) →
+                              RiffleUpperV2.Exploration.hasDirection cuts D g
+                                  RiffleUpperV2.Exploration.Direction.forward
+                                  (RiffleUpperV2.Reservoir.pileWords cuts p ω j) →
+                                RiffleUpperV2.Reservoir.unmarkedHistoryConstraint cuts p ω j A a →
+                                  LE.le.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                                        (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)))
+                                      2)
+                                    (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                                      (RiffleUpperV2.Exploration.historyFiber cuts p
+                                        RiffleUpperV2.Exploration.Direction.forward (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω)
+                                      (RiffleUpperV2.Reservoir.pileBase cuts p e A a))
+'RiffleUpperV2.Reservoir.history_denominator_lower_finite' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Reservoir.history_denominator_lower_uniform : ∀ (k D : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} 1 D →
+      ∀ (g : ℝ),
+        LT.lt.{0} 0 g →
+          ∃ N0,
+            LE.le.{0} 1 N0 ∧
+              ∀ (n : ℕ),
+                LE.le.{0} N0 n →
+                  ∀ (L : ℕ) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n),
+                    TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                      ∀ (ξ : ℝ) (p : Fin k)
+                        (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+                        (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+                        (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+                        (a :
+                          Fin (RiffleUpperV2.Exploration.pileSize cuts p) →
+                            RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+                        Eq.{1} (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)) 1 ∨
+                            Eq.{1} (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)) 2 →
+                          ∀ (ω₀ : RiffleUpperV2.Sample cuts),
+                            RiffleUpperV2.Reservoir.pileBase cuts p e A a ω₀ →
+                              RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω₀ →
+                                ∀
+                                  (v :
+                                    Lex.{0}
+                                      (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L))
+                                        (Lex.{0}
+                                          (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L))
+                                            (RiffleUpperV2.Word k (min.{0} D L)))))),
+                                  Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (some.{0} v) →
+                                    RiffleUpperV2.Exploration.hasDirection cuts D g
+                                        RiffleUpperV2.Exploration.Direction.forward
+                                        (RiffleUpperV2.Reservoir.pileWords cuts p ω j) →
+                                      RiffleUpperV2.Reservoir.unmarkedHistoryConstraint cuts p ω j A a →
+                                        LE.le.{0}
+                                          (HDiv.hDiv.{0, 0, 0}
+                                            (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                                              (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)))
+                                            2)
+                                          (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                                            (RiffleUpperV2.Exploration.historyFiber cuts p
+                                              RiffleUpperV2.Exploration.Direction.forward (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+                                              ω)
+                                            (RiffleUpperV2.Reservoir.pileBase cuts p e A a))
+'RiffleUpperV2.Reservoir.history_denominator_lower_uniform' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.indexEmbedding_mem : ∀ {r : ℕ} (A : Finset.{0} (Fin r)) (q : Fin (Finset.card.{0} A)),
+  Membership.mem.{0, 0} A ((RiffleUpperV2.Reservoir.indexEmbedding A) q)
+'RiffleUpperV2.Reservoir.indexEmbedding_mem' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.indexEmbedding_range : ∀ {r : ℕ} (A : Finset.{0} (Fin r)) (q : Fin r),
+  (∃ i, Eq.{1} ((RiffleUpperV2.Reservoir.indexEmbedding A) i) q) ↔ Membership.mem.{0, 0} A q
+'RiffleUpperV2.Reservoir.indexEmbedding_range' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exposedPrescription_injective : ∀ {k n L r : ℕ} (e : Function.Embedding.{1, 1} (Fin r) (Fin n))
+  (A : Finset.{0} (Fin r)) (a : Fin r → RiffleUpperV2.Word k L),
+  Function.Injective.{1, 1} (RiffleUpperV2.Reservoir.exposedPrescription e A a).row
+'RiffleUpperV2.Reservoir.exposedPrescription_injective' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exposedPrescription_event : ∀ {k n L r : ℕ} {cuts : RiffleUpperV2.Cuts k n L}
+  (e : Function.Embedding.{1, 1} (Fin r) (Fin n)) (A : Finset.{0} (Fin r)) (a : Fin r → RiffleUpperV2.Word k L)
+  (ω : RiffleUpperV2.Sample cuts),
+  RiffleLowerV2.prescriptionEvent (RiffleUpperV2.Reservoir.exposedPrescription e A a) ω ↔
+    ∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω q) (a q)
+'RiffleUpperV2.Reservoir.exposedPrescription_event' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exposedPrescription_used : ∀ {k n L r : ℕ} (e : Function.Embedding.{1, 1} (Fin r) (Fin n))
+  (A : Finset.{0} (Fin r)) (a : Fin r → RiffleUpperV2.Word k L) (j : Fin L) (d : Fin k),
+  Eq.{1} (RiffleLowerV2.usedCount (RiffleUpperV2.Reservoir.exposedPrescription e A a) j d)
+    (RiffleUpperV2.Reservoir.selectedDigitCount A a j d)
+'RiffleUpperV2.Reservoir.exposedPrescription_used' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.markedLabels_disjoint : ∀ {k n L r : ℕ} (e : Function.Embedding.{1, 1} (Fin r) (Fin n))
+  (A : Finset.{0} (Fin r)) (a : Fin r → RiffleUpperV2.Word k L) (i : Fin (Finset.card.{0} A))
+  (q : Fin (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A))),
+  Ne.{1} ((RiffleUpperV2.Reservoir.exposedPrescription e A a).row i) ((RiffleUpperV2.Reservoir.markedLabels e A) q)
+'RiffleUpperV2.Reservoir.markedLabels_disjoint' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.markedLabels_range : ∀ {n r : ℕ} (e : Function.Embedding.{1, 1} (Fin r) (Fin n))
+  (A : Finset.{0} (Fin r)) (q : Fin r), (∃ i, Eq.{1} ((RiffleUpperV2.Reservoir.markedLabels e A) i) (e q)) ↔ q ∉ A
+'RiffleUpperV2.Reservoir.markedLabels_range' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exposedPrescription_probability_pos : ∀ {k n L r : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin r) (Fin n)) (A : Finset.{0} (Fin r)) (a : Fin r → RiffleUpperV2.Word k L)
+  (ω : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω q) (a q)) →
+    LT.lt.{0} 0
+      (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+        (RiffleLowerV2.prescriptionEvent (RiffleUpperV2.Reservoir.exposedPrescription e A a)))
+'RiffleUpperV2.Reservoir.exposedPrescription_probability_pos' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.remainingPopulation_eq : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p))),
+  Eq.{1} (HSub.hSub.{0, 0, 0} n (Finset.card.{0} A))
+    (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p))
+      (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)))
+'RiffleUpperV2.Reservoir.remainingPopulation_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.selectedDigitCount_first : ∀ {k L r : ℕ} (A : Finset.{0} (Fin r))
+  (a : Fin r → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k),
+  (∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (List.Vector.get.{0} (a q) 0) p) →
+    ∀ (d : Fin k),
+      Eq.{1} (RiffleUpperV2.Reservoir.selectedDigitCount A a 0 d) (ite.{1} (Eq.{1} d p) (Finset.card.{0} A) 0)
+'RiffleUpperV2.Reservoir.selectedDigitCount_first' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.residualTupleWeight_firstColumn : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+      Membership.mem.{0, 0} A q → Eq.{1} (List.Vector.get.{0} (a q) 0) p) →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Eq.{1} (List.Vector.get.{0} (w q) 0) p) →
+      Eq.{1} (RiffleUpperV2.Reservoir.residualTupleWeight cuts A a w)
+        (HMul.hMul.{0, 0, 0} (RiffleUpperV2.Reservoir.markedInitialWeight cuts p A)
+          (RiffleUpperV2.Reservoir.tailResidualTupleWeight cuts A a w))
+'RiffleUpperV2.Reservoir.residualTupleWeight_firstColumn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.markedInitialWeight_pos : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p))),
+  LT.lt.{0} 0 (RiffleUpperV2.Reservoir.markedInitialWeight cuts p A)
+'RiffleUpperV2.Reservoir.markedInitialWeight_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exactTailResidualMarkedRowLaw : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (ω₀ : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+      Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω₀ q) (a q)) →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+        Membership.mem.{0, 0} A q → Eq.{1} (List.Vector.get.{0} (a q) 0) p) →
+      ∀ (F : (Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)) → ℝ),
+        Eq.{1}
+          (RiffleUpperV2.conditionalExpect.{0} (RiffleUpperV2.fixedCountPMF cuts)
+            (fun v => F (RiffleUpperV2.Reservoir.tupleWords e v)) fun v =>
+            (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.tupleWords e v q) 0) p) ∧
+              RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward
+                  (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω v ∧
+                ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                  Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e v q) (a q))
+          (HDiv.hDiv.{0, 0, 0}
+            (∑ w,
+              ite.{1}
+                (RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧
+                  ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                    Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q))
+                (HMul.hMul.{0, 0, 0} (RiffleUpperV2.Reservoir.tailResidualTupleWeight cuts A a w) (F w)) 0)
+            (∑ w,
+              ite.{1}
+                (RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧
+                  ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                    Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q))
+                (RiffleUpperV2.Reservoir.tailResidualTupleWeight cuts A a w) 0))
+'RiffleUpperV2.Reservoir.exactTailResidualMarkedRowLaw' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.pileWords_monotone : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts), Monotone.{0, 0} (RiffleUpperV2.Reservoir.pileWords cuts p ω)
+'RiffleUpperV2.Reservoir.pileWords_monotone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.pileWords_first : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (r : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω r) 0) p
+'RiffleUpperV2.Reservoir.pileWords_first' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.pilePosition_surjective_on_digit : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (q : Fin n),
+  Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.sortedWord ω q) 0) p →
+    ∃ r, Eq.{1} (RiffleUpperV2.Exploration.pilePosition cuts p RiffleUpperV2.Exploration.Direction.forward r) q
+'RiffleUpperV2.Reservoir.pilePosition_surjective_on_digit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.pileWords_count : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (u : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  Eq.{1} (List.Vector.get.{0} u 0) p →
+    Eq.{1} (RiffleUpperV2.Reservoir.tupleCount.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω) u)
+      (Finset.card.{0} {r | Eq.{1} (RiffleUpperV2.rowWord ω r) u})
+'RiffleUpperV2.Reservoir.pileWords_count' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.pileWords_count_zero : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (u : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  Ne.{1} (List.Vector.get.{0} u 0) p →
+    Eq.{1} (RiffleUpperV2.Reservoir.tupleCount.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω) u) 0
+'RiffleUpperV2.Reservoir.pileWords_count_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.historyAtom : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω v : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward (HAdd.hAdd.{0, 0, 0} (↑j) 1)
+      ω v ↔
+    (∀ (u : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+        Eq.{1} (List.Vector.get.{0} u 0) p →
+          LT.lt.{0} u (RiffleUpperV2.Reservoir.pileWords cuts p ω j) →
+            Eq.{1} (RiffleUpperV2.Reservoir.wordCount v u)
+              (RiffleUpperV2.Reservoir.observedCount.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω)
+                (HAdd.hAdd.{0, 0, 0} (↑j) 1) u)) ∧
+      LE.le.{0}
+        (RiffleUpperV2.Reservoir.observedCount.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω)
+          (HAdd.hAdd.{0, 0, 0} (↑j) 1) (RiffleUpperV2.Reservoir.pileWords cuts p ω j))
+        (RiffleUpperV2.Reservoir.wordCount v (RiffleUpperV2.Reservoir.pileWords cuts p ω j))
+'RiffleUpperV2.Reservoir.historyAtom' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.selectedWordCount_congr : ∀ {k L r : ℕ} (A : Finset.{0} (Fin r))
+  (a w : Fin r → RiffleUpperV2.Word k L),
+  (∀ (q : Fin r), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+    ∀ (u : RiffleUpperV2.Word k L),
+      Eq.{1} (RiffleUpperV2.Reservoir.selectedWordCount A w u) (RiffleUpperV2.Reservoir.selectedWordCount A a u)
+'RiffleUpperV2.Reservoir.selectedWordCount_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleCount_eq_selected_of_future : ∀ {k L r : ℕ} (A : Finset.{0} (Fin r))
+  (w : Fin r → RiffleUpperV2.Word k L) (s u : RiffleUpperV2.Word k L),
+  LE.le.{0} u s →
+    (∀ q ∉ A, LT.lt.{0} s (w q)) →
+      Eq.{1} (RiffleUpperV2.Reservoir.tupleCount.{0} w u) (RiffleUpperV2.Reservoir.selectedWordCount A w u)
+'RiffleUpperV2.Reservoir.tupleCount_eq_selected_of_future' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleHistoryConstraint_future_iff : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (ω : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Eq.{1} (List.Vector.get.{0} (w q) 0) p) →
+      (∀ q ∉ A, LT.lt.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω j) (w q)) →
+        (RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ↔
+          RiffleUpperV2.Reservoir.unmarkedHistoryConstraint cuts p ω j A a)
+'RiffleUpperV2.Reservoir.tupleHistoryConstraint_future_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.reserve_tuple_allowed : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  RiffleUpperV2.Reservoir.unmarkedHistoryConstraint cuts p ω j A a →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+      (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Eq.{1} (List.Vector.get.{0} (w q) 0) p) →
+        (∀ q ∉ A, LT.lt.{0} (RiffleUpperV2.Reservoir.pileWords cuts p ω j) (w q)) →
+          RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w
+'RiffleUpperV2.Reservoir.reserve_tuple_allowed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.chosenReserve_tuple_allowed : ∀ {k n L D : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k) (g : ℝ) (ω : RiffleUpperV2.Sample cuts)
+  (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a w : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (v :
+    Lex.{0}
+      (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L))
+        (Lex.{0} (Prod.{0, 0} (RiffleUpperV2.Word k (min.{0} D L)) (RiffleUpperV2.Word k (min.{0} D L)))))),
+  Eq.{1} (RiffleUpperV2.Exploration.chosenReserves cuts D g) (some.{0} v) →
+    RiffleUpperV2.Exploration.hasDirection cuts D g RiffleUpperV2.Exploration.Direction.forward
+        (RiffleUpperV2.Reservoir.pileWords cuts p ω j) →
+      RiffleUpperV2.Reservoir.unmarkedHistoryConstraint cuts p ω j A a →
+        (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q)) →
+          (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Eq.{1} (List.Vector.get.{0} (w q) 0) p) →
+            (∀ q ∉ A, Eq.{1} (RiffleUpperV2.Exploration.tailPrefix D (w q)) v.2.2) →
+              RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w
+'RiffleUpperV2.Reservoir.chosenReserve_tuple_allowed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleWeight_zero_of_overflow : ∀ {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (w : Fin m → RiffleUpperV2.Word k L) (j : Fin L) (a : Fin k),
+  LT.lt.{0} (cuts.count j a) (Finset.card.{0} {q | Eq.{1} (List.Vector.get.{0} (w q) j) a}) →
+    Eq.{1} (RiffleUpperV2.Reservoir.tupleWeight cuts w) 0
+'RiffleUpperV2.Reservoir.tupleWeight_zero_of_overflow' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleWords_probability : ∀ {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin m) (Fin n)) (w : Fin m → RiffleUpperV2.Word k L),
+  Eq.{1}
+    (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+      Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω) w)
+    (RiffleUpperV2.Reservoir.tupleWeight cuts w)
+'RiffleUpperV2.Reservoir.tupleWords_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleWords_expect : ∀ {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin m) (Fin n)) (F : (Fin m → RiffleUpperV2.Word k L) → ℝ),
+  Eq.{1}
+    (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω => F (RiffleUpperV2.Reservoir.tupleWords e ω))
+    (∑ w, HMul.hMul.{0, 0, 0} (RiffleUpperV2.Reservoir.tupleWeight cuts w) (F w))
+'RiffleUpperV2.Reservoir.tupleWords_expect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleWords_event : ∀ {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin m) (Fin n)) (B : (Fin m → RiffleUpperV2.Word k L) → Prop),
+  Eq.{1}
+    (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+      B (RiffleUpperV2.Reservoir.tupleWords e ω))
+    (∑ w, ite.{1} (B w) (RiffleUpperV2.Reservoir.tupleWeight cuts w) 0)
+'RiffleUpperV2.Reservoir.tupleWords_event' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleWords_event_positive : ∀ {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin m) (Fin n)) (B : (Fin m → RiffleUpperV2.Word k L) → Prop)
+  (ω : RiffleUpperV2.Sample cuts),
+  B (RiffleUpperV2.Reservoir.tupleWords e ω) →
+    LT.lt.{0} 0 (∑ w, ite.{1} (B w) (RiffleUpperV2.Reservoir.tupleWeight cuts w) 0)
+'RiffleUpperV2.Reservoir.tupleWords_event_positive' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tuplePile_exhausts : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+      Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.tupleWords e ω q) 0) p) →
+    ∀ (r : Fin n), Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.rowWord ω r) 0) p ↔ ∃ q, Eq.{1} (e q) r
+'RiffleUpperV2.Reservoir.tuplePile_exhausts' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tuplePile_wordCount : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+      Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.tupleWords e ω q) 0) p) →
+    ∀ (u : RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+      Eq.{1} (List.Vector.get.{0} u 0) p →
+        Eq.{1} (RiffleUpperV2.Reservoir.wordCount ω u)
+          (RiffleUpperV2.Reservoir.tupleCount.{0} (RiffleUpperV2.Reservoir.tupleWords e ω) u)
+'RiffleUpperV2.Reservoir.tuplePile_wordCount' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω v : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+  RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j (RiffleUpperV2.Reservoir.tupleWords e v) ↔
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+        Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.tupleWords e v q) 0) p) ∧
+      RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward
+        (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω v
+'RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.exactMarkedRowLaw : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (ω : RiffleUpperV2.Sample cuts) (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (F : (Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)) → ℝ),
+  Eq.{1}
+    (RiffleUpperV2.conditionalExpect.{0} (RiffleUpperV2.fixedCountPMF cuts)
+      (fun v => F (RiffleUpperV2.Reservoir.tupleWords e v)) fun v =>
+      (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+          Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.Reservoir.tupleWords e v q) 0) p) ∧
+        RiffleUpperV2.Exploration.historyFiber cuts p RiffleUpperV2.Exploration.Direction.forward
+            (HAdd.hAdd.{0, 0, 0} (↑j) 1) ω v ∧
+          ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+            Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e v q) (a q))
+    (HDiv.hDiv.{0, 0, 0}
+      (∑ w,
+        ite.{1}
+          (RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧
+            ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q))
+          (HMul.hMul.{0, 0, 0} (RiffleUpperV2.Reservoir.tupleWeight cuts w) (F w)) 0)
+      (∑ w,
+        ite.{1}
+          (RiffleUpperV2.Reservoir.tupleHistoryConstraint cuts p ω j w ∧
+            ∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)), Membership.mem.{0, 0} A q → Eq.{1} (w q) (a q))
+          (RiffleUpperV2.Reservoir.tupleWeight cuts w) 0))
+'RiffleUpperV2.Reservoir.exactMarkedRowLaw' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.existsMarkedComplement : ∀ {k n L b m : ℕ} (r : RiffleLowerV2.RowPrescription n k L b),
+  Function.Injective.{1, 1} r.row →
+    ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin n)),
+      (∀ (i : Fin b) (q : Fin m), Ne.{1} (r.row i) (f q)) →
+        ∃ e,
+          Function.Injective.{1, 1} e ∧
+            (∀ (i : Fin n), (∃ q, Eq.{1} (e q) i) ↔ ¬∃ q, Eq.{1} (r.row q) i) ∧
+              ∃ a, ∀ (q : Fin m), Eq.{1} (e (a q)) (f q)
+'RiffleUpperV2.Reservoir.existsMarkedComplement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.residual_prefixWeight_marked : ∀ {k n L b m : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (r : RiffleLowerV2.RowPrescription n k (HAdd.hAdd.{0, 0, 0} L 1) b),
+  Function.Injective.{1, 1} r.row →
+    LT.lt.{0} 0 (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) →
+      ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin n)),
+        (∀ (i : Fin b) (q : Fin m), Ne.{1} (r.row i) (f q)) →
+          ∀ (J : Finset.{0} (Fin (HAdd.hAdd.{0, 0, 0} L 1))),
+            0 ∉ J →
+              ∀ (a : Fin (HAdd.hAdd.{0, 0, 0} L 1) → Fin k) (p : Fin k),
+                LE.le.{0} m (HSub.hSub.{0, 0, 0} (cuts.count 0 p) (RiffleLowerV2.usedCount r 0 p)) →
+                  Eq.{1}
+                    (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                      (RiffleUpperV2.Reservoir.commonDigits f J a) fun ω =>
+                      RiffleLowerV2.prescriptionEvent r ω ∧ ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (f q) 0) p)
+                    (∏ j ∈ J,
+                      HDiv.hDiv.{0, 0, 0}
+                        (RiffleLowerV2.falling
+                          (HSub.hSub.{0, 0, 0} (cuts.count j (a j)) (RiffleLowerV2.usedCount r j (a j))) m)
+                        (RiffleLowerV2.falling (HSub.hSub.{0, 0, 0} n b) m))
+'RiffleUpperV2.Reservoir.residual_prefixWeight_marked' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.residual_coordinatesWeight_marked : ∀ {k n L b m t : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (r : RiffleLowerV2.RowPrescription n k (HAdd.hAdd.{0, 0, 0} L 1) b),
+  Function.Injective.{1, 1} r.row →
+    LT.lt.{0} 0 (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) →
+      ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin n)),
+        (∀ (i : Fin b) (q : Fin m), Ne.{1} (r.row i) (f q)) →
+          ∀ (d : Function.Embedding.{1, 1} (Fin t) (Fin (HAdd.hAdd.{0, 0, 0} L 1))),
+            (∀ (j : Fin t), Ne.{1} (d j) 0) →
+              ∀ (a : Fin t → Fin k) (p : Fin k),
+                LE.le.{0} m (HSub.hSub.{0, 0, 0} (cuts.count 0 p) (RiffleLowerV2.usedCount r 0 p)) →
+                  Eq.{1}
+                    (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                      (fun ω => ∀ (j : Fin t) (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (f q) (d j)) (a j))
+                      fun ω =>
+                      RiffleLowerV2.prescriptionEvent r ω ∧ ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (f q) 0) p)
+                    (∏ j,
+                      HDiv.hDiv.{0, 0, 0}
+                        (RiffleLowerV2.falling
+                          (HSub.hSub.{0, 0, 0} (cuts.count (d j) (a j)) (RiffleLowerV2.usedCount r (d j) (a j))) m)
+                        (RiffleLowerV2.falling (HSub.hSub.{0, 0, 0} n b) m))
+'RiffleUpperV2.Reservoir.residual_coordinatesWeight_marked' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.residual_tailPrefixWeight_marked : ∀ {k n L b m : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (r : RiffleLowerV2.RowPrescription n k (HAdd.hAdd.{0, 0, 0} L 1) b),
+  Function.Injective.{1, 1} r.row →
+    LT.lt.{0} 0 (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) →
+      ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin n)),
+        (∀ (i : Fin b) (q : Fin m), Ne.{1} (r.row i) (f q)) →
+          ∀ (D : ℕ) (v : RiffleUpperV2.Word k (min.{0} D L)) (p : Fin k),
+            LE.le.{0} m (HSub.hSub.{0, 0, 0} (cuts.count 0 p) (RiffleLowerV2.usedCount r 0 p)) →
+              Eq.{1}
+                (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                  (fun ω =>
+                    ∀ (q : Fin m), Eq.{1} (RiffleUpperV2.Exploration.tailPrefix D (RiffleUpperV2.rowWord ω (f q))) v)
+                  fun ω =>
+                  RiffleLowerV2.prescriptionEvent r ω ∧ ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (f q) 0) p)
+                (∏ j,
+                  HDiv.hDiv.{0, 0, 0}
+                    (RiffleLowerV2.falling
+                      (HSub.hSub.{0, 0, 0} (cuts.count ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩ (List.Vector.get.{0} v j))
+                        (RiffleLowerV2.usedCount r ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩ (List.Vector.get.{0} v j)))
+                      m)
+                    (RiffleLowerV2.falling (HSub.hSub.{0, 0, 0} n b) m))
+'RiffleUpperV2.Reservoir.residual_tailPrefixWeight_marked' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.pileBase_iff : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1)),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+      Membership.mem.{0, 0} A q → Eq.{1} (List.Vector.get.{0} (a q) 0) p) →
+    ∀ (ω : RiffleUpperV2.Sample cuts),
+      RiffleUpperV2.Reservoir.pileBase cuts p e A a ω ↔
+        RiffleLowerV2.prescriptionEvent (RiffleUpperV2.Reservoir.exposedPrescription e A a) ω ∧
+          ∀ (q : Fin (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A))),
+            Eq.{1} (TimeProfile.sampleEntry ω ((RiffleUpperV2.Reservoir.markedLabels e A) q) 0) p
+'RiffleUpperV2.Reservoir.pileBase_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.markedTailPrefix_iff : ∀ {k n L : ℕ} (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (p : Fin k) (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p))) (D : ℕ) (v : RiffleUpperV2.Word k (min.{0} D L))
+  (ω : RiffleUpperV2.Sample cuts),
+  (∀ (i : Fin (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A))),
+      Eq.{1}
+        (RiffleUpperV2.Exploration.tailPrefix D
+          (RiffleUpperV2.rowWord ω ((RiffleUpperV2.Reservoir.markedLabels e A) i)))
+        v) ↔
+    ∀ q ∉ A, Eq.{1} (RiffleUpperV2.Exploration.tailPrefix D (RiffleUpperV2.Reservoir.tupleWords e ω q)) v
+'RiffleUpperV2.Reservoir.markedTailPrefix_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.pileBase_tailPrefix_probability : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (ω₀ : RiffleUpperV2.Sample cuts),
+  (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+      Membership.mem.{0, 0} A q → Eq.{1} (RiffleUpperV2.Reservoir.tupleWords e ω₀ q) (a q)) →
+    (∀ (q : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+        Membership.mem.{0, 0} A q → Eq.{1} (List.Vector.get.{0} (a q) 0) p) →
+      ∀ (D : ℕ) (v : RiffleUpperV2.Word k (min.{0} D L)),
+        Eq.{1}
+          (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+            (fun ω =>
+              ∀ q ∉ A, Eq.{1} (RiffleUpperV2.Exploration.tailPrefix D (RiffleUpperV2.Reservoir.tupleWords e ω q)) v)
+            (RiffleUpperV2.Reservoir.pileBase cuts p e A a))
+          (∏ j,
+            HDiv.hDiv.{0, 0, 0}
+              (RiffleLowerV2.falling
+                (HSub.hSub.{0, 0, 0} (cuts.count ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩ (List.Vector.get.{0} v j))
+                  (RiffleUpperV2.Reservoir.selectedDigitCount A a ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩
+                    (List.Vector.get.{0} v j)))
+                (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)))
+              (RiffleLowerV2.falling
+                (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p))
+                  (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A)))
+                (Finset.card.{0} (sdiff.{0} Finset.univ.{0} A))))
+'RiffleUpperV2.Reservoir.pileBase_tailPrefix_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.residualCount_eq_remaining : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (p : Fin k)
+  (e : Function.Embedding.{1, 1} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)) (Fin n))
+  (A : Finset.{0} (Fin (RiffleUpperV2.Exploration.pileSize cuts p)))
+  (a : Fin (RiffleUpperV2.Exploration.pileSize cuts p) → RiffleUpperV2.Word k (HAdd.hAdd.{0, 0, 0} L 1))
+  (ω : RiffleUpperV2.Sample cuts),
+  RiffleUpperV2.Reservoir.pileBase cuts p e A a ω →
+    ∀ (j : Fin (HAdd.hAdd.{0, 0, 0} L 1)) (d : Fin k),
+      Eq.{1} (HSub.hSub.{0, 0, 0} (cuts.count j d) (RiffleUpperV2.Reservoir.selectedDigitCount A a j d))
+        (RiffleUpperV2.Reservoir.remainingCount p (Finset.map.{0, 0} e (sdiff.{0} Finset.univ.{0} A)) j d ω)
+'RiffleUpperV2.Reservoir.residualCount_eq_remaining' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.commonDigits_insert_zero : ∀ {k n L m : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (e : Function.Embedding.{1, 1} (Fin m) (Fin n))
+  (J : Finset.{0} (Fin (HAdd.hAdd.{0, 0, 0} L 1))),
+  0 ∉ J →
+    ∀ (a : Fin (HAdd.hAdd.{0, 0, 0} L 1) → Fin k) (p : Fin k) (ω : RiffleUpperV2.Sample cuts),
+      RiffleUpperV2.Reservoir.commonDigits e (insert.{0, 0} 0 J) (Function.update.{1, 1} a 0 p) ω ↔
+        (∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (e q) 0) p) ∧ RiffleUpperV2.Reservoir.commonDigits e J a ω
+'RiffleUpperV2.Reservoir.commonDigits_insert_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.commonDigits_firstColumn_joint : ∀ {k n L m : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (e : Function.Embedding.{1, 1} (Fin m) (Fin n))
+  (J : Finset.{0} (Fin (HAdd.hAdd.{0, 0, 0} L 1))),
+  0 ∉ J →
+    ∀ (a : Fin (HAdd.hAdd.{0, 0, 0} L 1) → Fin k) (p : Fin k),
+      Eq.{1}
+        (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+          (∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (e q) 0) p) ∧ RiffleUpperV2.Reservoir.commonDigits e J a ω)
+        (HMul.hMul.{0, 0, 0}
+          (HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling (cuts.count 0 p) m) (RiffleLowerV2.falling n m))
+          (∏ j ∈ J, HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling (cuts.count j (a j)) m) (RiffleLowerV2.falling n m)))
+'RiffleUpperV2.Reservoir.commonDigits_firstColumn_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.commonDigits_firstColumn_probability : ∀ {k n L m : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (e : Function.Embedding.{1, 1} (Fin m) (Fin n)) (p : Fin k),
+  Eq.{1}
+    (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+      ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (e q) 0) p)
+    (HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling (cuts.count 0 p) m) (RiffleLowerV2.falling n m))
+'RiffleUpperV2.Reservoir.commonDigits_firstColumn_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.commonDigits_given_firstColumn : ∀ {k n L m : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (e : Function.Embedding.{1, 1} (Fin m) (Fin n))
+  (J : Finset.{0} (Fin (HAdd.hAdd.{0, 0, 0} L 1))),
+  0 ∉ J →
+    ∀ (a : Fin (HAdd.hAdd.{0, 0, 0} L 1) → Fin k) (p : Fin k),
+      LE.le.{0} m (cuts.count 0 p) →
+        Eq.{1}
+          (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+            (RiffleUpperV2.Reservoir.commonDigits e J a) fun ω =>
+            ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (e q) 0) p)
+          (∏ j ∈ J, HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling (cuts.count j (a j)) m) (RiffleLowerV2.falling n m))
+'RiffleUpperV2.Reservoir.commonDigits_given_firstColumn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.conditionalProbability_refine.{u_1} : ∀ {Ω : Type u_1} [inst : Fintype.{u_1} Ω]
+  (P : PMF.{u_1} Ω) (A B C : Ω → Prop),
+  Ne.{1} (RiffleUpperV2.probability.{u_1} P B) 0 →
+    Eq.{1} (RiffleUpperV2.conditionalProbability.{u_1} P A fun ω => B ω ∧ C ω)
+      (HDiv.hDiv.{0, 0, 0} (RiffleUpperV2.conditionalProbability.{u_1} P (fun ω => A ω ∧ C ω) B)
+        (RiffleUpperV2.conditionalProbability.{u_1} P C B))
+'RiffleUpperV2.Reservoir.conditionalProbability_refine' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.residual_prefixWeight_given_pile : ∀ {k n L b m : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1))
+  (r : RiffleLowerV2.RowPrescription n k (HAdd.hAdd.{0, 0, 0} L 1) b),
+  Function.Injective.{1, 1} r.row →
+    LT.lt.{0} 0 (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) →
+      ∀ (e : Fin (HSub.hSub.{0, 0, 0} n b) → Fin n),
+        Function.Injective.{1, 1} e →
+          (∀ (i : Fin n), (∃ q, Eq.{1} (e q) i) ↔ ¬∃ q, Eq.{1} (r.row q) i) →
+            ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin (HSub.hSub.{0, 0, 0} n b)))
+              (J : Finset.{0} (Fin (HAdd.hAdd.{0, 0, 0} L 1))),
+              0 ∉ J →
+                ∀ (a : Fin (HAdd.hAdd.{0, 0, 0} L 1) → Fin k) (p : Fin k),
+                  LE.le.{0} m (HSub.hSub.{0, 0, 0} (cuts.count 0 p) (RiffleLowerV2.usedCount r 0 p)) →
+                    Eq.{1}
+                      (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                        (fun ω =>
+                          ∀ (j : Fin (HAdd.hAdd.{0, 0, 0} L 1)),
+                            Membership.mem.{0, 0} J j →
+                              ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (e (f q)) j) (a j))
+                        fun ω =>
+                        RiffleLowerV2.prescriptionEvent r ω ∧
+                          ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (e (f q)) 0) p)
+                      (∏ j ∈ J,
+                        HDiv.hDiv.{0, 0, 0}
+                          (RiffleLowerV2.falling
+                            (HSub.hSub.{0, 0, 0} (cuts.count j (a j)) (RiffleLowerV2.usedCount r j (a j))) m)
+                          (RiffleLowerV2.falling (HSub.hSub.{0, 0, 0} n b) m))
+'RiffleUpperV2.Reservoir.residual_prefixWeight_given_pile' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.commonDigit_probability : ∀ {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L) (j : Fin L)
+  (e : Function.Embedding.{1, 1} (Fin m) (Fin n)) (a : Fin k),
+  Eq.{1} (RiffleUpperV2.probability.{0} (TimeProfile.columnPMF cuts j) fun c => ∀ (q : Fin m), Eq.{1} (↑c (e q)) a)
+    (HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling (cuts.count j a) m) (RiffleLowerV2.falling n m))
+'RiffleUpperV2.Reservoir.commonDigit_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.commonDigits_probability : ∀ {k n L m : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (e : Function.Embedding.{1, 1} (Fin m) (Fin n)) (J : Finset.{0} (Fin L)) (a : Fin L → Fin k),
+  Eq.{1} (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) (RiffleUpperV2.Reservoir.commonDigits e J a))
+    (∏ j ∈ J, HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling (cuts.count j (a j)) m) (RiffleLowerV2.falling n m))
+'RiffleUpperV2.Reservoir.commonDigits_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.residual_commonDigits_probability : ∀ {k n L b m : ℕ} (cuts : RiffleUpperV2.Cuts k n L)
+  (r : RiffleLowerV2.RowPrescription n k L b),
+  Function.Injective.{1, 1} r.row →
+    LT.lt.{0} 0 (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) (RiffleLowerV2.prescriptionEvent r)) →
+      ∀ (e : Fin (HSub.hSub.{0, 0, 0} n b) → Fin n),
+        Function.Injective.{1, 1} e →
+          (∀ (i : Fin n), (∃ q, Eq.{1} (e q) i) ↔ ¬∃ q, Eq.{1} (r.row q) i) →
+            ∀ (f : Function.Embedding.{1, 1} (Fin m) (Fin (HSub.hSub.{0, 0, 0} n b))) (J : Finset.{0} (Fin L))
+              (a : Fin L → Fin k),
+              Eq.{1}
+                (RiffleUpperV2.conditionalProbability.{0} (RiffleUpperV2.fixedCountPMF cuts)
+                  (fun ω =>
+                    ∀ (j : Fin L),
+                      Membership.mem.{0, 0} J j → ∀ (q : Fin m), Eq.{1} (TimeProfile.sampleEntry ω (e (f q)) j) (a j))
+                  (RiffleLowerV2.prescriptionEvent r))
+                (∏ j ∈ J,
+                  HDiv.hDiv.{0, 0, 0}
+                    (RiffleLowerV2.falling
+                      (HSub.hSub.{0, 0, 0} (cuts.count j (a j)) (RiffleLowerV2.usedCount r j (a j))) m)
+                    (RiffleLowerV2.falling (HSub.hSub.{0, 0, 0} n b) m))
+'RiffleUpperV2.Reservoir.residual_commonDigits_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Reservoir.eventual_twoThirds_budget : ∀ (B : ℝ),
+  LT.lt.{0} 0 B →
+    ∃ N0,
+      LE.le.{0} 1 N0 ∧
+        ∀ (n : ℕ),
+          LE.le.{0} N0 n →
+            LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (2 / 3)) 5) (HMul.hMul.{0, 0, 0} B ↑n)
+'RiffleUpperV2.Reservoir.eventual_twoThirds_budget' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.outsidePopulation_goodColumn : ∀ {k n L : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n) (g : ℝ),
+  TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+    ∀ (p : Fin k),
+      LE.le.{0} (HMul.hMul.{0, 0, 0} g ↑n) ↑(HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p))
+'RiffleUpperV2.Reservoir.outsidePopulation_goodColumn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.reserve_tailWeight_finite : ∀ {k n L D : ℕ}
+  (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)),
+  LT.lt.{0} 0 n →
+    LT.lt.{0} 0 k →
+      LE.le.{0} 1 D →
+        ∀ (g ξ : ℝ),
+          LT.lt.{0} 0 g →
+            ∀ (p : Fin k) (M : Finset.{0} (Fin n)) (ω : RiffleUpperV2.Sample cuts),
+              (∀ (r : Fin n),
+                  Membership.mem.{0, 0} M r → Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.rowWord ω r) 0) p) →
+                Eq.{1} (Finset.card.{0} M) 1 ∨ Eq.{1} (Finset.card.{0} M) 2 →
+                  RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω →
+                    ∀ (v : RiffleUpperV2.Word k (min.{0} D L)),
+                      LE.le.{0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                          (RiffleUpperV2.Exploration.tailMass cuts D v) →
+                        LE.le.{0} 1 (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p)) →
+                          LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) (2 / 3)) 5)
+                              (HMul.hMul.{0, 0, 0}
+                                (HMul.hMul.{0, 0, 0}
+                                  (↑(HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p)))
+                                  (HDiv.hDiv.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 4 ↑D)))
+                                (RiffleUpperV2.Exploration.reserveMass k D g)) →
+                            LE.le.{0}
+                              (HDiv.hDiv.{0, 0, 0}
+                                (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Exploration.reserveMass k D g) (Finset.card.{0} M))
+                                2)
+                              (∏ r,
+                                HDiv.hDiv.{0, 0, 0}
+                                  (RiffleLowerV2.falling
+                                    (RiffleUpperV2.Reservoir.remainingCount p M ⟨HAdd.hAdd.{0, 0, 0} (↑r) 1, ⋯⟩
+                                      (List.Vector.get.{0} v r) ω)
+                                    (Finset.card.{0} M))
+                                  (RiffleLowerV2.falling
+                                    (HAdd.hAdd.{0, 0, 0}
+                                      (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p))
+                                      (Finset.card.{0} M))
+                                    (Finset.card.{0} M)))
+'RiffleUpperV2.Reservoir.reserve_tailWeight_finite' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.Reservoir.reserve_tailWeight_uniform : ∀ (k D : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} 1 D →
+      ∀ (g : ℝ),
+        LT.lt.{0} 0 g →
+          ∃ N0,
+            LE.le.{0} 1 N0 ∧
+              ∀ (n : ℕ),
+                LE.le.{0} N0 n →
+                  ∀ (L : ℕ) (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} L 1)) (hn : LT.lt.{0} 0 n),
+                    TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                      ∀ (ξ : ℝ) (p : Fin k) (M : Finset.{0} (Fin n)) (ω : RiffleUpperV2.Sample cuts),
+                        (∀ (r : Fin n),
+                            Membership.mem.{0, 0} M r → Eq.{1} (List.Vector.get.{0} (RiffleUpperV2.rowWord ω r) 0) p) →
+                          Eq.{1} (Finset.card.{0} M) 1 ∨ Eq.{1} (Finset.card.{0} M) 2 →
+                            RiffleUpperV2.Exploration.concentrationEvent cuts D g ξ ω →
+                              ∀ (v : RiffleUpperV2.Word k (min.{0} D L)),
+                                LE.le.{0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                                    (RiffleUpperV2.Exploration.tailMass cuts D v) →
+                                  LE.le.{0}
+                                    (HDiv.hDiv.{0, 0, 0}
+                                      (HPow.hPow.{0, 0, 0} (RiffleUpperV2.Exploration.reserveMass k D g)
+                                        (Finset.card.{0} M))
+                                      2)
+                                    (∏ r,
+                                      HDiv.hDiv.{0, 0, 0}
+                                        (RiffleLowerV2.falling
+                                          (RiffleUpperV2.Reservoir.remainingCount p M ⟨HAdd.hAdd.{0, 0, 0} (↑r) 1, ⋯⟩
+                                            (List.Vector.get.{0} v r) ω)
+                                          (Finset.card.{0} M))
+                                        (RiffleLowerV2.falling
+                                          (HAdd.hAdd.{0, 0, 0}
+                                            (HSub.hSub.{0, 0, 0} n (RiffleUpperV2.Exploration.pileSize cuts p))
+                                            (Finset.card.{0} M))
+                                          (Finset.card.{0} M)))
+'RiffleUpperV2.Reservoir.reserve_tailWeight_uniform' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.falling_ratio_lower_one_two : ∀ {M R m : ℕ},
+  LE.le.{0} 2 M →
+    Eq.{1} m 1 ∨ Eq.{1} m 2 →
+      ∀ {q : ℝ},
+        LE.le.{0} 0 q →
+          LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑M) q) 1) ↑R →
+            LE.le.{0} (HPow.hPow.{0, 0, 0} q m)
+              (HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling R m) (RiffleLowerV2.falling M m))
+'RiffleUpperV2.Reservoir.falling_ratio_lower_one_two' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.reserve_coordinate_lower : ∀ {c R m : ℕ},
+  LE.le.{0} 1 c →
+    Eq.{1} m 1 ∨ Eq.{1} m 2 →
+      ∀ {p d δ err : ℝ},
+        LE.le.{0} 0 p →
+          LE.le.{0} p 1 →
+            LE.le.{0} d p →
+              LE.le.{0} 0 δ →
+                LE.le.{0} δ 1 →
+                  LE.le.{0} (HAdd.hAdd.{0, 0, 0} err 5) (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑c) δ) d) →
+                    LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} (↑R) (HMul.hMul.{0, 0, 0} (↑c) p)))
+                        (HAdd.hAdd.{0, 0, 0} err ↑m) →
+                      LE.le.{0} (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} p (HSub.hSub.{0, 0, 0} 1 δ)) m)
+                        (HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling R m)
+                          (RiffleLowerV2.falling (HAdd.hAdd.{0, 0, 0} c m) m))
+'RiffleUpperV2.Reservoir.reserve_coordinate_lower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.reserve_product_lower.{u_1} : ∀ {ι : Type u_1} [DecidableEq.{u_1 + 1} ι] (J : Finset.{u_1} ι)
+  (D c m : ℕ),
+  LE.le.{0} 1 D →
+    LE.le.{0} 1 c →
+      Eq.{1} m 1 ∨ Eq.{1} m 2 →
+        LE.le.{0} (Finset.card.{u_1} J) D →
+          ∀ (p : ι → ℝ) (R : ι → ℕ) (d err : ℝ),
+            LT.lt.{0} 0 d →
+              (∀ (j : ι), Membership.mem.{u_1, u_1} J j → LE.le.{0} 0 (p j) ∧ LE.le.{0} (p j) 1) →
+                LE.le.{0} d (∏ j ∈ J, p j) →
+                  LE.le.{0} (HAdd.hAdd.{0, 0, 0} err 5)
+                      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑c) (HDiv.hDiv.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 4 ↑D)))
+                        d) →
+                    (∀ (j : ι),
+                        Membership.mem.{u_1, u_1} J j →
+                          LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} (↑(R j)) (HMul.hMul.{0, 0, 0} (↑c) (p j))))
+                            (HAdd.hAdd.{0, 0, 0} err ↑m)) →
+                      LE.le.{0} (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} d m) 2)
+                        (∏ j ∈ J,
+                          HDiv.hDiv.{0, 0, 0} (RiffleLowerV2.falling (R j) m)
+                            (RiffleLowerV2.falling (HAdd.hAdd.{0, 0, 0} c m) m))
+'RiffleUpperV2.Reservoir.reserve_product_lower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Reservoir.sorted_history_iff.{u_1} : ∀ {α : Type u_1} [Fintype.{u_1} α] [inst : LinearOrder.{u_1} α]
+  [inst_1 : DecidableEq.{u_1 + 1} α] {n : ℕ} (f g : Fin n → α),
+  Monotone.{0, u_1} f →
+    Monotone.{0, u_1} g →
+      ∀ (j : Fin n),
+        (∀ (r : Fin n), LT.lt.{0} (↑r) (HAdd.hAdd.{0, 0, 0} (↑j) 1) → Eq.{u_1 + 1} (g r) (f r)) ↔
+          (∀ (a : α),
+              LT.lt.{u_1} a (f j) →
+                Eq.{1} (RiffleUpperV2.Reservoir.tupleCount.{u_1} g a)
+                  (RiffleUpperV2.Reservoir.observedCount.{u_1} f (HAdd.hAdd.{0, 0, 0} (↑j) 1) a)) ∧
+            LE.le.{0} (RiffleUpperV2.Reservoir.observedCount.{u_1} f (HAdd.hAdd.{0, 0, 0} (↑j) 1) (f j))
+              (RiffleUpperV2.Reservoir.tupleCount.{u_1} g (f j))
+'RiffleUpperV2.Reservoir.sorted_history_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+BUILD_OK U08

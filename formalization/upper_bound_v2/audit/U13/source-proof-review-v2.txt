@@ -1,0 +1,199 @@
+U13 INDEPENDENT SOURCE / QUANTIFIER / ADVERSARIAL REVIEW
+2026-10-02. This file records source review, not final build acceptance.
+Final acceptance is issued separately only after INTEGRATION_READY and the
+independent source build and trust traversal have completed.
+
+Authoritative manuscript SHA256:
+284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+All 398 project and 60 direct library source fingerprints in U00's integration
+preflight snapshot independently match; see final-source-snapshot-v2.json.
+The earlier U13 reviews and their historical partial verdicts remain preserved.
+
+1. EXACT ENDPOINT CORRESPONDENCE
+
+F: FirstMoment.empiricalFirstMoment proves Contracts.V1.F, corresponding to
+prop:ub-empirical-first-moment. Its public hypotheses are only k>=2, T/eta/g>0,
+g<1/k, 2<=n<=N, a<K<=T log N, good first retained column and the complete empirical
+negative margin. c and N0 precede N,n,a,K,cuts. The proof uses c=eta/8, allowed by
+the existential source conclusion. Absolute columns are a+r+1, all cost sums use
+log N, beta starts with log n/log N, and the entire interval theta in [3,4] and
+every integer a<=s<=u<=K are retained. No subdeck polynomial-size lower bound,
+profile, local-good density or caller-supplied probabilistic certificate remains.
+
+C: Conditional.remainingCommonEdges proves Contracts.V1.C, corresponding to
+lem:ub-conditional-first-moment. The frozen literal concentration event has its
+own proved failure bound as a conclusion. The input cluster fixes a good anchor
+plus two later good columns in D=ceil(6/gamma); integerWindowGood retains the
+endpoint-column loss. rho0 precedes fixed rho; A,cH,zeta,C,N0 precede every N,
+array,pile,direction,time and history. The remainder is the natural directional
+process terminal value minus its current value, including the crossing edge at
+time i. Positive fibers are required. At i=0 the actual unconditional F result is
+used; at i=n_p the remainder is identically zero. Large-pile restriction n_p>=N^xi
+matches the source. Empty and small piles are handled outside this conditional
+estimate, rather than smuggling stronger assumptions into E.
+
+E: EmpiricalUpper.empiricalUpper proves Contracts.V1.E, corresponding to
+thm:ub-empirical-upper. Every fixed k,T,eta0,g0,gamma0 has rho0, then every fixed
+rho<=rho0 has c,N0 uniform in N,K,cuts. Arbitrary positive g0,gamma0 are admitted
+and lowered internally. LocalGood is the actual closed-window condition on
+[0,K/log N]. The conclusion uses physicalInverseLaw and half-L1 TV. No F/C,
+exploration, localization, density, moment or TV premise remains.
+
+P: ProfileUpper.bufferedUpper proves Contracts.V1.P, corresponding to
+thm:deterministic-upper-bound. chi0 depends only on k,T,eta and precedes chi and
+the universally quantified chosen regular partition P. g,gamma precede rho;
+rho precedes phi; the profile and epsilon precede N0; N0 precedes cuts. The same
+P controls regularity, all scalar cell integrability and AlmostLike. The common
+regularity constant is explicitly fixed to 1, with a proved partition existence
+result, a valid choice of the manuscript's unspecified common C_k. There is no
+new assumption of temporal continuity or of preservation of partition cells.
+
+T: ProfileUpper.criticalTimeUpper proves Contracts.V1.T, corresponding to
+thm:upper-critical-reduced and def:ub-arbitrarily-fine-approximation. For every
+T>0 and chiStar>0 the approximation first fixes chi,P,g,gamma,rhoBar and selected
+partition scalar integrability, then quantifies every fixed rho and phi before
+the eventual threshold. The source's stronger fine-approximation condition is
+present; it has not been replaced by a fixed coarse partition. InfiniteCuts
+provides coherent prefixes for all horizons. ScalarIntegrable includes the cell
+integrands, a, and all psi_theta for theta in [2,4] on the selected interval.
+criticalTime and mixingTime are ENNReal infima with empty set equal to infinity.
+Finite-time convergence is asserted strictly above criticalTime; the mixing
+limsup has the same extended threshold. No finite conclusion at infinity or
+claim at the critical time is inserted. N=0,1 terms of sequences are irrelevant
+to the eventual convergence and are guarded in the estimates.
+
+R: ProfileUpper.randomUpper proves Contracts.V1.R, corresponding to
+cor:random-time-profile-upper-bound and the following empirical consequence.
+R consists of the finite quantitative empirical mixture bound, its convergence
+consequence and the profile convergence result. A PMF on the finite type of
+entire cut arrays permits arbitrary joint dependence of count vectors. Its
+physical mixture is exactly Q.bind physicalInverseLaw. The profile hypotheses
+give probabilities tending to one separately; the proof takes their intersection
+by a union bound and requires no independence. The previously found U13-R-01
+coverage omission is repaired by REmpiricalBound and randomEmpiricalBound.
+
+2. HARD PROOF CHAIN / PREMISE DISCHARGE
+
+Physical model and graph bridge: Shared.Model directly aliases the concrete
+fixed-count PMF, physical inverse permutation, sorted word, edge and half-L1 TV
+definitions. In the reused Model.Physical proof, a triangular column-shear
+bijection transports chronological inverse composition to stable row sorting;
+the graph representation is a proved theorem. It is not the definition of the
+physical law. Column order is preserved by all suffix/restart constructions.
+
+Arbitrary path overlap: GraphOverlap.Fibers counts the full component-sort
+fibers. Density.overlapIdentity applies to arbitrary G,H and their arbitrary
+union. RunProduct proves a stronger B-per-common-edge bound using consecutive
+run lengths, then derives the requested central-binomial coefficient. No
+unproved bounded-union component assertion is used. Truncation.truncatedTV
+uses the same single-matrix event for both independent samples. The radicand is
+an integrated variance; no pointwise nonnegativity of overlap-1 is assumed.
+FactorialTail and LargestComponent supply the actual fixed-count tail.
+
+Post-anchor endpoint law: Anchor.Definitions uses future columns strictly after
+the exposed first column, full current population n in the digit denominators,
+and deterministic anchor subset R with |R|<=(1-g)n. Smoothing.endpointSmoothing
+constructs its reveal, law, good event, failure and variance fields using equal
+and both unequal orientation proofs. Genuine crossings yield positive side
+scales; immediate x=v and side means below one are permitted. ConditionalAtoms
+retains the good-event indicator within the conditional event. JointAtoms allows
+offsets and events determined by the complete internal history. These helper
+structures are constructed in public applications, never endpoint premises.
+
+Fourth-power density: Localization.smallDensity bounds the square sum by the
+square of the two-row collision expectation, hence mean^4 times tail-square
+mass squared. SmoothingDensity uses one endpoint atom factor and a good/bad
+submeasure split; largeDensity substitutes the same collision estimate. It
+does not square an endpoint-window loss. Terminal words are estimated directly.
+The earlier false ambient/small/large density route is not reused by name.
+
+Localization, classes and F: Eventual proves array-uniform endpoint window and
+relevant-parent bounds with the explicit 2*k*d multiplicity. ClassFibers proves
+exact descriptor-fiber counts and singleton immediate/terminal fibers.
+ClassExponents translates actual shifted intervals to the original costs and
+uses the full negative margin, stopping and fluctuation bounds. UniformClassDensity
+discharges the large, proper-small, immediate-small and terminal cases.
+UniformGraph selects delta=width=eta/256 and epsilon=eta/64, fixes chi before N,
+absorbs all class, active-block, omitted-block and discarded-row contributions,
+then obtains N^(-eta/8). GraphAssembly invokes the generic aggregation only after
+its actual model premises are proved. Empirical rewrites K-a=d+1 without changing
+the absolute starting column or the original logarithmic scale.
+
+Exact sorted-history law and reserve: Reservoir.History.historyAtom constrains
+only words in the selected first-column pile: all strictly earlier multiplicities
+are exact and the observed current multiplicity is a lower bound. MarkedLaw uses
+full-pile falling-factorial weights, not independent marked rows. PrefixCount,
+ExtraCopies and TailCollisions carry the reserve denominator and rare-coordinate
+losses. ExtraCopies bounds (C_s-t)_+, excluding forced observed copies. Backward
+versions reverse spatial ranks only; they retain chronological tail columns.
+
+Future-cylinder disintegration: ConditionalFutureCylinderLaw uses the concrete
+family view, induced cuts and absolute rank shift; the unlabeled version averages
+the labeled sets. AuxiliaryJensen attaches additional information only inside a
+finite conditional averaging formula whose outside conditioning is the original
+natural history. Neither Objects.naturalHistory nor its adapted process is changed.
+
+Conditional block regimes: RegimeAveraging handles tiny means <=N^(-xi),
+intermediate means <=N^xi, and large means separately. The first two use actual
+conditional count/collision estimates; LargeMargin obtains size >=2, full-N
+coordinate errors, next-column g/2 goodness and the induced empirical margin
+from the literal H event. LargeFirstMoment applies actual F with beta=log C_x/log N.
+OneHistory includes the current-run excess, explicit refined block count and
+the stretched-exponential conditional-error budget. Main splits i=0, terminal,
+and interior positive histories, deriving the exact two-history remainder bound.
+
+Adapted exponential estimate: Exponential.Stopping uses good events through
+time j+1 for the stopped increment, with adaptation proved at the actual current
+history. Moments uses a weighted binomial induction measurable at j+1, and
+includes the initial tail bound. Excess never conditions on the final good event;
+it uses it for pathwise domination only. Aggregation needs no independence among
+the explorations. EmpiricalUpper.ExplorationTV constructs exactly 2*k directional
+processes, proves all adaptation/unit-increment/terminal properties, and invokes
+the literal directional coverage, small-pile and single-matrix regularity bounds.
+
+Restart and uniform choices: Deletion proves the physical chronological head
+convolution and TV contraction, then iterates over the actual prefix. Restart
+derives the minimum horizon from the terminal margin, fits the first window,
+selects the deterministic good cluster, preserves integer windows and checks
+all deletion/rounding losses. Main obtains C, chooses fixed component size and
+polynomial absorption thresholds before N,K,cuts, and uses the concrete finite
+TV bound. Public C and F are supplied by their implementations.
+
+Profile/critical/random: Margins uses scalar coordinate stability and exact
+integer-grid adapters, never preservation of an ambient cell. FixedPartition
+handles the supplied arbitrary partition. ProfileMargin transfers to every
+integer pair with explicit infimum side conditions and rounding losses.
+Buffered instantiates E. Analytic proves margin monotonicity with the required
+integrability; Critical chooses an earlier negative time through the extended
+infimum and then proves the mixing limsup without continuity at the threshold.
+Random instantiates the proved empirical/profile endpoints in mixture convexity.
+
+3. NUMERICAL CHOICES AND ADVERSARIAL CASES
+
+The hypergeometric Bernstein denominator remains 4*(mean+t). Its full-H
+concentration consequence uses the explicitly derived positive constant 1/24.
+The atom constant C_hyp=4 gives 16*sqrt(D/(g*w)); Smoothing checks the variance
+g*w/(16D). UniformClassDensity and WindowRates absorb the actual constants.
+The fixed-partition scalar bound uses 4 log k, and ProfileMargin uses terminal
+rounding 14 log k/log N instead of the manuscript's sharper displayed helper.
+profileMarginLoss_budget and profileMarginThreshold explicitly preserve the
+required half-margin. F uses eta/8 and all downstream decayBudget and rho choices
+are proved with that exponent. These are legitimate auxiliary choices; none
+changes any frozen public endpoint or claims the unproved sharper helper.
+
+Checked edge cases: N0>=2 excludes zero logarithms; F separately has n>=2 and
+a<K; E permits syntactic K=0 but terminal_horizon/positiveHorizon exclude its
+negative-margin premise. Zero column counts and empty first piles remain legal.
+Initial zero-cost intervals, full endpoint pairs and theta endpoints remain in
+the definitions. Atom bounds require actual positive variance; deterministic
+hypergeometric laws are handled by separate tail/degenerate statements. Null
+histories are never divided by under a positive-fiber claim; auxiliary averaging
+accounts for zero weights. Induced populations 0/1 stay in tiny estimates rather
+than entering F. Immediate stable blocks and full-word terminal blocks are
+separate cases. Coherent horizons and empty extended infima are literal, and
+fully dependent random cut arrays and correlated good events remain admissible.
+
+No unresolved source/statement or mathematical-chain mismatch was found at the
+recorded hashes. This conclusion does not substitute for the separate fresh
+kernel build, recursive trust inventory, external-object record and U00 immutable
+handoff, all required before FINAL_AUDIT.json can accept the package.

@@ -1,0 +1,85 @@
+CHECK RiffleUpperV2.FirstMoment.Entropy
+RiffleUpperV2.FirstMoment.card_mul_lower_mass_le_one.{u_1, u_2} {J : Type u_1} {D : Type u_2} [Fintype J] [Fintype D]
+  (p : J → D → ℝ) (hp : ∀ (j : J) (l : D), 0 ≤ p j l) (hnorm : ∀ (j : J), ∑ l : D, p j l = 1) (W : Finset (J → D))
+  (m : ℝ) (hmass : ∀ w ∈ W, m ≤ ∏ j : J, p j (w j)) : ↑W.card * m ≤ 1
+'RiffleUpperV2.FirstMoment.card_mul_lower_mass_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.log_card_le_of_lower_mass.{u_1, u_2} {J : Type u_1} {D : Type u_2} [Fintype J] [Fintype D]
+  (p : J → D → ℝ) (hp : ∀ (j : J) (l : D), 0 ≤ p j l) (hnorm : ∀ (j : J), ∑ l : D, p j l = 1) (W : Finset (J → D))
+  (hW : W.Nonempty) (H : ℝ) (hmass : ∀ w ∈ W, Real.exp (-H) ≤ ∏ j : J, p j (w j)) : Real.log ↑W.card ≤ H
+'RiffleUpperV2.FirstMoment.log_card_le_of_lower_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.selectedCost_split.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k : ℕ} (N : ℕ)
+  (p : J → TimeProfile.Simplex k) (I : Finset J) (chi : ℝ) (w : J → Fin k) :
+  RiffleUpperV2.FirstMoment.selectedCost N p I w =
+    RiffleUpperV2.FirstMoment.goodCost N p I chi w + RiffleUpperV2.FirstMoment.exceptionalCost N p I chi w
+'RiffleUpperV2.FirstMoment.selectedCost_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.self_mem_costClass.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k : ℕ} (N : ℕ)
+  (p : J → TimeProfile.Simplex k) (I : Finset J) (chi width : ℝ) (w0 : J → Fin k)
+  (hlegal : ∀ j ∈ I, 0 < TimeProfile.prob (p j) (w0 j)) : w0 ∈ RiffleUpperV2.FirstMoment.costClass N p I chi width w0
+'RiffleUpperV2.FirstMoment.self_mem_costClass' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.costClass_goodCost_le.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k : ℕ} (N : ℕ)
+  (p : J → TimeProfile.Simplex k) (I : Finset J) (chi width : ℝ) (hwidth : 0 < width) (w0 w : J → Fin k)
+  (hw : w ∈ RiffleUpperV2.FirstMoment.costClass N p I chi width w0) :
+  RiffleUpperV2.FirstMoment.goodCost N p I chi w ≤ RiffleUpperV2.FirstMoment.goodCost N p I chi w0 + width
+'RiffleUpperV2.FirstMoment.costClass_goodCost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.classTilt_sum.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k : ℕ}
+  (p : J → TimeProfile.Simplex k) (G : Finset J) (theta : ℝ) (htheta : 1 ≤ theta) (w0 : J → Fin k) (j : J) :
+  ∑ d : Fin k, RiffleUpperV2.FirstMoment.classTilt p G theta w0 j d = 1
+'RiffleUpperV2.FirstMoment.classTilt_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.costClass_tilt_log.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k N : ℕ} (hN : 2 ≤ N)
+  (p : J → TimeProfile.Simplex k) (I : Finset J) (chi width theta : ℝ) (htheta : 1 ≤ theta) (w0 w : J → Fin k)
+  (hw : w ∈ RiffleUpperV2.FirstMoment.costClass N p I chi width w0) :
+  Real.log
+      (∏ j : J,
+        RiffleUpperV2.FirstMoment.classTilt p (RiffleUpperV2.FirstMoment.goodPositions p I chi w0) theta w0 j (w j)) =
+    -theta * RiffleUpperV2.FirstMoment.goodCost N p I chi w * TimeProfile.logScale N +
+      ∑ j ∈ RiffleUpperV2.FirstMoment.goodPositions p I chi w0, TimeProfile.psi (p j) theta
+'RiffleUpperV2.FirstMoment.costClass_tilt_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.classEntropy_goodPositions.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k N : ℕ}
+  (hN : 2 ≤ N) (p : J → TimeProfile.Simplex k) (I : Finset J) (chi width theta : ℝ) (hwidth : 0 < width)
+  (htheta : 1 ≤ theta) (w0 : J → Fin k) (hlegal : ∀ j ∈ I, 0 < TimeProfile.prob (p j) (w0 j)) :
+  Real.log ↑(RiffleUpperV2.FirstMoment.costClass N p I chi width w0).card / TimeProfile.logScale N ≤
+    theta * RiffleUpperV2.FirstMoment.goodCost N p I chi w0 -
+        (∑ j ∈ RiffleUpperV2.FirstMoment.goodPositions p I chi w0, TimeProfile.psi (p j) theta) /
+          TimeProfile.logScale N +
+      theta * width
+'RiffleUpperV2.FirstMoment.classEntropy_goodPositions' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.classEntropy.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k N : ℕ} (hk : 2 ≤ k)
+  (hN : 2 ≤ N) (p : J → TimeProfile.Simplex k) (I : Finset J) (chi width theta : ℝ) (hwidth : 0 < width)
+  (htheta : theta ∈ Set.Icc 3 4) (w0 : J → Fin k) (hlegal : ∀ j ∈ I, 0 < TimeProfile.prob (p j) (w0 j)) :
+  Real.log ↑(RiffleUpperV2.FirstMoment.costClass N p I chi width w0).card / TimeProfile.logScale N ≤
+    theta * RiffleUpperV2.FirstMoment.goodCost N p I chi w0 -
+          (∑ j ∈ I, TimeProfile.psi (p j) theta) / TimeProfile.logScale N +
+        4 * width +
+      4 * Real.log ↑k * ↑(RiffleUpperV2.FirstMoment.exceptionalPositions p I chi w0).card / TimeProfile.logScale N
+'RiffleUpperV2.FirstMoment.classEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.classEntropy_of_exceptionalBudget.{u_1} {J : Type u_1} [Fintype J] [DecidableEq J] {k N : ℕ}
+  (hk : 2 ≤ k) (hN : 2 ≤ N) (p : J → TimeProfile.Simplex k) (I : Finset J) (chi width theta alpha : ℝ)
+  (hwidth : 0 < width) (htheta : theta ∈ Set.Icc 3 4) (w0 : J → Fin k)
+  (hlegal : ∀ j ∈ I, 0 < TimeProfile.prob (p j) (w0 j))
+  (hbudget : ↑(RiffleUpperV2.FirstMoment.exceptionalPositions p I chi w0).card ≤ alpha * TimeProfile.logScale N) :
+  Real.log ↑(RiffleUpperV2.FirstMoment.costClass N p I chi width w0).card / TimeProfile.logScale N ≤
+    theta * RiffleUpperV2.FirstMoment.goodCost N p I chi w0 -
+        (∑ j ∈ I, TimeProfile.psi (p j) theta) / TimeProfile.logScale N +
+      (4 * width + 4 * Real.log ↑k * alpha)
+'RiffleUpperV2.FirstMoment.classEntropy_of_exceptionalBudget' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.FirstMoment.empiricalClassEntropy {k n L N : ℕ} (hk : 2 ≤ k) (hN : 2 ≤ N) (a s u : ℕ)
+  (cuts : RiffleUpperV2.Cuts k n L) (hn : 0 < n) (chi width theta alpha : ℝ) (hwidth : 0 < width)
+  (htheta : theta ∈ Set.Icc 3 4) (w0 : Fin L → Fin k)
+  (hlegal :
+    ∀ j ∈ RiffleUpperV2.FirstMoment.empiricalPositions L a s u,
+      0 < TimeProfile.prob (TimeProfile.Cuts.profile cuts hn j) (w0 j))
+  (hbudget :
+    ↑(RiffleUpperV2.FirstMoment.exceptionalPositions (TimeProfile.Cuts.profile cuts hn)
+            (RiffleUpperV2.FirstMoment.empiricalPositions L a s u) chi w0).card ≤
+      alpha * TimeProfile.logScale N) :
+  Real.log
+        ↑(RiffleUpperV2.FirstMoment.costClass N (TimeProfile.Cuts.profile cuts hn)
+              (RiffleUpperV2.FirstMoment.empiricalPositions L a s u) chi width w0).card /
+      TimeProfile.logScale N ≤
+    theta *
+          RiffleUpperV2.FirstMoment.goodCost N (TimeProfile.Cuts.profile cuts hn)
+            (RiffleUpperV2.FirstMoment.empiricalPositions L a s u) chi w0 -
+        RiffleUpperV2.empiricalB N a cuts hn theta s u +
+      (4 * width + 4 * Real.log ↑k * alpha)
+'RiffleUpperV2.FirstMoment.empiricalClassEntropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

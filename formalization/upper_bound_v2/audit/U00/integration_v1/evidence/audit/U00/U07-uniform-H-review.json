@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of U07",
+  "recorded_at": "2026-10-02T10:23:59.741361+00:00",
+  "source_sha256": "4f06a908d3e151b26935011eb08ff7e99e2ef28d2c90c88435432b8e0d950f21",
+  "mathematics": [
+    "Full actual H failure is dominated by the all-cylinder event complement using the checked deterministic implication.",
+    "K<=T log n bounds the exact (2^k)^K union count by n^(k*T*log 2).",
+    "The positive exponent xi/3 makes the explicit guard threshold eventually true for fixed k,D,g.",
+    "A=2+k*T*log 2 and c=1/24 bound the union prefactor by A*n^A for all n>=1; all constants and N0 precede population, horizon and arrays."
+  ],
+  "model_and_adversarial": [
+    "Literal frozen concentrationEvent and badBound; no artificial event certificate.",
+    "No margin, retained good cluster or reserve-existence premise is required for H concentration alone.",
+    "The absolute population is n=N at the C application; arbitrary independent cut arrays permitted.",
+    "xi>0 needed only for the eventual scale; finite theorem permits xi=0 if its explicit scale holds."
+  ],
+  "remaining": [
+    "Specialize k,D=clusterSpan gamma,xi=eta/10 inside final C/E assembly",
+    "Reserve candidate existence, small-pile failure, coverage and full regularity"
+  ],
+  "independent_build": {
+    "receipt": "uniform-H-check-build.json",
+    "log": "uniform-H-check.log",
+    "inventory": "uniform-H-declarations.json",
+    "declarations": 205,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

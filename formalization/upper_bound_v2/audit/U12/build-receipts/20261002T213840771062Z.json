@@ -1,0 +1,48 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T21:38:40.770636+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U12",
+    "RiffleUpperV2.ProfileUpper.Buffered"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U12",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U12/lib/lean",
+  "built": [
+    "RiffleUpperV2.ProfileUpper.Buffered"
+  ],
+  "modules": {
+    "RiffleUpperV2.ProfileUpper.Buffered": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/ProfileUpper/Buffered.lean",
+      "sha256": "7d4ee38cef3468f7ac435951a4a38eb379a4df31c6090a5e31775ddba968689c",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Contracts.V1.Profile": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Contracts/V1/Profile.lean",
+      "sha256": "233f10859831fb959b6bea09f0a859a2d738b00439d45c20b9feb3423bd194fb",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Contracts.V1.Empirical": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Contracts/V1/Empirical.lean",
+      "sha256": "e20880b420fdb6ca72c38f823ded2670c7a9fc18132c9de41906b6eab9b37556",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Margins.ProfileMargin": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Margins/ProfileMargin.lean",
+      "sha256": "d78fd5cd74c7623620765e6ab5d42aa17cd79ce06a199e7f4dd347a4a0d7c836",
+      "kind": "staged-read-only"
+    },
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+      "sha256": "004e4d6013b20f95feedfcb23b257c07eb1ee4c7645b9d81fd6e4cb684a116d6",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "2f7c952314585f9df2c7f7dca7b804db729e9bc6ba5254f9e69f9e5755696ba0"
+}

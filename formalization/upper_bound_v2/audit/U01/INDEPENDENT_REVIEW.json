@@ -1,0 +1,34 @@
+{
+  "reviewer": "U00, independent of U01 implementer",
+  "reviews": [
+    {
+      "path": "audit/U00/U01-density-truncation-review.json",
+      "sha256": "f26c44da54dee186259884bc984b1cf68d51860f89a37d4844b4304f029dbd3a",
+      "status": "PASS_FOR_NARROW_SLICE"
+    },
+    {
+      "path": "audit/U00/U01-run-product-review.json",
+      "sha256": "fc61839ec65a7f4e9633ccb72a466efa846689e7323fec052ef1f5ba7d71bc34",
+      "status": "PASS_IMPLEMENTED_STRONGER_PATH_BOUND"
+    },
+    {
+      "path": "audit/U00/U01-component-tail-review.json",
+      "sha256": "7cb6681f2a40d8b222961e43c7598f6d174647c6bd2da6ee6cdf82f3c37f7df0",
+      "status": "PASS"
+    },
+    {
+      "path": "audit/U00/U01-final-review.json",
+      "sha256": "cc9b7fe6a1e0514293ef806d1cce4a663c7090c01d64f9991a140f5f59035a53",
+      "status": "PASS"
+    }
+  ],
+  "final_build": {
+    "receipt": "audit/U00/finite-lanes-check-build.json",
+    "receipt_sha256": "ba5a5fe077b3a97921f2e05ea6d3256f24a471b38f01e81a7d10492b3a04035e",
+    "declarations": "audit/U00/finite-lanes-declarations.json",
+    "declarations_sha256": "4ef46e9beed5924b862fd164c3ff1e4d92f7490d76432d55e23fcf179fe3ee5a",
+    "result": "PASS; U00 checked all166 GraphOverlap declarations, exact types and transitive standard-only axioms",
+    "accepted_scope": "U01 finite toolkit only"
+  },
+  "verdict": "PROVED_AND_CHECKED for finite U01 scope only"
+}

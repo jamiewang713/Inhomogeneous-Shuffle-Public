@@ -1,0 +1,37 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:33:34.068536+00:00",
+  "reviewer": "U00 independent of U05 helper owner",
+  "sources": {
+    "Conditional/PrefixAdapters.lean": "e97aa5c3776c174b9bdf71bc99dd1d14f53b417330dedb0128d097a758325937",
+    "Conditional/SmallCylinderBounds.lean": "ef490e1c451889ac11fde21b214039c062f44896a3e0cc89894c09cd4faf0d61"
+  },
+  "root_build_receipt": "small-cylinder-check-build.json",
+  "trust_inventory": "small-cylinder-declarations.json",
+  "declarations": [
+    "RiffleUpperV2.Conditional.tinyCylinder_count",
+    "RiffleUpperV2.Conditional.intermediateCylinder_collisions"
+  ],
+  "source_labels": [
+    "lem:ub-conditional-first-moment tiny and intermediate cylinder regimes"
+  ],
+  "mathematics": [
+    "Nonroot cylinders contained in one first pile are identified with the literal reservoir tail prefix of length |x|-1, including syntactically possible zero-mass words.",
+    "Forward and backward estimates are separately instantiated from the accepted natural-history reservoir count and collision theorems, with constants combined by max.",
+    "Tiny normalization uses mu=n*prefixMass and exponent -xi+alpha*(1+xi).",
+    "Intermediate normalization uses terminal beta, maximum tail mass, q=2(1-alpha)>1 and exponent -eta+3xi+2alpha*(1+eta-2xi). No extra word-count multiplier appears."
+  ],
+  "quantifiers": [
+    "Constants and common threshold precede population, array, history, regime exponent and prefix.",
+    "The conditioning remains the literal positive natural-history fiber with historyGood and current hasDirection. No auxiliary Z is inserted into the filtration.",
+    "Here n is original ambient size in the C application; no log current-cylinder size is substituted."
+  ],
+  "adversarial": [
+    "Zero-mass prefixes are allowed in the tiny regime; the prefix construction is structural and does not infer existence from positive mass.",
+    "Intermediate lower mean condition gives the needed nonzero mass; terminal/full-depth cylinders remain covered by the actual collision estimate.",
+    "Both spatial directions preserve chronological suffix order."
+  ],
+  "remaining": [
+    "U09 must combine these natural-history estimates with the disjoint block-square partition and absorb regime counts and error terms."
+  ]
+}

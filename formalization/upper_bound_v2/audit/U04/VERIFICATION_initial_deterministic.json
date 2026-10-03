@@ -1,0 +1,135 @@
+{
+  "status": "PARTIAL",
+  "scope": "U04 deterministic anchored decomposition plus narrow finite algebra and actual cylinder adapters; full lane is incomplete",
+  "recorded_at": "2026-10-02T08:53:33.806781+00:00",
+  "contract": {
+    "file": "CONTRACTS_READY.json",
+    "sha256": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6"
+  },
+  "inputs": {
+    "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+    "Anchor.Definitions": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+    "Anchor.Scales": "dcf3bc2bcb27f716630cc8dda3a92bcc5d997adca04bd6194ff4c28300ee1cdc",
+    "Hypergeometric.Cylinder": "30de991593d5a7ad8b155c53f8d09964b68fc2c86e612977f87c250c7296a368",
+    "Hypergeometric.CylinderMean": "78f861bac52408f5888b01b2dfa1a3acfcffe8d725603e5a23da455ed81ea92b"
+  },
+  "owned_source_hashes": {
+    "RiffleUpperV2/Localization/Boundary.lean": "5183e8f1a59c135231d898aee39b7501665bf1a04b5da44c2285ef850c567f7d",
+    "RiffleUpperV2/Localization/Counting.lean": "de2a3e22e0601065f001aa8f8433614514ede7991ef1136cad41947d2e774cb5",
+    "RiffleUpperV2/Localization/CylinderAdapters.lean": "01b3c71b50b4153e8be78056730ac969e22696e7e9fbae5232cfb18f5bd3e44c",
+    "RiffleUpperV2/Localization/Definitions.lean": "93701ec8d2df3d4e1d69fd435ccf087c67f68006a2306cc45553e9c220935bd4",
+    "RiffleUpperV2/Localization/DensityAlgebra.lean": "ea7ecab4397da3141cc30abeed971d4f8a2669cdf931e776d028bcdf457c93fe",
+    "RiffleUpperV2/Localization/IntervalCounting.lean": "c383a4489133d623e95ff75717756a58f6d25783bb408d1f29df0a8e6c5741c7",
+    "RiffleUpperV2/Localization/Main.lean": "2722d8e6053cbf6073697162a5cdc710a644e818fc778d0ba22dd63864253835",
+    "RiffleUpperV2/Localization/Prefixes.lean": "876907335ec59abcb63fbd2028b7b1ee1c6d9d79c3b19d5276eea1ce8fe80029",
+    "RiffleUpperV2/Localization/RankGeometry.lean": "067527654564d902421f45850a5da04e01fe29d341f3a349fedd5518a1b7ef85",
+    "RiffleUpperV2/Localization/Scalars.lean": "cd5ac936a0ba9c523c1acf66ab3020a7d4cf3db4a89fdbb3cc16339c0ddf16e7",
+    "RiffleUpperV2/Localization/StableScales.lean": "f09c641308340d4e01b4cc1d2a0528f650bd4c19e618fba48a3169ddda23fca7",
+    "RiffleUpperV2/Localization/Stopping.lean": "4348e58174497b9c24bb52a259a9bf7f28e48d3a84302262022b7455f0c92339"
+  },
+  "build": {
+    "fresh_command": "python3 formalization/upper_bound_v2/scripts/build.py --lane U04 --fresh RiffleUpperV2.Localization.Main",
+    "exit_code": 0,
+    "log": "audit/U04/build.log",
+    "receipts": [
+      {
+        "file": "audit/U04/build-receipts/20261002T085127969709Z.json",
+        "sha256": "454dfade9b683adc19a2f19588ef333eb651e630406cc1079a91825239b5cc58",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--fresh",
+          "RiffleUpperV2.Localization.Main"
+        ],
+        "status": "BUILD_OK"
+      },
+      {
+        "file": "audit/U04/build-receipts/20261002T085142376472Z.json",
+        "sha256": "0452d5359d5f0511150770f7413cc8300a2f4287cb64791e249afa0bc91440ed",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--run",
+          "audit/U04/PrintTypes.lean"
+        ],
+        "status": "BUILD_OK"
+      },
+      {
+        "file": "audit/U04/build-receipts/20261002T085144386396Z.json",
+        "sha256": "73d47b09ca58d4d5de99436e7649a88aefb1e1ed3df578812de1a93b804afe97",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--run",
+          "audit/U04/PrintKernelTypes.lean"
+        ],
+        "status": "BUILD_OK"
+      }
+    ],
+    "compiler": "Lean 4.33.1",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "declarations": "audit/U04/DECLARATIONS.json",
+  "exact_types": "audit/U04/kernel-types.log",
+  "readable_types_and_transitive_axioms": "audit/U04/types-and-axioms.log",
+  "transitive_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "reviews": {
+    "frozen_base": "U00 fresh isolated build/type/axiom review and U03 independent interface review PASS; reflected in CONTRACTS_READY v1",
+    "Boundary": "U03 independent math/model/adversarial review PASS communicated to U00",
+    "additional_modules": "Counting, IntervalCounting, DensityAlgebra, CylinderAdapters, StableScales, RankGeometry kernel checked; independent substantive review pending U00/U05 continuation",
+    "outgoing_review": "audit/U04/U03-independent-interface-review.json"
+  },
+  "reuse_findings": {
+    "old_stable_blocks": "ADAPTER_NEEDED. Old Model has n=N and List Nat ambient/setup scales; no unproved scale adapter used. Reimplemented finite stopping for actual future-only Prefix and proved prefixMass monotonic directly from staged prefix coordinate-product identity.",
+    "old_EdgeLocalization_collision": "ADAPTER_NEEDED. Exact formulas identified but not staged/imported as actual anchored model theorems.",
+    "U02": "MATCH. Anchor cylinder transform/tail/expectation instantiated using proved prefixDigits adapters; no reserve or mean\u22651 needed.",
+    "U03": "MATCH for genuine side-scale comparison only. Stochastic endpoint smoothing still pending."
+  },
+  "missing_obligations": [
+    {
+      "id": "U04-M01",
+      "claim": "The fixed-cut empirical terminal margin implies meanExponent N cuts R w \u2264 -\u03b7 for every legal full anchored word (with exact original/retained index bridge).",
+      "owner": "U04 with U05 empirical adapter",
+      "note": "stable_no_fallback is proved only conditional on this actual terminal mean estimate; no public endpoint uses that conditional helper as a completed result."
+    },
+    {
+      "id": "U04-M02",
+      "claim": "Exact left/right endpoint sibling-cylinder decomposition, including prefix/side cylinder means and their uniform bounds by \u03c7\u207b\u00b9\u03c9; deduce the smaller-side finite endpoint window.",
+      "owner": "U04",
+      "inputs": "U02 actual cylinder concentration, U04 prefixRows_tail and rank geometry",
+      "note": "Both orientations; means below one; offset c0 fixed. Existing prefix concentration is not the endpoint-window theorem."
+    },
+    {
+      "id": "U04-M03",
+      "claim": "From finite endpoint windows, establish uniform w=N^(F+\u03b4/4) stretched-exponential parent windows; derive geometric membership of relevant parents; sum nonrelevant probability retaining (d+1)k^d.",
+      "owner": "U04",
+      "inputs": "Counting.enlargedIntervalMultiplicity and per_edge_multiplicity are proved generic geometry/combinatorics only."
+    },
+    {
+      "id": "U04-M04",
+      "claim": "Actual fixed-column two-row prefix/tail collision law and injection internal edges\u2192equal-row pairs for the anchored graph; terminal full-word graph bound.",
+      "owner": "U04",
+      "note": "Old EdgeLocalization collision modules use a distinct matrix/law representation and have not been imported without a model/toolchain adapter."
+    },
+    {
+      "id": "U04-M05",
+      "claim": "For every nonterminal large stable block including x=v, instantiate U03 endpoint conditional atoms against the internal offset set J; derive sup a\u2264A E|J|, sum a\u2264E|J| and sum b\u2264n P(S\u1d9c).",
+      "owner": "U04 after U03",
+      "note": "DensityAlgebra proves direct one-atom-factor aggregation only; its hypotheses have not all been discharged on the matrix law."
+    },
+    {
+      "id": "U04-M06",
+      "claim": "Uniform asymptotic absorption and exhaustive block/boundary partition into source small, large, terminal contributions in U05 interface.",
+      "owner": "U04/U05",
+      "note": "No claimed endpointWindow/relevantParents/irrelevantLoss/smallDensity/largeDensity/terminalDensity endpoint theorem exists yet."
+    }
+  ],
+  "delivery_boundary": "Does not discharge all localization/density premises of U05. No F/C/E/P/T/R endpoint claimed."
+}

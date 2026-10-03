@@ -1,0 +1,15 @@
+{
+  "original": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean",
+  "sha256": "88d1a5b1dcaa900583ea8f7871d540af93a419a111dcb18787c3a177859d1915",
+  "source_lines": [
+    61,
+    135
+  ],
+  "changes": [
+    "namespace RiffleUpperV2.Anchor instead of private HypergeomParams namespace",
+    "swapped promoted to public swappedParams",
+    "expect_swapped promoted to public hypergeometricSwappedExpect",
+    "PMF-facing expect/probability adapters and mean/variance identities added"
+  ],
+  "proof_changes": "none to original extended sum and factorial symmetry proofs"
+}

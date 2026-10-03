@@ -1,0 +1,66 @@
+{
+  "manuscript": {
+    "file": "time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a"
+  },
+  "theorems": [
+    {
+      "name": "RiffleUpperV2.Conditional.tailBinPrefix_of_cylinder",
+      "role": "Literal arbitrary nonroot first-pile cylinder adapter",
+      "source": "lem:ub-conditional-first-moment (final cylinders); exact reservoir tail-bin convention",
+      "inputs": "A nonroot prefix and the statement that all full extensions have first digit p; no probability or legal-word assumption",
+      "output": "Existential E and actual tail word v with equality tailBinPrefix E p v=x; constructed E=x.length-1"
+    },
+    {
+      "name": "RiffleUpperV2.Conditional.tinyCylinder_count",
+      "role": "Actual conditional vertex-count bound for tiny final cylinders",
+      "source_labels": [
+        "lem:ub-conditional-first-moment (tiny regime)",
+        "eq:ub-conditional-cylinder-count"
+      ],
+      "primitive_reuse": [
+        "RiffleUpperV2.Reservoir.prefixCount",
+        "RiffleUpperV2.Reservoir.Backward.prefixCount"
+      ],
+      "scalar_reuse": [
+        "RiffleUpperV2.Conditional.tinyCount_power"
+      ],
+      "final_power": "-xi+alpha*(1+xi)",
+      "error": "n*epsilon",
+      "alpha": "log(1/g)/log(1/tau)"
+    },
+    {
+      "name": "RiffleUpperV2.Conditional.intermediateCylinder_collisions",
+      "role": "Actual conditional full-word collision count in intermediate final cylinders",
+      "source_labels": [
+        "lem:ub-conditional-first-moment (intermediate regime)",
+        "eq:ub-conditional-tail-collisions"
+      ],
+      "primitive_reuse": [
+        "RiffleUpperV2.Reservoir.tailCollisions",
+        "RiffleUpperV2.Reservoir.Backward.tailCollisions"
+      ],
+      "scalar_reuse": [
+        "RiffleUpperV2.Conditional.intermediate_maximalTail_le",
+        "RiffleUpperV2.Conditional.tailPowerMass_le_maximalTail",
+        "RiffleUpperV2.Conditional.intermediateCollision_power"
+      ],
+      "final_power": "-eta+3*xi+2*alpha*(1+eta-2*xi)",
+      "error": "n^2*epsilon",
+      "explicit_terminal_input": "empiricalBeta n 0 cuts hn (L+1)<=-eta",
+      "terminal_input_discharge_owner": "U09 final C assembly"
+    }
+  ],
+  "boundary_checks": [
+    "Nonroot assumption enforces a literal first digit and permits E=length-1; one-digit prefix has E=0.",
+    "Full-length prefixes produce the full tail word; all tail product conventions remain exact.",
+    "Prefix extension exists even at zero mass, so whole-cylinder pile containment is not vacuous.",
+    "Tiny mean may vanish; only nonnegative real powers are used.",
+    "Intermediate lower mean is strictly positive because n>=2, and maximal tail bounds use that actual regime.",
+    "Direction-dependent future inequalities are strict and relative to the actual sorted current word at pilePosition.",
+    "The conditioning event is exactly historyFiber at j+1 in the same direction, with positiveHistory explicit.",
+    "Forward and backward constants and thresholds are combined before all population, array, regime, history and prefix parameters.",
+    "The collision sum is literally over all full words in the chosen cylinder, with natural choose2 counts.",
+    "No graph edge comparison, Jensen step, final C, or terminal premise discharge is asserted by these helpers."
+  ]
+}

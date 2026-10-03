@@ -1,0 +1,71 @@
+/goal
+You are a Lean formalization agent assigned ONE bounded part of the UPPER BOUND for time-inhomogeneous riffle shuffles. Implement the assignment below and produce checkable proof evidence. The lower-bound formalization is finished; it is a read-only source of reusable lemmas, not another task.
+
+AUTHORITATIVE INPUTS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Manuscript SHA256 when this plan was prepared: 284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+Plan and all sibling prompts: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_parallel_plan_2026-10-01
+Proposed NEW integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2
+Proposed namespace: RiffleUpperV2. Proposed names below are deliverable names, NOT claims that these Lean declarations already exist.
+
+Use the CURRENT empirical/reserved-population proof. The old formalization/upper_bound/STATUS.md and PROOF_STRUCTURE.md describe an earlier manuscript and are historical. Their ambient partition-preservation route is not the new target. The current repair map is formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt. A manuscript review is not a Lean certificate. Locate statements by their LaTeX labels, not old line numbers.
+
+Reuse existing checked mathematics where its FULL type matches. Important candidates are formalization/foundations, formalization/time_profile, formalization/lower_bound_v2/RiffleLowerV2/{Model,Thinning,Factorial,ProfileTransfer}, formalization/first_moment, formalization/stable_blocks, lean/EdgeLocalization, and lean probability modules. Inspect actual proofs and provenance. The first_moment package has proved generic aggregation and model adapters, but its model-specific first-moment theorem remains unproved. It records successful 4.33.1 compatibility; do not repeat its older compatibility failure as current. Old stable/profile definitions require a proved adapter to the new anchored empirical construction.
+
+MATHEMATICAL CONTRACT
+The primary endpoint is thm:ub-empirical-upper: for fixed k>=2 and T,eta0,g0,gamma0>0 there exists rho0>0; for every fixed 0<rho<=rho0 there exist c>0,N0 such that ALL N>=N0, ALL K<=T log N and ALL fixed-count cut arrays satisfying the empirical negative margin and local-good condition have TV(physical inverse shuffle, uniform)<=N^(-c). The theorem must not assume a first-moment bound, conditional-edge estimate, exploration certificate, witness, density bound or exponential-moment bound.
+
+Its first-moment input prop:ub-empirical-first-moment is uniform over 2<=n<=N, integer a<K<=T log N and arrays on the n labels, with a g-good first retained column and eq:ub-empirical-negative-margin. The costs and beta use log N, including in subdecks: beta(s)=log(n)/log(N)-Ahat(a,s). Never substitute log n. Terminal beta(K)<=-eta and every integer pair a<=s<=u<=K are included; the theta infimum is over [3,4]. This input requires no time profile, profile partition, local-good density, or arbitrary ambient-prefix law.
+
+The other public endpoints are the buffered deterministic profile upper bound, the reduced critical-time/mixing-time upper bound under def:ub-arbitrarily-fine-approximation, and the random-cut upper bound. Preserve the exact scalar-integrability and parameter order. The critical-time hypothesis has g,gamma fixed BEFORE rho decreases and coherent cut sequences across horizons. It is stronger than one arbitrary fixed coarse mesh; do not silently weaken it. Infinite thresholds must be represented faithfully.
+
+WORKFLOW AND INDEPENDENT REVIEW
+1. Read your source labels and their definitions; inspect the exact reusable Lean types. Produce a source-to-declaration map and identify real missing proofs versus adapters.
+2. Coordinate with U00 on shared definitions and exact interfaces. U00 publishes CONTRACTS_READY with versioned hashes. Mathematical investigation and isolated experiments may begin beforehand; integration must use the agreed definitions. A Target : Prop definition is a specification, not a proof.
+3. Obtain independent checks of (a) the mathematics, (b) the Lean statement/model/quantifiers, and (c) adversarial examples/hidden hypotheses. Schedule these through U00 using spare workers or cross-review; do not recursively demand three new agents per lane or exceed the available worker count. Never audit your own new proof as the only reviewer.
+4. Prove each assigned result, compile its actual dependency closure, and instantiate generic inputs from the fixed-column law. Generic helper hypotheses are allowed only when every one is discharged before the public model endpoint. If an imported theorem is conditional, record who proves its premises.
+5. If a real obstruction appears, record the exact failing claim and test at least two substantively different approaches. Continue independent useful work. Do not weaken the frozen target or add the missing conclusion as a premise. Propose any necessary statement change separately, with consequences for the public endpoints.
+
+No sorry, admit, custom axiom, unproved placeholder, circular typeclass/structure certificate, native proof oracle or vacuous reformulation counts as completion. Standard Lean axioms Classical.choice, Quot.sound and propext are allowed. Finite computation through kernel-checked proofs is allowed. Check N=0/1 guards, empty products, zero pile sizes, impossible histories and endpoint conventions explicitly where relevant; asymptotic targets may set N0>=2.
+
+An auxiliary numerical constant may be weakened only with a recorded proof that every downstream frozen endpoint is preserved and an independent interface review. Freeze the selected helper version before downstream integration; do not silently claim the original sharper inequality. No public hypothesis or endpoint is changed by this allowance.
+
+BUILD AND FILE OWNERSHIP
+Use Lean 4.33.1 and mathlib 0df444a360eaa60ab8c11dca51a86af692955474, subject to U00 confirming the actual installation. There is no root Lake project. Do not upgrade dependencies, mix 4.19/4.24 compiled caches, or overwrite frozen upstream files. Existing completed packages and the manuscript are read-only. If the proposed new package already exists, inspect its state and ownership before continuing; never reinitialize it blindly.
+
+U00 owns new package configuration, shared modules, contracts, import umbrellas, dependency staging and integration. You own only the module and audit directories listed in your assignment. Compile into your lane's isolated output directory .build/Uxx/ against immutable reviewed dependencies; only U00 writes shared outputs and performs integrated builds. Do not run broad reset/clean commands or alter another lane's files. Request a shared-interface change from U00 with a concrete proposed signature.
+
+DELIVERY AND ACCEPTANCE
+Return exact public declaration names and fully expanded types, source labels, proof/dependency files, command and exit-status build evidence, input hashes, transitive axiom evidence, and independent review findings/resolutions. Save a concise STATUS.txt and machine-readable VERIFICATION.json in your audit directory. Use PROVED_AND_CHECKED, PARTIAL, or BLOCKED_WITH_EXACT_OBLIGATION honestly. List remaining imported assumptions and their concrete discharge sites. A successful import, absence of textual sorry, numerical experiment or conditional wrapper alone is not completion. Do not claim a fresh build from an old receipt. The assignment below determines your scope; do not start sibling work or reopen the finished lower bound.
+
+ASSIGNMENT: U02 — Hypergeometric concentration, atom bounds and anchored cylinder laws
+
+OWNED PATHS (inside the proposed new package)
+RiffleUpperV2/Hypergeometric/; audit/U02/
+UPSTREAM INPUT PROVIDERS
+U00
+These are input milestones, not whole-agent completion requirements. U00 means CONTRACTS_READY for proof workers and INTEGRATION_READY for U13's final audit. Other lanes supply their reviewed proved exports. Read their exact planned exports in PLAN.txt and bind them to the frozen versions before use. Independent partial work may start sooner as specified below. U00 itself completes only after U13 accepts the integrated package.
+
+SOURCE LABELS
+lem:ub-hypergeometric-estimates
+lem:ub-anchor-cylinder-tail
+eq:ub-anchor-cylinder-transform
+
+Build the finite probability primitives for anchored smoothing and exploration. This lane can proceed independently of the first-moment assembly and of the exponential-moment lane.
+
+1. Reuse/adapt the existing exact hypergeometric law, mean and variance before defining another law. Current 4.33.1 ports include RiffleLowerV2/Thinning/Compat/HypergeometricMoments.lean. Match the source's population, marked count and sample count explicitly, including admissibility and deterministic boundary cases. Supply any missing sampling-complement symmetry and conditional sampling adapters.
+2. Prove the moment-generating-function domination for all real exponential parameters (equivalently s>0 for E[s^X]) and the two-sided tail with denominator 4*(mu+t). This is already the denominator in the current hypergeometric and anchored-cylinder source lemmas and in the reusable prefixTails. Reuse completed thinning/residual transforms where their full hypotheses match, then prove any change of normalization or conditional fiber identity. One-sided transforms do not automatically prove the other tail. U07 separately handles the sharper exploration display, if it is needed literally.
+3. FIRST inspect the existing HypergeomParams.pointMass_le_four_div_sqrt in lean/Shuffle/HypergeometricAntiConcentration.lean: it already proves the required positive-variance atom bound. Prefer a reviewed 4.33.1 source port and finite-law adapter to reproving it. If using the source's alternative generic log-concavity argument, interval support is essential; disconnected support makes the intended inference invalid. Handle zero variance separately and state the positive-variance range for reciprocal-square-root bounds.
+4. Prove the cylinder transform and concentration for an ARBITRARY fixed row subset R and arbitrary allowed DIGIT SETS in any selected future columns, without an outside-reserve hypothesis. This covers the sibling inequalities used in U04's endpoint windows. Reuse Thinning.independent_intersection_transform and the exact conditional laws. Then specialize to a first-column anchor assignment. Future columns sample from the full current n-label population, not iid rows, and the deterministic anchor column is excluded from future fluctuation scales. An outside reserve is needed for U03's variance lower bound, not for this concentration theorem.
+5. Export exact finite estimates plus uniform constants. Replace O notation by explicit constants/quantifiers where downstream callers need it; do not add a profile or temporal measurability assumption.
+
+REUSE: completed Thinning/ColumnSampling, Thinning/Residual, Thinning/Main, Thinning/Compat/HypergeometricMoments; current probability modules and mathlib hypergeometric APIs after inspecting their actual types. Prefer existing 4.33.1 ports; the anti-concentration source may still need its own reviewed port. Keep native runtime compatibility separate from mathematical applicability.
+DONE WHEN: U03 and U07 can instantiate every probabilistic primitive on their actual positive-probability fibers, including the sample-complement case.
+
+PLANNED EXPORTS / EVIDENCE
+- Hypergeometric.transformBound
+- Hypergeometric.twoSidedTail
+- Hypergeometric.atomBound
+- Hypergeometric.anchorCylinderTransform
+- Hypergeometric.anchorCylinderTail

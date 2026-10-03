@@ -1,0 +1,26 @@
+{
+  "status": "PASS_CONDITIONAL_PROFILE_AND_ANALYTIC_PREPARATION",
+  "recorded_at": "2026-10-02T21:45:11.993682+00:00",
+  "reviewer": "U00 independent of U12",
+  "sources": {
+    "Buffered.lean": "7d4ee38cef3468f7ac435951a4a38eb379a4df31c6090a5e31775ddba968689c",
+    "Analytic.lean": "1e089815df94f7e71b9aed94b22357dbfdb517a1e3b4796c819be75c9481948a"
+  },
+  "root_receipt": "profile-preparation-check-build.json",
+  "trust_inventory": "profile-preparation-declarations.json",
+  "mathematics": [
+    "bufferedOfEmpirical composes actual anyFixedPartitionTransfer with original-N empirical margin eta/2, the floor horizon threshold and physical E estimate. Actual LocalGood on [0,T] restricts to the exact floor horizon.",
+    "Spatial chi0 is chosen solely from k,T,eta before arbitrary chi and the same regular P; g,gamma then determine rho0 through E, followed by phi0 and eventual N. Scalar integrability is that of the same P.",
+    "Analytic interval restriction/additivity/monotonicity invoke actual interval-integrability hypotheses. Bounded spatial profiles alone are never used to infer temporal measurability.",
+    "Clipping both triangle coordinates at S lowers nonnegative cost intervals and raises beta, giving true macroF comparison. Explicit uniform bounds certify all real variational infima/suprema and nonempty triangles, including S=0.",
+    "Reduced marginMonotonicity holds on 0<=S<=T; the quantitative Lambda1 horizon difference is bounded by8logk(T-S)."
+  ],
+  "adversarial": [
+    "N>=2 and floor rounding are explicitly discharged. Arbitrary same partition and cutoff quantifier order are preserved.",
+    "Infimum remains real over the interval[3,4], not a grid; no continuity at a critical threshold is assumed."
+  ],
+  "remaining": [
+    "The public P must instantiate the actual E theorem; bufferedOfEmpirical is only the explicit internal implication.",
+    "Full auxiliary margins/dominance and critical/mixing/random endpoints remain U12 work."
+  ]
+}

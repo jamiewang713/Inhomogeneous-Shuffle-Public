@@ -1,0 +1,26 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:51:23.022389+00:00",
+  "reviewer": "U00 independent of U11 helper owner",
+  "sources": {
+    "CurrentRunBound.lean": "589ab6ea7d094b24ff3cb048f0ad269296e208e31480d4b494321422477eb216"
+  },
+  "root_receipt": "current-run-scale-check-build.json",
+  "trust_inventory": "current-run-scale-declarations.json",
+  "mathematics": [
+    "Actual full-word mean is bounded by maximalMean using the product of actual column maxima, including zero-mass words. Actual terminal beta then bounds it byN^-eta.",
+    "The source alpha<=eta/(40(1+eta)) converts N*wordMass^(1-alpha) intoN^(-3eta/5).",
+    "Both accepted actual natural-history extraCurrentCopies theorems instantiate the exact currentExcess, with common max constant and common threshold chosen before all arrays/histories."
+  ],
+  "quantifiers": [
+    "CurrentRunBound assumes only actual positive/historyGood natural fiber, current hasDirection, first-column goodness and actual terminal margin.",
+    "Current hasDirection is an internal branch already complemented by HistoryAdapters.historySelfIntersection_zero_of_not_direction; it is not an additional C premise."
+  ],
+  "adversarial": [
+    "Zero-mass words and zero extra copies are covered.",
+    "Both directions retain actual reveal order, and the boundary-crossing edge is accounted for by the already checked currentExcess cardinal estimate."
+  ],
+  "remaining": [
+    "U09 integrates this and ConditionalScale into final C."
+  ]
+}

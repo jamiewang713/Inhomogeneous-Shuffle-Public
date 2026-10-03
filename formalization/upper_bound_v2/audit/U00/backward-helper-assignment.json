@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-10-02T20:17:31.015743+00:00",
+  "state": "PROVED_AND_CHECKED",
+  "worker": "u04_localization",
+  "provider_lane_completed": "U04",
+  "supported_lane": "U08",
+  "owned_new_modules": [
+    "RiffleUpperV2.Reservoir.BackwardConstraint",
+    "RiffleUpperV2.Reservoir.BackwardDenominator",
+    "RiffleUpperV2.Reservoir.BackwardRestricted",
+    "RiffleUpperV2.Reservoir.BackwardRefinement"
+  ],
+  "audit_directory": "audit/U04/backward-helper",
+  "build_overlay": "U04",
+  "scope": "Backward actual history denominator and fine refinement helpers; U08 owns downstream counts and future-cylinder law.",
+  "build_isolation": "EXTRA_OWNED exact allowlist; other Reservoir output remains source-checked read-only; write_parent also detaches .source.json receipts before writes.",
+  "completion_evidence": "../U04/backward-helper/VERIFICATION.json",
+  "independent_review": "U08-backward-helpers-review.json",
+  "completed_at": "2026-10-02T20:24:18.442210+00:00"
+}

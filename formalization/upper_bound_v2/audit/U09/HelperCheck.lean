@@ -1,0 +1,20 @@
+import RiffleUpperV2.Conditional.Jensen
+import RiffleUpperV2.Conditional.PairReduction
+import RiffleUpperV2.Conditional.RefinementCount
+set_option pp.all true
+#print RiffleUpperV2.Conditional.conditionalSquareJensen
+#print RiffleUpperV2.Conditional.selfIntersectionJensen
+#print RiffleUpperV2.Conditional.crossHistorySquareBound
+#print RiffleUpperV2.Conditional.remainingCommonEdges_eq_sum
+#print RiffleUpperV2.Conditional.remainingCommonEdges_le_self
+#print RiffleUpperV2.Conditional.positivePairHistory_iff
+#print RiffleUpperV2.Conditional.window_power_le
+#print RiffleUpperV2.Conditional.refinementCount
+#print axioms RiffleUpperV2.Conditional.conditionalSquareJensen
+#print axioms RiffleUpperV2.Conditional.selfIntersectionJensen
+#print axioms RiffleUpperV2.Conditional.crossHistorySquareBound
+#print axioms RiffleUpperV2.Conditional.remainingCommonEdges_eq_sum
+#print axioms RiffleUpperV2.Conditional.remainingCommonEdges_le_self
+#print axioms RiffleUpperV2.Conditional.positivePairHistory_iff
+#print axioms RiffleUpperV2.Conditional.window_power_le
+#print axioms RiffleUpperV2.Conditional.refinementCount

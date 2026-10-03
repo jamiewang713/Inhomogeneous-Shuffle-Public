@@ -1,0 +1,51 @@
+CHECK RiffleUpperV2.Anchor.HypergeometricSymmetry
+CHECK RiffleUpperV2.Anchor.SourceSampling
+theorem RiffleUpperV2.Anchor.partialRevealSourceExpect : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (j : Fin d)
+  (A B : Finset (Fin n)) (D : Finset (Fin k)) (ω₀ : RiffleUpperV2.Sample cuts) (hB : B ⊆ Finset.univ \ A) (f : ℕ → ℝ),
+  RiffleLowerV2.conditionalExpect (RiffleUpperV2.fixedCountPMF cuts)
+      (fun (ω : TimeProfile.ShuffleSample cuts) => f (B ∩ RiffleUpperV2.Anchor.residualAllowed A D (ω j)).card)
+      (RiffleUpperV2.Anchor.partialRevealFiber j A ω₀) =
+    RiffleUpperV2.expect (RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB).law.toPMF
+      fun (q : Fin ((RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB).draws + 1)) => f ↑q :=
+fun {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (j : Fin d) (A B : Finset (Fin n)) (D : Finset (Fin k))
+    (ω₀ : RiffleUpperV2.Sample cuts) (hB : B ⊆ Finset.univ \ A) (f : ℕ → ℝ) =>
+  Eq.trans (RiffleUpperV2.Anchor.partialRevealConditionalExpect cuts j A B D ω₀ hB f)
+    (RiffleUpperV2.Anchor.hypergeometricSwappedExpectPMF
+      (RiffleLowerV2.Thinning.Compat.samplingParams (Finset.univ \ A) B (RiffleUpperV2.Anchor.residualMarked A D (ω₀ j))
+        hB (RiffleUpperV2.Anchor.residualMarked_le A D (ω₀ j)))
+      f)
+theorem RiffleUpperV2.Anchor.partialRevealSourceProbability : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (j : Fin d) (A B : Finset (Fin n)) (D : Finset (Fin k)) (ω₀ : RiffleUpperV2.Sample cuts) (hB : B ⊆ Finset.univ \ A)
+  (E : ℕ → Prop),
+  RiffleLowerV2.conditionalProbability (RiffleUpperV2.fixedCountPMF cuts)
+      (fun (ω : TimeProfile.ShuffleSample cuts) => E (B ∩ RiffleUpperV2.Anchor.residualAllowed A D (ω j)).card)
+      (RiffleUpperV2.Anchor.partialRevealFiber j A ω₀) =
+    RiffleUpperV2.probability (RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB).law.toPMF
+      fun (q : Fin ((RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB).draws + 1)) => E ↑q :=
+fun {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (j : Fin d) (A B : Finset (Fin n)) (D : Finset (Fin k))
+    (ω₀ : RiffleUpperV2.Sample cuts) (hB : B ⊆ Finset.univ \ A) (E : ℕ → Prop) =>
+  Eq.trans (RiffleUpperV2.Anchor.partialRevealConditionalProbability cuts j A B D ω₀ hB E)
+    (RiffleUpperV2.Anchor.hypergeometricSwappedProbability
+      (RiffleLowerV2.Thinning.Compat.samplingParams (Finset.univ \ A) B (RiffleUpperV2.Anchor.residualMarked A D (ω₀ j))
+        hB (RiffleUpperV2.Anchor.residualMarked_le A D (ω₀ j)))
+      E)
+theorem RiffleUpperV2.Anchor.partialRevealSourceVariance : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (j : Fin d)
+  (A B : Finset (Fin n)) (D : Finset (Fin k)) (ω₀ : RiffleUpperV2.Sample cuts) (hB : B ⊆ Finset.univ \ A),
+  RiffleLowerV2.conditionalExpect (RiffleUpperV2.fixedCountPMF cuts)
+      (fun (ω : TimeProfile.ShuffleSample cuts) =>
+        (↑(B ∩ RiffleUpperV2.Anchor.residualAllowed A D (ω j)).card -
+            (RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB).mean) ^
+          2)
+      (RiffleUpperV2.Anchor.partialRevealFiber j A ω₀) =
+    (RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB).varianceFormula :=
+fun {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (j : Fin d) (A B : Finset (Fin n)) (D : Finset (Fin k))
+    (ω₀ : RiffleUpperV2.Sample cuts) (hB : B ⊆ Finset.univ \ A) =>
+  Eq.trans
+    (RiffleUpperV2.Anchor.partialRevealSourceExpect cuts j A B D ω₀ hB fun (q : ℕ) =>
+      (↑q - (RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB).mean) ^ 2)
+    (RiffleUpperV2.Hypergeometric.exactVariance (RiffleUpperV2.Anchor.sourceSamplingParams A B D (ω₀ j) hB))
+'RiffleUpperV2.Anchor.partialRevealSourceExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Anchor.partialRevealSourceProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Anchor.partialRevealSourceVariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Anchor.hypergeometricSwappedExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

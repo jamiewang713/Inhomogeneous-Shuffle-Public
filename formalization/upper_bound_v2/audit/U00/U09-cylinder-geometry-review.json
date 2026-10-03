@@ -1,0 +1,31 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:49:00.480391+00:00",
+  "reviewer": "U00 independent of owner",
+  "root_build_receipt": "first-moment-endpoint-check-build.json",
+  "trust_inventory": "first-moment-endpoint-declarations.json",
+  "sources": {
+    "Conditional/FutureCylinders.lean": "4fd266a9f29435a8f62b58421e309f455540346e7df365798940ebbcd4fcb11f",
+    "Conditional/PastCylinders.lean": "0403491efb8af2f475a252ded3be825da2bb8fa452799f4915274dbc974c6bb5",
+    "Conditional/RefinedCylinders.lean": "9f9226f4ff13e52005f13149a8bc840675d175223df435c2f637aa8684d05085",
+    "Conditional/GoodRefinement.lean": "330f49cf35284e442b70260ddd4cc4e3f1309292666df1c7b508c7ceb77ad3d1",
+    "Conditional/TailMass.lean": "8d8832c5b00907e03fe4e116a2af84bf90c82e05ca8d1bb002fd64863de3eb54",
+    "Conditional/LateTail.lean": "0002b6d4c1c270a48a5d0e133a7861adb3c452fccab8aac60d6f38cdfda3a89f"
+  },
+  "mathematics": [
+    "Literal future interval Ioc(s,t) and backward interval Ico(s,t) are partitioned into maximal prefix cylinders with at most 2*k*K members using endpoint branches.",
+    "Refining each prefix by every allowed extension preserves coverage and antichain, with cardinality at most parentCount*k^window; actual refinedFuture_card discharges the previous finite count premise.",
+    "Good refinement uses the concrete integer-window good-column triple, or zero extra digits for a terminal short suffix. Threshold precedes all arrays and families.",
+    "Prefix mean times maximal tail mass is at most actual maximal word mean; tail mass is at least k^(-remainingColumns), including zero individual counts.",
+    "Terminal margin plus a short suffix gives mu<=k^2*N^(-eta+rho*log k), and the strict exponent gap yields a uniform tiny-prefix classification."
+  ],
+  "adversarial": [
+    "Equal or reversed endpoints produce an empty interval.",
+    "Prefix membership allows zero probability cylinders; no illegal positivity assumption is needed.",
+    "Terminal empty tail has mass1 and refined depth0.",
+    "Forward and backward endpoint inclusion conventions are distinct and preserved."
+  ],
+  "remaining": [
+    "Actual directional edge decomposition, three regimes and exact C assembly."
+  ]
+}

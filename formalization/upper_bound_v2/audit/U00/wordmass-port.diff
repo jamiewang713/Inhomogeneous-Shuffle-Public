@@ -1,0 +1,38 @@
+--- lean_formalization/RiffleProfiles/WordMass.lean
++++ formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalWordMass.lean
+@@ -7,7 +7,10 @@
+ /-! Finite word-mass and coarse-fibre estimates from frozen F18 and F20.
+ No probability-space or shuffle expectation identification is made here. -/
+ 
+-namespace RiffleProfiles
++set_option backward.isDefEq.respectTransparency false
++
++namespace RiffleUpperV2.Compat
++open RiffleProfiles
+ 
+ open scoped BigOperators
+ 
+@@ -83,7 +86,7 @@
+         exact add_nonneg zero_le_one
+           (mul_nonneg (Finset.sum_nonneg fun d _ => hp j d) hz')
+       · intro j _
+-        exact add_le_add_left (mul_le_mul_of_nonneg_right (hbad j) hz') 1
++        simpa only [add_comm] using add_le_add_left (mul_le_mul_of_nonneg_right (hbad j) hz') 1
+     _ = _ := by simp
+ 
+ /-- F18: the finite product-weight bad-count bound. -/
+@@ -223,7 +226,7 @@
+           ∑ x ∈ Finset.univ.filter (fun x : ι → α => badPositions bad x = S),
+             wordWeight p x := by
+       symm
+-      simpa [badWordMass, badCount] using
++      simpa only [badWordMass, badCount, Finset.mem_filter, Finset.mem_univ, true_and] using
+         (Finset.sum_fiberwise_eq_sum_filter (Finset.univ : Finset (ι → α))
+           ((Finset.univ : Finset (Finset ι)).filter (fun S => h ≤ S.card))
+           (badPositions bad) (wordWeight p))
+@@ -309,4 +312,4 @@
+ 
+ end CoarseCollision
+ 
+-end RiffleProfiles
++end RiffleUpperV2.Compat

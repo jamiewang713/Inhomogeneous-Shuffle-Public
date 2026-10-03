@@ -1,0 +1,18 @@
+CHECK RiffleUpperV2.Exploration.AllCylinders
+CHECK RiffleUpperV2.Compat.EmpiricalCountLimits
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean:12:18: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean:12:31: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalCountLimits.lean:172:0: error: Unexpected name `RiffleUpperV2.Compat` after `end`: The current section is unnamed
+
+Hint: Delete the name `RiffleUpperV2.Compat` to end the current unnamed scope; outer named scopes can then be closed using additional `end` command(s):
+  end ̵R̵i̵f̵f̵l̵e̵U̵p̵p̵e̵r̵V̵2̵.̵C̵o̵m̵p̵a̵t̵

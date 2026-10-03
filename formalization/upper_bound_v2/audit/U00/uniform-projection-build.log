@@ -1,0 +1,55 @@
+CHECK RiffleUpperV2.Shared.UniformProjection
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UniformProjection.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UniformProjection.lean:27:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  RiffleLowerV2.expect (PMF.uniformOfFintype ?m.90) ?f
+in the target expression
+  (expect (PMF.uniformOfFintype (Γ × F)) fun z => f z.1) = expect (PMF.uniformOfFintype Γ) f
+
+Ω : Type u_1
+Γ : Type u_2
+inst✝³ : Fintype Ω
+inst✝² : Nonempty Ω
+inst✝¹ : Fintype Γ
+inst✝ : Nonempty Γ
+X : Ω → Γ
+e : (z z' : Γ) → { ω // X ω = z } ≃ { ω // X ω = z' }
+f : Γ → ℝ
+ω₀ : Ω := Classical.choice ⋯
+F : Type (max 0 u_1) := { ω // X ω = X ω₀ }
+this : Nonempty F := Nonempty.intro ⟨ω₀, rfl⟩
+t : Ω ≃ Γ × F := (Equiv.sigmaFiberEquiv X).symm.trans (Equiv.sigmaEquivProdOfEquiv fun z => e z (X ω₀))
+hf : ∀ (ω : Ω), (t ω).1 = X ω
+⊢ (expect (PMF.uniformOfFintype (Γ × F)) fun z => f z.1) = expect (PMF.uniformOfFintype Γ) f
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UniformProjection.lean:43:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  expect (PMF.uniformOfFintype Ω) fun ω => ?f (X ω)
+in the target expression
+  (RiffleLowerV2.expect (PMF.uniformOfFintype Ω) fun a => if X a = z then 1 else 0) =
+    ((PMF.uniformOfFintype Γ) z).toReal
+
+Ω : Type u_1
+Γ : Type u_2
+inst✝³ : Fintype Ω
+inst✝² : Nonempty Ω
+inst✝¹ : Fintype Γ
+inst✝ : Nonempty Γ
+X : Ω → Γ
+e : (z z' : Γ) → { ω // X ω = z } ≃ { ω // X ω = z' }
+z : Γ
+⊢ (RiffleLowerV2.expect (PMF.uniformOfFintype Ω) fun a => if X a = z then 1 else 0) =
+    ((PMF.uniformOfFintype Γ) z).toReal
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/UniformProjection.lean:56:4: error: Function expected at
+  conditionalExpect
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (PMF.uniformOfFintype Ω)
+
+Hint: The identifier `conditionalExpect` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.

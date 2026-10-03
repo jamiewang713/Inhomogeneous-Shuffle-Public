@@ -1,0 +1,230 @@
+{
+  "lane": "U09",
+  "status": "PROVED_AND_CHECKED",
+  "recorded_at": "2026-10-02T22:06:52.302422+00:00",
+  "endpoint": "RiffleUpperV2.Conditional.remainingCommonEdges",
+  "endpoint_type": "RiffleUpperV2.Contracts.V1.C",
+  "endpoint_proved": true,
+  "endpoint_import": "RiffleUpperV2.Conditional.Main",
+  "frozen_endpoint_changed": false,
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "fresh_build": {
+    "command": [
+      "formalization/upper_bound_v2/scripts/build.py",
+      "--lane",
+      "U09",
+      "--fresh",
+      "--run",
+      "audit/U09/TrustCheck.lean"
+    ],
+    "exit_code": 0,
+    "receipt": "audit/U09/fresh-build-receipt.json",
+    "log": "audit/U09/fresh-trust.log",
+    "scope": "All 39 Conditional modules freshly compiled into U09; non-owned provider imports use source-matched immutable U00 staged outputs and pinned library caches.",
+    "built_modules": [
+      "RiffleUpperV2.Conditional.AuxiliaryJensen",
+      "RiffleUpperV2.Conditional.BlockCounts",
+      "RiffleUpperV2.Conditional.BlockEdges",
+      "RiffleUpperV2.Conditional.BlockGeometry",
+      "RiffleUpperV2.Conditional.ConditionalAveraging",
+      "RiffleUpperV2.Conditional.ConditionalScale",
+      "RiffleUpperV2.Conditional.CurrentRunBound",
+      "RiffleUpperV2.Conditional.CurrentRunGeometry",
+      "RiffleUpperV2.Conditional.DirectionalGeometry",
+      "RiffleUpperV2.Conditional.DisjointSquares",
+      "RiffleUpperV2.Conditional.FineMoments",
+      "RiffleUpperV2.Conditional.FinePartition",
+      "RiffleUpperV2.Conditional.FutureCylinders",
+      "RiffleUpperV2.Conditional.GoodRefinement",
+      "RiffleUpperV2.Conditional.GraphSquares",
+      "RiffleUpperV2.Conditional.HistoryAdapters",
+      "RiffleUpperV2.Conditional.HistoryAveraging",
+      "RiffleUpperV2.Conditional.Jensen",
+      "RiffleUpperV2.Conditional.LargeConcentration",
+      "RiffleUpperV2.Conditional.LargeFirstMoment",
+      "RiffleUpperV2.Conditional.LargeMargin",
+      "RiffleUpperV2.Conditional.LateTail",
+      "RiffleUpperV2.Conditional.LinearAveraging",
+      "RiffleUpperV2.Conditional.Main",
+      "RiffleUpperV2.Conditional.OneHistory",
+      "RiffleUpperV2.Conditional.PairReduction",
+      "RiffleUpperV2.Conditional.Parameters",
+      "RiffleUpperV2.Conditional.PastCylinders",
+      "RiffleUpperV2.Conditional.PileFutureCylinders",
+      "RiffleUpperV2.Conditional.PrefixAdapters",
+      "RiffleUpperV2.Conditional.PreparedFamily",
+      "RiffleUpperV2.Conditional.RefinedCylinders",
+      "RiffleUpperV2.Conditional.RefinementCount",
+      "RiffleUpperV2.Conditional.RegimeAveraging",
+      "RiffleUpperV2.Conditional.RegimePowers",
+      "RiffleUpperV2.Conditional.RemainingCover",
+      "RiffleUpperV2.Conditional.SmallCylinderBounds",
+      "RiffleUpperV2.Conditional.TailMass",
+      "RiffleUpperV2.Conditional.TailPower"
+    ]
+  },
+  "declarations": {
+    "conditional_module_declarations_including_generated": 422,
+    "public_source_declarations": 180,
+    "full_trust_inventory": "audit/U09/ALL_DECLARATIONS.json",
+    "public_types_and_dependencies": "audit/U09/PUBLIC_DECLARATIONS.json",
+    "fully_explicit_public_kernel_types": "audit/U09/PUBLIC_KERNEL_TYPES.txt",
+    "expanded_frozen_C": "audit/U09/C_EXPANDED_TYPE.txt",
+    "allowed_transitive_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "unexpected_axioms": [],
+    "project_axioms": []
+  },
+  "source_integrity": {
+    "project_dependency_source_count": 344,
+    "all_compiled_receipts_match_current_sources": true,
+    "all_root_endpoint_receipt_hashes_match": true,
+    "all_root_declaration_names_and_transitive_axioms_match": true,
+    "all_20_frozen_files_intact": true,
+    "closure": "audit/U09/SOURCE_CLOSURE.json",
+    "frozen_inputs": "audit/U09/FROZEN_INPUTS.json"
+  },
+  "mathematical_source_and_premise_discharges": "audit/U09/SOURCE_MAP.json",
+  "parameter_order": "Fix k,T,eta,g,gamma; xi=eta/10 and proved delta_F=eta/8; choose tau and rho0, then fixed 0<rho<=rho0; choose A,cH,zeta,C,N0 before N,L,cuts and both observed histories.",
+  "rate": "zeta = decayBudget eta (eta/8) / 2, decayBudget = min(3*(eta/10)/4, min(3*eta/5, eta/8)); rho*log k <= decayBudget/4.",
+  "model_preservation": [
+    "Original N and log N retained inside every induced subdeck.",
+    "Real theta infimum and frozen empirical negative-margin definition unchanged.",
+    "Natural histories never condition on R, S1, H or the auxiliary cylinder record.",
+    "Both distinct positive observed histories are bounded explicitly.",
+    "Actual H failure probability, time-zero first moment and terminal-zero clauses proved."
+  ],
+  "independent_review": {
+    "reviewer": "U00, independent of U09",
+    "endpoint_review": "audit/U00/U09-C-endpoint-review.json",
+    "perspectives": [
+      "mathematics/source correspondence",
+      "Lean model and quantifiers",
+      "adversarial and boundary cases"
+    ],
+    "verdict": "PROVED_AND_INDEPENDENTLY_CHECKED",
+    "slice_reviews": [
+      {
+        "file": "audit/U00/U09-C-endpoint-review.json",
+        "sha256": "e9521d8147ba7d931bc735f38ea1e40e6b59af64428ad619d499788b622ef874",
+        "status": "PROVED_AND_INDEPENDENTLY_CHECKED"
+      },
+      {
+        "file": "audit/U00/U09-auxiliary-budget-review.json",
+        "sha256": "48498c6b93981fd07cfd8dd64b8f657349f944dcbe9a47c531af2df6d42724d4",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-block-geometry-review.json",
+        "sha256": "9aa489d52913d09213325eba0e9dd950a60c47a38ce9b38ebf73d1f43cafdd08",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-conditional-reduction-review.json",
+        "sha256": "fe245e29d017d276b9e7964f1f20a7a2507f0c9da6ba81034f08c626631f341c",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-conditional-scale-review.json",
+        "sha256": "56318b03a95b9b7ad8682c8e27e943655fe3399d3010f72afb85c7d4a1d052e3",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-current-run-bound-review.json",
+        "sha256": "c160f728e0fd2264e1eef41b51d9af5e902e75478dc32c2fd436a2df2ade51ec",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-current-run-review.json",
+        "sha256": "a8fada76be4fda741ff854b30f69e7516a438c895df98a7ef7e0dae1d0a7043d",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-cylinder-geometry-review.json",
+        "sha256": "f1127b56d27b79463395dcc045fbe292c6311795fbcce6d2ed8547876b4314ec",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-directional-initial-review.json",
+        "sha256": "345d232323a636b99729952b71048111acf72cde913f1e5d757326bb71426131",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-fine-moments-review.json",
+        "sha256": "5dcb5285b14c29688ad0c09d528e2e09b77d8176d8a734e5aba20eff8eb632e9",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-fine-partition-review.json",
+        "sha256": "17ec1742f2e77710f39f95fa314ad7726ebbd6b8c845ff382075be97ddb4a5ad",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-future-pile-count-review.json",
+        "sha256": "5883371ca71b06078327a95464e6db4c23730d5c8fcfabc2024065ea0f05dcc5",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-large-cylinder-review.json",
+        "sha256": "a002c90458686e66554b78736e2dd9ed779cbea99a776b9c7f6470e96c3ec0d0",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-natural-regime-averaging-review.json",
+        "sha256": "2b2c740d509d0abef08e4ac1e3cf0db22c7901ce444e53af542868b47a5656d6",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-one-history-review.json",
+        "sha256": "93012f36f97501175717b549fdf4a9343ce60276a8bb3b03a40604efb0cc22a5",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      },
+      {
+        "file": "audit/U00/U09-small-cylinder-review.json",
+        "sha256": "34ad900fb88c9348b67547a77e76a2e51ed0834d4c547a260a62e92be4399079",
+        "status": "PASS_SOURCE_TYPE_TRUST"
+      }
+    ]
+  },
+  "helper_ownership": {
+    "U05": [
+      "LargeConcentration",
+      "LargeMargin",
+      "LargeFirstMoment",
+      "PrefixAdapters",
+      "SmallCylinderBounds"
+    ],
+    "U11": [
+      "CurrentRunBound",
+      "ConditionalScale"
+    ],
+    "note": "These accepted provider-written Conditional source modules were not edited by U09; they were freshly compiled into U09 with the rest of the endpoint closure."
+  },
+  "remaining_imported_assumptions": [],
+  "remaining_lane_obligations": [],
+  "scope_limit": "This verdict certifies U09 C only. The whole-package U13 final audit and sibling endpoints are separate deliverables.",
+  "evidence_sha256": {
+    "audit/U09/TrustCheck.lean": "163b5e3c3a1d5dcedca79c790095260d6ec2a59a86d5fd4eace30c2051354fe7",
+    "audit/U09/fresh-trust.log": "51dc4ace7ffa018442d2d36865c0d66549c460342d8ff963f6a217d5cc7e29bd",
+    "audit/U09/fresh-build-receipt.json": "b987b90f7c281ef23e25f191df121f9ff67f46fd045fefcd4f56be6456ff5498",
+    "audit/U09/ALL_DECLARATIONS.json": "df998aaa685e851ad7260e6421fdc919c0f493215a74f2241493742d7a8ab4b7",
+    "audit/U09/PUBLIC_DECLARATIONS.json": "27bca530068909d7b68a6a6085392caf3f0c3f97817c8febde8006ea6fdbf872",
+    "audit/U09/SOURCE_CLOSURE.json": "bef665f321ee0edde50935cec22222df4c304ca9db6294cbf8efb837f4c7c682",
+    "audit/U09/FROZEN_INPUTS.json": "a07c8ece9e39c04828ff7ddb2971a32750d3ab318fff62bb0f910d3fb2de7194",
+    "audit/U09/EndpointTypes.lean": "d402763e14025b89d79666dfbbddcb6b7cfdd003934ddcc3451eb3cc09655133",
+    "audit/U09/endpoint-types.log": "21666c6b6b4946bf77a75de96de5addb3edbc94585eb90b1d1cf15888a8821fc",
+    "audit/U09/endpoint-types-build-receipt.json": "851461eb2c2921caf23c1e8d6d461fa95bd9d396c6626fce67537e3aca569042",
+    "audit/U09/C_EXPANDED_TYPE.txt": "092e61b3447e77dda909cbcf34522e63dce4921b08a5b4631de69e59ae90e6e0",
+    "audit/U09/PrintKernelTypes.lean": "d8544d1ef3c4058c7095c027f6ef39eb410d703fc5694b9583d12970dcd9851f",
+    "audit/U09/PUBLIC_KERNEL_TYPES.txt": "658baaa037751ff5b4837f8ba060f22e171aaf1ee57f8f05db6087eb79fb9412",
+    "audit/U09/public-kernel-types-build-receipt.json": "5d597ece3fc7b14fd7d89bd1934c71f80c5dd1e6eb28240bf63f04d1135e2a53",
+    "audit/U09/SOURCE_MAP.json": "b2fc1f7070b14fb0e150eca15d933e5a9cf446e3823da387dd760657d0dbcba2",
+    "audit/U09/package_evidence.py": "2c47521e2ebcf3e835c36ee4b6eb8698ac783378fd3c827080fe3e3f23f26190",
+    "audit/U09/finalize_evidence.py": "ba5b7b02b12f76da7d87a615b992aade27bfdc0facd56d14a92f3f224a49ca28"
+  }
+}

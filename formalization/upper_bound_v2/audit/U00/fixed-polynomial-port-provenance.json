@@ -1,0 +1,13 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_GENERIC_PORT",
+  "source": "lean_formalization/RiffleProfiles/CountLimits.lean",
+  "source_sha256": "70a5765d1e89df357438c6ae53a5bfadf2a48174c85a909bc60eeb877c1465c7",
+  "destination": "formalization/upper_bound_v2/RiffleUpperV2/Compat/FixedPolynomial.lean",
+  "destination_sha256": "0939833601bb41cdcac1a85af9d8307622adaf693163ac1992ca09068d803d7f",
+  "copied_statement_and_proof": "fixed_polynomial_le_rpow",
+  "exact_body_unchanged": true,
+  "reason": "Avoid unrelated old CountLimits elaboration failure; use exact standalone generic polynomial estimate",
+  "root_build_receipt": "reservoir-exploration-progress-check-build.json",
+  "trust_inventory": "reservoir-exploration-progress-declarations.json",
+  "independent_review": "../U07/wordmass-polynomial-port-review.json"
+}

@@ -1,0 +1,650 @@
+{
+  "schema": "U13-independent-final-audit-v2",
+  "status": "PROVED_AND_CHECKED",
+  "recorded_at": "2026-10-02T22:36:49.175321+00:00",
+  "auditor": "U13 independent final auditor",
+  "final_acceptance": true,
+  "scope": "The six upper-bound endpoints F/C/E/P/T/R at INTEGRATION_READY v1, including all three R components. Production sources and manuscript read-only.",
+  "handoff": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/INTEGRATION_READY.json",
+    "sha256": "875e62edcecfe8ba4aac2ec595ec7fcd459e479adfd22d22981e481b23f25ef5",
+    "manifest": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U00/integration_v1/MANIFEST.json",
+    "manifest_sha256": "d5d25bf0a2272b5dc9687c414be6220cc9174994b4f1d28ffd6906c5a67ab2c0",
+    "immutable_artifacts_verified": 552,
+    "project_source_hashes_match": true,
+    "root_and_independent_project_objects_byte_identical": 398
+  },
+  "manuscript": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a"
+  },
+  "endpoint_verdicts": {
+    "F": {
+      "source_label": "prop:ub-empirical-first-moment",
+      "source_label_line": 665,
+      "actual_declaration": "RiffleUpperV2.FirstMoment.empiricalFirstMoment",
+      "completed_alias": "RiffleUpperV2.Completed.firstMoment",
+      "frozen_specification": "RiffleUpperV2.Contracts.V1.F",
+      "proof_source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/Empirical.lean",
+      "proof_source_sha256": "c048583ed32d6beafa8ef0fc22ed3908381ef35914dda913a356b7e3341639ab",
+      "statement_verdict": "PASS",
+      "mathematical_chain_verdict": "PASS",
+      "kernel_build_verdict": "PASS",
+      "independent_report": "source-proof-review-v2.txt",
+      "status": "PROVED_AND_CHECKED",
+      "final_acceptance": true,
+      "transitive_trust_verdict": "PASS",
+      "adversarial_verdict": "PASS",
+      "recursive_dependency_count": 31218,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "remaining_imported_proof_assumptions": [],
+      "expanded_type_file": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/F-expanded-type-v2.txt",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T η g : ℝ),\n      0 < T →\n        0 < η →\n          0 < g →\n            g < 1 / ↑k →\n              ∃ (c : ℝ),\n                0 < c ∧\n                  ∃ (N0 : ℕ) (_ : 2 ≤ N0),\n                    ∀ (N : ℕ),\n                      N0 ≤ N →\n                        ∀ (n : ℕ) (hn : 2 ≤ n),\n                          n ≤ N →\n                            ∀ (a K : ℕ),\n                              a < K →\n                                ↑K ≤ T * Real.log ↑N →\n                                  ∀ (cuts : RiffleUpperV2.Cuts k n (K - a)),\n                                    RiffleUpperV2.FirstColumnGood cuts ⋯ g →\n                                      RiffleUpperV2.EmpiricalNegativeMargin N a cuts ⋯ η →\n                                        RiffleUpperV2.expectedCommonEdges cuts ≤ ↑N ^ (-c)"
+    },
+    "C": {
+      "source_label": "lem:ub-conditional-first-moment",
+      "source_label_line": 2018,
+      "actual_declaration": "RiffleUpperV2.Conditional.remainingCommonEdges",
+      "completed_alias": "RiffleUpperV2.Completed.conditionalEdges",
+      "frozen_specification": "RiffleUpperV2.Contracts.V1.C",
+      "proof_source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/Main.lean",
+      "proof_source_sha256": "74d1462f2dfd33172cb7a737437a0a69572cfbaf77a253f1919427d63bb6061b",
+      "statement_verdict": "PASS",
+      "mathematical_chain_verdict": "PASS",
+      "kernel_build_verdict": "PASS",
+      "independent_report": "source-proof-review-v2.txt",
+      "status": "PROVED_AND_CHECKED",
+      "final_acceptance": true,
+      "transitive_trust_verdict": "PASS",
+      "adversarial_verdict": "PASS",
+      "recursive_dependency_count": 37895,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "remaining_imported_proof_assumptions": [],
+      "expanded_type_file": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/C-expanded-type-v2.txt",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T η g γ : ℝ),\n      0 < T →\n        0 < η →\n          η ≤ 1 →\n            0 < g →\n              g < 1 / ↑k →\n                0 < γ →\n                  γ ≤ 1 →\n                    ∃ (ρ0 : ℝ),\n                      0 < ρ0 ∧\n                        ∀ (ρ : ℝ),\n                          0 < ρ →\n                            ρ ≤ ρ0 →\n                              ∃ (A : ℝ) (cH : ℝ) (ζ : ℝ) (C : ℝ),\n                                0 < A ∧\n                                  0 < cH ∧\n                                    0 < ζ ∧\n                                      0 < C ∧\n                                        ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),\n                                          ∀ (N : ℕ) (hN : N0 ≤ N) (L : ℕ),\n                                            ↑(L + 1) ≤ T * Real.log ↑N →\n                                              ∀ (cuts : RiffleUpperV2.Cuts k N (L + 1)),\n                                                RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ (2 * η) →\n                                                  RiffleUpperV2.Exploration.integerWindowGood N cuts ⋯ ρ γ g →\n                                                    RiffleUpperV2.Exploration.retainedGoodCluster cuts ⋯\n                                                        (RiffleUpperV2.Exploration.clusterSpan γ) g →\n                                                      (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts)\n                                                            fun (ω : TimeProfile.ShuffleSample cuts) =>\n                                                            ¬RiffleUpperV2.Exploration.concentrationEvent cuts\n                                                                (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10)\n                                                                ω) ≤\n                                                          RiffleUpperV2.Exploration.badBound N (η / 10) A cH ∧\n                                                        (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction),\n                                                            ↑N ^ (η / 10) ≤\n                                                                ↑(RiffleUpperV2.Exploration.pileSize cuts p) →\n                                                              ∀ i ≤ RiffleUpperV2.Exploration.pileSize cuts p,\n                                                                ∀\n                                                                  (ω :\n                                                                    RiffleUpperV2.Sample cuts ×\n                                                                      RiffleUpperV2.Sample cuts),\n                                                                  (0 <\n                                                                      RiffleUpperV2.probability\n                                                                        (RiffleUpperV2.independentPairLaw cuts)\n                                                                        fun\n                                                                          (v :\n                                                                            RiffleUpperV2.Sample cuts ×\n                                                                              RiffleUpperV2.Sample cuts) =>\n                                                                        RiffleUpperV2.Exploration.pairHistory cuts p d i\n                                                                            v =\n                                                                          RiffleUpperV2.Exploration.pairHistory cuts p d\n                                                                            i ω) →\n                                                                    RiffleUpperV2.Exploration.pairHistoryGood cuts\n                                                                        (RiffleUpperV2.Exploration.clusterSpan γ) g\n                                                                        (η / 10)\n                                                                        (√(RiffleUpperV2.Exploration.badBound N (η / 10)\n                                                                            A cH))\n                                                                        p d i ω →\n                                                                      (RiffleUpperV2.conditionalExpect\n                                                                          (RiffleUpperV2.independentPairLaw cuts)\n                                                                          (fun\n                                                                              (v :\n                                                                                RiffleUpperV2.Sample cuts ×\n                                                                                  RiffleUpperV2.Sample cuts) =>\n                                                                            ↑(RiffleUpperV2.Exploration.remainingDirectionalCount\n                                                                                cuts\n                                                                                (RiffleUpperV2.Exploration.clusterSpan\n                                                                                  γ)\n                                                                                g (η / 10) p d i v.1 v.2))\n                                                                          fun\n                                                                            (v :\n                                                                              RiffleUpperV2.Sample cuts ×\n                                                                                RiffleUpperV2.Sample cuts) =>\n                                                                          RiffleUpperV2.Exploration.pairHistory cuts p d\n                                                                              i v =\n                                                                            RiffleUpperV2.Exploration.pairHistory cuts p\n                                                                              d i ω) ≤\n                                                                        C * ↑N ^ (-ζ)) ∧\n                                                          ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)\n                                                            (ω ω' : RiffleUpperV2.Sample cuts),\n                                                            RiffleUpperV2.Exploration.remainingDirectionalCount cuts\n                                                                (RiffleUpperV2.Exploration.clusterSpan γ) g (η / 10) p d\n                                                                (RiffleUpperV2.Exploration.pileSize cuts p) ω ω' =\n                                                              0"
+    },
+    "E": {
+      "source_label": "thm:ub-empirical-upper",
+      "source_label_line": 2383,
+      "actual_declaration": "RiffleUpperV2.EmpiricalUpper.empiricalUpper",
+      "completed_alias": "RiffleUpperV2.Completed.empiricalUpper",
+      "frozen_specification": "RiffleUpperV2.Contracts.V1.E",
+      "proof_source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/EmpiricalUpper/Main.lean",
+      "proof_source_sha256": "5b68e76a979c8d7a3a995f1db79aace2a75c683cca5eb0634f728ffdc6df3253",
+      "statement_verdict": "PASS",
+      "mathematical_chain_verdict": "PASS",
+      "kernel_build_verdict": "PASS",
+      "independent_report": "source-proof-review-v2.txt",
+      "status": "PROVED_AND_CHECKED",
+      "final_acceptance": true,
+      "transitive_trust_verdict": "PASS",
+      "adversarial_verdict": "PASS",
+      "recursive_dependency_count": 38708,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "remaining_imported_proof_assumptions": [],
+      "expanded_type_file": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/E-expanded-type-v2.txt",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T η0 g0 γ0 : ℝ),\n      0 < T →\n        0 < η0 →\n          0 < g0 →\n            0 < γ0 →\n              ∃ (ρ0 : ℝ),\n                0 < ρ0 ∧\n                  ∀ (ρ : ℝ),\n                    0 < ρ →\n                      ρ ≤ ρ0 →\n                        ∃ (c : ℝ),\n                          0 < c ∧\n                            ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),\n                              ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),\n                                ↑K ≤ T * Real.log ↑N →\n                                  ∀ (cuts : RiffleUpperV2.Cuts k N K),\n                                    RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 →\n                                      RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N) →\n                                        RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw cuts)\n                                            (RiffleUpperV2.uniformPermutation N) ≤\n                                          ↑N ^ (-c)"
+    },
+    "P": {
+      "source_label": "thm:deterministic-upper-bound",
+      "source_label_line": 371,
+      "actual_declaration": "RiffleUpperV2.ProfileUpper.bufferedUpper",
+      "completed_alias": "RiffleUpperV2.Completed.profileUpper",
+      "frozen_specification": "RiffleUpperV2.Contracts.V1.P",
+      "proof_source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/ProfileUpper/Main.lean",
+      "proof_source_sha256": "2c48c1957b5ea96a928dc17fbb97da66e1e686d1374e452e2cabc761d5aa4bf7",
+      "statement_verdict": "PASS",
+      "mathematical_chain_verdict": "PASS",
+      "kernel_build_verdict": "PASS",
+      "independent_report": "source-proof-review-v2.txt",
+      "status": "PROVED_AND_CHECKED",
+      "final_acceptance": true,
+      "transitive_trust_verdict": "PASS",
+      "adversarial_verdict": "PASS",
+      "recursive_dependency_count": 45081,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "remaining_imported_proof_assumptions": [],
+      "expanded_type_file": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/P-expanded-type-v2.txt",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T η : ℝ),\n      0 < T →\n        0 < η →\n          ∃ (χ0 : ℝ),\n            0 < χ0 ∧\n              ∀ (χ : ℝ),\n                0 < χ →\n                  χ ≤ χ0 →\n                    ∀ (P : TimeProfile.BorelPartition k),\n                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →\n                        ∀ (g γ : ℝ),\n                          0 < g →\n                            g < 1 / ↑k →\n                              0 < γ →\n                                ∃ (ρ0 : ℝ),\n                                  0 < ρ0 ∧\n                                    ∀ (ρ : ℝ),\n                                      0 < ρ →\n                                        ρ ≤ ρ0 →\n                                          ∃ (φ0 : ℝ),\n                                            0 < φ0 ∧\n                                              ∀ (φ : ℝ),\n                                                0 < φ →\n                                                  φ ≤ φ0 →\n                                                    ∀ (μ : TimeProfile.TimeLaw k),\n                                                      RiffleUpperV2.ScalarIntegrable μ P T →\n                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →\n                                                          ∀ (ε : ℝ),\n                                                            0 < ε →\n                                                              ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),\n                                                                ∀ (N : ℕ) (hN : N0 ≤ N)\n                                                                  (cuts :\n                                                                    RiffleUpperV2.Cuts k N\n                                                                      (TimeProfile.horizonDepth N T)),\n                                                                  TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ →\n                                                                    RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T →\n                                                                      RiffleUpperV2.tv\n                                                                          (RiffleUpperV2.physicalInverseLaw cuts)\n                                                                          (RiffleUpperV2.uniformPermutation N) ≤\n                                                                        ε"
+    },
+    "T": {
+      "source_label": "thm:upper-critical-reduced",
+      "source_label_line": 344,
+      "actual_declaration": "RiffleUpperV2.ProfileUpper.criticalTimeUpper",
+      "completed_alias": "RiffleUpperV2.Completed.criticalUpper",
+      "frozen_specification": "RiffleUpperV2.Contracts.V1.T",
+      "proof_source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/ProfileUpper/Main.lean",
+      "proof_source_sha256": "2c48c1957b5ea96a928dc17fbb97da66e1e686d1374e452e2cabc761d5aa4bf7",
+      "statement_verdict": "PASS",
+      "mathematical_chain_verdict": "PASS",
+      "kernel_build_verdict": "PASS",
+      "independent_report": "source-proof-review-v2.txt",
+      "status": "PROVED_AND_CHECKED",
+      "final_acceptance": true,
+      "transitive_trust_verdict": "PASS",
+      "adversarial_verdict": "PASS",
+      "recursive_dependency_count": 45121,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "remaining_imported_proof_assumptions": [],
+      "expanded_type_file": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/T-expanded-type-v2.txt",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),\n      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →\n        (∀ (t : ℝ),\n            0 ≤ t →\n              RiffleUpperV2.criticalTime μ < ENNReal.ofReal t →\n                Filter.Tendsto\n                  (fun (N : ℕ) =>\n                    RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw ((cuts N).take (TimeProfile.horizonDepth N t)))\n                      (RiffleUpperV2.uniformPermutation N))\n                  Filter.atTop (nhds 0)) ∧\n          ∀ (ε : ℝ),\n            0 < ε →\n              ε < 1 →\n                Filter.limsup (fun (N : ℕ) => RiffleUpperV2.mixingTime (cuts N) ε / ENNReal.ofReal (Real.log ↑N))\n                    Filter.atTop ≤\n                  RiffleUpperV2.criticalTime μ"
+    },
+    "R": {
+      "source_label": "cor:random-time-profile-upper-bound",
+      "source_label_line": 2459,
+      "actual_declaration": "RiffleUpperV2.ProfileUpper.randomUpper",
+      "completed_alias": "RiffleUpperV2.Completed.randomUpper",
+      "frozen_specification": "RiffleUpperV2.Contracts.V1.R",
+      "proof_source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/ProfileUpper/Main.lean",
+      "proof_source_sha256": "2c48c1957b5ea96a928dc17fbb97da66e1e686d1374e452e2cabc761d5aa4bf7",
+      "statement_verdict": "PASS",
+      "mathematical_chain_verdict": "PASS",
+      "kernel_build_verdict": "PASS",
+      "independent_report": "source-proof-review-v2.txt",
+      "status": "PROVED_AND_CHECKED",
+      "final_acceptance": true,
+      "transitive_trust_verdict": "PASS",
+      "adversarial_verdict": "PASS",
+      "recursive_dependency_count": 45117,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "remaining_imported_proof_assumptions": [],
+      "expanded_type_file": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/R-expanded-type-v2.txt",
+      "expanded_type": "RiffleUpperV2.Contracts.V1.REmpiricalBound ∧ RiffleUpperV2.Contracts.V1.REmpirical ∧ RiffleUpperV2.Contracts.V1.RProfile"
+    }
+  },
+  "random_components": {
+    "REmpiricalBound": {
+      "name": "RiffleUpperV2.ProfileUpper.randomEmpiricalBound",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T η0 g0 γ0 : ℝ),\n      0 < T →\n        0 < η0 →\n          0 < g0 →\n            0 < γ0 →\n              ∃ (ρ0 : ℝ),\n                0 < ρ0 ∧\n                  ∀ (ρ : ℝ),\n                    0 < ρ →\n                      ρ ≤ ρ0 →\n                        ∃ (c : ℝ),\n                          0 < c ∧\n                            ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),\n                              ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),\n                                ↑K ≤ T * Real.log ↑N →\n                                  ∀ (Q : PMF (RiffleUpperV2.Cuts k N K)),\n                                    RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw Q)\n                                        (RiffleUpperV2.uniformPermutation N) ≤\n                                      (RiffleUpperV2.probability Q fun (cuts : RiffleUpperV2.Cuts k N K) =>\n                                          ¬(RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧\n                                              RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N))) +\n                                        ↑N ^ (-c)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "REmpirical": {
+      "name": "RiffleUpperV2.ProfileUpper.randomEmpiricalUpper",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T η0 g0 γ0 : ℝ),\n      0 < T →\n        0 < η0 →\n          0 < g0 →\n            0 < γ0 →\n              ∃ (ρ0 : ℝ),\n                0 < ρ0 ∧\n                  ∀ (ρ : ℝ),\n                    0 < ρ →\n                      ρ ≤ ρ0 →\n                        ∀ (K : ℕ → ℕ),\n                          (∀ (N : ℕ), 2 ≤ N → ↑(K N) ≤ T * Real.log ↑N) →\n                            ∀ (Q : (N : ℕ) → PMF (RiffleUpperV2.Cuts k N (K N))),\n                              Filter.Tendsto\n                                  (fun (N : ℕ) =>\n                                    RiffleUpperV2.probability (Q N) fun (cuts : RiffleUpperV2.Cuts k N (K N)) =>\n                                      ∃ (hN : 2 ≤ N),\n                                        RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧\n                                          RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑(K N) / Real.log ↑N))\n                                  Filter.atTop (nhds 1) →\n                                Filter.Tendsto\n                                  (fun (N : ℕ) =>\n                                    RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw (Q N))\n                                      (RiffleUpperV2.uniformPermutation N))\n                                  Filter.atTop (nhds 0)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "RProfile": {
+      "name": "RiffleUpperV2.ProfileUpper.randomProfileUpper",
+      "expanded_type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (T η : ℝ),\n      0 < T →\n        0 < η →\n          ∃ (χ0 : ℝ),\n            0 < χ0 ∧\n              ∀ (χ : ℝ),\n                0 < χ →\n                  χ ≤ χ0 →\n                    ∀ (P : TimeProfile.BorelPartition k),\n                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →\n                        ∀ (g γ : ℝ),\n                          0 < g →\n                            g < 1 / ↑k →\n                              0 < γ →\n                                ∃ (ρ0 : ℝ),\n                                  0 < ρ0 ∧\n                                    ∀ (ρ : ℝ),\n                                      0 < ρ →\n                                        ρ ≤ ρ0 →\n                                          ∃ (φ0 : ℝ),\n                                            0 < φ0 ∧\n                                              ∀ (φ : ℝ),\n                                                0 < φ →\n                                                  φ ≤ φ0 →\n                                                    ∀ (μ : TimeProfile.TimeLaw k),\n                                                      RiffleUpperV2.ScalarIntegrable μ P T →\n                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →\n                                                          ∀\n                                                            (Q :\n                                                              (N : ℕ) →\n                                                                PMF\n                                                                  (RiffleUpperV2.Cuts k N\n                                                                    (TimeProfile.horizonDepth N T))),\n                                                            Filter.Tendsto\n                                                                (fun (N : ℕ) =>\n                                                                  RiffleUpperV2.probability (Q N)\n                                                                    fun\n                                                                      (cuts :\n                                                                        RiffleUpperV2.Cuts k N\n                                                                          (TimeProfile.horizonDepth N T)) =>\n                                                                    ∃ (hN : 2 ≤ N),\n                                                                      TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ)\n                                                                Filter.atTop (nhds 1) →\n                                                              Filter.Tendsto\n                                                                  (fun (N : ℕ) =>\n                                                                    RiffleUpperV2.probability (Q N)\n                                                                      fun\n                                                                        (cuts :\n                                                                          RiffleUpperV2.Cuts k N\n                                                                            (TimeProfile.horizonDepth N T)) =>\n                                                                      ∃ (hN : 2 ≤ N),\n                                                                        RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T)\n                                                                  Filter.atTop (nhds 1) →\n                                                                Filter.Tendsto\n                                                                  (fun (N : ℕ) =>\n                                                                    RiffleUpperV2.tv\n                                                                      (RiffleUpperV2.randomInverseLaw (Q N))\n                                                                      (RiffleUpperV2.uniformPermutation N))\n                                                                  Filter.atTop (nhds 0)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "runtime": {
+    "compiler_path": "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
+    "compiler_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "package_revisions": {
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/LeanSearchClient": {
+        "git_revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/Qq": {
+        "git_revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/aesop": {
+        "git_revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/batteries": {
+        "git_revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/importGraph": {
+        "git_revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib": {
+        "git_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+      },
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/plausible": {
+        "git_revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/proofwidgets": {
+        "git_revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      }
+    },
+    "runtime_objects": {
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean": {
+        "sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+        "bytes": 49968
+      },
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/lib/lean/libInit_shared.dylib": {
+        "sha256": "cb203e0bc0e6ab3250b2804d3e5398ad3a91544b5e049674532f73b7a062ef7f",
+        "bytes": 16736
+      },
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/lib/lean/libLake_shared.dylib": {
+        "sha256": "e7cae8d015b954e51699703eabc42edfb37812c9af8fe9a44ed8a9eced416357",
+        "bytes": 10006944
+      },
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/lib/lean/libleanshared.dylib": {
+        "sha256": "5a23395d981dbeeba03fc5247acc4a909063e0f0da9ca5a1cc93c8663ec446f8",
+        "bytes": 176796288
+      },
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/lib/lean/libleanshared_1.dylib": {
+        "sha256": "e44858e227323a23ce7416c5678415d2d022582b1627ad3690117ce73cd6345a",
+        "bytes": 16736
+      },
+      "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/lib/lean/libleanshared_2.dylib": {
+        "sha256": "be68927a4f282b99383e82af4d481b4ffe59f2a243aea20dae0e60b39c2ae182",
+        "bytes": 16736
+      }
+    }
+  },
+  "fresh_build": {
+    "status": "PASS",
+    "exit_code": 0,
+    "project_modules_rebuilt": 398,
+    "owned_regular_project_outputs": 398,
+    "owned_regular_project_receipts": 398,
+    "project_output_or_receipt_symlinks": 0,
+    "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U13/lib/lean",
+    "builder_sha256": "f00eb1bc26b8468376493bef8850676aab71e79d93b95d6dd4e0431e148c91b2",
+    "audit_source_sha256": "b329809161a547161d12b823e99e046b53904b799c19bba1733e1f2dae0a7123",
+    "compiler_error_lines": 0,
+    "nonfatal_warning_lines": 179,
+    "warning_scope": "Exact warning-line count in the archived full independent build log; no claim of a warning-free build."
+  },
+  "trust": {
+    "status": "PASS",
+    "actual_endpoint_roots": 6,
+    "completed_alias_roots": 6,
+    "recursive_dependency_union": 45162,
+    "all_upper_declarations_checked": 3907,
+    "all_theorem_definition_opaque_bodies_available": true,
+    "traversal": "Types and values, including opaque values, plus inductive names and constructors and recursor names/rules/RHS dependencies; independent DFS compared separately to Lean.collectAxioms for each root.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "actual_axioms_at_each_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "manual_traversal_matches_lean_collector_for_all_roots": true,
+    "sorry_custom_axiom_native_oracle_or_missing_body_found": false
+  },
+  "external_library_trust": {
+    "imported_modules": 5331,
+    "project_modules": 398,
+    "external_package_modules": 3401,
+    "core_modules": 1532,
+    "unresolved_modules": [],
+    "boundary": "Acceptance trusts the recorded Lean runtime and pinned external package/core objects. U13 independently rebuilt every project source; it did not rebuild all external library or core sources. Exact resolved object paths, SHA256 hashes, companion objects, and package revisions are in final-object-inventory-v2.json.",
+    "coordinator_built_pinned_library_exceptions": {
+      "Mathlib.Probability.Distributions.Uniform": {
+        "kind": "pinned-package-rebuilt-by-coordinator",
+        "owner": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib",
+        "objects": {
+          ".olean": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/Distributions/Uniform.olean",
+            "sha256": "dd19b29ca01a2edc0e196c659a079bc496090a64a80921f930599ba02182e07f",
+            "bytes": 125576
+          },
+          ".olean.private": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/Distributions/Uniform.olean.private",
+            "sha256": "8e73353a1428d9eee89c084886531b1c913b38de76471fe89128e82f998944b8",
+            "bytes": 288680
+          },
+          ".olean.server": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/Distributions/Uniform.olean.server",
+            "sha256": "adc378fd69822cfb9f379f858b4e8f88cd8f01939cd6a0f8925a1b480b53c845",
+            "bytes": 12448
+          },
+          ".ir": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/Distributions/Uniform.ir",
+            "sha256": "e6f05cba388bf84b986c3881e8da609cdf4c408021e0c888c0429526456f9e38",
+            "bytes": 10624
+          },
+          ".ir.sig": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/Distributions/Uniform.ir.sig",
+            "sha256": "a09b9c0be4068a4e84effef5dca0c71337faa92e4582ee71468a3f2e0201f16e",
+            "bytes": 176
+          }
+        },
+        "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/Distributions/Uniform.lean",
+        "source_sha256": "c3492e1ba311263248302cf310f45e44d49524cfbba52d8fc27207be80a50ab9",
+        "immutable_clean_object": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/integration_v1_20261002/lib/lean/Mathlib/Probability/Distributions/Uniform.olean",
+        "immutable_clean_object_sha256": "dd19b29ca01a2edc0e196c659a079bc496090a64a80921f930599ba02182e07f",
+        "immutable_clean_build_receipt": "audit/U00/integration_v1/evidence/audit/U00/integration-v1-clean-build.json",
+        "object_is_byte_identical_to_immutable_clean_build": true
+      },
+      "Mathlib.Probability.ProbabilityMassFunction.Integrals": {
+        "kind": "pinned-package-rebuilt-by-coordinator",
+        "owner": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib",
+        "objects": {
+          ".olean": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.olean",
+            "sha256": "f0b6ef069acc9f4afc02d589e870548a98ce76be9648d12d72f5f46805559144",
+            "bytes": 25392
+          },
+          ".olean.private": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.olean.private",
+            "sha256": "ffc4a6878e6057b71fa179b22c005bfbf1390f0253f624543552a8eb72c54338",
+            "bytes": 62032
+          },
+          ".olean.server": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.olean.server",
+            "sha256": "a51dbf560feb7bb933d4499fa29601e795605a1d17b30b8ddcecaeb36929baf9",
+            "bytes": 1912
+          },
+          ".ir": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.ir",
+            "sha256": "af0c7c669c1ade1bc683922c990badbe3d47bf767cdf13b3d910a827ebc03b86",
+            "bytes": 1984
+          },
+          ".ir.sig": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.ir.sig",
+            "sha256": "5c0528bf03d18213cf337a1f3fc00ffa0914212eb33a6e6a73f2379f8b2798ec",
+            "bytes": 176
+          }
+        },
+        "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+        "source_sha256": "174951d99036d6995b4ac6d486de807bedb58f340aa902f02502a7216515bf63",
+        "immutable_clean_object": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/integration_v1_20261002/lib/lean/Mathlib/Probability/ProbabilityMassFunction/Integrals.olean",
+        "immutable_clean_object_sha256": "f0b6ef069acc9f4afc02d589e870548a98ce76be9648d12d72f5f46805559144",
+        "immutable_clean_build_receipt": "audit/U00/integration_v1/evidence/audit/U00/integration-v1-clean-build.json",
+        "object_is_byte_identical_to_immutable_clean_build": true
+      },
+      "Mathlib.Combinatorics.Enumerative.DoubleCounting": {
+        "kind": "pinned-package-rebuilt-by-coordinator",
+        "owner": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib",
+        "objects": {
+          ".olean": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Enumerative/DoubleCounting.olean",
+            "sha256": "c4ada099e2f70d889ccb4ac50ab245e072548ffea6d9e75f5ffd854d34a89a47",
+            "bytes": 98792
+          },
+          ".olean.private": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Enumerative/DoubleCounting.olean.private",
+            "sha256": "f3d8498a8e934758681d7d1064dd86dff467c3df5008797a81a0bd6a39cce2d2",
+            "bytes": 157832
+          },
+          ".olean.server": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Enumerative/DoubleCounting.olean.server",
+            "sha256": "64344ebf29583bbc2782cdbbb28c11051cb8ce29d006c970348907de62bbd1bc",
+            "bytes": 9448
+          },
+          ".ir": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Enumerative/DoubleCounting.ir",
+            "sha256": "d1a8039db2cb51872291814ea614c9f679a6c9370ff66f65a2f7b53c949ceaf4",
+            "bytes": 4104
+          },
+          ".ir.sig": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Enumerative/DoubleCounting.ir.sig",
+            "sha256": "99d894524535e3545dabd304e049a95379c8ecb4bb3b0ccb3bddbd21ef582669",
+            "bytes": 176
+          }
+        },
+        "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Combinatorics/Enumerative/DoubleCounting.lean",
+        "source_sha256": "7b2177666ad3691894e1324859c8beca8024ab70c40f109ab42af60add6b84f0",
+        "immutable_clean_object": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/integration_v1_20261002/lib/lean/Mathlib/Combinatorics/Enumerative/DoubleCounting.olean",
+        "immutable_clean_object_sha256": "c4ada099e2f70d889ccb4ac50ab245e072548ffea6d9e75f5ffd854d34a89a47",
+        "immutable_clean_build_receipt": "audit/U00/integration_v1/evidence/audit/U00/integration-v1-clean-build.json",
+        "object_is_byte_identical_to_immutable_clean_build": true
+      },
+      "Mathlib.Combinatorics.Pigeonhole": {
+        "kind": "pinned-package-rebuilt-by-coordinator",
+        "owner": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib",
+        "objects": {
+          ".olean": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Pigeonhole.olean",
+            "sha256": "bf0b7ce517dcd0761e2d83f021e3bf1be463b8b0191f5991634887209076b606",
+            "bytes": 85104
+          },
+          ".olean.private": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Pigeonhole.olean.private",
+            "sha256": "a66d342add420388018648ae548e207176d673ff17d2d1d51224eefc043c2fc7",
+            "bytes": 197832
+          },
+          ".olean.server": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Pigeonhole.olean.server",
+            "sha256": "7af98d2a800cc677136d68a63af919d67e1f2cc6a270711ec631524c0437ff32",
+            "bytes": 26224
+          },
+          ".ir": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Pigeonhole.ir",
+            "sha256": "f5f16fe65b140aea63064eb5f4cad1472432b78b88148f009c9e768d9c5b2613",
+            "bytes": 2664
+          },
+          ".ir.sig": {
+            "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U00/lib/lean/Mathlib/Combinatorics/Pigeonhole.ir.sig",
+            "sha256": "0b95aaf7c569f6f4d1f04e28b75bb0ece49811618b5110852a9749db539a7d37",
+            "bytes": 176
+          }
+        },
+        "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Combinatorics/Pigeonhole.lean",
+        "source_sha256": "5752ace39b839ca3867baf0fc439d6744d4efbe6d1346f115f47f2e1bd75f840",
+        "immutable_clean_object": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/integration_v1_20261002/lib/lean/Mathlib/Combinatorics/Pigeonhole.olean",
+        "immutable_clean_object_sha256": "bf0b7ce517dcd0761e2d83f021e3bf1be463b8b0191f5991634887209076b606",
+        "immutable_clean_build_receipt": "audit/U00/integration_v1/evidence/audit/U00/integration-v1-clean-build.json",
+        "object_is_byte_identical_to_immutable_clean_build": true
+      }
+    },
+    "exceptions_verification": "All four are pinned mathlib sources absent from the package cache, compiled by U00 with the same compiler and mathlib revision; their imported objects match the frozen clean rebuild byte for byte. Source hashes and clean build receipts were verified. These are external-library trust, not project-source exceptions."
+  },
+  "source_and_adversarial_review": {
+    "status": "PASS",
+    "report": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/source-proof-review-v2.txt",
+      "sha256": "c80a4471a6cb9fd51ec28d7da3b13b45c4343e152859bc2509e811254f3ef170"
+    },
+    "model": "Concrete fixed-count physical inverse law, chronological column order, stable-sort graph bridge, and half-L1 TV.",
+    "quantifiers": "Original N scale in all subdecks; all integer endpoints and theta in [3,4]; uniform E parameter order; arbitrary fixed partition; g and gamma before decreasing rho; coherent horizons and extended infinite thresholds; arbitrary joint random cut law.",
+    "hard_chain": "Actual physical/graph bridge, arbitrary overlap fibers, product-event truncation, reserved post-anchor smoothing, direct fourth-power density, full localization/class losses, original-scale F, exact natural sorted-history law and removable copies, auxiliary disintegration without enlarged filtration, three block regimes, initial and terminal histories, adapted moments, 2k cover, deterministic restart, fixed-partition transfer, critical/mixing semantics, random averaging.",
+    "auxiliary_numerical_choices": "Certified full-H constant 1/24, hypergeometric atom constant 16, F exponent eta/8, scalar bound 4 log k and terminal rounding loss 14 log k/log N have explicit downstream absorption proofs preserving all public endpoints.",
+    "resolved_earlier_findings": [
+      "U13-01 original/current/anchor scale and absolute indexing",
+      "U13-02 literal H, natural histories, directional remainder and separate i=0",
+      "U13-03 common partition constant and integrability/parameter order",
+      "U13-04 coherent horizons and extended infima",
+      "U13-05 arbitrary cut-array PMF and physical mixture",
+      "U13-R-01 quantitative empirical random-cut component is present and proved"
+    ],
+    "manuscript_to_lean_mismatches": []
+  },
+  "preservation": {
+    "recorded_at": "2026-10-02T22:19:43.508856+00:00",
+    "status": "PASS",
+    "lower_v20_source_snapshot_sha256": "921bd61af4faa76243112defa3db9c2551cfc2e6ef4473f467693d99461b8c3a",
+    "lower_sources_checked": 183,
+    "lower_changed": [],
+    "initial_input_hashes_checked": 23,
+    "initial_input_drift": [],
+    "git_status_matches_initial": true,
+    "git_status": " M formalization/.DS_Store\n M time_inhomogeneous_riffle_shuffle_unified_article.pdf\n M time_inhomogeneous_riffle_shuffle_unified_article.tex\n?? formalization/lower_bound_parallel_plan_2026-10-01/\n?? formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt\n?? formalization/upper_bound_parallel_plan_2026-10-01/\n?? formalization/upper_bound_v2/\n",
+    "scope": "Read-only preservation check. Rebuilding reused lower model/helper sources in U13 overlay is not new lower-bound theorem work."
+  },
+  "remaining_imported_proof_assumptions": [],
+  "remaining_obligations": [],
+  "scope_limits": [
+    "Acceptance is for the six frozen upper endpoints, not a new lower-bound theorem or a stronger cutoff statement.",
+    "Critical-time convergence is strictly above the threshold; infinite thresholds retain the extended semantics.",
+    "Public mathematical hypotheses in the exact expanded types remain hypotheses; there is no hidden first-moment, conditional-law, localization, moment, or TV certificate premise."
+  ],
+  "reproduction": [
+    {
+      "cwd": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle",
+      "argv": [
+        "python3",
+        "formalization/upper_bound_v2/scripts/build.py",
+        "--lane",
+        "U13",
+        "--fresh",
+        "--run",
+        "audit/U13/FinalCheck_v2.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "cwd": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2",
+      "env": {
+        "LEAN_PATH": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U13/lib/lean"
+      },
+      "argv": [
+        "/Users/jialushi/Documents/loop soup/formalization/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
+        "-R",
+        "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2",
+        "audit/U13/MetadataCheck_v2.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "cwd": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle",
+      "argv": [
+        "python3",
+        "formalization/upper_bound_v2/audit/U13/record_build_inventory_v2.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "evidence": {
+    "FinalCheck_v2.lean": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/FinalCheck_v2.lean",
+      "sha256": "b329809161a547161d12b823e99e046b53904b799c19bba1733e1f2dae0a7123"
+    },
+    "MetadataCheck_v2.lean": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/MetadataCheck_v2.lean",
+      "sha256": "afdb58d4024951f6432d6e976d5d21f99ebe650213dae382a092134a92c4179f"
+    },
+    "record_build_inventory_v2.py": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/record_build_inventory_v2.py",
+      "sha256": "e1919b812266f44c3496ad94bd7b2b66f50cbaa10d5e480398f0e2c4a872b8a3"
+    },
+    "final-source-snapshot-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-source-snapshot-v2.json",
+      "sha256": "49121cd8636ccded08ec53f15ea5fc01b49f1520028f0d48d0419e6c07088819"
+    },
+    "final-fresh-build-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-fresh-build-v2.json",
+      "sha256": "914142438bad53ac8a7e50402770389a8667703f8c560a71ade9eed839e61347"
+    },
+    "final-fresh-build-v2.log": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-fresh-build-v2.log",
+      "sha256": "472d3e35cb0a9cec79d419268967fb9abb440142b8ad64d9f8903e2f8657ceec"
+    },
+    "final-trust-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-trust-v2.json",
+      "sha256": "6442a4d960041a1a7978e49eca9d4f4d7cd0527fc46569edde6b628f65678437"
+    },
+    "final-metadata-build-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-metadata-build-v2.json",
+      "sha256": "8dd2f236c148a2c351a0e49e782385c336dd2791af5334f46b04af782797faae"
+    },
+    "final-metadata-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-metadata-v2.json",
+      "sha256": "d3cc368d171a6328bb761a51ab2e0a01509a1369f580c58e166a03135587b48a"
+    },
+    "final-metadata-v2.log": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-metadata-v2.log",
+      "sha256": "5043bc7eda1244a0b9217953873db78916477bd56214700765053144f6dbf198"
+    },
+    "final-object-inventory-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/final-object-inventory-v2.json",
+      "sha256": "98add710c207024530fc6f6dc56ba98395db29cdbfed51e1bdea5f96694dd158"
+    },
+    "object-inventory-v2.log": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/object-inventory-v2.log",
+      "sha256": "4b7c2e4bb27feb8206caa24a732b424a3715f5380011c138f7c52d276e86f88f"
+    },
+    "integration-reconciliation-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/integration-reconciliation-v2.json",
+      "sha256": "601c07df5272bfa49355ed091bf1b3f3c15ebcf2dcaaed0f5059952f971b7b5d"
+    },
+    "preservation-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/preservation-v2.json",
+      "sha256": "f9397a20b49f9be4871cf91fc87f1b71804e8f41cab2cfd3554ec3788c0d515e"
+    },
+    "source-proof-review-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/source-proof-review-v2.txt",
+      "sha256": "c80a4471a6cb9fd51ec28d7da3b13b45c4343e152859bc2509e811254f3ef170"
+    },
+    "endpoint-map-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/endpoint-map-v2.json",
+      "sha256": "5f7d12610814cf506b7557504b0957534210ae2df55f5af3fddbdfa373d88ee4"
+    },
+    "public-expanded-types-v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/public-expanded-types-v2.json",
+      "sha256": "8120651eab893107394f0c428d6774555ea046ccd250e9189d92cc80fa99dbac"
+    },
+    "STATUS_pre_final_v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/STATUS_pre_final_v2.txt",
+      "sha256": "d0ee00359bcf30ec7041cab18903f7476555b79cf9c3781a7c38f1d54283d167"
+    },
+    "VERIFICATION_pre_final_v2.json": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/VERIFICATION_pre_final_v2.json",
+      "sha256": "b7175de1a067188e6dc7a78c0fd2ce23bf8298b3c79d713051031b96d14bf754"
+    },
+    "F-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/F-expanded-type-v2.txt",
+      "sha256": "92fbfd19fe94fc8a7a09b03188a11b96b52138980082ec8f7ca56c8b6af84c2e"
+    },
+    "C-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/C-expanded-type-v2.txt",
+      "sha256": "8bc7802eed8ad3d6e2a814283788ca9bcb9fb76f53f28795da1996d02e758c39"
+    },
+    "E-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/E-expanded-type-v2.txt",
+      "sha256": "f19eb6bcfda4a5e26745b10b570f3f9f1c0452d1c1c37163b20ba228069f3195"
+    },
+    "P-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/P-expanded-type-v2.txt",
+      "sha256": "586627910793eba40699346657d2c2b6a738d7d91cd5735b753dde2c488c9e51"
+    },
+    "T-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/T-expanded-type-v2.txt",
+      "sha256": "d256982285608de582c3465b51e883bc00959304af31e40eddaaf98a3948bf93"
+    },
+    "R-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/R-expanded-type-v2.txt",
+      "sha256": "e8d25b7866133d55294df68f576f686a20d453e03d447c63e5f8078f4a5ad58e"
+    },
+    "REmpiricalBound-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/REmpiricalBound-expanded-type-v2.txt",
+      "sha256": "710d1d988a6d35b704d8c3dfa313b13c39e81a46f1dc1c1bbad7033f93c5d9a3"
+    },
+    "REmpirical-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/REmpirical-expanded-type-v2.txt",
+      "sha256": "b1f4f368344fb7c11b521dda4141301b5f5a0da7fbf5b8711dc423908b0dce14"
+    },
+    "RProfile-expanded-type-v2.txt": {
+      "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/audit/U13/RProfile-expanded-type-v2.txt",
+      "sha256": "6bf7378331b24c696254201fd27ea62b1d0b8d1a16db000b2953a5d9057da654"
+    }
+  },
+  "historical_evidence": "Earlier U13 reviews remain untouched. Previous STATUS/VERIFICATION are copied to *_pre_final_v2. DevelopmentCheck_v2 is explicitly excluded from final proof evidence."
+}

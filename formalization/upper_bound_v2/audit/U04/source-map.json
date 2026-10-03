@@ -1,0 +1,76 @@
+{
+  "eq:ub-anchored-fluctuation": [
+    "Anchor.Definitions.sideScale",
+    "Localization.boundaryFluctuation",
+    "Localization.sideScale_eq_rpow"
+  ],
+  "eq:ub-anchored-fluctuation-comparison": [
+    "Localization.anchoredFluctuationComparison"
+  ],
+  "eq:ub-proper-fluctuation-lower": [
+    "Localization.properStableFluctuationLower",
+    "Localization.properStableFluctuationPositive",
+    "Localization.crossingPenalty_eventually"
+  ],
+  "finite stable decomposition": [
+    "Localization.stableCover",
+    "Localization.stable_family_cover",
+    "Localization.stable_cylinder_disjoint",
+    "Localization.stable_cases",
+    "Localization.anchoredEdges_stable_cover",
+    "Localization.anchoredEdges_stable_disjoint"
+  ],
+  "boundary definitions": [
+    "Localization.boundaries_existUnique",
+    "Localization.genuine_of_nonterminal_boundaries"
+  ],
+  "lem:ub-anchor-endpoint-window": [
+    "Localization.sideRows_tail",
+    "Localization.lowerEndpoint_side_sum",
+    "Localization.upperEndpoint_side_sum",
+    "Localization.endpoint_deviation_le",
+    "Localization.smallerSide_mean_bound",
+    "Localization.endpointWindow",
+    "Localization.endpointWindow_eventually"
+  ],
+  "lem:ub-anchor-relevant-parents": [
+    "Localization.relevantParents_finite",
+    "Localization.relevantParents",
+    "Localization.irrelevantLoss_finite",
+    "Localization.irrelevantLoss",
+    "Localization.irrelevantLoss_eventually",
+    "Localization.anchoredEdges_subset_interval"
+  ],
+  "lem:ub-edge-density-bounds": [
+    "Localization.restrictedWordFactorialMoment",
+    "Localization.restrictedWordBinomialMoment_le",
+    "Localization.expected_anchoredEdges_le_collision",
+    "Localization.extensionSquareMass_eq",
+    "Localization.goodEdge_atom",
+    "Localization.densityFromSmoothing",
+    "Localization.smallDensity",
+    "Localization.largeDensity",
+    "Localization.terminalDensity",
+    "Localization.largeDensityFailure_eventually"
+  ],
+  "actual globally sorted graph transport": [
+    "Localization.anchoredEdges_mem_word",
+    "Localization.shuffleEdges_mem_word",
+    "Localization.firstPileEdges_mem_word",
+    "Localization.shuffleEdges_firstPile",
+    "Localization.anchoredEdges_mem_legal_word",
+    "Localization.anchoredEdges_relabel"
+  ],
+  "discarded contribution": [
+    "Localization.edgesInWords_card_le_rows",
+    "Localization.discardedEdges_expect_le_rows",
+    "Localization.discardedEdges_total_le_rows",
+    "Localization.discardedEdges_density_le_rows"
+  ],
+  "provider-owned original-index scalar integration": [
+    "FirstMoment.TailCosts/TailGrid: tailSquareMass to original-N empirical exponent",
+    "FirstMoment.ClassExponents.retainedClass_stops: actual empirical terminal margin excludes fallback",
+    "FirstMoment.ClassExponents: concrete cost/class numerical density conversion",
+    "U05: boundary/class partition and final first-moment finite aggregation"
+  ]
+}

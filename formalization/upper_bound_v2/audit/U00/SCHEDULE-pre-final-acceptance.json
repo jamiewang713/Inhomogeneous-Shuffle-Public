@@ -1,0 +1,115 @@
+{
+  "U00": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/00_coordinator_and_contracts.txt",
+    "assignment": "ASSIGNMENT: U00 \u2014 Shared model, exact contracts, reuse inventory and integration",
+    "planned_exports": "- F/C/E/P/T/R frozen specifications and exact source map\n- CONTRACTS_READY.json\n- Completed import and integrated proof ledger",
+    "state": "ACTIVE",
+    "current_input_state": "INTEGRATION_READY v1 delivered; awaiting U13 final acceptance",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U01": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/01_graph_density_and_truncation.txt",
+    "assignment": "ASSIGNMENT: U01 \u2014 Graph density, factorial overlap, truncation and component tails",
+    "planned_exports": "- GraphOverlap.overlapIdentity\n- GraphOverlap.boundedComponentOverlap\n- GraphOverlap.truncatedTV\n- GraphOverlap.largestComponentTail\n- GraphOverlap.collisionUpper",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U02": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/02_hypergeometric_and_cylinder_tools.txt",
+    "assignment": "ASSIGNMENT: U02 \u2014 Hypergeometric concentration, atom bounds and anchored cylinder laws",
+    "planned_exports": "- Hypergeometric.transformBound\n- Hypergeometric.twoSidedTail\n- Hypergeometric.atomBound\n- Hypergeometric.anchorCylinderTransform\n- Hypergeometric.anchorCylinderTail",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U03": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/03_anchored_endpoint_smoothing.txt",
+    "assignment": "ASSIGNMENT: U03 \u2014 Reserved-population endpoint anti-concentration",
+    "planned_exports": "- Anchor.endpointShiftHypergeometric\n- Anchor.smoothingFailure\n- Anchor.endpointVariance\n- Anchor.conditionalEndpointAtoms",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U04": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/04_stable_localization_and_density.txt",
+    "assignment": "ASSIGNMENT: U04 \u2014 Anchored stable blocks, relevant parents and edge-density estimates",
+    "planned_exports": "- Localization.stableCover\n- Localization.endpointWindow\n- Localization.relevantParents\n- Localization.irrelevantLoss\n- Localization.smallDensity\n- Localization.largeDensity\n- Localization.terminalDensity",
+    "state": "PROVED_AND_CHECKED_LANE; bounded backward helper completed",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U05": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/05_empirical_cost_classes_and_first_moment.txt",
+    "assignment": "ASSIGNMENT: U05 \u2014 Empirical cost classes, exponent bounds and concrete first moment",
+    "planned_exports": "- FirstMoment.empiricalCostClassCount\n- FirstMoment.classEntropy\n- FirstMoment.empiricalExponentBounds\n- FirstMoment.empiricalFirstMoment",
+    "state": "PROVED_AND_CHECKED_LANE; large and small cylinder assistance completed",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U06": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/06_margin_stability_and_scalar_transfer.txt",
+    "assignment": "ASSIGNMENT: U06 \u2014 Empirical margin stability and fixed-partition scalar transfer",
+    "planned_exports": "- Margins.costStability\n- Margins.inducedMargin\n- Margins.deletePrefixMargin\n- Margins.maximalWordIdentity\n- Margins.fixedPartitionQuadrature\n- Margins.profileToEmpiricalMargin",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U07": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/07_guards_histories_and_directional_coverage.txt",
+    "assignment": "ASSIGNMENT: U07 \u2014 Good-column clusters, concentration, natural histories and directional coverage",
+    "planned_exports": "- Exploration.goodCluster\n- Exploration.uniformConcentration\n- Exploration.naturalHistory\n- Exploration.historyGoodProbability\n- Exploration.directionalCover\n- Exploration.unitIncrements\n- Exploration.regularityFailure",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U08": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/08_exact_reservoir_and_block_laws.txt",
+    "assignment": "ASSIGNMENT: U08 \u2014 Exact reservoir estimates and conditional future-cylinder law",
+    "planned_exports": "- Reservoir.historyAtom\n- Reservoir.exactMarkedRowLaw\n- Reservoir.prefixCount\n- Reservoir.extraCurrentCopies\n- Reservoir.tailCollisions\n- Reservoir.conditionalFutureCylinderLaw",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U09": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/09_conditional_first_moment.txt",
+    "assignment": "ASSIGNMENT: U09 \u2014 Conditional remaining-edge bound in every natural history",
+    "planned_exports": "- Conditional.futureCylinderDecomposition\n- Conditional.refinementCount\n- Conditional.selfIntersectionJensen\n- Conditional.remainingCommonEdges",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U10": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/10_adapted_exponential_and_finite_tv.txt",
+    "assignment": "ASSIGNMENT: U10 \u2014 Adapted exponential excess and finite total-variation criterion",
+    "planned_exports": "- Exponential.stoppedBinomialMoment\n- Exponential.adaptedExcess\n- Exponential.finiteExplorationTV\n- Exponential.boundedComponentTruncation",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U11": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/11_empirical_upper_endpoint.txt",
+    "assignment": "ASSIGNMENT: U11 \u2014 Concrete empirical upper bound and deletion contraction",
+    "planned_exports": "- EmpiricalUpper.deletedPrefixTVContraction\n- EmpiricalUpper.restartHypotheses\n- EmpiricalUpper.empiricalUpper",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U12": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/12_profile_critical_and_random_upper.txt",
+    "assignment": "ASSIGNMENT: U12 \u2014 Buffered profile, critical-time and random-cut upper bounds",
+    "planned_exports": "- ProfileUpper.bufferedUpper\n- ProfileUpper.marginMonotonicity\n- ProfileUpper.dominanceReduction\n- ProfileUpper.criticalTimeUpper\n- ProfileUpper.mixingTimeUpper\n- ProfileUpper.randomEmpiricalUpper\n- ProfileUpper.randomProfileUpper",
+    "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+    "current_input_state": "CONTRACTS_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "U13": {
+    "prompt": "formalization/upper_bound_parallel_plan_2026-10-01/13_independent_final_audit.txt",
+    "assignment": "ASSIGNMENT: U13 \u2014 Independent source, endpoint, build and trust audit",
+    "planned_exports": "- Independent final exact-type/source correspondence report\n- Fresh-build and transitive trust evidence\n- FINAL_AUDIT.json with separate F/C/E/P/T/R verdicts",
+    "state": "ACTIVE_INDEPENDENT_FINAL_AUDIT",
+    "current_input_state": "INTEGRATION_READY v1",
+    "dependencies": "See authoritative PLAN.txt and frozen per-module source closure"
+  },
+  "recorded_at": "2026-10-02T22:26:33.504350+00:00"
+}

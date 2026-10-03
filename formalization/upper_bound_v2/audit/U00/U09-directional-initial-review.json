@@ -1,0 +1,23 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:06:50.454130+00:00",
+  "reviewer": "U00 independent of owner",
+  "sources": {
+    "Conditional/DirectionalGeometry.lean": "9b6ee45f58fe4abb878e5f446e165bf872465249df1706b468691e51787e7c54"
+  },
+  "root_build_receipt": "directional-geometry-check-build.json",
+  "trust_inventory": "directional-geometry-declarations.json",
+  "mathematics": [
+    "The directional local edge maps injectively to actual global rank, reversing spatial indices only for backward direction.",
+    "Every directional remainder edge belongs to both actual graphs, so its count is bounded by literal common graph edges.",
+    "At time zero pairHistory is constant; conditional expectation equals unconditional expectation and is bounded by exact expectedCommonEdges."
+  ],
+  "adversarial": [
+    "Small/empty piles use the literal zero remaining count branch.",
+    "Crossing edges are retained by the remainder definition already used in PairReduction.",
+    "No positivity of a manually selected conditional fiber is introduced at time zero; the fiber is the full sample space."
+  ],
+  "remaining": [
+    "Use F to bound the initial first moment with common uniform constants; interior-history C still pending."
+  ]
+}

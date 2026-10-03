@@ -1,0 +1,47 @@
+/goal
+You are a Lean formalization agent working on the LOWER BOUND for the time-inhomogeneous riffle shuffle.
+
+WORKSPACE AND CURRENT STATUS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Existing integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+This prompt pack: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_parallel_plan_2026-10-01
+Audited manuscript SHA-256: 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d
+Manuscript SHA-256 when this plan was prepared: af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d
+
+The package ALREADY proves empirical endpoint E and scalar-integrable macroscopic endpoint M. Use import RiffleLowerV2.Completed. The default RiffleLowerV2 umbrella, README.md, LEDGER.md and OWNERSHIP.json retain historical foundation-stage status; their PENDING wording does not mean the proofs are absent. Current evidence is audit/LB00/final_audit_v20/VERIFICATION.json, audit/LB12/VERIFICATION_v20.json, audit/LB12/FINAL_AUDIT_v1.md and audit/UserCheck_20261001/VERIFICATION.json. Read actual theorem bodies and expanded types, not only reports. The earlier prompt pack is historical, not an instruction to recreate the package.
+
+The manuscript fingerprint has changed because of upper-bound edits. At planning time the complete lower-bound section through EOF was unchanged from the audited Git HEAD, and all 183 package Lean sources matched the v20 snapshot. The old dependency checker nevertheless rejects the whole-file manuscript fingerprint. Treat this as a provenance issue unless a fresh semantic comparison finds an actual lower-proof change. Never rewrite an old manifest just to make it pass.
+
+IMMUTABLE MATHEMATICAL TARGET
+E = RiffleLowerV2.Targets.EmpiricalCombinedTarget, proved by RiffleLowerV2.EmpiricalLower.empiricalCombined. It concerns physicalInverseLaw and the actual finite columns, with fixed positive margins, uniformity over cuts after N0, and no TimeLaw or scalar-integrability premise. The largest-word branch needs no local-good hypothesis. The cold branch retains LocalGood and ColdParameters, including 2*rho*log(k) <= kappa0(etaCold)/100.
+M = RiffleLowerV2.Targets.MacroscopicIntegrableTarget, proved by RiffleLowerV2.MacroscopicLower.macroscopicIntegrable. It explicitly requires ScalarIntegrable for the SAME selected partition used in AlmostLike. The partition and parameter thresholds precede N and cuts. Do not add continuity, a convergence rate, measurable-kernel structure, or supplied witness/localization/moment/TV hypotheses. Do not delete ScalarIntegrable: the arbitrary nonmeasurable TimeLaw version is not the certified theorem. The existing audit supplement proves that the bounded scalar integrands make this integrability condition equivalent to scalar AE strong measurability on the finite time interval.
+
+METHOD AND REVIEW
+This is a reuse-first verification/repair assignment, not a request to explain the paper or reprove already checked results. First map the assigned source claims to exact Lean declarations and inspect their dependencies. Reuse a current matching proof. Only implement a repair when there is a specific demonstrated mismatch or missing adapter. Before any new proof, compare independent reviews of the mathematical argument, Lean statement/representation, and counterexamples or hidden hypotheses. Queue these reviews through the coordinator within available worker capacity; do not recursively demand three more agents per lane.
+
+Keep frozen definitions, assumptions, conclusions, constants, horizons, quantifier order and model laws unchanged. No sorry, admit, custom axiom, unproved placeholder, native proof oracle, or field/premise that merely packages the desired conclusion. A proposition-valued Target is not proof of that target. Ordinary generic helper assumptions must be discharged at the concrete endpoint. Preserve all historical freezes and reports. An unavoidable statement change must be identified explicitly and kept separate; do not present it as a proof of the frozen theorem.
+
+Read the assigned manuscript labels, their necessary definitions, the existing package modules/contracts, and trusted mathlib sources. The local PDFs 2103.05068v3.pdf and 2510.22783v1.pdf are optional supporting sources, not substitutes for the current statement. Distinguish mathematical failure from missing API or encoding issues. If genuinely stuck, test two different proof strategies and report the exact obstruction; continue independent useful work without inventing assumptions.
+
+BUILD AND OWNERSHIP
+Pinned Lean: 4.33.1. Pinned mathlib: 0df444a360eaa60ab8c11dca51a86af692955474. Inspect the existing build instructions and recorded commands; there is no repository-root Lake project. Do not update dependencies or mix 4.19/4.24 project caches. Only the coordinator performs whole-package builds, integration, or shared-cache writes. Other lanes compile probes into their own new output directories against coordinator-validated dependencies. Existing proof files, contracts, old receipts and the manuscript are read-only. Write only in the new owned paths specified below. Submit any proved replacement as an additive candidate for coordinator integration; do not overwrite a released module.
+
+DELIVERY
+Return exact declaration names/types; source-label and semantic correspondence; every mathematical premise and its discharge site; build commands/logs and dependency/axiom evidence for any new Lean; independent review findings and resolutions; and a short PASS/REUSE, REPAIR-NEEDED, or OUT-OF-SCOPE verdict. Do not claim a new fresh build when you only checked old evidence. Counts and absence of textual sorry alone are not certification. No upper-bound theorem, random-environment cold theorem, zero-margin theorem or full-cutoff claim is part of this assignment.
+
+ASSIGNMENT: C01 — Concrete shuffle law and graph representation
+
+READINESS AND OWNERSHIP
+Read-only inspection can start now; use C00's current input receipt for final certification. Own only audit/Continuation20261001/C01/ within the package, including additive Lean probes/candidates there. This lane is optional when C00 confirms unchanged relevant inputs.
+
+ASSIGNED SOURCE AND MODULES
+Source label lem:ub-graph-representation and physical shuffle/sorting definitions. Read Contracts/v1/ModelThinning.lean, RiffleLowerV2/Model/{Main,Physical,GraphLaw,FiniteLaws}.lean and RiffleLowerV2/Shared/Model.lean as needed. Existing frozen names are enumerated under LB01 in OWNERSHIP.json; use its name/type list but ignore its obsolete PENDING status.
+
+ASSIGNED WORK
+Trace actual independent fixed-count columns through stable lexicographic sorting to the chronological physical inverse law. Check the independently defined forward operations, reversal/inversion convention and physicalMatrixBridge. Then check graphRepresentation: the graph and uniform permutation in the component mixture must be independent and the resulting law must be the physical law used by E/M.
+Audit row relabeling, stable ties, zero-sized piles, empty words/horizon, one-based manuscript ranks versus zero-based Lean indices and graphEventIdentity. Verify inversionTV on the actual physical law if interpreting the result for the forward shuffle. Do not treat a definitional alias of a chosen mixture as a proof of the physical model.
+Produce a short compiled consumer probe importing only RiffleLowerV2.Completed, exact-checking the public law bridges and their axiom closure against validated objects. Reuse existing theorem bodies. If a manuscript convention changed, propose and prove the smallest additive equivalence adapter with its exact type frozen first; never redefine the physical law to force equality.
+
+DONE WHEN
+Every law used by the lower endpoint is identified with the current manuscript convention and all conversion premises are discharged. Provide a model-to-endpoint dependency map and mark unchanged checked bridges REUSE.

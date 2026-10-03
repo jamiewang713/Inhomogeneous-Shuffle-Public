@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-02T08:13:27.194662+00:00",
+  "source_hash_matches_plan": true,
+  "git_status": " M formalization/.DS_Store\n M time_inhomogeneous_riffle_shuffle_unified_article.pdf\n M time_inhomogeneous_riffle_shuffle_unified_article.tex\n?? formalization/lower_bound_parallel_plan_2026-10-01/\n?? formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt\n?? formalization/upper_bound_parallel_plan_2026-10-01/\n?? formalization/upper_bound_v2/\n",
+  "new_package_absent_on_entry": true,
+  "existing_user_edits": [
+    "formalization/.DS_Store",
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "time_inhomogeneous_riffle_shuffle_unified_article.pdf"
+  ],
+  "inputs": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+    "formalization/upper_bound_parallel_plan_2026-10-01/00_coordinator_and_contracts.txt": "d76646f4fb60aa98d8a7f796d012dbb703c07122a39316b937a634e3515aaeca",
+    "formalization/upper_bound_parallel_plan_2026-10-01/01_graph_density_and_truncation.txt": "8f4da7924d1a83e81947855eb77561ff65eb8f811e116489759f499a4f5de821",
+    "formalization/upper_bound_parallel_plan_2026-10-01/02_hypergeometric_and_cylinder_tools.txt": "aaf0a4e060c4f9a9785b786b149bf24630a83801ae0e1c5602fe7dde1375a3b9",
+    "formalization/upper_bound_parallel_plan_2026-10-01/03_anchored_endpoint_smoothing.txt": "31b18ebd3a67c37516cea25a6e31ee5bbb89be522fe8e7f9d5a87524dc2a3d1c",
+    "formalization/upper_bound_parallel_plan_2026-10-01/04_stable_localization_and_density.txt": "fff567a86ef14d4508f4b6587fdd57b7cb398929b983e3dec2d78a681d5427e2",
+    "formalization/upper_bound_parallel_plan_2026-10-01/05_empirical_cost_classes_and_first_moment.txt": "4b40b72363d0b370a050a17ecdd9ca0131612fa3dab46fb1e5dedb428b04cee8",
+    "formalization/upper_bound_parallel_plan_2026-10-01/06_margin_stability_and_scalar_transfer.txt": "5ecfa2f14299c935bfd4d6f4531212c13b9226c02bbd0e7150d450766dad3088",
+    "formalization/upper_bound_parallel_plan_2026-10-01/07_guards_histories_and_directional_coverage.txt": "4ec1c7510ecd3277ecbdd8ec14a154655395c7e0da004953b0b388c40fe98d98",
+    "formalization/upper_bound_parallel_plan_2026-10-01/08_exact_reservoir_and_block_laws.txt": "6196adbef51c6d010defb601440762bcd5f6306a87c7f21816b8ba9f473fe233",
+    "formalization/upper_bound_parallel_plan_2026-10-01/09_conditional_first_moment.txt": "346246c17a91e48143a8c30bcedca7680a4a4b1a18af3c58fb65b5136451b840",
+    "formalization/upper_bound_parallel_plan_2026-10-01/10_adapted_exponential_and_finite_tv.txt": "694bbe9d05c5d06f232631bfbcc6dc81d740582932799b1237560cf490edcd34",
+    "formalization/upper_bound_parallel_plan_2026-10-01/11_empirical_upper_endpoint.txt": "4f6f4c17f51c08bc1cb7aa87eb08d9182074eee8d6518e6797601b9816fafe2e",
+    "formalization/upper_bound_parallel_plan_2026-10-01/12_profile_critical_and_random_upper.txt": "d04d321d23f79c014178bc875b739a1e5b940ab375776b2840873b98e04e79e8",
+    "formalization/upper_bound_parallel_plan_2026-10-01/13_independent_final_audit.txt": "7ce9715081ae5834744be6042344058d05df3bcc86a938979bbd58430c32caf6",
+    "formalization/upper_bound_parallel_plan_2026-10-01/ALL_PROMPTS.txt": "c6400a79e651f8e46232c568c06b0e3cc548d88156b6aacebccc38df07831f87",
+    "formalization/upper_bound_parallel_plan_2026-10-01/PLAN.txt": "f661237393292885776d684e77f9e3836476dfea34b1ed21c29feceda80a3ca1",
+    "formalization/upper_bound_parallel_plan_2026-10-01/REVIEW_NOTES.txt": "58ff10750f61f1d12488695866d57f1e9ee6cec6089f1b1a507ac6ceaf7b5daf",
+    "formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt": "e2db0c7e28e0ee51ce467c042ff9a8ad36e5fa16655becdd41e9b27fe4322ef5",
+    "formalization/lower_bound_v2/audit/LB00/final_audit_v20/VERIFICATION.json": "5473f9242d0427af88286aaca5e2253abf6efe5bb705e024a97742fe665c4f03",
+    "formalization/lower_bound_v2/audit/LB12/VERIFICATION_v20.json": "8931cb6c2d4b534ebe592c87e15b12623fa0966134a89ff2492c357443cbd0e3",
+    "formalization/lower_bound_v2/audit/UserCheck_20261001/VERIFICATION.json": "134c131b75fa6d79f010a2413d8d143616908ce60c032ac14edde638ca8b99bc",
+    "formalization/first_moment/audit/compatibility-4.33.json": "0a7f00319dace707e19f635d7b71fc01099a4bc1b85cd0be7f5ed12c269b909f"
+  },
+  "dependency_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+  },
+  "scope": "Read-only reuse of lower; no lower audit restarted. Existing v20 receipt is historical evidence, not a fresh upper build.",
+  "common_regularity_constant": {
+    "selected": 1,
+    "existence": "TimeProfile.exists_regular_partition",
+    "reviewer": "U13 approved explicit convention"
+  }
+}

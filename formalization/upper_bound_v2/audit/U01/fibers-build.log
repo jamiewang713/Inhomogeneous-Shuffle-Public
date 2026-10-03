@@ -1,0 +1,21 @@
+CHECK RiffleUpperV2.GraphOverlap.Fibers
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Fibers.lean:53:2: error: Type mismatch
+  keyAssignmentFiber_card (componentKey G) (componentKey G ∘ ⇑(Equiv.symm σ)) (Equiv.symm σ) fun x => rfl
+has type
+  @Fintype.card (KeyAssignmentFiber (componentKey G) (componentKey G ∘ ⇑(Equiv.symm σ)))
+      (@Subtype.fintype (RiffleLowerV2.Permutation N)
+        (fun ρ => ∀ (i : Fin N), componentKey G (ρ i) = (componentKey G ∘ ⇑(Equiv.symm σ)) i)
+        (fun a =>
+          @Nat.decidableForallFin N (fun i => componentKey G (a i) = (componentKey G ∘ ⇑(Equiv.symm σ)) i) fun a_1 =>
+            Classical.propDecidable (componentKey G (a a_1) = (componentKey G ∘ ⇑(Equiv.symm σ)) a_1))
+        Equiv.instFintype) =
+    ∏ w, {i | componentKey G i = w}.card.factorial
+but is expected to have type
+  @Fintype.card (KeyAssignmentFiber (componentKey G) (componentKey G ∘ ⇑(Equiv.symm σ)))
+      (@Subtype.fintype (RiffleLowerV2.Permutation N)
+        (fun ρ => ∀ (i : Fin N), componentKey G (ρ i) = (componentKey G ∘ ⇑(Equiv.symm σ)) i)
+        (fun a =>
+          @Nat.decidableForallFin N (fun i => componentKey G (a i) = (componentKey G ∘ ⇑(Equiv.symm σ)) i) fun a_1 =>
+            instDecidableEqFin (N + 1) (componentKey G (a a_1)) ((componentKey G ∘ ⇑(Equiv.symm σ)) a_1))
+        Equiv.instFintype) =
+    componentFactorial G

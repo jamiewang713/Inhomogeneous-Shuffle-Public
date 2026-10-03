@@ -1,0 +1,23 @@
+CHECK RiffleUpperV2.Exponential.FiniteTV
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/FiniteTV.lean:73:2: error: Type mismatch
+  add_le_add_right
+    (div_le_div_of_nonneg_right (Real.sqrt_le_sqrt hrad)
+      (have this :=
+        Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+          (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl true);
+      this))
+    ?m.687
+has type
+  ?m.687 +
+      √(expect (fixedCountPMF cuts) fun ω =>
+            expect (fixedCountPMF cuts) fun ω' =>
+              if S1 ω then if S1 ω' then GraphOverlap.overlap (shuffleEdges ω) (shuffleEdges ω') - 1 else 0 else 0) /
+        2 ≤
+    ?m.687 + √((b ^ d - 1) * γ / (1 - (b ^ d - 1) * γ)) / 2
+but is expected to have type
+  (√(expect (fixedCountPMF cuts) fun ω =>
+            expect (fixedCountPMF cuts) fun ω' =>
+              if S1 ω then if S1 ω' then GraphOverlap.overlap (shuffleEdges ω) (shuffleEdges ω') - 1 else 0 else 0) /
+        2 +
+      probability (fixedCountPMF cuts) fun ω => ¬S1 ω) ≤
+    √((b ^ d - 1) * γ / (1 - (b ^ d - 1) * γ)) / 2 + probability (fixedCountPMF cuts) fun ω => ¬S1 ω

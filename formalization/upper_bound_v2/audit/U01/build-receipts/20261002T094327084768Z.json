@@ -1,0 +1,81 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T09:43:27.083970+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U01",
+    "RiffleUpperV2.GraphOverlap.FactorialTail",
+    "RiffleUpperV2.GraphOverlap.RunProduct"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U01",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U01/lib/lean",
+  "built": [
+    "RiffleUpperV2.GraphOverlap.FactorialTail",
+    "RiffleUpperV2.GraphOverlap.RunProduct"
+  ],
+  "modules": {
+    "RiffleUpperV2.GraphOverlap.FactorialTail": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/FactorialTail.lean",
+      "sha256": "a964f2fd7ab6897659b57a6d392d7bff55e54a21888296e720a3ee41c26d7aa1",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.GraphOverlap.FiniteProbability": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/FiniteProbability.lean",
+      "sha256": "e071e24ff118ecf3e9bde0fba1356921ab5be8cce79fbf82c1a24dd7391f2a48",
+      "kind": "project"
+    },
+    "RiffleLowerV2.Factorial.Basic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Basic.lean",
+      "sha256": "eb419c20e5df3505d6ca1093d964281a0de9be86454d0f9abc59f40874b11542",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Model.FiniteLaws": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Model/FiniteLaws.lean",
+      "sha256": "cc5abe4ecf21f682658ca77e7a867368a4f1f8c4ab0b9d70eba79a9041772a06",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Factorial.Exact": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Factorial/Exact.lean",
+      "sha256": "65640e94b727947d46db81b5a6e8f4241b041ba959df3d8ba36ed9e459855900",
+      "kind": "staged-read-only"
+    },
+    "Mathlib.Data.Nat.Choose.Bounds": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Data/Nat/Choose/Bounds.lean",
+      "sha256": "47d512919b879ee6a45a7c40b83fda92bb3cb94cd47696d51cede46d44bb7c32",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.GraphOverlap.RunProduct": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/RunProduct.lean",
+      "sha256": "abc3640e97e2e3d11f5c430f22e58b112d8f0c731f340e7d53a0276fa9a8c9b5",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.GraphOverlap.Density": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Density.lean",
+      "sha256": "f6d7df97f86947bd53d98406ed3c5e7a6aded7cb5ea5b54fbc5f1ad8a5db564a",
+      "kind": "project"
+    },
+    "RiffleUpperV2.GraphOverlap.Support": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Support.lean",
+      "sha256": "b5862634616469d4c5f551953b7914942f86b79fbcc2704a0431ae784cedf99a",
+      "kind": "project"
+    },
+    "RiffleUpperV2.GraphOverlap.Fibers": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/Fibers.lean",
+      "sha256": "288ffd4cf0cfe6515f87b76b8e78f0d7fdbd90bba3550ff7e2e8fd64e482597a",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Model": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Model.lean",
+      "sha256": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "b25e0e84c9193f8a997bfe5b44a951518ac4aef13491f923e8c4ebad56586cb0"
+}

@@ -1,0 +1,33 @@
+CHECK RiffleUpperV2.Localization.Stopping
+CHECK RiffleUpperV2.Localization.Boundary
+def RiffleUpperV2.Localization.LeftBoundary : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → Finset (Fin n) → ℝ → RiffleUpperV2.Prefix k d → Prop :=
+fun {k n d} cuts R χ x =>
+  RiffleUpperV2.Anchor.Legal cuts R x ∧
+    RiffleUpperV2.Localization.FirstCut (RiffleUpperV2.Localization.anchorPrefix k d)
+      (RiffleUpperV2.Localization.LeftBoundaryTest cuts χ) x
+def RiffleUpperV2.Localization.RightBoundary : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → Finset (Fin n) → ℝ → RiffleUpperV2.Prefix k d → Prop :=
+fun {k n d} cuts R χ x =>
+  RiffleUpperV2.Anchor.Legal cuts R x ∧
+    RiffleUpperV2.Localization.FirstCut (RiffleUpperV2.Localization.anchorPrefix k d)
+      (RiffleUpperV2.Localization.RightBoundaryTest cuts χ) x
+def RiffleUpperV2.Localization.TerminalBoundaryPair : {k d : ℕ} →
+  RiffleUpperV2.Prefix k d → RiffleUpperV2.Prefix k d → Prop :=
+fun {k d} y z => ↑y.fst = d ∨ ↑z.fst = d
+def RiffleUpperV2.Localization.Stable : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset (Fin n) → RiffleUpperV2.Prefix k d → ℝ → RiffleUpperV2.Prefix k d → Prop :=
+fun {k n d} N cuts R v δ x =>
+  RiffleUpperV2.Anchor.Legal cuts R x ∧
+    RiffleUpperV2.Localization.FirstCut v (RiffleUpperV2.Localization.Stops N cuts R v δ) x
+def RiffleUpperV2.Localization.ProperStable : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset (Fin n) → RiffleUpperV2.Prefix k d → ℝ → RiffleUpperV2.Prefix k d → Prop :=
+fun {k n d} N cuts R v δ x =>
+  RiffleUpperV2.Localization.Stable N cuts R v δ x ∧ ↑v.fst < ↑x.fst ∧ RiffleUpperV2.Localization.Stops N cuts R v δ x
+'RiffleUpperV2.Localization.boundaries_existUnique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Localization.genuine_of_nonterminal_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RiffleUpperV2.Localization.stableCover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Localization.stable_family_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

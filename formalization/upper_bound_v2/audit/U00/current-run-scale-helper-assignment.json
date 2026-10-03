@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-02T21:39:27.798098+00:00",
+  "state": "ACTIVE",
+  "worker": "u11_empirical",
+  "provider_state": "Actual empirical C=>E preparation independently checked; final E awaits C",
+  "supported_lane": "U09",
+  "owned_new_modules": [
+    "RiffleUpperV2.Conditional.CurrentRunBound",
+    "RiffleUpperV2.Conditional.ConditionalScale"
+  ],
+  "audit_directory": "audit/U11/conditional-helper",
+  "build_overlay": "U11",
+  "scope": "Current-run natural-history bound from both actual extraCurrentCopies estimates and original terminal margin; uniform real asymptotic absorption of actual cylinder count and history errors. U09 owns graph-law, tower, refinement and final C.",
+  "expected_exports": [
+    "Existential positive Ccur and uniform N0: actual conditional currentExcess<=Ccur*N^(-3eta/5)+N*epsilon under source alpha budget and actual history/hasDirection.",
+    "Uniform C,N0 for (Ccur+M*Csum)N^-a+(N+2*M*N^2)sqrt(badBound N xi A cH)<=C*N^(-a/2) when M<=K*logN*N^r,0<=r<=a/4."
+  ],
+  "independence": "Only two exact new files; currentExcess is U09 FineMoments definition; start independent ConditionalScale while it is staged."
+}

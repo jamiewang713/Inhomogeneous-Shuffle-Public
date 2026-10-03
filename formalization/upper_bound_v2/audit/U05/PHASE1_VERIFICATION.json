@@ -1,0 +1,157 @@
+{
+  "status": "PARTIAL",
+  "scope": "Finite actual empirical descriptors, actual cost-bin entropy and numerical exponent slice; F is unproved.",
+  "recorded_at": "2026-10-02T09:25:06.182700+00:00",
+  "contract": {
+    "file": "CONTRACTS_READY.json",
+    "version": "v1",
+    "sha256": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+    "frozen_sources_edited": false
+  },
+  "manuscript": {
+    "path": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex",
+    "sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a"
+  },
+  "owned_source_hashes": {
+    "RiffleUpperV2/FirstMoment/BoundaryCosts.lean": "c67b43795d71fcc4f37037bde4d2fab4fdc110e2817fb70c70617ea7f2d1ba07",
+    "RiffleUpperV2/FirstMoment/ClassAdapters.lean": "991d44d7fcae44771653bd195b7420033813d5c00717fe23b8a7a1b03570f982",
+    "RiffleUpperV2/FirstMoment/Descriptors.lean": "aa2b29880a909c9a62a79781585724787175eea541d8c59c6a391c61daffb6d3",
+    "RiffleUpperV2/FirstMoment/Entropy.lean": "a1269fc52407da663893167f873df0381cb175aa479a525c7de4802aa2433402",
+    "RiffleUpperV2/FirstMoment/Exponents.lean": "b759874e38e22e786ec614653db161b82fb4dbb46800d684d41141576ffde864",
+    "RiffleUpperV2/FirstMoment/Main.lean": "06f9adf601df0bfa056e511ed9a4f0d08412ad7fcbaacc4674fd7ea8dc75d1c1",
+    "RiffleUpperV2/FirstMoment/WordCosts.lean": "215f69c83d9d2ddb998b5fc168a50fbdd49847aee71937ecfbff0c45e03e9a9d"
+  },
+  "build": {
+    "fresh_command": "python3 formalization/upper_bound_v2/scripts/build.py --lane U05 --fresh RiffleUpperV2.FirstMoment.Main",
+    "exit_code": 0,
+    "log": "audit/U05/build.log",
+    "compiler": "Lean4.33.1",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "receipts": [
+      {
+        "file": "audit/U05/build-receipts/20261002T091941127546Z.json",
+        "sha256": "b14f3027af83f0a7a4c785d3c34f8fb8818daa8932c7cf9d3035bed89c51857f",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--fresh",
+          "RiffleUpperV2.FirstMoment.Main"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U05/build-receipts/20261002T092022697405Z.json",
+        "sha256": "cc1a3cc99ff9bdf55eec60ab659f8e5635176bd6b01a2537da009ac8e39d058b",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/PrintTypes.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U05/build-receipts/20261002T092059978026Z.json",
+        "sha256": "cc18cc3dfbc389ac1c72210d4dc68232d61a557650b16f83a9f574bc77dcfc9c",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U05",
+          "--run",
+          "audit/U05/PrintKernelTypes.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0
+      }
+    ],
+    "scope": "Fresh seven owned modules against U00 source-staged project dependencies; no old .olean copied."
+  },
+  "public_declarations": {
+    "total": 70,
+    "theorems": 50,
+    "index": "audit/U05/DECLARATIONS.json",
+    "readable_types_and_transitive_axioms": "audit/U05/types-and-axioms.log",
+    "fully_explicit_kernel_types": "audit/U05/kernel-types.log"
+  },
+  "transitive_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "project_dependency_closure": "audit/U05/PROJECT_DEPENDENCY_CLOSURE.json",
+  "source_map": "audit/U05/SOURCE_MAP.json",
+  "reviews": {
+    "independent_source_review": "PASS_FOR_NARROW_SLICE",
+    "reviewer": "U00",
+    "evidence": "audit/U05/INDEPENDENT_REVIEW.json",
+    "U00_independent_fresh_staging": "Requested after owned fresh build; maintained by U00"
+  },
+  "reuse_findings": {
+    "old_Entropy": "word_mass_sum matches and is imported; new common-lower-mass proof handles non-equal cost-bin masses.",
+    "old_Counting": "Exact SparseAssignment/BoundaryCode and card_sparseAssignment reused with new empirical key factors; old profile key is not identified with new key.",
+    "old_SmallSourceRepair": "Inspected scalar small_coarse_numerical_core/infimum. New direct proof gives source21q/2 loss with eBeta=0,eF=q/2,eS=q, avoiding old profile hypotheses.",
+    "old_profile_route": "Rejected as direct endpoint adapter: old macroscopic profile/simplex partition and old ambient setup differ from new actual anchored costs.",
+    "new_direct_route": "Implemented actual finite defaults, selected probability costs, bin classes, tilted entropy and empirical objective without profile partition."
+  },
+  "missing_obligations": [
+    {
+      "id": "U05-M01",
+      "owner": "U05",
+      "claim": "Prove the exact global retained stable-block descriptor partition and fiber membership, including terminal singleton routing and anchoring index bridge.",
+      "available": "empiricalDescriptor, decoder, prefixFamilyEntropy and actual default/bin adapters are checked.",
+      "note": "No field supplies a first-moment, density, localization or entropy conclusion."
+    },
+    {
+      "id": "U05-M02",
+      "owner": "U05",
+      "claim": "For every epsilon,D>0, choose C0 first, then width and chi, then N0 uniformly in arrays and n,a,K, to obtain <=N^epsilon retained classes.",
+      "available": "Exact finite key count4*k*(k+1)^2*(d+1)^3*U_qb^2*U_qe*bins. Actual bins<=1+floor(Tlog(1/chi)/width). Old sparseCount_exp_bound/profileCount_eventually freshly staged.",
+      "note": "No empiricalCostClassCount endpoint is claimed."
+    },
+    {
+      "id": "U05-M03",
+      "owner": "U05",
+      "claim": "Bound expected discarded rows by N^(-D) for both boundary and extension truncations with C0 chosen before chi.",
+      "available": "Actual boundary exceptions imply chi-rare selected digits; fixed-count one-row/full-column law reusable.",
+      "note": "The union count and rare-row exponential tail are not supplied as assumptions to F."
+    },
+    {
+      "id": "U05-M04",
+      "owner": "U05/U04",
+      "claim": "Instantiate exactWordCostSplit and numerical prerequisites for every actual stable prefix, including original absolute endpoint reindexing, mean<=beta, parent good-cost increment<=qN, and terminal anchored mean.",
+      "available": "Exact finite log/product split, full-word terminal exponent/prefixMean adapter, and source-exact numerical helpers checked.",
+      "note": "The terminal theorem here is literal full-word occupancy for full cuts; anchored first-column/future-suffix factorization remains separate."
+    },
+    {
+      "id": "U05-M05",
+      "owner": "U04 after U03",
+      "claim": "Discharge actual endpoint-window/relevance, irrelevant-loss, collision and large/small/terminal density estimates on fixed-column matrices.",
+      "dependency": "audit/U04/VERIFICATION.json U04-M02 through U04-M06",
+      "note": "Generic finite algebra alone does not discharge these model bounds."
+    },
+    {
+      "id": "U05-M06",
+      "owner": "U05",
+      "claim": "Expose both independent first-column assignments, prove matching conditional pile graph laws by row relabeling with aligned offsets, keeping every future column at full n-label population.",
+      "reuse": "Model.sortedWord_relabel, shuffleEdges_relabel, sampleRelabel_uniform and U02 firstColumnConditionalExpect/firstColumn_positive/firstColumnCylinderMean staged."
+    },
+    {
+      "id": "U05-M07",
+      "owner": "U05",
+      "claim": "Assemble actual independent-graph sum of squares, class count, multiplicity, discarded/nonrelevant errors and uniform asymptotic absorption to prove frozen F.",
+      "reuse": "Shared.FirstMomentAPI expectedCommonEdges bridge and FirstMoment.Assembly freshly staged.",
+      "note": "RiffleUpperV2.FirstMoment.empiricalFirstMoment is absent; no exponent delta_F is released downstream."
+    }
+  ],
+  "planned_exports": {
+    "empiricalCostClassCount": "NOT_PROVED; finite card_empiricalKey/empiricalDescriptorImage_card_le only",
+    "classEntropy": "PROVED_AND_CHECKED for actual finite costClass; empiricalClassEntropy and prefixFamilyEntropy checked refinements",
+    "empiricalExponentBounds": "PARTIAL; source-exact large/small and immediate/terminal scalar/model helpers checked, all-block instantiation remains",
+    "empiricalFirstMoment": "NOT_PROVED; no F proof or delta_F exported"
+  },
+  "delivery_boundary": "No F/C/E/P/T/R endpoint claimed. This handoff releases the bounded checked slice for U00 scheduling."
+}

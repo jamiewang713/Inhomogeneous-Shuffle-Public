@@ -1,0 +1,11 @@
+{
+  "reviewer": "U08",
+  "status": "PASS_SOURCE_REVIEW",
+  "generated_at": "2026-10-02T19:35:09.884233+00:00",
+  "source": "RiffleUpperV2/Shared/SupportedAveraging.lean",
+  "sha256": "3e8d94aacbd80a6b50d2019e69b061c928c2cd95609f2d7bc03e1eafc5d8d90a",
+  "mathematics": "First lemma applies coarse total probability upper bound to b times each fine support probability and uses exact coarse tower identity for B; it needs no sign on b since no order multiplication by b occurs. Second lemma requires b nonnegative, keeps E and S joint, and treats positive good supported fibers by support probability=1. Unsupported or false-good fibers have zero joint numerator.",
+  "model_quantifiers": "Support is an actual predicate on fine values, E is required to imply that support pointwise, S is constant on fine fibers, and hpoint is required only on positive good supported fine fibers. Coarse conditioning is explicitly positive. Both statements use actual PMF conditionalProbability, not a supplied conditional law.",
+  "adversarial_boundaries": "Null fine fibers handled by finite total-probability theorem; unsupported fibers cannot leak target E due hE; false S cannot leak target E\u2227S due hS. B may have null coarse probability, giving exact zero joint contribution. No unjustified replacement of support weight by one.",
+  "build_scope": "Independent source/math/type/boundary review only; parent owns compile/trust evidence."
+}

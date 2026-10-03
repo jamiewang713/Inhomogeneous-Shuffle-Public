@@ -1,0 +1,43 @@
+--- lean_formalization/RiffleProfiles/TailLimits.lean
++++ formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalTailLimits.lean
+@@ -11,7 +11,8 @@
+ 
+ open Filter Topology
+ 
+-namespace RiffleProfiles
++namespace RiffleUpperV2.Compat
++open RiffleProfiles
+ 
+ private theorem exponential_error_cutoff (A δ η : ℝ) (_hA : 0 ≤ A)
+     (hδ : 0 < δ) (hη : 0 < η) :
+@@ -19,7 +20,7 @@
+   have ht : Tendsto (fun u : ℝ => δ * u) atTop atTop :=
+     (tendsto_const_mul_atTop_of_pos hδ).2 tendsto_id
+   have he : Tendsto (fun u : ℝ => Real.exp (-δ * u)) atTop (𝓝 0) := by
+-    simpa only [neg_mul] using Real.tendsto_exp_neg_atTop_nhds_zero.comp ht
++    simpa only [Function.comp_def, neg_mul] using Real.tendsto_exp_neg_atTop_nhds_zero.comp ht
+   have hlim : Tendsto (fun u : ℝ => A * Real.exp (-δ * u)) atTop (𝓝 0) := by
+     simpa only [mul_zero] using he.const_mul A
+   obtain ⟨U, hU⟩ := eventually_atTop.1 (hlim.eventually_lt_const hη)
+@@ -86,7 +87,6 @@
+       C * (1 - δ) := by
+     rw [Real.log_exp]
+     field_simp
+-    ring
+   have hx : 0 ≤ (k : ℝ) * Real.exp (-δ * chiLog χ) := by positivity
+   have hlog : Real.log (1 + (k : ℝ) * Real.exp (-δ * chiLog χ)) ≤
+       (k : ℝ) * Real.exp (-δ * chiLog χ) := by
+@@ -135,6 +135,7 @@
+     apply (eq_div_iff (by norm_num : (2 : ℝ) ≠ 0)).2
+     have hsq := Real.sq_sqrt hu.le
+     field_simp
++    exact hsq.symm
+   have hprod : ((k : ℝ) * (3 * χ)) * Real.exp (chiLog χ / 2) =
+       3 * (k : ℝ) * Real.exp (-chiLog χ / 2) := by
+     calc
+@@ -157,4 +158,4 @@
+     (exceptionalAllowance_pos hχ hχ1).le hz).trans
+     (Real.rpow_le_rpow_of_exponent_le (by exact_mod_cast (by omega : 1 ≤ N)) hexponent)
+ 
+-end RiffleProfiles
++end RiffleUpperV2.Compat

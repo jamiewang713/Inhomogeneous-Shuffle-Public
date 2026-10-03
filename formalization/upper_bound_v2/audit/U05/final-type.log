@@ -1,0 +1,69 @@
+def RiffleUpperV2.Contracts.V1.F : Prop :=
+∀ (k : ℕ),
+  LE.le.{0} 2 k →
+    ∀ (T η g : ℝ),
+      LT.lt.{0} 0 T →
+        LT.lt.{0} 0 η →
+          LT.lt.{0} 0 g →
+            LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+              ∃ c,
+                LT.lt.{0} 0 c ∧
+                  ∃ N0,
+                    ∃ (_ : LE.le.{0} 2 N0),
+                      ∀ (N : ℕ),
+                        LE.le.{0} N0 N →
+                          ∀ (n : ℕ) (hn : LE.le.{0} 2 n),
+                            LE.le.{0} n N →
+                              ∀ (a K : ℕ),
+                                LT.lt.{0} a K →
+                                  LE.le.{0} (↑K) (HMul.hMul.{0, 0, 0} T (Real.log ↑N)) →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k n (HSub.hSub.{0, 0, 0} K a)),
+                                      RiffleUpperV2.FirstColumnGood cuts ⋯ g →
+                                        RiffleUpperV2.EmpiricalNegativeMargin N a cuts ⋯ η →
+                                          LE.le.{0} (RiffleUpperV2.expectedCommonEdges cuts)
+                                            (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} c))
+'RiffleUpperV2.FirstMoment.empiricalFirstMoment' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+U05_F_EXPANDED_TYPE ∀ (k : ℕ),
+  LE.le.{0} 2 k →
+    ∀ (T η g : ℝ),
+      LT.lt.{0} 0 T →
+        LT.lt.{0} 0 η →
+          LT.lt.{0} 0 g →
+            LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+              ∃ c,
+                LT.lt.{0} 0 c ∧
+                  ∃ N0,
+                    ∃ (_ : LE.le.{0} 2 N0),
+                      ∀ (N : ℕ),
+                        LE.le.{0} N0 N →
+                          ∀ (n : ℕ) (hn : LE.le.{0} 2 n),
+                            LE.le.{0} n N →
+                              ∀ (a K : ℕ),
+                                LT.lt.{0} a K →
+                                  LE.le.{0} (↑K) (HMul.hMul.{0, 0, 0} T (Real.log ↑N)) →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k n (HSub.hSub.{0, 0, 0} K a)),
+                                      RiffleUpperV2.FirstColumnGood cuts ⋯ g →
+                                        RiffleUpperV2.EmpiricalNegativeMargin N a cuts ⋯ η →
+                                          LE.le.{0} (RiffleUpperV2.expectedCommonEdges cuts)
+                                            (HPow.hPow.{0, 0, 0} (↑N) (Neg.neg.{0} c))
+RiffleUpperV2.FirstMoment.empiricalGraphDecay : ∀ (k : ℕ),
+  LE.le.{0} 2 k →
+    ∀ (T eta g : ℝ),
+      LT.lt.{0} 0 T →
+        LT.lt.{0} 0 eta →
+          LT.lt.{0} 0 g →
+            LT.lt.{0} g (HDiv.hDiv.{0, 0, 0} 1 ↑k) →
+              ∃ N0,
+                LE.le.{0} 2 N0 ∧
+                  ∀ (N n d : ℕ),
+                    LE.le.{0} N0 N →
+                      ∀ (hn : LT.lt.{0} 0 n),
+                        LE.le.{0} n N →
+                          ∀ (cuts : RiffleUpperV2.Cuts k n (HAdd.hAdd.{0, 0, 0} d 1)) (a₀ : ℕ),
+                            LE.le.{0} (↑d) (HMul.hMul.{0, 0, 0} T (TimeProfile.logScale N)) →
+                              RiffleUpperV2.FirstColumnGood cuts hn g →
+                                RiffleUpperV2.EmpiricalNegativeMargin N a₀ cuts hn eta →
+                                  LE.le.{0} (RiffleUpperV2.expectedCommonEdges cuts)
+                                    (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} (Neg.neg.{0} eta) 8))
+'RiffleUpperV2.FirstMoment.empiricalGraphDecay' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+BUILD_OK U05

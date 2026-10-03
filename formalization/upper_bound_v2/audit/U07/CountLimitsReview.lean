@@ -1,0 +1,5 @@
+import RiffleUpperV2.Compat.EmpiricalCountLimits
+#check RiffleUpperV2.Compat.profileCount_uniform_eventually
+#check RiffleUpperV2.Compat.profileCount_small_chi
+#print axioms RiffleUpperV2.Compat.profileCount_uniform_eventually
+#print axioms RiffleUpperV2.Compat.profileCount_small_chi

@@ -1,0 +1,26 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T20:21:23.723636+00:00",
+  "sources": {
+    "FirstMoment/RetainedGraphCover.lean": "0df171494fc9a8357097ee18cbd19e9deff73a3c9103dad4ad09a8ebc2f390a3"
+  },
+  "mathematics": [
+    "Function and vector full words are identified by exact inverse get/ofFn identities. Discarded edge marginals are bounded by the actual previously proved discarded-row expectation.",
+    "Every actual pile edge has a legal full word; the actual retained-or-discarded partition yields either a discarded edge or a retained descriptor carrying that same absolute edge.",
+    "Finite event monotonicity and union bound convert the literal pointwise cover into actual edge probabilities."
+  ],
+  "public_type_and_model": [
+    "The fixed future sample, deterministic anchors/offset, and original N in descriptor selection are unchanged.",
+    "No density bound or supplied cover is a hypothesis. The constructor proves membership in the actual retained finite type."
+  ],
+  "adversarial": [
+    "Empty or singleton words cannot manufacture edges. Zero-mass prefixes do not enter the actual legal-word witness.",
+    "The probability inequality retains pile membership in its summands and does not identify densities under random translations."
+  ],
+  "root_build_receipt": "backward-cover-check-build.json",
+  "trust_inventory": "backward-cover-declarations.json",
+  "remaining": [
+    "Localized active-count control, omitted error, first-column averaging and final F."
+  ]
+}

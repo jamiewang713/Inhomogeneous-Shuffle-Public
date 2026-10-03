@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:48:43.092181+00:00",
+  "sources": {
+    "Exploration/CoverageCount.lean": "5810fa73c07161e8b8a099446e7b6c8593458d5178697a4459e1a15e7160a0d8",
+    "Exploration/WindowClusters.lean": "fcfb89a7eb07decbc00eff6defd26b4483e70e0a4924227e6182bea189e8e897"
+  },
+  "mathematics": [
+    "Each actual equal-word graph edge lies within one first-digit pile; prefixRanks excludes crossing a pile boundary.",
+    "Every shared edge on R times R is in a large pile, by the literal edge-free small-pile part of R. Actual directionalCover supplies a forward or reversed-backward edge.",
+    "Finite surjection onto shared graph edges bounds their cardinal by the sum of all 2k terminal directional processes.",
+    "Every actual fitting integer window gives a translated good-index set. Existing finite goodCluster theorem yields three ordered good columns within clusterSpan gamma.",
+    "Log threshold is chosen before N,k,n,L,cuts,g,windows, preserving original N in integerWindowGood."
+  ],
+  "public_type_and_model": [
+    "Uses actual shuffleEdges, spatialPileEdge, frozen directionalProcess and regularityEvent. No coverage or conditional-edge theorem premise.",
+    "Cluster output retains its containing window and actual profile GoodColumn predicates."
+  ],
+  "adversarial": [
+    "Small or empty piles cannot contribute a shared edge. Duplicate directional coverage is permitted in cardinal upper bound.",
+    "Backward direction reverses spatial edge position only.",
+    "The good-window theorem assumes gamma<=1 explicitly; U11 must instantiate from target gamma using its monotone restriction if necessary."
+  ],
+  "remaining": [
+    "Concrete deleted-suffix/restart mapping belongs to U11; conditional remaining-edge inputs still U09."
+  ],
+  "root_build_receipt": "reservoir-exploration-progress-check-build.json",
+  "trust_inventory": "reservoir-exploration-progress-declarations.json"
+}

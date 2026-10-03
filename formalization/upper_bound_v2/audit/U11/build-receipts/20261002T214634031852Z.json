@@ -1,0 +1,48 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T21:46:34.031494+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U11",
+    "RiffleUpperV2.Conditional.CurrentRunBound"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U11",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U11/lib/lean",
+  "built": [
+    "RiffleUpperV2.Conditional.CurrentRunBound"
+  ],
+  "modules": {
+    "RiffleUpperV2.Conditional.CurrentRunBound": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/CurrentRunBound.lean",
+      "sha256": "589ab6ea7d094b24ff3cb048f0ad269296e208e31480d4b494321422477eb216",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Conditional.FineMoments": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/FineMoments.lean",
+      "sha256": "b0d0d293e37cf77813c0d5ac791aa75815bb402ed9ae584d0025a21a2dcdca21",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Conditional.RegimePowers": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Conditional/RegimePowers.lean",
+      "sha256": "bd3c0e9e28227c79f1df5559fd633fcadbf566d0ac7a898404264a42d842bcf5",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Reservoir.ExtraCopies": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/ExtraCopies.lean",
+      "sha256": "ade423a55bf0abd758cf60c1faa14c28bb5730404a1c3809132950647d30f508",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Reservoir.BackwardCounts": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Reservoir/BackwardCounts.lean",
+      "sha256": "0cf217ad80cb6204114cb42b14edb3379e86e9e73a67ac6014844b20a60892aa",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "078cf916a0cce12d53c87d7207849e642b43692f424eacb801bd45d3c5de9463"
+}

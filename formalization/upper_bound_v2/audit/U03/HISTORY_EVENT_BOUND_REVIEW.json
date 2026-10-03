@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "reviewer": "U03 independent, not author",
+  "file": "formalization/upper_bound_v2/RiffleUpperV2/Shared/HistoryEventBound.lean",
+  "sha256": "d7f4105e2ba5c12131315fa6cb62e769af049485ff7f4111b142967bbda91a9f",
+  "findings": [
+    "Positive U-fiber bounds are required only when H(u); false H fibers contribute exactly zero.",
+    "Exact finite-law total-probability weights are identified with P(H(U)) through map_prob, so no unconditional supremum replaces history event mass.",
+    "Null fibers receive zero weight. Arbitrary real b is logically valid because the per-fiber hypothesis forces nonnegative b whenever a positive H fiber exists.",
+    "Good-event indicator and arbitrary history-dependent integer offsets can remain inside E; no extra measurability of E required."
+  ],
+  "scope": "Math/model/adversarial source review; U00 owns compiler/type/axiom evidence"
+}

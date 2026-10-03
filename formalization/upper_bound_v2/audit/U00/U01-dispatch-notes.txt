@@ -1,0 +1,20 @@
+U01 reuse route (investigation only, no new graph proof claimed)
+
+RiffleLowerV2.Model.componentSort_eq_iff and
+componentSort_fiber_card_of_not_increasing already quantify arbitrary PathEdges G.
+Model.keyAssignmentFiber_card / keyStabilizer_card in FiberCounts.lean quantify
+arbitrary finite key type W, not only shuffle words. All staged4.33.1.
+
+Potential direct generic graph adapter:
+encode c(i)=componentIndex G i in Fin(N+1), using card of missing-edge set <=N-1.
+Copy the shape (not unproved conclusion) of shuffleComponentFiberEquiv using
+c and c composed with sigma.symm instead of sortedWord. Supported sort fiber
+then maps to KeyAssignmentFiber, whose cardinal is the product of factorials.
+Unrealized keys contribute0!=1. This avoids realizing G as a special sample.
+Prove every equivalence, including N=0/1 cases; do not reuse shuffle-only
+formula as if it already applied to G union H.
+
+Remaining major independent work: BlockIncreasing for union iff both predicates;
+overlap integration; one-sided bounded-component factorial estimate; product
+single-matrix truncation; actual factorial largest-component tail; collisionTV.
+Do not assume pointwise overlap-1 nonnegative or a pair-event typical set.

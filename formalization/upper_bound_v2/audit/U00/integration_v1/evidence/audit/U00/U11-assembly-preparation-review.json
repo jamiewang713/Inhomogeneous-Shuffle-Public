@@ -1,0 +1,19 @@
+{
+  "status": "PASS_CONDITIONAL_PREPARATION_ONLY",
+  "recorded_at": "2026-10-02T21:39:27.798098+00:00",
+  "reviewer": "U00 independent of U11",
+  "owner_source": "audit/U11/AssemblyPreparation.lean",
+  "owner_source_sha256": "0b683ea897bc6df372b74a1f30515c067bf7d8f590f7d6e8cbac2cfa1f6951cc",
+  "root_receipt": "empirical-preparation-check-build.json",
+  "root_log": "empirical-preparation-check.log",
+  "type": "Contracts.V1.C -> Contracts.V1.E",
+  "mathematics": "Actual first-moment exponent and source parameter budgets are chosen before rho. The proof then selects C constants, component cutoff and uniform rate/restart thresholds before N,K,cuts. Actual chronological deletion yields retained margin2eta, good windows/cluster and maximal mean. Concrete2k exploration discharges E from C outputs.",
+  "quantifier_review": "All frozen E quantifiers are in their original order. No premise other than the explicitly tracked frozen C is added.",
+  "adversarial_review": "K=0 excluded by actual terminal margin; every N is eventually >=2; small/empty piles are treated by actual process guards; chronological deletion is the accepted physical contraction.",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "remaining": "Actual C implementation must replace the audit-only input. This does not prove E and no production endpoint is claimed."
+}

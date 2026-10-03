@@ -1,0 +1,21 @@
+{
+  "reviewer": "U03 (independent of U07/U04 authors)",
+  "status": "PASS_FOR_INTERFACE_ONLY",
+  "files": {
+    "RiffleUpperV2/Contracts/V1/Conditional.lean": "d4994216cd483e6432ba70734045cce43c2213f1358a2ca314a5da10b00c36be",
+    "RiffleUpperV2/Exploration/Objects.lean": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e",
+    "RiffleUpperV2/Localization/Definitions.lean": "93701ec8d2df3d4e1d69fd435ccf087c67f68006a2306cc45553e9c220935bd4",
+    "RiffleUpperV2/Localization/Prefixes.lean": "876907335ec59abcb63fbd2028b7b1ee1c6d9d79c3b19d5276eea1ce8fe80029",
+    "RiffleUpperV2/Localization/Boundary.lean": "5183e8f1a59c135231d898aee39b7501665bf1a04b5da44c2285ef850c567f7d"
+  },
+  "findings": [
+    "C naturalHistory stores only current pile sorted words, backward reveals spatial indices and retains time direction; no outside-pile or auxiliary event is in history.",
+    "C chooses concentration constants before arrays and asserts failure bound as conclusion; i=0 fiber included, pairHistoryGood trivial there, terminal remaining count zero explicit.",
+    "Localization normalized mean is Anchor.anchoredMean at original N; fluctuation fixed at join sideScale; FirstCut includes immediate x=v and explicit full-depth fallback.",
+    "ProperStable deliberately requires actual Stops and strict length; full-depth fallback must be eliminated separately downstream via terminal margin.",
+    "Prefix antitonicity handles arbitrary positive n and zero digit counts; source theorem compilation inspected by U00, not rerun in this review.",
+    "Boundary tests use positive local depth and an individual chi-large digit strictly below/above; this matches extreme-digit crossing and excludes exposed anchor.",
+    "Boundary full depth is explicitly terminal even if test also holds; d=0 yields terminal anchor and no nonterminal genuine pair.",
+    "boundaryJoin takes longer compatible prefix, including equal prefixes; genuine_of_nonterminal_boundaries discharges exact U03 GenuineBoundaryPair and never imposes a proper-descendant condition."
+  ]
+}

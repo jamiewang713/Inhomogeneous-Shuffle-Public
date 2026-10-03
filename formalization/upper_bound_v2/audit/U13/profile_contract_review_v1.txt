@@ -1,0 +1,89 @@
+U13 PROFILE / CRITICAL / RANDOM CANDIDATE REVIEW — 2026-10-02
+
+Status: P/T/R candidate source correspondence PASS after the U13-R-01 repair
+recorded below. RProfile and the stated REmpirical convergence consequence pass,
+and the revised R also includes the source quantitative mixture bound.
+Overall upper verification remains PARTIAL; C is withheld and no endpoint proof
+is asserted by these specification definitions.
+
+Reviewed hashes (relative to RiffleUpperV2):
+Shared/Profile.lean
+  ce49ffeaaffbeb2e66d67353fcdd63c6b6476e13f0074499636ebe59479f771b
+Shared/Random.lean
+  578c4f4f61eb8351a0af4186474abbe7a3868872deac1b3b696776c4b8204881
+Contracts/V1/Profile.lean
+  a6b35a27015a9f4ef342979306b577a1e5d3d0f7d53e5a72737fa336249c1466
+
+P: exact fixed-parameter order, any chosen regular partition with the explicitly
+selected common C_k=1, same-partition scalar integrability, floor(T log N)
+horizon, both actual cut conditions, and uniform N0 before cuts. Public good
+threshold is 0<g<1/k and density is arbitrary positive gamma, as in the source.
+No hidden probabilistic input or witness field found.
+
+T: InfiniteCuts.take maps the zero-based infinite count sequence to every finite
+prefix; horizons are coherent by construction. ArbitrarilyFineApproximation
+quantifies every T>0 and chiStar>0, fixes chi/P/g/gamma/rhoBar, then universally
+quantifies fixed rho and phi before the eventual N threshold. Its ScalarIntegrable
+assumption supplies a and all psi_theta on each compact interval, alongside the
+selected partition's cell integrability. It makes no time-continuity assumption.
+The critical set includes only strictly positive real times and its image is
+taken in ENNReal, so its infimum agrees with the source nonnegative extended
+threshold. Empty-set infinity is proved. The hypothesis criticalTime<ofReal t
+already excludes t=0; the extra 0<=t is harmless. The result is finite-time TV
+convergence before the mixing-time limsup conclusion. mixingTime takes the
+infimum of the discrete hitting set in ENNReal and includes time 0. Its empty-set
+infinity theorem is correct. Division by ofReal(log N) is the intended ratio
+for N>=2; any N=0,1 values have no effect on atTop limsup. No finite claim at the
+critical time or when the critical threshold is infinite is inserted.
+
+R: countEncoding correctly bounds every count by n and is injective; the finite
+Cuts type therefore permits arbitrary joint laws on complete count arrays.
+randomInverseLaw is exactly Q.bind physicalInverseLaw. No independence between
+count vectors is imposed. RProfile assumes convergence to probability one of the
+two good events separately; it does not impose independence between them.
+REmpirical has one fixed deterministic mesh and arbitrary K(N) bounded by
+T log N for N>=2. The existential hN in good events merely excludes the irrelevant
+initial N=0,1 indices. Both limiting conclusions have correct laws and strength.
+
+ACTIONABLE COVERAGE ITEM U13-R-01
+
+The manuscript's empirical random consequence immediately following
+cor:random-time-profile-upper-bound explicitly also states
+  TV(randomInverseLaw Q, uniform) <= Pr(admissibility fails) + N^(-c).
+Current REmpirical specifies only convergence if admissibility probability tends
+to one. That convergence is correct but does not itself encode this finite rate.
+Add a finite randomEmpiricalUpper target/export with E's parameter order:
+  forall k>=2,T,eta0,g0,gamma0>0, exists rho0>0,
+  forall fixed rho in (0,rho0], exists c>0,N0>=2,
+  forall N>=N0,K<=T log N,forall Q : PMF(Cuts k N K),
+  TV(randomInverseLaw Q,uniformPermutation N)
+    <= probability Q (not (EmpiricalNegativeMargin and LocalGood)) + N^(-c).
+Keep the existing convergence consequence if desired. This is a missing source
+coverage item, not a counterexample to the current convergence specification.
+
+CHECKS
+
+Fresh command, exit 0:
+  python3 formalization/upper_bound_v2/scripts/build.py --lane U13 --run
+    audit/U13/ProfileCheck_v1.lean
+Printed candidate endpoint definitions and transitive axiom reports for
+criticalTime_empty, mixingTime_empty, countEncoding_injective and
+regularPartitions_exist. All four used only propext, Classical.choice, Quot.sound.
+Log: profile_check_v1.log; receipt: profile_check_v1_build.json.
+Pinned runtime: Lean 4.33.1 / mathlib 0df444a360eaa60ab8c11dca51a86af692955474.
+This is an import/check against recorded U00 staging, not a fresh independent
+build of the full source closure. It does not certify any P/T/R implementation.
+
+REPAIR RECHECK
+
+U00 added Contracts.V1.REmpiricalBound with exactly the finite quantifier order,
+actual mixture law, complement-of-admissibility probability, and N^(-c) conclusion
+requested above. R now equals REmpiricalBound AND REmpirical AND RProfile.
+Revised Contracts/V1/Profile.lean SHA256:
+  233f10859831fb959b6bea09f0a859a2d738b00439d45c20b9feb3423bd194fb
+The added definition was independently source-reviewed and U13-R-01 is resolved
+at candidate-source level. This revision arrived after the profile_check_v1
+command; that command's expanded-type/build evidence concerns the prior hash
+a6b35a...c1466. The new definition requires U00's ongoing build receipt and final
+frozen-type verification. No build evidence for the new hash is invented here.
+FirstMomentAPI was not included in this bounded review.

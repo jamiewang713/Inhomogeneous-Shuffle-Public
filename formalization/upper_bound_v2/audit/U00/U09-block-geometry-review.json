@@ -1,0 +1,26 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:59:02.819592+00:00",
+  "reviewer": "U00 independent of owner",
+  "sources": {
+    "Conditional/BlockGeometry.lean": "4074674b990a33f37fefbf713f540e334bc7a9d5d785489ab4004c1ff76dae40",
+    "Conditional/BlockEdges.lean": "2a00d076d429c0403ed742cf5649d5e19d9f101a07b6c8c095cbcc76a60f0c1a",
+    "Conditional/RegimePowers.lean": "bd3c0e9e28227c79f1df5559fd633fcadbf566d0ac7a898404264a42d842bcf5"
+  },
+  "root_build_receipt": "block-geometry-check-build.json",
+  "trust_inventory": "block-geometry-declarations.json",
+  "mathematics": [
+    "Actual prefix rank theorem yields a bijection between local cylinder positions and global sorted labels; local sorted words equal global words at lowerRank+i.",
+    "Literal equal-word edge membership is preserved by translating both endpoints, producing exact absolute block graph membership iff global edge and both ranks lie within the cylinder interval.",
+    "For a global equal-word edge, membership of its left word in the cylinder already implies both endpoints lie inside; no crossing boundary edge is silently lost.",
+    "Exact normalization N^r*lambda^(r(1-alpha))=N^(r alpha)*(N lambda)^(r(1-alpha)) supplies the tiny and intermediate exponents with all ambient powers explicit."
+  ],
+  "adversarial": [
+    "Empty/one-row cylinders have no local edges and are handled by Fin(card-1), without subtraction underflow in an inhabited edge domain.",
+    "Arbitrary row enumeration and ties are harmless because sorted values, rather than the sorting permutation, are compared.",
+    "Zero prefix mass allowed in scalar identities; exponents used in monotonicity are nonnegative under alpha bounds."
+  ],
+  "remaining": [
+    "Actual directional current-run accounting, small/intermediate/large cylinder summation and C."
+  ]
+}

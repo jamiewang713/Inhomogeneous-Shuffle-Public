@@ -1,0 +1,32 @@
+{
+  "status": "PASS_CANDIDATE_SOURCE_CORRESPONDENCE",
+  "overall_status": "PARTIAL",
+  "source_hashes": {
+    "Shared/Profile.lean": "ce49ffeaaffbeb2e66d67353fcdd63c6b6476e13f0074499636ebe59479f771b",
+    "Shared/Random.lean": "578c4f4f61eb8351a0af4186474abbe7a3868872deac1b3b696776c4b8204881",
+    "Contracts/V1/Profile.lean": "233f10859831fb959b6bea09f0a859a2d738b00439d45c20b9feb3423bd194fb"
+  },
+  "prior_compiled_contract_hash": "a6b35a27015a9f4ef342979306b577a1e5d3d0f7d53e5a72737fa336249c1466",
+  "P": "PASS_CANDIDATE_SOURCE_CORRESPONDENCE",
+  "T": "PASS_CANDIDATE_SOURCE_CORRESPONDENCE",
+  "R": "PASS_CANDIDATE_SOURCE_CORRESPONDENCE_AFTER_REPAIR",
+  "findings": [
+    {
+      "id": "U13-R-01",
+      "owner": "U00/U12",
+      "status": "RESOLVED_AT_SOURCE_LEVEL",
+      "resolution": "Added REmpiricalBound to R conjunction with uniform finite failureProbability+N^(-c) conclusion. Revised hash not independently built in this review."
+    }
+  ],
+  "checks": {
+    "file": "audit/U13/ProfileCheck_v1.lean",
+    "exit_code": 0,
+    "log": "audit/U13/profile_check_v1.log",
+    "receipt": "audit/U13/profile_check_v1_build.json",
+    "scope": "Prior contract hash; same Shared/Profile and Shared/Random sources"
+  },
+  "endpoint_proofs_certified": false,
+  "full_closure_fresh_build": false,
+  "new_contract_build_verified": false,
+  "report": "audit/U13/profile_contract_review_v1.txt"
+}

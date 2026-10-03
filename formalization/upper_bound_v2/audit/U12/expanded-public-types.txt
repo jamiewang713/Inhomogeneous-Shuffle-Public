@@ -1,0 +1,241 @@
+theorem RiffleUpperV2.ProfileUpper.Audit.bufferedUpper_expanded : ∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η : ℝ),
+      0 < T →
+        0 < η →
+          ∃ (χ0 : ℝ),
+            0 < χ0 ∧
+              ∀ (χ : ℝ),
+                0 < χ →
+                  χ ≤ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : ℝ),
+                          0 < g →
+                            g < 1 / ↑k →
+                              0 < γ →
+                                ∃ (ρ0 : ℝ),
+                                  0 < ρ0 ∧
+                                    ∀ (ρ : ℝ),
+                                      0 < ρ →
+                                        ρ ≤ ρ0 →
+                                          ∃ (φ0 : ℝ),
+                                            0 < φ0 ∧
+                                              ∀ (φ : ℝ),
+                                                0 < φ →
+                                                  φ ≤ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleUpperV2.ScalarIntegrable μ P T →
+                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →
+                                                          ∀ (ε : ℝ),
+                                                            0 < ε →
+                                                              ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),
+                                                                ∀ (N : ℕ) (hN : N0 ≤ N)
+                                                                  (cuts :
+                                                                    RiffleUpperV2.Cuts k N
+                                                                      (TimeProfile.horizonDepth N T)),
+                                                                  TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ →
+                                                                    RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T →
+                                                                      RiffleUpperV2.tv
+                                                                          (RiffleUpperV2.physicalInverseLaw cuts)
+                                                                          (RiffleUpperV2.uniformPermutation N) ≤
+                                                                        ε :=
+RiffleUpperV2.ProfileUpper.bufferedUpper
+'RiffleUpperV2.ProfileUpper.bufferedUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.ProfileUpper.criticalTimeUpper : RiffleUpperV2.Contracts.V1.T
+theorem RiffleUpperV2.ProfileUpper.Audit.criticalTimeUpper_expanded : ∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),
+      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →
+        (∀ (t : ℝ),
+            0 ≤ t →
+              RiffleUpperV2.criticalTime μ < ENNReal.ofReal t →
+                Tendsto
+                  (fun (N : ℕ) =>
+                    RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw ((cuts N).take (TimeProfile.horizonDepth N t)))
+                      (RiffleUpperV2.uniformPermutation N))
+                  atTop (nhds 0)) ∧
+          ∀ (ε : ℝ),
+            0 < ε →
+              ε < 1 →
+                limsup (fun (N : ℕ) => RiffleUpperV2.mixingTime (cuts N) ε / ENNReal.ofReal (Real.log ↑N)) atTop ≤
+                  RiffleUpperV2.criticalTime μ :=
+RiffleUpperV2.ProfileUpper.criticalTimeUpper
+'RiffleUpperV2.ProfileUpper.criticalTimeUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.ProfileUpper.randomEmpiricalBound : RiffleUpperV2.Contracts.V1.REmpiricalBound
+theorem RiffleUpperV2.ProfileUpper.Audit.randomEmpiricalBound_expanded : ∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ (ρ0 : ℝ),
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∃ (c : ℝ),
+                          0 < c ∧
+                            ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),
+                              ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),
+                                ↑K ≤ T * Real.log ↑N →
+                                  ∀ (Q : PMF (RiffleUpperV2.Cuts k N K)),
+                                    RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw Q)
+                                        (RiffleUpperV2.uniformPermutation N) ≤
+                                      (RiffleUpperV2.probability Q fun (cuts : RiffleUpperV2.Cuts k N K) =>
+                                          ¬(RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧
+                                              RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N))) +
+                                        ↑N ^ (-c) :=
+RiffleUpperV2.ProfileUpper.randomEmpiricalBound
+'RiffleUpperV2.ProfileUpper.randomEmpiricalBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.ProfileUpper.randomEmpiricalUpper : RiffleUpperV2.Contracts.V1.REmpirical
+theorem RiffleUpperV2.ProfileUpper.Audit.randomEmpiricalUpper_expanded : ∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ (ρ0 : ℝ),
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∀ (K : ℕ → ℕ),
+                          (∀ (N : ℕ), 2 ≤ N → ↑(K N) ≤ T * Real.log ↑N) →
+                            ∀ (Q : (N : ℕ) → PMF (RiffleUpperV2.Cuts k N (K N))),
+                              Tendsto
+                                  (fun (N : ℕ) =>
+                                    RiffleUpperV2.probability (Q N) fun (cuts : RiffleUpperV2.Cuts k N (K N)) =>
+                                      ∃ (hN : 2 ≤ N),
+                                        RiffleUpperV2.EmpiricalNegativeMargin N 0 cuts ⋯ η0 ∧
+                                          RiffleUpperV2.LocalGood cuts ⋯ g0 γ0 ρ 0 (↑(K N) / Real.log ↑N))
+                                  atTop (nhds 1) →
+                                Tendsto
+                                  (fun (N : ℕ) =>
+                                    RiffleUpperV2.tv (RiffleUpperV2.randomInverseLaw (Q N))
+                                      (RiffleUpperV2.uniformPermutation N))
+                                  atTop (nhds 0) :=
+RiffleUpperV2.ProfileUpper.randomEmpiricalUpper
+'RiffleUpperV2.ProfileUpper.randomEmpiricalUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.ProfileUpper.randomProfileUpper : RiffleUpperV2.Contracts.V1.RProfile
+theorem RiffleUpperV2.ProfileUpper.Audit.randomProfileUpper_expanded : ∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η : ℝ),
+      0 < T →
+        0 < η →
+          ∃ (χ0 : ℝ),
+            0 < χ0 ∧
+              ∀ (χ : ℝ),
+                0 < χ →
+                  χ ≤ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : ℝ),
+                          0 < g →
+                            g < 1 / ↑k →
+                              0 < γ →
+                                ∃ (ρ0 : ℝ),
+                                  0 < ρ0 ∧
+                                    ∀ (ρ : ℝ),
+                                      0 < ρ →
+                                        ρ ≤ ρ0 →
+                                          ∃ (φ0 : ℝ),
+                                            0 < φ0 ∧
+                                              ∀ (φ : ℝ),
+                                                0 < φ →
+                                                  φ ≤ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleUpperV2.ScalarIntegrable μ P T →
+                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →
+                                                          ∀
+                                                            (Q :
+                                                              (N : ℕ) →
+                                                                PMF
+                                                                  (RiffleUpperV2.Cuts k N
+                                                                    (TimeProfile.horizonDepth N T))),
+                                                            Tendsto
+                                                                (fun (N : ℕ) =>
+                                                                  RiffleUpperV2.probability (Q N)
+                                                                    fun
+                                                                      (cuts :
+                                                                        RiffleUpperV2.Cuts k N
+                                                                          (TimeProfile.horizonDepth N T)) =>
+                                                                    ∃ (hN : 2 ≤ N),
+                                                                      TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ)
+                                                                atTop (nhds 1) →
+                                                              Tendsto
+                                                                  (fun (N : ℕ) =>
+                                                                    RiffleUpperV2.probability (Q N)
+                                                                      fun
+                                                                        (cuts :
+                                                                          RiffleUpperV2.Cuts k N
+                                                                            (TimeProfile.horizonDepth N T)) =>
+                                                                      ∃ (hN : 2 ≤ N),
+                                                                        RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T)
+                                                                  atTop (nhds 1) →
+                                                                Tendsto
+                                                                  (fun (N : ℕ) =>
+                                                                    RiffleUpperV2.tv
+                                                                      (RiffleUpperV2.randomInverseLaw (Q N))
+                                                                      (RiffleUpperV2.uniformPermutation N))
+                                                                  atTop (nhds 0) :=
+RiffleUpperV2.ProfileUpper.randomProfileUpper
+'RiffleUpperV2.ProfileUpper.randomProfileUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.ProfileUpper.criticalHorizonUpper : ∀ {k : ℕ},
+  2 ≤ k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),
+      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →
+        ∀ (t : ℝ),
+          0 ≤ t →
+            RiffleUpperV2.criticalTime μ < ENNReal.ofReal t →
+              Tendsto
+                (fun (N : ℕ) =>
+                  RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw ((cuts N).take (TimeProfile.horizonDepth N t)))
+                    (RiffleUpperV2.uniformPermutation N))
+                atTop (nhds 0) :=
+fun {k : ℕ} (hk : 2 ≤ k) (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N)
+    (hFine : RiffleUpperV2.ArbitrarilyFineApproximation μ cuts) (t : ℝ) (ht : 0 ≤ t)
+    (hcrit : RiffleUpperV2.criticalTime μ < ENNReal.ofReal t) =>
+  (RiffleUpperV2.ProfileUpper.criticalTimeUpper k hk μ cuts hFine).left t ht hcrit
+'RiffleUpperV2.ProfileUpper.criticalHorizonUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.ProfileUpper.mixingTimeUpper : ∀ {k : ℕ},
+  2 ≤ k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),
+      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ε < 1 →
+              limsup (fun (N : ℕ) => RiffleUpperV2.mixingTime (cuts N) ε / ENNReal.ofReal (Real.log ↑N)) atTop ≤
+                RiffleUpperV2.criticalTime μ :=
+fun {k : ℕ} (hk : 2 ≤ k) (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N)
+    (hFine : RiffleUpperV2.ArbitrarilyFineApproximation μ cuts) (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) =>
+  (RiffleUpperV2.ProfileUpper.criticalTimeUpper k hk μ cuts hFine).right ε hε hε1
+'RiffleUpperV2.ProfileUpper.mixingTimeUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.ProfileUpper.fullCriticalTimeUpper : ∀ {k : ℕ},
+  2 ≤ k →
+    ∀ (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N),
+      RiffleUpperV2.ArbitrarilyFineApproximation μ cuts →
+        ∀ (t : ℝ),
+          0 ≤ t →
+            RiffleUpperV2.ProfileUpper.fullCriticalTime μ < ENNReal.ofReal t →
+              Tendsto
+                (fun (N : ℕ) =>
+                  RiffleUpperV2.tv (RiffleUpperV2.physicalInverseLaw ((cuts N).take (TimeProfile.horizonDepth N t)))
+                    (RiffleUpperV2.uniformPermutation N))
+                atTop (nhds 0) :=
+fun {k : ℕ} (hk : 2 ≤ k) (μ : TimeProfile.TimeLaw k) (cuts : (N : ℕ) → RiffleUpperV2.InfiniteCuts k N)
+    (hFine : RiffleUpperV2.ArbitrarilyFineApproximation μ cuts) (t : ℝ) (ht : 0 ≤ t)
+    (hcrit : RiffleUpperV2.ProfileUpper.fullCriticalTime μ < ENNReal.ofReal t) =>
+  RiffleUpperV2.ProfileUpper.fullCriticalUpperOfBuffered RiffleUpperV2.ProfileUpper.bufferedUpper hk μ cuts hFine t ht
+    hcrit
+'RiffleUpperV2.ProfileUpper.fullCriticalTimeUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem RiffleUpperV2.ProfileUpper.randomUpper : RiffleUpperV2.Contracts.V1.R :=
+⟨RiffleUpperV2.ProfileUpper.randomEmpiricalBound,
+  ⟨RiffleUpperV2.ProfileUpper.randomEmpiricalUpper, RiffleUpperV2.ProfileUpper.randomProfileUpper⟩⟩
+'RiffleUpperV2.ProfileUpper.randomUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.empiricalUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.Conditional.remainingCommonEdges' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.FirstMoment.empiricalFirstMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U12

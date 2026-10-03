@@ -1,0 +1,266 @@
+{
+  "kind": "UPPER_BOUND_PLAN_ONLY",
+  "source_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex",
+  "proposed_package": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2",
+  "dependency_semantics": "Input providers, not whole-agent completion: U00.CONTRACTS_READY enables proof workers; U00.INTEGRATION_READY enables the final U13 audit; U00 final completion follows U13 acceptance. Other dependencies mean proved reviewed exports.",
+  "prompts": [
+    {
+      "id": "U00",
+      "title": "Shared model, exact contracts, reuse inventory and integration",
+      "file": "00_coordinator_and_contracts.txt",
+      "dependencies": [],
+      "exports": [
+        "F/C/E/P/T/R frozen specifications and exact source map",
+        "CONTRACTS_READY.json",
+        "Completed import and integrated proof ledger"
+      ]
+    },
+    {
+      "id": "U01",
+      "title": "Graph density, factorial overlap, truncation and component tails",
+      "file": "01_graph_density_and_truncation.txt",
+      "dependencies": [
+        "U00"
+      ],
+      "exports": [
+        "GraphOverlap.overlapIdentity",
+        "GraphOverlap.boundedComponentOverlap",
+        "GraphOverlap.truncatedTV",
+        "GraphOverlap.largestComponentTail",
+        "GraphOverlap.collisionUpper"
+      ]
+    },
+    {
+      "id": "U02",
+      "title": "Hypergeometric concentration, atom bounds and anchored cylinder laws",
+      "file": "02_hypergeometric_and_cylinder_tools.txt",
+      "dependencies": [
+        "U00"
+      ],
+      "exports": [
+        "Hypergeometric.transformBound",
+        "Hypergeometric.twoSidedTail",
+        "Hypergeometric.atomBound",
+        "Hypergeometric.anchorCylinderTransform",
+        "Hypergeometric.anchorCylinderTail"
+      ]
+    },
+    {
+      "id": "U03",
+      "title": "Reserved-population endpoint anti-concentration",
+      "file": "03_anchored_endpoint_smoothing.txt",
+      "dependencies": [
+        "U00",
+        "U02"
+      ],
+      "exports": [
+        "Anchor.endpointShiftHypergeometric",
+        "Anchor.smoothingFailure",
+        "Anchor.endpointVariance",
+        "Anchor.conditionalEndpointAtoms"
+      ]
+    },
+    {
+      "id": "U04",
+      "title": "Anchored stable blocks, relevant parents and edge-density estimates",
+      "file": "04_stable_localization_and_density.txt",
+      "dependencies": [
+        "U00",
+        "U02",
+        "U03"
+      ],
+      "exports": [
+        "Localization.stableCover",
+        "Localization.endpointWindow",
+        "Localization.relevantParents",
+        "Localization.irrelevantLoss",
+        "Localization.smallDensity",
+        "Localization.largeDensity",
+        "Localization.terminalDensity"
+      ]
+    },
+    {
+      "id": "U05",
+      "title": "Empirical cost classes, exponent bounds and concrete first moment",
+      "file": "05_empirical_cost_classes_and_first_moment.txt",
+      "dependencies": [
+        "U00",
+        "U04"
+      ],
+      "exports": [
+        "FirstMoment.empiricalCostClassCount",
+        "FirstMoment.classEntropy",
+        "FirstMoment.empiricalExponentBounds",
+        "FirstMoment.empiricalFirstMoment"
+      ]
+    },
+    {
+      "id": "U06",
+      "title": "Empirical margin stability and fixed-partition scalar transfer",
+      "file": "06_margin_stability_and_scalar_transfer.txt",
+      "dependencies": [
+        "U00"
+      ],
+      "exports": [
+        "Margins.costStability",
+        "Margins.inducedMargin",
+        "Margins.deletePrefixMargin",
+        "Margins.maximalWordIdentity",
+        "Margins.fixedPartitionQuadrature",
+        "Margins.profileToEmpiricalMargin"
+      ]
+    },
+    {
+      "id": "U07",
+      "title": "Good-column clusters, concentration, natural histories and directional coverage",
+      "file": "07_guards_histories_and_directional_coverage.txt",
+      "dependencies": [
+        "U00",
+        "U02"
+      ],
+      "exports": [
+        "Exploration.goodCluster",
+        "Exploration.uniformConcentration",
+        "Exploration.naturalHistory",
+        "Exploration.historyGoodProbability",
+        "Exploration.directionalCover",
+        "Exploration.unitIncrements",
+        "Exploration.regularityFailure"
+      ]
+    },
+    {
+      "id": "U08",
+      "title": "Exact reservoir estimates and conditional future-cylinder law",
+      "file": "08_exact_reservoir_and_block_laws.txt",
+      "dependencies": [
+        "U00",
+        "U07"
+      ],
+      "exports": [
+        "Reservoir.historyAtom",
+        "Reservoir.exactMarkedRowLaw",
+        "Reservoir.prefixCount",
+        "Reservoir.extraCurrentCopies",
+        "Reservoir.tailCollisions",
+        "Reservoir.conditionalFutureCylinderLaw"
+      ]
+    },
+    {
+      "id": "U09",
+      "title": "Conditional remaining-edge bound in every natural history",
+      "file": "09_conditional_first_moment.txt",
+      "dependencies": [
+        "U00",
+        "U05",
+        "U06",
+        "U07",
+        "U08"
+      ],
+      "exports": [
+        "Conditional.futureCylinderDecomposition",
+        "Conditional.refinementCount",
+        "Conditional.selfIntersectionJensen",
+        "Conditional.remainingCommonEdges"
+      ]
+    },
+    {
+      "id": "U10",
+      "title": "Adapted exponential excess and finite total-variation criterion",
+      "file": "10_adapted_exponential_and_finite_tv.txt",
+      "dependencies": [
+        "U00",
+        "U01"
+      ],
+      "exports": [
+        "Exponential.stoppedBinomialMoment",
+        "Exponential.adaptedExcess",
+        "Exponential.finiteExplorationTV",
+        "Exponential.boundedComponentTruncation"
+      ]
+    },
+    {
+      "id": "U11",
+      "title": "Concrete empirical upper bound and deletion contraction",
+      "file": "11_empirical_upper_endpoint.txt",
+      "dependencies": [
+        "U00",
+        "U01",
+        "U05",
+        "U06",
+        "U07",
+        "U09",
+        "U10"
+      ],
+      "exports": [
+        "EmpiricalUpper.deletedPrefixTVContraction",
+        "EmpiricalUpper.restartHypotheses",
+        "EmpiricalUpper.empiricalUpper"
+      ]
+    },
+    {
+      "id": "U12",
+      "title": "Buffered profile, critical-time and random-cut upper bounds",
+      "file": "12_profile_critical_and_random_upper.txt",
+      "dependencies": [
+        "U00",
+        "U06",
+        "U11"
+      ],
+      "exports": [
+        "ProfileUpper.bufferedUpper",
+        "ProfileUpper.marginMonotonicity",
+        "ProfileUpper.dominanceReduction",
+        "ProfileUpper.criticalTimeUpper",
+        "ProfileUpper.mixingTimeUpper",
+        "ProfileUpper.randomEmpiricalUpper",
+        "ProfileUpper.randomProfileUpper"
+      ]
+    },
+    {
+      "id": "U13",
+      "title": "Independent source, endpoint, build and trust audit",
+      "file": "13_independent_final_audit.txt",
+      "dependencies": [
+        "U00",
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11",
+        "U12"
+      ],
+      "exports": [
+        "Independent final exact-type/source correspondence report",
+        "Fresh-build and transitive trust evidence",
+        "FINAL_AUDIT.json with separate F/C/E/P/T/R verdicts"
+      ]
+    }
+  ],
+  "files": {
+    "00_coordinator_and_contracts.txt": "d76646f4fb60aa98d8a7f796d012dbb703c07122a39316b937a634e3515aaeca",
+    "01_graph_density_and_truncation.txt": "8f4da7924d1a83e81947855eb77561ff65eb8f811e116489759f499a4f5de821",
+    "02_hypergeometric_and_cylinder_tools.txt": "aaf0a4e060c4f9a9785b786b149bf24630a83801ae0e1c5602fe7dde1375a3b9",
+    "03_anchored_endpoint_smoothing.txt": "31b18ebd3a67c37516cea25a6e31ee5bbb89be522fe8e7f9d5a87524dc2a3d1c",
+    "04_stable_localization_and_density.txt": "fff567a86ef14d4508f4b6587fdd57b7cb398929b983e3dec2d78a681d5427e2",
+    "05_empirical_cost_classes_and_first_moment.txt": "4b40b72363d0b370a050a17ecdd9ca0131612fa3dab46fb1e5dedb428b04cee8",
+    "06_margin_stability_and_scalar_transfer.txt": "5ecfa2f14299c935bfd4d6f4531212c13b9226c02bbd0e7150d450766dad3088",
+    "07_guards_histories_and_directional_coverage.txt": "4ec1c7510ecd3277ecbdd8ec14a154655395c7e0da004953b0b388c40fe98d98",
+    "08_exact_reservoir_and_block_laws.txt": "6196adbef51c6d010defb601440762bcd5f6306a87c7f21816b8ba9f473fe233",
+    "09_conditional_first_moment.txt": "346246c17a91e48143a8c30bcedca7680a4a4b1a18af3c58fb65b5136451b840",
+    "10_adapted_exponential_and_finite_tv.txt": "694bbe9d05c5d06f232631bfbcc6dc81d740582932799b1237560cf490edcd34",
+    "11_empirical_upper_endpoint.txt": "4f6f4c17f51c08bc1cb7aa87eb08d9182074eee8d6518e6797601b9816fafe2e",
+    "12_profile_critical_and_random_upper.txt": "d04d321d23f79c014178bc875b739a1e5b940ab375776b2840873b98e04e79e8",
+    "13_independent_final_audit.txt": "7ce9715081ae5834744be6042344058d05df3bcc86a938979bbd58430c32caf6",
+    "ALL_PROMPTS.txt": "c6400a79e651f8e46232c568c06b0e3cc548d88156b6aacebccc38df07831f87",
+    "PLAN.txt": "f661237393292885776d684e77f9e3836476dfea34b1ed21c29feceda80a3ca1",
+    "REVIEW_NOTES.txt": "58ff10750f61f1d12488695866d57f1e9ee6cec6089f1b1a507ac6ceaf7b5daf",
+    "SOURCE_LABELS.json": "6b9111646b204cda4700d0decb70a0ad273133cc9dad681b2c60b6cdb52d7651"
+  }
+}

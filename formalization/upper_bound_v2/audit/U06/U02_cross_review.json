@@ -1,0 +1,31 @@
+{
+  "status": "PASS_WITH_DOCUMENTATION_CORRECTION",
+  "reviewer": "U06 independent cross-review",
+  "scope": [
+    "mathematical source and concrete model",
+    "endpoint and zero-case semantics",
+    "compatibility provenance"
+  ],
+  "hashes": {
+    "RiffleUpperV2/Hypergeometric/AntiConcentration.lean": "37c021c500911e401b6e51efc2566803cbdd970cd83a94b1576770e85c05d6e4",
+    "RiffleUpperV2/Hypergeometric/Estimates.lean": "e3a814b37411df5986aea531b7dd0197a8e09adde85c0d00fbb678c1697d253c",
+    "RiffleUpperV2/Hypergeometric/Cylinder.lean": "f0f6a7b16890857a9368cf69b65ec923da6a1b3cdee130c58e75dad2e068abdd"
+  },
+  "findings": [
+    {
+      "severity": "documentation",
+      "file": "RiffleUpperV2/Hypergeometric/AntiConcentration.lean",
+      "issue": "Header says only import and namespace changed, but diff also shows two mul_le_mul_right -> mul_le_mul_iff_left\u2080 substitutions, two removed terminal ring tactics, and explicit theorem application adjustment. These are proof/API compatibility changes, not mathematical changes.",
+      "resolution": "Request U02 update header or explicit provenance record."
+    }
+  ],
+  "mathematical_checks": [
+    "Anti-concentration proof uses exact hypergeometric moments, reversible birth/death recurrence, a positive maximizing atom and variance split at 16. Positive variance correctly excludes populations 0/1 and degenerate hypergeometric laws. Constant 4 preserved.",
+    "FiniteLaw to PMF adapters equate actual finite weighted expectations/probabilities; no probability input is assumed. transformBound holds for all positive s, so lower tail as well as upper tail supported.",
+    "Cylinder uses full n-population uniform column assignments. Equal-fibre relabeling proves the union of arbitrary allowed digits is a uniform fixed-size subset. A deterministic marked row-set R is then intersected across independent full-population columns. There is no false independence of row indicators.",
+    "Cylinder recursion handles d=0 via empty product=1 and retained R; n=0 makes R empty, transform exactly 1 and mean zero, so totalized ratios do not create a false event. Empty/complete digit sets and zero piles have correct subset laws.",
+    "Tail constant remains denominator 4*(mu+t), matching assigned U02 input; the later manuscript denominator-2 exploration display is not claimed.",
+    "anchorCylinderTransform is unconditional for a deterministic R and deterministic digit sets; applying to a random exposed anchor requires a separately proved future-column conditional independence/disintegration adapter. The file does not itself claim that adapter."
+  ],
+  "build_scope": "U06 reviewed source and existing compilation reports. U00/U13 own fresh build and transitive trust verification; this report does not substitute numerical/source inspection for a Lean certificate."
+}

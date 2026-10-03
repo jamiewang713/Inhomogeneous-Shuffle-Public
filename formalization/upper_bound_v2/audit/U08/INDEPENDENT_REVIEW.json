@@ -1,0 +1,24 @@
+{
+  "reviewer": "U00",
+  "status": "PARTIAL_REVIEW_PASS_PENDING_EXTENSION",
+  "perspectives": [
+    "mathematics/source correspondence",
+    "Lean model/quantifiers",
+    "adversarial and endpoint cases"
+  ],
+  "reviewed": [
+    "Reservoir.History",
+    "Reservoir.SortedHistory",
+    "Reservoir.MarkedLaw core exactMarkedRowLaw"
+  ],
+  "findings": [
+    "Forward atom has correct first-digit restriction and j+1 endpoint; empty piles excluded by Fin pileSize and i=0 handled by upstream naturalHistory_zero.",
+    "Full-pile tuple factorial weights, labeled-pile exhaustion and actual natural-history disintegration are valid.",
+    "Null refinements use totalized zero conditional convention. tupleWords_event_positive now proves positivity for every witnessed refinement; no quantitative reserve bound inferred.",
+    "Common-factor cancellation and natural-history averaging remain explicit obligations."
+  ],
+  "pending": [
+    "Final backward/count/qualitative positivity incremental review"
+  ],
+  "independent_build_evidence": "audit/U00/history-atom-check-build.json"
+}

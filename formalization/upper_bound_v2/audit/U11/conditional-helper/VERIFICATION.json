@@ -1,0 +1,27 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "proved": [
+    "RiffleUpperV2.Conditional.conditionalScale",
+    "RiffleUpperV2.Conditional.currentRunBound",
+    "RiffleUpperV2.Conditional.currentWordPower"
+  ],
+  "release": "Both assigned conditional helper modules",
+  "uniformity": "C,N0 precede all N,M,r; M real>=0,0<=r<=a/4. K,Ccur,Csum nonnegative sufficient.",
+  "source": "eq:ub-exploration-block-count and eq:ub-exploration-exponent-budget, conditional-first-moment final rate absorption",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "remaining": [],
+  "files": {
+    "RiffleUpperV2/Conditional/ConditionalScale.lean": "aa1a36348696a4a112b9143cc85f68cee74c7f94940e465ce83be0d28a726fcb",
+    "audit/U11/conditional-helper/ScaleCheck.lean": "add383c559d47b29a758569fc21332ff3d616d82cd2c51b3d746db1ca623d6bb",
+    "audit/U11/conditional-helper/scale-check.txt": "054eb111364138c29576a652505bf54be1020f447ac8111231f517b2803844eb",
+    "RiffleUpperV2/Conditional/CurrentRunBound.lean": "589ab6ea7d094b24ff3cb048f0ad269296e208e31480d4b494321422477eb216",
+    "audit/U11/conditional-helper/CurrentRunCheck.lean": "928da312bd5c8f8b708f53b8cdd9bc1f6a7a92ccc4c404ffe644d8ae2533c241",
+    "audit/U11/conditional-helper/current-scale-check.txt": "462d1456104a15b768114297ae25ccf3364104ee7b7f1a59663458558aade063"
+  },
+  "review": "Independently accepted/staged by U00: U09-current-run-bound-review.json and U09-conditional-scale-review.json; current-run-scale-check-build.json and current-run-scale-helper-completion.json",
+  "caveat": "C itself remains U09 work; these helpers do not prove C. Current-run hasDirection is an internal branch hypothesis, handled in U09 HistoryAdapters for the zero branch."
+}

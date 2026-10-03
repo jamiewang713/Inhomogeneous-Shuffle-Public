@@ -1,0 +1,48 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T19:57:23.146767+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U05",
+    "RiffleUpperV2.FirstMoment.FirstPileReserve"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U05",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U05/lib/lean",
+  "built": [
+    "RiffleUpperV2.FirstMoment.FirstPileReserve"
+  ],
+  "modules": {
+    "RiffleUpperV2.FirstMoment.FirstPileReserve": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/FirstPileReserve.lean",
+      "sha256": "2db61f79934d6f71c2f639e7e9facba63a78724f53f8077e48002010f9d61391",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.FirstMoment.FirstColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/FirstColumn.lean",
+      "sha256": "3b24762b8a1a307a683dab84704e44566deea866438304b20d46ae1600b9419c",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Hypergeometric.ConditionalAnchor": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/ConditionalAnchor.lean",
+      "sha256": "2ea180d9ab104be8e9e4eda271729dd28b05ff3356b3ae71d2f6bb15bb3aa6a6",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.EdgeRelabel": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EdgeRelabel.lean",
+      "sha256": "675374020d854228279529a17bc7c68b37168da1daaa1837d135d5fc810f75cc",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Shared.Empirical": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Empirical.lean",
+      "sha256": "108ae31a7f9d966eb05ba2a5da78e8345191fc696328eaee13e95ab5aeadb7da",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "87b7dc02d6b8b7eb6331751e6e6398a58c12946e04ca00e6dc9f73bb9265e083"
+}

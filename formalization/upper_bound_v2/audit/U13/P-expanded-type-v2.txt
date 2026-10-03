@@ -1,0 +1,42 @@
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η : ℝ),
+      0 < T →
+        0 < η →
+          ∃ (χ0 : ℝ),
+            0 < χ0 ∧
+              ∀ (χ : ℝ),
+                0 < χ →
+                  χ ≤ χ0 →
+                    ∀ (P : TimeProfile.BorelPartition k),
+                      P.IsRegular χ (RiffleUpperV2.regularityConstant k) →
+                        ∀ (g γ : ℝ),
+                          0 < g →
+                            g < 1 / ↑k →
+                              0 < γ →
+                                ∃ (ρ0 : ℝ),
+                                  0 < ρ0 ∧
+                                    ∀ (ρ : ℝ),
+                                      0 < ρ →
+                                        ρ ≤ ρ0 →
+                                          ∃ (φ0 : ℝ),
+                                            0 < φ0 ∧
+                                              ∀ (φ : ℝ),
+                                                0 < φ →
+                                                  φ ≤ φ0 →
+                                                    ∀ (μ : TimeProfile.TimeLaw k),
+                                                      RiffleUpperV2.ScalarIntegrable μ P T →
+                                                        RiffleUpperV2.reducedMargin μ T ≤ -η →
+                                                          ∀ (ε : ℝ),
+                                                            0 < ε →
+                                                              ∃ (N0 : ℕ) (hN0 : 2 ≤ N0),
+                                                                ∀ (N : ℕ) (hN : N0 ≤ N)
+                                                                  (cuts :
+                                                                    RiffleUpperV2.Cuts k N
+                                                                      (TimeProfile.horizonDepth N T)),
+                                                                  TimeProfile.AlmostLike cuts ⋯ μ P T ρ φ →
+                                                                    RiffleUpperV2.LocalGood cuts ⋯ g γ ρ 0 T →
+                                                                      RiffleUpperV2.tv
+                                                                          (RiffleUpperV2.physicalInverseLaw cuts)
+                                                                          (RiffleUpperV2.uniformPermutation N) ≤
+                                                                        ε

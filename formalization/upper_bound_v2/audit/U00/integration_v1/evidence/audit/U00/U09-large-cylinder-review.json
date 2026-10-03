@@ -1,0 +1,37 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:04:37.074097+00:00",
+  "reviewer": "U00 independent of U05 helper owner",
+  "sources": {
+    "Conditional/LargeConcentration.lean": "870a7d1f00ea4ed5cbe6123bf74aef4e3f4ab30aaeee48fdce894859bcb423d3",
+    "Conditional/LargeMargin.lean": "a4ade118b9e60d5041ee7b24b2a68f96b83f4c2a4bb29efc0d6dc1e0947cb631",
+    "Conditional/LargeFirstMoment.lean": "fcb7b0401a1b21fea5dd60dc93bef3d8e40be6dd412e4b4511ae59a04ed93fc4"
+  },
+  "root_build_receipt": "large-cylinder-check-build.json",
+  "trust_inventory": "large-cylinder-declarations.json",
+  "declaration": "RiffleUpperV2.Conditional.largeCylinder_firstMoment",
+  "source_labels": [
+    "lem:ub-conditional-first-moment large-cylinder regime",
+    "lem:ub-conditional-preservation"
+  ],
+  "mathematics": [
+    "Actual induced suffix counts equal prefixLaterCount in the simultaneous concentration event. Large mean converts the two-thirds error into a relative N^(-xi/3) error.",
+    "Uniform threshold gives mu/2<=m<=2mu,2<=m<=N and all induced-coordinate errors<=2N^(-xi/3).",
+    "Actual prefix mean upper bound gives log_N m<=1-A(0,|x|)+log2/logN. Margins.inducedMargin then loses at most eta from the original2eta margin.",
+    "Next ambient g-good column becomes the induced g/2-good first column. All integer suffix maps are chronological and absolute starting index is |x|.",
+    "The proved empiricalGraphDecay applies directly to actual inducedCuts, yielding N^(-eta/8)."
+  ],
+  "quantifiers": [
+    "Threshold depends only fixed k,T,eta,g before originalN,spanD,horizon,array,prefix and sample.",
+    "All logarithms and powers use originalN; induced population m is separately proved admissible.",
+    "Final premises are actual concentrationEvent, actual original margin, large prefix mean and next good ambient column; no supplied induced margin/density/F certificate."
+  ],
+  "adversarial": [
+    "Zero mass is incompatible with the large regime by the proved positiveN power bound.",
+    "Zero/one-row observed cylinders excluded by derived m>=2, never assumed.",
+    "Terminal prefix cannot satisfy the next-column premise; short-tail classification is handled elsewhere."
+  ],
+  "remaining": [
+    "U09 must integrate this estimate on actual fine-Z atoms and account for bad concentration fibers."
+  ]
+}

@@ -1,0 +1,138 @@
+RiffleUpperV2.Conditional.tinyCylinder_count
+∀ (k D : ℕ),
+  0 < k →
+    1 ≤ D →
+      ∀ (g tau T : ℝ),
+        0 < g →
+          g < 1 →
+            0 < tau →
+              tau < g →
+                0 < T →
+                  Real.log (1 / g) / Real.log (1 / tau) < 1 / 2 →
+                    ∃ (C1 : ℝ),
+                      0 < C1 ∧
+                        ∃ (N0 : ℕ),
+                          2 ≤ N0 ∧
+                            ∀ (n : ℕ),
+                              N0 ≤ n →
+                                ∀ (L : ℕ),
+                                  ↑(L + 1) ≤ T * Real.log ↑n →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k n (L + 1)) (hn : 0 < n),
+                                      TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                                        ∀ (xi epsilon : ℝ),
+                                          0 ≤ epsilon →
+                                            ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                              (omega : RiffleUpperV2.Sample cuts)
+                                              (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                                              RiffleUpperV2.Exploration.positiveHistory cuts p d (↑j + 1) omega →
+                                                RiffleUpperV2.Exploration.historyGood cuts D g xi epsilon p d (↑j + 1)
+                                                    omega →
+                                                  RiffleUpperV2.Exploration.hasDirection cuts D g d
+                                                      (RiffleUpperV2.sortedWord omega
+                                                        (RiffleUpperV2.Exploration.pilePosition cuts p d j)) →
+                                                    ∀ (x : RiffleUpperV2.Prefix k (L + 1)),
+                                                      0 < ↑x.fst →
+                                                        (∀ (w : RiffleUpperV2.Word k (L + 1)),
+                                                            RiffleUpperV2.Conditional.inCylinder x w →
+                                                              List.Vector.get w 0 = p) →
+                                                          (∀ (w : RiffleUpperV2.Word k (L + 1)),
+                                                              RiffleUpperV2.Conditional.inCylinder x w →
+                                                                match d with
+                                                                | RiffleUpperV2.Exploration.Direction.forward =>
+                                                                  RiffleUpperV2.sortedWord omega
+                                                                      (RiffleUpperV2.Exploration.pilePosition cuts p d
+                                                                        j) <
+                                                                    w
+                                                                | RiffleUpperV2.Exploration.Direction.backward =>
+                                                                  w <
+                                                                    RiffleUpperV2.sortedWord omega
+                                                                      (RiffleUpperV2.Exploration.pilePosition cuts p d
+                                                                        j)) →
+                                                            RiffleUpperV2.prefixMean cuts x ≤ ↑n ^ (-xi) →
+                                                              RiffleUpperV2.conditionalExpect
+                                                                  (RiffleUpperV2.fixedCountPMF cuts)
+                                                                  (fun (z : TimeProfile.ShuffleSample cuts) =>
+                                                                    ↑(RiffleUpperV2.prefixCount x z))
+                                                                  (RiffleUpperV2.Exploration.historyFiber cuts p d
+                                                                    (↑j + 1) omega) ≤
+                                                                C1 *
+                                                                    ↑n ^
+                                                                      (-xi +
+                                                                        Real.log (1 / g) / Real.log (1 / tau) *
+                                                                          (1 + xi)) +
+                                                                  ↑n * epsilon
+
+RiffleUpperV2.Conditional.intermediateCylinder_collisions
+∀ (k D : ℕ),
+  0 < k →
+    1 ≤ D →
+      ∀ (g tau T : ℝ),
+        0 < g →
+          g < 1 →
+            0 < tau →
+              tau < g →
+                0 < T →
+                  Real.log (1 / g) / Real.log (1 / tau) < 1 / 2 →
+                    ∃ (C2 : ℝ),
+                      0 < C2 ∧
+                        ∃ (N0 : ℕ),
+                          2 ≤ N0 ∧
+                            ∀ (n : ℕ),
+                              N0 ≤ n →
+                                ∀ (L : ℕ),
+                                  ↑(L + 1) ≤ T * Real.log ↑n →
+                                    ∀ (cuts : RiffleUpperV2.Cuts k n (L + 1)) (hn : 0 < n),
+                                      TimeProfile.GoodColumn (TimeProfile.Cuts.profile cuts hn 0) g →
+                                        ∀ (xi eta epsilon : ℝ),
+                                          0 ≤ epsilon →
+                                            ∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                              (omega : RiffleUpperV2.Sample cuts)
+                                              (j : Fin (RiffleUpperV2.Exploration.pileSize cuts p)),
+                                              RiffleUpperV2.Exploration.positiveHistory cuts p d (↑j + 1) omega →
+                                                RiffleUpperV2.Exploration.historyGood cuts D g xi epsilon p d (↑j + 1)
+                                                    omega →
+                                                  RiffleUpperV2.Exploration.hasDirection cuts D g d
+                                                      (RiffleUpperV2.sortedWord omega
+                                                        (RiffleUpperV2.Exploration.pilePosition cuts p d j)) →
+                                                    ∀ (x : RiffleUpperV2.Prefix k (L + 1)),
+                                                      0 < ↑x.fst →
+                                                        (∀ (w : RiffleUpperV2.Word k (L + 1)),
+                                                            RiffleUpperV2.Conditional.inCylinder x w →
+                                                              List.Vector.get w 0 = p) →
+                                                          (∀ (w : RiffleUpperV2.Word k (L + 1)),
+                                                              RiffleUpperV2.Conditional.inCylinder x w →
+                                                                match d with
+                                                                | RiffleUpperV2.Exploration.Direction.forward =>
+                                                                  RiffleUpperV2.sortedWord omega
+                                                                      (RiffleUpperV2.Exploration.pilePosition cuts p d
+                                                                        j) <
+                                                                    w
+                                                                | RiffleUpperV2.Exploration.Direction.backward =>
+                                                                  w <
+                                                                    RiffleUpperV2.sortedWord omega
+                                                                      (RiffleUpperV2.Exploration.pilePosition cuts p d
+                                                                        j)) →
+                                                            ↑n ^ (-xi) ≤ RiffleUpperV2.prefixMean cuts x →
+                                                              RiffleUpperV2.prefixMean cuts x ≤ ↑n ^ xi →
+                                                                RiffleUpperV2.empiricalBeta n 0 cuts hn (L + 1) ≤ -eta →
+                                                                  RiffleUpperV2.conditionalExpect
+                                                                      (RiffleUpperV2.fixedCountPMF cuts)
+                                                                      (fun (z : TimeProfile.ShuffleSample cuts) =>
+                                                                        ∑ w : RiffleUpperV2.Word k (L + 1),
+                                                                          if
+                                                                              RiffleUpperV2.Conditional.inCylinder x
+                                                                                w then
+                                                                            ↑((RiffleUpperV2.Reservoir.wordCount z
+                                                                                    w).choose
+                                                                                2)
+                                                                          else 0)
+                                                                      (RiffleUpperV2.Exploration.historyFiber cuts p d
+                                                                        (↑j + 1) omega) ≤
+                                                                    C2 *
+                                                                        ↑n ^
+                                                                          (-eta + 3 * xi +
+                                                                            2 *
+                                                                                (Real.log (1 / g) /
+                                                                                  Real.log (1 / tau)) *
+                                                                              (1 + eta - 2 * xi)) +
+                                                                      ↑n ^ 2 * epsilon

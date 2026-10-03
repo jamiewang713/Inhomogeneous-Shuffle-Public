@@ -1,0 +1,72 @@
+/goal
+You are a Lean formalization agent assigned ONE bounded part of the UPPER BOUND for time-inhomogeneous riffle shuffles. Implement the assignment below and produce checkable proof evidence. The lower-bound formalization is finished; it is a read-only source of reusable lemmas, not another task.
+
+AUTHORITATIVE INPUTS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Manuscript SHA256 when this plan was prepared: 284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+Plan and all sibling prompts: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_parallel_plan_2026-10-01
+Proposed NEW integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2
+Proposed namespace: RiffleUpperV2. Proposed names below are deliverable names, NOT claims that these Lean declarations already exist.
+
+Use the CURRENT empirical/reserved-population proof. The old formalization/upper_bound/STATUS.md and PROOF_STRUCTURE.md describe an earlier manuscript and are historical. Their ambient partition-preservation route is not the new target. The current repair map is formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt. A manuscript review is not a Lean certificate. Locate statements by their LaTeX labels, not old line numbers.
+
+Reuse existing checked mathematics where its FULL type matches. Important candidates are formalization/foundations, formalization/time_profile, formalization/lower_bound_v2/RiffleLowerV2/{Model,Thinning,Factorial,ProfileTransfer}, formalization/first_moment, formalization/stable_blocks, lean/EdgeLocalization, and lean probability modules. Inspect actual proofs and provenance. The first_moment package has proved generic aggregation and model adapters, but its model-specific first-moment theorem remains unproved. It records successful 4.33.1 compatibility; do not repeat its older compatibility failure as current. Old stable/profile definitions require a proved adapter to the new anchored empirical construction.
+
+MATHEMATICAL CONTRACT
+The primary endpoint is thm:ub-empirical-upper: for fixed k>=2 and T,eta0,g0,gamma0>0 there exists rho0>0; for every fixed 0<rho<=rho0 there exist c>0,N0 such that ALL N>=N0, ALL K<=T log N and ALL fixed-count cut arrays satisfying the empirical negative margin and local-good condition have TV(physical inverse shuffle, uniform)<=N^(-c). The theorem must not assume a first-moment bound, conditional-edge estimate, exploration certificate, witness, density bound or exponential-moment bound.
+
+Its first-moment input prop:ub-empirical-first-moment is uniform over 2<=n<=N, integer a<K<=T log N and arrays on the n labels, with a g-good first retained column and eq:ub-empirical-negative-margin. The costs and beta use log N, including in subdecks: beta(s)=log(n)/log(N)-Ahat(a,s). Never substitute log n. Terminal beta(K)<=-eta and every integer pair a<=s<=u<=K are included; the theta infimum is over [3,4]. This input requires no time profile, profile partition, local-good density, or arbitrary ambient-prefix law.
+
+The other public endpoints are the buffered deterministic profile upper bound, the reduced critical-time/mixing-time upper bound under def:ub-arbitrarily-fine-approximation, and the random-cut upper bound. Preserve the exact scalar-integrability and parameter order. The critical-time hypothesis has g,gamma fixed BEFORE rho decreases and coherent cut sequences across horizons. It is stronger than one arbitrary fixed coarse mesh; do not silently weaken it. Infinite thresholds must be represented faithfully.
+
+WORKFLOW AND INDEPENDENT REVIEW
+1. Read your source labels and their definitions; inspect the exact reusable Lean types. Produce a source-to-declaration map and identify real missing proofs versus adapters.
+2. Coordinate with U00 on shared definitions and exact interfaces. U00 publishes CONTRACTS_READY with versioned hashes. Mathematical investigation and isolated experiments may begin beforehand; integration must use the agreed definitions. A Target : Prop definition is a specification, not a proof.
+3. Obtain independent checks of (a) the mathematics, (b) the Lean statement/model/quantifiers, and (c) adversarial examples/hidden hypotheses. Schedule these through U00 using spare workers or cross-review; do not recursively demand three new agents per lane or exceed the available worker count. Never audit your own new proof as the only reviewer.
+4. Prove each assigned result, compile its actual dependency closure, and instantiate generic inputs from the fixed-column law. Generic helper hypotheses are allowed only when every one is discharged before the public model endpoint. If an imported theorem is conditional, record who proves its premises.
+5. If a real obstruction appears, record the exact failing claim and test at least two substantively different approaches. Continue independent useful work. Do not weaken the frozen target or add the missing conclusion as a premise. Propose any necessary statement change separately, with consequences for the public endpoints.
+
+No sorry, admit, custom axiom, unproved placeholder, circular typeclass/structure certificate, native proof oracle or vacuous reformulation counts as completion. Standard Lean axioms Classical.choice, Quot.sound and propext are allowed. Finite computation through kernel-checked proofs is allowed. Check N=0/1 guards, empty products, zero pile sizes, impossible histories and endpoint conventions explicitly where relevant; asymptotic targets may set N0>=2.
+
+An auxiliary numerical constant may be weakened only with a recorded proof that every downstream frozen endpoint is preserved and an independent interface review. Freeze the selected helper version before downstream integration; do not silently claim the original sharper inequality. No public hypothesis or endpoint is changed by this allowance.
+
+BUILD AND FILE OWNERSHIP
+Use Lean 4.33.1 and mathlib 0df444a360eaa60ab8c11dca51a86af692955474, subject to U00 confirming the actual installation. There is no root Lake project. Do not upgrade dependencies, mix 4.19/4.24 compiled caches, or overwrite frozen upstream files. Existing completed packages and the manuscript are read-only. If the proposed new package already exists, inspect its state and ownership before continuing; never reinitialize it blindly.
+
+U00 owns new package configuration, shared modules, contracts, import umbrellas, dependency staging and integration. You own only the module and audit directories listed in your assignment. Compile into your lane's isolated output directory .build/Uxx/ against immutable reviewed dependencies; only U00 writes shared outputs and performs integrated builds. Do not run broad reset/clean commands or alter another lane's files. Request a shared-interface change from U00 with a concrete proposed signature.
+
+DELIVERY AND ACCEPTANCE
+Return exact public declaration names and fully expanded types, source labels, proof/dependency files, command and exit-status build evidence, input hashes, transitive axiom evidence, and independent review findings/resolutions. Save a concise STATUS.txt and machine-readable VERIFICATION.json in your audit directory. Use PROVED_AND_CHECKED, PARTIAL, or BLOCKED_WITH_EXACT_OBLIGATION honestly. List remaining imported assumptions and their concrete discharge sites. A successful import, absence of textual sorry, numerical experiment or conditional wrapper alone is not completion. Do not claim a fresh build from an old receipt. The assignment below determines your scope; do not start sibling work or reopen the finished lower bound.
+
+ASSIGNMENT: U05 — Empirical cost classes, exponent bounds and concrete first moment
+
+OWNED PATHS (inside the proposed new package)
+RiffleUpperV2/FirstMoment/; audit/U05/
+UPSTREAM INPUT PROVIDERS
+U00, U04
+These are input milestones, not whole-agent completion requirements. U00 means CONTRACTS_READY for proof workers and INTEGRATION_READY for U13's final audit. Other lanes supply their reviewed proved exports. Read their exact planned exports in PLAN.txt and bind them to the frozen versions before use. Independent partial work may start sooner as specified below. U00 itself completes only after U13 accepts the integrated package.
+
+SOURCE LABELS
+lem:ub-empirical-cost-classes
+eq:ub-exact-word-cost-split
+eq:ub-empirical-class-entropy
+lem:ub-numerical-lemma
+eq:ub-empirical-first-moment-assembly
+prop:ub-empirical-first-moment
+
+Prove the first major concrete model theorem F. You may start the cost-class counting and real-algebra sublemmas as soon as U00 freezes their interfaces, while U03/U04 work on the stochastic inputs. Final assembly waits for U04.
+
+1. Build the ACTUAL empirical descriptors from selected good-digit costs, exceptional positions and digit values, boundary data, lengths, fixed cost bins and routing flags. The new proof does not use a macroscopic profile or assert stability of simplex-cell membership. Prove finite class cover and the class count <=N^epsilon in the source parameter order. Choose the exceptional-cost cutoff C0 before chi; bound both rare-position entropy and discarded expected row mass. Preserve all boundary and routing multiplicities.
+2. Prove H_C<=theta*S-Bhat_theta+e_H uniformly over theta in [3,4], with the actual class definition and explicit bin/exceptional error. Empty classes, zero-probability digits and unrealized keys must be harmless by construction. Older profile entropy results need an explicit map; matching notation is insufficient. Existing word_mass_sum is reusable, but equal-mass class lemmas need a proved common-lower-mass variant for cost bins.
+3. Prove the large, small-proper, immediate-stop and terminal exponent inequalities in lem:ub-numerical-lemma. Keep q_N and fixed delta/bin errors rather than calling them o(1) for fixed parameters. Use the stated theta infimum rigorously; do not assume an optimizer without proving its existence or using an infimum argument. Inspect FirstMomentModel/SmallSourceRepair.lean's small_coarse_numerical_core/infimum (namespace InhomogeneousShuffle.FirstMoment.Model); e_beta=0,e_F=q_N/2,e_S=q_N gives the source's 21*q_N/2 loss. The old smallIntegrand/Lambda2 route is not the repaired small-block proof.
+4. Combine U04's literal cover, irrelevant loss, multiplicity and density with the class estimates. The generic FirstMoment.expectedCommonEdges_power_bound can be reused after proving every localization and density premise on the actual matrix model. Account for both the number of classes and the per-edge multiplicity; use the exact independent-graph sum-of-squares identity.
+5. Prove RiffleUpperV2.FirstMoment.empiricalFirstMoment with fixed k,T,eta,g, then c,N0 uniform over ALL 2<=n<=N, a,K and cut arrays. Expose the first-column assignments in both copies; prove row relabeling gives the same conditional pile graph law and independence, with aligned rank offsets. All future columns retain the full n-label population. Keep log N throughout.
+
+DONE WHEN: F is proved from only the source first-column-goodness, empirical margins, horizon and model premises. No field or theorem parameter may supply localization, cost-class estimates, conditional density or expected intersection decay. Print the full final type and dependency closure before handing its exponent delta_F to U09/U11.
+
+PLANNED EXPORTS / EVIDENCE
+- FirstMoment.empiricalCostClassCount
+- FirstMoment.classEntropy
+- FirstMoment.empiricalExponentBounds
+- FirstMoment.empiricalFirstMoment

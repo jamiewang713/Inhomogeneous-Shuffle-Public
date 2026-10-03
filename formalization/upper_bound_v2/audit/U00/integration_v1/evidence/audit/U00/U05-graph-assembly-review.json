@@ -1,0 +1,31 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:49:00.480391+00:00",
+  "reviewer": "U00 independent of owner",
+  "root_build_receipt": "first-moment-endpoint-check-build.json",
+  "trust_inventory": "first-moment-endpoint-declarations.json",
+  "sources": {
+    "FirstMoment/GraphMarginals.lean": "f39adf8ae5c7c1a1e396aa39cc4d81d9794af83cc4d55d08860faa7aa5e333e0",
+    "FirstMoment/EdgeSlots.lean": "d94ef372b5fa8f31a11635abda3e220afeae3078d73f87468980608333cbb387",
+    "FirstMoment/ErrorDensity.lean": "89d94c2d5c9b5a2ff02d22addfdc9cfe30cfcd77a3f517b40f7bc37b202fbc50",
+    "FirstMoment/GraphAssembly.lean": "b35fb854d921ebfec26e5f78247c7ae19c0d821d74fe3bbd91b382674681c4bb",
+    "FirstMoment/CandidateCount.lean": "bf1496f9825d365070c971a1ceec920c3c2dfa3cc83df28cad3f8cab3957bd4c",
+    "FirstMoment/PowerAggregation.lean": "da38b79b5cbe8f65ec77255f159e2a4abbe278453bc71cf5bc08431a51376037"
+  },
+  "mathematics": [
+    "Actual graph marginals are covered after exact first-column relabeling by retained and discarded graph events; omitted blocks each cost at most the actual relevance threshold.",
+    "Integer edge slots biject with Fin(n-1); graph density sums therefore preserve exact global ranks.",
+    "Discarded probabilities are bounded by k, their sum by kB, and their square sum by k^2 B. Finite assembly gives 4k^2B+4(n-1)z^2+2LU.",
+    "Each literal descriptor fiber injects into future prefixes, so the omitted-candidate cost includes the full (d+1)k^d count.",
+    "With B,z at most N^(-(eta+4)), the actual graph-error bound is at most N^(-eta) after a threshold depending only on k."
+  ],
+  "public_type_and_model": [
+    "All generic assembly premises are discharged in UniformGraph using actual retained/active/discarded quantities.",
+    "No permutation of nonstationary columns or array-dependent threshold enters."
+  ],
+  "adversarial": [
+    "Empty edge sets and d=0 remain valid.",
+    "Errors counted before squaring; no missing global prefix union cost.",
+    "First-column assignment chosen arbitrarily only after proving exact relabeling invariance."
+  ]
+}

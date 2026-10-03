@@ -1,0 +1,31 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:40:23.768125+00:00",
+  "sources": {
+    "Reservoir/Refinement.lean": "e292e3d9236b849dc0fd33fe314eaed23c5b7a340f63a3a23e955966c73bd8ef",
+    "Reservoir/MarkedRefinement.lean": "0eaf46eff316aaac61bcdb2177b33a20b886f891d0be319165e1f36040cb04c1"
+  },
+  "mathematics": [
+    "Exact fixed first-column counts prove the pile-label cardinality and support a canonical full pile enumeration.",
+    "Equality of exposedPileView is equivalent to pileBase: the entire labeled pile is fixed, and only unmarked pile row words are revealed. Exhaustion follows from the injection having the full pile cardinality.",
+    "The auxiliary markedRefinement has exactly base intersected with original natural-history fibers. Original marked labels reindex to the unmarked-complement tuple positions with exact cardinal m.",
+    "goodMarkedView is the existence of an H sample in the same exposed view, so H implies it and its residual data satisfy the product bound. The actual refined prefix bound follows from RestrictedPrefix without any supplied residual law."
+  ],
+  "public_type_and_model": [
+    "The frozen natural history is unchanged. exposedPileView is auxiliary information used only for conditional averaging.",
+    "All marked rows must actually belong to the selected pile in the fine representative. This is the support event whose weight must be retained when averaging.",
+    "The H representative need not share the observed history, because only residual counts from the exposed view are used for numerator/denominator bounds."
+  ],
+  "adversarial": [
+    "No later-column words outside the pile are exposed, preserving the actual reservoir.",
+    "One/two marked labels are injective; marked complement cardinal m requires and uses pile support.",
+    "If support is impossible on a fiber, averaging must charge zero there; this proof does not replace support probability by one.",
+    "Null refined fibers require no pointwise positive probability to state this upper bound; zero conditional mass causes no invalid cancellation."
+  ],
+  "remaining": [
+    "Supported natural-history averaging and exact falling pile-size normalization; backward and future law."
+  ],
+  "root_build_receipt": "anchored-refinement-check-build.json",
+  "trust_inventory": "anchored-refinement-declarations.json"
+}

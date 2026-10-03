@@ -1,0 +1,29 @@
+{
+  "status": "PASS_ALTERNATIVE_CONSTRUCTION_INTERFACE",
+  "reviewer": "U00 independent of U03 proposer",
+  "recorded_at": "2026-10-02T09:11:56.070278+00:00",
+  "source_labels": [
+    "eq:ub-anchor-hyp-case-right",
+    "eq:ub-anchor-hyp-case-left",
+    "eq:ub-anchor-smoothing-failure",
+    "eq:ub-anchor-variance"
+  ],
+  "proposal": "For unequal extremal side indices, choose B in T by strict lexicographic comparison of the whole equal-length suffix from j+1 through |x|, instead of truncating at the later extremal side index. A=T minus B.",
+  "mathematical_findings": [
+    "B0 from manuscript remains subset of B by its strict first difference at the later extremal side index; same cylinder lower tail applies.",
+    "A and B depend only on columns other than j, so actual partial-reveal sampling law applies once atom invariance proved.",
+    "A union B=T subset R preserves sample-complement lower bound g even when B enlarges.",
+    "Residual marked and unmarked counts have conditional means(n-|A|)p and(n-|A|)q, still at least g*n*p and g*n*q.",
+    "Prefix-x rows have equal compared suffix and lie in A. On B, before-x classification is digit<=x_j in less-suffix case and digit<x_j in greater-suffix case.",
+    "Original failure and variance constants unchanged; no public hypothesis or frozen contract change."
+  ],
+  "adversarial_findings": [
+    "Suffix comparison must end at |x|, not at global future length d; otherwise a prefix-x row with further digits could be falsely classified.",
+    "Works when x=v since later extremal index<=|v|; no strict descendant premise.",
+    "Rows whose first suffix difference is later than source witness cutoff enlarge B harmlessly; B0 inclusion and sample complement suffice."
+  ],
+  "limitations": [
+    "This review approves mathematics/interface, not yet a checked Lean construction.",
+    "Need explicit equal-length suffix lemmas, atom invariance, shift measurability, B0 inclusion, good-event bound and variance proof."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:53:14.148699+00:00",
+  "sources": {
+    "Localization/Density.lean": "be206e4b60579a3ac33cb294f23b0baad781f033a6f685a74842ba328e37f02b",
+    "Localization/Eventual.lean": "77aafc16475bee1d5858115fb1f75b7576ef40681ddf19cd0a1691a809e15633"
+  },
+  "source_labels": [
+    "lem:ub-anchor-endpoint-window",
+    "eq:ub-anchor-parent-window",
+    "lem:ub-edge-density-bounds"
+  ],
+  "mathematics": [
+    "smallDensity derives actual mu^4*tailSquareMass^2/4 directly from expected_anchoredEdges_le_collision and nonnegative probability sums.",
+    "largeDensity squares the actual expected-edge collision bound and multiplies by the nonnegative smoothing factor, yielding exactly 4sqrt(D/(g omega))*mu^4*tail\u00b2 plus 6|slots|exp(-cCh*g omega).",
+    "Positive actual sideScale is N^(2F), using genuine crossing and N>=2. The finite endpoint window therefore satisfies the shared uniform scalar rate.",
+    "If any relevant proper leaf exists, properStableFluctuationPositive derives F>=delta/2 once crossingPenalty<=delta/2. Otherwise relevantLeaves is empty. The finite sparsity theorem thus needs no scalar premise in its eventual public version.",
+    "The window-error exponent delta/8 is strictly stronger than the relevance threshold delta/16. The gap 2w<N^(F+delta) follows uniformly from N^(3delta/4)>=3.",
+    "The complete omitted-cover count factor (d+1)k^d is absorbed to exp(-N^(delta/32)), with no suppressed exponential word count."
+  ],
+  "public_type_and_model": [
+    "Threshold N0 precedes every N,n,d,cut array,anchor,boundary pair,word and absolute rank. Dependence is only on fixed k,T,chi,delta as appropriate.",
+    "The source reserve condition remains only where endpoint anti-concentration requires it, in largeDensity. No reserve or minimum mean is added to smallDensity.",
+    "Immediate x=v is included in largeDensity; properStable is required only for relevant-leaf geometry. Endpoint-window rate explicitly requires the source fluctuation regime F>=delta/2."
+  ],
+  "adversarial": [
+    "Empty relevant leaves handled directly, so no hidden choice of a proper leaf or nonempty family.",
+    "N0>=2 eliminates zero-log/base ambiguities; T=0 and d=0 allowed when other finite model hypotheses permit.",
+    "Arbitrary integer c0 and finite slots retained; no density invariance under a random translation is assumed.",
+    "Finite density estimates allow zero/small means and empty/singleton anchors. Genuine pair supplies positivity for sideScale logarithm."
+  ],
+  "remaining": [
+    "Actual sorted whole-deck graph rank/decomposition transport; first-moment lane owns tail exponent and normalized density conversion."
+  ],
+  "root_build_receipt": "eventual-density-check-build.json",
+  "trust_inventory": "eventual-density-declarations.json"
+}

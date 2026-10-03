@@ -1,0 +1,10 @@
+CHECK RiffleUpperV2.GraphOverlap.FactorialTail
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/FactorialTail.lean:55:13: warning: This simp argument is unused:
+  Fin.sum_univ_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.GraphOverlap.Components
+BUILD_OK U01

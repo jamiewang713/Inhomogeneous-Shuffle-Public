@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-10-02T20:51:41.746886+00:00",
+  "state": "PROVED_AND_CHECKED",
+  "worker": "u05_first_moment",
+  "provider_lane_completed": "U05 exact F accepted; final evidence delivery completing",
+  "supported_lane": "U09",
+  "owned_new_modules": [
+    "RiffleUpperV2.Conditional.LargeConcentration",
+    "RiffleUpperV2.Conditional.LargeMargin",
+    "RiffleUpperV2.Conditional.LargeFirstMoment"
+  ],
+  "audit_directory": "audit/U05/large-helper",
+  "build_overlay": "U05",
+  "scope": "From actual concentrationEvent on Cuts k N (L+1), large prefix mean and next good column, derive actual induced-cylinder size, coordinate closeness, inherited margin, good first column and expectedCommonEdges bound using the proved F. U09 retains directional geometry, regime averaging and C.",
+  "public_goal": "Uniform threshold before N,L,cuts,x,omega; original N retained. No supplied coordinate-closeness, size, induced-margin, good-induced-column or first-moment certificate may remain at the public large-cylinder theorem.",
+  "build_isolation": "Exact EXTRA_OWNED allowlist; other Conditional outputs remain source-checked read-only.",
+  "completed_at": "2026-10-02T21:06:50.454130+00:00",
+  "completion_evidence": "../U05/large-helper/VERIFICATION.json",
+  "independent_review": "U09-large-cylinder-review.json",
+  "provider_source_and_receipt_hashes_verified": true,
+  "verification_sha256": "476e123f49d9ddaae4bec41f90cb93be9fd452853e260895b41c88e7199dc0c1",
+  "isolated_outputs_verified_regular_files": true
+}

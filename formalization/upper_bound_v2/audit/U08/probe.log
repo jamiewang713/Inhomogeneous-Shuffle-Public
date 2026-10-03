@@ -1,0 +1,1010 @@
+theorem RiffleUpperV2.Reservoir.sorted_history_iff.{u_1} : ∀ {α : Type u_1} [Fintype α] [inst : LinearOrder α] {n : Nat}
+  (f g : Fin n → α),
+  @Monotone (Fin n) α (@PartialOrder.toPreorder (Fin n) (@Fin.instPartialOrder n))
+      (@PartialOrder.toPreorder α
+        (@SemilatticeInf.toPartialOrder α
+          (@Lattice.toSemilatticeInf α (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst)))))
+      f →
+    @Monotone (Fin n) α (@PartialOrder.toPreorder (Fin n) (@Fin.instPartialOrder n))
+        (@PartialOrder.toPreorder α
+          (@SemilatticeInf.toPartialOrder α
+            (@Lattice.toSemilatticeInf α (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst)))))
+        g →
+      ∀ (j : Fin n),
+        Iff
+          (∀ (r : Fin n),
+            @LT.lt Nat instLTNat (@Fin.val n r)
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+              @Eq α (g r) (f r))
+          (And
+            (∀ (a : α),
+              @LT.lt α
+                  (@Preorder.toLT α
+                    (@PartialOrder.toPreorder α
+                      (@SemilatticeInf.toPartialOrder α
+                        (@Lattice.toSemilatticeInf α
+                          (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst))))))
+                  a (f j) →
+                @Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a))
+            (@LE.le Nat instLENat
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (f j))
+              (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j)))) :=
+fun {α} [inst : ⋯] [inst_1 : ⋯] {n} f g hf hg j =>
+  @Iff.intro
+    (∀ (r : Fin n),
+      @LT.lt Nat instLTNat (@Fin.val n r)
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+        @Eq α (g r) (f r))
+    (And
+      (∀ (a : α),
+        @LT.lt α
+            (@Preorder.toLT α
+              (@PartialOrder.toPreorder α
+                (@SemilatticeInf.toPartialOrder α
+                  (@Lattice.toSemilatticeInf α
+                    (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+            a (f j) →
+          @Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+            (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              a))
+      (@LE.le Nat instLENat
+        (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (f j))
+        (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j))))
+    (fun he =>
+      have hj :=
+        he j
+          (@Decidable.byContradiction
+            (@LT.lt Nat instLTNat (@Fin.val n j)
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            ((@Fin.val n j).decLt
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            fun a => @RiffleUpperV2.Reservoir.sorted_history_iff._proof_1_1 n j a);
+      have ho := fun a =>
+        @congrArg (Finset (Fin n)) Nat
+          {r |
+            And
+              (@LT.lt Nat instLTNat (@Fin.val n r)
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@Eq α (g r) a)}
+          {r |
+            And
+              (@LT.lt Nat instLTNat (@Fin.val n r)
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@Eq α (f r) a)}
+          (@Finset.card (Fin n))
+          (@Finset.ext (Fin n)
+            {r |
+              And
+                (@LT.lt Nat instLTNat (@Fin.val n r)
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Eq α (g r) a)}
+            {r |
+              And
+                (@LT.lt Nat instLTNat (@Fin.val n r)
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Eq α (f r) a)}
+            fun r =>
+            @Eq.mpr
+              (Iff
+                (@Membership.mem (Fin n) (Finset (Fin n))
+                  (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                  {r |
+                    And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (g r) a)}
+                  r)
+                (@Membership.mem (Fin n) (Finset (Fin n))
+                  (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                  {r |
+                    And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (f r) a)}
+                  r))
+              (Iff
+                (And
+                  (@LT.lt Nat instLTNat (@Fin.val n r)
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (@Eq α (g r) a))
+                (And
+                  (@LT.lt Nat instLTNat (@Fin.val n r)
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (@Eq α (f r) a)))
+              (@id
+                (@Eq Prop
+                  (Iff
+                    (@Membership.mem (Fin n) (Finset (Fin n))
+                      (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                      {r |
+                        And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) a)}
+                      r)
+                    (@Membership.mem (Fin n) (Finset (Fin n))
+                      (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                      {r |
+                        And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a)}
+                      r))
+                  (Iff
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (g r) a))
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (f r) a))))
+                (@congr Prop Prop
+                  (Iff
+                    (@Membership.mem (Fin n) (Finset (Fin n))
+                      (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                      {r |
+                        And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) a)}
+                      r))
+                  (Iff
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (g r) a)))
+                  (@Membership.mem (Fin n) (Finset (Fin n))
+                    (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                    {r |
+                      And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a)}
+                    r)
+                  (And
+                    (@LT.lt Nat instLTNat (@Fin.val n r)
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@Eq α (f r) a))
+                  (@congrArg Prop (Prop → Prop)
+                    (@Membership.mem (Fin n) (Finset (Fin n))
+                      (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                      {r |
+                        And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) a)}
+                      r)
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (g r) a))
+                    Iff
+                    (@Eq.trans Prop
+                      (@Membership.mem (Fin n) (Finset (Fin n))
+                        (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                        {r |
+                          And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a)}
+                        r)
+                      (And
+                        (@Membership.mem (Fin n) (Finset (Fin n))
+                          (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                          (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) a)))
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (g r) a))
+                      (@RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_2 (Fin n)
+                        (fun r =>
+                          And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a))
+                        (fun a_1 =>
+                          @instDecidableAnd
+                            (@LT.lt Nat instLTNat (@Fin.val n a_1)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g a_1) a)
+                            ((@Fin.val n a_1).decLt
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            ((fun a b => Classical.propDecidable (@Eq α a b)) (g a_1) a))
+                        (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                      (@Eq.trans Prop
+                        (And
+                          (@Membership.mem (Fin n) (Finset (Fin n))
+                            (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                            (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a)))
+                        (And True
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a)))
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) a))
+                        (@congrFun' Prop Prop
+                          (And
+                            (@Membership.mem (Fin n) (Finset (Fin n))
+                              (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                              (@Finset.univ (Fin n) (Fin.fintype n)) r))
+                          (And True)
+                          (@congrArg Prop (Prop → Prop)
+                            (@Membership.mem (Fin n) (Finset (Fin n))
+                              (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                              (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                            True And (@RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_3 (Fin n) (Fin.fintype n) r))
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a)))
+                        (true_and
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a))))))
+                  (@Eq.trans Prop
+                    (@Membership.mem (Fin n) (Finset (Fin n))
+                      (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                      {r |
+                        And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a)}
+                      r)
+                    (And
+                      (@Membership.mem (Fin n) (Finset (Fin n))
+                        (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                        (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a)))
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (f r) a))
+                    (@RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_2 (Fin n)
+                      (fun r =>
+                        And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a))
+                      (fun a_1 =>
+                        @instDecidableAnd
+                          (@LT.lt Nat instLTNat (@Fin.val n a_1)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f a_1) a)
+                          ((@Fin.val n a_1).decLt
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          ((fun a b => Classical.propDecidable (@Eq α a b)) (f a_1) a))
+                      (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                    (@Eq.trans Prop
+                      (And
+                        (@Membership.mem (Fin n) (Finset (Fin n))
+                          (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                          (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a)))
+                      (And True
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a)))
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a))
+                      (@congrFun' Prop Prop
+                        (And
+                          (@Membership.mem (Fin n) (Finset (Fin n))
+                            (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                            (@Finset.univ (Fin n) (Fin.fintype n)) r))
+                        (And True)
+                        (@congrArg Prop (Prop → Prop)
+                          (@Membership.mem (Fin n) (Finset (Fin n))
+                            (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                            (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                          True And (@RiffleUpperV2.Reservoir.sorted_history_iff._simp_1_3 (Fin n) (Fin.fintype n) r))
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a)))
+                      (true_and
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a)))))))
+              (@dite
+                (Iff
+                  (And
+                    (@LT.lt Nat instLTNat (@Fin.val n r)
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@Eq α (g r) a))
+                  (And
+                    (@LT.lt Nat instLTNat (@Fin.val n r)
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (@Eq α (f r) a)))
+                (@LT.lt Nat instLTNat (@Fin.val n r)
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                ((@Fin.val n r).decLt
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (fun hr =>
+                  @Eq.mpr
+                    (Iff
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (g r) a))
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a)))
+                    (Iff
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a))
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a)))
+                    (@id
+                      (@Eq Prop
+                        (Iff
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a))
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (f r) a)))
+                        (Iff
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (f r) a))
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (f r) a))))
+                      (@congrArg α Prop (g r) (f r)
+                        (fun _a =>
+                          Iff
+                            (And
+                              (@LT.lt Nat instLTNat (@Fin.val n r)
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              (@Eq α _a a))
+                            (And
+                              (@LT.lt Nat instLTNat (@Fin.val n r)
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              (@Eq α (f r) a)))
+                        (he r hr)))
+                    (@Iff.rfl
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a))))
+                fun hr =>
+                @of_eq_true
+                  (Iff
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (g r) a))
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (f r) a)))
+                  (@Eq.trans Prop
+                    (Iff
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (g r) a))
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a)))
+                    (Iff False False) True
+                    (@congr Prop Prop
+                      (Iff
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) a)))
+                      (Iff False)
+                      (And
+                        (@LT.lt Nat instLTNat (@Fin.val n r)
+                          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (@Eq α (f r) a))
+                      False
+                      (@congrArg Prop (Prop → Prop)
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) a))
+                        False Iff
+                        (@Eq.trans Prop
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) a))
+                          (And False (@Eq α (g r) a)) False
+                          (@congrFun' Prop Prop
+                            (And
+                              (@LT.lt Nat instLTNat (@Fin.val n r)
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                            (And False)
+                            (@congrArg Prop (Prop → Prop)
+                              (@LT.lt Nat instLTNat (@Fin.val n r)
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              False And
+                              (@eq_false
+                                (@LT.lt Nat instLTNat (@Fin.val n r)
+                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                hr))
+                            (@Eq α (g r) a))
+                          (false_and (@Eq α (g r) a))))
+                      (@Eq.trans Prop
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (f r) a))
+                        (And False (@Eq α (f r) a)) False
+                        (@congrFun' Prop Prop
+                          (And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                          (And False)
+                          (@congrArg Prop (Prop → Prop)
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            False And
+                            (@eq_false
+                              (@LT.lt Nat instLTNat (@Fin.val n r)
+                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              hr))
+                          (@Eq α (f r) a))
+                        (false_and (@Eq α (f r) a))))
+                    (iff_self False))));
+      @And.intro
+        (∀ (a : α),
+          @LT.lt α
+              (@Preorder.toLT α
+                (@PartialOrder.toPreorder α
+                  (@SemilatticeInf.toPartialOrder α
+                    (@Lattice.toSemilatticeInf α
+                      (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+              a (f j) →
+            @Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                a))
+        (@LE.le Nat instLENat
+          (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (f j))
+          (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j)))
+        (fun a ha =>
+          @Eq.mpr
+            (@Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                a))
+            (@Eq Nat
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                a)
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                a))
+            (@id
+              (@Eq Prop
+                (@Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a))
+                (@Eq Nat
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a)
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a)))
+              (@congrArg Nat Prop
+                (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a)
+                (fun _a =>
+                  @Eq Nat _a
+                    (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      a))
+                (@Eq.symm Nat
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a)
+                  (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+                  (@RiffleUpperV2.Reservoir.observed_eq_full✝ α inst_1 n g hg j a
+                    (@Eq.mpr
+                      (@LT.lt α
+                        (@Preorder.toLT α
+                          (@PartialOrder.toPreorder α
+                            (@SemilatticeInf.toPartialOrder α
+                              (@Lattice.toSemilatticeInf α
+                                (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+                        a (g j))
+                      (@LT.lt α
+                        (@Preorder.toLT α
+                          (@PartialOrder.toPreorder α
+                            (@SemilatticeInf.toPartialOrder α
+                              (@Lattice.toSemilatticeInf α
+                                (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+                        a (f j))
+                      (@id
+                        (@Eq Prop
+                          (@LT.lt α
+                            (@Preorder.toLT α
+                              (@PartialOrder.toPreorder α
+                                (@SemilatticeInf.toPartialOrder α
+                                  (@Lattice.toSemilatticeInf α
+                                    (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+                            a (g j))
+                          (@LT.lt α
+                            (@Preorder.toLT α
+                              (@PartialOrder.toPreorder α
+                                (@SemilatticeInf.toPartialOrder α
+                                  (@Lattice.toSemilatticeInf α
+                                    (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+                            a (f j)))
+                        (@congrArg α Prop (g j) (f j)
+                          (fun _a =>
+                            @LT.lt α
+                              (@Preorder.toLT α
+                                (@PartialOrder.toPreorder α
+                                  (@SemilatticeInf.toPartialOrder α
+                                    (@Lattice.toSemilatticeInf α
+                                      (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+                              a _a)
+                          hj))
+                      ha)))))
+            (@Eq.mpr
+              (@Eq Nat
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a)
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a))
+              (@Eq Nat
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a)
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a))
+              (@id
+                (@Eq Prop
+                  (@Eq Nat
+                    (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      a)
+                    (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      a))
+                  (@Eq Nat
+                    (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      a)
+                    (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      a)))
+                (@congrArg Nat Prop
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a)
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a)
+                  (fun _a =>
+                    @Eq Nat _a
+                      (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        a))
+                  (ho a)))
+              (@Eq.refl Nat
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a))))
+        (@Eq.mpr
+          (@LE.le Nat instLENat
+            (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (f j))
+            (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j)))
+          (@LE.le Nat instLENat
+            (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (f j))
+            (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j)))
+          (@id
+            (@Eq Prop
+              (@LE.le Nat instLENat
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (f j))
+                (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j)))
+              (@LE.le Nat instLENat
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (f j))
+                (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j))))
+            (@congrArg Nat Prop
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (f j))
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                (f j))
+              (fun _a =>
+                @LE.le Nat instLENat _a
+                  (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j)))
+              (@Eq.symm Nat
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (f j))
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (f j))
+                (ho (f j)))))
+          (@Finset.card_le_card (Fin n)
+            {r |
+              And
+                (@LT.lt Nat instLTNat (@Fin.val n r)
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Eq α (g r) (f j))}
+            {r | @Eq α (g r) (f j)} fun ⦃r⦄ hr =>
+            @Iff.mpr
+              (@Membership.mem (Fin n) (Finset (Fin n))
+                (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n))) {r | @Eq α (g r) (f j)}
+                r)
+              (And
+                (@Membership.mem (Fin n) (Finset (Fin n))
+                  (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                  (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                (@Eq α (g r) (f j)))
+              (@Finset.mem_filter (Fin n) (fun r => @Eq α (g r) (f j))
+                (fun a => (fun a b => Classical.propDecidable (@Eq α a b)) (g a) (f j))
+                (@Finset.univ (Fin n) (Fin.fintype n)) r)
+              (@And.intro
+                (@Membership.mem (Fin n) (Finset (Fin n))
+                  (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                  (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                (@Eq α (g r) (f j)) (@Finset.mem_univ (Fin n) (Fin.fintype n) r)
+                (@And.right
+                  (@LT.lt Nat instLTNat (@Fin.val n r)
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (@Eq α (g r) (f j))
+                  (@And.right
+                    (@Membership.mem (Fin n) (Finset (Fin n))
+                      (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                      (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                    (And
+                      (@LT.lt Nat instLTNat (@Fin.val n r)
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Eq α (g r) (f j)))
+                    (@Iff.mp
+                      (@Membership.mem (Fin n) (Finset (Fin n))
+                        (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                        {r |
+                          And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) (f j))}
+                        r)
+                      (And
+                        (@Membership.mem (Fin n) (Finset (Fin n))
+                          (@SetLike.instMembership (Finset (Fin n)) (Fin n) (@Finset.instSetLike (Fin n)))
+                          (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                        (And
+                          (@LT.lt Nat instLTNat (@Fin.val n r)
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                          (@Eq α (g r) (f j))))
+                      (@Finset.mem_filter (Fin n)
+                        (fun r =>
+                          And
+                            (@LT.lt Nat instLTNat (@Fin.val n r)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g r) (f j)))
+                        (fun a =>
+                          @instDecidableAnd
+                            (@LT.lt Nat instLTNat (@Fin.val n a)
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Eq α (g a) (f j))
+                            ((@Fin.val n a).decLt
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            ((fun a b => Classical.propDecidable (@Eq α a b)) (g a) (f j)))
+                        (@Finset.univ (Fin n) (Fin.fintype n)) r)
+                      hr)))))))
+    fun a =>
+    @And.casesOn
+      (∀ (a : α),
+        @LT.lt α
+            (@Preorder.toLT α
+              (@PartialOrder.toPreorder α
+                (@SemilatticeInf.toPartialOrder α
+                  (@Lattice.toSemilatticeInf α
+                    (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+            a (f j) →
+          @Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+            (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              a))
+      (@LE.le Nat instLENat
+        (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (f j))
+        (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g (f j)))
+      (fun x =>
+        ∀ (r : Fin n),
+          @LT.lt Nat instLTNat (@Fin.val n r)
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+            @Eq α (g r) (f r))
+      a fun hc hs r hr =>
+      have hc' := fun a ha =>
+        @Eq.mpr
+          (@Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+            (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+          (@Eq Nat
+            (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              a)
+            (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+          (@id
+            (@Eq Prop
+              (@Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+                (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+              (@Eq Nat
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a)
+                (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a)))
+            (@congrArg Nat Prop
+              (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n g a)
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                a)
+              (fun _a =>
+                @Eq Nat _a
+                  (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+              (hc a ha)))
+          (@Eq.mpr
+            (@Eq Nat
+              (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                a)
+              (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+            (@Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a)
+              (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+            (@id
+              (@Eq Prop
+                (@Eq Nat
+                  (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    a)
+                  (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+                (@Eq Nat (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a)
+                  (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a)))
+              (@congrArg Nat Prop
+                (@RiffleUpperV2.Reservoir.observedCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val n j)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  a)
+                (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a)
+                (fun _a =>
+                  @Eq Nat _a
+                    (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a))
+                (@RiffleUpperV2.Reservoir.observed_eq_full✝ α inst_1 n f hf j a ha)))
+            (@Eq.refl Nat
+              (@RiffleUpperV2.Reservoir.tupleCount α (fun a b => Classical.propDecidable (@Eq α a b)) n f a)));
+      have hlt :=
+        @RiffleUpperV2.Reservoir.cumulative_eq✝ α inst inst_1 n g f
+          (fun a =>
+            @LT.lt α
+              (@Preorder.toLT α
+                (@PartialOrder.toPreorder α
+                  (@SemilatticeInf.toPartialOrder α
+                    (@Lattice.toSemilatticeInf α
+                      (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+              a (f j))
+          hc';
+      have hfr :=
+        @hf r j
+          (@Decidable.byContradiction
+            (@LE.le (Fin n) (@Preorder.toLE (Fin n) (@PartialOrder.toPreorder (Fin n) (@Fin.instPartialOrder n))) r j)
+            (@Fin.decLe n r j) fun a => @RiffleUpperV2.Reservoir.sorted_history_iff._proof_1_4 α inst_1 n f g j r hr a);
+      have hlow :=
+        @RiffleUpperV2.Reservoir.cumulative_eq✝ α inst inst_1 n g f
+          (fun a =>
+            @LT.lt α
+              (@Preorder.toLT α
+                (@PartialOrder.toPreorder α
+                  (@SemilatticeInf.toPartialOrder α
+                    (@Lattice.toSemilatticeInf α
+                      (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+              a (f r))
+          fun a ha =>
+          hc' a
+            (@LT.lt.trans_le α
+              (@PartialOrder.toPreorder α
+                (@SemilatticeInf.toPartialOrder α
+                  (@Lattice.toSemilatticeInf α
+                    (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1)))))
+              a (f r) (f j) ha hfr);
+      @le_antisymm α
+        (@SemilatticeInf.toPartialOrder α
+          (@Lattice.toSemilatticeInf α (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))
+        (g r) (f r)
+        (@Iff.mp
+          (@LT.lt Nat instLTNat (@Fin.val n r)
+            (@Finset.card (Fin n)
+              {i |
+                @LE.le α
+                  (@Preorder.toLE α
+                    (@PartialOrder.toPreorder α
+                      (@SemilatticeInf.toPartialOrder α
+                        (@Lattice.toSemilatticeInf α
+                          (@DistribLattice.toLattice α (@instDistribLatticeOfLinearOrder α inst_1))))))
+                  (g i) ⋯}))
+          ⋯ ⋯ ⋯)
+        ⋯
+BUILD_OK U08

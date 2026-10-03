@@ -1,0 +1,34 @@
+{
+  "status": "PASS_NARROW_NUMERICAL_HELPERS",
+  "reviewer": "U00 independent of U05",
+  "recorded_at": "2026-10-02T09:00:47.302977+00:00",
+  "file": "RiffleUpperV2/FirstMoment/Exponents.lean",
+  "sha256": "b759874e38e22e786ec614653db161b82fb4dbb46800d684d41141576ffde864",
+  "source_labels": [
+    "lem:ub-numerical-lemma",
+    "eq:ub-empirical-large-exponent",
+    "eq:ub-empirical-small-exponent"
+  ],
+  "perspectives": {
+    "mathematics": [
+      "Large exact loss delta+q/2+eH follows stability, beta and side comparison with theta in[3,4].",
+      "Small proper argument uses nonnegative good cost and parent condition; no obsolete second-margin route. Exact error8delta+21q/2+eH.",
+      "Immediate singleton uses psi2>=maxCost and cumulative empirical split."
+    ],
+    "model_quantifiers": [
+      "Attained real theta infimum derived from frozen compactness theorem.",
+      "Original log N preserved for all current n; integer s,u satisfy a<=s<=u<=a+L.",
+      "Generic class scalar premises are exposed intermediate obligations, not declared endpoint inputs."
+    ],
+    "adversarial": [
+      "Zero digit probabilities allowed in maxCost_le_psi_two through strictly positive total power sum.",
+      "EmpiricalA_le_B_two requires N>=2 for positive divisor.",
+      "No optimizer axiom or finite theta grid."
+    ]
+  },
+  "missing": [
+    "actual empirical descriptor entropy and count",
+    "actual class exponent definitions/model discharges",
+    "all localization/density hypotheses and F assembly"
+  ]
+}

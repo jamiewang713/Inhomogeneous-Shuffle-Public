@@ -1,0 +1,30 @@
+{
+  "reviewer": "U00 (independent from lane author)",
+  "recorded_at": "2026-10-02T08:24:51.008307+00:00",
+  "verdict": "PASS_FOR_LISTED_HELPERS_NOT_ENDPOINTS",
+  "perspectives": [
+    "mathematics",
+    "Lean model and quantifiers",
+    "adversarial boundary/hidden-hypothesis checks"
+  ],
+  "files": {
+    "RiffleUpperV2/Margins/Scalar.lean": "2d51814d3e086d5365fec76670cf63739825b10a69c7b928d6bcc070c07ac8df",
+    "RiffleUpperV2/Margins/Empirical.lean": "d291ceb93f835ec28ba3e759ea0daa5405e0da6fd92ccb4b8ad500142be3143e",
+    "RiffleUpperV2/Margins/Suffix.lean": "586e66b16878f7e9f816f52abc2a442947f9e52aae38e60f366d507f18d66a0c",
+    "RiffleUpperV2/Margins/FixedPartition.lean": "12be78965a1c53cc41a41a02b6107f69b71504d0fcbf9cd8ef2ee6fda6a2fb43",
+    "RiffleUpperV2/Margins/ProfileMargin.lean": "d78fd5cd74c7623620765e6ab5d42aa17cd79ce06a199e7f4dd347a4a0d7c836"
+  },
+  "findings": [
+    "Scalar bounds include zero simplex coordinates; positive power sums and maximal pile lower1/k prevent log singularities. Constants k and4k^4 match source.",
+    "gridSum_suffix is a bijection j->r+j with r<=s; no omitted column or double counted endpoint. Absolute endpoints and original logN remain unchanged.",
+    "inducedMargin uses only actual coordinate proximity and source upper bound log_Nm<=1-A(0,r)+e; no partition-cell preservation or density hypothesis. Nonnegative e,zeta supplies sign of error when coefficient<=7/2.",
+    "deletePrefixMargin uses at most r*logk/logN lost A-cost; explicit finite rounding source corollary retains correct sign.",
+    "maximalWordIdentity has independent N/n and handles empty products. Negative terminal margin yields actual maximal mean bound.",
+    "FixedPartition accepts any supplied regular partition with the same scalar-integrability predicate. N0 is even uniform over mu/cuts. U13 independently recompiled snapshot.",
+    "ProfileMargin proves integer infimum<=interpolated supremum using bounded nonempty real infima and explicit grid adapter; terminal beta and all integer pairs covered.",
+    "Selected helper error 13/2*e+14logk/logN is weaker than source2logk/logN. Budget theorem e<=eta/100 and rounding<=eta/4 gives <=eta/2. Existing explicit transferThreshold places N0 last and independent of arrays. Thus P and downstream T/R preserve exact public hypotheses and conclusion; sharper finite inequality is not claimed."
+  ],
+  "remaining": [
+    "Full endpoint integration and final U13 source/trust/build audit."
+  ]
+}

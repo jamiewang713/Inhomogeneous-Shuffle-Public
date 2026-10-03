@@ -1,0 +1,25 @@
+import RiffleUpperV2.Hypergeometric.Main
+
+#print axioms RiffleUpperV2.Hypergeometric.transformBound
+#print axioms RiffleUpperV2.Hypergeometric.mgfBound
+#print axioms RiffleUpperV2.Hypergeometric.twoSidedTail
+#print axioms RiffleUpperV2.Hypergeometric.atomBound
+#print axioms RiffleUpperV2.Hypergeometric.exactMean
+#print axioms RiffleUpperV2.Hypergeometric.exactVariance
+#print axioms RiffleUpperV2.Hypergeometric.zeroVariance_iff
+#print axioms RiffleUpperV2.Hypergeometric.allowed_subset_expect
+#print axioms RiffleUpperV2.Hypergeometric.allowed_intersection_transform
+#print axioms RiffleUpperV2.Hypergeometric.anchorCylinderTransform
+#print axioms RiffleUpperV2.Hypergeometric.anchorCylinderTail
+#print axioms RiffleUpperV2.Hypergeometric.cylinderMean_eq_expect
+#print axioms RiffleUpperV2.Hypergeometric.anchorCylinderTransform_mean
+#print axioms RiffleUpperV2.Hypergeometric.sampleComplementLaw
+#print axioms RiffleUpperV2.Hypergeometric.conditionalSamplingLaw
+#print axioms RiffleUpperV2.Hypergeometric.conditionalSamplingTransport
+#print axioms RiffleUpperV2.Hypergeometric.firstColumnConditionalExpect
+#print axioms RiffleUpperV2.Hypergeometric.firstColumnConditionalProbability
+#print axioms RiffleUpperV2.Hypergeometric.firstColumnProbability_pos
+#print axioms RiffleUpperV2.Hypergeometric.firstColumnCylinderTransform
+#print axioms RiffleUpperV2.Hypergeometric.firstColumnCylinderTail
+#print axioms RiffleUpperV2.Hypergeometric.firstColumnCylinderMean
+#print axioms RiffleUpperV2.Hypergeometric.firstColumnCylinderHalfMean

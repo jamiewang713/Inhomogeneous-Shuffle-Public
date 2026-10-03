@@ -1,0 +1,15 @@
+name = "riffleUpperV2"
+version = "0.1.0"
+defaultTargets = ["RiffleUpperV2"]
+
+[[lean_lib]]
+name = "RiffleUpperV2"
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[require]]
+name = "riffleLowerV2"
+path = "../lower_bound_v2"

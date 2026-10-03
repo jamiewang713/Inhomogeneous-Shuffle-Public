@@ -1,0 +1,20 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_GENERIC_PORT",
+  "source": "lean_formalization/RiffleProfiles/WordMass.lean",
+  "source_sha256": "d7cebbc71fb68bc6e186576c90e13494d91c252c819f48b8c4c02c8590a4331b",
+  "destination": "formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalWordMass.lean",
+  "destination_sha256": "7389d816d63021b2fdf36b29103078edbce55109edc9e635ad273e6d20e70852",
+  "direct_build_failure_log": "audit/U00/wordmass-reuse-stage.log",
+  "changes": [
+    "New namespace opening original RiffleProfiles.Counting",
+    "Explicit additive commutation in scalar comparison",
+    "Restricted simp set in finite fiber summation to preserve coherent instances",
+    "Disable new backward elaborator transparency restriction to resolve definitional mismatch between hidden finite-sum instances; no theorem/definition changed"
+  ],
+  "diff": "audit/U00/wordmass-port.diff",
+  "unchanged": "All statements; no shuffle-model expectation bridge is asserted",
+  "build_receipt": "wordmass-polynomial-stage-build.json",
+  "root_build_receipt": "reservoir-exploration-progress-check-build.json",
+  "trust_inventory": "reservoir-exploration-progress-declarations.json",
+  "independent_review": "../U07/wordmass-polynomial-port-review.json"
+}

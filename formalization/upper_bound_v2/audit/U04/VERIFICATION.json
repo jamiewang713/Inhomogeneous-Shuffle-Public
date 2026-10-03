@@ -1,0 +1,226 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "scope": "U04 provider lane: actual anchored deterministic decomposition, stochastic endpoint localization, density/collision, discarded contributions and global sorted-graph transport. This is not the whole first-moment or upper-bound theorem.",
+  "recorded_at": "2026-10-02T20:12:39.824192+00:00",
+  "umbrella": "RiffleUpperV2.Localization.Stochastic",
+  "contract": {
+    "file": "CONTRACTS_READY.json",
+    "sha256": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6",
+    "frozen_sources_unchanged": true
+  },
+  "inputs": {
+    "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+    "assignment_sha256": "fff567a86ef14d4508f4b6587fdd57b7cb398929b983e3dec2d78a681d5427e2"
+  },
+  "owned_source_hashes": {
+    "RiffleUpperV2/Localization/Boundary.lean": "5183e8f1a59c135231d898aee39b7501665bf1a04b5da44c2285ef850c567f7d",
+    "RiffleUpperV2/Localization/CollisionMass.lean": "e52b4a2c1a84101fb5a7af2f381125c8378388e957c337e35703f4bb777b1c4b",
+    "RiffleUpperV2/Localization/Counting.lean": "de2a3e22e0601065f001aa8f8433614514ede7991ef1136cad41947d2e774cb5",
+    "RiffleUpperV2/Localization/CylinderAdapters.lean": "01b3c71b50b4153e8be78056730ac969e22696e7e9fbae5232cfb18f5bd3e44c",
+    "RiffleUpperV2/Localization/Definitions.lean": "93701ec8d2df3d4e1d69fd435ccf087c67f68006a2306cc45553e9c220935bd4",
+    "RiffleUpperV2/Localization/Density.lean": "be206e4b60579a3ac33cb294f23b0baad781f033a6f685a74842ba328e37f02b",
+    "RiffleUpperV2/Localization/DensityAlgebra.lean": "ea7ecab4397da3141cc30abeed971d4f8a2669cdf931e776d028bcdf457c93fe",
+    "RiffleUpperV2/Localization/DiscardedEdges.lean": "9bfae5f0fb62ff1f591243cf6d13909b693a0f2f839e14f6b8f6162bc134c1a1",
+    "RiffleUpperV2/Localization/EdgeCover.lean": "d9800a22dc7de060268bf1ac4b38e1905ee6f60da7c7b1fc3b21d6acf91a0a91",
+    "RiffleUpperV2/Localization/EdgeGeometry.lean": "66f877775e89535f2304343037bcd9815c598ef24f6eda36a1ef548efb9d3404",
+    "RiffleUpperV2/Localization/EdgeMoments.lean": "1aaf51b74a66ede2fc1fa286364cc4d413e2e8b6bd688e23ae02844c5eb1445a",
+    "RiffleUpperV2/Localization/EdgeRanks.lean": "bf3b4df2f6aae4960c9156ca9d280f94e00794f27a57a9f1fbc93346140017e7",
+    "RiffleUpperV2/Localization/EdgeRelabel.lean": "675374020d854228279529a17bc7c68b37168da1daaa1837d135d5fc810f75cc",
+    "RiffleUpperV2/Localization/Edges.lean": "ce9ba3ad364c60396725d00ea90d26ed63915bb5b17e4f4395df35b5b10c3675",
+    "RiffleUpperV2/Localization/EndpointDeviation.lean": "1a5cefefc37009e95e4241469ea27ee98d9fa5ca93d2cf7630df823752644c49",
+    "RiffleUpperV2/Localization/EndpointWindow.lean": "33c41738c7264ee18d33ea8b3e007527bc3fb82cbecb754e388df72fdc3b6992",
+    "RiffleUpperV2/Localization/Eventual.lean": "77aafc16475bee1d5858115fb1f75b7576ef40681ddf19cd0a1691a809e15633",
+    "RiffleUpperV2/Localization/FailureRate.lean": "964599770c5481c98526b12cd2f7b65347ca0a0fa9afa60c1f875284c5ad4a3d",
+    "RiffleUpperV2/Localization/FirstPileTransport.lean": "02e5f7597231f60ef21d467a55ad5c5740f3aede4c6d5f5093e5f072c40c0a2c",
+    "RiffleUpperV2/Localization/GlobalRanks.lean": "2158ca4f4cebb3a86ba71a93566c19e5e75c6a76681d3746f72cfac2106cfce2",
+    "RiffleUpperV2/Localization/IntervalCounting.lean": "c383a4489133d623e95ff75717756a58f6d25783bb408d1f29df0a8e6c5741c7",
+    "RiffleUpperV2/Localization/IntervalInclusion.lean": "8bd4ac94b5265309ad7e4a3f07d513696732bdf640da2c1ef7d55c4881b15a48",
+    "RiffleUpperV2/Localization/IrrelevantLoss.lean": "4b5ff65b6003781a06126ed6c2cc6cd36fc9ef501b75ea1106e9a2e8477cb870",
+    "RiffleUpperV2/Localization/Main.lean": "2722d8e6053cbf6073697162a5cdc710a644e818fc778d0ba22dd63864253835",
+    "RiffleUpperV2/Localization/OffsetAtoms.lean": "2a76bbbf9cd3622b7a5134dc38b06e1be3204773b2dd3eda7997e961092f3d0d",
+    "RiffleUpperV2/Localization/Prefixes.lean": "876907335ec59abcb63fbd2028b7b1ee1c6d9d79c3b19d5276eea1ce8fe80029",
+    "RiffleUpperV2/Localization/RankGeometry.lean": "067527654564d902421f45850a5da04e01fe29d341f3a349fedd5518a1b7ef85",
+    "RiffleUpperV2/Localization/RelevantParents.lean": "0f3694cee89af55929dbc865b814e282ed4e7fd69daa0346fea6c6ba1e0ec885",
+    "RiffleUpperV2/Localization/RestrictedMoments.lean": "efbb64a9e7be89b9865e2821daffcdc79d63f65ff7dbddb527a90b4ed20e9632",
+    "RiffleUpperV2/Localization/Scalars.lean": "cd5ac936a0ba9c523c1acf66ab3020a7d4cf3db4a89fdbb3cc16339c0ddf16e7",
+    "RiffleUpperV2/Localization/SideBounds.lean": "1a1abdad9b97cf963a2ddcb4daeb00b42011e91f770ad1a862630f7756661597",
+    "RiffleUpperV2/Localization/SidePieces.lean": "ae30cc9b7c2e26ddd9360fe5219d4c0c562f566c457671731eeac8d6737157e5",
+    "RiffleUpperV2/Localization/SmoothingDensity.lean": "241ced7ff76b4251a294f793b925d3c99c14f402ffc00524e96f77abce0b2317",
+    "RiffleUpperV2/Localization/StableScales.lean": "f09c641308340d4e01b4cc1d2a0528f650bd4c19e618fba48a3169ddda23fca7",
+    "RiffleUpperV2/Localization/Stochastic.lean": "3c230756dbaecb3d3e1cacc39b91e7c53851d389d63ebe268d57ad0dfe4eb6e1",
+    "RiffleUpperV2/Localization/Stopping.lean": "4348e58174497b9c24bb52a259a9bf7f28e48d3a84302262022b7455f0c92339"
+  },
+  "build": {
+    "compiler": "Lean 4.33.1",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "fresh_log": "audit/U04/stochastic-fresh-build.log",
+    "supplemental_fresh_log": "audit/U04/relabel-fresh-build.log",
+    "receipts": [
+      {
+        "file": "audit/U04/build-receipts/20261002T200823145508Z.json",
+        "sha256": "75f04710a4e0e66d8f6722717a3491d13382504b7f860196531ef85dc1a2b81e",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--fresh",
+          "RiffleUpperV2.Localization.Stochastic"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U04/build-receipts/20261002T200904490809Z.json",
+        "sha256": "7255043746fb60fb337521abd25f5d6f104e3205cca7e804f959df91a83f0775",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--fresh",
+          "RiffleUpperV2.Localization.EdgeRelabel"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U04/build-receipts/20261002T201025125086Z.json",
+        "sha256": "f12f1720ea9d48f826f05fc2c44a82e9329a95a2d54e238239e8041b17cac54e",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--run",
+          "audit/U04/PrintStochasticTypes.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0
+      },
+      {
+        "file": "audit/U04/build-receipts/20261002T201042056473Z.json",
+        "sha256": "813a196f4dc924efc85f1e2d29928090b0b4e5e55fc87ce27cfa1ea39378a5fb",
+        "command": [
+          "formalization/upper_bound_v2/scripts/build.py",
+          "--lane",
+          "U04",
+          "--run",
+          "audit/U04/PrintStochasticKernelTypes.lean"
+        ],
+        "status": "BUILD_OK",
+        "exit_code": 0
+      }
+    ],
+    "all_exit_codes": 0
+  },
+  "explicit_public_declarations": 219,
+  "declarations": "audit/U04/DECLARATIONS.json",
+  "exact_kernel_types": "audit/U04/stochastic-kernel-types.log",
+  "readable_types_and_transitive_axioms": "audit/U04/stochastic-types-and-axioms.log",
+  "transitive_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_map": "audit/U04/source-map.json",
+  "independent_reviews": [
+    {
+      "file": "audit/U00/U04-slice-independent-review.json",
+      "sha256": "0fae2a0d7aeb87eca7f8ade6b76c3ba2fddd7ba82471d9e922f9434ceed997d3"
+    },
+    {
+      "file": "audit/U00/U04-side-pieces-review.json",
+      "sha256": "30f8c6b64dc6201cc9da27e967e4fb1f9cd66f5fb2d31d3c8d209283ed8f8a5d"
+    },
+    {
+      "file": "audit/U00/U04-window-density-review.json",
+      "sha256": "efdda5bc9e35e877bb137794f54fd570ed9e0ba6f2cc3d58e21b5f19309c5347"
+    },
+    {
+      "file": "audit/U00/U04-restricted-collision-review.json",
+      "sha256": "3f5cc07792b2f9138bafcb876b84e2145cc197a3f88e9f119b65c891db57342a"
+    },
+    {
+      "file": "audit/U00/U04-eventual-density-review.json",
+      "sha256": "3001c10c8613682919969c06a8c53071e933623080928415e3e3459b5cf56113"
+    },
+    {
+      "file": "audit/U00/U04-failure-rate-review.json",
+      "sha256": "74f87dedf1f4977a7cfc371d2b70464a5bc707a6eed7351479541c05ee50b3c4"
+    },
+    {
+      "file": "audit/U00/U04-graph-transport-review.json",
+      "sha256": "e139aadd3452d3765b2155838ac75cbd197ee40e5b69691c06fe4e607b7e87e9"
+    },
+    {
+      "file": "audit/U00/U04-graph-cover-discard-review.json",
+      "sha256": "6cb1c3ddb9c5516a8ea849096141fbc6c9b1a07347b4a50c504e713b1e9be4bf"
+    }
+  ],
+  "integrated_independent_trust": {
+    "receipt": "audit/U00/partial-global-check2-build.json",
+    "inventory": "audit/U00/partial-global-check2-declarations.json",
+    "scope": "2849 full project declarations including private/generated, independently checked by U00; standard axioms only"
+  },
+  "proof_premise_discharge": [
+    {
+      "premise": "smaller-side endpoint count decomposition and exact cylinder law",
+      "site": "SidePieces + SideBounds + EndpointDeviation + EndpointWindow",
+      "status": "DISCHARGED"
+    },
+    {
+      "premise": "uniform relevant-parent windows, geometric mean interval membership, finite multiplicity, omitted-block union loss",
+      "site": "RelevantParents + IrrelevantLoss + Eventual, using independently reviewed Shared.WindowRates",
+      "status": "DISCHARGED"
+    },
+    {
+      "premise": "fixed-anchor expected edges/collision bound",
+      "site": "RestrictedMoments exact all-q formula and CollisionMass expected_anchoredEdges_le_collision; retains falling |R| and full-n column denominators",
+      "status": "DISCHARGED"
+    },
+    {
+      "premise": "conditional internal-history atom and good/bad submeasures",
+      "site": "OffsetAtoms.goodEdge_atom and SmoothingDensity.densityFromSmoothing apply actual Anchor.jointInternalOffsetAtoms including x=v",
+      "status": "DISCHARGED"
+    },
+    {
+      "premise": "small, large, terminal density and negligible smoothing failure",
+      "site": "Density.smallDensity/largeDensity, EdgeMoments.terminalDensity, FailureRate.largeDensityFailure_eventually",
+      "status": "DISCHARGED"
+    },
+    {
+      "premise": "literal graph meaning and first-column rank offsets",
+      "site": "EdgeRanks + GlobalRanks + FirstPileTransport; FirstMoment.FirstColumn law preserves matching-card anchors at full-n future law",
+      "status": "DISCHARGED"
+    },
+    {
+      "premise": "actual legal stable graph cover/disjointness and discarded edge losses",
+      "site": "EdgeCover + EdgeGeometry + DiscardedEdges",
+      "status": "DISCHARGED"
+    },
+    {
+      "premise": "actual source terminal margin rules out fallback",
+      "site": "FirstMoment.ClassExponents.retainedClass_stops via MaximalCosts.firstPileTerminalExponent and Localization.stable_no_fallback, accepted by U00",
+      "status": "DISCHARGED_BY_U05_PROVIDER"
+    }
+  ],
+  "model_and_quantifier_checks": [
+    "All future columns exclude the exposed anchor; no ambient-prefix substitute is used.",
+    "N in normalized exponents stays independent of full sampling population n and anchor size M.",
+    "Arbitrary deterministic c0 and R, including empty/singleton anchors, are handled by finite graph/collision statements.",
+    "Relevant-parent and smoothing-failure thresholds precede all model data.",
+    "Immediate-stop x=v is included in the large-density atom proof.",
+    "Terminal boundary pairs and terminal stable fallback are distinct; deterministic graph cover keeps fallback until the actual empirical-margin adapter.",
+    "Only one endpoint atom factor occurs in the large-density bound; no endpoint window is squared.",
+    "Finite omitted-leaf loss retains the complete (d+1)k^d multiplier before asymptotic absorption."
+  ],
+  "remaining_U04_obligations": [],
+  "downstream_U05_scope": [
+    "Original-array tailSquareMass=N^(-empiricalB2) and normalized density/cost conversions (TailCosts/TailGrid/ClassExponents, separately accepted).",
+    "Boundary/class partition, retained/discarded whole-graph finite aggregation and fixed parameter choices for F."
+  ],
+  "delivery_boundary": "No claim that the complete F/C/E/P/T/R endpoint or the overall upper-bound goal is proved. U04 exports are immutable following this accepted milestone.",
+  "previous_evidence": "audit/U04/VERIFICATION_initial_deterministic.json",
+  "outgoing_reviews": [
+    "audit/U04/U03-independent-interface-review.json",
+    "audit/U04/WINDOW_RATES_REVIEW.json"
+  ]
+}

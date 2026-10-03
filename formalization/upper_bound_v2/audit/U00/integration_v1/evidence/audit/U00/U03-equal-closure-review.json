@@ -1,0 +1,50 @@
+{
+  "status": "PASS_FOR_NARROW_SLICE",
+  "reviewer": "U00 independent of U03",
+  "recorded_at": "2026-10-02T09:29:42.822236+00:00",
+  "sources": {
+    "RiffleUpperV2/Anchor/EqualHistory.lean": "1a6a7e535286703cf6e78b5750d87d1146b6994f8087cd2d8e31dfea0e57eb5c",
+    "RiffleUpperV2/Anchor/LexSplit.lean": "4b59b3b6e7473d8f104c3386025c6e56b29e08d04b9e5d9b5a45da7a2075135e",
+    "RiffleUpperV2/Anchor/RowSlices.lean": "a370497153b8a77d40552b40c6b8bafa2f978bdfe40bd28f7c65da79aee2ec70",
+    "RiffleUpperV2/Anchor/EqualEndpoint.lean": "b6bd5c0ab176dbc2e920ff807f302b4e317864c4b5c84770115098ca56e82901",
+    "RiffleUpperV2/Anchor/EqualMeasurability.lean": "21c7b0f7cef3a1ae2ff669c41b3c73fda36c9d9bab718bd72460cbc3bbb40f6b",
+    "RiffleUpperV2/Anchor/EqualLaw.lean": "75906d3faf69a1d75db4616b63fd54c9a382494b8dc938e4cf3796aa71287972",
+    "RiffleUpperV2/Anchor/VarianceAlgebra.lean": "d4d55b279f864a56d3c55f9e0663bb788be998455df26b3c20682e2d38e6bf2d"
+  },
+  "mathematics": [
+    "Full equal-length lexicographic split partitions predecessors into earlier-prefix, equal selected digit with smaller suffix, and selected digit smaller. Counts give pointwise lower and upper endpoint shifts.",
+    "All other columns plus full selected-digit equality set fixes prefix membership, both deterministic shifts and internal row words. Fine history therefore refines actual internalHistory, including x=v.",
+    "equalSampleRows excludes equality set from matching-prefix rows and is fixed on each actual reveal fiber. equalRandomRows equals its intersection with actual residual less-than-digit labels.",
+    "Previously checked equalRevealConditionalExpect yields exact shifted hypergeometric law for every observable, with no supplied sampling-law premise.",
+    "Variance algebra retains sample-complement factor and finite-population correction, under explicit population>=2 and nonnegative fraction lower bounds."
+  ],
+  "model_quantifiers": [
+    "Future columns retain full n-label population, R only selects counted rows.",
+    "The reveal is exact fixedCountPMF conditioning and params computed from representative; both lower/upper offsets may be arbitrary integers.",
+    "Generic fraction bounds are intermediate hypotheses not yet discharged for the final smoothing theorem."
+  ],
+  "adversarial": [
+    "x=v/full word allowed; selected digit j:Fin length enforces nonempty prefix.",
+    "Degenerate hypergeometric parameters allowed in law identity; variance lower positivity not asserted.",
+    "Suffix slices stop at length x, preventing misclassification using later full-word digits."
+  ],
+  "missing": [
+    "unequal cases",
+    "extremal side choice",
+    "good reveal event probability",
+    "variance scale lower bound",
+    "coarse internal-history atom averaging"
+  ],
+  "independent_build": {
+    "receipt": "phase3-check-build.json",
+    "log": "phase3-check.log",
+    "audit": "Phase3Check.lean",
+    "exit_code": 0,
+    "all_imported_upper_declarations": 1143,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

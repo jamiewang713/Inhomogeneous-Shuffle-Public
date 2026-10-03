@@ -1,0 +1,12 @@
+PARTIAL — early independent source/contract review completed.
+Scope: manuscript F/C/E/P/T/R extraction; reusable model/profile definitions;
+quantifier order, scale separation, conditional-history and infinity edge cases.
+Evidence: contract_review_v1.txt and VERIFICATION.json.
+No frozen-contract acceptance, Lean build, axiom audit, or endpoint proof claim.
+Incremental concrete F/E contract review: PASS at hashes in incremental_review_v1.txt.
+Independent FixedPartition helper source/math review and snapshot compilation: PASS.
+Checked index conversion, empty horizon, real-infimum attainment, and standard-only
+axiom reports for the selected helpers. F/E remain specifications with proofs missing.
+Await complete CONTRACTS_READY and immutable INTEGRATION_READY for final audit.
+P/T/R candidate source correspondence: PASS after REmpiricalBound added.
+U13-R-01 resolved in source; revised hash requires build/frozen-type follow-up.

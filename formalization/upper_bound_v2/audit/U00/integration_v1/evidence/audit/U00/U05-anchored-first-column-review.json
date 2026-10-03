@@ -1,0 +1,29 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:40:23.768125+00:00",
+  "sources": {
+    "FirstMoment/AnchoredCosts.lean": "e02ae824475e733ba7a4eb121df23d8bc4cf3ddd4b4adaa92dc87647e7246769",
+    "FirstMoment/FirstColumn.lean": "3b24762b8a1a307a683dab84704e44566deea866438304b20d46ae1600b9419c"
+  },
+  "mathematics": [
+    "Actual Legal forces all selected prefix probabilities positive. Extension products factor exactly; logarithmic mean splits into good and exceptional costs, with original log N retained.",
+    "A permutation taking R to S with equal cardinality preserves uniform fixed-count column sampling and anchored rank edge sets, proving equality for every real observable.",
+    "First-column conditioning leaves actual future full-population columns uniform. Integrating over first-column assignments and using relabeling gives the actual firstPileEdges law and each marginal."
+  ],
+  "public_type_and_model": [
+    "Future cuts have population n, not pileSize; the arbitrary fixed anchor has exactly the exposed first pile size.",
+    "firstPileStart is the deterministic sum of earlier first-column counts, zero-based as in anchored edge slots.",
+    "anchoredExactCostSplit is an equality for any N; quantitative nonnegative costs use N>=2. No totalized logarithm is used to infer a bound at N=0/1."
+  ],
+  "adversarial": [
+    "Empty extension yields an empty product and zero costs; unselected zero digits are allowed.",
+    "Empty or singleton anchor sets cause no law issue; Legal supplies positivity only in cost theorems.",
+    "Row relabeling does not assume exchangeability of sorted labels or independent rows. The equality concerns actual rank edge sets and arbitrary test functions."
+  ],
+  "remaining": [
+    "Prove global sorted shuffle graph cover and actual class-fiber entropy/exponent assembly before F."
+  ],
+  "root_build_receipt": "anchored-refinement-check-build.json",
+  "trust_inventory": "anchored-refinement-declarations.json"
+}

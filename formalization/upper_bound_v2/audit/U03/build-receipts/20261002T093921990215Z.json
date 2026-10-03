@@ -1,0 +1,58 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T09:39:21.989532+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U03",
+    "RiffleUpperV2.Anchor.CylinderExtension"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U03",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U03/lib/lean",
+  "built": [
+    "RiffleUpperV2.Anchor.CylinderExtension"
+  ],
+  "modules": {
+    "RiffleUpperV2.Anchor.CylinderExtension": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/CylinderExtension.lean",
+      "sha256": "28d40c26f8eae3ee8d268971bc701ae797b416e00d5e4f1458e7e06e166010d9",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Anchor.Scales": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Scales.lean",
+      "sha256": "dcf3bc2bcb27f716630cc8dda3a92bcc5d997adca04bd6194ff4c28300ee1cdc",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Anchor.Definitions": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Definitions.lean",
+      "sha256": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Model": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Model.lean",
+      "sha256": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.Cylinder": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Cylinder.lean",
+      "sha256": "30de991593d5a7ad8b155c53f8d09964b68fc2c86e612977f87c250c7296a368",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.Prefixes": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Prefixes.lean",
+      "sha256": "876907335ec59abcb63fbd2028b7b1ee1c6d9d79c3b19d5276eea1ce8fe80029",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.CylinderAdapters": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/CylinderAdapters.lean",
+      "sha256": "01b3c71b50b4153e8be78056730ac969e22696e7e9fbae5232cfb18f5bd3e44c",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "b25e0e84c9193f8a997bfe5b44a951518ac4aef13491f923e8c4ebad56586cb0"
+}

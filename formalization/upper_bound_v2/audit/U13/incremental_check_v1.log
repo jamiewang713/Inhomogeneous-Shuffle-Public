@@ -1,0 +1,48 @@
+def RiffleUpperV2.Contracts.V1.F : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η g : ℝ),
+      0 < T →
+        0 < η →
+          0 < g →
+            g < 1 / ↑k →
+              ∃ c,
+                0 < c ∧
+                  ∃ N0,
+                    ∃ (_ : 2 ≤ N0),
+                      ∀ (N : ℕ),
+                        N0 ≤ N →
+                          ∀ (n : ℕ) (hn : 2 ≤ n),
+                            n ≤ N →
+                              ∀ (a K : ℕ),
+                                a < K →
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (cuts : Cuts k n (K - a)),
+                                      FirstColumnGood cuts ⋯ g →
+                                        EmpiricalNegativeMargin N a cuts ⋯ η → expectedCommonEdges cuts ≤ ↑N ^ (-c)
+def RiffleUpperV2.Contracts.V1.E : Prop :=
+∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (T η0 g0 γ0 : ℝ),
+      0 < T →
+        0 < η0 →
+          0 < g0 →
+            0 < γ0 →
+              ∃ ρ0,
+                0 < ρ0 ∧
+                  ∀ (ρ : ℝ),
+                    0 < ρ →
+                      ρ ≤ ρ0 →
+                        ∃ c,
+                          0 < c ∧
+                            ∃ N0,
+                              ∃ (hN0 : 2 ≤ N0),
+                                ∀ (N : ℕ) (hN : N0 ≤ N) (K : ℕ),
+                                  ↑K ≤ T * Real.log ↑N →
+                                    ∀ (cuts : Cuts k N K),
+                                      EmpiricalNegativeMargin N 0 cuts ⋯ η0 →
+                                        LocalGood cuts ⋯ g0 γ0 ρ 0 (↑K / Real.log ↑N) →
+                                          tv (physicalInverseLaw cuts) (uniformPermutation N) ≤ ↑N ^ (-c)
+'RiffleUpperV2.physical_graph_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.empiricalInf_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U13

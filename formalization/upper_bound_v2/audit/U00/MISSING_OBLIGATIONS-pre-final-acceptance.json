@@ -1,0 +1,202 @@
+{
+  "recorded_at": "2026-10-02T22:26:33.504350+00:00",
+  "status": "PARTIAL",
+  "endpoints": {
+    "F": {
+      "declaration": "RiffleUpperV2.Contracts.V1.F",
+      "kind": "PROVED_ENDPOINT",
+      "owner": "U05",
+      "proof_status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+      "implementation": "RiffleUpperV2.FirstMoment.empiricalFirstMoment",
+      "evidence": "U05-F-endpoint-review.json"
+    },
+    "C": {
+      "declaration": "RiffleUpperV2.Contracts.V1.C",
+      "kind": "PROVED_ENDPOINT",
+      "owner": "U09",
+      "proof_status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+      "implementation": "RiffleUpperV2.Conditional.remainingCommonEdges",
+      "evidence": "U09-C-endpoint-review.json"
+    },
+    "E": {
+      "declaration": "RiffleUpperV2.Contracts.V1.E",
+      "kind": "PROVED_ENDPOINT",
+      "owner": "U11",
+      "proof_status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+      "implementation": "RiffleUpperV2.EmpiricalUpper.empiricalUpper",
+      "evidence": "U11-E-endpoint-review.json"
+    },
+    "P": {
+      "declaration": "RiffleUpperV2.Contracts.V1.P",
+      "kind": "PROVED_ENDPOINT",
+      "owner": "U12",
+      "proof_status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+      "implementation": "RiffleUpperV2.ProfileUpper.bufferedUpper",
+      "evidence": "U12-PTR-endpoint-review.json"
+    },
+    "T": {
+      "declaration": "RiffleUpperV2.Contracts.V1.T",
+      "kind": "PROVED_ENDPOINT",
+      "owner": "U12",
+      "proof_status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+      "implementation": "RiffleUpperV2.ProfileUpper.criticalTimeUpper",
+      "evidence": "U12-PTR-endpoint-review.json"
+    },
+    "R": {
+      "declaration": "RiffleUpperV2.Contracts.V1.R",
+      "kind": "PROVED_ENDPOINT",
+      "owner": "U12",
+      "proof_status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+      "implementation": "RiffleUpperV2.ProfileUpper.randomUpper",
+      "evidence": "U12-PTR-endpoint-review.json"
+    }
+  },
+  "lanes": {
+    "U00": {
+      "state": "ACTIVE",
+      "expected_exports": [
+        "- F/C/E/P/T/R frozen specifications and exact source map",
+        "- CONTRACTS_READY.json",
+        "- Completed import and integrated proof ledger"
+      ]
+    },
+    "U01": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- GraphOverlap.overlapIdentity",
+        "- GraphOverlap.boundedComponentOverlap",
+        "- GraphOverlap.truncatedTV",
+        "- GraphOverlap.largestComponentTail",
+        "- GraphOverlap.collisionUpper"
+      ]
+    },
+    "U02": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Hypergeometric.transformBound",
+        "- Hypergeometric.twoSidedTail",
+        "- Hypergeometric.atomBound",
+        "- Hypergeometric.anchorCylinderTransform",
+        "- Hypergeometric.anchorCylinderTail"
+      ]
+    },
+    "U03": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Anchor.endpointShiftHypergeometric",
+        "- Anchor.smoothingFailure",
+        "- Anchor.endpointVariance",
+        "- Anchor.conditionalEndpointAtoms"
+      ]
+    },
+    "U04": {
+      "state": "PROVED_AND_CHECKED_LANE; bounded backward helper completed",
+      "expected_exports": [
+        "- Localization.stableCover",
+        "- Localization.endpointWindow",
+        "- Localization.relevantParents",
+        "- Localization.irrelevantLoss",
+        "- Localization.smallDensity",
+        "- Localization.largeDensity",
+        "- Localization.terminalDensity"
+      ]
+    },
+    "U05": {
+      "state": "PROVED_AND_CHECKED_LANE; large and small cylinder assistance completed",
+      "expected_exports": [
+        "- FirstMoment.empiricalCostClassCount",
+        "- FirstMoment.classEntropy",
+        "- FirstMoment.empiricalExponentBounds",
+        "- FirstMoment.empiricalFirstMoment"
+      ]
+    },
+    "U06": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Margins.costStability",
+        "- Margins.inducedMargin",
+        "- Margins.deletePrefixMargin",
+        "- Margins.maximalWordIdentity",
+        "- Margins.fixedPartitionQuadrature",
+        "- Margins.profileToEmpiricalMargin"
+      ]
+    },
+    "U07": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Exploration.goodCluster",
+        "- Exploration.uniformConcentration",
+        "- Exploration.naturalHistory",
+        "- Exploration.historyGoodProbability",
+        "- Exploration.directionalCover",
+        "- Exploration.unitIncrements",
+        "- Exploration.regularityFailure"
+      ]
+    },
+    "U08": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Reservoir.historyAtom",
+        "- Reservoir.exactMarkedRowLaw",
+        "- Reservoir.prefixCount",
+        "- Reservoir.extraCurrentCopies",
+        "- Reservoir.tailCollisions",
+        "- Reservoir.conditionalFutureCylinderLaw"
+      ]
+    },
+    "U09": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Conditional.futureCylinderDecomposition",
+        "- Conditional.refinementCount",
+        "- Conditional.selfIntersectionJensen",
+        "- Conditional.remainingCommonEdges"
+      ]
+    },
+    "U10": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- Exponential.stoppedBinomialMoment",
+        "- Exponential.adaptedExcess",
+        "- Exponential.finiteExplorationTV",
+        "- Exponential.boundedComponentTruncation"
+      ]
+    },
+    "U11": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- EmpiricalUpper.deletedPrefixTVContraction",
+        "- EmpiricalUpper.restartHypotheses",
+        "- EmpiricalUpper.empiricalUpper"
+      ]
+    },
+    "U12": {
+      "state": "PROVED_AND_CHECKED_LANE; global integration pending",
+      "expected_exports": [
+        "- ProfileUpper.bufferedUpper",
+        "- ProfileUpper.marginMonotonicity",
+        "- ProfileUpper.dominanceReduction",
+        "- ProfileUpper.criticalTimeUpper",
+        "- ProfileUpper.mixingTimeUpper",
+        "- ProfileUpper.randomEmpiricalUpper",
+        "- ProfileUpper.randomProfileUpper"
+      ]
+    },
+    "U13": {
+      "state": "ACTIVE_INDEPENDENT_FINAL_AUDIT_ON_INTEGRATION_READY_V1",
+      "expected_exports": [
+        "- Independent final exact-type/source correspondence report",
+        "- Fresh-build and transitive trust evidence",
+        "- FINAL_AUDIT.json with separate F/C/E/P/T/R verdicts"
+      ]
+    }
+  },
+  "remaining_obligations": [
+    "U13 independent final acceptance"
+  ],
+  "not_completion": [
+    "Prop definitions compile but prove no endpoints",
+    "conditional helper premises are tracked until discharged",
+    "CONTRACTS_READY is distinct from INTEGRATION_READY"
+  ]
+}

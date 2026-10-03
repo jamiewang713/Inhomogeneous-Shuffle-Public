@@ -1,0 +1,199 @@
+UPPER-BOUND LEAN FORMALIZATION PLAN
+Prepared 2026-10-01 for the repaired manuscript
+
+SCOPE
+
+This is an upper-bound-only implementation plan and prompt pack. No formalization task is launched by preparing it. The finished lower formalization is used only through read-only model/probability/scalar lemmas; there is no lower continuation or lower audit assignment.
+
+Every numbered .txt file is a complete standalone prompt beginning with /goal. Paste its whole contents into one agent. No shared preamble needs to be appended. All proposed RiffleUpperV2 names are new deliverables, not existing proved declarations. No new upper Lean proof is claimed by this pack.
+
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Source: time_inhomogeneous_riffle_shuffle_unified_article.tex
+Source SHA256: 284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+Proposed implementation package: formalization/upper_bound_v2
+Proposed namespace: RiffleUpperV2
+Runtime: Lean 4.33.1; mathlib 0df444a360eaa60ab8c11dca51a86af692955474.
+
+CURRENT STATUS
+
+The revised manuscript has a complete proposed mathematical chain from empirical costs to conditional exploration, exponential control and total variation. It has received independent mathematical reviews, but this chain is not yet a Lean theorem. The old upper STATUS.md predates the repair. Its instruction to wait for an externally completed first moment is superseded by this plan, which assigns that proof explicitly to U02-U05.
+
+Existing code supplies substantial reusable mathematics: the physical/matrix/graph connection, finite probability, residual sampling, exact factorial moments, hypergeometric atom bounds, generic class counting and first-moment assembly, and scalar quadrature. The key work is proving the NEW anchored model-specific estimates and joining these interfaces under one runtime and one model. Old first-moment wrappers assume precisely the density/localization facts now assigned for proof.
+
+TARGETS AND COMPLETION BOUNDARIES
+
+F — Empirical first moment (prop:ub-empirical-first-moment).
+For fixed k,T,eta,g, obtain c,N0 uniform over 2<=n<=N, retained absolute indices a<K<=T log N and arrays with a g-good first retained column and the two empirical negative margins. Bound expected common edges by N^(-c). The scale is log N, even when the graph has n vertices. No macroscopic profile or almostlike hypothesis belongs here.
+
+C — Conditional remainder (lem:ub-conditional-first-moment).
+From retained empirical margin 2eta, the concrete good-column arrangement and natural adapted good histories, obtain a uniform polynomial bound for every positive-mass history, including time zero. The exact conditional reservoir and future-cylinder laws are proved inputs, not assumptions passed through from the user.
+
+E — Primary empirical upper bound (thm:ub-empirical-upper).
+Fixed k,T,eta0,g0,gamma0 -> exists rho0>0 -> for every fixed 0<rho<=rho0 -> exists c>0,N0 -> every N>=N0,K<=T log N and admissible deterministic array has actual physical-shuffle TV<=N^(-c). Only the actual empirical negative margins and local-good condition remain as substantive hypotheses.
+
+P — Buffered profile upper (thm:deterministic-upper-bound).
+Spatial cutoff chi0 depends only on k,T,eta; then accept any sufficiently fine chi-regular partition with the common C_k; fix g,gamma; choose rho0/rho, then phi0/phi, then uniform N0. Scalar integrability concerns this SAME partition. E and bounded-scalar quadrature prove P.
+
+T — Critical-time and mixing-time upper (thm:upper-critical-reduced).
+Use def:ub-arbitrarily-fine-approximation: suitable arbitrarily fine partitions, and fixed g,gamma before decreasing the time mesh rho. This is stronger than one fixed coarse approximation. Define empty-set critical times as infinity, maintain coherent sequences across horizons, and prove finite-time convergence before the limsup mixing-time conclusion.
+
+R — Random empirical/profile upper (cor:random-time-profile-upper-bound and its empirical version).
+Condition on the entire random count array, apply the uniform deterministic endpoint, then use convexity of TV. Dependence between count vectors and between typical events is allowed; column randomization is conditionally independent given the array.
+
+The primary implementation milestone is E. Completing only an abstract exponential criterion or a conditional first-moment assembly is not E. Full requested upper coverage includes F,C,E,P,T,R and their final independent audit.
+
+HOW TO RUN SEVERAL AGENTS
+
+1. Start U00 first. It creates the additive package, inventories reusable declarations and freezes exact definitions/contracts. Give it PLAN.txt and its standalone prompt. It must not overwrite existing packages or edit the manuscript.
+2. Once CONTRACTS_READY is issued, choose ready work from the queue below. Listed providers identify required input exports, not whole-agent completion prerequisites. In particular, workers need U00.CONTRACTS_READY, U13's final audit needs U00.INTEGRATION_READY, and U00's final completion follows U13 acceptance. Workers should publish verified submodules early so downstream work can start before a large lane finishes.
+3. With four total workers, keep U00 as coordinator and at most three mathematical workers active. A useful initial trio is U02 (probability primitives), U04 (deterministic anchored stopping only), and U05 (pure cost-class counting only). These pieces use agreed interfaces and can run simultaneously. U04's stochastic/density completion awaits U02/U03; U05's final assembly awaits U04.
+4. Next prioritize U03 (smoothing), finish U04 windows/density, and advance U07 (concentration/histories). Use freed slots for U01 (graph toolkit), U06 (margin/transfer) and U10 (abstract adapted moments). U01, U06 and U10 are independent of the new model first moment and need not wait for it. With more slots they can all start immediately after the contract freeze.
+5. Start U08 as soon as U07's literal histories and guard interfaces are available. Start U09 after F and the U06-U08 inputs are proved. U11 then proves E. U12 can prove analytic dominance, monotonicity and mixture lemmas earlier, but its final P/T/R assembly waits for E.
+6. U13 audits completed modules incrementally and performs the final build/type/trust audit after integration. Allocate reviewer capacity by cross-review or freeing a worker; do not spawn three extra reviewers for every lane. The coordinator counts toward the worker limit.
+
+Core critical path:
+  U00 -> U02 -> U03 -> U04 -> U05 -> U09 -> U11 -> U12 -> U13.
+Parallel branch:
+  U00 -> U02 -> U07 -> U08 -> U09.
+Independent support:
+  U00 -> U06 -> {U09,U11,U12}; U00 -> U01 -> U10 -> U11.
+U10's abstract adapted lemma starts after U00; only its finite TV corollary waits for U01. U04 stopping and U05 counting also start after U00. No lane must assume a predecessor's theorem merely because another agent is working on it.
+
+OWNERSHIP AND INTEGRATION
+
+U00 alone owns shared definitions, exact contract types, configuration, compatibility staging, umbrella imports and integrated output trees. U01-U12 own disjoint RiffleUpperV2 subdirectories. U13 owns audit output only. Every lane owns a separate audit/Uxx and .build/Uxx. Read-only upstream packages may be imported; no duplicate edit or in-place toolchain upgrade is planned. The new package's contract namespace is RiffleUpperV2.Contracts.V1 to avoid collisions with existing Contracts modules.
+
+Before implementation, freeze the four sizes/indices N (original logarithmic scale), n (current full population), M (anchor size), and a (absolute starting column). Also freeze a single finite probability/conditional-history API, graph ranks, component convention, and old-to-new empirical-grid adapter. These choices prevent the most expensive cross-agent integration failures.
+
+MISSING UPPER OBLIGATIONS AND ASSIGNED OWNERS
+
+G01. Actual-model adapters and original/current scale separation — U00, with U01/U05/U06 instantiations. Reuse existing physical representation; do not reprove the completed model or replace the physical law by a convenient definition.
+G02. Generic path-graph overlap density and product-event truncation — U01. Existing shuffle-graph fibers alone do not prove the formula for arbitrary G union H.
+G03. Full conditional smoothing after an anchor — U02/U03. A generic hypergeometric atom bound is available; the new reveal maps, conditional hypergeometric identity, reserve and variance are not supplied by it.
+G04. Post-anchor stable stopping, windows, relevant parents and density — U04. Old first-column fluctuation counterexamples must not re-enter through an adapter. The direct large-block estimate must avoid an extra squared-window loss.
+G05. Actual empirical cost bins, entropy/numerical bounds and concrete first moment — U05. Existing equal-mass class lemmas need a common-lower-mass version. Pay both localization and class-count losses. The old macro profile-cell route is not the target.
+G06. Conditional margin robustness and any-fixed-partition transfer — U06. Coordinate closeness does not preserve partition-cell membership. The old existential-partition transfer is not the new buffered upper statement.
+G07. Concrete good-column cluster, guards, separate natural histories and directional processes — U07. Include tiny piles, crossing edges, time zero and uniform union bounds.
+G08. Exact sorted-history reservoir law, removable copies and within-cylinder disintegration — U08. A law conditional on fixed row prescriptions is not automatically a law conditional on sorted histories.
+G09. Uniform conditional remaining-edge bound — U09. Keep small/intermediate/large regimes, refinement count, Jensen and both histories. Never add terminal good events or auxiliary cylinder data to the natural filtration.
+G10. Adapted exponential excess and finite TV criterion — U10. Time-j stopped increments need not be predictable; initial-history control is necessary; the radicand/terminal event must be handled correctly.
+G11. Instantiation and uniform empirical endpoint — U11. Derive the anchor, retained margin and every process hypothesis. All parameters precede the cut arrays and histories.
+G12. Macroscopic, critical and randomized upper endpoints — U12. Preserve any-partition quantifiers, fixed-good-constants-before-mesh, infinity semantics and conditional mixture law.
+G13. Exact-type, source and transitive trust closure — U13. A compiling weaker conditional theorem cannot count as the manuscript endpoint.
+
+These are proof/adapter coverage obligations for the new upper route. They are not a claim that every supporting elementary lemma is absent. U00 should mark existing exact matches REUSE and assign only missing adapters or proofs.
+
+REUSE MAP AND WARNINGS
+
+- Model/Main.lean in the completed package: RiffleLowerV2.Model.physical_graph_representation. Also inspect Model/FiniteLaws.lean and Shared/Path.lean.
+- Model/ComponentFibers.lean: shuffle_componentSort_fiber_card_eq concerns actual shuffle edges; U01 needs a generic path-graph extension for unions.
+- Thinning/Prefixes.lean: prefixTransform, prefixTails; Thinning/Main.lean: residualPrefixTransform/residualPrefixTails; Factorial/Exact.lean: exactJointFactorial. These are concrete proved probability inputs. Sorted-history conditioning still requires U08.
+- lean/Shuffle/HypergeometricAntiConcentration.lean: HypergeomParams.pointMass_le_four_div_sqrt. Prefer a reviewed port/adapter to rebuilding this argument. Existing 4.33.1 ports already include Thinning/Compat/HypergeometricMoments.lean and Thinning/Compat/Conditioning.lean; the latter provides RiffleLowerV2.Thinning.Compat.FiniteLaw.shifted_anticoncentration_transfer. Reuse those directly through probability-API adapters.
+- FirstMoment/Assembly.lean: expectedCommonEdges_eq_sum_sq, localized_sum_sq_bound, expectedCommonEdges_bound, expectedCommonEdges_power_bound. They assume localization/density premises that U04/U05 must prove.
+- FirstMoment/Counting.lean and Entropy.lean supply finite counting and word_mass_sum. FirstMomentModel/SmallSourceRepair.lean supplies small_coarse_numerical_core/infimum for the repaired small branch. Old smallIntegrand/Lambda2 source contracts should not be substituted.
+- stable_blocks/Riffle/{Stopping,Boundary,SourceStable}.lean may supply generic tree facts after a proved anchored adapter. Old Riffle.Model.N merges population with log scale; literal use fails when n<N.
+- EdgeLocalization/Collision/Estimates.lean supplies exact collision estimates after actual anchored-rowset and runtime adapters.
+- ProfileTransfer/{Quadrature,Spatial,Endpoint,Extrema}.lean in the completed package supplies scalar facts. genericQuadrature accepts a specified partition. The end-to-end profileTransfer theorem selects one existentially and does not have P's quantifier order.
+
+Runtime warning: the old probability/stable/first-moment packages have native 4.19 environments and EdgeLocalization has 4.24. The first-moment package has later 4.33.1 compatibility records. Inspect those records and rebuild the selected source closure; do not import mixed-version .olean files or repeat stale compatibility failures.
+
+Finite-constant distinction: existing prefixTails and the current source's hypergeometric/anchored-cylinder lemmas all have Bernstein denominator 4*(mu+t), so U02 needs no sharper substitution. The later exploration display eq:ub-exploration-bernstein uses 2*(mu+t). U07 may prove that display from the transform or use the denominator-4 estimate after explicitly proving it suffices for all guards. Any auxiliary substitution must be reviewed and preserve the frozen endpoint statements without a new public hypothesis.
+
+FINAL ACCEPTANCE
+
+Require all F/C/E/P/T/R exports from Completed, exact expanded types matched to the current source, proofs constructing every concrete model input, uniform parameter order, a fresh integrated source build, transitive standard-only axiom closure, and independent source-to-Lean review. Record all compatibility copies and auxiliary constant substitutions. Do not reopen the lower proof, claim zero-margin behavior or full cutoff, or certify the old coarse-mesh critical claim.
+
+PROMPT FORMAT
+
+The standalone prompts follow the supplied shared-chat format: /goal, bounded mathematical objective, source/contract freeze, three review perspectives, two-strategy recovery when genuinely stuck, exact theorem/build/axiom evidence, and explicit completion criteria. This pack adds disjoint ownership and a capacity-aware dependency schedule.
+Reference format: https://chatgpt.com/s/cx_6aad63c75e148191b5aae6b3d8984906
+Additional supplied format reference: https://chatgpt.com/s/cx_6aad63b20c0c8191ae3c3018395f1935
+Probability reference: https://chatgpt.com/s/cx_6aad63bd316081919967d9a59d37c532
+
+Only this new plan/prompt directory is written in this planning task. The manuscript and all Lean sources remain unchanged.
+
+PROMPT INDEX AND EXACT OWNERSHIP
+
+U00 — Shared model, exact contracts, reuse inventory and integration
+  Prompt: 00_coordinator_and_contracts.txt
+  Input providers: None: start first
+  Owns: Package configuration; RiffleUpperV2/Shared/; RiffleUpperV2/Contracts/V1/; RiffleUpperV2/Compat/; RiffleUpperV2.lean; RiffleUpperV2/Completed.lean; scripts/; audit/U00/
+  Exports: F/C/E/P/T/R frozen specifications and exact source map; CONTRACTS_READY.json; Completed import and integrated proof ledger
+
+U01 — Graph density, factorial overlap, truncation and component tails
+  Prompt: 01_graph_density_and_truncation.txt
+  Input providers: U00
+  Owns: RiffleUpperV2/GraphOverlap/; audit/U01/
+  Exports: GraphOverlap.overlapIdentity; GraphOverlap.boundedComponentOverlap; GraphOverlap.truncatedTV; GraphOverlap.largestComponentTail; GraphOverlap.collisionUpper
+
+U02 — Hypergeometric concentration, atom bounds and anchored cylinder laws
+  Prompt: 02_hypergeometric_and_cylinder_tools.txt
+  Input providers: U00
+  Owns: RiffleUpperV2/Hypergeometric/; audit/U02/
+  Exports: Hypergeometric.transformBound; Hypergeometric.twoSidedTail; Hypergeometric.atomBound; Hypergeometric.anchorCylinderTransform; Hypergeometric.anchorCylinderTail
+
+U03 — Reserved-population endpoint anti-concentration
+  Prompt: 03_anchored_endpoint_smoothing.txt
+  Input providers: U00, U02
+  Owns: RiffleUpperV2/Anchor/; audit/U03/
+  Exports: Anchor.endpointShiftHypergeometric; Anchor.smoothingFailure; Anchor.endpointVariance; Anchor.conditionalEndpointAtoms
+
+U04 — Anchored stable blocks, relevant parents and edge-density estimates
+  Prompt: 04_stable_localization_and_density.txt
+  Input providers: U00, U02, U03
+  Owns: RiffleUpperV2/Localization/; audit/U04/
+  Exports: Localization.stableCover; Localization.endpointWindow; Localization.relevantParents; Localization.irrelevantLoss; Localization.smallDensity; Localization.largeDensity; Localization.terminalDensity
+
+U05 — Empirical cost classes, exponent bounds and concrete first moment
+  Prompt: 05_empirical_cost_classes_and_first_moment.txt
+  Input providers: U00, U04
+  Owns: RiffleUpperV2/FirstMoment/; audit/U05/
+  Exports: FirstMoment.empiricalCostClassCount; FirstMoment.classEntropy; FirstMoment.empiricalExponentBounds; FirstMoment.empiricalFirstMoment
+
+U06 — Empirical margin stability and fixed-partition scalar transfer
+  Prompt: 06_margin_stability_and_scalar_transfer.txt
+  Input providers: U00
+  Owns: RiffleUpperV2/Margins/; audit/U06/
+  Exports: Margins.costStability; Margins.inducedMargin; Margins.deletePrefixMargin; Margins.maximalWordIdentity; Margins.fixedPartitionQuadrature; Margins.profileToEmpiricalMargin
+
+U07 — Good-column clusters, concentration, natural histories and directional coverage
+  Prompt: 07_guards_histories_and_directional_coverage.txt
+  Input providers: U00, U02
+  Owns: RiffleUpperV2/Exploration/; audit/U07/
+  Exports: Exploration.goodCluster; Exploration.uniformConcentration; Exploration.naturalHistory; Exploration.historyGoodProbability; Exploration.directionalCover; Exploration.unitIncrements; Exploration.regularityFailure
+
+U08 — Exact reservoir estimates and conditional future-cylinder law
+  Prompt: 08_exact_reservoir_and_block_laws.txt
+  Input providers: U00, U07
+  Owns: RiffleUpperV2/Reservoir/; audit/U08/
+  Exports: Reservoir.historyAtom; Reservoir.exactMarkedRowLaw; Reservoir.prefixCount; Reservoir.extraCurrentCopies; Reservoir.tailCollisions; Reservoir.conditionalFutureCylinderLaw
+
+U09 — Conditional remaining-edge bound in every natural history
+  Prompt: 09_conditional_first_moment.txt
+  Input providers: U00, U05, U06, U07, U08
+  Owns: RiffleUpperV2/Conditional/; audit/U09/
+  Exports: Conditional.futureCylinderDecomposition; Conditional.refinementCount; Conditional.selfIntersectionJensen; Conditional.remainingCommonEdges
+
+U10 — Adapted exponential excess and finite total-variation criterion
+  Prompt: 10_adapted_exponential_and_finite_tv.txt
+  Input providers: U00, U01
+  Owns: RiffleUpperV2/Exponential/; audit/U10/
+  Exports: Exponential.stoppedBinomialMoment; Exponential.adaptedExcess; Exponential.finiteExplorationTV; Exponential.boundedComponentTruncation
+
+U11 — Concrete empirical upper bound and deletion contraction
+  Prompt: 11_empirical_upper_endpoint.txt
+  Input providers: U00, U01, U05, U06, U07, U09, U10
+  Owns: RiffleUpperV2/EmpiricalUpper/; audit/U11/
+  Exports: EmpiricalUpper.deletedPrefixTVContraction; EmpiricalUpper.restartHypotheses; EmpiricalUpper.empiricalUpper
+
+U12 — Buffered profile, critical-time and random-cut upper bounds
+  Prompt: 12_profile_critical_and_random_upper.txt
+  Input providers: U00, U06, U11
+  Owns: RiffleUpperV2/ProfileUpper/; audit/U12/
+  Exports: ProfileUpper.bufferedUpper; ProfileUpper.marginMonotonicity; ProfileUpper.dominanceReduction; ProfileUpper.criticalTimeUpper; ProfileUpper.mixingTimeUpper; ProfileUpper.randomEmpiricalUpper; ProfileUpper.randomProfileUpper
+
+U13 — Independent source, endpoint, build and trust audit
+  Prompt: 13_independent_final_audit.txt
+  Input providers: U00, U01, U02, U03, U04, U05, U06, U07, U08, U09, U10, U11, U12
+  Owns: audit/U13/ and .build/U13/ only; no production proof edits
+  Exports: Independent final exact-type/source correspondence report; Fresh-build and transitive trust evidence; FINAL_AUDIT.json with separate F/C/E/P/T/R verdicts

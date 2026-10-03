@@ -1,0 +1,63 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T21:09:41.301812+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U11",
+    "RiffleUpperV2.EmpiricalUpper.Restart"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U11",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U11/lib/lean",
+  "built": [
+    "RiffleUpperV2.EmpiricalUpper.Restart"
+  ],
+  "modules": {
+    "RiffleUpperV2.EmpiricalUpper.Restart": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/EmpiricalUpper/Restart.lean",
+      "sha256": "4bdf3e4d3131d3d90a4a6a71c00619d9fa92f9301ef8a16759092bf0bd51d9c3",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.EmpiricalUpper.Deletion": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/EmpiricalUpper/Deletion.lean",
+      "sha256": "febe74efc8270376653482bdc2b19e457953fdf30a74f059b1a57e89937dc5a6",
+      "kind": "project"
+    },
+    "RiffleUpperV2.EmpiricalUpper.FiniteTV": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/EmpiricalUpper/FiniteTV.lean",
+      "sha256": "c9fb96ca2c96b1189ba04942ef311de58c21a27054538d2eec1e4dd68cf9c7ae",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Model": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Model.lean",
+      "sha256": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Model.FiniteLaws": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Model/FiniteLaws.lean",
+      "sha256": "cc5abe4ecf21f682658ca77e7a867368a4f1f8c4ab0b9d70eba79a9041772a06",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Margins.Suffix": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Margins/Suffix.lean",
+      "sha256": "586e66b16878f7e9f816f52abc2a442947f9e52aae38e60f366d507f18d66a0c",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Model.Physical": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Model/Physical.lean",
+      "sha256": "f28ece509eee906fe8d1bc5bd20d2a8a9aeaf883fb817364b4ff168ed25cc493",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Exploration.WindowClusters": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/WindowClusters.lean",
+      "sha256": "fcfb89a7eb07decbc00eff6defd26b4483e70e0a4924227e6182bea189e8e897",
+      "kind": "staged-read-only"
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "cf0085230625a76d2ebd409fc7c29f6ae46b8c7d2bb9f8a716ec918d7e60ca86"
+}

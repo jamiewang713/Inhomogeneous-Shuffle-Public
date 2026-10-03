@@ -1,0 +1,119 @@
+[
+  {
+    "source": [
+      "eq:ub-exact-history-constraint"
+    ],
+    "declarations": [
+      "historyAtom",
+      "historyAtom_backward",
+      "sorted_history_iff",
+      "tupleHistoryConstraint_iff",
+      "backwardTupleHistoryConstraint_iff"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "Literal frozen naturalHistory, full sorted pile word multiplicities, observed terminal copies; both directions and every nonempty valid reveal length j+1."
+  },
+  {
+    "source": [
+      "eq:ub-reservoir-exact-prefix-weight"
+    ],
+    "declarations": [
+      "exactMarkedRowLaw",
+      "exactResidualMarkedRowLaw",
+      "exactTailResidualMarkedRowLaw",
+      "remainingPopulation_eq",
+      "residual_prefixWeight_given_pile",
+      "pileBase_tailPrefix_probability"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "Full-pile factorial disintegration, positive exposed-factor cancellation, residual c+m population, first-column cancellation and exact prefix marginal; unused suffix columns are summed out. Impossible allocations and null histories retain zero conventions."
+  },
+  {
+    "source": [
+      "lem:ub-reservoir-counts",
+      "quantitative reserve denominator"
+    ],
+    "declarations": [
+      "concentration_remainingCount",
+      "reserve_tailWeight_uniform",
+      "history_denominator_lower_uniform",
+      "backward_history_denominator_lower_uniform"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "Literal H supplies remaining-count bounds. Actual selected right/left reserves remain compatible with the literal history. Exact conditional denominator >= reserveMass^m/2 for m=1,2; constants precede arrays and histories."
+  },
+  {
+    "source": [
+      "lem:ub-reservoir-counts",
+      "regular and rare coordinates"
+    ],
+    "declarations": [
+      "regular_coordinate_ratio",
+      "rare_coordinate_ratio",
+      "coordinate_power_envelope",
+      "product_power_envelope",
+      "residual_product_upper_uniform"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "Actual residual capacities and population lower bound, falling-factorial domination, rare exponent identity and uniform logarithmic error absorption; zero probabilities included."
+  },
+  {
+    "source": [
+      "eq:ub-conditional-cylinder-count"
+    ],
+    "declarations": [
+      "prefixCount",
+      "Backward.prefixCount"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "Natural history only. C1=4/d0, original population n and log n, exact marked-pile support cancellation, one n*epsilon contribution."
+  },
+  {
+    "source": [
+      "eq:ub-conditional-extra-copies"
+    ],
+    "declarations": [
+      "removableCopies",
+      "unmarkedHistoryConstraint_of_current_removal",
+      "extraCurrentCopies",
+      "Backward.extraCurrentCopies"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "Natural-number C_s-t is positive-part excess. Deleting a counted marked row leaves >=t current copies, so observed forced copies are excluded; one bad contribution per row."
+  },
+  {
+    "source": [
+      "eq:ub-conditional-tail-collisions"
+    ],
+    "declarations": [
+      "extensionPowerMass_eq",
+      "markedCollision_indicator_partition",
+      "tailCollisions",
+      "Backward.tailCollisions"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "C2=8/d0^2; exact suffix product with exponent 2(1-alpha). Sum good full-word events before charging one bad event per pair. Ordered pairs conservatively dominate choose2; existential downstream constants unchanged and independently accepted."
+  },
+  {
+    "source": [
+      "lem:ub-exact-conditional-block-law"
+    ],
+    "declarations": [
+      "interiorColumnEquiv",
+      "interiorMatrixEquiv",
+      "interiorProjectionFibers",
+      "futureCylinderConditionalExpect_forward",
+      "futureCylinderConditionalExpect_backward",
+      "inducedMatrix_uniform",
+      "blockGraph_eq_induced",
+      "futureCylinderGraphExpect_forward",
+      "futureCylinderGraphExpect_backward",
+      "unlabeledCylinderGraphExpect_forward",
+      "unlabeledCylinderGraphExpect_backward",
+      "conditionalFutureCylinderLaw",
+      "conditionalFutureCylinderLaw_unlabeled"
+    ],
+    "status": "PROVED_AND_CHECKED",
+    "notes": "Actual family view Z records natural history, labeled cylinder sets, absolute intervals, induced counts and current-word total. Explicit rectangle replacement bijections preserve every component and give the exact uniform independent-column marginal. Chronological induced Cuts and sorted internal graph are transported exactly. Equal fine-fiber expectations prove label erasure. No independence between distinct cylinders is claimed."
+  }
+]

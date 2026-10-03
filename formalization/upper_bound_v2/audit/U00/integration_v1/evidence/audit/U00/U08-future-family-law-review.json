@@ -1,0 +1,37 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:39:33.829128+00:00",
+  "reviewer": "U00 independent of owner",
+  "sources": {
+    "Reservoir/InteriorColumn.lean": "e0a0048d65848ffa3d79a665d509f0d69f3db15745627e4ac41ab822d4c86475",
+    "Reservoir/InteriorMatrix.lean": "b3454446ee06fb573a9cd2e8087e717f7b13771a85d29453848a303d22477f80",
+    "Reservoir/InteriorHistory.lean": "4130d0937aa2d8b1e71d585733a2e02104ec1e2c603b44ebde27c74008531677",
+    "Reservoir/InteriorProjection.lean": "515cf57b55bfa17cc63dd310b26482004a27285df7a50e6a97b28568648abaa5",
+    "Reservoir/InteriorCounts.lean": "5a9ab816698f96ef400b03c1e486b516dea71e7bdaeaf9320c6d1bb00a9744ff",
+    "Reservoir/SingleCylinderLaw.lean": "5d076e80ea4e824142d0c0f59abbd1565c0c2a33c2203d1baf7e97e9a171883c",
+    "Reservoir/SeparatedCylinders.lean": "f85641144df2af851578eb8b7a3c5e33340c32bbdaa8e298e6d32380fc412854",
+    "Reservoir/OtherCylinder.lean": "ae2679b3b5eea6781f328f69feddf07086de5d6861121d04417e08f5d6e252a5",
+    "Reservoir/FutureCylinderLaw.lean": "6aefed6deaa453f629d3912d67459a1701de70ac00ff95cd22e67a06eafd8c9b"
+  },
+  "mathematics": [
+    "Explicit patchColumn preserves every global fixed count; interiorColumnEquiv and interiorMatrixEquiv identify the literal exterior fiber with the product of induced fixed-count column spaces.",
+    "Replacing the whole suffix rectangle preserves the selected prefix row set. Counts of any full word outside its cylinder remain unchanged, yielding exact forward/backward natural-history and current-multiplicity invariance.",
+    "Separated prefixes have constant mutual lexicographic comparison, including unequal depths. Thus every other cylinder record retains labels, lower/upper absolute ranks and all induced counts.",
+    "futureFamilyView records actual natural history, all cylinder records and current multiplicity. The proved invariance and count constraints instantiate explicit target-fiber replacement equivalences. Shared conditionalUniformProjectionExpect then gives exact uniform product interior law for each chosen cylinder."
+  ],
+  "public_type_and_model": [
+    "Family-level conditional expectation is literal conditioning on full futureFamilyView equality, with an actual representative witnessing positive event. All generic projection invariance/count premises are concretely discharged.",
+    "No independence between different cylinders is asserted. Columns inside the chosen induced matrix have the exact finite product assignment space.",
+    "The remaining observable agreement hf is explicit: actual graph/induced Cuts transport must still instantiate it. Law at the InteriorMatrix representation is proved; the final graph-facing export is not yet claimed."
+  ],
+  "adversarial": [
+    "Empty row sets and empty suffix columns have their canonical singleton assignment spaces. Zero column counts cause no division.",
+    "The chosen cylinder is strictly future, so current multiplicity and observed side counts cannot change. Other family cylinders need only be structurally disjoint for record preservation.",
+    "No ambient prefix preservation or assumed exchangeability substitutes for the target-fiber bijections. Full chronological column order is unchanged."
+  ],
+  "root_build_receipt": "future-law-check-build.json",
+  "trust_inventory": "future-law-declarations.json",
+  "remaining": [
+    "Canonical induced Cuts and shuffle-graph observable transport; erasing labeled sets by exact conditional averaging; final U08 audit and U09 C."
+  ]
+}

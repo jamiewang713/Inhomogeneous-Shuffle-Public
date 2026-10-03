@@ -1,0 +1,25 @@
+PROVED_AND_CHECKED — U02 probability lane module.
+Not a certificate of F/C/E/P/T/R or full CONTRACTS_READY.
+
+Implemented all five planned primitive exports in RiffleUpperV2.Hypergeometric:
+transformBound, twoSidedTail, atomBound, anchorCylinderTransform, anchorCylinderTail.
+Additional exact means/variance, all-real mgf, zero-variance classification,
+arbitrary allowed-digit uniform subset laws, complementary sample law,
+positive-fiber conditional sampling transport, and concrete exposed-first-column
+anchor conditional transform/tails/mean are proved.
+
+Fresh owned source closure: Lean 4.33.1, pinned mathlib
+0df444a360eaa60ab8c11dca51a86af692955474, exit 0.
+Command: python3 formalization/upper_bound_v2/scripts/build.py --lane U02 --fresh RiffleUpperV2.Hypergeometric.Main
+Exact receipt/hash list: fresh-build.json; build log: fresh-build.log.
+Public types: Types.lean / types.log; transitive axioms: Axioms.lean / axioms.log.
+Every audited export uses only propext, Classical.choice, Quot.sound.
+No custom axioms, unproved placeholders, or model-law premises.
+
+Independent U06 source reviews pass; requested provenance-header correction
+resolved. U00 independent model/type/adversarial review and source integration
+build also pass. See VERIFICATION.json and SOURCE_MAP.txt.
+
+Remaining downstream work belongs to U03/U08: actual smoothing reveal maps,
+reserve and endpoint variance estimates, and sorted-history reservoir laws.
+These are not assumptions of this lane's concrete primitive theorems.

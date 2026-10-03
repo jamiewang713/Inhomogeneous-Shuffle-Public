@@ -1,0 +1,40 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:49:00.480391+00:00",
+  "reviewer": "U00 independent of owner",
+  "root_build_receipt": "first-moment-endpoint-check-build.json",
+  "trust_inventory": "first-moment-endpoint-declarations.json",
+  "sources": {
+    "FirstMoment/UniformGraph.lean": "7c55c1cb354d95bfb1c489a73dcc6f53e6135a3340b279c9fb27e0c49c421bab",
+    "FirstMoment/Empirical.lean": "c048583ed32d6beafa8ef0fc22ed3908381ef35914dda913a356b7e3341639ab"
+  },
+  "declaration": "RiffleUpperV2.FirstMoment.empiricalFirstMoment",
+  "literal_type": "RiffleUpperV2.Contracts.V1.F",
+  "expanded_type": "F-expanded-type.txt",
+  "source_labels": [
+    "prop:ub-empirical-first-moment",
+    "eq:ub-empirical-negative-margin",
+    "eq:ub-empirical-first-moment-assembly"
+  ],
+  "mathematics": [
+    "All class-cardinality, retained-density, active-count, discarded-row and omitted-block bounds are applied to the actual fixed-count graph.",
+    "delta=width=eta/256, epsilon=eta/64; one positive chi is selected below all three helper thresholds before N. Density is N^(-eta/2), class count N^epsilon and active multiplicity at most N^(2epsilon).",
+    "The combined main term has exponent 3epsilon-eta/2; the error is bounded by N^(-eta). The proved asymptotic comparison yields N^(-eta/8).",
+    "The exact F wrapper sets c=eta/8 and rewrites K-a=d+1 without changing absolute a or logarithmic scale N."
+  ],
+  "quantifiers": [
+    "Fixed k,T,eta,g precede c,N0; N0 precedes N,n,a,K and cuts.",
+    "Original N appears in every logarithmic cost and power; all 2<=n<=N and a<K are retained.",
+    "Only good first column and exact full empirical negative margin are public model premises; no density, localization, certificate or profile premise remains."
+  ],
+  "adversarial": [
+    "N0>=2 guards log N and positive real powers.",
+    "Real infimum over [3,4] and all integer endpoint pairs retained via the frozen margin definition.",
+    "One retained column gives d=0 and no proof gap; first column existence is explicit.",
+    "Zero pile sizes in unrestricted columns allowed; first-column goodness supplies precisely the reserve required."
+  ],
+  "auxiliary_constant_note": "The source suggests c=eta/4 as an example. The implementation proves c=eta/8; c is existential in frozen F, so the exact public endpoint is preserved. All numerical parameter choices are proved in UniformGraph, with no frozen statement changed.",
+  "remaining": [
+    "Whole-lane final evidence delivery and later complete-package U13 audit."
+  ]
+}

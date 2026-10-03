@@ -1,0 +1,46 @@
+CHECK RiffleUpperV2.Exponential.Pathwise
+CHECK RiffleUpperV2.Exponential.Conditioning
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:30:8: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:73:37: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [masked_expect_zero P _ hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Conditioning.lean:101:0: warning: automatically included section variable(s) unused in theorem `RiffleUpperV2.Exponential.conditional_le_of_weighted`:
+  [Fintype H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CHECK RiffleUpperV2.Exponential.Stopping
+CHECK RiffleUpperV2.Exponential.Moments
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean:13:0: warning: automatically included section variable(s) unused in theorem `RiffleUpperV2.Exponential.stoppedTail`:
+  [Fintype H]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype H] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exponential/Moments.lean:125:39: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Exponential.Excess
+CHECK RiffleUpperV2.Exponential.Aggregation
+CHECK RiffleUpperV2.Exponential.FiniteTV
+CHECK RiffleUpperV2.Exponential.Numerical
+CHECK RiffleUpperV2.Exponential.Truncation
+CHECK RiffleUpperV2.Exponential.Asymptotic
+CHECK RiffleUpperV2.Exponential.Main
+BUILD_OK U10

@@ -1,0 +1,51 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T08:47:41.383046+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U03",
+    "RiffleUpperV2.Anchor.ConditionalColumn"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U03",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U03/lib/lean",
+  "built": [
+    "RiffleUpperV2.Anchor.ConditionalColumn"
+  ],
+  "modules": {
+    "RiffleUpperV2.Anchor.ConditionalColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/ConditionalColumn.lean",
+      "sha256": "1aeed9e84e70da60e9c2b5bdadaf8effb8c26b11ca2baae35c58f8d9f21b2669",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Anchor.PartialColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean",
+      "sha256": "b8cfe01ea219417d9ef1cf761c99462ddf74d3e698a2e8c3de664c12ecbefdfb",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Anchor.Definitions": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Definitions.lean",
+      "sha256": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Model": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Model.lean",
+      "sha256": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.Cylinder": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Cylinder.lean",
+      "sha256": "30de991593d5a7ad8b155c53f8d09964b68fc2c86e612977f87c250c7296a368",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.Sampling": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Sampling.lean",
+      "sha256": "b5194f3f5bc66eba0dac2e1aca755ddeb6ffbdb4a1b5967ef451a36b4e432a7b",
+      "kind": "staged-read-only"
+    }
+  }
+}

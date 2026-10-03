@@ -1,0 +1,1257 @@
+RiffleUpperV2.Exploration.goodCluster_finite (G : Finset Nat) (m D : Nat)
+  (hD : @LT.lt Nat instLTNat (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) D)
+  (hG :
+    ∀ (j : Nat),
+      @Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G j →
+        @LT.lt Nat instLTNat j m)
+  (hcard :
+    @LT.lt Nat instLTNat
+      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv) m D)
+          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@Finset.card Nat G)) :
+  ∃ a b c,
+    And (@Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G a)
+      (And (@Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G b)
+        (And (@Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G c)
+          (And (@LT.lt Nat instLTNat a b)
+            (And (@LT.lt Nat instLTNat b c)
+              (@LE.le Nat instLENat (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat) c a) D)))))
+'RiffleUpperV2.Exploration.goodCluster_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.cluster_count_threshold {x γ : Real}
+  (hx : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) x)
+  (hγ : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ)
+  (hγ1 : @LE.le Real Real.instLE γ (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+  (hlarge :
+    @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 8) (@instOfNatAtLeastTwo Real (nat_lit 8) Real.instNatCast ⋯))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) γ x)) :
+  @LT.lt Real Real.instLT
+    (@Nat.cast Real Real.instNatCast
+      (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+          (@HDiv.hDiv Nat Nat Nat (@instHDiv Nat Nat.instDiv)
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+              (@Nat.ceil Real Real.semiring Real.partialOrder
+                (@FloorRing.toFloorSemiring Real Real.instRing Real.linearOrder Real.instFloorRing) x)
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (RiffleUpperV2.Exploration.clusterSpan γ))
+          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) γ x)
+      (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)))
+'RiffleUpperV2.Exploration.cluster_count_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.goodCluster (G : Finset Nat) {x γ : Real}
+  (hx : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) x)
+  (hγ : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ)
+  (hγ1 : @LE.le Real Real.instLE γ (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+  (hlarge :
+    @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 8) (@instOfNatAtLeastTwo Real (nat_lit 8) Real.instNatCast ⋯))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) γ x))
+  (hG :
+    ∀ (j : Nat),
+      @Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G j →
+        @LT.lt Nat instLTNat j
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+            (@Nat.ceil Real Real.semiring Real.partialOrder
+              (@FloorRing.toFloorSemiring Real Real.instRing Real.linearOrder Real.instFloorRing) x)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hcount :
+    @LE.le Real Real.instLE
+      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) γ x)
+        (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)))
+      (@Nat.cast Real Real.instNatCast (@Finset.card Nat G))) :
+  ∃ a b c,
+    And (@Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G a)
+      (And (@Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G b)
+        (And (@Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat)) G c)
+          (And (@LT.lt Nat instLTNat a b)
+            (And (@LT.lt Nat instLTNat b c)
+              (@LE.le Nat instLENat (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat) c a)
+                (RiffleUpperV2.Exploration.clusterSpan γ))))))
+'RiffleUpperV2.Exploration.goodCluster' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.chosenReserves_spec {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g : Real)
+  (v :
+    Lex
+      (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (Lex
+          (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))))
+  (h :
+    @Eq
+      (Option
+        (Lex
+          (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (Lex
+              (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L)))))))
+      (@RiffleUpperV2.Exploration.chosenReserves k n L cuts D g)
+      (@Option.some
+        (Lex
+          (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (Lex
+              (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))))
+        v)) :
+  And
+    (@LT.lt (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+      (@Preorder.toLT (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (@PartialOrder.toPreorder (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (@SemilatticeInf.toPartialOrder (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (@Lattice.toSemilatticeInf (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (@DistribLattice.toLattice (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (@instDistribLatticeOfLinearOrder (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                  (@RiffleShuffle.wordLinearOrder k (@Min.min Nat instMinNat D L))))))))
+      (@Prod.fst (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (Lex
+          (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+        v)
+      (@Prod.fst (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (Lex
+            (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+          v)))
+    (And
+      (@LT.lt (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (@Preorder.toLT (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (@PartialOrder.toPreorder (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (@SemilatticeInf.toPartialOrder (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (@Lattice.toSemilatticeInf (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (@DistribLattice.toLattice (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                  (@instDistribLatticeOfLinearOrder (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                    (@RiffleShuffle.wordLinearOrder k (@Min.min Nat instMinNat D L))))))))
+        (@Prod.fst (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (Lex
+              (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+            v))
+        (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (Lex
+              (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+            v)))
+      (And
+        (@LE.le Real Real.instLE (RiffleUpperV2.Exploration.reserveMass k D g)
+          (@RiffleUpperV2.Exploration.tailMass k n L cuts D
+            (@Prod.fst (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (Lex
+                (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                  (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+              v)))
+        (And
+          (@LE.le Real Real.instLE (RiffleUpperV2.Exploration.reserveMass k D g)
+            (@RiffleUpperV2.Exploration.tailMass k n L cuts D
+              (@Prod.fst (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                  (Lex
+                    (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                      (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+                  v))))
+          (@LE.le Real Real.instLE (RiffleUpperV2.Exploration.reserveMass k D g)
+            (@RiffleUpperV2.Exploration.tailMass k n L cuts D
+              (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                  (Lex
+                    (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                      (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+                  v)))))))
+'RiffleUpperV2.Exploration.chosenReserves_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.chosenReserves_exists_iff {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g : Real) :
+  Iff
+    (∃ v,
+      @Eq
+        (Option
+          (Lex
+            (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (Lex
+                (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                  (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L)))))))
+        (@RiffleUpperV2.Exploration.chosenReserves k n L cuts D g)
+        (@Option.some
+          (Lex
+            (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (Lex
+                (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                  (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))))
+          v))
+    (@Finset.Nonempty
+      (Lex
+        (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (Lex
+            (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))))
+      (@RiffleUpperV2.Exploration.reserveCandidates k n L cuts D g))
+'RiffleUpperV2.Exploration.chosenReserves_exists_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.reserveMass_pos {k D : Nat}
+  (hk : @LT.lt Nat instLTNat (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) k) {g : Real}
+  (hg : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) g) :
+  @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+    (RiffleUpperV2.Exploration.reserveMass k D g)
+'RiffleUpperV2.Exploration.reserveMass_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.direction_cover_word {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g : Real)
+  (hc :
+    @Finset.Nonempty
+      (Lex
+        (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (Lex
+            (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))))
+      (@RiffleUpperV2.Exploration.reserveCandidates k n L cuts D g))
+  (w :
+    RiffleUpperV2.Word k
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) :
+  Or (@RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.forward w)
+    (@RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward w)
+'RiffleUpperV2.Exploration.direction_cover_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.direction_overlap_iff {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g : Real)
+  (v :
+    Lex
+      (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (Lex
+          (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))))
+  (hv :
+    @Eq
+      (Option
+        (Lex
+          (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (Lex
+              (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L)))))))
+      (@RiffleUpperV2.Exploration.chosenReserves k n L cuts D g)
+      (@Option.some
+        (Lex
+          (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+            (Lex
+              (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+                (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))))
+        v))
+  (w :
+    RiffleUpperV2.Word k
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) :
+  Iff
+    (And (@RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.forward w)
+      (@RiffleUpperV2.Exploration.hasDirection k n L cuts D g RiffleUpperV2.Exploration.Direction.backward w))
+    (@Eq (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L)) (@RiffleUpperV2.Exploration.tailPrefix k L D w)
+      (@Prod.fst (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+        (@Prod.snd (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+          (Lex
+            (Prod (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))
+              (RiffleUpperV2.Word k (@Min.min Nat instMinNat D L))))
+          v)))
+'RiffleUpperV2.Exploration.direction_overlap_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.guard_interlace {b₁ t₂ l u δ : Real}
+  (hδ : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) δ)
+  (hgap : @LE.le Real Real.instLE δ (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) u l))
+  (hb :
+    @LE.le Real Real.instLE
+      (@abs Real Real.lattice Real.instAddGroup (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) b₁ l))
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) δ
+        (@OfNat.ofNat Real (nat_lit 4) (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯))))
+  (ht :
+    @LE.le Real Real.instLE
+      (@abs Real Real.lattice Real.instAddGroup (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) t₂ u))
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) δ
+        (@OfNat.ofNat Real (nat_lit 4) (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯)))) :
+  @LT.lt Real Real.instLT b₁ t₂
+'RiffleUpperV2.Exploration.guard_interlace' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.no_crossed_edge {before through edge : Nat} (hsep : @LE.le Nat instLENat before through)
+  (hleft :
+    @LE.le Nat instLENat
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) edge (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      before)
+  (hright :
+    @LE.le Nat instLENat
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) through
+        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      edge) :
+  False
+'RiffleUpperV2.Exploration.no_crossed_edge' depends on axioms: [propext, Quot.sound]
+RiffleUpperV2.Exploration.naturalHistory_zero {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq
+    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      Option
+        (RiffleUpperV2.Word k
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      ω)
+    fun x =>
+    @Option.none
+      (RiffleUpperV2.Word k
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+'RiffleUpperV2.Exploration.naturalHistory_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.history_refinement {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) {i j : Nat} (hij : @LE.le Nat instLENat i j)
+  {ω v :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts}
+  (h :
+    @Eq
+      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+        Option
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d j ω)
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d j v)) :
+  @Eq
+    (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+      Option
+        (RiffleUpperV2.Word k
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i ω)
+    (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i v)
+'RiffleUpperV2.Exploration.history_refinement' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.revealed_word_eq {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  {ω v :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts}
+  (h :
+    @Eq
+      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+        Option
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i ω)
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i v))
+  (r : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (hr : @LT.lt Nat instLTNat (@Fin.val (@RiffleUpperV2.Exploration.pileSize k n L cuts p) r) i) :
+  @Eq
+    (RiffleLowerV2.Word k
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    (@RiffleUpperV2.sortedWord k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts ω (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d r))
+    (@RiffleUpperV2.sortedWord k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts v (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d r))
+'RiffleUpperV2.Exploration.revealed_word_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.historyFiber_eq {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  {ω v :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts}
+  (h :
+    @Eq
+      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+        Option
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i ω)
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i v)) :
+  @Eq
+    (@RiffleUpperV2.Sample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts →
+      Prop)
+    (@RiffleUpperV2.Exploration.historyFiber k n L cuts p d i ω)
+    (@RiffleUpperV2.Exploration.historyFiber k n L cuts p d i v)
+'RiffleUpperV2.Exploration.historyFiber_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.historyGood_adapted {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ ε : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  {ω v :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts}
+  (h :
+    @Eq
+      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+        Option
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i ω)
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i v)) :
+  Iff (@RiffleUpperV2.Exploration.historyGood k n L cuts D g ξ ε p d i ω)
+    (@RiffleUpperV2.Exploration.historyGood k n L cuts D g ξ ε p d i v)
+'RiffleUpperV2.Exploration.historyGood_adapted' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.naturalHistory_positive {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @RiffleUpperV2.Exploration.positiveHistory k n L cuts p d i ω
+'RiffleUpperV2.Exploration.naturalHistory_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.historyGood_of_null {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ ε : Real)
+  (hε : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ε) (p : Fin k)
+  (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (h :
+    @Eq Real
+      (@RiffleUpperV2.probability
+        (@TimeProfile.ShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.fixedCountPMF k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Exploration.historyFiber k n L cuts p d i ω))
+      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) :
+  @RiffleUpperV2.Exploration.historyGood k n L cuts D g ξ ε p d i ω
+'RiffleUpperV2.Exploration.historyGood_of_null' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.conditionalProbability_tower.{u_1, u_2} {Ω : Type u_1} {Γ : Type u_2} [Fintype Ω] [Fintype Γ]
+  (P : PMF Ω) (Z : Ω → Γ) (A : Ω → Prop) :
+  @Eq Real
+    (@RiffleLowerV2.expect Ω inst✝ P fun ω =>
+      @RiffleLowerV2.conditionalProbability Ω inst✝ P A fun v => @Eq Γ (Z v) (Z ω))
+    (@RiffleLowerV2.probability Ω inst✝ P A)
+'RiffleUpperV2.Exploration.conditionalProbability_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.conditionalProbability_markov.{u_1, u_2} {Ω : Type u_1} {Γ : Type u_2} [Fintype Ω] [Fintype Γ]
+  (P : PMF Ω) (Z : Ω → Γ) (A : Ω → Prop) {ε : Real}
+  (hε : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ε) :
+  @LE.le Real Real.instLE
+    (@RiffleLowerV2.probability Ω inst✝ P fun ω =>
+      @LT.lt Real Real.instLT ε (@RiffleLowerV2.conditionalProbability Ω inst✝ P A fun v => @Eq Γ (Z v) (Z ω)))
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+      (@RiffleLowerV2.probability Ω inst✝ P A) ε)
+'RiffleUpperV2.Exploration.conditionalProbability_markov' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.historyGoodProbability {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ r : Real)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hH :
+    @LE.le Real Real.instLE
+      (@RiffleLowerV2.probability
+        (@TimeProfile.ShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.fixedCountPMF k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        fun ω => Not (@RiffleUpperV2.Exploration.concentrationEvent k n L cuts D g ξ ω))
+      r)
+  (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat) :
+  @LE.le Real Real.instLE
+    (@RiffleLowerV2.probability
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      fun ω => Not (@RiffleUpperV2.Exploration.historyGood k n L cuts D g ξ r.sqrt p d i ω))
+    r.sqrt
+'RiffleUpperV2.Exploration.historyGoodProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.localGood_integerWindow {k N L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k N
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hN : @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N) (ρ γ g : Real)
+  (hgood :
+    @RiffleUpperV2.LocalGood k N
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts ⋯ g γ ρ (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+        (@Nat.cast Real Real.instNatCast
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Real.log (@Nat.cast Real Real.instNatCast N)))) :
+  @RiffleUpperV2.Exploration.integerWindowGood k N L N cuts ⋯ ρ γ g
+'RiffleUpperV2.Exploration.localGood_integerWindow' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.pileOffset_add_size_le {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) :
+  @LE.le Nat instLENat
+    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@RiffleUpperV2.Exploration.pileOffset k n L cuts p)
+      (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+    n
+'RiffleUpperV2.Exploration.pileOffset_add_size_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.row_take_one {k n L : Nat}
+  {cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))}
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts)
+  (r : Fin n) :
+  @Eq (List (Fin k))
+    (@List.take (Fin k) (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.Vector.toList (Fin k)
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@RiffleUpperV2.rowWord k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts ω r)))
+    (@List.cons (Fin k)
+      (@Subtype.val (Fin n → Fin k)
+        (fun a =>
+          ∀ (l : Fin k),
+            @Eq Nat (@Finset.card (Fin n) {i | @Eq (Fin k) (a i) l})
+              (@TimeProfile.Cuts.count k n
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts
+                (@OfNat.ofNat
+                  (Fin
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (nat_lit 0)
+                  (@Fin.instOfNat
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    ⋯ (nat_lit 0)))
+                l))
+        (ω
+          (@OfNat.ofNat
+            (Fin
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (nat_lit 0)
+            (@Fin.instOfNat
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              ⋯ (nat_lit 0))))
+        r)
+      (@List.nil (Fin k)))
+'RiffleUpperV2.Exploration.row_take_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.pilePrefix_count {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq Nat
+    (@RiffleLowerV2.prefixCount k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts (@RiffleUpperV2.Exploration.pilePrefix k L p) ω)
+    (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+'RiffleUpperV2.Exploration.pilePrefix_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.pilePrefix_lowerRank {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq Nat
+    (@RiffleLowerV2.lowerRank k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts (@RiffleUpperV2.Exploration.pilePrefix k L p) ω)
+    (@RiffleUpperV2.Exploration.pileOffset k n L cuts p)
+'RiffleUpperV2.Exploration.pilePrefix_lowerRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.pilePrefix_upperRank {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k)
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq Nat
+    (@RiffleLowerV2.upperRank k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts (@RiffleUpperV2.Exploration.pilePrefix k L p) ω)
+    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@RiffleUpperV2.Exploration.pileOffset k n L cuts p)
+      (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+'RiffleUpperV2.Exploration.pilePrefix_upperRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.pilePosition_firstDigit {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (r : Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+  (ω :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq (Fin k)
+    (@List.Vector.get (Fin k)
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (@RiffleUpperV2.sortedWord k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts ω (@RiffleUpperV2.Exploration.pilePosition k n L cuts p d r))
+      (@OfNat.ofNat
+        (Fin
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (nat_lit 0)
+        (@Fin.instOfNat
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ⋯ (nat_lit 0))))
+    p
+'RiffleUpperV2.Exploration.pilePosition_firstDigit' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.prefixSizeConcentration {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hn : @LT.lt Nat instLTNat (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n) (ξ : Real)
+  (x :
+    RiffleUpperV2.Prefix k
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hx :
+    @LE.le Real Real.instLE
+      (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) (@Nat.cast Real Real.instNatCast n) ξ)
+      (@RiffleUpperV2.prefixMean k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts x)) :
+  @LE.le Real Real.instLE
+    (@RiffleUpperV2.probability
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      fun ω =>
+      @LT.lt Real Real.instLT
+        (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+          (@RiffleUpperV2.prefixMean k n
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            cuts x)
+          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+            (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+            (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯))))
+        (@abs Real Real.lattice Real.instAddGroup
+          (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+            (@Nat.cast Real Real.instNatCast
+              (@RiffleUpperV2.prefixCount k n
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts x ω))
+            (@RiffleUpperV2.prefixMean k n
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts x))))
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+      (Real.exp
+        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+          (@Neg.neg Real Real.instNeg
+            (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+              (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+                (@RiffleUpperV2.prefixMean k n
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts x)
+                (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                  (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                  (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯))))
+              (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@OfNat.ofNat Real (nat_lit 4) (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯))
+            (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+              (@RiffleUpperV2.prefixMean k n
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts x)
+              (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+                (@RiffleUpperV2.prefixMean k n
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts x)
+                (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                  (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                  (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯)))))))))
+'RiffleUpperV2.Exploration.prefixSizeConcentration' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.allPrefixSizesConcentration {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hn : @LT.lt Nat instLTNat (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n) (ξ : Real) :
+  @LE.le Real Real.instLE
+    (@RiffleUpperV2.probability
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      fun ω =>
+      ∃ x,
+        And
+          (@LE.le Real Real.instLE
+            (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) (@Nat.cast Real Real.instNatCast n) ξ)
+            (@RiffleUpperV2.prefixMean k n
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              cuts x))
+          (@LT.lt Real Real.instLT
+            (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+              (@RiffleUpperV2.prefixMean k n
+                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                  (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                cuts x)
+              (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯))))
+            (@abs Real Real.lattice Real.instAddGroup
+              (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                (@Nat.cast Real Real.instNatCast
+                  (@RiffleUpperV2.prefixCount k n
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    cuts x ω))
+                (@RiffleUpperV2.prefixMean k n
+                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts x)))))
+    (@RiffleUpperV2.Exploration.prefixSizeFailureSum k n L cuts ξ)
+'RiffleUpperV2.Exploration.allPrefixSizesConcentration' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.bernstein_twoThirds_exponent {μ : Real}
+  (hμ : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) μ) :
+  @LE.le Real Real.instLE
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+      (@Neg.neg Real Real.instNeg
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) μ
+            (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+              (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+              (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯))))
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@OfNat.ofNat Real (nat_lit 4) (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯))
+        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) μ
+          (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) μ
+            (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+              (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+              (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯)))))))
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+      (@Neg.neg Real Real.instNeg
+        (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) μ
+          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+            (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯)))))
+      (@OfNat.ofNat Real (nat_lit 8) (@instOfNatAtLeastTwo Real (nat_lit 8) Real.instNatCast ⋯)))
+'RiffleUpperV2.Exploration.bernstein_twoThirds_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.prefixSizeFailureSum_le {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (hn : @LT.lt Nat instLTNat (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n) {ξ : Real}
+  (hξ : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ξ) :
+  @LE.le Real Real.instLE (@RiffleUpperV2.Exploration.prefixSizeFailureSum k n L cuts ξ)
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+          (@Nat.cast Real Real.instNatCast
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+              (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@Nat.cast Real Real.instNatCast k)
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (Real.exp
+        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+          (@Neg.neg Real Real.instNeg
+            (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) (@Nat.cast Real Real.instNatCast n)
+              (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) ξ
+                (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯)))))
+          (@OfNat.ofNat Real (nat_lit 8) (@instOfNatAtLeastTwo Real (nat_lit 8) Real.instNatCast ⋯)))))
+'RiffleUpperV2.Exploration.prefixSizeFailureSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.directionalProcess_zero {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+  (ω ω' :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq Nat
+    (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d
+      (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) ω ω')
+    (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+'RiffleUpperV2.Exploration.directionalProcess_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.directionalProcess_one {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+  (ω ω' :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq Nat
+    (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d
+      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) ω ω')
+    (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+'RiffleUpperV2.Exploration.directionalProcess_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.directionalEdge_adapted {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  (e :
+    Fin
+      (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat) (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (he :
+    @LT.lt Nat instLTNat
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+        (@Fin.val
+          (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat) (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          e)
+        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      i)
+  {ω v :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts}
+  (h :
+    @Eq
+      (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+        Option
+          (RiffleUpperV2.Word k
+            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i ω)
+      (@RiffleUpperV2.Exploration.naturalHistory k n L cuts p d i v)) :
+  Iff (@RiffleUpperV2.Exploration.directionalEdge k n L cuts D g p d e ω)
+    (@RiffleUpperV2.Exploration.directionalEdge k n L cuts D g p d e v)
+'RiffleUpperV2.Exploration.directionalEdge_adapted' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.directionalProcess_adapted {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  {ω v :
+    Prod
+      (@RiffleUpperV2.Sample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.Sample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)}
+  (h :
+    @Eq
+      (Prod
+        (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+          Option
+            (RiffleUpperV2.Word k
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+        (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p) →
+          Option
+            (RiffleUpperV2.Word k
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+      (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i ω)
+      (@RiffleUpperV2.Exploration.pairHistory k n L cuts p d i v)) :
+  @Eq Nat
+    (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d i
+      (@Prod.fst
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        ω)
+      (@Prod.snd
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        ω))
+    (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d i
+      (@Prod.fst
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        v)
+      (@Prod.snd
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.Sample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        v))
+'RiffleUpperV2.Exploration.directionalProcess_adapted' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.revealedEdges_step {m i : Nat} (P : Fin m → Prop) [@DecidablePred (Fin m) P] :
+  have S := fun j =>
+    {e |
+      And
+        (@LT.lt Nat instLTNat
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Fin.val m e)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          j)
+        (P e)};
+  Or
+    (@Eq Nat
+      (@Finset.card (Fin m)
+        (S
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) i
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@Finset.card (Fin m) (S i)))
+    (@Eq Nat
+      (@Finset.card (Fin m)
+        (S
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) i
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@Finset.card (Fin m) (S i))
+        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+'RiffleUpperV2.Exploration.revealedEdges_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.unitIncrements {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  (ω ω' :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  Or
+    (@Eq Nat
+      (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) i (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        ω ω')
+      (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d i ω ω'))
+    (@Eq Nat
+      (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) i (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        ω ω')
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+        (@RiffleUpperV2.Exploration.directionalProcess k n L cuts D g ξ p d i ω ω')
+        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+'RiffleUpperV2.Exploration.unitIncrements' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.remainingDirectionalCount_eq {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction) (i : Nat)
+  (ω ω' :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq Nat (@RiffleUpperV2.Exploration.remainingDirectionalCount k n L cuts D g ξ p d i ω ω')
+    (@ite Nat
+      (@LE.le Real Real.instLE
+        (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) (@Nat.cast Real Real.instNatCast n) ξ)
+        (@Nat.cast Real Real.instNatCast (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+      ((@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) (@Nat.cast Real Real.instNatCast n) ξ).decidableLE
+        (@Nat.cast Real Real.instNatCast (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+      (@Finset.card
+        (Fin
+          (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat) (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        {e |
+          And
+            (@LE.le Nat instLENat i
+              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat)
+                (@Fin.val
+                  (@HSub.hSub Nat Nat Nat (@instHSub Nat instSubNat) (@RiffleUpperV2.Exploration.pileSize k n L cuts p)
+                    (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  e)
+                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (And (@RiffleUpperV2.Exploration.directionalEdge k n L cuts D g p d e ω)
+              (@RiffleUpperV2.Exploration.directionalEdge k n L cuts D g p d e ω'))})
+      (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+'RiffleUpperV2.Exploration.remainingDirectionalCount_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.remaining_terminal {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+  (ω ω' :
+    @RiffleUpperV2.Sample k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      cuts) :
+  @Eq Nat
+    (@RiffleUpperV2.Exploration.remainingDirectionalCount k n L cuts D g ξ p d
+      (@RiffleUpperV2.Exploration.pileSize k n L cuts p) ω ω')
+    (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+'RiffleUpperV2.Exploration.remaining_terminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.pairHistoryGood_initial {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ ε : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+  (ω :
+    Prod
+      (@RiffleUpperV2.Sample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.Sample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)) :
+  @RiffleUpperV2.Exploration.pairHistoryGood k n L cuts D g ξ ε p d
+    (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) ω
+'RiffleUpperV2.Exploration.pairHistoryGood_initial' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.pairHistoryGood_terminal {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ ε : Real) (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+  (ω :
+    Prod
+      (@RiffleUpperV2.Sample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.Sample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)) :
+  @RiffleUpperV2.Exploration.pairHistoryGood k n L cuts D g ξ ε p d (@RiffleUpperV2.Exploration.pileSize k n L cuts p) ω
+'RiffleUpperV2.Exploration.pairHistoryGood_terminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.direction_card :
+  @Eq Nat (@Fintype.card RiffleUpperV2.Exploration.Direction RiffleUpperV2.Exploration.instFintypeDirection)
+    (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+'RiffleUpperV2.Exploration.direction_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.historyIndex_card {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) :
+  @Eq Nat
+    (@Fintype.card (@RiffleUpperV2.Exploration.HistoryIndex k n L cuts)
+      (@RiffleUpperV2.Exploration.instFintypeHistoryIndex k n L cuts))
+    (@HMul.hMul Nat Nat Nat (@instHMul Nat instMulNat) (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+'RiffleUpperV2.Exploration.historyIndex_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.historyGood_unionBound {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ r : Real)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hH :
+    @LE.le Real Real.instLE
+      (@RiffleUpperV2.probability
+        (@TimeProfile.ShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.fixedCountPMF k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        fun ω => Not (@RiffleUpperV2.Exploration.concentrationEvent k n L cuts D g ξ ω))
+      r) :
+  @LE.le Real Real.instLE
+    (@RiffleUpperV2.probability
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      fun ω =>
+      ∃ q,
+        Not
+          (@RiffleUpperV2.Exploration.historyGood k n L cuts D g ξ r.sqrt
+            (@Sigma.fst (Fin k)
+              (fun p =>
+                Prod RiffleUpperV2.Exploration.Direction (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+              q)
+            (@Prod.fst RiffleUpperV2.Exploration.Direction
+              (Fin
+                (@RiffleUpperV2.Exploration.pileSize k n L cuts
+                  (@Sigma.fst (Fin k)
+                    (fun p =>
+                      Prod RiffleUpperV2.Exploration.Direction (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                    q)))
+              (@Sigma.snd (Fin k)
+                (fun p =>
+                  Prod RiffleUpperV2.Exploration.Direction (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                q))
+            (@Fin.val
+              (@RiffleUpperV2.Exploration.pileSize k n L cuts
+                (@Sigma.fst (Fin k)
+                  (fun p =>
+                    Prod RiffleUpperV2.Exploration.Direction (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                  q))
+              (@Prod.snd RiffleUpperV2.Exploration.Direction
+                (Fin
+                  (@RiffleUpperV2.Exploration.pileSize k n L cuts
+                    (@Sigma.fst (Fin k)
+                      (fun p =>
+                        Prod RiffleUpperV2.Exploration.Direction
+                          (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                      q)))
+                (@Sigma.snd (Fin k)
+                  (fun p =>
+                    Prod RiffleUpperV2.Exploration.Direction (Fin (@RiffleUpperV2.Exploration.pileSize k n L cuts p)))
+                  q)))
+            ω))
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+        (@Nat.cast Real Real.instNatCast n))
+      r.sqrt)
+'RiffleUpperV2.Exploration.historyGood_unionBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+RiffleUpperV2.Exploration.regularityFailure_of_bounds {k n L : Nat}
+  (cuts :
+    RiffleUpperV2.Cuts k n
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (D : Nat) (g ξ r s : Real)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hH :
+    @LE.le Real Real.instLE
+      (@RiffleUpperV2.probability
+        (@TimeProfile.ShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.fixedCountPMF k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        fun ω => Not (@RiffleUpperV2.Exploration.concentrationEvent k n L cuts D g ξ ω))
+      r)
+  (hsmall :
+    @LE.le Real Real.instLE
+      (@RiffleUpperV2.probability
+        (@TimeProfile.ShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@TimeProfile.instFintypeShuffleSample k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        (@RiffleUpperV2.fixedCountPMF k n
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          cuts)
+        fun ω =>
+        ∃ p,
+          And
+            (@LT.lt Real Real.instLT
+              (@Nat.cast Real Real.instNatCast (@RiffleUpperV2.Exploration.pileSize k n L cuts p))
+              (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) (@Nat.cast Real Real.instNatCast n) ξ))
+            (Not (@RiffleUpperV2.Exploration.pileEdgeFree k n L cuts p ω)))
+      s) :
+  @LE.le Real Real.instLE
+    (@RiffleUpperV2.probability
+      (@TimeProfile.ShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@TimeProfile.instFintypeShuffleSample k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      (@RiffleUpperV2.fixedCountPMF k n
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        cuts)
+      fun ω => Not (@RiffleUpperV2.Exploration.regularityEvent k n L cuts D g ξ r.sqrt ω))
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) r
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+            (@Nat.cast Real Real.instNatCast n))
+          r.sqrt))
+      s)
+'RiffleUpperV2.Exploration.regularityFailure_of_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U07

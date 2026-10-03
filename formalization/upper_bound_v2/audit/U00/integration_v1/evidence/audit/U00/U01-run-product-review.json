@@ -1,0 +1,36 @@
+{
+  "status": "PASS_IMPLEMENTED_STRONGER_PATH_BOUND",
+  "reviewer": "U00 independent of U01",
+  "recorded_at": "2026-10-02T09:47:32.648132+00:00",
+  "source": "RiffleUpperV2/GraphOverlap/RunProduct.lean",
+  "sha256": "cc3057872f7b6c13bddc7cd19be000e294e2931790a5786ea5c5d5ee5f104a49",
+  "mathematics": [
+    "Finite ordered-set prefix-rank product is cardinal factorial by insertion of maximum. Fiberwise product identifies componentFactorial with product of running component lengths.",
+    "Connectivity on a path is exactly presence of all intervening edges; this proves runLength monotonicity under edge inclusion.",
+    "No predecessor in a graph forces run length1. Unshared predecessor therefore gives pointwise product bound by union run; shared predecessor gives factor at most B using only H component size.",
+    "Injective edgeRight maps shared edges to exactly shared predecessor vertices. Product yields cG*cH<=cUnion*B^|intersection|.",
+    "Positive cUnion division and Nat.choose_le_middle yield requested central-binomial constant."
+  ],
+  "model_quantifiers": [
+    "Arbitrary G/H path-edge sets, no random graph premises.",
+    "Only H has bounded components. BoundedComponents quantifies all finite component keys, including unrealized empty ones.",
+    "The displayed hB>=2 retained in source-style wrapper though the stronger B bound and middle-binomial comparison do not need it."
+  ],
+  "adversarial": [
+    "N=0 empty products valid; N=1 every run1.",
+    "No division by zero: componentFactorial positive always.",
+    "Disconnected runs and alternating disjoint edges are covered by exact pointwise cases.",
+    "No extra sparsity or independent Bernoulli graph hypothesis."
+  ],
+  "independent_build": {
+    "receipt": "graph-check-build.json",
+    "log": "graph-check.log",
+    "exit_code": 0,
+    "graph_declarations": 91,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

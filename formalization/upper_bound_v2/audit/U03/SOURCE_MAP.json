@@ -1,0 +1,260 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "recorded_at": "2026-10-02T10:42:56.800377+00:00",
+  "source_labels": {
+    "eq:ub-anchor-reserve": [
+      {
+        "name": "RiffleUpperV2.Anchor.Reserve",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      }
+    ],
+    "eq:ub-anchor-genuine-crossings": [
+      {
+        "name": "RiffleUpperV2.Anchor.LeftCrossing",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.RightCrossing",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.GenuineBoundaryPair",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      }
+    ],
+    "eq:ub-anchor-side-scales": [
+      {
+        "name": "RiffleUpperV2.Anchor.leftMean",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.rightMean",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.leftScale",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.rightScale",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.sideScale",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.varianceDenominator",
+        "module": "RiffleUpperV2.Anchor.Definitions"
+      }
+    ],
+    "eq:ub-anchor-side-comparison": [
+      {
+        "name": "RiffleUpperV2.Anchor.genuine_sideScale_pos",
+        "module": "RiffleUpperV2.Anchor.Scales"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.genuine_continuation_maximizers",
+        "module": "RiffleUpperV2.Anchor.JoinMaximizers"
+      }
+    ],
+    "lem:ub-anchor-endpoint-atoms": [
+      {
+        "name": "RiffleUpperV2.Anchor.endpointSmoothing",
+        "module": "RiffleUpperV2.Anchor.Smoothing"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointShiftHypergeometric",
+        "module": "RiffleUpperV2.Anchor.Smoothing"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.smoothingFailure",
+        "module": "RiffleUpperV2.Anchor.Smoothing"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointVariance",
+        "module": "RiffleUpperV2.Anchor.Smoothing"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.conditionalEndpointAtoms",
+        "module": "RiffleUpperV2.Anchor.ConditionalAtoms"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.jointInternalOffsetAtoms",
+        "module": "RiffleUpperV2.Anchor.JointAtoms"
+      }
+    ],
+    "eq:ub-anchor-smoothing-failure": [
+      {
+        "name": "RiffleUpperV2.Anchor.smoothingFailure",
+        "module": "RiffleUpperV2.Anchor.Smoothing"
+      }
+    ],
+    "eq:ub-anchor-endpoint-shift": [
+      {
+        "name": "RiffleUpperV2.Anchor.endpointShiftHypergeometric",
+        "module": "RiffleUpperV2.Anchor.Smoothing"
+      }
+    ],
+    "eq:ub-anchor-variance": [
+      {
+        "name": "RiffleUpperV2.Anchor.endpointVariance",
+        "module": "RiffleUpperV2.Anchor.Smoothing"
+      }
+    ],
+    "eq:ub-anchor-conditional-atoms": [
+      {
+        "name": "RiffleUpperV2.Anchor.conditionalEndpointAtoms",
+        "module": "RiffleUpperV2.Anchor.ConditionalAtoms"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.jointInternalOffsetAtoms",
+        "module": "RiffleUpperV2.Anchor.JointAtoms"
+      }
+    ],
+    "eq:ub-anchor-hyp-case-right": [
+      {
+        "name": "RiffleUpperV2.Anchor.unequalEndpointParams",
+        "module": "RiffleUpperV2.Anchor.UnequalLaw"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointShiftHypergeometric_unequal",
+        "module": "RiffleUpperV2.Anchor.UnequalLaw"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.smoothingFailure_unequal",
+        "module": "RiffleUpperV2.Anchor.UnequalQuantitative"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointVariance_unequal_product",
+        "module": "RiffleUpperV2.Anchor.UnequalQuantitative"
+      }
+    ],
+    "eq:ub-anchor-hyp-case-left": [
+      {
+        "name": "RiffleUpperV2.Anchor.unequalEndpointParams",
+        "module": "RiffleUpperV2.Anchor.UnequalLaw"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointShiftHypergeometric_unequal",
+        "module": "RiffleUpperV2.Anchor.UnequalLaw"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.smoothingFailure_unequal",
+        "module": "RiffleUpperV2.Anchor.UnequalQuantitative"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointVariance_unequal_product",
+        "module": "RiffleUpperV2.Anchor.UnequalQuantitative"
+      }
+    ],
+    "eq:ub-anchor-hyp-case-equal": [
+      {
+        "name": "RiffleUpperV2.Anchor.equalEndpointParams",
+        "module": "RiffleUpperV2.Anchor.EqualLaw"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointShiftHypergeometric_equal",
+        "module": "RiffleUpperV2.Anchor.EqualLaw"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.smoothingFailure_equal",
+        "module": "RiffleUpperV2.Anchor.EqualMeans"
+      },
+      {
+        "name": "RiffleUpperV2.Anchor.endpointVariance_equal",
+        "module": "RiffleUpperV2.Anchor.EqualVariance"
+      }
+    ]
+  },
+  "additional_shared_side_comparison": "RiffleUpperV2.anchoredMass_le_sideMaximum in Shared/SideMass.lean; exact namespace/type in its independent audit and fresh build closure",
+  "model_correspondence": [
+    "All local columns are strictly after the exposed anchor. Anchor data R and integer c0 are fixed parameters; sampling continues on all n labels.",
+    "anchoredMean is M*prefixMass, where M=R.card, and Legal means this is strictly positive. Empty R cannot satisfy genuine legal join.",
+    "InternalHistory stores a labeled cylinder and full future words. History proves equivalence to suffix-only data since the prefix is fixed.",
+    "IsPrefix v x allows x=v. Public smoothing only requires the genuine legal join, proving a stronger continuation statement without extra legality of x.",
+    "Terminal fallback words have no automatic crossing certificate. Degenerate proves literal deterministic endpoints at the anchor and no genuine pair at d=0.",
+    "U02 point-mass constant is 4, so the source coefficient 4*C_hyp is 16. The source Chernoff constant is preserved exactly."
+  ],
+  "reviewed_alternative_proofs": [
+    {
+      "change": "Unequal B compares suffix through |x|, excluding digits after |x|. Source strict witness B0 remains a subset.",
+      "evidence": [
+        "WitnessInclusion.lean",
+        "UNEQUAL_WITNESS_REFINEMENT.json",
+        "../U00/U03-alternative-reveal-review.json",
+        "../U00/U03-witness-review.json"
+      ]
+    },
+    {
+      "change": "Equal good event uses two actual cylinder lower tails; its variance and failure bounds imply the source bounds.",
+      "evidence": [
+        "EqualMeans.lean",
+        "EqualVariance.lean",
+        "EQUAL_GOOD_EVENT_REFINEMENT.json",
+        "../U00/U03-equal-quantitative-review.json"
+      ]
+    },
+    {
+      "change": "Symmetric product/min variance avoids alphabet reversal. Both endpoint laws and complement factor are directly proved.",
+      "evidence": [
+        "UnequalQuantitative.lean",
+        "Smoothing.lean",
+        "../U00/U03-smoothing-construction-review.json"
+      ]
+    }
+  ],
+  "input_hashes": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+    "formalization/upper_bound_parallel_plan_2026-10-01/00_coordinator_and_contracts.txt": "d76646f4fb60aa98d8a7f796d012dbb703c07122a39316b937a634e3515aaeca",
+    "formalization/upper_bound_parallel_plan_2026-10-01/03_anchored_endpoint_smoothing.txt": "31b18ebd3a67c37516cea25a6e31ee5bbb89be522fe8e7f9d5a87524dc2a3d1c",
+    "formalization/upper_bound_parallel_plan_2026-10-01/PLAN.txt": "f661237393292885776d684e77f9e3836476dfea34b1ed21c29feceda80a3ca1",
+    "formalization/upper_bound_v2/CONTRACTS_READY.json": "8496de3163f84e26681c46dbd8984c1f1f2b19b6c7be94377e8f4206647879e6"
+  },
+  "owned_source_hashes": {
+    "RiffleUpperV2/Anchor/ConditionalAtoms.lean": "4a292d4812ca9d5c7497db6a0690f980a1c5cff97d740ede1b05ada962fcc75b",
+    "RiffleUpperV2/Anchor/ConditionalColumn.lean": "1aeed9e84e70da60e9c2b5bdadaf8effb8c26b11ca2baae35c58f8d9f21b2669",
+    "RiffleUpperV2/Anchor/CylinderExtension.lean": "024a33877255870b2ff1a8c0ecf66e8f7b04dc65dd42a46fce7399b3c7ac8697",
+    "RiffleUpperV2/Anchor/Definitions.lean": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+    "RiffleUpperV2/Anchor/Degenerate.lean": "d697ca2e72efc4d29fb32513f5eeec0294282bd6bf09fe3d100249639541441d",
+    "RiffleUpperV2/Anchor/EqualCylinder.lean": "adedcdadda59fdcb156fcc9947dcf166b87f54ec5ad161f144ec9caaed440c0d",
+    "RiffleUpperV2/Anchor/EqualEndpoint.lean": "b6bd5c0ab176dbc2e920ff807f302b4e317864c4b5c84770115098ca56e82901",
+    "RiffleUpperV2/Anchor/EqualFailure.lean": "cb0ce697b3d6ecab067d9bd2cb51ef23f34102c4619eb05264e8dc79820a8e5a",
+    "RiffleUpperV2/Anchor/EqualHistory.lean": "1a6a7e535286703cf6e78b5750d87d1146b6994f8087cd2d8e31dfea0e57eb5c",
+    "RiffleUpperV2/Anchor/EqualLaw.lean": "75906d3faf69a1d75db4616b63fd54c9a382494b8dc938e4cf3796aa71287972",
+    "RiffleUpperV2/Anchor/EqualMeans.lean": "c566878167bbaaefd412e8390b0df31d3f0c1ade9cb33d7803d2666d640eb55a",
+    "RiffleUpperV2/Anchor/EqualMeasurability.lean": "21c7b0f7cef3a1ae2ff669c41b3c73fda36c9d9bab718bd72460cbc3bbb40f6b",
+    "RiffleUpperV2/Anchor/EqualReveal.lean": "70f2f1fba794684ffdcac55eee421dbda7fbd9f4b3494170d5aa37b5c1f37da1",
+    "RiffleUpperV2/Anchor/EqualVariance.lean": "4c536aae76463606c14216fde2f56a38296e2d410f930ce7a7ac936363213233",
+    "RiffleUpperV2/Anchor/EqualVarianceAlgebra.lean": "57671162a523fc99c82329752a65fce35ba2171e8f7d774f31587cf7ba53f858",
+    "RiffleUpperV2/Anchor/FineAtoms.lean": "9610978d32c6873793f4cc33bf5a50a6bbdaedcdc3edc55e42350274afe8a02a",
+    "RiffleUpperV2/Anchor/History.lean": "b07b495a4e9c3e9731b0b7cf4bc3c44f520ef12256d470ad43082e9e37593a11",
+    "RiffleUpperV2/Anchor/HypergeometricSymmetry.lean": "e77a0238b9954819e492e3a05920343556faa1599db96b6d3101f9b85b973aaa",
+    "RiffleUpperV2/Anchor/JoinMaximizers.lean": "4e32604f1ad68dfe764f3ca793f09fa6d8621a32ef6e5368c2d010b5c0962cb6",
+    "RiffleUpperV2/Anchor/JointAtoms.lean": "bc6d734fe5b2b5c8fdc06fd3215d25ac81b74952d8c80d896291eae63a5aa4fb",
+    "RiffleUpperV2/Anchor/LexSplit.lean": "4b59b3b6e7473d8f104c3386025c6e56b29e08d04b9e5d9b5a45da7a2075135e",
+    "RiffleUpperV2/Anchor/Main.lean": "b754190bfb54cea18e9c34f28af7ba05cd9598344f69a7c2689a003b4bb86fa0",
+    "RiffleUpperV2/Anchor/PartialColumn.lean": "b8cfe01ea219417d9ef1cf761c99462ddf74d3e698a2e8c3de664c12ecbefdfb",
+    "RiffleUpperV2/Anchor/PartialReveal.lean": "103ebb9060691cb88692f59e6f5618db42254f4a2a0751a8cada5299abf78c8b",
+    "RiffleUpperV2/Anchor/ResidualOtherLaw.lean": "cf6b22bf75a7a88385414b7bedaf5b4a65af13790d39c518e372f071e2b430fe",
+    "RiffleUpperV2/Anchor/ResidualOtherTail.lean": "5d49106a664836d246116d73be0188f88e0d533a1ec10fbcd2174f5649cc185f",
+    "RiffleUpperV2/Anchor/RowSlices.lean": "a370497153b8a77d40552b40c6b8bafa2f978bdfe40bd28f7c65da79aee2ec70",
+    "RiffleUpperV2/Anchor/Scales.lean": "dcf3bc2bcb27f716630cc8dda3a92bcc5d997adca04bd6194ff4c28300ee1cdc",
+    "RiffleUpperV2/Anchor/SliceOrder.lean": "e685c8bcf59e5d5b331e58d01b77ec79c86eab639f9d442cce98f99de82895b7",
+    "RiffleUpperV2/Anchor/Smoothing.lean": "ded4de450baa759f3de1bc5c6694fab5548d30bfc82c6ef2949a65f781b4fcbc",
+    "RiffleUpperV2/Anchor/SmoothingData.lean": "93085848e6fd447f49456a471b62da7b81b35a19ccf996bf0a0f45e5ac05f0c9",
+    "RiffleUpperV2/Anchor/SourceSampling.lean": "1496f324b25e5af5d765474f8a984ccb316d3dadf06d7bd3bc82c78ac0a14b6b",
+    "RiffleUpperV2/Anchor/UnequalDefinitions.lean": "8c039f30f8b11b5c01b6a120829708035fd829f6c2f183d6a6e5f6569d53679c",
+    "RiffleUpperV2/Anchor/UnequalEndpoint.lean": "7d599e74df6fed52ed19aa5ea20cd1360d2c1f2e4a9740f78f028c5b48788882",
+    "RiffleUpperV2/Anchor/UnequalGood.lean": "23175d918a588edad9a6e34817bd3ce27383274624123514aa62bcb5535af31a",
+    "RiffleUpperV2/Anchor/UnequalHistory.lean": "709c829368c60e9d3e7ae1c37beef3d32b2712bb7fbba3eec221d14ad61ba3f7",
+    "RiffleUpperV2/Anchor/UnequalLaw.lean": "604616ac6e7a36a41945a214b997a827c39acfcc6ba437d486385001b0b76330",
+    "RiffleUpperV2/Anchor/UnequalMeasurability.lean": "2a9d226b689e25cc35114f053af0dee60028dc0b6f27b65041d95926e9411946",
+    "RiffleUpperV2/Anchor/UnequalParameters.lean": "5f6505358b2b6e1a3d93077d4f3a95b726231bb583d19792792b83bb12499dd1",
+    "RiffleUpperV2/Anchor/UnequalQuantitative.lean": "f7f1e3ac28e8ce40f81d48ae439ec9f488dbbbab7eefe525684dec666ff5c570",
+    "RiffleUpperV2/Anchor/UnequalSideBounds.lean": "2d22f91402eb6c0442beab4062aca0e50e02ab688263f7a827e740f14db23d17",
+    "RiffleUpperV2/Anchor/VarianceAlgebra.lean": "d4d55b279f864a56d3c55f9e0663bb788be998455df26b3c20682e2d38e6bf2d",
+    "RiffleUpperV2/Anchor/WitnessCylinder.lean": "c83839354519d39c9c584294033d239da82fbcf5c3485eacf3c5d05b0e2138a7",
+    "RiffleUpperV2/Anchor/WitnessInclusion.lean": "9b2f568e69c4c9dc140e93a38e6b393e01381951df49080116586bbbae949f3b"
+  }
+}

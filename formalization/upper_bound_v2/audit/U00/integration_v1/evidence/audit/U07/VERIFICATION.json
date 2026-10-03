@@ -1,0 +1,925 @@
+{
+  "status": "PROVED_AND_CHECKED",
+  "generated_at": "2026-10-02T10:54:45.998227+00:00",
+  "lane": "U07",
+  "scope": "Complete assigned exploration package; full upstream upper-bound integration remains with U00/U11/U13",
+  "objects_frozen_sha256": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e",
+  "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "source_sha256": {
+    "RiffleUpperV2/Exploration/AllCylinders.lean": "1c503aac692f4bc2002f37c8fd6781e3ee40cca88c73ad619ac993f54faa5ae1",
+    "RiffleUpperV2/Exploration/Clusters.lean": "4809cd86bab5de71010375c952c5fb8fcbcf3c0bac12818aa80a289299b6af0c",
+    "RiffleUpperV2/Exploration/CoverageCount.lean": "5810fa73c07161e8b8a099446e7b6c8593458d5178697a4459e1a15e7160a0d8",
+    "RiffleUpperV2/Exploration/CylinderCounts.lean": "50f0bef9903be598978806a7cb53f10d2d4c5d74b26685ac96aab893bc22cd77",
+    "RiffleUpperV2/Exploration/DirectionalCover.lean": "808981ee2859b3cbcbc3af33913831d8ec10dde96d0172aee28c9a98f6a604f8",
+    "RiffleUpperV2/Exploration/DirectionalGuards.lean": "af16535fc15cea74517fda308ceebd40744d94a816c10918fb1a1b0d0ead9239",
+    "RiffleUpperV2/Exploration/DirectionalRanks.lean": "6c250501968789766b9319cea7bc2cfea581aafff305905e405fac97c901cc9c",
+    "RiffleUpperV2/Exploration/GuardConcentration.lean": "20995813b56ac211f78eaaf9fab56a6e7d3a96961ec966a744aa733493ed4a48",
+    "RiffleUpperV2/Exploration/Guards.lean": "fd11662dc9dd8278a1e91a8609500a8a254fd39cc11cccf4d9e74a39b05172d5",
+    "RiffleUpperV2/Exploration/Histories.lean": "2a19de77bf5c29b6e18aa5dfae534a076d19d934949294f906085dfab9f197a7",
+    "RiffleUpperV2/Exploration/HistoryProbability.lean": "14bd9f7b1b58c947e1dbe0af89ef34ce7af8e36b3e28a3015c3017ce1ec374af",
+    "RiffleUpperV2/Exploration/LocalGood.lean": "c5cce65298f1866265f28ab361f7de8fe704bfdc03244650a80f6b8b293904cb",
+    "RiffleUpperV2/Exploration/Module.lean": "44800002a8f1287a84cde5fbf5a603fc32846641be285aaf146fa12c39b0611a",
+    "RiffleUpperV2/Exploration/Objects.lean": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e",
+    "RiffleUpperV2/Exploration/PairHistories.lean": "2ad763fe9137f71e44ce64df62255c8464331fa9fc870074b51e257e3fc86a51",
+    "RiffleUpperV2/Exploration/Positions.lean": "75f0d5684f27f0948b63e2df257e0f434ba2ffb6c7d77ce70aea897a47da869e",
+    "RiffleUpperV2/Exploration/PrefixConcentration.lean": "9aad9833d0364bc032bccb6a42f5e5544186e377e007d292c26cf0672f1bc758",
+    "RiffleUpperV2/Exploration/Processes.lean": "75016be4d6efd1dc0e2165c70e9781ca4acbe3bb394b3047c09d12e49f7c4f95",
+    "RiffleUpperV2/Exploration/Regularity.lean": "518923fd16275a6a0f5f74844259a4d564db4a2b6af990849322c965fc7f88c3",
+    "RiffleUpperV2/Exploration/RegularityDecay.lean": "4e9dfb6d42f4d0153139c24083f14a94c9136df6cb7b69d1160527d5e315da6a",
+    "RiffleUpperV2/Exploration/ReserveExistence.lean": "82c9f7acb7660014209d9e361339c0b44c3d520129a016187888d02e8e6ebd76",
+    "RiffleUpperV2/Exploration/SmallPiles.lean": "6f05052f46f41b4bc3950cd23566a8e921520effb5947f439776e7820b0724bd",
+    "RiffleUpperV2/Exploration/UniformConcentration.lean": "4f06a908d3e151b26935011eb08ff7e99e2ef28d2c90c88435432b8e0d950f21",
+    "RiffleUpperV2/Exploration/UniformRegularity.lean": "ca40d22a3ac89b017aa07a2fe985965750aca9199c71f8f87ebf034b3a464fe5",
+    "RiffleUpperV2/Exploration/WindowClusters.lean": "fcfb89a7eb07decbc00eff6defd26b4483e70e0a4924227e6182bea189e8e897"
+  },
+  "public_declarations": [
+    {
+      "name": "RiffleUpperV2.Exploration.allCylinderEvent",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/AllCylinders.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.half_twoThirds_exponent",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/AllCylinders.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.cylinder_half_concentration",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/AllCylinders.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allCylinderFailure",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/AllCylinders.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allCylinderEvent_bound",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/AllCylinders.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.goodCluster_finite",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Clusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.cluster_count_threshold",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Clusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.goodCluster",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Clusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.spatialPileEdge",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/CoverageCount.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.spatialPileEdge_left",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CoverageCount.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.spatialPileEdge_right",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CoverageCount.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.shuffleEdge_in_pile",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CoverageCount.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess_terminal",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CoverageCount.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.sharedEdges_le_directionalProcesses",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CoverageCount.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixCylinder_count",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixCylinder_mean",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixLaterDigits",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixLaterCylinder_count",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixLaterCylinder_mean",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.outsideDigits",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.outsideCylinder_count",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allowedCount_erase",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.outsideCylinder_mean",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.digitFraction_bounds",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allCylinder_prefix_and_later",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allCylinder_outside",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/CylinderCounts.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.commonDirection_on_concentration",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalCover.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reversePileEdge",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/DirectionalCover.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reversePileEdge_involutive",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalCover.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalEdge_backward_iff",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalCover.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalCover",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalCover.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailBinMean_eq",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalGuards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardMean_gap",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalGuards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guards_interlace_on_concentration",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalGuards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailPrefix_mono_same_head",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalRanks.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.fullWord_lt_of_tailPrefix_lt",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalRanks.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pileTailPrefix_monotone",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalRanks.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pile_filter_card",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalRanks.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardCount_positions",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalRanks.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guard_before_rank",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalRanks.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guard_through_rank",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/DirectionalRanks.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailBinPrefix",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailBinPrefix_word",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailBinCount",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailBinCount_prefix",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailBinCount_le_pile",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailBinMean_le_pile",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardBins",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardCount_sum",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardMean_sum",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardBins_card_le",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allCylinder_guard_deviation",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guard_scale_bound",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allCylinder_implies_concentration",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/GuardConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.chosenReserves_spec",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.chosenReserves_exists_iff",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reserveMass_pos",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.direction_cover_word",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.direction_overlap_iff",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guard_interlace",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.no_crossed_edge",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.naturalHistory_zero",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.history_refinement",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.revealed_word_eq",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyFiber_eq",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGood_adapted",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.naturalHistory_positive",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGood_of_null",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.conditionalProbability_tower",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/HistoryProbability.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.conditionalProbability_markov",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/HistoryProbability.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGoodProbability",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/HistoryProbability.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.localGood_integerWindow",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/LocalGood.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.Direction",
+      "kind": "inductive",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.windowLength",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.clusterSpan",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.integerWindowGood",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.retainedGoodCluster",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pileOffset",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pileSize",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pileOffset_add_size_le",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.spatialIndex",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePosition",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.naturalHistory",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyFiber",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.positiveHistory",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailPrefix",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.tailMass",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reserveMass",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reserveCandidates",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.chosenReserves",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.hasDirection",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.beforeMiddle",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.throughMiddle",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardCount",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guardMean",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.outsideCount",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixLaterCount",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.concentrationEvent",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.badBound",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGood",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalEdge",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.remainingDirectionalCount",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistory",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistoryGood",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pileEdgeFree",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.regularityEvent",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistory_refinement",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/PairHistories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistoryGood_adapted",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/PairHistories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.regularity_pairHistoryGood",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/PairHistories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePrefix",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.row_take_one",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePrefix_count",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePrefix_lowerRank",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePrefix_upperRank",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePosition_firstDigit",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixSizeFailureSum",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixSizeConcentration",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allPrefixSizesConcentration",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.bernstein_twoThirds_exponent",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixSizeFailureSum_le",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess_zero",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess_one",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalEdge_adapted",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess_adapted",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.revealedEdges_step",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.unitIncrements",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.remainingDirectionalCount_eq",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.remaining_terminal",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistoryGood_initial",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistoryGood_terminal",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.direction_card",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.HistoryIndex",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyIndex_card",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGood_unionBound",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.regularityFailure_of_bounds",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.stretchedExp_tendsto_zero",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/RegularityDecay.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.power_badBound_tendsto_zero",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/RegularityDecay.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.power_sqrt_badBound_tendsto_zero",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/RegularityDecay.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyErrors_eventually_le_power",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/RegularityDecay.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.regularityError_tendsto_zero",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/RegularityDecay.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reserve_product_lower",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/ReserveExistence.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.exists_large_digits",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/ReserveExistence.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.modifiedTail",
+      "kind": "def",
+      "file": "RiffleUpperV2/Exploration/ReserveExistence.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reserveCandidates_nonempty",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/ReserveExistence.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.chosenReserves_of_retainedGoodCluster",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/ReserveExistence.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pile_not_edgeFree_has_collision",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/SmallPiles.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pileWordMass_sum",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/SmallPiles.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.wordCollision_set_bound",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/SmallPiles.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.smallPileFailure_mean",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/SmallPiles.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.smallPileFailure",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/SmallPiles.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.uniformConcentration_finite",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/UniformConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.cylinder_testCount_polynomial",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/UniformConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.uniformConcentration",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/UniformConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.regularityFailure",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/UniformRegularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.integerWindow_cluster",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/WindowClusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.cluster_threshold_eventually",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/WindowClusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.goodCluster_uniform",
+      "kind": "theorem",
+      "file": "RiffleUpperV2/Exploration/WindowClusters.lean"
+    }
+  ],
+  "public_declaration_count": 158,
+  "public_theorem_count": 112,
+  "fresh_build": {
+    "command": "python3 formalization/upper_bound_v2/scripts/build.py --lane U07 --fresh RiffleUpperV2.Exploration.Module",
+    "exit_code": 0,
+    "log": "audit/U07/final-fresh-build.log",
+    "log_sha256": "f8b4c2288057a5a557f89a923f302ec4f2f9fc6519237c96907d9befe41228ca",
+    "receipt": "audit/U07/final-fresh-build.json",
+    "receipt_sha256": "23e9cd56d38ec3b9eefeb5f468814a5471e9ea1232c394d9c035d3c7ba72e037"
+  },
+  "type_and_axiom_check": {
+    "command": "python3 formalization/upper_bound_v2/scripts/build.py --lane U07 --run audit/U07/Check.lean",
+    "exit_code": 0,
+    "log": "audit/U07/final-signatures-and-axioms.log",
+    "log_sha256": "7a04f3ec498c20732364fc09f9a1f1b5dc66e3f3f6a75754f734738b17718e2b",
+    "printed_axiom_declarations": 158,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "receipt": "audit/U07/final-type-trust-build.json"
+  },
+  "source_map": "audit/U07/source-to-declaration-map.json",
+  "independent_review": [
+    {
+      "path": "audit/U00/U07-all-cylinder-review.json",
+      "sha256": "d72eed5f7ad901591d074a932ebc36dd6fdad20d6e68a374c5c474e5c67f3e63",
+      "status": "PASS"
+    },
+    {
+      "path": "audit/U00/U07-coverage-window-review.json",
+      "sha256": "b6d424057fe26636f9861eac6327f846360dc1dbee80cd74d0c6cb9e5bf0147a",
+      "status": "PASS_SOURCE_TYPE_TRUST"
+    },
+    {
+      "path": "audit/U00/U07-decay-pair-review.json",
+      "sha256": "35c48892e8cf888f3a4341a442400754ffcabde5f298417c773d96716dcaf3f1",
+      "status": "PASS_SOURCE_TYPE_TRUST"
+    },
+    {
+      "path": "audit/U00/U07-directional-ranks-review.json",
+      "sha256": "c71667bd8b542668106a4362a67971337de405a472ccffb32c4d73d6118d5e77",
+      "status": "PASS_SOURCE_TYPE_TRUST"
+    },
+    {
+      "path": "audit/U00/U07-full-H-implication-review.json",
+      "sha256": "6c27e0fbaa11ce68f26e780019a9e472d96e83d730b972aeb029c25b9c6aa4ac",
+      "status": "PASS"
+    },
+    {
+      "path": "audit/U00/U07-regularity-cover-review.json",
+      "sha256": "b95ddc260875eaf12ed68434812ebdac5f1caa050c7577857804190b8cdfbee1",
+      "status": "PASS_SOURCE_TYPE_TRUST"
+    },
+    {
+      "path": "audit/U00/U07-reserve-existence-review.json",
+      "sha256": "dfdfd3bbc7255a4780e2348cb82a4d811cb6e9d8d07c4728ecb3b3656db6b5e2",
+      "status": "PASS"
+    },
+    {
+      "path": "audit/U00/U07-slice-independent-review.json",
+      "sha256": "a99dba401d6afdf3d4a9d3f21fca9279a736d51e788b91e905bda75a5620b11e",
+      "status": "PASS_RELEASED_SLICE_NOT_FULL_LANE"
+    },
+    {
+      "path": "audit/U00/U07-small-piles-review.json",
+      "sha256": "ac58a09a3365b9a11cb49775ee0e701513c829b377efb412676858350008afed",
+      "status": "PASS_SOURCE_TYPE_TRUST"
+    },
+    {
+      "path": "audit/U00/U07-uniform-H-review.json",
+      "sha256": "6401ccb912396cf9cbf5e0cd348c9887263443cab7b9275feb64767b8512953e",
+      "status": "PASS"
+    }
+  ],
+  "open_obligations": [],
+  "downstream_responsibilities": [
+    "U11 concrete suffix/restart construction and inheritance integration",
+    "U08 conditional reservoir input, U09 conditional remaining-edge expectation",
+    "U11/U00 assemble final empirical upper bound; U13 final integrated audit"
+  ],
+  "discharged_inputs": {
+    "full_H": "uniformConcentration from actual PMF allCylinderFailure and concrete count/guard adapters",
+    "reserve_existence": "chosenReserves_of_retainedGoodCluster, actual original population",
+    "small_pile": "smallPileFailure from actual factorial moments; terminal mean premise discharged in regularityFailure using Margins.maximalMean_le_of_terminalMargin",
+    "directional_coverage": "directionalCover on H\u00d7H and sharedEdges_le_directionalProcesses on R\u00d7R",
+    "regularity": "regularityFailure chooses constants before arrays and concludes full frozen R failure formula",
+    "error_decay": "historyErrors_eventually_le_power and regularityError_tendsto_zero"
+  },
+  "constant_substitution": {
+    "input": "checked Bernstein denominator 4*(mu+t)",
+    "chosen_H_exponent_constant": "1/24",
+    "exact_H_tolerances": "unchanged",
+    "polynomial_A": "2+k*T*log 2",
+    "independent_acceptance": "audit/U00/U07-uniform-H-review.json"
+  },
+  "forbidden_token_scan": []
+}

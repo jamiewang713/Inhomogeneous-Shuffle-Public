@@ -1,0 +1,114 @@
+LOWER-BOUND LEAN PLAN AND PARALLEL PROMPTS — CURRENT CHECKOUT, 2026-10-01
+
+This is an updated plan, not new Lean proof. It preserves the original thirteen-task implementation pack and all frozen project records. Each numbered .txt file here is a complete standalone copy-paste prompt beginning with /goal. Paste the whole file into one agent. No shared preamble needs to be appended. Preparing this plan does not launch those implementation tasks.
+
+CURRENT RESULT AND ASSUMPTIONS
+
+The lower_bound_v2 package already proves the deterministic empirical lower bound E and macroscopic lower bound M. The accepted v20 evidence records 197 rebuilt modules (183 package modules), 58 exact required exports, independent endpoint/dependency review and standard-only axiom closures. The current production Lean sources match that accepted snapshot. We checked existing evidence and theorem bodies for this plan; we did not run another fresh compilation.
+
+Use import RiffleLowerV2.Completed. Its public endpoints are:
+- RiffleLowerV2.EmpiricalLower.largestOnly
+- RiffleLowerV2.EmpiricalLower.coldOnly
+- RiffleLowerV2.EmpiricalLower.empiricalCombined
+- RiffleLowerV2.MacroscopicLower.macroscopicIntegrable
+- RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto
+
+E uses actual finite columns and no macroscopic time regularity. Local-good cuts and 2 rho log k <= kappa0/100 occur only in the cold branch. M requires ScalarIntegrable for the exact selected partition: its cell probabilities, maximum cost and psi costs for alpha in [2,4]. This is an explicit addition relative to the old unrestricted TimeLaw formulation, and matches the revised manuscript's ordinary-integral convention. Boundedness makes it equivalent to scalar AE strong measurability on the finite interval; that equivalence is already proved in an audit supplement. No continuity or quantitative temporal convergence is required. Do not ask an agent to silently strengthen these assumptions or to remove scalar regularity.
+
+The old README, LEDGER and OWNERSHIP status strings are frozen foundation-stage records. They are not current proof status. The original prompt pack's claim that the package does not yet exist is likewise historical.
+
+ACTUAL CURRENT FOLLOW-UP
+
+The audited manuscript hash is 672f414c9ccd6229c7f496c80cba6cc989c5fd07d93b75e66083456ee6242b1d.
+The manuscript hash at planning time is af45ce4d3732d86c5f8795f8fb021d768a564ee5bf03a288e81c89f0354fd72d.
+The complete lower-bound section through EOF is byte-for-byte unchanged from the audited Git HEAD; current differences are in the upper proof. All 183 package source hashes and 22 accepted v20 evidence hashes were checked and match. Nevertheless the strict historical dependency checker rejects the changed whole-manuscript hash. This is a real provenance/handoff issue, not evidence that the lower Lean proof has broken. C00 records the current-source comparison and, if desired, supplies a reviewed additive route to a new release. Shared definitions and model conventions still belong in its comparison; an unchanged lower section alone is not a complete semantic audit.
+
+RECOMMENDED EXECUTION
+
+1. Start C00 to reconcile current source provenance and issue a current-status receipt. C07 can run simultaneously if you want the optional public measurability interface.
+2. C01–C05 are focused proof verification/repair prompts, available in parallel. Use them for affected dependencies found by C00, or if you specifically want another independent audit. Do not reprove already matching lanes merely because their historical labels say PENDING. If C00 confirms all relevant inputs unchanged, reuse their accepted receipts and skip this work.
+3. Any necessary new proof is staged in the owning lane's additive directory, independently reviewed, and integrated by C00. Do not write into another agent's modules.
+4. C06 performs the independent final handoff after C00 and any selected changes. A fresh build is appropriate after proof/tooling changes or for a requested new release; otherwise state honestly that the accepted build was revalidated by hashes. Do not repeatedly rebuild unchanged work.
+
+For a deliberate full independent review with four worker slots: run C00 first; then run at most three of C01,C02,C03,C05 while the coordinator occupies the fourth slot, queuing the remaining lane; C04 can inspect its own proof immediately and finalize after any relevant findings from C01–C03; run C06 last. Count the coordinating agent against the actual slot limit. C07 is optional and can occupy a freed slot. Reviewed existing proof inputs do not require waiting for a redundant upstream reimplementation.
+
+PROMPT INDEX
+- C00 — Source correspondence and provenance coordinator: 00_source_and_provenance_coordinator.txt
+- C01 — Concrete shuffle law and graph representation: 01_physical_model_and_graph_law.txt
+- C02 — Concentration, factorial moments and occupancy: 02_thinning_factorial_and_occupancy.txt
+- C03 — Cold witness, type counts and localization: 03_cold_witness_types_and_localization.txt
+- C04 — Observable ascent test and empirical lower bound: 04_ascent_test_and_empirical_lower.txt
+- C05 — Profile transfer and macroscopic assumption audit: 05_profile_transfer_and_macro_assumptions.txt
+- C06 — Independent final audit and release handoff: 06_independent_release_audit.txt
+- C07 — Optional public scalar-measurability interface: 07_optional_public_measurability_corollary.txt
+
+DECOMPOSITION OF THE LOWER PROOF
+
+The original implementation architecture remains useful for understanding the proof. All eleven mathematical lanes below are now implemented, with 58 frozen exports accepted by the final audit. These are proof components, not an open-task list:
+
+LB00 Shared finite model, empirical costs, target contracts and toolchain.
+LB01 Physical shuffle law, matrix sorting and graph mixture. [Current C01]
+LB02 All-positive-s thinning, residual laws and all-prefix concentration. [C02]
+LB03 Joint factorial moments and valid Bonferroni remainder bounds. [C02]
+LB04 Component-ascent concentration, clipping and observable scans. [C04]
+LB05 Tilt analysis and construction of an empirical cold witness. [C03]
+LB06 Rounded type families, lower cardinalities and mass-bin selection. [C03]
+LB07 Two-sided profile transfer with explicit scalar integrability. [C05]
+LB08 Uniform occupancy and collision covariance, including rare/mixed regimes. [C02]
+LB09 Cold geometry, relative endpoints and probabilistic localization. [C03]
+LB10 Largest-word/cold branches and uniform empirical endpoint E. [C04]
+LB11 Profile transfer plus E to macroscopic endpoint M. [C05]
+LB12 Independent literal-type, dependency, axiom and source audit. [C06]
+
+Original proof dependencies:
+00 -> {01,02,03,04,05,06,07}
+{02,03} -> 08
+{02,05,06} -> 09
+{01,02,04,08,09} -> 10 (E)
+{07,10} -> 11 (M)
+{10,11} -> 12
+
+For genuinely rebuilding this architecture from a clean compatible contract, the historical thirteen prompts are in ../lower_bound_prompt_pack_2026-10-01/. They provide the detailed implementation split. Do not run their setup instructions verbatim against the completed package or overwrite its contracts. The current prompts in this pack supersede their claims about what remains undone.
+
+GAP REGISTER: WHAT HAPPENED TO THE EARLIER GAPS
+
+1. Physical model versus graph mixture: closed by proved physical/matrix/graph law identities in Model. The lower bound concerns the actual physical inverse shuffle.
+2. Fixed-word moments versus exponential all-prefix control: closed by Thinning, including changing residual populations and a uniform union bound.
+3. False old Bonferroni coefficient and uncontrolled polynomial remainder: replaced and proved in Factorial; Occupancy handles relative rare/mixed errors rather than assuming independent word occupancies.
+4. False general block bounded-difference lemma: bypassed by the proved specialized component-ascent argument in Ascent. This does not make the old general lemma true.
+5. Endpoint tilt and terminal bridge clearance: constructed in Witness with fixed positive margin and the stated rho budget.
+6. Upper type count used as a lower count, and fixed-mesh errors called o(1): addressed by rounded lower type counts and explicit mass-bin losses in Types.
+7. Assumed cold localization and lost ambient endpoint fluctuation: closed by Localization and its actual use in EmpiricalLower/Cold.lean.
+8. Missing macro regularity/two-sided transfer: M now states scalar integrability explicitly and ProfileTransfer proves the required estimates. The unrestricted arbitrary-TimeLaw claim is not recovered by this repair. Deleting the premise is mathematically false under totalized-integral semantics; the recorded counterexample is reviewed mathematics, not a Lean-certified refutation.
+9. Conditional theorem wrappers mistaken for completed bounds: current exact E/M theorem bodies construct and discharge witness, geometry, moments, localization and test success. The Completed import reaches the implementations.
+10. Current whole-file fingerprint mismatch: open provenance follow-up C00; lower proof sources and lower section still match the accepted snapshot.
+11. Public scalar-measurability convenience API: optional C07 packaging improvement. Its core equivalence is already checked in the audit supplement.
+
+OUTSIDE THE CERTIFIED DETERMINISTIC LOWER RESULT
+
+- Random-environment cold lower bound: not proved by this package. Large conditional TV distances cannot simply be averaged to obtain a lower bound for the mixture. A common observable test or other valid mixture argument is required. The old finite random largest-word result is a separate theorem, not a cold extension.
+- Zero-margin boundary and full cutoff: not consequences of these positive-buffer lower endpoints.
+- Arbitrary nonmeasurable TimeLaw without scalar regularity: not a missing adapter; do not assign direct deletion of the premise as an achievable proof task.
+- Upper-bound anti-concentration/exploration failures from the chats: separate work, not prerequisites to reprove the certified lower theorem.
+
+REFERENCE FORMAT AND EVIDENCE
+
+All eight supplied shared chats were opened and their visible prompts/outcomes read. The new prompts retain their /goal opening, bounded mathematical assignment, three independent review perspectives, frozen statements, no extra axioms/placeholders, two-strategy recovery and concrete evidence requirements. They add current status, exact endpoint scope and disjoint output ownership so several agents can work safely together.
+
+Especially relevant reference prompts:
+Lower-bound task: https://chatgpt.com/s/cx_6aad637fdd18819197ed70dc90769112
+Proof recovery / specialized ascent result: https://chatgpt.com/s/cx_6aad63c75e148191b5aae6b3d8984906
+Probability and conditional sampling: https://chatgpt.com/s/cx_6aad63bd316081919967d9a59d37c532
+
+Primary current local evidence (relative to lower_bound_v2):
+Contracts/v1/Endpoints.lean
+RiffleLowerV2/Completed.lean
+RiffleLowerV2/EmpiricalLower/{Main,Cold}.lean
+RiffleLowerV2/MacroscopicLower/Main.lean
+audit/LB00/final_audit_v20/VERIFICATION.json
+audit/LB12/VERIFICATION_v20.json
+audit/LB12/FINAL_AUDIT_v1.md
+audit/UserCheck_20261001/VERIFICATION.json
+audit/UserCheck_20261001/MeasurabilityCheck.lean
+
+Only new plan/prompt artifacts were written in preparing this pack. No manuscript, production Lean proof, frozen contract or historical audit was changed by this planning step.

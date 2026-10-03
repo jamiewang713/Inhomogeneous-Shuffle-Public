@@ -1,0 +1,74 @@
+/goal
+You are a Lean formalization agent assigned ONE bounded part of the UPPER BOUND for time-inhomogeneous riffle shuffles. Implement the assignment below and produce checkable proof evidence. The lower-bound formalization is finished; it is a read-only source of reusable lemmas, not another task.
+
+AUTHORITATIVE INPUTS
+Workspace: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle
+Manuscript: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/time_inhomogeneous_riffle_shuffle_unified_article.tex
+Manuscript SHA256 when this plan was prepared: 284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a
+Plan and all sibling prompts: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_parallel_plan_2026-10-01
+Proposed NEW integration package: /Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2
+Proposed namespace: RiffleUpperV2. Proposed names below are deliverable names, NOT claims that these Lean declarations already exist.
+
+Use the CURRENT empirical/reserved-population proof. The old formalization/upper_bound/STATUS.md and PROOF_STRUCTURE.md describe an earlier manuscript and are historical. Their ambient partition-preservation route is not the new target. The current repair map is formalization/upper_bound/REPAIR_AUDIT_2026-10-01.txt. A manuscript review is not a Lean certificate. Locate statements by their LaTeX labels, not old line numbers.
+
+Reuse existing checked mathematics where its FULL type matches. Important candidates are formalization/foundations, formalization/time_profile, formalization/lower_bound_v2/RiffleLowerV2/{Model,Thinning,Factorial,ProfileTransfer}, formalization/first_moment, formalization/stable_blocks, lean/EdgeLocalization, and lean probability modules. Inspect actual proofs and provenance. The first_moment package has proved generic aggregation and model adapters, but its model-specific first-moment theorem remains unproved. It records successful 4.33.1 compatibility; do not repeat its older compatibility failure as current. Old stable/profile definitions require a proved adapter to the new anchored empirical construction.
+
+MATHEMATICAL CONTRACT
+The primary endpoint is thm:ub-empirical-upper: for fixed k>=2 and T,eta0,g0,gamma0>0 there exists rho0>0; for every fixed 0<rho<=rho0 there exist c>0,N0 such that ALL N>=N0, ALL K<=T log N and ALL fixed-count cut arrays satisfying the empirical negative margin and local-good condition have TV(physical inverse shuffle, uniform)<=N^(-c). The theorem must not assume a first-moment bound, conditional-edge estimate, exploration certificate, witness, density bound or exponential-moment bound.
+
+Its first-moment input prop:ub-empirical-first-moment is uniform over 2<=n<=N, integer a<K<=T log N and arrays on the n labels, with a g-good first retained column and eq:ub-empirical-negative-margin. The costs and beta use log N, including in subdecks: beta(s)=log(n)/log(N)-Ahat(a,s). Never substitute log n. Terminal beta(K)<=-eta and every integer pair a<=s<=u<=K are included; the theta infimum is over [3,4]. This input requires no time profile, profile partition, local-good density, or arbitrary ambient-prefix law.
+
+The other public endpoints are the buffered deterministic profile upper bound, the reduced critical-time/mixing-time upper bound under def:ub-arbitrarily-fine-approximation, and the random-cut upper bound. Preserve the exact scalar-integrability and parameter order. The critical-time hypothesis has g,gamma fixed BEFORE rho decreases and coherent cut sequences across horizons. It is stronger than one arbitrary fixed coarse mesh; do not silently weaken it. Infinite thresholds must be represented faithfully.
+
+WORKFLOW AND INDEPENDENT REVIEW
+1. Read your source labels and their definitions; inspect the exact reusable Lean types. Produce a source-to-declaration map and identify real missing proofs versus adapters.
+2. Coordinate with U00 on shared definitions and exact interfaces. U00 publishes CONTRACTS_READY with versioned hashes. Mathematical investigation and isolated experiments may begin beforehand; integration must use the agreed definitions. A Target : Prop definition is a specification, not a proof.
+3. Obtain independent checks of (a) the mathematics, (b) the Lean statement/model/quantifiers, and (c) adversarial examples/hidden hypotheses. Schedule these through U00 using spare workers or cross-review; do not recursively demand three new agents per lane or exceed the available worker count. Never audit your own new proof as the only reviewer.
+4. Prove each assigned result, compile its actual dependency closure, and instantiate generic inputs from the fixed-column law. Generic helper hypotheses are allowed only when every one is discharged before the public model endpoint. If an imported theorem is conditional, record who proves its premises.
+5. If a real obstruction appears, record the exact failing claim and test at least two substantively different approaches. Continue independent useful work. Do not weaken the frozen target or add the missing conclusion as a premise. Propose any necessary statement change separately, with consequences for the public endpoints.
+
+No sorry, admit, custom axiom, unproved placeholder, circular typeclass/structure certificate, native proof oracle or vacuous reformulation counts as completion. Standard Lean axioms Classical.choice, Quot.sound and propext are allowed. Finite computation through kernel-checked proofs is allowed. Check N=0/1 guards, empty products, zero pile sizes, impossible histories and endpoint conventions explicitly where relevant; asymptotic targets may set N0>=2.
+
+An auxiliary numerical constant may be weakened only with a recorded proof that every downstream frozen endpoint is preserved and an independent interface review. Freeze the selected helper version before downstream integration; do not silently claim the original sharper inequality. No public hypothesis or endpoint is changed by this allowance.
+
+BUILD AND FILE OWNERSHIP
+Use Lean 4.33.1 and mathlib 0df444a360eaa60ab8c11dca51a86af692955474, subject to U00 confirming the actual installation. There is no root Lake project. Do not upgrade dependencies, mix 4.19/4.24 compiled caches, or overwrite frozen upstream files. Existing completed packages and the manuscript are read-only. If the proposed new package already exists, inspect its state and ownership before continuing; never reinitialize it blindly.
+
+U00 owns new package configuration, shared modules, contracts, import umbrellas, dependency staging and integration. You own only the module and audit directories listed in your assignment. Compile into your lane's isolated output directory .build/Uxx/ against immutable reviewed dependencies; only U00 writes shared outputs and performs integrated builds. Do not run broad reset/clean commands or alter another lane's files. Request a shared-interface change from U00 with a concrete proposed signature.
+
+DELIVERY AND ACCEPTANCE
+Return exact public declaration names and fully expanded types, source labels, proof/dependency files, command and exit-status build evidence, input hashes, transitive axiom evidence, and independent review findings/resolutions. Save a concise STATUS.txt and machine-readable VERIFICATION.json in your audit directory. Use PROVED_AND_CHECKED, PARTIAL, or BLOCKED_WITH_EXACT_OBLIGATION honestly. List remaining imported assumptions and their concrete discharge sites. A successful import, absence of textual sorry, numerical experiment or conditional wrapper alone is not completion. Do not claim a fresh build from an old receipt. The assignment below determines your scope; do not start sibling work or reopen the finished lower bound.
+
+ASSIGNMENT: U06 — Empirical margin stability and fixed-partition scalar transfer
+
+OWNED PATHS (inside the proposed new package)
+RiffleUpperV2/Margins/; audit/U06/
+UPSTREAM INPUT PROVIDERS
+U00
+These are input milestones, not whole-agent completion requirements. U00 means CONTRACTS_READY for proof workers and INTEGRATION_READY for U13's final audit. Other lanes supply their reviewed proved exports. Read their exact planned exports in PLAN.txt and bind them to the frozen versions before use. Independent partial work may start sooner as specified below. U00 itself completes only after U13 accepts the integrated package.
+
+SOURCE LABELS
+eq:ub-empirical-costs
+eq:ub-empirical-negative-margin
+lem:ub-conditional-preservation
+def:chi-regular-partitions
+lem:lower-profile-transfer
+thm:deterministic-upper-bound
+
+Prove reusable deterministic analytic estimates for the UPPER proof. The label lem:lower-profile-transfer names an already-proved general quadrature input used by the upper proof; reuse its Lean scalar API read-only, without reopening any lower result.
+
+1. Prove uniform Lipschitz estimates for max-cost and psi_theta, theta in [2,4], including zero coordinates. Deduce |Ahat_p-Ahat_q|<=k*T*zeta and |Bhat_p-Bhat_q|<=4*k^4*T*zeta with e,zeta>=0.
+2. If log_N(m)<=1-Ahat_p(0,r)+e, prove the induced suffix margin is at least eta-(7/2)*(e+k*T*zeta)-12*k^4*T*zeta, with original-scale log N, retained absolute endpoints and all theta/endpoint quantifiers intact. Prove the initial-deletion loss with an explicit integer length and finite logarithmic rounding error. Do not assert that perturbed probabilities stay in the same partition cell.
+3. Give the grid-cost adapter between the new upper integer sums and existing interpolated empirical integrals; prove endpoint errors instead of identifying the two definitions by notation. Prove the maximum-word product identity used to get muStar from the terminal margin.
+4. Reuse RiffleLowerV2.ProfileTransfer.genericQuadrature and sampledQuadrature, scalar bounds in Spatial.lean and endpoint errors in Endpoint.lean. Prove an UPPER wrapper accepting ANY sufficiently fine fixed regular partition with the common C_k, plus integrability of its SAME scalar cell functions and costs. The existing ProfileTransfer.profileTransfer existentially selects a partition; it is not the literal upper contract.
+5. Export explicit uniform scalar errors and their effect on terminal/variational margins. Keep chi0 depending only on k,T,eta; the later rho0 may depend on the chosen partition and fixed g,gamma, and phi0 may depend on rho. No continuity in time, convergence rate, or partition-cell robustness may be added.
+
+DONE WHEN: U09 can transfer induced empirical margins using only concrete count closeness, and U12 can transfer a negative profile margin for an arbitrary admissible fixed partition using the proper order of choices. Keep this lane independent of stochastic first-moment or total-variation conclusions.
+
+PLANNED EXPORTS / EVIDENCE
+- Margins.costStability
+- Margins.inducedMargin
+- Margins.deletePrefixMargin
+- Margins.maximalWordIdentity
+- Margins.fixedPartitionQuadrature
+- Margins.profileToEmpiricalMargin

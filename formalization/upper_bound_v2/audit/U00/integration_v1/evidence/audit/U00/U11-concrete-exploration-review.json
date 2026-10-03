@@ -1,0 +1,32 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:35:46.554900+00:00",
+  "reviewer": "U00 independent of U11",
+  "sources": {
+    "EmpiricalUpper/ExplorationTV.lean": "4928a7d02f1f971496d939e9e8fa47f2d6a02dc89492e9be108996f0659f0444",
+    "EmpiricalUpper/Rates.lean": "d80bb067ce5a43c9522743b8285e18c4e64c54f78b1ac864cc38ac4e92e9dbce",
+    "EmpiricalUpper/Parameters.lean": "78a23a7a013736321c57527061f9147dfd34b895e7b8d6d2e4328c2f96ba4f58"
+  },
+  "root_build_receipt": "partition-exploration-check-build.json",
+  "trust_inventory": "partition-exploration-declarations.json",
+  "mathematics": [
+    "Exactly 2*k actual processes indexed by initial pile and direction instantiate U10: history refinement, unit increments, adaptation, terminal guards and actual graph-edge coverage are discharged by accepted U07 results.",
+    "Small piles have identically zero process increments and are handled without assuming a conditional bound on those piles. Their actual failure probability is bounded by k/2*N^(xi-eta).",
+    "The regularity event uses the same actual concentration event and sqrt(r) history threshold, yielding r+2*N*sqrt(r).",
+    "With conditional gamma=C*N^-zeta, geometric smallness is eventual and the entire actual TV criterion has a uniform power bound. c=min(zeta/4,(eta-xi)/2,1/2)>0. All weighted regularity errors vanish superpolynomially.",
+    "Source parameter choices lower eta/g/density, choose positive rho below the C allowance and all required budgets, and choose a fixed B with eta*B>=2. A zero horizon contradicts the actual negative terminal margin."
+  ],
+  "quantifiers": [
+    "Only the exact concentration and conditional-history estimates from C remain analytic premises in the helper; public E remains pending and must discharge them.",
+    "Rate threshold depends on fixed parameters before population, horizon and cuts.",
+    "Exactly the physical inverse law and finite half-L1 TV occur in the conclusion."
+  ],
+  "adversarial": [
+    "All empty/small piles remain in the process index and need no spurious positivity premise.",
+    "Null pair-history fibers are used only where U10 requires positive mass; terminal increments are zero by the concrete process.",
+    "No supplied exploration certificate, graph-density bound or exponential moment remains in concreteExplorationTV apart from the explicitly tracked C outputs."
+  ],
+  "remaining": [
+    "Actual U09 C theorem must be instantiated in the final E assembly."
+  ]
+}

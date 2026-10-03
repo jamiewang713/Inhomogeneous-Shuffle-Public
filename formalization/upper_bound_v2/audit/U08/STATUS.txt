@@ -1,0 +1,24 @@
+PROVED_AND_CHECKED — U08 assigned source lemmas, both spatial directions.
+
+All 60 source modules in Reservoir.Module have a fresh successful source build.
+Full explicit types, direct dependencies and transitive standard-only axioms checked for 550 Reservoir declarations, including definitions/private/generated declarations.
+
+PUBLIC RESULTS
+historyAtom and historyAtom_backward: exact natural-history multiplicity constraints.
+exactMarkedRowLaw: actual sorted-history factorial ratio, residual c+m cancellation and exact prefix marginal.
+history_denominator_lower_uniform and backward_history_denominator_lower_uniform: actual H-based denominator >=d0^m/2 for m=1,2.
+prefixCount and Backward.prefixCount: C1 n lambda_x^(1-alpha)+n epsilon, C1=4/d0.
+extraCurrentCopies and Backward.extraCurrentCopies: excess C_s-t only, same C1, forced observed copies excluded.
+tailCollisions and Backward.tailCollisions: C2 n^2 lambda_x^(2(1-alpha)) times the exact suffix power product, plus one n^2 epsilon error, C2=8/d0^2.
+conditionalFutureCylinderLaw and conditionalFutureCylinderLaw_unlabeled: actual family-conditioned absolute internal graph has the induced fixed-count graph law, both directions. Matrix and finite expectation versions are also exported.
+
+EVIDENCE
+VERIFICATION.json: exact source hashes, commands, receipts, independent U00 reviews and upstream discharge sites.
+SOURCE_MAP.json: source equations and proof correspondence.
+public-export-types.json: fully explicit public types, dependencies and axioms.
+final-declaration-inventory.json: full 550-declaration trust/type inventory.
+final-fresh-build.log / final-fresh-build-receipt.json: fresh complete Module source build, exit 0.
+final-types-and-axioms.log / final-type-axiom-build-receipt.json: full audit, exit 0.
+
+SCOPE
+No remaining U08 source proof obligation. Estimates apply at nonempty histories with a last word, exactly as the source. No source conditional law or reserve probability is assumed. Auxiliary Z is confined to conditional averaging; natural-history count estimates retain the frozen history. No independence between distinct cylinders is claimed. U09 owns C assembly and time-zero unconditional F branch. Global endpoint/integration completion is not claimed.

@@ -1,0 +1,29 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:18:25.678470+00:00",
+  "reviewer": "U00 independent of owner",
+  "root_build_receipt": "restart-future-check-build.json",
+  "trust_inventory": "restart-future-declarations.json",
+  "sources": {
+    "EmpiricalUpper/Restart.lean": "b628c442dded746760aaeb83f1ad4c00523e73ed309892297d269b6955278d34"
+  },
+  "mathematics": [
+    "Terminal empirical margin and maxCost<=log k force (1+eta0)logN<=Klogk. The explicit rho and rounding budgets make the first integer good window fit.",
+    "The actual good-window cluster supplies the chosen first retained column and two further good columns. Their chronological indices define restartCuts exactly equal, up to dependent length, to Margins.suffixCuts.",
+    "deletePrefixMargin_rounding and the explicit eta/rho/logN budget preserve margin2eta; rebaseMargin resets the column origin while preserving originalN.",
+    "Every retained integer window bijects with its original window. Good-column thresholds/densities are lowered monotonically.",
+    "restartHypotheses derives the actual retained margin, window property, triple, maximalMean and physical TV comparison from endpoint inputs with one uniform threshold."
+  ],
+  "quantifiers": [
+    "N0 depends on fixed parameters before N,horizon,cuts and chosen restart index.",
+    "No actual C, conditional-edge, exponential or first-moment estimate is assumed by this deterministic restart construction."
+  ],
+  "adversarial": [
+    "The zero-horizon endpoint case remains for final E; terminal margin makes it impossible for positive eta0.",
+    "Ceiling and successor-length rounding are paid explicitly.",
+    "The first good column remains chronological; deletion changes neither population nor original logarithmic scale."
+  ],
+  "remaining": [
+    "Concrete2k process instantiation, proved C and polynomial rate absorption to exact E."
+  ]
+}

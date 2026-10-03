@@ -1,0 +1,28 @@
+import RiffleUpperV2.Hypergeometric.Main
+set_option pp.explicit true
+set_option pp.universes true
+set_option pp.fullNames true
+
+#check RiffleUpperV2.Hypergeometric.transformBound
+#check RiffleUpperV2.Hypergeometric.mgfBound
+#check RiffleUpperV2.Hypergeometric.twoSidedTail
+#check RiffleUpperV2.Hypergeometric.atomBound
+#check RiffleUpperV2.Hypergeometric.exactMean
+#check RiffleUpperV2.Hypergeometric.exactVariance
+#check RiffleUpperV2.Hypergeometric.zeroVariance_iff
+#check RiffleUpperV2.Hypergeometric.allowed_subset_expect
+#check RiffleUpperV2.Hypergeometric.allowed_intersection_transform
+#check RiffleUpperV2.Hypergeometric.anchorCylinderTransform
+#check RiffleUpperV2.Hypergeometric.anchorCylinderTail
+#check RiffleUpperV2.Hypergeometric.cylinderMean_eq_expect
+#check RiffleUpperV2.Hypergeometric.anchorCylinderTransform_mean
+#check RiffleUpperV2.Hypergeometric.sampleComplementLaw
+#check RiffleUpperV2.Hypergeometric.conditionalSamplingLaw
+#check RiffleUpperV2.Hypergeometric.conditionalSamplingTransport
+#check RiffleUpperV2.Hypergeometric.firstColumnConditionalExpect
+#check RiffleUpperV2.Hypergeometric.firstColumnConditionalProbability
+#check RiffleUpperV2.Hypergeometric.firstColumnProbability_pos
+#check RiffleUpperV2.Hypergeometric.firstColumnCylinderTransform
+#check RiffleUpperV2.Hypergeometric.firstColumnCylinderTail
+#check RiffleUpperV2.Hypergeometric.firstColumnCylinderMean
+#check RiffleUpperV2.Hypergeometric.firstColumnCylinderHalfMean

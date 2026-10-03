@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "purpose": "supplemental exact finite adversarial model checks; no substitute for kernel proofs",
+  "total_arrays": 16056,
+  "cases": [
+    {
+      "name": "coincident maximizers; immediate join",
+      "n": 6,
+      "d": 2,
+      "M": 4,
+      "prefix": [
+        1,
+        1
+      ],
+      "case": "equal",
+      "selected_column": 0,
+      "witness_column": null,
+      "arrays": 8100,
+      "positive_fine_fibers": 1350,
+      "good_arrays": 7560,
+      "enlarged_full_suffix_arrays": 0,
+      "exact_law": "PASS",
+      "history_refinement": "PASS",
+      "actual_variance_on_good": "PASS",
+      "failure_probability": "1/15",
+      "source_failure_bound": 1.868166867154436
+    },
+    {
+      "name": "left maximizer later; immediate join",
+      "n": 6,
+      "d": 2,
+      "M": 4,
+      "prefix": [
+        1,
+        1
+      ],
+      "case": "lower",
+      "selected_column": 0,
+      "witness_column": 1,
+      "arrays": 3600,
+      "positive_fine_fibers": 552,
+      "good_arrays": 3312,
+      "enlarged_full_suffix_arrays": 0,
+      "exact_law": "PASS",
+      "history_refinement": "PASS",
+      "actual_variance_on_good": "PASS",
+      "failure_probability": "2/25",
+      "source_failure_bound": 2.8504308323315093
+    },
+    {
+      "name": "right maximizer later; immediate join",
+      "n": 6,
+      "d": 2,
+      "M": 4,
+      "prefix": [
+        1,
+        1
+      ],
+      "case": "upper",
+      "selected_column": 0,
+      "witness_column": 1,
+      "arrays": 900,
+      "positive_fine_fibers": 134,
+      "good_arrays": 700,
+      "enlarged_full_suffix_arrays": 0,
+      "exact_law": "PASS",
+      "history_refinement": "PASS",
+      "actual_variance_on_good": "PASS",
+      "failure_probability": "2/9",
+      "source_failure_bound": 2.899439756607294
+    },
+    {
+      "name": "full suffix after strict witness, lower",
+      "n": 4,
+      "d": 3,
+      "M": 2,
+      "prefix": [
+        1,
+        1,
+        1
+      ],
+      "case": "lower",
+      "selected_column": 0,
+      "witness_column": 1,
+      "arrays": 1728,
+      "positive_fine_fibers": 600,
+      "good_arrays": 684,
+      "enlarged_full_suffix_arrays": 432,
+      "exact_law": "PASS",
+      "history_refinement": "PASS",
+      "actual_variance_on_good": "PASS",
+      "failure_probability": "29/48",
+      "source_failure_bound": 2.94301329709785
+    },
+    {
+      "name": "full suffix after strict witness, upper",
+      "n": 4,
+      "d": 3,
+      "M": 2,
+      "prefix": [
+        1,
+        1,
+        1
+      ],
+      "case": "upper",
+      "selected_column": 0,
+      "witness_column": 1,
+      "arrays": 1728,
+      "positive_fine_fibers": 600,
+      "good_arrays": 684,
+      "enlarged_full_suffix_arrays": 432,
+      "exact_law": "PASS",
+      "history_refinement": "PASS",
+      "actual_variance_on_good": "PASS",
+      "failure_probability": "29/48",
+      "source_failure_bound": 2.94301329709785
+    }
+  ],
+  "fixed_anchor_endpoint": "both deterministic at empty prefix; separately excluded by Lean Degenerate proofs"
+}

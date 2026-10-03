@@ -1,0 +1,26 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_LANE",
+  "recorded_at": "2026-10-02T20:58:32.941447+00:00",
+  "reviewer": "U00",
+  "provider_verification": "../U08/VERIFICATION.json",
+  "provider_verification_sha256": "dbb09fd186f63734ab70c5eac7beafc609267201eab8fdab896cdc9cf553e4f1",
+  "owned_sources_verified": 60,
+  "fresh_build_and_full_type_trust_receipts_verified": 2,
+  "all_owned_declarations_in_root_inventory": 550,
+  "public_exports": 25,
+  "independent_reviews": [
+    "U08-backward-counts-review.json",
+    "U08-future-family-law-review.json",
+    "U08-conditional-graph-law-review.json"
+  ],
+  "root_receipts": [
+    "reservoir-complete-check-build.json",
+    "partial-global-check4-build.json"
+  ],
+  "source_and_receipt_hashes_verified": true,
+  "standard_axioms_only": true,
+  "remaining_lane_obligations": [],
+  "remaining_package_obligations": [
+    "C/E/P/T/R, fresh final integrated source build and U13 acceptance"
+  ]
+}

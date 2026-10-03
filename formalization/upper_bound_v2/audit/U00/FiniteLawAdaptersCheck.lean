@@ -1,0 +1,19 @@
+import RiffleUpperV2.Shared.FiniteLawAdapters
+set_option pp.explicit true
+set_option pp.funBinderTypes true
+#check @RiffleUpperV2.toCompatFiniteLaw
+#print axioms RiffleUpperV2.toCompatFiniteLaw
+#check @RiffleUpperV2.toCompatFiniteLaw_toPMF
+#print axioms RiffleUpperV2.toCompatFiniteLaw_toPMF
+#check @RiffleUpperV2.toCompatFiniteLaw_expect
+#print axioms RiffleUpperV2.toCompatFiniteLaw_expect
+#check @RiffleUpperV2.toCompatFiniteLaw_probability
+#print axioms RiffleUpperV2.toCompatFiniteLaw_probability
+#check @RiffleUpperV2.toCompatFiniteLaw_conditionalProbability
+#print axioms RiffleUpperV2.toCompatFiniteLaw_conditionalProbability
+#check @RiffleUpperV2.toCompatFiniteLaw_conditionalExpect
+#print axioms RiffleUpperV2.toCompatFiniteLaw_conditionalExpect
+#check @RiffleUpperV2.history_refinement_factors
+#print axioms RiffleUpperV2.history_refinement_factors
+#check @RiffleUpperV2.shiftedAnticoncentrationTransfer
+#print axioms RiffleUpperV2.shiftedAnticoncentrationTransfer

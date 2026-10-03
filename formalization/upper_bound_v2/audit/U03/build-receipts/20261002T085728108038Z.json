@@ -1,0 +1,76 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T08:57:28.107313+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U03",
+    "RiffleUpperV2.Anchor.EqualReveal"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U03",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U03/lib/lean",
+  "built": [
+    "RiffleUpperV2.Anchor.EqualReveal"
+  ],
+  "modules": {
+    "RiffleUpperV2.Anchor.EqualReveal": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/EqualReveal.lean",
+      "sha256": "70f2f1fba794684ffdcac55eee421dbda7fbd9f4b3494170d5aa37b5c1f37da1",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Anchor.SourceSampling": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/SourceSampling.lean",
+      "sha256": "1496f324b25e5af5d765474f8a984ccb316d3dadf06d7bd3bc82c78ac0a14b6b",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Anchor.PartialReveal": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialReveal.lean",
+      "sha256": "103ebb9060691cb88692f59e6f5618db42254f4a2a0751a8cada5299abf78c8b",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Anchor.ConditionalColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/ConditionalColumn.lean",
+      "sha256": "1aeed9e84e70da60e9c2b5bdadaf8effb8c26b11ca2baae35c58f8d9f21b2669",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Anchor.PartialColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean",
+      "sha256": "b8cfe01ea219417d9ef1cf761c99462ddf74d3e698a2e8c3de664c12ecbefdfb",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Anchor.Definitions": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Definitions.lean",
+      "sha256": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Model": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Model.lean",
+      "sha256": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.Cylinder": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Cylinder.lean",
+      "sha256": "30de991593d5a7ad8b155c53f8d09964b68fc2c86e612977f87c250c7296a368",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Hypergeometric.Sampling": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Sampling.lean",
+      "sha256": "b5194f3f5bc66eba0dac2e1aca755ddeb6ffbdb4a1b5967ef451a36b4e432a7b",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Anchor.HypergeometricSymmetry": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/HypergeometricSymmetry.lean",
+      "sha256": "e77a0238b9954819e492e3a05920343556faa1599db96b6d3101f9b85b973aaa",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Hypergeometric.Main": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/Main.lean",
+      "sha256": "87e8d91173993a3c0add432980a56c0f90fd62c16464a0a62cacbfd190854fe2",
+      "kind": "staged-read-only"
+    }
+  }
+}

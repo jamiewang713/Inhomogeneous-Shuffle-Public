@@ -1,0 +1,28 @@
+{
+  "eq:ub-exact-history-constraint (backward spatial scan)": [
+    "backwardTupleHistoryConstraint",
+    "backwardTupleHistoryConstraint_iff",
+    "backwardUnmarkedHistoryConstraint",
+    "backwardTupleHistoryConstraint_future_iff",
+    "backwardUnmarkedHistoryConstraint_of_current_removal"
+  ],
+  "reserve denominator in lem:ub-exact-conditional-block-law": [
+    "backward_chosenReserve_tuple_allowed",
+    "backward_history_denominator_ge_reserveWeight",
+    "backward_history_denominator_lower_finite",
+    "backward_history_denominator_lower_uniform"
+  ],
+  "regular/rare marked-prefix fine estimate": [
+    "backward_history_future_impossible",
+    "backward_history_prefixProbability_upper_uniform",
+    "backward_markedRefinement_prefix_upper_uniform"
+  ],
+  "removable current-copy fine estimate": [
+    "backward_history_deletionPrefix_upper_uniform",
+    "backward_markedRefinement_current_upper_uniform"
+  ],
+  "auxiliary refinement, not enlarged natural history": [
+    "backwardMarkedRefinement",
+    "backward_markedRefinement_fiber"
+  ]
+}

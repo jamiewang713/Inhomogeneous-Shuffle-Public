@@ -1,0 +1,85 @@
+CHECK RiffleUpperV2.FirstMoment.Entropy
+CHECK RiffleUpperV2.FirstMoment.Exponents
+CHECK RiffleUpperV2.FirstMoment.WordCosts
+CHECK RiffleUpperV2.FirstMoment.Descriptors
+CHECK RiffleUpperV2.FirstMoment.BoundaryCosts
+CHECK RiffleUpperV2.FirstMoment.ClassAdapters
+CHECK RiffleUpperV2.FirstMoment.Count
+CHECK RiffleUpperV2.FirstMoment.Discard
+CHECK RiffleUpperV2.FirstMoment.Partition
+CHECK RiffleUpperV2.FirstMoment.RetainedClasses
+CHECK RiffleUpperV2.FirstMoment.RetainedGraphCover
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/RetainedGraphCover.lean:95:15: warning: This simp argument is unused:
+  probability
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, ht, RiffleLowerV2.probability, RiffleLowerV2.expect]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.AnchoredCosts
+CHECK RiffleUpperV2.FirstMoment.ClassFibers
+CHECK RiffleUpperV2.FirstMoment.StoppingCosts
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/StoppingCosts.lean:57:35: warning: This simp argument is unused:
+  ← Finset.sum_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [f, Finset.sum_add_distrib]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.FirstColumn
+CHECK RiffleUpperV2.FirstMoment.MaximalCosts
+CHECK RiffleUpperV2.FirstMoment.TailGrid
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/TailGrid.lean:53:60: warning: This simp argument is unused:
+  Nat.add_sub_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [empiricalB, RiffleLowerV2.gridSum, empiricalPositions]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.TailCosts
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/TailCosts.lean:22:77: warning: This simp argument is unused:
+  Real.rpow_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, show x.1.val ≤ j.val by omega, j.isLt, powerSum, Cuts.profile_prob]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.ClassExponents
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassExponents.lean:90:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassExponents.lean:116:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ClassExponents.lean:138:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.FirstMoment.ActiveClasses
+CHECK RiffleUpperV2.FirstMoment.GraphMarginals
+CHECK RiffleUpperV2.FirstMoment.EdgeSlots
+CHECK RiffleUpperV2.FirstMoment.ErrorDensity
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/ErrorDensity.lean:74:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.FirstMoment.DensityPowers
+CHECK RiffleUpperV2.FirstMoment.FirstPileReserve
+CHECK RiffleUpperV2.FirstMoment.ClassDensity
+CHECK RiffleUpperV2.FirstMoment.DensityRates
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/DensityRates.lean:59:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.FirstMoment.UniformClassDensity
+CHECK RiffleUpperV2.FirstMoment.DensityAggregation
+CHECK RiffleUpperV2.FirstMoment.GraphAssembly
+CHECK RiffleUpperV2.FirstMoment.CandidateCount
+CHECK RiffleUpperV2.FirstMoment.ActiveCount
+CHECK RiffleUpperV2.FirstMoment.PowerAggregation
+CHECK RiffleUpperV2.FirstMoment.UniformGraph
+CHECK RiffleUpperV2.FirstMoment.Empirical
+CHECK RiffleUpperV2.FirstMoment.Main
+BUILD_OK U05

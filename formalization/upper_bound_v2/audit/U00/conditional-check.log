@@ -1,0 +1,438 @@
+CHECK RiffleUpperV2.Shared.Conditioning
+CHECK RiffleUpperV2.Contracts.V1.Conditional
+CHECK RiffleUpperV2.Contracts.V1.Main
+def RiffleUpperV2.Contracts.V1.C : Prop :=
+∀ (k : Nat),
+  @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (T η g γ : Real),
+      @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) T →
+        @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) η →
+          @LE.le Real Real.instLE η (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) →
+            @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) g →
+              @LT.lt Real Real.instLT g
+                  (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+                    (@Nat.cast Real Real.instNatCast k)) →
+                @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ →
+                  @LE.le Real Real.instLE γ (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) →
+                    ∃ ρ0,
+                      And
+                        (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ρ0)
+                        (∀ (ρ : Real),
+                          @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              ρ →
+                            @LE.le Real Real.instLE ρ ρ0 →
+                              ∃ A cH ζ C,
+                                And
+                                  (@LT.lt Real Real.instLT
+                                    (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) A)
+                                  (And
+                                    (@LT.lt Real Real.instLT
+                                      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) cH)
+                                    (And
+                                      (@LT.lt Real Real.instLT
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ζ)
+                                      (And
+                                        (@LT.lt Real Real.instLT
+                                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) C)
+                                        (∃ N0,
+                                          ∃ (hN0 :
+                                            @LE.le Nat instLENat
+                                              (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N0),
+                                            ∀ (N : Nat) (hN : @LE.le Nat instLENat N0 N) (L : Nat),
+                                              @LE.le Real Real.instLE
+                                                  (@Nat.cast Real Real.instNatCast
+                                                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) T
+                                                    (Real.log (@Nat.cast Real Real.instNatCast N))) →
+                                                ∀
+                                                  (cuts :
+                                                    RiffleUpperV2.Cuts k N
+                                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                                                  @RiffleUpperV2.EmpiricalNegativeMargin k N
+                                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                                      N (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) cuts ⋯
+                                                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                                        (@OfNat.ofNat Real (nat_lit 2)
+                                                          (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast
+                                                            RiffleUpperV2.Contracts.V1.C._proof_3))
+                                                        η) →
+                                                    @RiffleUpperV2.Exploration.integerWindowGood k N L N cuts ⋯ ρ γ g →
+                                                      @RiffleUpperV2.Exploration.retainedGoodCluster k N L cuts ⋯
+                                                          (RiffleUpperV2.Exploration.clusterSpan γ) g →
+                                                        And
+                                                          (@LE.le Real Real.instLE
+                                                            (@RiffleUpperV2.probability
+                                                              (@TimeProfile.ShuffleSample k N
+                                                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1))))
+                                                                cuts)
+                                                              (@TimeProfile.instFintypeShuffleSample k N
+                                                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1))))
+                                                                cuts)
+                                                              (@RiffleUpperV2.fixedCountPMF k N
+                                                                (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                    (instOfNatNat (nat_lit 1))))
+                                                                cuts)
+                                                              fun ω =>
+                                                              Not
+                                                                (@RiffleUpperV2.Exploration.concentrationEvent k N L
+                                                                  cuts (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                  (@HDiv.hDiv Real Real Real
+                                                                    (@instHDiv Real
+                                                                      (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                                    η
+                                                                    (@OfNat.ofNat Real (nat_lit 10)
+                                                                      (@instOfNatAtLeastTwo Real (nat_lit 10)
+                                                                        Real.instNatCast
+                                                                        RiffleUpperV2.Contracts.V1.C._proof_4)))
+                                                                  ω))
+                                                            (RiffleUpperV2.Exploration.badBound N
+                                                              (@HDiv.hDiv Real Real Real
+                                                                (@instHDiv Real
+                                                                  (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                                η
+                                                                (@OfNat.ofNat Real (nat_lit 10)
+                                                                  (@instOfNatAtLeastTwo Real (nat_lit 10)
+                                                                    Real.instNatCast
+                                                                    RiffleUpperV2.Contracts.V1.C._proof_4)))
+                                                              A cH))
+                                                          (And
+                                                            (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction),
+                                                              @LE.le Real Real.instLE
+                                                                  (@HPow.hPow Real Real Real
+                                                                    (@instHPow Real Real Real.instPow)
+                                                                    (@Nat.cast Real Real.instNatCast N)
+                                                                    (@HDiv.hDiv Real Real Real
+                                                                      (@instHDiv Real
+                                                                        (@DivInvMonoid.toDiv Real
+                                                                          Real.instDivInvMonoid))
+                                                                      η
+                                                                      (@OfNat.ofNat Real (nat_lit 10)
+                                                                        (@instOfNatAtLeastTwo Real (nat_lit 10)
+                                                                          Real.instNatCast
+                                                                          RiffleUpperV2.Contracts.V1.C._proof_4))))
+                                                                  (@Nat.cast Real Real.instNatCast
+                                                                    (@RiffleUpperV2.Exploration.pileSize k N L cuts
+                                                                      p)) →
+                                                                ∀ (i : Nat),
+                                                                  @LE.le Nat instLENat i
+                                                                      (@RiffleUpperV2.Exploration.pileSize k N L cuts
+                                                                        p) →
+                                                                    ∀
+                                                                      (ω :
+                                                                        Prod
+                                                                          (@RiffleUpperV2.Sample k N
+                                                                            (@HAdd.hAdd Nat Nat Nat
+                                                                              (@instHAdd Nat instAddNat) L
+                                                                              (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                (instOfNatNat (nat_lit 1))))
+                                                                            cuts)
+                                                                          (@RiffleUpperV2.Sample k N
+                                                                            (@HAdd.hAdd Nat Nat Nat
+                                                                              (@instHAdd Nat instAddNat) L
+                                                                              (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                (instOfNatNat (nat_lit 1))))
+                                                                            cuts)),
+                                                                      @LT.lt Real Real.instLT
+                                                                          (@OfNat.ofNat Real (nat_lit 0)
+                                                                            (@Zero.toOfNat0 Real Real.instZero))
+                                                                          (@RiffleUpperV2.probability
+                                                                            (Prod
+                                                                              (@RiffleUpperV2.Sample k N
+                                                                                (@HAdd.hAdd Nat Nat Nat
+                                                                                  (@instHAdd Nat instAddNat) L
+                                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                    (instOfNatNat (nat_lit 1))))
+                                                                                cuts)
+                                                                              (@RiffleUpperV2.Sample k N
+                                                                                (@HAdd.hAdd Nat Nat Nat
+                                                                                  (@instHAdd Nat instAddNat) L
+                                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                    (instOfNatNat (nat_lit 1))))
+                                                                                cuts))
+                                                                            (@instFintypeProd
+                                                                              (@RiffleUpperV2.Sample k N
+                                                                                (@HAdd.hAdd Nat Nat Nat
+                                                                                  (@instHAdd Nat instAddNat) L
+                                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                    (instOfNatNat (nat_lit 1))))
+                                                                                cuts)
+                                                                              (@RiffleUpperV2.Sample k N
+                                                                                (@HAdd.hAdd Nat Nat Nat
+                                                                                  (@instHAdd Nat instAddNat) L
+                                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                    (instOfNatNat (nat_lit 1))))
+                                                                                cuts)
+                                                                              (@TimeProfile.instFintypeShuffleSample k N
+                                                                                (@HAdd.hAdd Nat Nat Nat
+                                                                                  (@instHAdd Nat instAddNat) L
+                                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                    (instOfNatNat (nat_lit 1))))
+                                                                                cuts)
+                                                                              (@TimeProfile.instFintypeShuffleSample k N
+                                                                                (@HAdd.hAdd Nat Nat Nat
+                                                                                  (@instHAdd Nat instAddNat) L
+                                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                    (instOfNatNat (nat_lit 1))))
+                                                                                cuts))
+                                                                            (@RiffleUpperV2.independentPairLaw k N
+                                                                              (@HAdd.hAdd Nat Nat Nat
+                                                                                (@instHAdd Nat instAddNat) L
+                                                                                (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                  (instOfNatNat (nat_lit 1))))
+                                                                              cuts)
+                                                                            fun v =>
+                                                                            @Eq
+                                                                              (Prod
+                                                                                (Fin
+                                                                                    (@RiffleUpperV2.Exploration.pileSize
+                                                                                      k N L cuts p) →
+                                                                                  Option
+                                                                                    (RiffleUpperV2.Word k
+                                                                                      (@HAdd.hAdd Nat Nat Nat
+                                                                                        (@instHAdd Nat instAddNat) L
+                                                                                        (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                          (instOfNatNat (nat_lit 1))))))
+                                                                                (Fin
+                                                                                    (@RiffleUpperV2.Exploration.pileSize
+                                                                                      k N L cuts p) →
+                                                                                  Option
+                                                                                    (RiffleUpperV2.Word k
+                                                                                      (@HAdd.hAdd Nat Nat Nat
+                                                                                        (@instHAdd Nat instAddNat) L
+                                                                                        (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                          (instOfNatNat
+                                                                                            (nat_lit 1)))))))
+                                                                              (@RiffleUpperV2.Exploration.pairHistory k
+                                                                                N L cuts p d i v)
+                                                                              (@RiffleUpperV2.Exploration.pairHistory k
+                                                                                N L cuts p d i ω)) →
+                                                                        @RiffleUpperV2.Exploration.pairHistoryGood k N L
+                                                                            cuts
+                                                                            (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                            (@HDiv.hDiv Real Real Real
+                                                                              (@instHDiv Real
+                                                                                (@DivInvMonoid.toDiv Real
+                                                                                  Real.instDivInvMonoid))
+                                                                              η
+                                                                              (@OfNat.ofNat Real (nat_lit 10)
+                                                                                (@instOfNatAtLeastTwo Real (nat_lit 10)
+                                                                                  Real.instNatCast
+                                                                                  RiffleUpperV2.Contracts.V1.C._proof_4)))
+                                                                            (RiffleUpperV2.Exploration.badBound N
+                                                                                (@HDiv.hDiv Real Real Real
+                                                                                  (@instHDiv Real
+                                                                                    (@DivInvMonoid.toDiv Real
+                                                                                      Real.instDivInvMonoid))
+                                                                                  η
+                                                                                  (@OfNat.ofNat Real (nat_lit 10)
+                                                                                    (@instOfNatAtLeastTwo Real
+                                                                                      (nat_lit 10) Real.instNatCast
+                                                                                      RiffleUpperV2.Contracts.V1.C._proof_4)))
+                                                                                A cH).sqrt
+                                                                            p d i ω →
+                                                                          @LE.le Real Real.instLE
+                                                                            (@RiffleUpperV2.conditionalExpect
+                                                                              (Prod
+                                                                                (@RiffleUpperV2.Sample k N
+                                                                                  (@HAdd.hAdd Nat Nat Nat
+                                                                                    (@instHAdd Nat instAddNat) L
+                                                                                    (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                      (instOfNatNat (nat_lit 1))))
+                                                                                  cuts)
+                                                                                (@RiffleUpperV2.Sample k N
+                                                                                  (@HAdd.hAdd Nat Nat Nat
+                                                                                    (@instHAdd Nat instAddNat) L
+                                                                                    (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                      (instOfNatNat (nat_lit 1))))
+                                                                                  cuts))
+                                                                              (@instFintypeProd
+                                                                                (@RiffleUpperV2.Sample k N
+                                                                                  (@HAdd.hAdd Nat Nat Nat
+                                                                                    (@instHAdd Nat instAddNat) L
+                                                                                    (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                      (instOfNatNat (nat_lit 1))))
+                                                                                  cuts)
+                                                                                (@RiffleUpperV2.Sample k N
+                                                                                  (@HAdd.hAdd Nat Nat Nat
+                                                                                    (@instHAdd Nat instAddNat) L
+                                                                                    (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                      (instOfNatNat (nat_lit 1))))
+                                                                                  cuts)
+                                                                                (@TimeProfile.instFintypeShuffleSample k
+                                                                                  N
+                                                                                  (@HAdd.hAdd Nat Nat Nat
+                                                                                    (@instHAdd Nat instAddNat) L
+                                                                                    (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                      (instOfNatNat (nat_lit 1))))
+                                                                                  cuts)
+                                                                                (@TimeProfile.instFintypeShuffleSample k
+                                                                                  N
+                                                                                  (@HAdd.hAdd Nat Nat Nat
+                                                                                    (@instHAdd Nat instAddNat) L
+                                                                                    (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                      (instOfNatNat (nat_lit 1))))
+                                                                                  cuts))
+                                                                              (@RiffleUpperV2.independentPairLaw k N
+                                                                                (@HAdd.hAdd Nat Nat Nat
+                                                                                  (@instHAdd Nat instAddNat) L
+                                                                                  (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                    (instOfNatNat (nat_lit 1))))
+                                                                                cuts)
+                                                                              (fun v =>
+                                                                                @Nat.cast Real Real.instNatCast
+                                                                                  (@RiffleUpperV2.Exploration.remainingDirectionalCount
+                                                                                    k N L cuts
+                                                                                    (RiffleUpperV2.Exploration.clusterSpan
+                                                                                      γ)
+                                                                                    g
+                                                                                    (@HDiv.hDiv Real Real Real
+                                                                                      (@instHDiv Real
+                                                                                        (@DivInvMonoid.toDiv Real
+                                                                                          Real.instDivInvMonoid))
+                                                                                      η
+                                                                                      (@OfNat.ofNat Real (nat_lit 10)
+                                                                                        (@instOfNatAtLeastTwo Real
+                                                                                          (nat_lit 10) Real.instNatCast
+                                                                                          RiffleUpperV2.Contracts.V1.C._proof_4)))
+                                                                                    p d i
+                                                                                    (@Prod.fst
+                                                                                      (@RiffleUpperV2.Sample k N
+                                                                                        (@HAdd.hAdd Nat Nat Nat
+                                                                                          (@instHAdd Nat instAddNat) L
+                                                                                          (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                            (instOfNatNat (nat_lit 1))))
+                                                                                        cuts)
+                                                                                      (@RiffleUpperV2.Sample k N
+                                                                                        (@HAdd.hAdd Nat Nat Nat
+                                                                                          (@instHAdd Nat instAddNat) L
+                                                                                          (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                            (instOfNatNat (nat_lit 1))))
+                                                                                        cuts)
+                                                                                      v)
+                                                                                    (@Prod.snd
+                                                                                      (@RiffleUpperV2.Sample k N
+                                                                                        (@HAdd.hAdd Nat Nat Nat
+                                                                                          (@instHAdd Nat instAddNat) L
+                                                                                          (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                            (instOfNatNat (nat_lit 1))))
+                                                                                        cuts)
+                                                                                      (@RiffleUpperV2.Sample k N
+                                                                                        (@HAdd.hAdd Nat Nat Nat
+                                                                                          (@instHAdd Nat instAddNat) L
+                                                                                          (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                            (instOfNatNat (nat_lit 1))))
+                                                                                        cuts)
+                                                                                      v)))
+                                                                              fun v =>
+                                                                              @Eq
+                                                                                (Prod
+                                                                                  (Fin
+                                                                                      (@RiffleUpperV2.Exploration.pileSize
+                                                                                        k N L cuts p) →
+                                                                                    Option
+                                                                                      (RiffleUpperV2.Word k
+                                                                                        (@HAdd.hAdd Nat Nat Nat
+                                                                                          (@instHAdd Nat instAddNat) L
+                                                                                          (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                            (instOfNatNat
+                                                                                              (nat_lit 1))))))
+                                                                                  (Fin
+                                                                                      (@RiffleUpperV2.Exploration.pileSize
+                                                                                        k N L cuts p) →
+                                                                                    Option
+                                                                                      (RiffleUpperV2.Word k
+                                                                                        (@HAdd.hAdd Nat Nat Nat
+                                                                                          (@instHAdd Nat instAddNat) L
+                                                                                          (@OfNat.ofNat Nat (nat_lit 1)
+                                                                                            (instOfNatNat
+                                                                                              (nat_lit 1)))))))
+                                                                                (@RiffleUpperV2.Exploration.pairHistory
+                                                                                  k N L cuts p d i v)
+                                                                                (@RiffleUpperV2.Exploration.pairHistory
+                                                                                  k N L cuts p d i ω))
+                                                                            (@HMul.hMul Real Real Real
+                                                                              (@instHMul Real Real.instMul) C
+                                                                              (@HPow.hPow Real Real Real
+                                                                                (@instHPow Real Real Real.instPow)
+                                                                                (@Nat.cast Real Real.instNatCast N)
+                                                                                (@Neg.neg Real Real.instNeg ζ))))
+                                                            (∀ (p : Fin k) (d : RiffleUpperV2.Exploration.Direction)
+                                                              (ω ω' :
+                                                                @RiffleUpperV2.Sample k N
+                                                                  (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) L
+                                                                    (@OfNat.ofNat Nat (nat_lit 1)
+                                                                      (instOfNatNat (nat_lit 1))))
+                                                                  cuts),
+                                                              @Eq Nat
+                                                                (@RiffleUpperV2.Exploration.remainingDirectionalCount k
+                                                                  N L cuts (RiffleUpperV2.Exploration.clusterSpan γ) g
+                                                                  (@HDiv.hDiv Real Real Real
+                                                                    (@instHDiv Real
+                                                                      (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                                    η
+                                                                    (@OfNat.ofNat Real (nat_lit 10)
+                                                                      (@instOfNatAtLeastTwo Real (nat_lit 10)
+                                                                        Real.instNatCast
+                                                                        RiffleUpperV2.Contracts.V1.C._proof_4)))
+                                                                  p d (@RiffleUpperV2.Exploration.pileSize k N L cuts p)
+                                                                  ω ω')
+                                                                (@OfNat.ofNat Nat (nat_lit 0)
+                                                                  (instOfNatNat (nat_lit 0))))))))))
+def RiffleUpperV2.Contracts.V1.REmpiricalBound : Prop :=
+∀ (k : Nat),
+  @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k →
+    ∀ (T η0 g0 γ0 : Real),
+      @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) T →
+        @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) η0 →
+          @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) g0 →
+            @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ0 →
+              ∃ ρ0,
+                And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ρ0)
+                  (∀ (ρ : Real),
+                    @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ρ →
+                      @LE.le Real Real.instLE ρ ρ0 →
+                        ∃ c,
+                          And
+                            (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              c)
+                            (∃ N0,
+                              ∃ (hN0 :
+                                @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N0),
+                                ∀ (N : Nat) (hN : @LE.le Nat instLENat N0 N) (K : Nat),
+                                  @LE.le Real Real.instLE (@Nat.cast Real Real.instNatCast K)
+                                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) T
+                                        (Real.log (@Nat.cast Real Real.instNatCast N))) →
+                                    ∀ (Q : PMF (RiffleUpperV2.Cuts k N K)),
+                                      @LE.le Real Real.instLE
+                                        (@RiffleUpperV2.tv (RiffleUpperV2.Permutation N)
+                                          (@Equiv.instFintype (Fin N) (Fin N) (instDecidableEqFin N)
+                                            (instDecidableEqFin N) (Fin.fintype N) (Fin.fintype N))
+                                          (@RiffleUpperV2.randomInverseLaw k N K Q)
+                                          (RiffleUpperV2.uniformPermutation N))
+                                        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                          (@RiffleUpperV2.probability (RiffleUpperV2.Cuts k N K)
+                                            (RiffleUpperV2.cutsFintype k N K) Q fun cuts =>
+                                            Not
+                                              (And
+                                                (@RiffleUpperV2.EmpiricalNegativeMargin k N K N
+                                                  (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) cuts ⋯ η0)
+                                                (@RiffleUpperV2.LocalGood k N K cuts ⋯ g0 γ0 ρ
+                                                  (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                                  (@HDiv.hDiv Real Real Real
+                                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                                    (@Nat.cast Real Real.instNatCast K)
+                                                    (Real.log (@Nat.cast Real Real.instNatCast N))))))
+                                          (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+                                            (@Nat.cast Real Real.instNatCast N) (@Neg.neg Real Real.instNeg c)))))
+'RiffleUpperV2.independentPair_expect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.positive_history_has_representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U00

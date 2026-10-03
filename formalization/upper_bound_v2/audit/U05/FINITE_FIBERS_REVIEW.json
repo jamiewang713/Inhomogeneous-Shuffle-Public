@@ -1,0 +1,15 @@
+{
+  "reviewer": "U05",
+  "module": "RiffleUpperV2.Shared.FiniteFibers",
+  "source_sha256": "fc6554015323ca66ac18db92c2c3d5e765c35a717c6054bb7fbab25cc77173c1",
+  "source_review": "PASS",
+  "mathematical_review": "PASS",
+  "adversarial_cases": [
+    "Empty I: both total sum and image cardinality are zero, hence conclusion 0\u22640.",
+    "Negative U and negative summands are allowed: summing the per-member bound multiplies both sides by the same positive nonempty-fiber cardinality, without a sign-dependent inequality.",
+    "Empty fibers are never cancelled; only c in the actual finite image is considered.",
+    "The key target C need not be finite; only the image and each domain fiber are used.",
+    "The proof partitions the finite sum exactly once by key and introduces no multiplicity."
+  ],
+  "scope": "Independent source, mathematical, quantifier and boundary review. Parent supplies Lean build and transitive trust check."
+}

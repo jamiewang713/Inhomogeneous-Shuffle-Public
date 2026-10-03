@@ -1,0 +1,71 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_ADAPTERS",
+  "sources": {
+    "RiffleUpperV2/Shared/FiniteLawAdapters.lean": "eb1ab9181b0e4cab5c7a0dd8ea47ed1796ac772a2695f8a45b00e51b639f48e8",
+    "RiffleUpperV2/Shared/SideMass.lean": "c8bf6fd737a10bd044b850fdc672da934c4489edd520353baa87fe9c27a651a6",
+    "RiffleUpperV2/Shared/FiniteAveraging.lean": "ee946fbd38912347889b3f19a87ccdf91effb1c3d6eb4083043921876026a0af",
+    "RiffleUpperV2/Shared/UnequalVariance.lean": "300b01490a666f887fb5497ca29bc62b883b8a581f54ee1e9c3b929ab0ce4231",
+    "RiffleUpperV2/Shared/GoodEventTransfer.lean": "354e99b31739e45bc4edb4f31122c8eec0d9bb29b651ea1af6610a7eeac4672a",
+    "RiffleUpperV2/Shared/HistoryEventBound.lean": "d7f4105e2ba5c12131315fa6cb62e769af049485ff7f4111b142967bbda91a9f",
+    "RiffleUpperV2/Shared/UniformProjection.lean": "2194059365e1e4e21ec301109b0ca2564806ccd9db68945a7d1b14e362291d1a",
+    "RiffleUpperV2/Shared/SupportedAveraging.lean": "3e8d94aacbd80a6b50d2019e69b061c928c2cd95609f2d7bc03e1eafc5d8d90a",
+    "RiffleUpperV2/Shared/WindowRates.lean": "8199acfbc8112cb1fc82377533bf99827313aaf07deb1d953230b792d5641c96",
+    "RiffleUpperV2/Shared/PairConditioning.lean": "0ea04492d15e00ccd0521fc14cb894246ee45a107ae459b1a726029596437554",
+    "RiffleUpperV2/Shared/FiniteFibers.lean": "fc6554015323ca66ac18db92c2c3d5e765c35a717c6054bb7fbab25cc77173c1",
+    "RiffleUpperV2/Shared/FiniteFiberCounts.lean": "8090f76b81ce24be73ea133a9fba87b0ea55ca00a50628dfa326f549d11c983a",
+    "RiffleUpperV2/Shared/CountedRates.lean": "df4c018330d574a6373d9932ca0f68ba59a3f3e8aa7078629d8e24b934197788",
+    "RiffleUpperV2/Shared/ExpectationAveraging.lean": "5ab052f1359464beaaaf8207c1c2a13a2aa9d2688f3c00355a31cf8b33581be1"
+  },
+  "reviews": [
+    "../U10/U00-finite-law-adapters-review.json",
+    "../U03/SIDEMASS_REVIEW.json",
+    "../U03/FINITE_AVERAGING_REVIEW.json",
+    "../U03/UNEQUAL_VARIANCE_REVIEW.json",
+    "../U08/U00-good-event-transfer-review.json",
+    "../U03/HISTORY_EVENT_BOUND_REVIEW.json",
+    "../U08/U00-history-event-bound-review.json",
+    "../U08/U00-uniform-projection-review.json",
+    "../U08/U00-supported-averaging-review.json",
+    "../U04/WINDOW_RATES_REVIEW.json",
+    "../U05/PAIR_CONDITIONING_REVIEW.json",
+    "../U05/FINITE_FIBERS_REVIEW.json",
+    "../U05/FINITE_FIBER_COUNTS_REVIEW.json",
+    "../U05/COUNTED_RATES_REVIEW.json",
+    "../U08/U00-expectation-averaging-review.json"
+  ],
+  "receipt": "phase4-check-build.json",
+  "inventory": "phase4-declarations.json",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "frozen_files_edited": false,
+  "note": "Additive exact finite probability adapters and scalar helpers. Explicit model premises remain tracked until instantiated; no endpoint proof.",
+  "additional_receipts": [
+    "equal-quantitative-check-build.json",
+    "finite-lanes-check-build.json",
+    "quantitative-inputs-check-build.json",
+    "concrete-constructions-check-build.json",
+    "model-progress-check-build.json",
+    "concrete-bounds-check-build.json",
+    "anchored-refinement-check-build.json",
+    "natural-count-check-build.json",
+    "finite-fibers-check-build.json",
+    "uniform-class-check-build.json",
+    "first-moment-endpoint-check-build.json"
+  ],
+  "additional_inventories": [
+    "equal-quantitative-declarations.json",
+    "finite-lanes-declarations.json",
+    "quantitative-inputs-declarations.json",
+    "concrete-constructions-declarations.json",
+    "model-progress-declarations.json",
+    "concrete-bounds-declarations.json",
+    "anchored-refinement-declarations.json",
+    "natural-count-declarations.json",
+    "finite-fibers-declarations.json",
+    "uniform-class-declarations.json",
+    "first-moment-endpoint-declarations.json"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED",
+  "recorded_at": "2026-10-02T22:05:18.613861+00:00",
+  "reviewer": "U00 independent of U12",
+  "endpoints": {
+    "P": "RiffleUpperV2.ProfileUpper.bufferedUpper",
+    "T": "RiffleUpperV2.ProfileUpper.criticalTimeUpper",
+    "REmpiricalBound": "RiffleUpperV2.ProfileUpper.randomEmpiricalBound",
+    "REmpirical": "RiffleUpperV2.ProfileUpper.randomEmpiricalUpper",
+    "RProfile": "RiffleUpperV2.ProfileUpper.randomProfileUpper",
+    "R": "RiffleUpperV2.ProfileUpper.randomUpper"
+  },
+  "implementation_sha256": "2c48c1957b5ea96a928dc17fbb97da66e1e686d1374e452e2cabc761d5aa4bf7",
+  "root_receipt": "profile-endpoints-check-build.json",
+  "trust_inventory": "profile-endpoints-declarations.json",
+  "declaration_count": 92,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "prior_reviews": [
+    "U12-buffered-analytic-review.json",
+    "U12-random-mixture-review.json",
+    "U12-dominance-critical-review.json",
+    "U12-full-critical-review.json"
+  ],
+  "mathematics": "Actual EmpiricalUpper.empiricalUpper now discharges every E premise in the independently checked internal implications. Actual bufferedUpper discharges P in critical and random profile statements. randomUpper constructs the exact three-component frozen R. Explicit horizon, mixing and full-margin consequences are actual public corollaries.",
+  "model_quantifiers": [
+    "Each endpoint type is checked against its exact frozen specification and separately expanded. No E/P or other mathematical certificate remains a public premise.",
+    "Ordered spatial cutoff, arbitrary same partition, fixed g/gamma before rho, scalar integrability, extended critical/mixing times and whole-array mixture all remain unchanged."
+  ],
+  "remaining": [
+    "U12 final complete lane evidence packaging; clean complete build and U13 final audit."
+  ]
+}

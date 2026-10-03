@@ -1,0 +1,51 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T08:41:07.835761+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U07",
+    "RiffleUpperV2.Exploration.LocalGood"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U07",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U07/lib/lean",
+  "built": [
+    "RiffleUpperV2.Exploration.LocalGood"
+  ],
+  "modules": {
+    "RiffleUpperV2.Exploration.LocalGood": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/LocalGood.lean",
+      "sha256": "c5cce65298f1866265f28ab361f7de8fe704bfdc03244650a80f6b8b293904cb",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Exploration.Clusters": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Clusters.lean",
+      "sha256": "4809cd86bab5de71010375c952c5fb8fcbcf3c0bac12818aa80a289299b6af0c",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Exploration.Objects": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Exploration/Objects.lean",
+      "sha256": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e",
+      "kind": "project"
+    },
+    "RiffleUpperV2.Shared.Empirical": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Empirical.lean",
+      "sha256": "108ae31a7f9d966eb05ba2a5da78e8345191fc696328eaee13e95ab5aeadb7da",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Shared.Statistics": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Shared/Statistics.lean",
+      "sha256": "dd57ff2f4bbac3e26176809ee15081b58510b041e6dee418f65d31d4fc26fb69",
+      "kind": "staged-read-only"
+    },
+    "Mathlib.Combinatorics.Pigeonhole": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/.lake/packages/mathlib/Mathlib/Combinatorics/Pigeonhole.lean",
+      "sha256": "5752ace39b839ca3867baf0fc439d6744d4efbe6d1346f115f47f2e1bd75f840",
+      "kind": "staged-read-only"
+    }
+  }
+}

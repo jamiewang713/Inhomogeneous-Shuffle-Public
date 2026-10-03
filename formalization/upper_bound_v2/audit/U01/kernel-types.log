@@ -1,0 +1,1240 @@
+@RiffleUpperV2.GraphOverlap.density_empty : ∀ {N : Nat} (σ : RiffleUpperV2.Permutation N),
+  @Eq.{1} Real
+    (@RiffleUpperV2.GraphOverlap.density N
+      (@EmptyCollection.emptyCollection.{0} (RiffleUpperV2.PathEdges N)
+        (@Finset.instEmptyCollection.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+      σ)
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+@RiffleUpperV2.GraphOverlap.overlap_empty : ∀ {N : Nat},
+  @Eq.{1} Real
+    (@RiffleUpperV2.GraphOverlap.overlap N
+      (@EmptyCollection.emptyCollection.{0} (RiffleUpperV2.PathEdges N)
+        (@Finset.instEmptyCollection.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+      (@EmptyCollection.emptyCollection.{0} (RiffleUpperV2.PathEdges N)
+        (@Finset.instEmptyCollection.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))))
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+@RiffleUpperV2.GraphOverlap.tv_le_nonempty_graph : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+        (Fin.fintype N))
+      (@RiffleUpperV2.physicalInverseLaw k N K cuts) (RiffleUpperV2.uniformPermutation N))
+    (@RiffleUpperV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @Ne.{1} (RiffleLowerV2.PathEdges N) (@RiffleUpperV2.shuffleEdges k N K cuts ω)
+        (@EmptyCollection.emptyCollection.{0} (RiffleLowerV2.PathEdges N)
+          (@Finset.instEmptyCollection.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))))
+@RiffleUpperV2.GraphOverlap.nonempty_graph_has_collision : ∀ {k N K : Nat} {cuts : RiffleUpperV2.Cuts k N K}
+  (ω : @RiffleUpperV2.Sample k N K cuts)
+  (h :
+    @Ne.{1} (RiffleLowerV2.PathEdges N) (@RiffleUpperV2.shuffleEdges k N K cuts ω)
+      (@EmptyCollection.emptyCollection.{0} (RiffleLowerV2.PathEdges N)
+        (@Finset.instEmptyCollection.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))),
+  @Exists.{1} (RiffleUpperV2.Word k K) fun (w : RiffleUpperV2.Word k K) =>
+    @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@RiffleLowerV2.wordCount k N K cuts w ω)
+@RiffleUpperV2.GraphOverlap.occupancyUnion_le_chooseMoment.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {W : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} W] (P : PMF.{u_1} Ω)
+  (X : W → Ω → Nat) (q : Nat),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.probability.{u_1} Ω inst P fun (ω : Ω) =>
+      @Exists.{u_2 + 1} W fun (w : W) => @LE.le.{0} Nat instLENat q (X w ω))
+    (@Finset.sum.{u_2, 0} W Real Real.instAddCommMonoid (@Finset.univ.{u_2} W inst_1) fun (w : W) =>
+      @RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) => @Nat.cast.{0} Real Real.instNatCast (Nat.choose (X w ω) q))
+@RiffleUpperV2.GraphOverlap.wordBinomialMoment : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (w : RiffleUpperV2.Word k K) (q : Nat) (hq : @LE.le.{0} Nat instLENat q N),
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @Nat.cast.{0} Real Real.instNatCast (Nat.choose (@RiffleLowerV2.wordCount k N K cuts w ω) q))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.choose N q))
+      (@Finset.prod.{0, 0} (Fin K) Real Real.instCommMonoid (@Finset.univ.{0} (Fin K) (Fin.fintype K))
+        fun (j : Fin K) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (RiffleLowerV2.falling (@TimeProfile.Cuts.count k N K cuts j (@List.Vector.get.{0} (Fin k) K w j)) q)
+          (RiffleLowerV2.falling N q)))
+@RiffleUpperV2.GraphOverlap.collisionUpper : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+        (Fin.fintype N))
+      (@RiffleUpperV2.physicalInverseLaw k N K cuts) (RiffleUpperV2.uniformPermutation N))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.choose N (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@Finset.prod.{0, 0} (Fin K) Real Real.instCommMonoid (@Finset.univ.{0} (Fin K) (Fin.fintype K))
+        fun (j : Fin K) =>
+        @Finset.sum.{0, 0} (Fin k) Real Real.instAddCommMonoid (@Finset.univ.{0} (Fin k) (Fin.fintype k))
+          fun (a : Fin k) =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (RiffleLowerV2.falling (@TimeProfile.Cuts.count k N K cuts j a)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (RiffleLowerV2.falling N (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+@RiffleUpperV2.GraphOverlap.columnCollision_le_exp_cost : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N) (j : Fin K),
+  @LE.le.{0} Real Real.instLE
+    (@Finset.sum.{0, 0} (Fin k) Real Real.instAddCommMonoid (@Finset.univ.{0} (Fin k) (Fin.fintype k))
+      fun (a : Fin k) =>
+      @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (RiffleLowerV2.falling (@TimeProfile.Cuts.count k N K cuts j a)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (RiffleLowerV2.falling N (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (Real.exp
+      (@Neg.neg.{0} Real Real.instNeg
+        (@TimeProfile.psi k (@TimeProfile.Cuts.profile k N K cuts hN j)
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))))
+@RiffleUpperV2.GraphOverlap.collisionUpper_exponential : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+        (Fin.fintype N))
+      (@RiffleUpperV2.physicalInverseLaw k N K cuts) (RiffleUpperV2.uniformPermutation N))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.choose N (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (Real.exp
+        (@Neg.neg.{0} Real Real.instNeg
+          (@Finset.sum.{0, 0} (Fin K) Real Real.instAddCommMonoid (@Finset.univ.{0} (Fin K) (Fin.fintype K))
+            fun (j : Fin K) =>
+            @TimeProfile.psi k
+              (@TimeProfile.Cuts.profile k N K cuts
+                (@Decidable.byContradiction
+                  (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                  (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                  fun
+                    (a :
+                      Not (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+                  @RiffleUpperV2.GraphOverlap.collisionUpper_exponential._proof_1 N hN a)
+                j)
+              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                  (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))))))
+@RiffleUpperV2.GraphOverlap.collisionUpper_polynomial : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N) (ζ : Real)
+  (hcost :
+    @LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+          ζ)
+        (Real.log (@Nat.cast.{0} Real Real.instNatCast N)))
+      (@Finset.sum.{0, 0} (Fin K) Real Real.instAddCommMonoid (@Finset.univ.{0} (Fin K) (Fin.fintype K))
+        fun (j : Fin K) =>
+        @TimeProfile.psi k
+          (@TimeProfile.Cuts.profile k N K cuts
+            (@Decidable.byContradiction
+              (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+              (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+              fun
+                (a : Not (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+              @RiffleUpperV2.GraphOverlap.collisionUpper_exponential._proof_1 N hN a)
+            j)
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+        (Fin.fintype N))
+      (@RiffleUpperV2.physicalInverseLaw k N K cuts) (RiffleUpperV2.uniformPermutation N))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+        (@Nat.cast.{0} Real Real.instNatCast N) (@Neg.neg.{0} Real Real.instNeg ζ))
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+@RiffleUpperV2.GraphOverlap.shuffle_componentSize : ∀ {k N K : Nat} {cuts : RiffleUpperV2.Cuts k N K}
+  (ω : @RiffleUpperV2.Sample k N K cuts) (i : Fin N),
+  @Eq.{1} Nat
+    (@Finset.card.{0} (Fin N)
+      (@Finset.filter.{0} (Fin N)
+        (fun (j : Fin N) =>
+          @Eq.{1}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N (@RiffleUpperV2.shuffleEdges k N K cuts ω) j)
+            (@RiffleUpperV2.GraphOverlap.componentKey N (@RiffleUpperV2.shuffleEdges k N K cuts ω) i))
+        (fun (a : Fin N) =>
+          instDecidableEqFin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N (@RiffleUpperV2.shuffleEdges k N K cuts ω) a)
+            (@RiffleUpperV2.GraphOverlap.componentKey N (@RiffleUpperV2.shuffleEdges k N K cuts ω) i))
+        (@Finset.univ.{0} (Fin N) (Fin.fintype N))))
+    (@RiffleLowerV2.wordCount k N K cuts (@RiffleUpperV2.sortedWord k N K cuts ω i) ω)
+@RiffleUpperV2.GraphOverlap.boundedComponents_shuffle_iff : ∀ {k N K B : Nat} {cuts : RiffleUpperV2.Cuts k N K}
+  (ω : @RiffleUpperV2.Sample k N K cuts),
+  Iff (@RiffleUpperV2.GraphOverlap.BoundedComponents N (@RiffleUpperV2.shuffleEdges k N K cuts ω) B)
+    (∀ (w : RiffleUpperV2.Word k K), @LE.le.{0} Nat instLENat (@RiffleLowerV2.wordCount k N K cuts w ω) B)
+@RiffleUpperV2.GraphOverlap.not_boundedComponents_shuffle : ∀ {k N K B : Nat} {cuts : RiffleUpperV2.Cuts k N K}
+  (ω : @RiffleUpperV2.Sample k N K cuts),
+  Iff (Not (@RiffleUpperV2.GraphOverlap.BoundedComponents N (@RiffleUpperV2.shuffleEdges k N K cuts ω) B))
+    (@Exists.{1} (RiffleUpperV2.Word k K) fun (w : RiffleUpperV2.Word k K) =>
+      @LE.le.{0} Nat instLENat
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) B
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@RiffleLowerV2.wordCount k N K cuts w ω))
+RiffleUpperV2.GraphOverlap.centralBinomial_one_le : ∀ (B : Nat),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+    (@Nat.cast.{0} Real Real.instNatCast
+      (Nat.choose B
+        (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) B
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+@RiffleUpperV2.GraphOverlap.boundedComponentTail_factorial : ∀ {k N K B : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+  (hB : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) B),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleUpperV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      Not (@RiffleUpperV2.GraphOverlap.BoundedComponents N (@RiffleUpperV2.shuffleEdges k N K cuts ω) B))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Nat.cast.{0} Real Real.instNatCast N)
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@RiffleLowerV2.maximalMean N k K cuts hN) B))
+      (@Nat.cast.{0} Real Real.instNatCast
+        (Nat.factorial
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) B
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+RiffleUpperV2.GraphOverlap.exists_boundedComponentTail : ∀ (η A : Real)
+  (hη : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) η),
+  @Exists.{1} Nat fun (B : Nat) =>
+    And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B)
+      (∀ (k N K : Nat) (cuts : RiffleUpperV2.Cuts k N K)
+        (hN : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N),
+        @LE.le.{0} Real Real.instLE
+            (@RiffleLowerV2.maximalMean N k K cuts
+              (@Decidable.byContradiction
+                (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                fun
+                  (a :
+                    Not (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+                RiffleUpperV2.GraphOverlap.exists_boundedComponentTail._proof_1 N hN a))
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast N) (@Neg.neg.{0} Real Real.instNeg η)) →
+          @LE.le.{0} Real Real.instLE
+            (@RiffleUpperV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+              (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+              fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+              Not (@RiffleUpperV2.GraphOverlap.BoundedComponents N (@RiffleUpperV2.shuffleEdges k N K cuts ω) B))
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                (@Nat.cast.{0} Real Real.instNatCast N) (@Neg.neg.{0} Real Real.instNeg A))
+              (@Nat.cast.{0} Real Real.instNatCast
+                (Nat.factorial
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) B
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))))
+@RiffleUpperV2.GraphOverlap.graphLaw : {N : Nat} →
+  (G : RiffleUpperV2.PathEdges N) → PMF.{0} (RiffleUpperV2.Permutation N)
+@RiffleUpperV2.GraphOverlap.density : {N : Nat} →
+  (G : RiffleUpperV2.PathEdges N) → (σ : RiffleUpperV2.Permutation N) → Real
+@RiffleUpperV2.GraphOverlap.density_nonneg : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N)
+  (σ : RiffleUpperV2.Permutation N),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@RiffleUpperV2.GraphOverlap.density N G σ)
+@RiffleUpperV2.GraphOverlap.uniform_mass : ∀ {N : Nat} (σ : RiffleUpperV2.Permutation N),
+  @Eq.{1} Real
+    (ENNReal.toReal
+      (@DFunLike.coe.{1, 1, 1} (PMF.{0} (RiffleLowerV2.Permutation N)) (RiffleLowerV2.Permutation N)
+        (fun (x : RiffleLowerV2.Permutation N) => ENNReal) (@PMF.instFunLike.{0} (RiffleLowerV2.Permutation N))
+        (RiffleLowerV2.uniformPermutation N) σ))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+      (@Nat.cast.{0} Real Real.instNatCast
+        (@Fintype.card.{0} (RiffleUpperV2.Permutation N)
+          (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+            (Fin.fintype N)))))
+@RiffleUpperV2.GraphOverlap.graphLaw_mass : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N)
+  (σ : RiffleUpperV2.Permutation N),
+  @Eq.{1} Real
+    (ENNReal.toReal
+      (@DFunLike.coe.{1, 1, 1} (PMF.{0} (RiffleUpperV2.Permutation N)) (RiffleUpperV2.Permutation N)
+        (fun (x : RiffleUpperV2.Permutation N) => ENNReal) (@PMF.instFunLike.{0} (RiffleUpperV2.Permutation N))
+        (@RiffleUpperV2.GraphOverlap.graphLaw N G) σ))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@RiffleUpperV2.GraphOverlap.density N G σ)
+      (@Nat.cast.{0} Real Real.instNatCast
+        (@Fintype.card.{0} (RiffleUpperV2.Permutation N)
+          (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+            (Fin.fintype N)))))
+@RiffleUpperV2.GraphOverlap.graphLaw_density : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N)
+  (σ : RiffleUpperV2.Permutation N),
+  @Eq.{1} Real
+    (ENNReal.toReal
+      (@DFunLike.coe.{1, 1, 1} (PMF.{0} (RiffleUpperV2.Permutation N)) (RiffleUpperV2.Permutation N)
+        (fun (x : RiffleUpperV2.Permutation N) => ENNReal) (@PMF.instFunLike.{0} (RiffleUpperV2.Permutation N))
+        (@RiffleUpperV2.GraphOverlap.graphLaw N G) σ))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (ENNReal.toReal
+        (@DFunLike.coe.{1, 1, 1} (PMF.{0} (RiffleLowerV2.Permutation N)) (RiffleLowerV2.Permutation N)
+          (fun (x : RiffleLowerV2.Permutation N) => ENNReal) (@PMF.instFunLike.{0} (RiffleLowerV2.Permutation N))
+          (RiffleLowerV2.uniformPermutation N) σ))
+      (@RiffleUpperV2.GraphOverlap.density N G σ))
+@RiffleUpperV2.GraphOverlap.density_normalized : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N),
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{0} (RiffleLowerV2.Permutation N)
+      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+        (Fin.fintype N))
+      (RiffleLowerV2.uniformPermutation N) (@RiffleUpperV2.GraphOverlap.density N G))
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+@RiffleUpperV2.GraphOverlap.increasing_probability : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N),
+  @Eq.{1} Real
+    (@RiffleLowerV2.probability.{0} (RiffleLowerV2.Permutation N)
+      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+        (Fin.fintype N))
+      (RiffleLowerV2.uniformPermutation N) (@RiffleLowerV2.Model.BlockIncreasing N G))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+      (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.GraphOverlap.componentFactorial N G)))
+@RiffleUpperV2.GraphOverlap.overlap : {N : Nat} → (G H : RiffleUpperV2.PathEdges N) → Real
+@RiffleUpperV2.GraphOverlap.overlap_nonneg : ∀ {N : Nat} (G H : RiffleUpperV2.PathEdges N),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@RiffleUpperV2.GraphOverlap.overlap N G H)
+@RiffleUpperV2.GraphOverlap.overlapIdentity : ∀ {N : Nat} (G H : RiffleUpperV2.PathEdges N),
+  @Eq.{1} Real (@RiffleUpperV2.GraphOverlap.overlap N G H)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.GraphOverlap.componentFactorial N G))
+        (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.GraphOverlap.componentFactorial N H)))
+      (@Nat.cast.{0} Real Real.instNatCast
+        (@RiffleUpperV2.GraphOverlap.componentFactorial N
+          (@Union.union.{0} (RiffleUpperV2.PathEdges N)
+            (@Finset.instUnion.{0}
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (instDecidableEqFin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            G H))))
+@RiffleUpperV2.GraphOverlap.boundedComponents_population : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N),
+  @RiffleUpperV2.GraphOverlap.BoundedComponents N G N
+@RiffleUpperV2.GraphOverlap.edgeDisjointOverlap : ∀ {N : Nat} (G H : RiffleUpperV2.PathEdges N)
+  (hd :
+    @Disjoint.{0} (RiffleUpperV2.PathEdges N)
+      (@Finset.instPartialOrder.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@Finset.instOrderBot.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      G H),
+  @LE.le.{0} Real Real.instLE (@RiffleUpperV2.GraphOverlap.overlap N G H)
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+@RiffleUpperV2.GraphOverlap.edgeDisjointFactorial : ∀ {N : Nat} (G H : RiffleUpperV2.PathEdges N)
+  (hd :
+    @Disjoint.{0} (RiffleUpperV2.PathEdges N)
+      (@Finset.instPartialOrder.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@Finset.instOrderBot.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      G H),
+  @LE.le.{0} Nat instLENat
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (@RiffleUpperV2.GraphOverlap.componentFactorial N G) (@RiffleUpperV2.GraphOverlap.componentFactorial N H))
+    (@RiffleUpperV2.GraphOverlap.componentFactorial N
+      (@Union.union.{0} (RiffleUpperV2.PathEdges N)
+        (@Finset.instUnion.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (instDecidableEqFin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+        G H))
+RiffleUpperV2.GraphOverlap.runFactorial_aux : ∀ (a b : Nat),
+  @LE.le.{0} Nat instLENat
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (Nat.factorial
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) a
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Nat.factorial
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) b
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    (Nat.factorial
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) a b)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+RiffleUpperV2.GraphOverlap.runFactorial : ∀ (a b : Nat)
+  (ha : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) a)
+  (hb : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) b),
+  @LE.le.{0} Nat instLENat
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) (Nat.factorial a) (Nat.factorial b))
+    (Nat.factorial
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) a b)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@RiffleUpperV2.GraphOverlap.descFactorial_ratio_le_pow : ∀ {N m : Nat} (hm : @LE.le.{0} Nat instLENat m N) (r : Nat),
+  @LE.le.{0} Real Real.instLE
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.descFactorial m r))
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.descFactorial N r)))
+    (@HPow.hPow.{0, 0, 0} Real Nat Real
+      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@Nat.cast.{0} Real Real.instNatCast m) (@Nat.cast.{0} Real Real.instNatCast N))
+      r)
+@RiffleUpperV2.GraphOverlap.wordFactorialMoment : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K)
+  (w : RiffleLowerV2.Word k K) (q : Nat) (hq : @LE.le.{0} Nat instLENat q N),
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      RiffleLowerV2.falling (@RiffleLowerV2.wordCount k N K cuts w ω) q)
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (RiffleLowerV2.falling N q)
+      (@Finset.prod.{0, 0} (Fin K) Real Real.instCommMonoid (@Finset.univ.{0} (Fin K) (Fin.fintype K))
+        fun (j : Fin K) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (RiffleLowerV2.falling (@TimeProfile.Cuts.count k N K cuts j (@List.Vector.get.{0} (Fin k) K w j)) q)
+          (RiffleLowerV2.falling N q)))
+@RiffleUpperV2.GraphOverlap.wordMass_eq_prod : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K)
+  (w : RiffleLowerV2.Word k K),
+  @Eq.{1} Real (@RiffleLowerV2.wordMass k N K cuts w)
+    (@Finset.prod.{0, 0} (Fin K) Real Real.instCommMonoid (@Finset.univ.{0} (Fin K) (Fin.fintype K)) fun (j : Fin K) =>
+      @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@Nat.cast.{0} Real Real.instNatCast
+          (@TimeProfile.Cuts.count k N K cuts j (@List.Vector.get.{0} (Fin k) K w j)))
+        (@Nat.cast.{0} Real Real.instNatCast N))
+@RiffleUpperV2.GraphOverlap.wordMass_nonneg : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K)
+  (w : RiffleLowerV2.Word k K),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@RiffleLowerV2.wordMass k N K cuts w)
+@RiffleUpperV2.GraphOverlap.count_le_population : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K) (j : Fin K)
+  (a : Fin k), @LE.le.{0} Nat instLENat (@TimeProfile.Cuts.count k N K cuts j a) N
+@RiffleUpperV2.GraphOverlap.wordFactorialMoment_le : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K)
+  (w : RiffleLowerV2.Word k K) (q : Nat) (hq : @LE.le.{0} Nat instLENat q N),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      RiffleLowerV2.falling (@RiffleLowerV2.wordCount k N K cuts w ω) q)
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (RiffleLowerV2.falling N q)
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@RiffleLowerV2.wordMass k N K cuts w) q))
+@RiffleUpperV2.GraphOverlap.wordBinomialMoment_le : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K)
+  (w : RiffleLowerV2.Word k K) (q : Nat) (hq : @LE.le.{0} Nat instLENat q N),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @Nat.cast.{0} Real Real.instNatCast (Nat.choose (@RiffleLowerV2.wordCount k N K cuts w ω) q))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.choose N q))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@RiffleLowerV2.wordMass k N K cuts w) q))
+@RiffleUpperV2.GraphOverlap.wordMass_sum : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K)
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N),
+  @Eq.{1} Real
+    (@Finset.sum.{0, 0} (RiffleLowerV2.Word k K) Real Real.instAddCommMonoid
+      (@Finset.univ.{0} (RiffleLowerV2.Word k K) (@List.Vector.instFintype.{0} (Fin k) (Fin.fintype k) K))
+      fun (w : RiffleLowerV2.Word k K) => @RiffleLowerV2.wordMass k N K cuts w)
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+@RiffleUpperV2.GraphOverlap.wordMass_le_maximalMean_div : ∀ {k N K : Nat} (cuts : TimeProfile.Cuts k N K)
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+  (w : RiffleLowerV2.Word k K),
+  @LE.le.{0} Real Real.instLE (@RiffleLowerV2.wordMass k N K cuts w)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@RiffleLowerV2.maximalMean N k K cuts hN) (@Nat.cast.{0} Real Real.instNatCast N))
+@RiffleUpperV2.GraphOverlap.wordCount_le_population : ∀ {k N K : Nat} {cuts : TimeProfile.Cuts k N K}
+  (w : RiffleLowerV2.Word k K) (ω : @RiffleLowerV2.Sample k N K cuts),
+  @LE.le.{0} Nat instLENat (@RiffleLowerV2.wordCount k N K cuts w ω) N
+@RiffleUpperV2.GraphOverlap.largestComponentTail_zero : ∀ {k N K q : Nat} (cuts : TimeProfile.Cuts k N K)
+  (hq : @LT.lt.{0} Nat instLTNat N q),
+  @Eq.{1} Real
+    (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @Exists.{1} (RiffleLowerV2.Word k K) fun (w : RiffleLowerV2.Word k K) =>
+        @LE.le.{0} Nat instLENat q (@RiffleLowerV2.wordCount k N K cuts w ω))
+    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+@RiffleUpperV2.GraphOverlap.largestComponentTail_sum : ∀ {k N K q : Nat} (cuts : TimeProfile.Cuts k N K)
+  (hq : @LE.le.{0} Nat instLENat q N),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @Exists.{1} (RiffleLowerV2.Word k K) fun (w : RiffleLowerV2.Word k K) =>
+        @LE.le.{0} Nat instLENat q (@RiffleLowerV2.wordCount k N K cuts w ω))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.choose N q))
+      (@Finset.sum.{0, 0} (RiffleLowerV2.Word k K) Real Real.instAddCommMonoid
+        (@Finset.univ.{0} (RiffleLowerV2.Word k K) (@List.Vector.instFintype.{0} (Fin k) (Fin.fintype k) K))
+        fun (w : RiffleLowerV2.Word k K) =>
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@RiffleLowerV2.wordMass k N K cuts w) q))
+@RiffleUpperV2.GraphOverlap.largestComponentTail : ∀ {k N K q : Nat} (cuts : TimeProfile.Cuts k N K)
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+  (hq : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) q)
+  (hqN : @LE.le.{0} Nat instLENat q N),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @Exists.{1} (RiffleLowerV2.Word k K) fun (w : RiffleLowerV2.Word k K) =>
+        @LE.le.{0} Nat instLENat q (@RiffleLowerV2.wordCount k N K cuts w ω))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.choose N q))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@RiffleLowerV2.maximalMean N k K cuts hN) (@Nat.cast.{0} Real Real.instNatCast N))
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) q
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+@RiffleUpperV2.GraphOverlap.componentKey : {N : Nat} →
+  (G : RiffleUpperV2.PathEdges N) →
+    (i : Fin N) →
+      Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@RiffleUpperV2.GraphOverlap.componentKey_eq_iff : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N) (i j : Fin N),
+  Iff
+    (@Eq.{1}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@RiffleUpperV2.GraphOverlap.componentKey N G i) (@RiffleUpperV2.GraphOverlap.componentKey N G j))
+    (@Eq.{1} Nat (@RiffleLowerV2.componentIndex N G i) (@RiffleLowerV2.componentIndex N G j))
+@RiffleUpperV2.GraphOverlap.componentFactorial : {N : Nat} → (G : RiffleUpperV2.PathEdges N) → Nat
+@RiffleUpperV2.GraphOverlap.componentFactorial_pos : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N),
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@RiffleUpperV2.GraphOverlap.componentFactorial N G)
+@RiffleUpperV2.GraphOverlap.componentFiberEquiv : {N : Nat} →
+  (G : RiffleUpperV2.PathEdges N) →
+    (σ : RiffleUpperV2.Permutation N) →
+      (hσ : @RiffleLowerV2.Model.BlockIncreasing N G σ) →
+        Equiv.{1, 1} (@RiffleLowerV2.Model.ComponentSortFiber N G σ)
+          (@RiffleLowerV2.Model.KeyAssignmentFiber.{0} N
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N G)
+            (@Function.comp.{1, 1, 1} (Fin N) (Fin N)
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@RiffleUpperV2.GraphOverlap.componentKey N G)
+              (@DFunLike.coe.{1, 1, 1} (Equiv.{1, 1} (Fin N) (Fin N)) (Fin N) (fun (x : Fin N) => Fin N)
+                (@EquivLike.toFunLike.{1, 1, 1} (Equiv.{1, 1} (Fin N) (Fin N)) (Fin N) (Fin N)
+                  (@Equiv.instEquivLike.{1, 1} (Fin N) (Fin N)))
+                (@Equiv.symm.{1, 1} (Fin N) (Fin N) σ))))
+@RiffleUpperV2.GraphOverlap.componentSort_fiber_card : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N)
+  (σ : RiffleUpperV2.Permutation N) (hσ : @RiffleLowerV2.Model.BlockIncreasing N G σ),
+  @Eq.{1} Nat
+    (@Fintype.card.{0} (@RiffleLowerV2.Model.ComponentSortFiber N G σ)
+      (@Subtype.fintype.{0} (RiffleLowerV2.Permutation N)
+        (fun (π : RiffleLowerV2.Permutation N) =>
+          @Eq.{1} (RiffleLowerV2.Permutation N) (@RiffleLowerV2.componentSort N G π) σ)
+        (fun (a : RiffleLowerV2.Permutation N) =>
+          @Fintype.decidableEqEquivFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (Fin.fintype N)
+            (@RiffleLowerV2.componentSort N G a) σ)
+        (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+          (Fin.fintype N))))
+    (@RiffleUpperV2.GraphOverlap.componentFactorial N G)
+@RiffleUpperV2.GraphOverlap.componentSort_fiber_card_eq : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N)
+  (σ : RiffleUpperV2.Permutation N),
+  @Eq.{1} Nat
+    (@Fintype.card.{0} (@RiffleLowerV2.Model.ComponentSortFiber N G σ)
+      (@Subtype.fintype.{0} (RiffleLowerV2.Permutation N)
+        (fun (π : RiffleLowerV2.Permutation N) =>
+          @Eq.{1} (RiffleLowerV2.Permutation N) (@RiffleLowerV2.componentSort N G π) σ)
+        (fun (a : RiffleLowerV2.Permutation N) =>
+          @Fintype.decidableEqEquivFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (Fin.fintype N)
+            (@RiffleLowerV2.componentSort N G a) σ)
+        (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+          (Fin.fintype N))))
+    (@ite.{1} Nat (@RiffleLowerV2.Model.BlockIncreasing N G σ)
+      (Classical.propDecidable (@RiffleLowerV2.Model.BlockIncreasing N G σ))
+      (@RiffleUpperV2.GraphOverlap.componentFactorial N G)
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+@RiffleUpperV2.GraphOverlap.expect_comm.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} Γ] (P : PMF.{u_1} Ω)
+  (Q : PMF.{u_2} Γ) (f : Ω → Γ → Real),
+  @Eq.{1} Real (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) => @RiffleLowerV2.expect.{u_2} Γ inst_1 Q (f ω))
+    (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (γ : Γ) => @RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) => f ω γ)
+@RiffleUpperV2.GraphOverlap.expect_product.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} Γ] (P : PMF.{u_1} Ω)
+  (Q : PMF.{u_2} Γ) (f : Ω → Real) (g : Γ → Real),
+  @Eq.{1} Real
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@RiffleLowerV2.expect.{u_1} Ω inst P f)
+      (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q g))
+    (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) =>
+      @RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (γ : Γ) =>
+        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (f ω) (g γ))
+@RiffleUpperV2.GraphOverlap.expect_abs_le_sqrt.{u_1} : ∀ {Ω : Type u_1} [inst : Fintype.{u_1} Ω] (P : PMF.{u_1} Ω)
+  (f : Ω → Real),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) => @abs.{0} Real Real.lattice Real.instAddGroup (f ω))
+    (Real.sqrt
+      (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) =>
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) (f ω)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@RiffleUpperV2.GraphOverlap.probability_compl.{u_1} : ∀ {Ω : Type u_1} [inst : Fintype.{u_1} Ω] (P : PMF.{u_1} Ω)
+  (A : Ω → Prop),
+  @Eq.{1} Real (@RiffleLowerV2.probability.{u_1} Ω inst P fun (ω : Ω) => Not (A ω))
+    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+      (@RiffleLowerV2.probability.{u_1} Ω inst P A))
+@RiffleUpperV2.GraphOverlap.choose_mul_ratio_pow_le : ∀ {N q : Nat}
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+  (hq : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) q) {μ : Real}
+  (hμ : @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) μ),
+  @LE.le.{0} Real Real.instLE
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.choose N q))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) μ
+          (@Nat.cast.{0} Real Real.instNatCast N))
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) q
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Nat.cast.{0} Real Real.instNatCast N)
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) μ
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) q
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.factorial q)))
+@RiffleUpperV2.GraphOverlap.maximalMean_nonneg : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@RiffleLowerV2.maximalMean N k K cuts hN)
+@RiffleUpperV2.GraphOverlap.largestComponentTail_factorial : ∀ {k N K q : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+  (hq : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) q),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @Exists.{1} (RiffleUpperV2.Word k K) fun (w : RiffleUpperV2.Word k K) =>
+        @LE.le.{0} Nat instLENat q (@RiffleLowerV2.wordCount k N K cuts w ω))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Nat.cast.{0} Real Real.instNatCast N)
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@RiffleLowerV2.maximalMean N k K cuts hN)
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) q
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (@Nat.cast.{0} Real Real.instNatCast (Nat.factorial q)))
+@RiffleUpperV2.GraphOverlap.boundedComponentTail : ∀ {k N K B : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (hN : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N)
+  (hB : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B) {η A : Real}
+  (hμ :
+    @LE.le.{0} Real Real.instLE
+      (@RiffleLowerV2.maximalMean N k K cuts
+        (@Decidable.byContradiction
+          (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+          (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+          fun (a : Not (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+          @RiffleUpperV2.GraphOverlap.boundedComponentTail._proof_1 N B hN a))
+      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+        (@Nat.cast.{0} Real Real.instNatCast N) (@Neg.neg.{0} Real Real.instNeg η)))
+  (hexp :
+    @LE.le.{0} Real Real.instLE
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) A
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) η
+        (@Nat.cast.{0} Real Real.instNatCast B))),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleLowerV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@TimeProfile.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      Not (@RiffleUpperV2.GraphOverlap.BoundedComponents N (@RiffleUpperV2.shuffleEdges k N K cuts ω) B))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+        (@Nat.cast.{0} Real Real.instNatCast N) (@Neg.neg.{0} Real Real.instNeg A))
+      (@Nat.cast.{0} Real Real.instNatCast
+        (Nat.factorial
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) B
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+@RiffleUpperV2.GraphOverlap.prod_initialCard.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (s : Finset.{u_1} α),
+  @Eq.{1} Nat
+    (@Finset.prod.{u_1, 0} α Nat Nat.instCommMonoid s fun (i : α) =>
+      @Finset.card.{u_1} α
+        (@Finset.filter.{u_1} α
+          (fun (j : α) =>
+            @LE.le.{u_1} α
+              (@Preorder.toLE.{u_1} α
+                (@PartialOrder.toPreorder.{u_1} α
+                  (@SemilatticeInf.toPartialOrder.{u_1} α
+                    (@Lattice.toSemilatticeInf.{u_1} α
+                      (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+              j i)
+          (fun (a : α) =>
+            Classical.propDecidable
+              (@LE.le.{u_1} α
+                (@Preorder.toLE.{u_1} α
+                  (@PartialOrder.toPreorder.{u_1} α
+                    (@SemilatticeInf.toPartialOrder.{u_1} α
+                      (@Lattice.toSemilatticeInf.{u_1} α
+                        (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+                a i))
+          s))
+    (Nat.factorial (@Finset.card.{u_1} α s))
+@RiffleUpperV2.GraphOverlap.runLength : {N : Nat} → (G : RiffleUpperV2.PathEdges N) → (i : Fin N) → Nat
+@RiffleUpperV2.GraphOverlap.runLength_pos : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N) (i : Fin N),
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@RiffleUpperV2.GraphOverlap.runLength N G i)
+@RiffleUpperV2.GraphOverlap.componentFactorial_eq_runProduct : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N),
+  @Eq.{1} Nat (@RiffleUpperV2.GraphOverlap.componentFactorial N G)
+    (@Finset.prod.{0, 0} (Fin N) Nat Nat.instCommMonoid (@Finset.univ.{0} (Fin N) (Fin.fintype N)) fun (i : Fin N) =>
+      @RiffleUpperV2.GraphOverlap.runLength N G i)
+@RiffleUpperV2.GraphOverlap.componentIndex_eq_iff_between : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N) {i j : Fin N}
+  (hij : @LE.le.{0} (Fin N) (@instLEFin N) i j),
+  Iff (@Eq.{1} Nat (@RiffleLowerV2.componentIndex N G i) (@RiffleLowerV2.componentIndex N G j))
+    (∀
+      (e :
+        Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+      @LE.le.{0} Nat instLENat (@Fin.val N i)
+          (@Fin.val
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            e) →
+        @LT.lt.{0} Nat instLTNat
+            (@Fin.val
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              e)
+            (@Fin.val N j) →
+          @Membership.mem.{0, 0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (RiffleUpperV2.PathEdges N)
+            (@SetLike.instMembership.{0, 0} (RiffleUpperV2.PathEdges N)
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@Finset.instSetLike.{0}
+                (Fin
+                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+            G e)
+@RiffleUpperV2.GraphOverlap.runLength_mono : ∀ {N : Nat} {G H : RiffleUpperV2.PathEdges N}
+  (hGH :
+    @LE.le.{0} (RiffleUpperV2.PathEdges N)
+      (@Preorder.toLE.{0} (RiffleUpperV2.PathEdges N)
+        (@PartialOrder.toPreorder.{0} (RiffleUpperV2.PathEdges N)
+          (@Finset.instPartialOrder.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))))
+      G H)
+  (i : Fin N),
+  @LE.le.{0} Nat instLENat (@RiffleUpperV2.GraphOverlap.runLength N G i) (@RiffleUpperV2.GraphOverlap.runLength N H i)
+@RiffleUpperV2.GraphOverlap.runLength_le_componentSize : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N) (i : Fin N),
+  @LE.le.{0} Nat instLENat (@RiffleUpperV2.GraphOverlap.runLength N G i)
+    (@Finset.card.{0} (Fin N)
+      (@Finset.filter.{0} (Fin N)
+        (fun (j : Fin N) =>
+          @Eq.{1}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N G j) (@RiffleUpperV2.GraphOverlap.componentKey N G i))
+        (fun (a : Fin N) =>
+          instDecidableEqFin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N G a) (@RiffleUpperV2.GraphOverlap.componentKey N G i))
+        (@Finset.univ.{0} (Fin N) (Fin.fintype N))))
+@RiffleUpperV2.GraphOverlap.runLength_eq_one_of_no_predecessor : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N) (i : Fin N)
+  (hi :
+    ∀
+      (e :
+        Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+      @Membership.mem.{0, 0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (RiffleUpperV2.PathEdges N)
+          (@SetLike.instMembership.{0, 0} (RiffleUpperV2.PathEdges N)
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Finset.instSetLike.{0}
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+          G e →
+        @Ne.{1} (Fin N) (@RiffleLowerV2.edgeRight N e) i),
+  @Eq.{1} Nat (@RiffleUpperV2.GraphOverlap.runLength N G i)
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+@RiffleUpperV2.GraphOverlap.BoundedComponents : {N : Nat} → (G : RiffleUpperV2.PathEdges N) → (B : Nat) → Prop
+@RiffleUpperV2.GraphOverlap.boundedComponentFactorial : ∀ {N B : Nat} (G H : RiffleUpperV2.PathEdges N)
+  (hH : @RiffleUpperV2.GraphOverlap.BoundedComponents N H B),
+  @LE.le.{0} Nat instLENat
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (@RiffleUpperV2.GraphOverlap.componentFactorial N G) (@RiffleUpperV2.GraphOverlap.componentFactorial N H))
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (@RiffleUpperV2.GraphOverlap.componentFactorial N
+        (@Union.union.{0} (RiffleUpperV2.PathEdges N)
+          (@Finset.instUnion.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (instDecidableEqFin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          G H))
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) B
+        (@Finset.card.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Inter.inter.{0} (RiffleUpperV2.PathEdges N)
+            (@Finset.instInter.{0}
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (instDecidableEqFin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            G H))))
+@RiffleUpperV2.GraphOverlap.boundedComponentOverlap_strong : ∀ {N B : Nat} (G H : RiffleUpperV2.PathEdges N)
+  (hH : @RiffleUpperV2.GraphOverlap.BoundedComponents N H B),
+  @LE.le.{0} Real Real.instLE (@RiffleUpperV2.GraphOverlap.overlap N G H)
+    (@HPow.hPow.{0, 0, 0} Real Nat Real
+      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+      (@Nat.cast.{0} Real Real.instNatCast B)
+      (@Finset.card.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@Inter.inter.{0} (RiffleUpperV2.PathEdges N)
+          (@Finset.instInter.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (instDecidableEqFin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          G H)))
+@RiffleUpperV2.GraphOverlap.boundedComponentOverlap : ∀ {N B : Nat} (G H : RiffleUpperV2.PathEdges N)
+  (hB : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B)
+  (hH : @RiffleUpperV2.GraphOverlap.BoundedComponents N H B),
+  @LE.le.{0} Real Real.instLE (@RiffleUpperV2.GraphOverlap.overlap N G H)
+    (@HPow.hPow.{0, 0, 0} Real Nat Real
+      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+      (@Nat.cast.{0} Real Real.instNatCast
+        (Nat.choose B
+          (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) B
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+      (@Finset.card.{0}
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@Inter.inter.{0} (RiffleUpperV2.PathEdges N)
+          (@Finset.instInter.{0}
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (instDecidableEqFin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          G H)))
+@RiffleUpperV2.GraphOverlap.componentIndex_edge_eq_iff : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N)
+  (e :
+    Fin
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+  Iff
+    (@Eq.{1} Nat (@RiffleLowerV2.componentIndex N G (@RiffleLowerV2.edgeLeft N e))
+      (@RiffleLowerV2.componentIndex N G (@RiffleLowerV2.edgeRight N e)))
+    (@Membership.mem.{0, 0}
+      (Fin
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (RiffleUpperV2.PathEdges N)
+      (@SetLike.instMembership.{0, 0} (RiffleUpperV2.PathEdges N)
+        (Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@Finset.instSetLike.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+      G e)
+@RiffleUpperV2.GraphOverlap.blockIncreasing_iff_edges : ∀ {N : Nat} (G : RiffleUpperV2.PathEdges N)
+  (σ : RiffleUpperV2.Permutation N),
+  Iff (@RiffleLowerV2.Model.BlockIncreasing N G σ)
+    (∀
+      (e :
+        Fin
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+      @Membership.mem.{0, 0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (RiffleUpperV2.PathEdges N)
+          (@SetLike.instMembership.{0, 0} (RiffleUpperV2.PathEdges N)
+            (Fin
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Finset.instSetLike.{0}
+              (Fin
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+          G e →
+        @LT.lt.{0} (Fin N) (@instLTFin N)
+          (@DFunLike.coe.{1, 1, 1} (RiffleUpperV2.Permutation N) (Fin N) (fun (x : Fin N) => Fin N)
+            (@EquivLike.toFunLike.{1, 1, 1} (RiffleUpperV2.Permutation N) (Fin N) (Fin N)
+              (@Equiv.instEquivLike.{1, 1} (Fin N) (Fin N)))
+            σ (@RiffleLowerV2.edgeLeft N e))
+          (@DFunLike.coe.{1, 1, 1} (RiffleUpperV2.Permutation N) (Fin N) (fun (x : Fin N) => Fin N)
+            (@EquivLike.toFunLike.{1, 1, 1} (RiffleUpperV2.Permutation N) (Fin N) (Fin N)
+              (@Equiv.instEquivLike.{1, 1} (Fin N) (Fin N)))
+            σ (@RiffleLowerV2.edgeRight N e)))
+@RiffleUpperV2.GraphOverlap.blockIncreasing_union : ∀ {N : Nat} (G H : RiffleUpperV2.PathEdges N)
+  (σ : RiffleUpperV2.Permutation N),
+  Iff
+    (@RiffleLowerV2.Model.BlockIncreasing N
+      (@Union.union.{0} (RiffleLowerV2.PathEdges N)
+        (@Finset.instUnion.{0}
+          (Fin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (instDecidableEqFin
+            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+        G H)
+      σ)
+    (And (@RiffleLowerV2.Model.BlockIncreasing N G σ) (@RiffleLowerV2.Model.BlockIncreasing N H σ))
+@RiffleUpperV2.GraphOverlap.truncatedDensity.{u_1,
+    u_2} : {Ω : Type u_1} →
+  {Γ : Type u_2} → [Fintype.{u_1} Ω] → (P : PMF.{u_1} Ω) → (A : Ω → Prop) → (f : Ω → Γ → Real) → (x : Γ) → Real
+@RiffleUpperV2.GraphOverlap.truncatedDensity_mean.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} Γ] (P : PMF.{u_1} Ω)
+  (Q : PMF.{u_2} Γ) (A : Ω → Prop) (f : Ω → Γ → Real)
+  (hn :
+    ∀ (ω : Ω),
+      @Eq.{1} Real (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q (f ω))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q (@RiffleUpperV2.GraphOverlap.truncatedDensity.{u_1, u_2} Ω Γ inst P A f))
+    (@RiffleLowerV2.probability.{u_1} Ω inst P A)
+@RiffleUpperV2.GraphOverlap.truncatedDensity_second.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} Γ] (P : PMF.{u_1} Ω)
+  (Q : PMF.{u_2} Γ) (A : Ω → Prop) (f : Ω → Γ → Real),
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (x : Γ) =>
+      @HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@RiffleUpperV2.GraphOverlap.truncatedDensity.{u_1, u_2} Ω Γ inst P A f x)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) =>
+      @RiffleLowerV2.expect.{u_1} Ω inst P fun (ω' : Ω) =>
+        @ite.{1} Real (And (A ω) (A ω'))
+          (@instDecidableAnd (A ω) (A ω') (Classical.propDecidable (A ω)) (Classical.propDecidable (A ω')))
+          (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (x : Γ) =>
+            @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (f ω x) (f ω' x))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+@RiffleUpperV2.GraphOverlap.truncatedVariance_eq.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} Γ] (P : PMF.{u_1} Ω)
+  (Q : PMF.{u_2} Γ) (A : Ω → Prop) (f : Ω → Γ → Real)
+  (hn :
+    ∀ (ω : Ω),
+      @Eq.{1} Real (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q (f ω))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @Eq.{1} Real
+    (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (x : Γ) =>
+      @HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (@RiffleUpperV2.GraphOverlap.truncatedDensity.{u_1, u_2} Ω Γ inst P A f x)
+          (@RiffleLowerV2.probability.{u_1} Ω inst P A))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) =>
+      @RiffleLowerV2.expect.{u_1} Ω inst P fun (ω' : Ω) =>
+        @ite.{1} Real (And (A ω) (A ω'))
+          (@instDecidableAnd (A ω) (A ω') (Classical.propDecidable (A ω)) (Classical.propDecidable (A ω')))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (x : Γ) =>
+              @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (f ω x) (f ω' x))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+@RiffleUpperV2.GraphOverlap.truncatedRadicand_nonneg.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} Γ] (P : PMF.{u_1} Ω)
+  (Q : PMF.{u_2} Γ) (A : Ω → Prop) (f : Ω → Γ → Real)
+  (hn :
+    ∀ (ω : Ω),
+      @Eq.{1} Real (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q (f ω))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) =>
+      @RiffleLowerV2.expect.{u_1} Ω inst P fun (ω' : Ω) =>
+        @ite.{1} Real (And (A ω) (A ω'))
+          (@instDecidableAnd (A ω) (A ω') (Classical.propDecidable (A ω)) (Classical.propDecidable (A ω')))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (x : Γ) =>
+              @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (f ω x) (f ω' x))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+@RiffleUpperV2.GraphOverlap.truncatedDensityTV.{u_1,
+    u_2} : ∀ {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] [inst_1 : Fintype.{u_2} Γ] (P : PMF.{u_1} Ω)
+  (Q R : PMF.{u_2} Γ) (A : Ω → Prop) (f : Ω → Γ → Real)
+  (hf :
+    ∀ (ω : Ω) (x : Γ),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f ω x))
+  (hn :
+    ∀ (ω : Ω),
+      @Eq.{1} Real (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q (f ω))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hR :
+    ∀ (x : Γ),
+      @Eq.{1} Real
+        (ENNReal.toReal
+          (@DFunLike.coe.{u_2 + 1, u_2 + 1, 1} (PMF.{u_2} Γ) Γ (fun (x : Γ) => ENNReal) (@PMF.instFunLike.{u_2} Γ) R x))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (ENNReal.toReal
+            (@DFunLike.coe.{u_2 + 1, u_2 + 1, 1} (PMF.{u_2} Γ) Γ (fun (x : Γ) => ENNReal) (@PMF.instFunLike.{u_2} Γ) Q
+              x))
+          (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) => f ω x))),
+  @LE.le.{0} Real Real.instLE (@RiffleLowerV2.tv.{u_2} Γ inst_1 R Q)
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.sqrt
+          (@RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) =>
+            @RiffleLowerV2.expect.{u_1} Ω inst P fun (ω' : Ω) =>
+              @ite.{1} Real (And (A ω) (A ω'))
+                (@instDecidableAnd (A ω) (A ω') (Classical.propDecidable (A ω)) (Classical.propDecidable (A ω')))
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@RiffleLowerV2.expect.{u_2} Γ inst_1 Q fun (x : Γ) =>
+                    @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (f ω x) (f ω' x))
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+        (@OfNat.ofNat.{0} Real (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+      (@RiffleLowerV2.probability.{u_1} Ω inst P fun (ω : Ω) => Not (A ω)))
+@RiffleUpperV2.GraphOverlap.physical_density : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (σ : RiffleUpperV2.Permutation N),
+  @Eq.{1} Real
+    (ENNReal.toReal
+      (@DFunLike.coe.{1, 1, 1} (PMF.{0} (RiffleLowerV2.Permutation N)) (RiffleLowerV2.Permutation N)
+        (fun (x : RiffleLowerV2.Permutation N) => ENNReal) (@PMF.instFunLike.{0} (RiffleLowerV2.Permutation N))
+        (@RiffleUpperV2.physicalInverseLaw k N K cuts) σ))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (ENNReal.toReal
+        (@DFunLike.coe.{1, 1, 1} (PMF.{0} (RiffleLowerV2.Permutation N)) (RiffleLowerV2.Permutation N)
+          (fun (x : RiffleLowerV2.Permutation N) => ENNReal) (@PMF.instFunLike.{0} (RiffleLowerV2.Permutation N))
+          (RiffleUpperV2.uniformPermutation N) σ))
+      (@RiffleLowerV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+        (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+        fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+        @RiffleUpperV2.GraphOverlap.density N (@RiffleUpperV2.shuffleEdges k N K cuts ω) σ))
+@RiffleUpperV2.GraphOverlap.truncatedTV : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (S1 : @RiffleUpperV2.Sample k N K cuts → Prop),
+  @LE.le.{0} Real Real.instLE
+    (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+      (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+        (Fin.fintype N))
+      (@RiffleUpperV2.physicalInverseLaw k N K cuts) (RiffleUpperV2.uniformPermutation N))
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.sqrt
+          (@RiffleUpperV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+            (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+            fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+            @RiffleUpperV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+              (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+              fun (ω' : @TimeProfile.ShuffleSample k N K cuts) =>
+              @ite.{1} Real (And (S1 ω) (S1 ω'))
+                (@instDecidableAnd (S1 ω) (S1 ω') (Classical.propDecidable (S1 ω)) (Classical.propDecidable (S1 ω')))
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@RiffleUpperV2.GraphOverlap.overlap N (@RiffleUpperV2.shuffleEdges k N K cuts ω)
+                    (@RiffleUpperV2.shuffleEdges k N K cuts ω'))
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+        (@OfNat.ofNat.{0} Real (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+      (@RiffleUpperV2.probability.{0} (@TimeProfile.ShuffleSample k N K cuts)
+        (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+        fun (ω : @TimeProfile.ShuffleSample k N K cuts) => Not (S1 ω)))
+@RiffleUpperV2.GraphOverlap.shuffleTruncatedRadicand_nonneg : ∀ {k N K : Nat} (cuts : RiffleUpperV2.Cuts k N K)
+  (S1 : @RiffleUpperV2.Sample k N K cuts → Prop),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@RiffleUpperV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+      (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+      fun (ω : @TimeProfile.ShuffleSample k N K cuts) =>
+      @RiffleUpperV2.expect.{0} (@TimeProfile.ShuffleSample k N K cuts)
+        (@TimeProfile.instFintypeShuffleSample k N K cuts) (@RiffleUpperV2.fixedCountPMF k N K cuts)
+        fun (ω' : @TimeProfile.ShuffleSample k N K cuts) =>
+        @ite.{1} Real (And (S1 ω) (S1 ω'))
+          (@instDecidableAnd (S1 ω) (S1 ω') (Classical.propDecidable (S1 ω)) (Classical.propDecidable (S1 ω')))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@RiffleUpperV2.GraphOverlap.overlap N (@RiffleUpperV2.shuffleEdges k N K cuts ω)
+              (@RiffleUpperV2.shuffleEdges k N K cuts ω'))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+def RiffleUpperV2.GraphOverlap.componentKey : {N : Nat} →
+  (G : RiffleUpperV2.PathEdges N) →
+    (i : Fin N) →
+      Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) :=
+fun {N : Nat} (G : RiffleUpperV2.PathEdges N) (i : Fin N) =>
+  @Fin.mk
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (@RiffleLowerV2.componentIndex N G i) (@RiffleUpperV2.GraphOverlap.componentKey._proof_2 N G i)
+def RiffleUpperV2.GraphOverlap.componentFactorial : {N : Nat} → (G : RiffleUpperV2.PathEdges N) → Nat :=
+fun {N : Nat} (G : RiffleUpperV2.PathEdges N) =>
+  @Finset.prod.{0, 0}
+    (Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    Nat Nat.instCommMonoid
+    (@Finset.univ.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Fin.fintype
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    fun
+      (c :
+        Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+    Nat.factorial
+      (@Finset.card.{0} (Fin N)
+        (@Finset.filter.{0} (Fin N)
+          (fun (i : Fin N) =>
+            @Eq.{1}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@RiffleUpperV2.GraphOverlap.componentKey N G i) c)
+          (fun (a : Fin N) =>
+            instDecidableEqFin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@RiffleUpperV2.GraphOverlap.componentKey N G a) c)
+          (@Finset.univ.{0} (Fin N) (Fin.fintype N))))
+def RiffleUpperV2.GraphOverlap.graphLaw : {N : Nat} →
+  (G : RiffleUpperV2.PathEdges N) → PMF.{0} (RiffleUpperV2.Permutation N) :=
+fun {N : Nat} (G : RiffleUpperV2.PathEdges N) =>
+  @PMF.map.{0, 0} (RiffleLowerV2.Permutation N) (RiffleUpperV2.Permutation N) (@RiffleLowerV2.componentSort N G)
+    (RiffleLowerV2.uniformPermutation N)
+def RiffleUpperV2.GraphOverlap.density : {N : Nat} →
+  (G : RiffleUpperV2.PathEdges N) → (σ : RiffleUpperV2.Permutation N) → Real :=
+fun {N : Nat} (G : RiffleUpperV2.PathEdges N) (σ : RiffleUpperV2.Permutation N) =>
+  @ite.{1} Real (@RiffleLowerV2.Model.BlockIncreasing N G σ)
+    (Classical.propDecidable (@RiffleLowerV2.Model.BlockIncreasing N G σ))
+    (@Nat.cast.{0} Real Real.instNatCast (@RiffleUpperV2.GraphOverlap.componentFactorial N G))
+    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+def RiffleUpperV2.GraphOverlap.overlap : {N : Nat} → (G H : RiffleUpperV2.PathEdges N) → Real :=
+fun {N : Nat} (G H : RiffleUpperV2.PathEdges N) =>
+  @RiffleLowerV2.expect.{0} (RiffleLowerV2.Permutation N)
+    (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N) (Fin.fintype N)
+      (Fin.fintype N))
+    (RiffleLowerV2.uniformPermutation N) fun (σ : RiffleLowerV2.Permutation N) =>
+    @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@RiffleUpperV2.GraphOverlap.density N G σ)
+      (@RiffleUpperV2.GraphOverlap.density N H σ)
+def RiffleUpperV2.GraphOverlap.runLength : {N : Nat} → (G : RiffleUpperV2.PathEdges N) → (i : Fin N) → Nat :=
+fun {N : Nat} (G : RiffleUpperV2.PathEdges N) (i : Fin N) =>
+  @Finset.card.{0} (Fin N)
+    (@Finset.filter.{0} (Fin N)
+      (fun (j : Fin N) =>
+        And
+          (@Eq.{1}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N G j) (@RiffleUpperV2.GraphOverlap.componentKey N G i))
+          (@LE.le.{0} (Fin N) (@instLEFin N) j i))
+      (fun (a : Fin N) =>
+        @instDecidableAnd
+          (@Eq.{1}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N G a) (@RiffleUpperV2.GraphOverlap.componentKey N G i))
+          (@LE.le.{0} (Fin N) (@instLEFin N) a i)
+          (instDecidableEqFin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@RiffleUpperV2.GraphOverlap.componentKey N G a) (@RiffleUpperV2.GraphOverlap.componentKey N G i))
+          (@Fin.decLe N a i))
+      (@Finset.univ.{0} (Fin N) (Fin.fintype N)))
+def RiffleUpperV2.GraphOverlap.BoundedComponents : {N : Nat} → (G : RiffleUpperV2.PathEdges N) → (B : Nat) → Prop :=
+fun {N : Nat} (G : RiffleUpperV2.PathEdges N) (B : Nat) =>
+  ∀
+    (c :
+      Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+    @LE.le.{0} Nat instLENat
+      (@Finset.card.{0} (Fin N)
+        (@Finset.filter.{0} (Fin N)
+          (fun (i : Fin N) =>
+            @Eq.{1}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@RiffleUpperV2.GraphOverlap.componentKey N G i) c)
+          (fun (a : Fin N) =>
+            instDecidableEqFin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) N
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@RiffleUpperV2.GraphOverlap.componentKey N G a) c)
+          (@Finset.univ.{0} (Fin N) (Fin.fintype N))))
+      B
+def RiffleUpperV2.GraphOverlap.truncatedDensity.{u_1, u_2} : {Ω : Type u_1} →
+  {Γ : Type u_2} → [Fintype.{u_1} Ω] → (P : PMF.{u_1} Ω) → (A : Ω → Prop) → (f : Ω → Γ → Real) → (x : Γ) → Real :=
+fun {Ω : Type u_1} {Γ : Type u_2} [inst : Fintype.{u_1} Ω] (P : PMF.{u_1} Ω) (A : Ω → Prop) (f : Ω → Γ → Real)
+    (x : Γ) =>
+  @RiffleLowerV2.expect.{u_1} Ω inst P fun (ω : Ω) =>
+    @ite.{1} Real (A ω) (Classical.propDecidable (A ω)) (f ω x)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+BUILD_OK U01

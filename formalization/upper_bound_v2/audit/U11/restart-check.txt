@@ -1,0 +1,228 @@
+CHECK RiffleUpperV2.EmpiricalUpper.FiniteTV
+CHECK RiffleUpperV2.EmpiricalUpper.Deletion
+CHECK RiffleUpperV2.EmpiricalUpper.Restart
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/EmpiricalUpper/Restart.lean:96:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+RiffleUpperV2.EmpiricalUpper.restartHypotheses (k : Nat)
+  (hk : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) k) (T η0 η g γ ρ : Real)
+  (hη : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) η)
+  (hη0 :
+    @LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 4)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+        η)
+      η0)
+  (hρ : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ρ)
+  (hγ : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ)
+  (hγ1 : @LE.le.{0} Real Real.instLE γ (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hbudgetη :
+    @LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ρ
+        (Real.log (@Nat.cast.{0} Real Real.instNatCast k)))
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) η
+        (@OfNat.ofNat.{0} Real (nat_lit 7)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 7) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))))))))
+  (hbudget1 :
+    @LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ρ
+        (Real.log (@Nat.cast.{0} Real Real.instNatCast k)))
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@OfNat.ofNat.{0} Real (nat_lit 4)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))))) :
+  @Exists.{1} Nat fun (N0 : Nat) =>
+    @Exists.{0} (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N0)
+      fun (hN0 : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) N0) =>
+      ∀ (N : Nat) (hN : @LE.le.{0} Nat instLENat N0 N) (K : Nat),
+        @LE.le.{0} Real Real.instLE
+            (@Nat.cast.{0} Real Real.instNatCast
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+              (Real.log (@Nat.cast.{0} Real Real.instNatCast N))) →
+          ∀
+            (cuts :
+              RiffleUpperV2.Cuts k N
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+            @RiffleUpperV2.EmpiricalNegativeMargin k N
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                N (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) cuts
+                (@Decidable.byContradiction
+                  (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                  (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                  fun
+                    (a :
+                      Not (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+                  RiffleUpperV2.EmpiricalUpper.restartHypotheses._proof_1 k N0 hN0 N hN a)
+                η0 →
+              @RiffleUpperV2.LocalGood k N
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  cuts
+                  (@Decidable.byContradiction
+                    (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                    (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                    fun
+                      (a :
+                        Not
+                          (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+                    RiffleUpperV2.EmpiricalUpper.restartHypotheses._proof_1 k N0 hN0 N hN a)
+                  g γ ρ (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                    (@Nat.cast.{0} Real Real.instNatCast
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (Real.log (@Nat.cast.{0} Real Real.instNatCast N))) →
+                @Exists.{1}
+                  (Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  fun
+                    (r :
+                      Fin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                  And
+                    (@LE.le.{0} Real Real.instLE
+                      (@Nat.cast.{0} Real Real.instNatCast
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K
+                            (@Fin.val
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                              r))
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) T
+                        (Real.log (@Nat.cast.{0} Real Real.instNatCast N))))
+                    (And
+                      (@RiffleUpperV2.EmpiricalNegativeMargin k N
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K
+                            (@Fin.val
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                              r))
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                        N (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                        (@RiffleUpperV2.EmpiricalUpper.restartCuts k N K cuts r)
+                        (@Decidable.byContradiction
+                          (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                          (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                          fun
+                            (a :
+                              Not
+                                (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                                  N)) =>
+                          RiffleUpperV2.EmpiricalUpper.restartHypotheses._proof_1 k N0 hN0 N hN a)
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@OfNat.ofNat.{0} Real (nat_lit 2)
+                            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                              (@Nat.instAtLeastTwoHAddOfNat
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+                          η))
+                      (And
+                        (@RiffleUpperV2.Exploration.integerWindowGood k N
+                          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K
+                            (@Fin.val
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                              r))
+                          N (@RiffleUpperV2.EmpiricalUpper.restartCuts k N K cuts r)
+                          (@Decidable.byContradiction
+                            (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                            (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                            fun
+                              (a :
+                                Not
+                                  (@LT.lt.{0} Nat instLTNat
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+                            RiffleUpperV2.EmpiricalUpper.restartHypotheses._proof_1 k N0 hN0 N hN a)
+                          ρ γ g)
+                        (And
+                          (@RiffleUpperV2.Exploration.retainedGoodCluster k N
+                            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K
+                              (@Fin.val
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                r))
+                            (@RiffleUpperV2.EmpiricalUpper.restartCuts k N K cuts r)
+                            (@Decidable.byContradiction
+                              (@LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                              (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                              fun
+                                (a :
+                                  Not
+                                    (@LT.lt.{0} Nat instLTNat
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+                              RiffleUpperV2.EmpiricalUpper.restartHypotheses._proof_1 k N0 hN0 N hN a)
+                            (RiffleUpperV2.Exploration.clusterSpan γ) g)
+                          (And
+                            (@LE.le.{0} Real Real.instLE
+                              (@RiffleLowerV2.maximalMean N k
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                  (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K
+                                    (@Fin.val
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                      r))
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                (@RiffleUpperV2.EmpiricalUpper.restartCuts k N K cuts r)
+                                (@Decidable.byContradiction
+                                  (@LT.lt.{0} Nat instLTNat
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                                  (Nat.decLt (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)
+                                  fun
+                                    (a :
+                                      Not
+                                        (@LT.lt.{0} Nat instLTNat
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) N)) =>
+                                  RiffleUpperV2.EmpiricalUpper.restartHypotheses._proof_1 k N0 hN0 N hN a))
+                              (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                                (@Nat.cast.{0} Real Real.instNatCast N)
+                                (@Neg.neg.{0} Real Real.instNeg
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                        (@Nat.instAtLeastTwoHAddOfNat
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                          (@Nat.instNeZeroSucc
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+                                    η))))
+                            (@LE.le.{0} Real Real.instLE
+                              (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+                                (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N)
+                                  (Fin.fintype N) (Fin.fintype N))
+                                (@RiffleUpperV2.physicalInverseLaw k N
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                  cuts)
+                                (RiffleUpperV2.uniformPermutation N))
+                              (@RiffleUpperV2.tv.{0} (RiffleLowerV2.Permutation N)
+                                (@Equiv.instFintype.{0, 0} (Fin N) (Fin N) (instDecidableEqFin N) (instDecidableEqFin N)
+                                  (Fin.fintype N) (Fin.fintype N))
+                                (@RiffleUpperV2.physicalInverseLaw k N
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) K
+                                      (@Fin.val
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) K
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                        r))
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                  (@RiffleUpperV2.EmpiricalUpper.restartCuts k N K cuts r))
+                                (RiffleUpperV2.uniformPermutation N)))))))
+'RiffleUpperV2.EmpiricalUpper.restartHypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.restartWindowGood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleUpperV2.EmpiricalUpper.rebaseMargin' depends on axioms: [propext, Classical.choice, Quot.sound]
+BUILD_OK U11

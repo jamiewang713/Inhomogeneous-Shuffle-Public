@@ -1,0 +1,35 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:54:08.691853+00:00",
+  "reviewer": "U00 independent of owner",
+  "root_build_receipt": "reservoir-complete-check-build.json",
+  "trust_inventory": "reservoir-complete-declarations.json",
+  "sources": {
+    "Reservoir/InducedMatrix.lean": "ab7f13cadecab27139b0872e288ffb1a6604d51e188353248e7fd7833aee0fdb",
+    "Reservoir/TailWords.lean": "2aa3d1f98ae51a368f8785bec562c67a2dec2f13f54476e22cfefcedce1997a6",
+    "Reservoir/FutureGraphLaw.lean": "40c9fdb15489251972191db8346828bc98c66948949019b662d891666839e1c4",
+    "Reservoir/ErasedLabels.lean": "5f3284da80b6caff1aca085e217d6ad75ee8bd0ff7c3902e22ee5742688c5323",
+    "Reservoir/LabelAveraging.lean": "ef62d42f68cb9574a4020258f147e1b13a8bb52540e39e5d435df320d282b510",
+    "Reservoir/ConditionalFutureCylinderLaw.lean": "56d026c21f3728b24199cf282fb8653fb6150be40e52f6918dd506ab52019455"
+  },
+  "mathematics": [
+    "The induced-column equivalence enumerates cylinder labels, preserving each literal count and chronological suffix index x.length+j.",
+    "Deleting the common prefix preserves comparisons and equality, hence stable sorting and the exact graph of equal adjacent words.",
+    "The actual full-family conditioned graph expectation is transported to fixedCountPMF inducedCuts at the frozen absolute lower rank.",
+    "Labeled family information refines the unlabeled record; induced graph expectation depends only on cardinality, lower rank and counts. Exact finite-fiber averaging removes labels without changing natural history.",
+    "Directional event-law wrappers specialize both exact expectation theorems to indicators; backward spatial order does not reverse columns."
+  ],
+  "statement_and_model": [
+    "A last revealed word j exists; the theorem concerns time j+1, with strictly future prefix cylinders. Time-zero unconditional F is separate.",
+    "Actual family view includes natural history, all separated cylinder records and current full-word multiplicity. No conditional law or invariance certificate is a public premise.",
+    "Each marginal block law is exact; no independence between distinct cylinders is asserted or needed."
+  ],
+  "adversarial": [
+    "Empty cylinder populations, zero counts, empty suffix columns and tied words handled by literal equivalences.",
+    "Every realized conditioning fiber has positive fixed-count mass; null arbitrary atoms are never divided by without a guard.",
+    "Labels are averaged with the same exact coarse value, including actual rank offsets; no information leaks into the natural filtration."
+  ],
+  "remaining": [
+    "U09 must connect absolute block graph to directional remaining edges and average the model estimates."
+  ]
+}

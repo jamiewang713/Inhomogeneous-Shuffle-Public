@@ -1,0 +1,28 @@
+{
+  "reviewer": "U00 (independent from lane author)",
+  "recorded_at": "2026-10-02T08:24:51.006980+00:00",
+  "verdict": "PASS_FOR_LISTED_HELPERS_NOT_ENDPOINTS",
+  "perspectives": [
+    "mathematics",
+    "Lean model and quantifiers",
+    "adversarial boundary/hidden-hypothesis checks"
+  ],
+  "files": {
+    "RiffleUpperV2/Hypergeometric/Estimates.lean": "3f065a9b50b88b249ba359f6062b1acbd0c69da47280f9092047f36a01556b7b",
+    "RiffleUpperV2/Hypergeometric/Cylinder.lean": "30de991593d5a7ad8b155c53f8d09964b68fc2c86e612977f87c250c7296a368",
+    "RiffleUpperV2/Hypergeometric/CylinderMean.lean": "78f861bac52408f5888b01b2dfa1a3acfcffe8d725603e5a23da455ed81ea92b",
+    "RiffleUpperV2/Hypergeometric/Sampling.lean": "b5194f3f5bc66eba0dac2e1aca755ddeb6ffbdb4a1b5967ef451a36b4e432a7b",
+    "RiffleUpperV2/Hypergeometric/ConditionalAnchor.lean": "2ea180d9ab104be8e9e4eda271729dd28b05ff3356b3ae71d2f6bb15bb3aa6a6"
+  },
+  "findings": [
+    "Actual hypergeometric law uses existing lower Compat law and proved PMF expectation/probability adapters. No caller-supplied distribution estimate.",
+    "Allowed-digit union distribution proved by full-column relabeling and equal fibers. Current full population n remains in denominators; R.card only determines cylinder sample count.",
+    "ConditionalSamplingLaw derives all residual feasibility from positive atom probability and exact prescribed intersection. It does not claim sorted-history law.",
+    "ConditionalAnchor uses uniform finite product disintegration on the entire first-column assignment. Future column law remains full n-label fixed-count law, including empty anchor and empty future cases.",
+    "AtomBound explicitly assumes positive variance; tails include deterministic cases. Source denominator4 retained.",
+    "Independent U06 cross-reviews corroborate mathematics and extension model. Reviewed proof port change list must stay exact; source map records alternate valid atom proof route."
+  ],
+  "remaining": [
+    "Full endpoint integration and final U13 source/trust/build audit."
+  ]
+}

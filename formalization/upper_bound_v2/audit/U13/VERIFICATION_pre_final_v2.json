@@ -1,0 +1,108 @@
+{
+  "status": "PARTIAL",
+  "phase": "EARLY_SOURCE_CONTRACT_REVIEW",
+  "review_date": "2026-10-02",
+  "final_acceptance": false,
+  "fresh_lean_build": false,
+  "transitive_axiom_audit": false,
+  "contracts_ready_reviewed": false,
+  "integration_ready_reviewed": false,
+  "source_hash_matches_plan": true,
+  "input_sha256": {
+    "time_inhomogeneous_riffle_shuffle_unified_article.tex": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+    "formalization/upper_bound_parallel_plan_2026-10-01/PLAN.txt": "f661237393292885776d684e77f9e3836476dfea34b1ed21c29feceda80a3ca1",
+    "formalization/upper_bound_parallel_plan_2026-10-01/13_independent_final_audit.txt": "7ce9715081ae5834744be6042344058d05df3bcc86a938979bbd58430c32caf6",
+    "formalization/time_profile/RiffleTimeProfile/Base.lean": "07a9bbd867763d1fb3e817789d0116cea6c19a3e2a48b677e6b5066a886cfd24",
+    "formalization/time_profile/RiffleTimeProfile/FixedCountModel.lean": "d5c7cd27f01d77063de5a5dee6f0764e36620cfa997f1660f27c3982e71fde4e",
+    "formalization/time_profile/RiffleTimeProfile/Analysis.lean": "6cb844a02817905bc2e87f57277b23e68c2040dd2b1be6509d4b4320eeb3ac30",
+    "formalization/lower_bound_v2/RiffleLowerV2/Shared/Model.lean": "cceadf1b4a5be2f412fe15a9b52b7b7f3c67bfa6d19270955f7c338f01e90930",
+    "formalization/lower_bound_v2/RiffleLowerV2/Shared/Path.lean": "513afea203a5ad1a3b851fdb8317b4f6473d2c54e1c0466139b349530563acbf",
+    "formalization/lower_bound_v2/RiffleLowerV2/Shared/Empirical.lean": "84ea013c6f9c64073700be1dced470f11fa30a9b3d0b79a59dde63a099cf817e",
+    "formalization/lower_bound_v2/RiffleLowerV2/Model/Main.lean": "3300883af41f03098138ce53c49eb5a547cb7c247448cd8ee32abc0d838a0822",
+    "formalization/lower_bound_v2/RiffleLowerV2/Model/FiniteLaws.lean": "cc5abe4ecf21f682658ca77e7a867368a4f1f8c4ab0b9d70eba79a9041772a06",
+    "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Spatial.lean": "1c13a1dd14b1d5fe5d77e185eeaf54c9dd7f9b8946fd71fff0ef02fdf48480c3",
+    "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Quadrature.lean": "a4f65d208be27de1e8c8c97673d563d47bada12bb34427a2340147433c0d20f0",
+    "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Endpoint.lean": "7ef5ccace9000d5a2d44201f831bacfde6282b745198a366d5b491bc5821b56f",
+    "formalization/lower_bound_v2/RiffleLowerV2/ProfileTransfer/Extrema.lean": "9834ecf915048be8d83af99c01e47fdd109eea1f5441b3fc5e5aa9c1cbeebb79",
+    "formalization/lower_bound_v2/Contracts/v1/TransferFinite.lean": "fd67fc92015806b8cc78d6b1f4a558ed512a41f818c732435e7e59e664e8b933",
+    "formalization/upper_bound_v2/audit/U13/contract_review_v1.txt": "8a827a98a2ac9288c1343c4d2c0eedd449092e2b8d08a6b7cf50529b98c29065"
+  },
+  "endpoint_verdicts": {
+    "F": {
+      "source_contract_extracted": true,
+      "frozen_lean_type_reviewed": false,
+      "proof_certified": false,
+      "status": "PARTIAL",
+      "candidate_lean_type_reviewed": true
+    },
+    "C": {
+      "source_contract_extracted": true,
+      "frozen_lean_type_reviewed": false,
+      "proof_certified": false,
+      "status": "PARTIAL"
+    },
+    "E": {
+      "source_contract_extracted": true,
+      "frozen_lean_type_reviewed": false,
+      "proof_certified": false,
+      "status": "PARTIAL",
+      "candidate_lean_type_reviewed": true
+    },
+    "P": {
+      "source_contract_extracted": true,
+      "frozen_lean_type_reviewed": false,
+      "proof_certified": false,
+      "status": "PARTIAL",
+      "candidate_lean_type_reviewed": true
+    },
+    "T": {
+      "source_contract_extracted": true,
+      "frozen_lean_type_reviewed": false,
+      "proof_certified": false,
+      "status": "PARTIAL",
+      "candidate_lean_type_reviewed": true
+    },
+    "R": {
+      "source_contract_extracted": true,
+      "frozen_lean_type_reviewed": false,
+      "proof_certified": false,
+      "status": "PARTIAL",
+      "candidate_lean_type_reviewed": true
+    }
+  },
+  "freeze_obligations": [
+    {
+      "id": "U13-01",
+      "owner": "U00",
+      "issue": "Separate original N scale from current n and anchor M; fix absolute retained index map."
+    },
+    {
+      "id": "U13-02",
+      "owner": "U00/U07",
+      "issue": "Freeze literal H, natural sorted histories, F_i, directions, and remainder counts; source i=0 is separate."
+    },
+    {
+      "id": "U13-03",
+      "owner": "U00/U12",
+      "issue": "Freeze a common C_k and preserve arbitrary selected partition and scalar-integrability/parameter order."
+    },
+    {
+      "id": "U13-04",
+      "owner": "U00/U12",
+      "issue": "Freeze coherent infinite cut sequences plus extended critical and mixing times."
+    },
+    {
+      "id": "U13-05",
+      "owner": "U00/U12",
+      "issue": "Freeze arbitrary count-array PMF and bind of actual physical inverse law, allowing dependence."
+    }
+  ],
+  "source_counterexamples_found": [],
+  "build_evidence": [],
+  "changes_scope": [
+    "audit/U13/"
+  ],
+  "report": "audit/U13/contract_review_v1.txt",
+  "incremental_review": "audit/U13/incremental_verification_v1.json",
+  "profile_candidate_review": "audit/U13/profile_contract_verification_v1.json"
+}

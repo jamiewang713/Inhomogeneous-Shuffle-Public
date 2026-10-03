@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of lane author",
+  "recorded_at": "2026-10-02T10:04:49.948609+00:00",
+  "sources": {
+    "GraphOverlap/Collision.lean": "d2e23a24688a7ad920cb5651dac1e887ee235128ba53790a5dd7aba1f08884b2",
+    "GraphOverlap/Disjoint.lean": "0f840daba1ab966288ef5f3de01cae270bbd9088e214012f277800ca2f573b9d",
+    "GraphOverlap/Corollaries.lean": "09d07b7346d74a91ec337f367dfdadd892636a930e503ffb157bffea62e277c7"
+  },
+  "mathematics_and_model": [
+    "Actual empty graph has density one by its normalized density; truncation at the empty-graph event proves TV bounded by collision probability.",
+    "A nonempty shuffle edge gives two distinct stable-sorted original rows with the same word. Exact factorial moment and product-of-sums identities produce fixed-count collisionUpper.",
+    "Each column collision probability is bounded by its power sum, exp(-psi(2)); the polynomial corollary uses the original N and allows arbitrary real zeta.",
+    "The edge-disjoint inequality follows from the independently reviewed run-product bound with population bound on the second graph. The elementary run factorial inequality also has a direct induction.",
+    "exists_boundedComponentTail chooses one B depending only on eta and A, before all populations, lengths, alphabets and cuts."
+  ],
+  "adversarial": [
+    "N>=2 explicitly where log/power and collision denominator require it; arbitrary graph N=0/1 cases retained.",
+    "Zero piles, empty column products, q>N and nonpositive A allowed where finite algebra permits.",
+    "No Bernoulli edge model or substituted graph-mixture definition; actual physical inverse law retained."
+  ],
+  "remaining_obligations": [
+    "Full U11 empirical endpoint still requires F, C, regularity, coverage and maximal-mean discharge."
+  ],
+  "independent_build": {
+    "receipt": "finite-lanes-check-build.json",
+    "log": "finite-lanes-check.log",
+    "inventory": "finite-lanes-declarations.json",
+    "declarations": 578,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

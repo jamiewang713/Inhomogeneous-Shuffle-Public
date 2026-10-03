@@ -1,0 +1,43 @@
+U05 continuation reuse investigation by U00. These are integration notes, not an F proof.
+
+Staged and independently accepted:
+RiffleUpperV2.Compat.EmpiricalCountLimits contains exact first two theorem
+statements/proof bodies from FirstMomentModel.ProfileCountLimit.lean:
+profileCount_uniform_eventually and profileCount_small_chi.
+Direct import encountered old Riffle.Boundary compatibility error, so the
+narrow additive port imports FirstMoment.Counting only; no upstream edit.
+Independent U07 review and root type/axiom check PASS. Exact diff/provenance
+in audit/U00/count-limits-port-*; new namespace RiffleUpperV2.Compat.
+The generic old profileCountBound K k qb qe 0 has polynomial
+4*(k+1)^2*(K+1)^3*U_qb^2*U_qe. Your empirical descriptor cardinal is exactly
+k*bins times this expression. For fixed chi/width the extra k*bins is fixed,
+so apply count theorem with epsilon/2, then absorb factor by an eventual
+N^(epsilon/2) bound. Original parameter order C0 before chi is retained.
+This does NOT prove the actual retained partition/encoding or mass discard.
+
+Further accepted and staged generic reuse:
+Compat.EmpiricalTailLimits preserves both original tail-limit statements;
+3 mechanical4.33 elaboration repairs, exact provenance/diff and independent
+U07 review PASS. Root quantitative-partial trust/build PASS.
+Compat.EmpiricalWordMass preserves all20 original WordMass theorem statements,
+including badWordMass_smallDigits_le_tailWeight, wordWeight_sum and finite
+coarse-fibre bounds. Direct original failed scalar additive orientation and
+hidden finite-sum instance elaboration; new additive port records exact diff.
+Compat.FixedPolynomial copies fixed_polynomial_le_rpow statement and body
+byte-identically from original CountLimits, avoiding unrelated oldmodule failure.
+Both ports independently reviewed U07, root source/trust/build PASS in
+reservoir-exploration-progress-check-build.json. No upstream files edited.
+All new generic names use namespace RiffleUpperV2.Compat.
+Boundary tail includes N and exponent1-C+epsilon. Exceptional tail uses
+3*chi, so use monotonicity from actual chi or instantiate small-digit bound
+with3*chi; this upper bound must remain explicit.
+
+Possible actual model adapter avoids independent-row assertions:
+For any bad word predicate, number of bad labels is the sum of wordCount
+across its full words. Exact expected word count is n*wordMass (q=1 exact
+factorial formula, or actual prefix cylinder mean at full prefix). Finite
+Fubini and vector/function-word equivalence identify expectation as
+n*badWordMass. Then n<=N and source horizon K<=T log N retain the original
+N scale. Actual boundary/extension discard is a subset of this row event;
+that subset still needs a proof from your retained descriptor construction.
+No claims about model first moment or sorted-edge discarded mass are made.

@@ -1,0 +1,6 @@
+Riffle namespace, original Model/Word definitions:
+theorem genericCut_existsUnique_prefix {D : Model} {v ω : Word} {Q : Word → Prop}
+    (hv : Legal D v)
+    (hQ : ∀ {x y : Word}, x ∈ Desc D v → y ∈ Desc D v → x <+: y → Q x → Q y)
+    (hω : ω ∈ Cylinder D v) :
+    ∃! x, x ∈ GenericCut D v Q ∧ x <+: ω

@@ -1,0 +1,233 @@
+{
+  "status": "PARTIAL",
+  "generated_at": "2026-10-02T08:52:19.329358+00:00",
+  "lane": "U07",
+  "objects_frozen_sha256": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e",
+  "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "source_sha256": {
+    "RiffleUpperV2/Exploration/Clusters.lean": "4809cd86bab5de71010375c952c5fb8fcbcf3c0bac12818aa80a289299b6af0c",
+    "RiffleUpperV2/Exploration/Guards.lean": "fd11662dc9dd8278a1e91a8609500a8a254fd39cc11cccf4d9e74a39b05172d5",
+    "RiffleUpperV2/Exploration/Histories.lean": "2a19de77bf5c29b6e18aa5dfae534a076d19d934949294f906085dfab9f197a7",
+    "RiffleUpperV2/Exploration/HistoryProbability.lean": "14bd9f7b1b58c947e1dbe0af89ef34ce7af8e36b3e28a3015c3017ce1ec374af",
+    "RiffleUpperV2/Exploration/LocalGood.lean": "c5cce65298f1866265f28ab361f7de8fe704bfdc03244650a80f6b8b293904cb",
+    "RiffleUpperV2/Exploration/Module.lean": "017b0a5756e3b59f5425309525df2d7e4eb54ba83d4e9c4aeeecdebf6bf9a95c",
+    "RiffleUpperV2/Exploration/Objects.lean": "8a9dd60fbee607bc56b2a00e09c3210555003451e198ba58bd2f794782f9330e",
+    "RiffleUpperV2/Exploration/Positions.lean": "75f0d5684f27f0948b63e2df257e0f434ba2ffb6c7d77ce70aea897a47da869e",
+    "RiffleUpperV2/Exploration/PrefixConcentration.lean": "9aad9833d0364bc032bccb6a42f5e5544186e377e007d292c26cf0672f1bc758",
+    "RiffleUpperV2/Exploration/Processes.lean": "75016be4d6efd1dc0e2165c70e9781ca4acbe3bb394b3047c09d12e49f7c4f95",
+    "RiffleUpperV2/Exploration/Regularity.lean": "518923fd16275a6a0f5f74844259a4d564db4a2b6af990849322c965fc7f88c3"
+  },
+  "public_theorems": [
+    {
+      "name": "RiffleUpperV2.Exploration.goodCluster_finite",
+      "file": "RiffleUpperV2/Exploration/Clusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.cluster_count_threshold",
+      "file": "RiffleUpperV2/Exploration/Clusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.goodCluster",
+      "file": "RiffleUpperV2/Exploration/Clusters.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.chosenReserves_spec",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.chosenReserves_exists_iff",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.reserveMass_pos",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.direction_cover_word",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.direction_overlap_iff",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.guard_interlace",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.no_crossed_edge",
+      "file": "RiffleUpperV2/Exploration/Guards.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.naturalHistory_zero",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.history_refinement",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.revealed_word_eq",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyFiber_eq",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGood_adapted",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.naturalHistory_positive",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGood_of_null",
+      "file": "RiffleUpperV2/Exploration/Histories.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.conditionalProbability_tower",
+      "file": "RiffleUpperV2/Exploration/HistoryProbability.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.conditionalProbability_markov",
+      "file": "RiffleUpperV2/Exploration/HistoryProbability.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGoodProbability",
+      "file": "RiffleUpperV2/Exploration/HistoryProbability.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.localGood_integerWindow",
+      "file": "RiffleUpperV2/Exploration/LocalGood.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pileOffset_add_size_le",
+      "file": "RiffleUpperV2/Exploration/Objects.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.row_take_one",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePrefix_count",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePrefix_lowerRank",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePrefix_upperRank",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pilePosition_firstDigit",
+      "file": "RiffleUpperV2/Exploration/Positions.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixSizeConcentration",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.allPrefixSizesConcentration",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.bernstein_twoThirds_exponent",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.prefixSizeFailureSum_le",
+      "file": "RiffleUpperV2/Exploration/PrefixConcentration.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess_zero",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess_one",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalEdge_adapted",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.directionalProcess_adapted",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.revealedEdges_step",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.unitIncrements",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.remainingDirectionalCount_eq",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.remaining_terminal",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistoryGood_initial",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.pairHistoryGood_terminal",
+      "file": "RiffleUpperV2/Exploration/Processes.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.direction_card",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyIndex_card",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.historyGood_unionBound",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    },
+    {
+      "name": "RiffleUpperV2.Exploration.regularityFailure_of_bounds",
+      "file": "RiffleUpperV2/Exploration/Regularity.lean"
+    }
+  ],
+  "public_theorem_count": 45,
+  "fresh_build": {
+    "command": "python3 formalization/upper_bound_v2/scripts/build.py --lane U07 --fresh RiffleUpperV2.Exploration.Module",
+    "exit_code": 0,
+    "log": "audit/U07/fresh-build.log",
+    "log_sha256": "46a49924283f602175858a7b5dff3a4bf3e586827ac89681fe725ec91a029926"
+  },
+  "type_and_axiom_check": {
+    "command": "python3 formalization/upper_bound_v2/scripts/build.py --lane U07 --run audit/U07/Check.lean",
+    "exit_code": 0,
+    "log": "audit/U07/signatures-and-axioms.log",
+    "log_sha256": "fd356486db73af730020d2b2e368e729c32ae834bea1c5c76028b7abf1881864",
+    "printed_axiom_declarations": 45,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "independent_review": {
+    "objects": "U00 reviewed definitions, per-pile masking and boundary edge; frozen in CONTRACTS_READY v1",
+    "proofs": "Requested through U00; pending"
+  },
+  "open_obligations": [
+    "Reserve candidate nonemptiness from retainedGoodCluster",
+    "Full H model probability estimate incl later/outside/guards",
+    "Small-pile edge failure from factorial moments",
+    "H x H common-direction coverage and graph count comparison",
+    "Eventual logarithmic thresholds/restart integration and unconditional regularity bound"
+  ],
+  "forbidden_token_scan": []
+}

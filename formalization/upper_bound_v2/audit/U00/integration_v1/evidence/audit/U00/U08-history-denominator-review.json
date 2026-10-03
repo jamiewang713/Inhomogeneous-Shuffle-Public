@@ -1,0 +1,35 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of U08",
+  "recorded_at": "2026-10-02T10:54:35.811129+00:00",
+  "sources": {
+    "Reservoir/MarkedPrefix.lean": "825306bedfd621ea0701fb4806cd2d0c22a7cac5477aa0727714cad16f0b1b09",
+    "Reservoir/ExposedRows.lean": "5b5076b23c3ce783d54c9cdc135c92d8a5920258d7f28ae37da758377aa88b0d",
+    "Reservoir/PilePrefix.lean": "504d4d34487916d1ffe8b38a3a5b433fa1bd92761e2c44bd8211aa7fbf8bf8ad",
+    "Reservoir/Denominator.lean": "bd3a1444698c12a9ead81ed6ce4081b076701a3708d9ddcecda71f6635728af6"
+  },
+  "mathematics": [
+    "Every marked tuple disjoint from the exposed prescription has a constructed injective embedding into the full complement; no complement-enumeration premise survives.",
+    "Exact selected-coordinate probability sums all unselected columns out and excludes only the fixed first marked-pile digit.",
+    "Concrete index embeddings enumerate exposed and marked pile labels, preserve injectivity, and identify exact used-count multiplicities.",
+    "pileBase is precisely the full labeled first-column pile condition plus actual unmarked-row values; its probability product denominator is c+m.",
+    "Actual residual digit capacity equals the outside-pile count plus marked labels, proved using complete labeled-pile exhaustion.",
+    "All completions in the chosen right reserve imply the literal forward history when unmarked rows already satisfy it. The exact prefix probability therefore lower-bounds the history denominator.",
+    "A literal H realization in that exposed base fiber supplies residual counts. ReserveUniform then gives exact d0^m/2 uniformly before arrays and histories."
+  ],
+  "public_type_and_model": [
+    "history_denominator_lower_uniform fixes N0 before n,L,cuts,history,pile labels,unmarked values,marked count and H representative.",
+    "The H representative need only be in the exposed base, not the target history; compatible reserve completions construct the required history mass.",
+    "All target conditional probabilities use event-first PMF API and actual historyFiber. No supplied residual-law or reserve-probability certificate."
+  ],
+  "adversarial": [
+    "Impossible unmarked configurations are not silently normalized: witnessed base and unmarked history constraint are explicit hypotheses here, later averaging must separate their impossible-target branch.",
+    "m=1 or2 and selected extreme reserve are actual finite events. Unused tail coordinates sum out exactly.",
+    "This reviewed denominator is forward only; backward reserve construction, counts, collisions and averaging remain explicit lane obligations."
+  ],
+  "remaining": [
+    "Actual regular/rare coordinate prefix bounds, removable-copy average, collision sum with one bad charge, backward analogues, and auxiliary future-cylinder law."
+  ],
+  "root_build_receipt": "directional-final-check-build.json",
+  "trust_inventory": "directional-final-declarations.json"
+}

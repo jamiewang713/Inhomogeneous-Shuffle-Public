@@ -1,0 +1,84 @@
+{
+  "lem:ub-empirical-cost-classes": {
+    "declarations": [
+      "RiffleUpperV2.FirstMoment.empiricalDescriptor",
+      "RiffleUpperV2.FirstMoment.card_empiricalKey",
+      "RiffleUpperV2.FirstMoment.empiricalCostClassCount",
+      "RiffleUpperV2.FirstMoment.blockPartition",
+      "RiffleUpperV2.FirstMoment.fullWord_retained_or_discarded",
+      "RiffleUpperV2.FirstMoment.retainedClasses_uniform_count",
+      "RiffleUpperV2.FirstMoment.discardedRows_power_bound",
+      "RiffleUpperV2.FirstMoment.retainedDescriptor_prefix_injective",
+      "RiffleUpperV2.FirstMoment.classPrefixes_card",
+      "RiffleUpperV2.FirstMoment.retainedCandidate_count"
+    ],
+    "description": "Actual good-cost bins, exceptional positions and digits, exact boundaries, lengths and all routing flags. C=D+3 fixed before chi. Uniform retained realized class count and discarded expected row mass. Terminal and immediate fibers are literal singletons.",
+    "status": "PROVED_AND_CHECKED",
+    "open_obligations": []
+  },
+  "eq:ub-exact-word-cost-split": {
+    "declarations": [
+      "RiffleUpperV2.FirstMoment.selectedCost_split",
+      "RiffleUpperV2.FirstMoment.exactWordCostSplit",
+      "RiffleUpperV2.FirstMoment.anchoredExactCostSplit",
+      "RiffleUpperV2.FirstMoment.anchoredCosts_nonneg",
+      "RiffleUpperV2.FirstMoment.properStable_goodCost"
+    ],
+    "description": "Exact anchored product split ell=V-S-Q for actual future cut array; last good digit costs at most q_N and an exceptional last digit adds no good cost.",
+    "status": "PROVED_AND_CHECKED",
+    "open_obligations": []
+  },
+  "eq:ub-empirical-class-entropy": {
+    "declarations": [
+      "RiffleUpperV2.FirstMoment.card_mul_lower_mass_le_one",
+      "RiffleUpperV2.FirstMoment.classEntropy",
+      "RiffleUpperV2.FirstMoment.prefixFamilyEntropy",
+      "RiffleUpperV2.FirstMoment.retainedClassEntropy",
+      "RiffleUpperV2.FirstMoment.retainedClass_originalEntropy"
+    ],
+    "description": "Common tilted lower mass, not equal mass; actual descriptor fibers inject into canonical completed words. Equal natural bins imply equal integer bins by nonnegative actual good costs. Original absolute B grid restored by TailGrid.",
+    "status": "PROVED_AND_CHECKED",
+    "open_obligations": []
+  },
+  "lem:ub-numerical-lemma": {
+    "declarations": [
+      "RiffleUpperV2.FirstMoment.largeExponent_core",
+      "RiffleUpperV2.FirstMoment.smallExponent_core",
+      "RiffleUpperV2.FirstMoment.empiricalLargeExponent",
+      "RiffleUpperV2.FirstMoment.empiricalSmallExponent",
+      "RiffleUpperV2.FirstMoment.retainedClass_largeExponent",
+      "RiffleUpperV2.FirstMoment.retainedClass_smallProperExponent",
+      "RiffleUpperV2.FirstMoment.retainedClass_smallImmediateExponent",
+      "RiffleUpperV2.FirstMoment.retainedClass_terminalExponent",
+      "RiffleUpperV2.FirstMoment.retainedClass_stops"
+    ],
+    "description": "Four actual block cases. Large loss delta+q_N/2+eH; repaired small loss 8delta+21q_N/2+eH; attained theta in [3,4]. All actual cost, max, parent, terminal and no-fallback prerequisites discharged.",
+    "status": "PROVED_AND_CHECKED",
+    "open_obligations": []
+  },
+  "eq:ub-empirical-first-moment-assembly": {
+    "declarations": [
+      "RiffleUpperV2.FirstMoment.firstColumnAnchoredLaw",
+      "RiffleUpperV2.FirstMoment.firstPileEdges_probability",
+      "RiffleUpperV2.FirstMoment.retainedGraphCover",
+      "RiffleUpperV2.FirstMoment.edgeMarginal_active_cover",
+      "RiffleUpperV2.FirstMoment.discardedMarginal_squares",
+      "RiffleUpperV2.FirstMoment.actualGraphAssembly",
+      "RiffleUpperV2.FirstMoment.retainedDensity_sum_power",
+      "RiffleUpperV2.FirstMoment.activeClasses_count_eventually",
+      "RiffleUpperV2.FirstMoment.retainedOmitted_eventually",
+      "RiffleUpperV2.FirstMoment.empiricalGraphDecay"
+    ],
+    "description": "Exact model square-sum identity with full-n future columns. Relabeling aligns absolute pile offsets; first-column matching proves fixed-anchor marginal law. Actual retained density, multiplicity, discarded labels and omitted windows instantiated before aggregation.",
+    "status": "PROVED_AND_CHECKED",
+    "open_obligations": []
+  },
+  "prop:ub-empirical-first-moment": {
+    "declarations": [
+      "RiffleUpperV2.FirstMoment.empiricalFirstMoment"
+    ],
+    "description": "Exact frozen Contracts.V1.F. For k>=2, T,eta,g>0 and g<1/k, exponent eta/8 and N0 are selected before N,n,a,K,cuts. Only source horizon, first-column goodness and empirical margin premises remain.",
+    "status": "PROVED_AND_CHECKED",
+    "open_obligations": []
+  }
+}

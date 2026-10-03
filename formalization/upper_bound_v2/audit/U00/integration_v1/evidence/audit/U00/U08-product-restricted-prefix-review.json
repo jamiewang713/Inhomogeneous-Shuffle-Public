@@ -1,0 +1,41 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:36:27.157962+00:00",
+  "sources": {
+    "Reservoir/ProductUpper.lean": "84bb5e8f4f132b44ca84935539891b600dafcee523e47532356fb9529a761284",
+    "Reservoir/ProductUniform.lean": "766ae3b6205237249416c7e6407ae432ad217a1849aabd6fc1528463905c03ad",
+    "Reservoir/Capacity.lean": "ea18a2e0cba4d2098d7b83051100c6aa05b55928cfe7c3b3a1fb09f7975de097",
+    "Reservoir/ProductConditional.lean": "582e3f2c8bd598002b4da2c83cffbb3f3ca177dddb6968f77c4035307b71426b",
+    "Reservoir/RestrictedPrefix.lean": "6dcae567ab0442bdd28888565fe65a6a68bbd0a32f15bfec65aefbd3507036eb"
+  },
+  "source_labels": [
+    "lem:ub-reservoir-counts",
+    "eq:ub-reservoir-exact-prefix-weight"
+  ],
+  "mathematics": [
+    "Regular coordinates use the actual residual count error and c>=gN to obtain p(1+delta); rare coordinates use deterministic remainingCount<=Np and c+m>=gN to obtain p/g.",
+    "The exact identity tau^alpha=g combines the two regimes into (1+delta)p^(1-alpha), including p=0 when alpha<1. Falling-factorial ratios are bounded by powers before multiplying coordinates.",
+    "The logarithmic number of relative errors is eventually at most two, uniformly in the selected coordinates. Product bound retains factor 2^m and exponent m(1-alpha).",
+    "Capacity inequalities come from actual row filters and fixed column counts. ProductConditional instantiates every generic count premise from concentrationEvent and a real pileBase representative.",
+    "RestrictedPrefix divides the actual numerator by the previously proved reserve denominator. When deleting strictly future marked rows cannot satisfy the observed history, the target conditional probability is exactly zero."
+  ],
+  "public_type_and_model": [
+    "These n variables represent the ambient population N in the manuscript, as verified by Cuts k n and outside population n-pileSize.",
+    "Threshold precedes all cut arrays, history representatives, exposed configurations, and target prefixes. Alpha<1 is enough for this intermediate product bound; the eventual count lane may strengthen to alpha<1/2.",
+    "Conditional law still includes both pileBase and literal natural history. A good representative of the base provides its deterministic residual count controls; the good event is not itself conditioned on.",
+    "Only forward refined-prefix quotient is claimed in RestrictedPrefix; backward and natural-history averaging remain open."
+  ],
+  "adversarial": [
+    "Zero prefix mass is preserved, and empty future prefix product is one.",
+    "One or two marked rows are explicit in the reserve-denominator specialization; c+m positive is derived from good first column.",
+    "Impossible unmarked configurations yield probability zero, even if the refined conditioning event is null.",
+    "This slice has not summed over target words, so the once-per-pair bad event charge must still be verified in tailCollisions."
+  ],
+  "remaining": [
+    "Supported natural-history averaging and exact initial-pile normalization for prefix count, removable current copies and tail collisions.",
+    "Backward quantitative reserve denominator/counts and exact future-cylinder marginal law, including graph transport and label-set averaging."
+  ],
+  "root_build_receipt": "concrete-bounds-check-build.json",
+  "trust_inventory": "concrete-bounds-declarations.json"
+}

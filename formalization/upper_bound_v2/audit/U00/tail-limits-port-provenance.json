@@ -1,0 +1,19 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_GENERIC_PORT",
+  "source": "lean_formalization/RiffleProfiles/TailLimits.lean",
+  "source_sha256": "c5e2b0a3a523d4d8ad6acf8ba7401b22bdc5c1bdbe5ed22576a00afffccb8b76",
+  "destination": "formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalTailLimits.lean",
+  "destination_sha256": "b5adb0c18ffdb42290cc654e29ee8170f4faca061ad2368707125f9718f59047",
+  "direct_build_failure_log": "audit/U00/guard-profile-stage.log",
+  "changes": [
+    "New namespace; import original successfully built AsymptoticFinite/Counting unchanged",
+    "Expand function composition explicitly in convergence simpa",
+    "Remove ring after field_simp now closes division cancellation",
+    "Close remaining square-root equality with existing hsq.symm"
+  ],
+  "diff": "audit/U00/tail-limits-port.diff",
+  "unchanged": "All public statements and constants, original-N scale and order of choices",
+  "root_build_receipt": "quantitative-partial-check-build.json",
+  "trust_inventory": "quantitative-partial-declarations.json",
+  "independent_review": "../U07/tail-limits-port-independent-review.json"
+}

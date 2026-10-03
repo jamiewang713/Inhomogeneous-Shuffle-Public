@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:51:16.576050+00:00",
+  "sources": {
+    "Localization/SidePieces.lean": "ae30cc9b7c2e26ddd9360fe5219d4c0c562f566c457671731eeac8d6737157e5"
+  },
+  "mathematics": [
+    "Lexicographic order of equal-length words is decomposed by the first different digit.",
+    "Side cylinders have actual prefix-before restrictions and strict lower/upper digit condition. Their fixed-count means and tails follow directly from U02.",
+    "Distinct first-difference positions yield disjoint cylinders. Finite union cardinal therefore equals the sum of their counts.",
+    "The lower endpoint is c0 plus lower sibling counts; the upper endpoint is c0+|R| minus upper sibling counts."
+  ],
+  "public_type_and_model": [
+    "Actual future-only prefix and full n-label sample; reserve labels arbitrary fixed Finset R.",
+    "No independent-row assertion or side-sum concentration certificate is used."
+  ],
+  "adversarial": [
+    "Empty local prefix yields empty sum and deterministic anchor endpoints.",
+    "Both strict orientations and means below1, including zero, are covered; t>0 is the only tail threshold restriction.",
+    "Absolute integer offset c0 is preserved."
+  ],
+  "remaining": [
+    "Smaller-side simultaneous mean control and uniform endpoint window are next U04 obligations."
+  ],
+  "root_build_receipt": "directional-final-check-build.json",
+  "trust_inventory": "directional-final-declarations.json"
+}

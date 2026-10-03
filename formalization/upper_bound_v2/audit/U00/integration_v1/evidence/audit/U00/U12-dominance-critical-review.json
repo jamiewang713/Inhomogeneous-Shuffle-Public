@@ -1,0 +1,33 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:55:49.009742+00:00",
+  "reviewer": "U00 independent of U12",
+  "sources": {
+    "ProfileUpper/Dominance.lean": "684d9fd42cbb554c4d99d18723f8f6e0c3db226cea402aa12193175f05ba0e5c",
+    "ProfileUpper/AllMargins.lean": "53ec40538e2f6a076a2151aadd53abb59176c5ad22305fd8bf55e6b4befb9346",
+    "ProfileUpper/Critical.lean": "98d85b2c9a13461a78257ac9c44067969e5bec100f7abf4b111a43e525a7d0dd"
+  },
+  "root_receipt": "regime-critical-check-build.json",
+  "trust_inventory": "regime-critical-declarations.json",
+  "mathematics": [
+    "Basic one-column psi(theta)>=(theta-1)*maxCost proved for every theta>=1, including zero digit masses. Spatial and temporal averaging use actual integrability; integrated comparisons use the supplied[2,4] range.",
+    "Exact source lambda2 uses coefficient(theta-1)/2 and triangle0<=s<=u<=T; theta=3 comparison plus additive/nonnegative A proves lambda2<=beta. Exact lambda3<=beta, and endpoint s=T gives equality. Thus full=reduced and their extended critical infima agree under per-horizon scalar integrability.",
+    "Both variational margins have explicit bounded real infimum/supremum domains. Clipping both times at earlier horizon proves all four monotonicities; no sign assumption on beta is hidden.",
+    "earlierNegative follows directly from extended sInf being below a finite ofReal time. Reduced monotonicity propagates negativity without continuity at the threshold.",
+    "The arbitrarily-fine hypothesis selects a partition at chi0, then fixed g/gamma/rhoBar, then min(rhoBar,rho0), then phi0. It supplies eventual actual cuts for the ordered P application.",
+    "Mixing time is an ENNReal infimum over actual good integer horizons. Eventual TV control bounds it by floor(t logN), and the dense-order limsup argument gives the full extended threshold, including top."
+  ],
+  "quantifiers": [
+    "Internal criticalOfBuffered has exactly P=>frozen T; final public T must instantiate actual P.",
+    "Temporal scalar integrability is explicit for each chosen partition/horizon; no measurability is inferred from spatial boundedness.",
+    "Coherent InfiniteCuts.take defines every finite horizon in the same sequence."
+  ],
+  "adversarial": [
+    "Empty negativity set has top threshold, so no false finite-time convergence claim is produced.",
+    "N>=2 is imposed only eventually for positive log division; empty mixing sets keep value top until eventual TV gives an actual finite witness.",
+    "T=0 in monotonicity/dominance is allowed with nonempty singleton domains."
+  ],
+  "remaining": [
+    "Public P/T and final random wrappers await actual E; FullCritical additive corollaries separately staged next."
+  ]
+}

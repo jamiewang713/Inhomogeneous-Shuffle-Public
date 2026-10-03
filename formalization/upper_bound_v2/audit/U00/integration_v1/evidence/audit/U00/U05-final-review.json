@@ -1,0 +1,22 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_LANE",
+  "recorded_at": "2026-10-02T20:54:08.691853+00:00",
+  "reviewer": "U00",
+  "provider_verification": "../U05/VERIFICATION.json",
+  "provider_verification_sha256": "bedc7201407cb5a7ffedc50e43355af0579fd06c1d2c35dbedc2f1757f2d8830",
+  "endpoint": "RiffleUpperV2.FirstMoment.empiricalFirstMoment : RiffleUpperV2.Contracts.V1.F",
+  "owned_sources_verified": 36,
+  "fresh_build_and_audit_receipts_verified": 5,
+  "public_declarations_in_root_inventory": 208,
+  "all_owned_root_declarations": 577,
+  "independent_reviews": [
+    "U05-F-endpoint-review.json",
+    "U05-graph-assembly-review.json"
+  ],
+  "source_and_receipt_hashes_verified": true,
+  "standard_axioms_only": true,
+  "remaining_lane_obligations": [],
+  "remaining_package_obligations": [
+    "C/E/P/T/R, fresh final integrated source build and U13 acceptance"
+  ]
+}

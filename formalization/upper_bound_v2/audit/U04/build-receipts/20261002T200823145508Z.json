@@ -1,0 +1,322 @@
+{
+  "status": "BUILD_OK",
+  "recorded_at": "2026-10-02T20:08:23.144904+00:00",
+  "command": [
+    "formalization/upper_bound_v2/scripts/build.py",
+    "--lane",
+    "U04",
+    "--fresh",
+    "RiffleUpperV2.Localization.Stochastic"
+  ],
+  "compiler": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lane": "U04",
+  "output": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/.build/U04/lib/lean",
+  "built": [
+    "RiffleUpperV2.Localization.Prefixes",
+    "RiffleUpperV2.Localization.Scalars",
+    "RiffleUpperV2.Localization.Definitions",
+    "RiffleUpperV2.Localization.Stopping",
+    "RiffleUpperV2.Localization.Boundary",
+    "RiffleUpperV2.Localization.IntervalCounting",
+    "RiffleUpperV2.Localization.Counting",
+    "RiffleUpperV2.Localization.DensityAlgebra",
+    "RiffleUpperV2.Localization.StableScales",
+    "RiffleUpperV2.Localization.CylinderAdapters",
+    "RiffleUpperV2.Localization.RankGeometry",
+    "RiffleUpperV2.Localization.Main",
+    "RiffleUpperV2.Localization.SidePieces",
+    "RiffleUpperV2.Localization.SideBounds",
+    "RiffleUpperV2.Localization.EndpointDeviation",
+    "RiffleUpperV2.Localization.EndpointWindow",
+    "RiffleUpperV2.Localization.IntervalInclusion",
+    "RiffleUpperV2.Localization.RelevantParents",
+    "RiffleUpperV2.Localization.IrrelevantLoss",
+    "RiffleUpperV2.Localization.Edges",
+    "RiffleUpperV2.Localization.EdgeMoments",
+    "RiffleUpperV2.Localization.RestrictedMoments",
+    "RiffleUpperV2.Localization.CollisionMass",
+    "RiffleUpperV2.Localization.OffsetAtoms",
+    "RiffleUpperV2.Localization.SmoothingDensity",
+    "RiffleUpperV2.Localization.Density",
+    "RiffleUpperV2.Localization.Eventual",
+    "RiffleUpperV2.Localization.FailureRate",
+    "RiffleUpperV2.Localization.EdgeRanks",
+    "RiffleUpperV2.Localization.GlobalRanks",
+    "RiffleUpperV2.Localization.FirstPileTransport",
+    "RiffleUpperV2.Localization.EdgeCover",
+    "RiffleUpperV2.Localization.EdgeGeometry",
+    "RiffleUpperV2.Localization.DiscardedEdges",
+    "RiffleUpperV2.Localization.Stochastic"
+  ],
+  "modules": {
+    "RiffleUpperV2.Localization.Stochastic": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Stochastic.lean",
+      "sha256": "3c230756dbaecb3d3e1cacc39b91e7c53851d389d63ebe268d57ad0dfe4eb6e1",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.Main": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Main.lean",
+      "sha256": "2722d8e6053cbf6073697162a5cdc710a644e818fc778d0ba22dd63864253835",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.Boundary": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Boundary.lean",
+      "sha256": "5183e8f1a59c135231d898aee39b7501665bf1a04b5da44c2285ef850c567f7d",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.Stopping": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Stopping.lean",
+      "sha256": "4348e58174497b9c24bb52a259a9bf7f28e48d3a84302262022b7455f0c92339",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.Definitions": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Definitions.lean",
+      "sha256": "93701ec8d2df3d4e1d69fd435ccf087c67f68006a2306cc45553e9c220935bd4",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Anchor.Definitions": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Definitions.lean",
+      "sha256": "59394ebc5fbaafa0098c58ace513872d965e92eb96e6782c5b42d6ac31cd2f9b",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.Prefixes": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Prefixes.lean",
+      "sha256": "876907335ec59abcb63fbd2028b7b1ee1c6d9d79c3b19d5276eea1ce8fe80029",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Shared.Model": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Model.lean",
+      "sha256": "583b36fff2a811340220e35eaddbe46354dbda427482cfee5eaa1a74bf6e218e",
+      "kind": "staged-read-only"
+    },
+    "RiffleLowerV2.Thinning.PrefixCoordinates": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/lower_bound_v2/RiffleLowerV2/Thinning/PrefixCoordinates.lean",
+      "sha256": "6eb1e70f618acb49faf4992abc2a4518a94aeb0ffadd096a974b451628b57ee4",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.Scalars": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Scalars.lean",
+      "sha256": "cd5ac936a0ba9c523c1acf66ab3020a7d4cf3db4a89fdbb3cc16339c0ddf16e7",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Shared.Empirical": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Empirical.lean",
+      "sha256": "108ae31a7f9d966eb05ba2a5da78e8345191fc696328eaee13e95ab5aeadb7da",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.Counting": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Counting.lean",
+      "sha256": "de2a3e22e0601065f001aa8f8433614514ede7991ef1136cad41947d2e774cb5",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.IntervalCounting": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/IntervalCounting.lean",
+      "sha256": "c383a4489133d623e95ff75717756a58f6d25783bb408d1f29df0a8e6c5741c7",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.DensityAlgebra": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/DensityAlgebra.lean",
+      "sha256": "ea7ecab4397da3141cc30abeed971d4f8a2669cdf931e776d028bcdf457c93fe",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.StableScales": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/StableScales.lean",
+      "sha256": "f09c641308340d4e01b4cc1d2a0528f650bd4c19e618fba48a3169ddda23fca7",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Anchor.Scales": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Scales.lean",
+      "sha256": "dcf3bc2bcb27f716630cc8dda3a92bcc5d997adca04bd6194ff4c28300ee1cdc",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.RankGeometry": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/RankGeometry.lean",
+      "sha256": "067527654564d902421f45850a5da04e01fe29d341f3a349fedd5518a1b7ef85",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.CylinderAdapters": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/CylinderAdapters.lean",
+      "sha256": "01b3c71b50b4153e8be78056730ac969e22696e7e9fbae5232cfb18f5bd3e44c",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Hypergeometric.CylinderMean": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/CylinderMean.lean",
+      "sha256": "78f861bac52408f5888b01b2dfa1a3acfcffe8d725603e5a23da455ed81ea92b",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.FailureRate": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/FailureRate.lean",
+      "sha256": "964599770c5481c98526b12cd2f7b65347ca0a0fa9afa60c1f875284c5ad4a3d",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.Eventual": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Eventual.lean",
+      "sha256": "77aafc16475bee1d5858115fb1f75b7576ef40681ddf19cd0a1691a809e15633",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.IrrelevantLoss": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/IrrelevantLoss.lean",
+      "sha256": "4b5ff65b6003781a06126ed6c2cc6cd36fc9ef501b75ea1106e9a2e8477cb870",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.RelevantParents": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/RelevantParents.lean",
+      "sha256": "0f3694cee89af55929dbc865b814e282ed4e7fd69daa0346fea6c6ba1e0ec885",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.EndpointWindow": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EndpointWindow.lean",
+      "sha256": "33c41738c7264ee18d33ea8b3e007527bc3fb82cbecb754e388df72fdc3b6992",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.EndpointDeviation": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EndpointDeviation.lean",
+      "sha256": "1a5cefefc37009e95e4241469ea27ee98d9fa5ca93d2cf7630df823752644c49",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.SideBounds": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SideBounds.lean",
+      "sha256": "1a1abdad9b97cf963a2ddcb4daeb00b42011e91f770ad1a862630f7756661597",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.SidePieces": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SidePieces.lean",
+      "sha256": "ae30cc9b7c2e26ddd9360fe5219d4c0c562f566c457671731eeac8d6737157e5",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Anchor.Main": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Anchor/Main.lean",
+      "sha256": "b754190bfb54cea18e9c34f28af7ba05cd9598344f69a7c2689a003b4bb86fa0",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.IntervalInclusion": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/IntervalInclusion.lean",
+      "sha256": "8bd4ac94b5265309ad7e4a3f07d513696732bdf640da2c1ef7d55c4881b15a48",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Shared.Anchored": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/Anchored.lean",
+      "sha256": "2bced93d992f5266d7bc7b917f6cbaa2a01a964c6b0ffac2a83d4947e394a128",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.Density": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Density.lean",
+      "sha256": "be206e4b60579a3ac33cb294f23b0baad781f033a6f685a74842ba328e37f02b",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.CollisionMass": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/CollisionMass.lean",
+      "sha256": "e52b4a2c1a84101fb5a7af2f381125c8378388e957c337e35703f4bb777b1c4b",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.RestrictedMoments": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/RestrictedMoments.lean",
+      "sha256": "efbb64a9e7be89b9865e2821daffcdc79d63f65ff7dbddb527a90b4ed20e9632",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.EdgeMoments": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EdgeMoments.lean",
+      "sha256": "1aaf51b74a66ede2fc1fa286364cc4d413e2e8b6bd688e23ae02844c5eb1445a",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.Edges": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/Edges.lean",
+      "sha256": "ce9ba3ad364c60396725d00ea90d26ed63915bb5b17e4f4395df35b5b10c3675",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.GraphOverlap.FactorialTail": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/FactorialTail.lean",
+      "sha256": "7cdefa98cf44a89e21c62fb123571e9797f43c0129657d30e09ba87ce823e006",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.SmoothingDensity": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/SmoothingDensity.lean",
+      "sha256": "241ced7ff76b4251a294f793b925d3c99c14f402ffc00524e96f77abce0b2317",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.OffsetAtoms": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/OffsetAtoms.lean",
+      "sha256": "2a76bbbf9cd3622b7a5134dc38b06e1be3204773b2dd3eda7997e961092f3d0d",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Shared.WindowRates": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Shared/WindowRates.lean",
+      "sha256": "8199acfbc8112cb1fc82377533bf99827313aaf07deb1d953230b792d5641c96",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.FirstPileTransport": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/FirstPileTransport.lean",
+      "sha256": "02e5f7597231f60ef21d467a55ad5c5740f3aede4c6d5f5093e5f072c40c0a2c",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.GlobalRanks": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/GlobalRanks.lean",
+      "sha256": "2158ca4f4cebb3a86ba71a93566c19e5e75c6a76681d3746f72cfac2106cfce2",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.EdgeRanks": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EdgeRanks.lean",
+      "sha256": "bf3b4df2f6aae4960c9156ca9d280f94e00794f27a57a9f1fbc93346140017e7",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.FirstMoment.FirstColumn": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/FirstMoment/FirstColumn.lean",
+      "sha256": "3b24762b8a1a307a683dab84704e44566deea866438304b20d46ae1600b9419c",
+      "kind": "staged-read-only"
+    },
+    "RiffleUpperV2.Localization.DiscardedEdges": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/DiscardedEdges.lean",
+      "sha256": "9bfae5f0fb62ff1f591243cf6d13909b693a0f2f839e14f6b8f6162bc134c1a1",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.EdgeGeometry": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EdgeGeometry.lean",
+      "sha256": "66f877775e89535f2304343037bcd9815c598ef24f6eda36a1ef548efb9d3404",
+      "kind": "project",
+      "exit_code": 0
+    },
+    "RiffleUpperV2.Localization.EdgeCover": {
+      "source": "/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/Localization/EdgeCover.lean",
+      "sha256": "d9800a22dc7de060268bf1ac4b38e1905ee6f60da7c7b1fc3b21d6acf91a0a91",
+      "kind": "project",
+      "exit_code": 0
+    }
+  },
+  "audit_checks": [],
+  "builder_sha256": "87b7dc02d6b8b7eb6331751e6e6398a58c12946e04ca00e6dc9f73bb9265e083"
+}

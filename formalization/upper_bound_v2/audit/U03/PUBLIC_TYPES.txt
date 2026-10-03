@@ -1,0 +1,92 @@
+RiffleUpperV2.Anchor.endpointSmoothing
+{k n d : ℕ} →
+  (cuts : RiffleUpperV2.Cuts k n d) →
+    0 < n →
+      (c₀ : ℤ) →
+        (R : Finset (Fin n)) →
+          {g χ : ℝ} →
+            {y z v x : RiffleUpperV2.Prefix k d} →
+              RiffleUpperV2.Anchor.Reserve R g →
+                RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v →
+                  RiffleUpperV2.Anchor.IsPrefix v x →
+                    RiffleUpperV2.Anchor.EndpointSmoothingData cuts c₀ R x g (RiffleUpperV2.Anchor.sideScale cuts R v)
+                      (RiffleUpperV2.Anchor.varianceDenominator χ v)
+
+RiffleUpperV2.Anchor.endpointShiftHypergeometric
+∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : 0 < n) (c₀ : ℤ) (R : Finset (Fin n)) {g χ : ℝ}
+  {y z v x : RiffleUpperV2.Prefix k d} (hg : RiffleUpperV2.Anchor.Reserve R g)
+  (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v) (hvx : RiffleUpperV2.Anchor.IsPrefix v x)
+  (ω₀ : RiffleUpperV2.Sample cuts) (f : ℤ → ℝ),
+  have data := RiffleUpperV2.Anchor.endpointSmoothing cuts hn c₀ R hg h hvx;
+  ((RiffleUpperV2.conditionalExpect (RiffleUpperV2.fixedCountPMF cuts)
+        (fun (ω : TimeProfile.ShuffleSample cuts) => f (RiffleUpperV2.Anchor.lowerEndpoint c₀ R x ω))
+        fun (ω : TimeProfile.ShuffleSample cuts) => data.history ω = data.history ω₀) =
+      RiffleUpperV2.expect (data.params ω₀).law.toPMF fun (q : Fin ((data.params ω₀).draws + 1)) =>
+        f (data.shift ω₀ + ↑↑q)) ∧
+    (RiffleUpperV2.conditionalExpect (RiffleUpperV2.fixedCountPMF cuts)
+        (fun (ω : TimeProfile.ShuffleSample cuts) => f (RiffleUpperV2.Anchor.upperEndpoint c₀ R x ω))
+        fun (ω : TimeProfile.ShuffleSample cuts) => data.history ω = data.history ω₀) =
+      RiffleUpperV2.expect (data.params ω₀).law.toPMF fun (q : Fin ((data.params ω₀).draws + 1)) =>
+        f (data.shift ω₀ + ↑↑q + ↑(RiffleUpperV2.Anchor.prefixRows R x ω₀).card)
+
+RiffleUpperV2.Anchor.smoothingFailure
+∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : 0 < n) (c₀ : ℤ) (R : Finset (Fin n)) {g χ : ℝ}
+  {y z v x : RiffleUpperV2.Prefix k d} (hg : RiffleUpperV2.Anchor.Reserve R g)
+  (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v) (hvx : RiffleUpperV2.Anchor.IsPrefix v x),
+  (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+      ¬(RiffleUpperV2.Anchor.endpointSmoothing cuts hn c₀ R hg h hvx).good ω) ≤
+    3 * Real.exp (-RiffleLowerV2.chernoffConstant * g * RiffleUpperV2.Anchor.sideScale cuts R v)
+
+RiffleUpperV2.Anchor.endpointVariance
+∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : 0 < n) (c₀ : ℤ) (R : Finset (Fin n)) {g χ : ℝ}
+  {y z v x : RiffleUpperV2.Prefix k d} (hg : RiffleUpperV2.Anchor.Reserve R g)
+  (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v) (hvx : RiffleUpperV2.Anchor.IsPrefix v x)
+  (ω : RiffleUpperV2.Sample cuts),
+  (RiffleUpperV2.Anchor.endpointSmoothing cuts hn c₀ R hg h hvx).good ω →
+    g * RiffleUpperV2.Anchor.sideScale cuts R v / (16 * RiffleUpperV2.Anchor.varianceDenominator χ v) ≤
+      ((RiffleUpperV2.Anchor.endpointSmoothing cuts hn c₀ R hg h hvx).params ω).varianceFormula
+
+RiffleUpperV2.Anchor.conditionalEndpointAtoms
+∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : 2 ≤ n),
+  1 ≤ d →
+    ∀ (c₀ : ℤ) (R : Finset (Fin n)) {g χ : ℝ} {y z v x : RiffleUpperV2.Prefix k d}
+      (hg : RiffleUpperV2.Anchor.Reserve R g) (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v)
+      (hvx : RiffleUpperV2.Anchor.IsPrefix v x) (u : RiffleUpperV2.Anchor.InternalHistory k n d),
+      (0 <
+          RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+            RiffleUpperV2.Anchor.internalHistory R x ω = u) →
+        ∀ (rank : ℤ),
+          have data := RiffleUpperV2.Anchor.endpointSmoothing cuts ⋯ c₀ R hg h hvx;
+          (RiffleUpperV2.conditionalProbability (RiffleUpperV2.fixedCountPMF cuts)
+                (fun (ω : TimeProfile.ShuffleSample cuts) =>
+                  RiffleUpperV2.Anchor.lowerEndpoint c₀ R x ω = rank ∧ data.good ω)
+                fun (ω : TimeProfile.ShuffleSample cuts) => RiffleUpperV2.Anchor.internalHistory R x ω = u) ≤
+              16 * √(RiffleUpperV2.Anchor.varianceDenominator χ v / (g * RiffleUpperV2.Anchor.sideScale cuts R v)) ∧
+            (RiffleUpperV2.conditionalProbability (RiffleUpperV2.fixedCountPMF cuts)
+                (fun (ω : TimeProfile.ShuffleSample cuts) =>
+                  RiffleUpperV2.Anchor.upperEndpoint c₀ R x ω = rank ∧ data.good ω)
+                fun (ω : TimeProfile.ShuffleSample cuts) => RiffleUpperV2.Anchor.internalHistory R x ω = u) ≤
+              16 * √(RiffleUpperV2.Anchor.varianceDenominator χ v / (g * RiffleUpperV2.Anchor.sideScale cuts R v))
+
+RiffleUpperV2.Anchor.jointInternalOffsetAtoms
+∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (hn : 2 ≤ n),
+  1 ≤ d →
+    ∀ (c₀ : ℤ) (R : Finset (Fin n)) {g χ : ℝ} {y z v x : RiffleUpperV2.Prefix k d}
+      (hg : RiffleUpperV2.Anchor.Reserve R g) (h : RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v)
+      (hvx : RiffleUpperV2.Anchor.IsPrefix v x) (offset : RiffleUpperV2.Anchor.InternalHistory k n d → ℤ)
+      (H : RiffleUpperV2.Anchor.InternalHistory k n d → Prop) (rank : ℤ),
+      have data := RiffleUpperV2.Anchor.endpointSmoothing cuts ⋯ c₀ R hg h hvx;
+      ((RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+            RiffleUpperV2.Anchor.lowerEndpoint c₀ R x ω + offset (RiffleUpperV2.Anchor.internalHistory R x ω) = rank ∧
+              data.good ω ∧ H (RiffleUpperV2.Anchor.internalHistory R x ω)) ≤
+          16 * √(RiffleUpperV2.Anchor.varianceDenominator χ v / (g * RiffleUpperV2.Anchor.sideScale cuts R v)) *
+            RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+              H (RiffleUpperV2.Anchor.internalHistory R x ω)) ∧
+        (RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+            RiffleUpperV2.Anchor.upperEndpoint c₀ R x ω + offset (RiffleUpperV2.Anchor.internalHistory R x ω) = rank ∧
+              data.good ω ∧ H (RiffleUpperV2.Anchor.internalHistory R x ω)) ≤
+          16 * √(RiffleUpperV2.Anchor.varianceDenominator χ v / (g * RiffleUpperV2.Anchor.sideScale cuts R v)) *
+            RiffleUpperV2.probability (RiffleUpperV2.fixedCountPMF cuts) fun (ω : TimeProfile.ShuffleSample cuts) =>
+              H (RiffleUpperV2.Anchor.internalHistory R x ω)
+
+Machine-expanded types: public-types.json, generated with Lean pp.all=true.

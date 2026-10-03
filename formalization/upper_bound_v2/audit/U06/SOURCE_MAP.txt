@@ -1,0 +1,13 @@
+U06 source-to-declaration map
+
+eq:ub-empirical-costs -> shared empiricalA/B/Beta, Margins.costStability, empiricalA_grid_adapter, empiricalB_grid_adapter.
+lem:ub-conditional-preservation -> maxCost_stability, psi_stability, powerSum_lower, costStability, inducedMargin, deletePrefixMargin, deletePrefixMargin_rounding.
+eq:ub-empirical-negative-margin -> shared EmpiricalNegativeMargin; inducedMargin and profileToEmpiricalMargin conclude this literal predicate.
+def:chi-regular-partitions -> lower TimeProfile.BorelPartition.IsRegular reused exactly; fixedPartitionQuadrature accepts arbitrary same P.
+lem:lower-profile-transfer -> genericQuadrature, scalar spatial bounds, Endpoint and Parameters reused read-only; new anyFixedPartitionTransfer changes existential P selection to caller-specified P.
+thm:deterministic-upper-bound analytic input -> fixedPartitionQuadrature, anyFixedPartitionTransfer, profileToEmpiricalMargin_half. These do not prove total variation.
+eq:ub-exploration-maximal-mass -> maximalWordIdentity and maximalMean_le_of_terminalMargin with separate original N/current n.
+
+Offsets: local Fin L column j represents absolute a+j+1. suffixIndex r maps to r+j. All logarithmic denominators are log N. Grid integral times in adapters are explicitly (s-a)/log N and (u-a)/log N; no normalization by current log n.
+
+Endpoint/edge checks: N≥2 guards all original-scale inequalities. Zero simplex coordinates allowed in MVT/Jensen/log-sum proof; sums of powers remain positive. Empty products included in maximalWordIdentity. suffixCuts valid for every r; comparisons requiring a true suffix use r≤K. Equal endpoints covered; all theta infima use real Icc 3 4, with compactness and nonempty domain.

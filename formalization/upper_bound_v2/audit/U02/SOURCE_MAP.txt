@@ -1,0 +1,70 @@
+U02 SOURCE / DECLARATION / MODEL MAP
+
+Namespace for new exports: RiffleUpperV2.Hypergeometric.
+Primary law: existing TimeProfile.fixedCountPMF / RiffleLowerV2.expect and probability.
+Finite hypergeometric law: existing RiffleLowerV2.Thinning.Compat.HypergeomParams.law.
+Its toPMF conversion is related by proved finiteLaw_expect/finiteLaw_probability;
+no second hypergeometric law or assumed distribution certificate is introduced.
+
+lem:ub-hypergeometric-estimates
+  exactMean: exact existing mean p.marked*p.draws/p.population.
+  exactVariance: exact existing rm(n-r)(n-m)/(n^2(n-1)).
+  zeroVariance_iff: exactly marked=0, draws=0, marked=n, or draws=n.
+  transformBound: every s>0; finite binomial and exponential comparisons.
+  mgfBound: every real exponential parameter z, including z<0.
+  twoSidedTail: denominator 4*(mu+t), every t>0.
+  atomBound: constant 4, restricted explicitly to positive variance.
+  These hold also at n=0,1 where meaningful; no reciprocal-square-root
+  conclusion is asserted in zero-variance cases.
+  AntiConcentration proof port follows checked birth/death/Stein argument,
+  not the manuscript's alternative generic interval-support argument.
+
+lem:ub-anchor-cylinder-tail, eq:ub-anchor-cylinder-transform
+  allowed_subset_expect: arbitrary allowed digit SET maps actual fixed-count
+    column to uniform fixed-cardinality subset of full Fin n.
+  anchorCylinderTransform: arbitrary deterministic R subset Fin n, arbitrary
+    Fin d family of allowed digit sets, every positive s. R.card is the
+    exponent; future subset sizes are sum of FULL n-population digit counts.
+  anchorCylinderTail: two-sided denominator 4*(mu+t), and half-mean Chernoff
+    bound with chernoffConstant=(1-log 2)/2. Positivity is existing checked
+    RiffleLowerV2.Thinning.chernoffConstant_pos.
+  cylinderMean_eq_expect: exact actual mean R.card*product(column fractions).
+  anchorCylinderTransform_mean: literal mu/R.card display for R.card>0.
+  Empty R, empty products, zero digit masses allowed; no outside reserve.
+  Unrestricted columns use allowedCount_univ=n. No iid-row law is assumed.
+
+FIRST-COLUMN SPECIALIZATION
+  tailCuts keeps population n and drops exactly column 0; local future j
+    corresponds original local j.succ. Fixed anchor column never fluctuates.
+  firstColumnConditionalExpect/Probability: exact finite disintegration on
+    omega 0=c, where c has the actual fixed-count assignment subtype.
+  firstColumnProbability_pos: every such c has positive probability.
+  firstColumnCylinderTransform/Tail/HalfMean/Mean: proved concrete conditional
+    anchor estimates for anchorRows c a, including empty piles/future columns.
+
+SAMPLING / CONDITIONING ADAPTERS
+  sampleComplementEquiv: exact bijection S -> V\S on m-subsets and (|V|-m)-subsets.
+  sampleComplementLaw: A.card - |A intersect S| has exact complementary-sample
+    hypergeometric law, for all finite V,A with A subset V, including boundaries.
+  conditionalSamplingLaw: on a positive atom S intersect R=B, the count in
+    A subset V\R is Hypergeom(pop=|V\R|,marked=|A|,draws=m-|B|).
+    B subset R, |B|<=m, and residual feasibility are DERIVED from positive mass.
+  conditionalSamplingTransport: full expectation/event transport on those
+    positive atoms; downstream may instantiate every transform/tail/atom bound.
+
+REUSED CHECKED PROOFS (READ-ONLY)
+  Thinning.Compat.HypergeometricMoments: expect_val, variance_val, zero variance.
+  Thinning.Compat.HypergeometricConcentration.expect_pow_le_all.
+  Thinning.Compat.SubsetTransform: exact fixed-subset hypergeometric expectation.
+  Thinning.Compat.ResidualSampling.sample_conditional_hypergeom_law.
+  Thinning.Compat.Conditioning: exact positive-fiber expectation/event transport.
+  Thinning.ColumnSampling: actual column relabel equivariance.
+  Thinning.Recursion.independent_intersection_transform / binomial_le_exp.
+  Thinning.Tails.bernstein_of_transform / half_mean_of_transform.
+
+SCOPE / DOWNSTREAM OBLIGATIONS
+  U03 must prove that its actual reveal maps have these exact subset-fiber laws,
+    and prove reserve/variance lower bounds and endpoint shift identities.
+  U08 must separately prove sorted-history reservoir laws; row-prescription or
+    fixed-subset conditioning is not asserted to be sorted-history conditioning.
+  These are not additional premises in U02's concrete exported estimates.

@@ -1,0 +1,29 @@
+U11 read-only reuse investigation by U00; these are proof-route notes, not a contraction theorem.
+
+Already staged original physical implementation:
+formalization/lower_bound_v2/RiffleLowerV2/Model/Physical.lean
+physicalInverseList l omega is l.foldr (fun j deck => (Tuple.sort (omega j).val).trans deck) (Equiv.refl _).
+physicalInverseList_full identifies finRange K with the literal physicalInverse.
+physicalInverseList_foldl proves the chronological forward/inverse relation.
+physicalMatrixBridge uses a concrete triangular sample bijection, not an assumed representation.
+Model.FiniteLaws contains expect_bind, expect_map, map_equiv_apply,
+map_uniform_equiv, uniform_pi_expect_prod and columnIndependence.
+
+No already-proved TV convolution/deleted-suffix contraction was located in these modules.
+A direct route is: prove physicalInverseList (prefix++suffix)=
+(physicalInverseList prefix).trans (physicalInverseList suffix) by list induction;
+prove the independent-suffix sample split via the actual disjoint column-product uniform law;
+then finite half-L1 triangle inequality gives TV contraction under the prefix mixture.
+Check Equiv.trans orientation against the displayed physical fold: retain chronological
+column order and derive which translation fixes uniform, do not reorder nonstationary columns.
+This is a proposal to prove, not an imported fact.
+
+U07 actual input modules already checked/staged:
+WindowClusters.goodCluster_uniform: every fitting original-N integer window;
+CoverageCount.sharedEdges_le_directionalProcesses: literal shared graph card <= sum of2k terminal processes on R times R;
+UniformRegularity.regularityFailure: full actual H and terminal-mean premises discharged;
+Margins.maximalMean_le_of_terminalMargin gives required mean estimate directly.
+U07 regularity-rate scalar theorem is being finalized. Concrete suffix/restart restriction
+belongs to U11; U07 does not await a hypothetical suffix certificate.
+Gamma helper<=1 is explicit; E source already selects min(gamma0,1).
+F,C,E,P,T,R remain unproved as of this note.

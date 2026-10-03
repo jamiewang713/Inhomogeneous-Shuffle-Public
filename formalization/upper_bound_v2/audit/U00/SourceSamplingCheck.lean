@@ -1,0 +1,9 @@
+import RiffleUpperV2.Anchor.SourceSampling
+set_option pp.funBinderTypes true
+#print RiffleUpperV2.Anchor.partialRevealSourceExpect
+#print RiffleUpperV2.Anchor.partialRevealSourceProbability
+#print RiffleUpperV2.Anchor.partialRevealSourceVariance
+#print axioms RiffleUpperV2.Anchor.partialRevealSourceExpect
+#print axioms RiffleUpperV2.Anchor.partialRevealSourceProbability
+#print axioms RiffleUpperV2.Anchor.partialRevealSourceVariance
+#print axioms RiffleUpperV2.Anchor.hypergeometricSwappedExpect

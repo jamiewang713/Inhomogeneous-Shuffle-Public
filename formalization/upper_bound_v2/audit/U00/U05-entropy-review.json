@@ -1,0 +1,43 @@
+{
+  "status": "PASS_ACTUAL_CLASS_ENTROPY_NOT_GLOBAL_CLASS_BOUND",
+  "reviewer": "U00 independent of U05",
+  "recorded_at": "2026-10-02T09:06:27.085404+00:00",
+  "file": "RiffleUpperV2/FirstMoment/Entropy.lean",
+  "sha256": "a1269fc52407da663893167f873df0381cb175aa479a525c7de4802aa2433402",
+  "source_label": "eq:ub-empirical-class-entropy",
+  "perspectives": {
+    "mathematics": [
+      "Class tilt is normalized product of actual tilted probabilities on good positions, deterministic complement elsewhere.",
+      "Fixed bin permits common lower mass; equal probability assumption unnecessary.",
+      "Rare positions fixed with exact digits; removed psi cost <=4log(k) times rare count; bin cost<=4width.",
+      "Empirical interval uses same original-N logScale and actual Cuts.profile as frozen empiricalB."
+    ],
+    "model_quantifiers": [
+      "No profile mesh or simplex-cell membership assumption; finite actual digit-cost classes.",
+      "Fixed outside complement models canonical completion but global actual-prefix correspondence still to be proved.",
+      "Final descriptor may be strict subset of costClass; log-card monotonicity or injection needed."
+    ],
+    "adversarial": [
+      "Legal representative ensures nonempty class and positive log argument.",
+      "Unused zero-mass digits harmless because outside class tilt is deterministic; positive-probability condition enforced inside interval.",
+      "Empty interval/product yields singleton class without optimizer assumptions."
+    ]
+  },
+  "missing": [
+    "Global descriptor count/subpolynomial parameter order",
+    "Rare-row discarded expected mass",
+    "Canonical prefix completion and class cover/refinement",
+    "actual F assembly"
+  ],
+  "build": {
+    "receipt": "entropy-check-build.json",
+    "log": "entropy-check.log",
+    "exit_code": 0,
+    "selected_public_exports": 11,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}

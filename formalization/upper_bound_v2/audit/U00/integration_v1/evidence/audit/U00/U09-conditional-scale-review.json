@@ -1,0 +1,26 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:47:29.819373+00:00",
+  "reviewer": "U00 independent of U11 helper",
+  "sources": {
+    "ConditionalScale.lean": "aa1a36348696a4a112b9143cc85f68cee74c7f94940e465ce83be0d28a726fcb"
+  },
+  "root_receipt": "fine-moments-check-build.json",
+  "trust_inventory": "fine-moments-declarations.json",
+  "mathematics": [
+    "From M<=KlogN N^r and0<=r<=a/4, eventual logN<=N^(a/4) yields M<=K N^(a/2).",
+    "The main term is <=(Ccur+K*Csum)N^(-a/2). Weighted square-root badBound decay controls (N+2MN^2)sqrt(badBound) by one further N^(-a/2).",
+    "Final C=Ccur+K*Csum+1 is positive under nonnegative fixed constants."
+  ],
+  "quantifiers": [
+    "Threshold precedes all N,M,r, uniformly in0<=r<=a/4.",
+    "xi,cH,a strictly positive; A may be arbitrary because the established square-root badBound decay handles that generality."
+  ],
+  "adversarial": [
+    "M=0,r=0 and zero coefficients remain allowed.",
+    "N0>=2 supplies positive logs and legal real powers."
+  ],
+  "remaining": [
+    "U09 must instantiate M with actual prepared-family cardinal and a with its positive minimum regime exponent."
+  ]
+}

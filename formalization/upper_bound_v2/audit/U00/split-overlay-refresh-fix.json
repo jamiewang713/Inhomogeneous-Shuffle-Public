@@ -1,0 +1,19 @@
+{
+  "status": "FIXED_AND_VERIFIED_ON_ACTUAL_U05_BUILD",
+  "recorded_at": "2026-10-02T21:16:21.732337+00:00",
+  "reported_by": "U05",
+  "symptom": "After bounded helper builds split Conditional from a namespace symlink into a real overlay directory, newly staged nonowned siblings were not added, so Lean could not resolve RegimePowers despite a valid U00 staged receipt.",
+  "cause": "Initial merge only created missing top-level namespace symlinks; it did not refresh missing children in a detached directory.",
+  "change": "merge_missing_staged recursively adds only absent symlinks to U00-staged output. Existing files and symlinks, including owned modules, are never replaced. Existing write_parent detaches owned output and source-receipt symlinks before writes.",
+  "builder_sha256": "2f7c952314585f9df2c7f7dca7b804db729e9bc6ba5254f9e69f9e5755696ba0",
+  "verification": [
+    "Python source parses.",
+    "Temporary isolated stage/overlay exercise preserves owned regular files.",
+    "New nested nonowned files become read-only staged symlinks.",
+    "Repeated merge is idempotent."
+  ],
+  "pending": [],
+  "proof_sources_changed": false,
+  "frozen_files_changed": false,
+  "actual_validation": "U05 SmallCylinderBounds build session54314 exit0 resolved newly staged RegimePowers and closure after recursive merge."
+}

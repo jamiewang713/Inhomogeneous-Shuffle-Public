@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:51:16.575404+00:00",
+  "sources": {
+    "Exploration/RegularityDecay.lean": "4e9dfb6d42f4d0153139c24083f14a94c9136df6cb7b69d1160527d5e315da6a",
+    "Exploration/PairHistories.lean": "2ad763fe9137f71e44ce64df62255c8464331fa9fc870074b51e257e3fc86a51"
+  },
+  "mathematics": [
+    "Positive stretched-exponential rate dominates every fixed real polynomial power via the exact rpow substitution.",
+    "Square-root errors retain the same conclusion by sqrt multiplicativity and n^(2s).",
+    "Concentration plus all-history error eventually lies below every fixed inverse power; the small-pile term tends to zero precisely when xi<eta.",
+    "Pair histories refine coordinatewise; pair good events depend on those histories; two single-sample regularity events imply pair goodness."
+  ],
+  "public_type_and_model": [
+    "Quantified scalar limits contain no cut-array dependent threshold; they apply to the literal badBound.",
+    "R is used for final-event inclusion only, never added to a history sigma-field."
+  ],
+  "adversarial": [
+    "n=0 rpow identities occur only in limit functions; divisions and inversion use eventual n>=1.",
+    "Pair-good times i=0 or at/beyond terminal use its explicit trivial branch; interior times invoke actual R history conditions."
+  ],
+  "remaining": [
+    "Actual conditional tail input still belongs to U09; full E assembly belongs to U11."
+  ],
+  "root_build_receipt": "directional-final-check-build.json",
+  "trust_inventory": "directional-final-declarations.json",
+  "resolution": "Initial split_ifs tactic elaboration failure fixed by explicit by_cases and if_pos/if_neg. Same theorem statement; current source independently rebuilt successfully.",
+  "initial_failure_log": "directional-final-check-first-failure.log"
+}

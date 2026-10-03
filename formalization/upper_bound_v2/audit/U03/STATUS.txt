@@ -1,0 +1,21 @@
+PROVED_AND_CHECKED — U03 reserved-population endpoint smoothing
+
+Completed the source lemma and joint endpoint/internal-offset estimate from the actual fixed-count law. No caller supplies a conditional law, smoothing certificate, variance bound, atom bound, or density bound. All three reveal cases, both endpoints, arbitrary integer offsets, and x=v are covered.
+
+Public exports (RiffleUpperV2.Anchor):
+  endpointSmoothing
+  endpointShiftHypergeometric
+  smoothingFailure
+  endpointVariance
+  conditionalEndpointAtoms
+  jointInternalOffsetAtoms
+
+The source failure constant is preserved; variance >= g*omega/(16*D), conditional atom coefficient is 16 = 4*C_hyp with the proved U02 constant C_hyp=4. The good-event indicator stays inside conditional and joint events. Joint offsets and events may depend on the full labeled internal history and its continuations.
+
+Fresh lane build: exit 0, 44 owned modules rebuilt from source, Lean 4.33.1, pinned mathlib 0df444a360eaa60ab8c11dca51a86af692955474. Trust inventory: 590 Anchor declarations, including private/generated helpers; only propext, Classical.choice, Quot.sound. See fresh-check-build.json, fresh-check.log, declarations.json. Fully explicit exported types: public-types.json; readable types: PUBLIC_TYPES.txt.
+
+Independent U00 review: PASS for mathematics, exact model/types/quantifiers, and adversarial/hidden-premise audit. Root independently compiled and trust-checked the complete public proof (579 declarations). Its final reports are ../U00/U03-smoothing-construction-review.json and ../U00/U03-final-review.json. The extra 11 declarations in this lane's inventory come from Degenerate/Main; U00 is completing that supplemental review after handoff. They prove deterministic anchor endpoints and exclude empty-prefix/zero-depth crossings, and are not dependencies of the public stochastic result.
+
+Supplemental finite adversarial checks: PASS over 16,056 arrays, with exact rational law/refinement/endpoint/variance checks; see ADVERSARIAL_FINITE.json. These experiments do not replace Lean proofs.
+
+Source labels, reviewed alternative proofs, input hashes, dependencies, and concrete discharge of every generic helper premise: SOURCE_MAP.json and VERIFICATION.json. No mathematical obligation remains in U03. Later localization, first-moment, and total-variation lanes remain separate work.

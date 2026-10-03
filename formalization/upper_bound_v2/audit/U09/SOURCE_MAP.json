@@ -1,0 +1,199 @@
+{
+  "lane": "U09",
+  "manuscript": "time_inhomogeneous_riffle_shuffle_unified_article.tex",
+  "manuscript_sha256": "284f65a9e7362d8149bf88954e4d876af829dff30552a0924af7a88ed72d919a",
+  "namespace": "RiffleUpperV2.Conditional",
+  "endpoint": "RiffleUpperV2.Conditional.remainingCommonEdges",
+  "contract": "RiffleUpperV2.Contracts.V1.C",
+  "source_labels": [
+    {
+      "label": "lem:ub-conditional-first-moment",
+      "declarations": [
+        "remainingCommonEdges",
+        "oneHistory_uniform",
+        "regimeBlockAverage_uniform"
+      ],
+      "files": [
+        "Main.lean",
+        "OneHistory.lean",
+        "RegimeAveraging.lean"
+      ],
+      "correspondence": "Exact frozen conditional theorem, using actual retained-array margin 2 eta, initial cluster, consecutive integer windows, positive natural histories, and adapted guards. Every generic law or moment input is discharged before Main."
+    },
+    {
+      "label": "eq:ub-exploration-alpha-budget",
+      "declarations": [
+        "tinyExponent_budget",
+        "intermediateExponent_budget",
+        "currentExponent_budget",
+        "conditionalParameter_choices"
+      ],
+      "files": [
+        "Parameters.lean",
+        "RegimePowers.lean"
+      ],
+      "correspondence": "The rare threshold tau is selected with alpha strictly inside all required budgets. The proved empirical first-moment rate is delta_F = eta/8; xi = eta/10."
+    },
+    {
+      "label": "eq:ub-exploration-exponent-budget",
+      "declarations": [
+        "decayBudget",
+        "decayBudget_pos",
+        "decayBudget_bounds",
+        "conditionalParameter_choices",
+        "conditionalScale"
+      ],
+      "files": [
+        "Parameters.lean",
+        "ConditionalScale.lean",
+        "Main.lean"
+      ],
+      "correspondence": "a = min(3 xi/4, 3 eta/5, eta/8), rho log k <= a/4, zeta = a/2. All scalar choices and the common threshold precede the cut array and history. The logarithmic block count and fixed-rho real power are explicitly absorbed."
+    },
+    {
+      "label": "eq:ub-exploration-block-count",
+      "declarations": [
+        "futureCylinderDecomposition",
+        "pastCylinderDecomposition",
+        "refinementCount",
+        "refinedFuture_card",
+        "refinedPileFuture_card",
+        "preparedFamily_exists",
+        "lateShort_tiny_uniform"
+      ],
+      "files": [
+        "FutureCylinders.lean",
+        "PastCylinders.lean",
+        "RefinementCount.lean",
+        "RefinedCylinders.lean",
+        "RemainingCover.lean",
+        "PreparedFamily.lean",
+        "LateTail.lean"
+      ],
+      "correspondence": "Actual antichains of prefix cylinders have at most 2 k K base elements. Refinement to the next good column contributes at most k^(ceil(rho log N)+1), bounded by k^2 N^(rho log k). The resulting bound is 2 k^3 T log N N^(rho log k). Late short suffixes are proved tiny from the terminal maximal-word margin."
+    },
+    {
+      "label": "eq:ub-one-history-jensen",
+      "declarations": [
+        "selfIntersectionJensen",
+        "selfIntersectionJensen_image",
+        "selfIntersectionJensen_expect",
+        "conditionalExpect_tower",
+        "finePartition_exists",
+        "fineSelfIntersection_le",
+        "historySelfIntersection_family",
+        "oneHistory_uniform"
+      ],
+      "files": [
+        "Jensen.lean",
+        "AuxiliaryJensen.lean",
+        "ConditionalAveraging.lean",
+        "FinePartition.lean",
+        "FineMoments.lean",
+        "HistoryAveraging.lean",
+        "OneHistory.lean"
+      ],
+      "correspondence": "Finite conditional Jensen and exact tower identities hold for the actual auxiliary future-family view, with arbitrary information codomain reduced to its finite image. Fixed rank slots assign each edge to at most one block, avoiding an extra block-count factor. Current-run extras include the crossing edge."
+    },
+    {
+      "label": "eq:ub-actual-conditional-remaining",
+      "declarations": [
+        "remainingCommonEdges_eq_sum",
+        "remainingCommonEdges_le_self",
+        "remaining_initial_le_firstMoment",
+        "remainingCommonEdges"
+      ],
+      "files": [
+        "PairReduction.lean",
+        "DirectionalGeometry.lean",
+        "Main.lean"
+      ],
+      "correspondence": "Separate positive natural-history fibers factor under the actual independent pair law. The cross-history term is bounded by half the sum of both self-intersections. Time zero uses the actual whole-deck first moment; terminal time uses the identically zero literal remainder."
+    }
+  ],
+  "discharged_inputs": [
+    {
+      "input": "Uniform concrete first moment",
+      "provider": "RiffleUpperV2.FirstMoment.empiricalGraphDecay and RiffleUpperV2.FirstMoment.empiricalFirstMoment (import FirstMoment.Empirical)",
+      "discharge_sites": [
+        "Conditional/LargeFirstMoment.lean: largeCylinder_firstMoment",
+        "Conditional/Main.lean: remainingCommonEdges"
+      ],
+      "details": "Actual induced suffix Cuts, population at least two, original log N, retained g/2 first goodness and margin eta are proved before applying F. Time zero weakens actual 2 eta margin to eta."
+    },
+    {
+      "input": "Concentration probability and adapted conditional failure",
+      "provider": "RiffleUpperV2.Exploration.uniformConcentration and frozen historyGood",
+      "discharge_sites": [
+        "Conditional/Main.lean: remainingCommonEdges",
+        "Conditional/HistoryAveraging.lean: historyBlockAverage_large",
+        "Conditional/LargeConcentration.lean: largeCylinder_concentration"
+      ],
+      "details": "The actual H probability estimate is proved as a C conclusion. Bad H samples contribute explicit N epsilon costs, averaged under the original history. Histories are never conditioned on H, R or S1."
+    },
+    {
+      "input": "Actual forward and backward count, collision and current-copy estimates",
+      "provider": "RiffleUpperV2.Reservoir and RiffleUpperV2.Reservoir.Backward: prefixCount, tailCollisions, extraCurrentCopies",
+      "discharge_sites": [
+        "Conditional/SmallCylinderBounds.lean: tinyCylinder_count and intermediateCylinder_collisions",
+        "Conditional/CurrentRunBound.lean: currentRunBound",
+        "Conditional/RegimeAveraging.lean: regimeBlockAverage_uniform",
+        "Conditional/OneHistory.lean: oneHistory_uniform"
+      ],
+      "details": "Arbitrary nonroot prefixes are adapted to actual tail bins. Terminal beta is supplied by original margin. The no-current-direction branch has zero literal remainder, so no hasDirection premise survives."
+    },
+    {
+      "input": "Actual future-cylinder conditional graph law",
+      "provider": "RiffleUpperV2.Reservoir.conditionalFutureCylinderLaw (module Reservoir.ConditionalFutureCylinderLaw)",
+      "discharge_sites": [
+        "Conditional/GraphSquares.lean: fineBlockSquares_le_firstMoment",
+        "Conditional/FinePartition.lean: finePartition_exists",
+        "Conditional/PreparedFamily.lean: preparedFamily_exists",
+        "Conditional/HistoryAveraging.lean: historyBlockAverage_large"
+      ],
+      "details": "The family is structurally prefix separated, lies strictly in the same-pile future, and has actual fixed absolute ranks and induced chronological columns. Auxiliary labeled row sets and counts are erased by the proved tower."
+    },
+    {
+      "input": "Generic cardinality and small-error hypotheses in helper lemmas",
+      "provider": "Actual cylinder construction and concentration bound",
+      "discharge_sites": [
+        "Conditional/PreparedFamily.lean: preparedFamily_exists",
+        "Conditional/OneHistory.lean: oneHistory_uniform",
+        "Conditional/Main.lean: remainingCommonEdges"
+      ],
+      "details": "The actual M is B.card. Refinement-count hypotheses, scalar positivity, rho budget and exceptional-probability decay are all discharged; no helper certificate appears in C."
+    },
+    {
+      "input": "Separate-event pair conditioning and finite averaging",
+      "provider": "Shared.PairConditioning and Shared.FiniteLawAdapters, with lower Compat.Conditioning",
+      "discharge_sites": [
+        "Conditional/PairReduction.lean",
+        "Conditional/ConditionalAveraging.lean",
+        "Conditional/HistoryAveraging.lean"
+      ],
+      "details": "Uniform independent fixed-count samples, positive product factors and literal equality fibers instantiate the generic finite lemmas. Null auxiliary fibers use the defined zero convention."
+    }
+  ],
+  "proof_cover_enlargement": {
+    "description": "The proof covers all strict future words in the same initial pile, including words past the directional middle cutoff. The literal directional remaining-edge event is retained as a subset.",
+    "justification": "The accepted reservoir and graph laws require same-pile support, strict future and a nonroot structurally separated prefix family. The enlarged family satisfies these properties and retains the exact 2 k K base count.",
+    "implementation": [
+      "PileFutureCylinders.lean: pileFutureCylinders_cover",
+      "RemainingCover.lean: remainingEdge_cover",
+      "PreparedFamily.lean: preparedFamily_exists"
+    ],
+    "independent_review": "audit/U00/U09-future-pile-count-review.json",
+    "frozen_endpoint_changed": false
+  },
+  "boundary_checks": [
+    "N0 >= 2 is fixed uniformly before all arrays; zero and one ambient populations are outside the asymptotic premise.",
+    "Zero-mass and zero/one-row cylinders are allowed in the tiny branch; the large branch proves its induced population is at least two.",
+    "Impossible histories are excluded exactly by the existing positive-history premise; null auxiliary fibers keep the literal conditional convention.",
+    "Backward exploration reverses spatial order only; induced tail columns retain their chronological order.",
+    "Current-run right-endpoint injection includes the crossing edge at i-1.",
+    "At mu = N^-xi the tiny bound applies; mu = N^xi is covered by the intermediate bound.",
+    "Both independent observed histories remain in the cross-history arithmetic bound.",
+    "Time zero and terminal time have separate actual proofs."
+  ],
+  "remaining_imported_assumptions": []
+}

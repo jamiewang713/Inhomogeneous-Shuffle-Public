@@ -1,0 +1,53 @@
+PROVED_AND_CHECKED — all six upper endpoints independently accepted
+
+F  RiffleUpperV2.FirstMoment.empiricalFirstMoment
+C  RiffleUpperV2.Conditional.remainingCommonEdges
+E  RiffleUpperV2.EmpiricalUpper.empiricalUpper
+P  RiffleUpperV2.ProfileUpper.bufferedUpper
+T  RiffleUpperV2.ProfileUpper.criticalTimeUpper
+R  RiffleUpperV2.ProfileUpper.randomUpper
+
+RiffleUpperV2.Completed imports the actual full implementation and exports six
+proved aliases of the exact frozen contracts. R includes the quantitative
+empirical mixture bound, empirical convergence, and profile convergence.
+All twelve provider lanes were independently reviewed and integrated. U13 has
+accepted the six endpoints separately; no remaining proof, source-correspondence,
+build, or trust obligation remains. The coordinator assignment is complete.
+
+Validation: two separate clean builds, each rebuilding all 398 project source
+modules. All 398 project objects agree byte for byte. The independent audit
+recursively checks 45,162 endpoint dependency declarations and all 3,907 upper
+declarations. Only propext, Classical.choice and Quot.sound occur as axioms.
+No additional first-moment, conditional-law, exploration, density, moment or TV
+certificate remains in a public endpoint. The manuscript and finished upstream
+packages are unchanged, including pre-existing user edits.
+
+Runtime: Lean 4.33.1.
+Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474.
+External Lean/core/library objects remain trusted pinned dependencies. Their
+resolved paths, hashes, and four coordinator-built pinned-library exceptions
+are explicitly recorded in audit/U13/final-object-inventory-v2.json.
+
+Final coordinator acceptance: audit/U00/FINAL_ACCEPTANCE.json.
+Independent acceptance: audit/U13/FINAL_AUDIT.json.
+Readable audit: audit/U13/FINAL_REPORT.txt.
+Exact declarations and expanded types: audit/U00/ENDPOINT_IMPLEMENTATIONS.json
+and audit/U13/public-expanded-types-v2.json.
+Current status: audit/U00/VERIFICATION.json and audit/U00/CURRENT_MILESTONE.json.
+
+CONTRACTS_READY.json and INTEGRATION_READY.json are immutable historical
+milestones. Their pending-acceptance fields describe their issuance time;
+FINAL_ACCEPTANCE and FINAL_AUDIT record the subsequent completed acceptance.
+The integration_v1 snapshot preserves all 398 sources and 154 evidence files.
+
+Build from the workspace root:
+python3 formalization/upper_bound_v2/scripts/build.py RiffleUpperV2.Completed
+
+Reproduce a clean source and trust check in a separate output tree:
+python3 formalization/upper_bound_v2/scripts/build.py --fresh --output-tag independent_clean --run audit/U00/CompleteCheck.lean
+
+Reproduce the independent full build:
+python3 formalization/upper_bound_v2/scripts/build.py --lane U13 --fresh --run audit/U13/FinalCheck_v2.lean
+
+Acceptance covers the exact frozen upper endpoints and their stated hypotheses.
+It makes no additional critical-time equality or lower-bound/cutoff claim.

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "reviewer": "U00 independent of U07",
+  "recorded_at": "2026-10-02T10:22:56.300614+00:00",
+  "sources": {
+    "CylinderCounts.lean": "50f0bef9903be598978806a7cb53f10d2d4c5d74b26685ac96aab893bc22cd77",
+    "GuardConcentration.lean": "20995813b56ac211f78eaaf9fab56a6e7d3a96961ec966a744aa733493ed4a48"
+  },
+  "mathematics": [
+    "Actual prefix/later/outside restrictions are precise digit-set cylinders, with untouched future columns still using full n probabilities.",
+    "The tighter half tolerance yields the frozen random-count later-column tolerance by triangle inequality and 0<=p<=1.",
+    "Each guard is a deterministic finite union of disjoint fixed first-pile and tail-prefix cylinders. Counts and expectations are exact sums; each mean<=pile size.",
+    "There are at most k^D tail-prefix bins even if D exceeds available tail length. Deviation sum is <=k^D*pileSize^(2/3)/2.",
+    "The explicit n^(xi/3) threshold yields d0*pileSize/4 on large piles, hence the full actual frozen concentrationEvent H."
+  ],
+  "adversarial": [
+    "No reserve existence required for this implication; if no reserve selected the guard bin set is empty.",
+    "Current count p*C is random but is handled by the deterministic triangle inequality, without conditional independence.",
+    "j>=prefix length and j>0 are explicit for later/outside adapters.",
+    "All n>0 and positive reserveMass conditions are explicit; k>=1 and g>0 suffice here."
+  ],
+  "remaining": [
+    "Uniform large-N threshold/probability estimate",
+    "Actual reserve selection existence and directional coverage"
+  ],
+  "independent_build": {
+    "receipt": "guard-concentration-check-build.json",
+    "log": "guard-concentration-check.log",
+    "inventory": "guard-concentration-declarations.json",
+    "declarations": 201,
+    "axioms": "only propext/Classical.choice/Quot.sound"
+  }
+}

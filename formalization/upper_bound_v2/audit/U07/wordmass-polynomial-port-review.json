@@ -1,0 +1,40 @@
+{
+  "status": "PASS_GENERIC_PORTS_ONLY",
+  "reviewer": "U07 independently of U00 port author",
+  "wordmass_public_statement_byte_equality": {
+    "wordWeight_nonneg": true,
+    "wordWeight_sum": true,
+    "badCount_generating_product": true,
+    "wordWeight_generating": true,
+    "coordinate_generating": true,
+    "wordWeight_generating_le": true,
+    "badWordMass_le": true,
+    "badDigitMass_le": true,
+    "badWordMass_smallDigits_le": true,
+    "scaled_badWordMass_le": true,
+    "box_word_mass": true,
+    "exact_badPositions_mass_le": true,
+    "sum_badSet_weights": true,
+    "badWordMass_le_tailWeight": true,
+    "badWordMass_smallDigits_le_tailWeight": true,
+    "scaled_badWordMass_le_tailWeight": true,
+    "sum_edgeProbability_sq_le": true,
+    "coarse_fibre_card_le": true,
+    "coarse_word_fibre_card_le": true,
+    "coarseProfile_not_injective": true
+  },
+  "fixed_polynomial_full_declaration_byte_equality": true,
+  "hashes": {
+    "lean_formalization/RiffleProfiles/WordMass.lean": "d7cebbc71fb68bc6e186576c90e13494d91c252c819f48b8c4c02c8590a4331b",
+    "formalization/upper_bound_v2/RiffleUpperV2/Compat/EmpiricalWordMass.lean": "7389d816d63021b2fdf36b29103078edbce55109edc9e635ad273e6d20e70852",
+    "lean_formalization/RiffleProfiles/CountLimits.lean": "70a5765d1e89df357438c6ae53a5bfadf2a48174c85a909bc60eeb877c1465c7",
+    "formalization/upper_bound_v2/RiffleUpperV2/Compat/FixedPolynomial.lean": "0939833601bb41cdcac1a85af9d8307622adaf693163ac1992ca09068d803d7f"
+  },
+  "findings": [
+    "All WordMass theorem statements and section parameter blocks remain unchanged, apart from namespace ownership. Product weights and deterministic bad-position sets remain generic finite data.",
+    "Scalar add_comm and finite Fubini simp-set changes only adjust elaboration; transparency option changes elaboration, not the kernel theorem.",
+    "The fixed polynomial theorem is byte-identical in statement and proof: c,T,m,eta precede N0; m is fixed before N,K.",
+    "Multiplying deterministic word mass by N is not an actual shuffle expectation identity. No model-bound completion is inferred.",
+    "The coarse-fibre helper still assumes a proved fibre bound; this needs the U05 descriptor adapter."
+  ]
+}

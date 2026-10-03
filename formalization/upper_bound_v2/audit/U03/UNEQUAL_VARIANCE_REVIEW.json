@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "reviewer": "U03 independent, not author",
+  "file": "formalization/upper_bound_v2/RiffleUpperV2/Shared/UnequalVariance.lean",
+  "sha256": "300b01490a666f887fb5497ca29bc62b883b8a581f54ee1e9c3b929ab0ce4231",
+  "findings": [
+    "Raw helper derives positive draws/population/sample-complement and population\u22652 from witness lower count and reserve; positive variance is not a premise.",
+    "Sample-complement ratio g uses A+draws\u2264M and population=n\u2212A; all n labels retained.",
+    "Witness product direction correct: w*d=ell, d\u2264p, r/M\u2264q yields w*p*q\u2265ell*r/M.",
+    "Min conversion uses original positive D, positive two side masses; no ordering or side\u22651 is assumed.",
+    "These generic scalar inputs must still be derived from actual unequal good-event counts by U03, explicitly not a completed endpoint theorem."
+  ],
+  "scope": "Math/model/adversarial review; U00 compiler/type/axiom receipt separate"
+}

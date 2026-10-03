@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:40:02.679661+00:00",
+  "sources": {
+    "Reservoir/ReserveWeight.lean": "0762a97d49fc00017df2045dc074708de16f15b55be255ee19e944504e788ffb"
+  },
+  "mathematics": [
+    "For m=1 or2, available count at least Mq+1 gives falling(R,m)/falling(M,m)>=q^m.",
+    "Error budget err+5<=c*delta*d and residual error<=err+m imply each ratio>= [p(1-delta)]^m.",
+    "Product mass>=d and coordinate probabilities<=1 imply each selected coordinate p>=d.",
+    "delta=1/(4D), m*|J|<=2D and Bernoulli inequality retain factor at least1/2, proving d^m/2."
+  ],
+  "public_type_and_model": [
+    "The finite helper exposes all error and mass premises; actual H/population instantiation is explicitly a pending separate theorem.",
+    "The exact residual population in its falling denominator is c+m."
+  ],
+  "adversarial": [
+    "Both m=1 and m=2 are handled, with c>=1,D>=1 explicit.",
+    "Empty J remains valid; no unjustified nonempty product argument.",
+    "No assumption R<=c+m is needed for this scalar lower bound; actual count legality comes from the model."
+  ],
+  "remaining": [
+    "Actual selected-reserve H estimates and uniform eventual error budget must be proved by U08."
+  ],
+  "root_build_receipt": "quantitative-partial-check-build.json",
+  "trust_inventory": "quantitative-partial-declarations.json"
+}

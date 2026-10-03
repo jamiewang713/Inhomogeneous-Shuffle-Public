@@ -1,0 +1,12 @@
+CHECK RiffleUpperV2.GraphOverlap.FiniteProbability
+/Users/jialushi/Documents/Riffle Shuffle/Inhomogeneous-shuffle/formalization/upper_bound_v2/RiffleUpperV2/GraphOverlap/FiniteProbability.lean:61:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun ω => if ¬A ω then 1 else 0
+in the target expression
+  (RiffleLowerV2.expect P fun ω => if ¬A ω then 1 else 0) = 1 - RiffleLowerV2.expect P fun ω => if A ω then 1 else 0
+
+Ω : Type u_1
+inst✝ : Fintype Ω
+P : PMF Ω
+A : Ω → Prop
+heq : (fun ω => if ¬A ω then 1 else 0) = fun ω => 1 - if A ω then 1 else 0
+⊢ (RiffleLowerV2.expect P fun ω => if ¬A ω then 1 else 0) = 1 - RiffleLowerV2.expect P fun ω => if A ω then 1 else 0

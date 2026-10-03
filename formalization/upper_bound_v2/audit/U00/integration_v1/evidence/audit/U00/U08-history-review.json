@@ -1,0 +1,40 @@
+{
+  "status": "PASS_NARROW_EXACT_HISTORY_IDENTITY",
+  "reviewer": "U00 independent of U08",
+  "recorded_at": "2026-10-02T09:10:27.377927+00:00",
+  "files": {
+    "RiffleUpperV2/Reservoir/SortedHistory.lean": "e9f2270153ba7560c93aa209f65ca80032bd312a9e2db4380d142efeee4c9a41",
+    "RiffleUpperV2/Reservoir/History.lean": "6252fb5914b65e1d63f602b0f11311115982e85afd3eb1b73340ffd8dac5ef6e"
+  },
+  "mathematics": [
+    "A monotone tuple initial segment is determined by all multiplicities strictly below its terminal value and a lower bound at the terminal value.",
+    "Cumulative cardinal comparisons prove both directions, including repeated terminal words.",
+    "Actual stable-sort bijection transports pile multiplicities to labeled row wordCount."
+  ],
+  "model_quantifiers": [
+    "HistoryFiber is the frozen current-pile natural history; no other-pile histogram condition introduced.",
+    "Only words with first digit p constrained; global row counts for those words coincide with pile counts.",
+    "The theorem is deterministic and does not assume conditional independence or a reservoir estimate."
+  ],
+  "adversarial": [
+    "Index j means exactly j+1 revealed words; final pile position included, preserving all terminal copies.",
+    "Empty piles cannot supply j:Fin pileSize. Zero-time fiber remains separately U07 naturalHistory_zero.",
+    "Other-pile words are absent from pile tuple, then discharged through zero-count lemma."
+  ],
+  "missing": [
+    "backward counterpart preserving column time",
+    "exact conditional marked-tuple weights",
+    "reserve lower bounds and prefix/collision estimates",
+    "conditional future-cylinder law"
+  ],
+  "build": {
+    "receipt": "history-atom-check-build.json",
+    "log": "history-atom-check.log",
+    "exit_code": 0,
+    "transitive_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T21:18:25.678470+00:00",
+  "reviewer": "U00 independent of owner",
+  "root_build_receipt": "restart-future-check-build.json",
+  "trust_inventory": "restart-future-declarations.json",
+  "sources": {
+    "Conditional/PileFutureCylinders.lean": "3b435896ef7c4e70ce054e2a2bb5476e64449da62ca58a0398bb36d0d60bd690",
+    "Conditional/BlockCounts.lean": "4c239f20512d439ee37683591d354d3b83ff63611ef6bbec16a60d2c2fb65918"
+  },
+  "mathematics": [
+    "The finite first-digit word set supplies actual extremal words; lexicographic convexity yields exact same-pile strict-future cover in both directions.",
+    "The family is nonroot, has at most2*k*(L+1) cylinders and is an antichain, including the empty extreme endpoint case.",
+    "A remaining directional edge forces hasDirection for the current revealed word using monotonicity of the spatial word tuple and same-first-digit tail prefix.",
+    "The actual absolute cylinder graph is bounded both by its row count and by the single sum of full-word collision pairs, using exact rank and anchored graph identities."
+  ],
+  "source_route_adjustment": "The cover is enlarged from the source directional cutoff interval to every strict-future word in the same initial pile. This is valid for an upper bound: it preserves the2kK size bound, while accepted U08 count/collision and exact block laws require only strict future and current hasDirection. The literal directional process is unchanged.",
+  "adversarial": [
+    "No zero-probability word is excluded from the syntactic family.",
+    "Chosen reserve absent implies no directional edge, so direction eligibility is not fabricated.",
+    "Backward spatial order retains chronological word coordinates.",
+    "Collision sum is counted once; no factor for all possible terminal words is inserted or omitted."
+  ],
+  "remaining": [
+    "Actual refined family and remaining-edge cover, Jensen averages and C."
+  ]
+}

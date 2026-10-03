@@ -1,0 +1,16 @@
+{
+  "reviewer": "U08",
+  "reviewed_at": "2026-10-02T20:40:41.506495+00:00",
+  "source": "RiffleUpperV2/Shared/ExpectationAveraging.lean",
+  "sha256": "5ab052f1359464beaaaf8207c1c2a13a2aa9d2688f3c00355a31cf8b33581be1",
+  "verdict": "PASS",
+  "scope": "Independent mathematical/type/boundary source review; compilation/trust supplied by U00.",
+  "findings": [
+    "The fine-fiber mask F=1_H f prevents fine fibers outside the coarse event from contributing.",
+    "On positive fine fibers inside H, the representative exists and hpoint applies; H has conditional probability one.",
+    "Null fine fibers use totalized zero and need no hpoint assumption.",
+    "The total-expectation and total-probability identities are combined with the same fine atom weights and divided only by strictly positive coarse probability.",
+    "The arbitrary-codomain wrapper uses the finite sampled image of Z, preserving equality fibers; only the original sample space needs Fintype.",
+    "No sign assumption on f or c and no positivity of every fine atom is smuggled in; no source endpoint follows without the concrete hpoint proofs."
+  ]
+}

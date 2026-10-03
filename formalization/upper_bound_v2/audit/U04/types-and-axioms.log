@@ -1,0 +1,564 @@
+RiffleUpperV2.Localization.anchorPrefix : (k d : ℕ) → RiffleUpperV2.Prefix k d
+'RiffleUpperV2.Localization.anchorPrefix' does not depend on any axioms
+@RiffleUpperV2.Localization.LeftBoundaryTest : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.LeftBoundaryTest' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.RightBoundaryTest : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.RightBoundaryTest' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.LeftBoundary : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.LeftBoundary' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.RightBoundary : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.RightBoundary' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.boundaryJoin : {k d : ℕ} →
+  RiffleUpperV2.Prefix k d → RiffleUpperV2.Prefix k d → RiffleUpperV2.Prefix k d
+'RiffleUpperV2.Localization.boundaryJoin' does not depend on any axioms
+@RiffleUpperV2.Localization.TerminalBoundaryPair : {k d : ℕ} →
+  RiffleUpperV2.Prefix k d → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.TerminalBoundaryPair' does not depend on any axioms
+@RiffleUpperV2.Localization.digit_le_leftProbability : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (j : Fin d)
+  {b a : Fin k},
+  LT.lt.{0} b a →
+    LE.le.{0} (RiffleUpperV2.Anchor.digitProbability cuts j b) (RiffleUpperV2.Anchor.leftProbability cuts j a)
+'RiffleUpperV2.Localization.digit_le_leftProbability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.digit_le_rightProbability : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d) (j : Fin d)
+  {b a : Fin k},
+  LT.lt.{0} a b →
+    LE.le.{0} (RiffleUpperV2.Anchor.digitProbability cuts j b) (RiffleUpperV2.Anchor.rightProbability cuts j a)
+'RiffleUpperV2.Localization.digit_le_rightProbability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.leftBoundaryTest_crossing : ∀ {k n d : ℕ} {cuts : RiffleUpperV2.Cuts k n d} {χ : ℝ}
+  {x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.LeftBoundaryTest cuts χ x → RiffleUpperV2.Anchor.LeftCrossing cuts χ x
+'RiffleUpperV2.Localization.leftBoundaryTest_crossing' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.rightBoundaryTest_crossing : ∀ {k n d : ℕ} {cuts : RiffleUpperV2.Cuts k n d} {χ : ℝ}
+  {x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.RightBoundaryTest cuts χ x → RiffleUpperV2.Anchor.RightCrossing cuts χ x
+'RiffleUpperV2.Localization.rightBoundaryTest_crossing' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.boundaryJoin_properties : ∀ {k d : ℕ} {y z w : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Anchor.IsPrefix y w →
+    RiffleUpperV2.Anchor.IsPrefix z w →
+      RiffleUpperV2.Anchor.IsPrefix y (RiffleUpperV2.Localization.boundaryJoin y z) ∧
+        RiffleUpperV2.Anchor.IsPrefix z (RiffleUpperV2.Localization.boundaryJoin y z) ∧
+          (Eq.{1} (RiffleUpperV2.Localization.boundaryJoin y z) y ∨
+              Eq.{1} (RiffleUpperV2.Localization.boundaryJoin y z) z) ∧
+            RiffleUpperV2.Anchor.IsPrefix (RiffleUpperV2.Localization.boundaryJoin y z) w
+'RiffleUpperV2.Localization.boundaryJoin_properties' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.boundaries_existUnique : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) (χ : ℝ) {w : RiffleUpperV2.Prefix k d},
+      RiffleUpperV2.Anchor.Legal cuts R w →
+        Eq.{1} (↑(Sigma.fst.{0, 0} w)) d →
+          (ExistsUnique.{1} fun y =>
+              RiffleUpperV2.Localization.LeftBoundary cuts R χ y ∧ RiffleUpperV2.Anchor.IsPrefix y w) ∧
+            ExistsUnique.{1} fun z =>
+              RiffleUpperV2.Localization.RightBoundary cuts R χ z ∧ RiffleUpperV2.Anchor.IsPrefix z w
+'RiffleUpperV2.Localization.boundaries_existUnique' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.genuine_of_nonterminal_boundaries : ∀ {k n d : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {χ : ℝ},
+  LT.lt.{0} 0 χ →
+    LT.lt.{0} χ 1 →
+      ∀ {y z w : RiffleUpperV2.Prefix k d},
+        RiffleUpperV2.Localization.LeftBoundary cuts R χ y →
+          RiffleUpperV2.Localization.RightBoundary cuts R χ z →
+            RiffleUpperV2.Anchor.IsPrefix y w →
+              RiffleUpperV2.Anchor.IsPrefix z w →
+                ¬RiffleUpperV2.Localization.TerminalBoundaryPair y z →
+                  RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z (RiffleUpperV2.Localization.boundaryJoin y z)
+'RiffleUpperV2.Localization.genuine_of_nonterminal_boundaries' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+RiffleUpperV2.Localization.prefix_card_bound : ∀ (k d : ℕ),
+  LT.lt.{0} 0 k →
+    LE.le.{0} (Fintype.card.{0} (RiffleUpperV2.Prefix k d))
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} d 1) (HPow.hPow.{0, 0, 0} k d))
+'RiffleUpperV2.Localization.prefix_card_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.lastDigit : {k d : ℕ} → LT.lt.{0} 0 k → RiffleUpperV2.Prefix k d → Fin k
+'RiffleUpperV2.Localization.lastDigit' does not depend on any axioms
+@RiffleUpperV2.Localization.parent_last_reconstruct : ∀ {k d : ℕ} (hk : LT.lt.{0} 0 k) (x : RiffleUpperV2.Prefix k d),
+  LT.lt.{0} 0 ↑(Sigma.fst.{0, 0} x) →
+    Eq.{1}
+      (HAppend.hAppend.{0, 0, 0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} (RiffleUpperV2.Localization.parent x)))
+        (List.cons.{0} (RiffleUpperV2.Localization.lastDigit hk x) List.nil.{0}))
+      (List.Vector.toList.{0} (Sigma.snd.{0, 0} x))
+'RiffleUpperV2.Localization.parent_last_reconstruct' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.child_eq_of_last_eq : ∀ {k d : ℕ} (hk : LT.lt.{0} 0 k) {x y : RiffleUpperV2.Prefix k d},
+  LT.lt.{0} 0 ↑(Sigma.fst.{0, 0} x) →
+    LT.lt.{0} 0 ↑(Sigma.fst.{0, 0} y) →
+      Eq.{1} (RiffleUpperV2.Localization.parent x) (RiffleUpperV2.Localization.parent y) →
+        Eq.{1} (RiffleUpperV2.Localization.lastDigit hk x) (RiffleUpperV2.Localization.lastDigit hk y) → Eq.{1} x y
+'RiffleUpperV2.Localization.child_eq_of_last_eq' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.children_card_le : ∀ {k d : ℕ},
+  LT.lt.{0} 0 k →
+    ∀ (s : Finset.{0} (RiffleUpperV2.Prefix k d)) (p : RiffleUpperV2.Prefix k d),
+      (∀ (x : RiffleUpperV2.Prefix k d),
+          Membership.mem.{0, 0} s x →
+            LT.lt.{0} 0 ↑(Sigma.fst.{0, 0} x) ∧ Eq.{1} (RiffleUpperV2.Localization.parent x) p) →
+        LE.le.{0} (Finset.card.{0} s) k
+'RiffleUpperV2.Localization.children_card_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.per_edge_multiplicity : ∀ {k d : ℕ},
+  LT.lt.{0} 0 k →
+    ∀ (s : Finset.{0} (RiffleUpperV2.Prefix k d)),
+      (∀ (x : RiffleUpperV2.Prefix k d), Membership.mem.{0, 0} s x → LT.lt.{0} 0 ↑(Sigma.fst.{0, 0} x)) →
+        (∀ (j : ℕ),
+            LT.lt.{0} j d →
+              LE.le.{0}
+                (Finset.card.{0}
+                  ({p ∈ Finset.image.{0, 0} RiffleUpperV2.Localization.parent s | Eq.{1} (↑(Sigma.fst.{0, 0} p)) j}))
+                2) →
+          LE.le.{0} (Finset.card.{0} s) (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 k) d)
+'RiffleUpperV2.Localization.per_edge_multiplicity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefixDigits : {k d : ℕ} → RiffleUpperV2.Prefix k d → Fin d → Finset.{0} (Fin k)
+'RiffleUpperV2.Localization.prefixDigits' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefixRows_eq_cylinderSet : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d)
+  (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d) (ω : RiffleUpperV2.Sample cuts),
+  Eq.{1} (RiffleUpperV2.Anchor.prefixRows R x ω)
+    (RiffleUpperV2.Hypergeometric.cylinderSet cuts R (RiffleUpperV2.Localization.prefixDigits x) ω)
+'RiffleUpperV2.Localization.prefixRows_eq_cylinderSet' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefixDigits_mass : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (x : RiffleUpperV2.Prefix k d),
+      Eq.{1} (RiffleUpperV2.Hypergeometric.cylinderMass cuts (RiffleUpperV2.Localization.prefixDigits x))
+        (RiffleUpperV2.prefixMass cuts x)
+'RiffleUpperV2.Localization.prefixDigits_mass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefixDigits_mean : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d),
+      Eq.{1} (RiffleUpperV2.Hypergeometric.cylinderMean cuts R (RiffleUpperV2.Localization.prefixDigits x))
+        (RiffleUpperV2.Anchor.anchoredMean cuts R x)
+'RiffleUpperV2.Localization.prefixDigits_mean' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefixRows_expect : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d),
+      Eq.{1}
+        (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+          ↑(Finset.card.{0} (RiffleUpperV2.Anchor.prefixRows R x ω)))
+        (RiffleUpperV2.Anchor.anchoredMean cuts R x)
+'RiffleUpperV2.Localization.prefixRows_expect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefixRows_tail : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d) {t : ℝ},
+      LT.lt.{0} 0 t →
+        LE.le.{0}
+          (RiffleUpperV2.probability.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+            LE.le.{0} t
+              (abs.{0}
+                (HSub.hSub.{0, 0, 0} (↑(Finset.card.{0} (RiffleUpperV2.Anchor.prefixRows R x ω)))
+                  (RiffleUpperV2.Anchor.anchoredMean cuts R x))))
+          (HMul.hMul.{0, 0, 0} 2
+            (Real.exp
+              (HDiv.hDiv.{0, 0, 0} (Neg.neg.{0} (HPow.hPow.{0, 0, 0} t 2))
+                (HMul.hMul.{0, 0, 0} 4 (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.Anchor.anchoredMean cuts R x) t)))))
+'RiffleUpperV2.Localization.prefixRows_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.meanExponent : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → RiffleUpperV2.Prefix k d → ℝ
+'RiffleUpperV2.Localization.meanExponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.boundaryFluctuation : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → RiffleUpperV2.Prefix k d → ℝ
+'RiffleUpperV2.Localization.boundaryFluctuation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.Stops : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → RiffleUpperV2.Prefix k d → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.Stops' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.FirstCut : {k d : ℕ} →
+  RiffleUpperV2.Prefix k d → (RiffleUpperV2.Prefix k d → Prop) → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.FirstCut' does not depend on any axioms
+@RiffleUpperV2.Localization.Stable : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → RiffleUpperV2.Prefix k d → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.Stable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.ProperStable : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → RiffleUpperV2.Prefix k d → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.ProperStable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.TerminalFallback : {k n d : ℕ} →
+  ℕ → RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → RiffleUpperV2.Prefix k d → ℝ → RiffleUpperV2.Prefix k d → Prop
+'RiffleUpperV2.Localization.TerminalFallback' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.FullCylinder : {k n d : ℕ} →
+  RiffleUpperV2.Cuts k n d → Finset.{0} (Fin n) → RiffleUpperV2.Prefix k d → Set.{0} (RiffleUpperV2.Prefix k d)
+'RiffleUpperV2.Localization.FullCylinder' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.anchoredMean_antitone : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) {x y : RiffleUpperV2.Prefix k d},
+      RiffleUpperV2.Anchor.IsPrefix x y →
+        LE.le.{0} (RiffleUpperV2.Anchor.anchoredMean cuts R y) (RiffleUpperV2.Anchor.anchoredMean cuts R x)
+'RiffleUpperV2.Localization.anchoredMean_antitone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.legal_prefix : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) {x y : RiffleUpperV2.Prefix k d},
+      RiffleUpperV2.Anchor.Legal cuts R y → RiffleUpperV2.Anchor.IsPrefix x y → RiffleUpperV2.Anchor.Legal cuts R x
+'RiffleUpperV2.Localization.legal_prefix' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.meanExponent_antitone : ∀ {k n d : ℕ} (N : ℕ),
+  LT.lt.{0} 1 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d),
+      LT.lt.{0} 0 n →
+        ∀ (R : Finset.{0} (Fin n)) {x y : RiffleUpperV2.Prefix k d},
+          RiffleUpperV2.Anchor.Legal cuts R y →
+            RiffleUpperV2.Anchor.IsPrefix x y →
+              LE.le.{0} (RiffleUpperV2.Localization.meanExponent N cuts R y)
+                (RiffleUpperV2.Localization.meanExponent N cuts R x)
+'RiffleUpperV2.Localization.meanExponent_antitone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.density_le_square_total.{u_1} : ∀ {ι : Type u_1} (s : Finset.{u_1} ι) (p : ι → ℝ),
+  (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} 0 (p i)) →
+    LE.le.{0} (∑ i ∈ s, HPow.hPow.{0, 0, 0} (p i) 2) (HPow.hPow.{0, 0, 0} (∑ i ∈ s, p i) 2)
+'RiffleUpperV2.Localization.density_le_square_total' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.density_le_total.{u_1} : ∀ {ι : Type u_1} (s : Finset.{u_1} ι) (p : ι → ℝ),
+  (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} 0 (p i) ∧ LE.le.{0} (p i) 1) →
+    LE.le.{0} (∑ i ∈ s, HPow.hPow.{0, 0, 0} (p i) 2) (∑ i ∈ s, p i)
+'RiffleUpperV2.Localization.density_le_total' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.smallDensity_of_expected_edges.{u_1} : ∀ {ι : Type u_1} (s : Finset.{u_1} ι) (p : ι → ℝ)
+  {μ tail : ℝ},
+  (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} 0 (p i)) →
+    LE.le.{0} (∑ i ∈ s, p i) (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} μ 2) tail) 2) →
+      LE.le.{0} (∑ i ∈ s, HPow.hPow.{0, 0, 0} (p i) 2)
+        (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} μ 4) (HPow.hPow.{0, 0, 0} tail 2)) 4)
+'RiffleUpperV2.Localization.smallDensity_of_expected_edges' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.largeDensity_of_atoms.{u_1} : ∀ {ι : Type u_1} (s : Finset.{u_1} ι) (p a b : ι → ℝ)
+  {A E failure : ℝ},
+  LE.le.{0} 0 A →
+    LE.le.{0} 0 E →
+      (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} 0 (p i) ∧ LE.le.{0} (p i) 1) →
+        (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} 0 (a i)) →
+          (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} 0 (b i)) →
+            (∀ (i : ι), Membership.mem.{u_1, u_1} s i → Eq.{1} (p i) (HAdd.hAdd.{0, 0, 0} (a i) (b i))) →
+              (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} (a i) (HMul.hMul.{0, 0, 0} A E)) →
+                LE.le.{0} (∑ i ∈ s, a i) E →
+                  LE.le.{0} (∑ i ∈ s, b i) failure →
+                    LE.le.{0} (∑ i ∈ s, HPow.hPow.{0, 0, 0} (p i) 2)
+                      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} A (HPow.hPow.{0, 0, 0} E 2))
+                        (HMul.hMul.{0, 0, 0} 2 failure))
+'RiffleUpperV2.Localization.largeDensity_of_atoms' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.terminalDensity_of_expected_count.{u_1} : ∀ {ι : Type u_1} (s : Finset.{u_1} ι) (p : ι → ℝ)
+  {μ : ℝ},
+  (∀ (i : ι), Membership.mem.{u_1, u_1} s i → LE.le.{0} 0 (p i) ∧ LE.le.{0} (p i) 1) →
+    LE.le.{0} (∑ i ∈ s, p i) μ → LE.le.{0} (∑ i ∈ s, HPow.hPow.{0, 0, 0} (p i) 2) μ
+'RiffleUpperV2.Localization.terminalDensity_of_expected_count' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.no_three_enlarged_intervals : ∀ {l₁ : ℝ} {r₁ l₂ r₂ l₃ : ℝ} {r₃ : ℝ} {m w : ℝ},
+  LE.le.{0} r₁ l₂ →
+    LE.le.{0} r₂ l₃ →
+      LT.lt.{0} (HMul.hMul.{0, 0, 0} 2 w) (HSub.hSub.{0, 0, 0} r₂ l₂) →
+        LE.le.{0} m (HAdd.hAdd.{0, 0, 0} r₁ w) → LE.le.{0} (HSub.hSub.{0, 0, 0} l₃ w) m → False
+'RiffleUpperV2.Localization.no_three_enlarged_intervals' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.enlargedIntervalMultiplicity.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α]
+  (s : Finset.{u_1} α) (left right : α → ℝ) (m w : ℝ),
+  (∀ (i : α),
+      Membership.mem.{u_1, u_1} s i →
+        ∀ (j : α), Membership.mem.{u_1, u_1} s j → LT.lt.{u_1} i j → LE.le.{0} (right i) (left j)) →
+    (∀ (i : α),
+        Membership.mem.{u_1, u_1} s i → LT.lt.{0} (HMul.hMul.{0, 0, 0} 2 w) (HSub.hSub.{0, 0, 0} (right i) (left i))) →
+      (∀ (i : α),
+          Membership.mem.{u_1, u_1} s i →
+            LE.le.{0} (HSub.hSub.{0, 0, 0} (left i) w) m ∧ LE.le.{0} m (HAdd.hAdd.{0, 0, 0} (right i) w)) →
+        LE.le.{0} (Finset.card.{u_1} s) 2
+'RiffleUpperV2.Localization.enlargedIntervalMultiplicity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.discarded_sum_le_card_mul.{u_1} : ∀ {α : Type u_1} (s : Finset.{u_1} α) (p : α → ℝ) (ε : ℝ),
+  (∀ (i : α), Membership.mem.{u_1, u_1} s i → LE.le.{0} (p i) ε) →
+    LE.le.{0} (∑ i ∈ s, p i) (HMul.hMul.{0, 0, 0} (↑(Finset.card.{u_1} s)) ε)
+'RiffleUpperV2.Localization.discarded_sum_le_card_mul' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.takePrefix : {k d : ℕ} →
+  (x : RiffleUpperV2.Prefix k d) → (m : ℕ) → LE.le.{0} m ↑(Sigma.fst.{0, 0} x) → RiffleUpperV2.Prefix k d
+'RiffleUpperV2.Localization.takePrefix' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.parent : {k d : ℕ} → RiffleUpperV2.Prefix k d → RiffleUpperV2.Prefix k d
+'RiffleUpperV2.Localization.parent' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefix_ext : ∀ {k d : ℕ} {x y : RiffleUpperV2.Prefix k d},
+  Eq.{1} (List.Vector.toList.{0} (Sigma.snd.{0, 0} x)) (List.Vector.toList.{0} (Sigma.snd.{0, 0} y)) → Eq.{1} x y
+'RiffleUpperV2.Localization.prefix_ext' does not depend on any axioms
+@RiffleUpperV2.Localization.prefix_length_le : ∀ {k d : ℕ} {x y : RiffleUpperV2.Prefix k d},
+  List.IsPrefix.{0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} x)) (List.Vector.toList.{0} (Sigma.snd.{0, 0} y)) →
+    LE.le.{0} ↑(Sigma.fst.{0, 0} x) ↑(Sigma.fst.{0, 0} y)
+'RiffleUpperV2.Localization.prefix_length_le' depends on axioms: [propext]
+@RiffleUpperV2.Localization.prefix_eq_of_length : ∀ {k d : ℕ} {x y : RiffleUpperV2.Prefix k d},
+  List.IsPrefix.{0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} x)) (List.Vector.toList.{0} (Sigma.snd.{0, 0} y)) →
+    Eq.{1} ↑(Sigma.fst.{0, 0} x) ↑(Sigma.fst.{0, 0} y) → Eq.{1} x y
+'RiffleUpperV2.Localization.prefix_eq_of_length' does not depend on any axioms
+@RiffleUpperV2.Localization.takePrefix_length : ∀ {k d : ℕ} (x : RiffleUpperV2.Prefix k d) (m : ℕ)
+  (hm : LE.le.{0} m ↑(Sigma.fst.{0, 0} x)),
+  Eq.{1} (↑(Sigma.fst.{0, 0} (RiffleUpperV2.Localization.takePrefix x m hm))) m
+'RiffleUpperV2.Localization.takePrefix_length' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.takePrefix_list : ∀ {k d : ℕ} (x : RiffleUpperV2.Prefix k d) (m : ℕ)
+  (hm : LE.le.{0} m ↑(Sigma.fst.{0, 0} x)),
+  Eq.{1} (List.Vector.toList.{0} (Sigma.snd.{0, 0} (RiffleUpperV2.Localization.takePrefix x m hm)))
+    (List.take.{0} m (List.Vector.toList.{0} (Sigma.snd.{0, 0} x)))
+'RiffleUpperV2.Localization.takePrefix_list' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.takePrefix_isPrefix : ∀ {k d : ℕ} (x : RiffleUpperV2.Prefix k d) (m : ℕ)
+  (hm : LE.le.{0} m ↑(Sigma.fst.{0, 0} x)),
+  List.IsPrefix.{0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} (RiffleUpperV2.Localization.takePrefix x m hm)))
+    (List.Vector.toList.{0} (Sigma.snd.{0, 0} x))
+'RiffleUpperV2.Localization.takePrefix_isPrefix' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.takePrefix_self : ∀ {k d : ℕ} (x : RiffleUpperV2.Prefix k d),
+  Eq.{1} (RiffleUpperV2.Localization.takePrefix x ↑(Sigma.fst.{0, 0} x) ⋯) x
+'RiffleUpperV2.Localization.takePrefix_self' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefix_parent : ∀ {k d : ℕ} {v x : RiffleUpperV2.Prefix k d},
+  List.IsPrefix.{0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} v)) (List.Vector.toList.{0} (Sigma.snd.{0, 0} x)) →
+    LT.lt.{0} ↑(Sigma.fst.{0, 0} v) ↑(Sigma.fst.{0, 0} x) →
+      List.IsPrefix.{0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} v))
+        (List.Vector.toList.{0} (Sigma.snd.{0, 0} (RiffleUpperV2.Localization.parent x)))
+'RiffleUpperV2.Localization.prefix_parent' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.prefixMass_antitone : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ {x y : RiffleUpperV2.Prefix k d},
+      List.IsPrefix.{0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} x)) (List.Vector.toList.{0} (Sigma.snd.{0, 0} y)) →
+        LE.le.{0} (RiffleUpperV2.prefixMass cuts y) (RiffleUpperV2.prefixMass cuts x)
+'RiffleUpperV2.Localization.prefixMass_antitone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.endpoint_offset : ∀ {k n d : ℕ} {cuts : RiffleUpperV2.Cuts k n d} (c b : ℤ)
+  (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d) (ω : RiffleUpperV2.Sample cuts),
+  Eq.{1} (RiffleUpperV2.Anchor.lowerEndpoint (HAdd.hAdd.{0, 0, 0} c b) R x ω)
+      (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.Anchor.lowerEndpoint c R x ω) b) ∧
+    Eq.{1} (RiffleUpperV2.Anchor.upperEndpoint (HAdd.hAdd.{0, 0, 0} c b) R x ω)
+      (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.Anchor.upperEndpoint c R x ω) b)
+'RiffleUpperV2.Localization.endpoint_offset' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.upperEndpoint_eq_le_count : ∀ {k n d : ℕ} {cuts : RiffleUpperV2.Cuts k n d} (c : ℤ)
+  (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d) (ω : RiffleUpperV2.Sample cuts),
+  Eq.{1} (RiffleUpperV2.Anchor.upperEndpoint c R x ω)
+    (HAdd.hAdd.{0, 0, 0} c
+      ↑(Finset.card.{0}
+          ({r ∈ R |
+            LE.le.{0} (List.take.{0} (↑(Sigma.fst.{0, 0} x)) (List.Vector.toList.{0} (RiffleUpperV2.rowWord ω r)))
+              (List.Vector.toList.{0} (Sigma.snd.{0, 0} x))})))
+'RiffleUpperV2.Localization.upperEndpoint_eq_le_count' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.same_depth_endpoints_ordered : ∀ {k n d : ℕ} {cuts : RiffleUpperV2.Cuts k n d} (c : ℤ)
+  (R : Finset.{0} (Fin n)) {x y : RiffleUpperV2.Prefix k d},
+  Eq.{1} ↑(Sigma.fst.{0, 0} x) ↑(Sigma.fst.{0, 0} y) →
+    LT.lt.{0} (List.Vector.toList.{0} (Sigma.snd.{0, 0} x)) (List.Vector.toList.{0} (Sigma.snd.{0, 0} y)) →
+      ∀ (ω : RiffleUpperV2.Sample cuts),
+        LE.le.{0} (RiffleUpperV2.Anchor.upperEndpoint c R x ω) (RiffleUpperV2.Anchor.lowerEndpoint c R y ω)
+'RiffleUpperV2.Localization.same_depth_endpoints_ordered' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.expected_endpoint_length : ∀ {k n d : ℕ} (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (c : ℤ) (R : Finset.{0} (Fin n)) (x : RiffleUpperV2.Prefix k d),
+      Eq.{1}
+        (HSub.hSub.{0, 0, 0}
+          (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+            ↑(RiffleUpperV2.Anchor.upperEndpoint c R x ω))
+          (RiffleUpperV2.expect.{0} (RiffleUpperV2.fixedCountPMF cuts) fun ω =>
+            ↑(RiffleUpperV2.Anchor.lowerEndpoint c R x ω)))
+        (RiffleUpperV2.Anchor.anchoredMean cuts R x)
+'RiffleUpperV2.Localization.expected_endpoint_length' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.Localization.normalizedExponent : ℕ → ℝ → ℝ
+'RiffleUpperV2.Localization.normalizedExponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.Localization.fluctuation : ℕ → ℝ → ℝ
+'RiffleUpperV2.Localization.fluctuation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+RiffleUpperV2.Localization.crossingPenalty : ℕ → ℝ → ℝ
+'RiffleUpperV2.Localization.crossingPenalty' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.fluctuationComparison : ∀ {N : ℕ},
+  LT.lt.{0} 1 N →
+    ∀ {μ ω χ : ℝ},
+      LT.lt.{0} 0 μ →
+        LT.lt.{0} 0 χ →
+          LE.le.{0} (HMul.hMul.{0, 0, 0} χ μ) ω →
+            LE.le.{0}
+              (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.normalizedExponent N μ)
+                (RiffleUpperV2.Localization.crossingPenalty N χ))
+              (HMul.hMul.{0, 0, 0} 2 (RiffleUpperV2.Localization.fluctuation N ω))
+'RiffleUpperV2.Localization.fluctuationComparison' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.properFluctuationLower : ∀ {V F δ q : ℝ},
+  LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+    LE.le.{0} δ (HSub.hSub.{0, 0, 0} V F) → LE.le.{0} (HSub.hSub.{0, 0, 0} δ q) F
+'RiffleUpperV2.Localization.properFluctuationLower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.properFluctuationPositive : ∀ {V F δ q : ℝ},
+  LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+    LE.le.{0} δ (HSub.hSub.{0, 0, 0} V F) →
+      LE.le.{0} q (HDiv.hDiv.{0, 0, 0} δ 2) → LE.le.{0} (HDiv.hDiv.{0, 0, 0} δ 2) F
+'RiffleUpperV2.Localization.properFluctuationPositive' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.terminalStoppingBound : ∀ {V F ℓ η q : ℝ},
+  LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+    LE.le.{0} ℓ V →
+      LE.le.{0} ℓ (Neg.neg.{0} η) →
+        LE.le.{0} (HSub.hSub.{0, 0, 0} ℓ F) (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} q η) 2)
+'RiffleUpperV2.Localization.terminalStoppingBound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.terminalStops : ∀ {V F ℓ η q δ : ℝ},
+  LE.le.{0} (HSub.hSub.{0, 0, 0} V q) (HMul.hMul.{0, 0, 0} 2 F) →
+    LE.le.{0} ℓ V →
+      LE.le.{0} ℓ (Neg.neg.{0} η) →
+        LT.lt.{0} (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} q η) 2) δ → LT.lt.{0} (HSub.hSub.{0, 0, 0} ℓ F) δ
+'RiffleUpperV2.Localization.terminalStops' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.largeStableFluctuation : ∀ {ℓ F δ : ℝ},
+  LE.le.{0} (HMul.hMul.{0, 0, 0} 2 δ) ℓ → LT.lt.{0} (HSub.hSub.{0, 0, 0} ℓ F) δ → LT.lt.{0} δ F
+'RiffleUpperV2.Localization.largeStableFluctuation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.parentMean_gt_two_windows : ∀ {N : ℕ},
+  LT.lt.{0} 1 N →
+    ∀ {μ F δ : ℝ},
+      LE.le.{0} (HPow.hPow.{0, 0, 0} (↑N) (HAdd.hAdd.{0, 0, 0} F δ)) μ →
+        LT.lt.{0} 2 (HPow.hPow.{0, 0, 0} (↑N) (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 δ) 4)) →
+          LT.lt.{0} (HMul.hMul.{0, 0, 0} 2 (HPow.hPow.{0, 0, 0} (↑N) (HAdd.hAdd.{0, 0, 0} F (HDiv.hDiv.{0, 0, 0} δ 4))))
+            μ
+'RiffleUpperV2.Localization.parentMean_gt_two_windows' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.anchoredFluctuationComparison : ∀ {k n d : ℕ} (N : ℕ),
+  LT.lt.{0} 1 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d),
+      LT.lt.{0} 0 n →
+        ∀ (R : Finset.{0} (Fin n)) {χ : ℝ} {y z v : RiffleUpperV2.Prefix k d},
+          RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v →
+            LE.le.{0}
+              (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.meanExponent N cuts R v)
+                (RiffleUpperV2.Localization.crossingPenalty N χ))
+              (HMul.hMul.{0, 0, 0} 2 (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v))
+'RiffleUpperV2.Localization.anchoredFluctuationComparison' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.properStableFluctuationLower : ∀ {k n d : ℕ} (N : ℕ),
+  LT.lt.{0} 1 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d),
+      LT.lt.{0} 0 n →
+        ∀ (R : Finset.{0} (Fin n)) {χ δ : ℝ} {y z v x : RiffleUpperV2.Prefix k d},
+          RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v →
+            RiffleUpperV2.Localization.ProperStable N cuts R v δ x →
+              LE.le.{0} (HSub.hSub.{0, 0, 0} δ (RiffleUpperV2.Localization.crossingPenalty N χ))
+                (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v)
+'RiffleUpperV2.Localization.properStableFluctuationLower' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.properStableFluctuationPositive : ∀ {k n d : ℕ} (N : ℕ),
+  LT.lt.{0} 1 N →
+    ∀ (cuts : RiffleUpperV2.Cuts k n d),
+      LT.lt.{0} 0 n →
+        ∀ (R : Finset.{0} (Fin n)) {χ δ : ℝ} {y z v x : RiffleUpperV2.Prefix k d},
+          RiffleUpperV2.Anchor.GenuineBoundaryPair cuts R χ y z v →
+            RiffleUpperV2.Localization.ProperStable N cuts R v δ x →
+              LE.le.{0} (RiffleUpperV2.Localization.crossingPenalty N χ) (HDiv.hDiv.{0, 0, 0} δ 2) →
+                LE.le.{0} (HDiv.hDiv.{0, 0, 0} δ 2) (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v)
+'RiffleUpperV2.Localization.properStableFluctuationPositive' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.large_stopped_fluctuation : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {v x : RiffleUpperV2.Prefix k d} {δ : ℝ},
+  RiffleUpperV2.Localization.Stops N cuts R v δ x →
+    LE.le.{0} (HMul.hMul.{0, 0, 0} 2 δ) (RiffleUpperV2.Localization.meanExponent N cuts R x) →
+      LT.lt.{0} δ (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v)
+'RiffleUpperV2.Localization.large_stopped_fluctuation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.firstCut_antichain : ∀ {k d : ℕ} {v x y : RiffleUpperV2.Prefix k d}
+  {Q : RiffleUpperV2.Prefix k d → Prop},
+  RiffleUpperV2.Localization.FirstCut v Q x →
+    RiffleUpperV2.Localization.FirstCut v Q y → RiffleUpperV2.Anchor.IsPrefix x y → Eq.{1} x y
+'RiffleUpperV2.Localization.firstCut_antichain' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.firstCut_exists : ∀ {k d : ℕ} {v w : RiffleUpperV2.Prefix k d}
+  {Q : RiffleUpperV2.Prefix k d → Prop},
+  Eq.{1} (↑(Sigma.fst.{0, 0} w)) d →
+    RiffleUpperV2.Anchor.IsPrefix v w →
+      ∃ x, RiffleUpperV2.Localization.FirstCut v Q x ∧ RiffleUpperV2.Anchor.IsPrefix x w
+'RiffleUpperV2.Localization.firstCut_exists' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.firstCut_existsUnique : ∀ {k d : ℕ} {v w : RiffleUpperV2.Prefix k d}
+  {Q : RiffleUpperV2.Prefix k d → Prop},
+  Eq.{1} (↑(Sigma.fst.{0, 0} w)) d →
+    RiffleUpperV2.Anchor.IsPrefix v w →
+      ExistsUnique.{1} fun x => RiffleUpperV2.Localization.FirstCut v Q x ∧ RiffleUpperV2.Anchor.IsPrefix x w
+'RiffleUpperV2.Localization.firstCut_existsUnique' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.firstCut_root : ∀ {k d : ℕ} {v : RiffleUpperV2.Prefix k d}
+  {Q : RiffleUpperV2.Prefix k d → Prop},
+  Q v ∨ Eq.{1} (↑(Sigma.fst.{0, 0} v)) d → RiffleUpperV2.Localization.FirstCut v Q v
+'RiffleUpperV2.Localization.firstCut_root' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.firstCut_eq_root : ∀ {k d : ℕ} {v x : RiffleUpperV2.Prefix k d}
+  {Q : RiffleUpperV2.Prefix k d → Prop},
+  Q v ∨ Eq.{1} (↑(Sigma.fst.{0, 0} v)) d → RiffleUpperV2.Localization.FirstCut v Q x → Eq.{1} x v
+'RiffleUpperV2.Localization.firstCut_eq_root' depends on axioms: [propext, Quot.sound.{u}]
+@RiffleUpperV2.Localization.stableCover : ∀ {k n d : ℕ} (N : ℕ) (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) (v : RiffleUpperV2.Prefix k d) (δ : ℝ) {w : RiffleUpperV2.Prefix k d},
+      Membership.mem.{0, 0} (RiffleUpperV2.Localization.FullCylinder cuts R v) w →
+        ExistsUnique.{1} fun x => RiffleUpperV2.Localization.Stable N cuts R v δ x ∧ RiffleUpperV2.Anchor.IsPrefix x w
+'RiffleUpperV2.Localization.stableCover' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.stable_antichain : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x y : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.Stable N cuts R v δ x →
+    RiffleUpperV2.Localization.Stable N cuts R v δ y → RiffleUpperV2.Anchor.IsPrefix x y → Eq.{1} x y
+'RiffleUpperV2.Localization.stable_antichain' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.stable_cylinder_disjoint : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x y : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.Stable N cuts R v δ x →
+    RiffleUpperV2.Localization.Stable N cuts R v δ y →
+      Ne.{1} x y →
+        Disjoint.{0} (RiffleUpperV2.Localization.FullCylinder cuts R x)
+          (RiffleUpperV2.Localization.FullCylinder cuts R y)
+'RiffleUpperV2.Localization.stable_cylinder_disjoint' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.stable_family_cover : ∀ {k n d : ℕ} (N : ℕ) (cuts : RiffleUpperV2.Cuts k n d),
+  LT.lt.{0} 0 n →
+    ∀ (R : Finset.{0} (Fin n)) (v : RiffleUpperV2.Prefix k d) (δ : ℝ),
+      Eq.{1}
+        (⋃ x,
+          ⋃ (_ : RiffleUpperV2.Localization.Stable N cuts R v δ x), RiffleUpperV2.Localization.FullCylinder cuts R x)
+        (RiffleUpperV2.Localization.FullCylinder cuts R v)
+'RiffleUpperV2.Localization.stable_family_cover' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.proper_parent_not_stopped : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.ProperStable N cuts R v δ x →
+    RiffleUpperV2.Anchor.IsPrefix v (RiffleUpperV2.Localization.parent x) ∧
+      ¬RiffleUpperV2.Localization.Stops N cuts R v δ (RiffleUpperV2.Localization.parent x)
+'RiffleUpperV2.Localization.proper_parent_not_stopped' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@RiffleUpperV2.Localization.proper_join_not_stopped : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.ProperStable N cuts R v δ x → ¬RiffleUpperV2.Localization.Stops N cuts R v δ v
+'RiffleUpperV2.Localization.proper_join_not_stopped' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.stable_cases : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d} {R : Finset.{0} (Fin n)}
+  {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.Stable N cuts R v δ x →
+    Eq.{1} x v ∨
+      RiffleUpperV2.Localization.ProperStable N cuts R v δ x ∨
+        RiffleUpperV2.Localization.TerminalFallback N cuts R v δ x
+'RiffleUpperV2.Localization.stable_cases' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.fallback_full : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d} {R : Finset.{0} (Fin n)}
+  {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.TerminalFallback N cuts R v δ x → Eq.{1} (↑(Sigma.fst.{0, 0} x)) d
+'RiffleUpperV2.Localization.fallback_full' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.proper_parent_exponent : ∀ {k n d N : ℕ} {cuts : RiffleUpperV2.Cuts k n d}
+  {R : Finset.{0} (Fin n)} {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x : RiffleUpperV2.Prefix k d},
+  RiffleUpperV2.Localization.ProperStable N cuts R v δ x →
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v) δ)
+      (RiffleUpperV2.Localization.meanExponent N cuts R (RiffleUpperV2.Localization.parent x))
+'RiffleUpperV2.Localization.proper_parent_exponent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.proper_parent_mean : ∀ {k n d N : ℕ},
+  LT.lt.{0} 1 N →
+    ∀ {cuts : RiffleUpperV2.Cuts k n d},
+      LT.lt.{0} 0 n →
+        ∀ {R : Finset.{0} (Fin n)} {v : RiffleUpperV2.Prefix k d} {δ : ℝ} {x : RiffleUpperV2.Prefix k d},
+          RiffleUpperV2.Localization.ProperStable N cuts R v δ x →
+            LE.le.{0}
+              (HPow.hPow.{0, 0, 0} (↑N)
+                (HAdd.hAdd.{0, 0, 0} (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v) δ))
+              (RiffleUpperV2.Anchor.anchoredMean cuts R (RiffleUpperV2.Localization.parent x))
+'RiffleUpperV2.Localization.proper_parent_mean' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@RiffleUpperV2.Localization.stable_no_fallback : ∀ {k n d N : ℕ},
+  LT.lt.{0} 1 N →
+    ∀ {cuts : RiffleUpperV2.Cuts k n d},
+      LT.lt.{0} 0 n →
+        ∀ {R : Finset.{0} (Fin n)} {v : RiffleUpperV2.Prefix k d} {δ η q : ℝ},
+          LE.le.{0} (HSub.hSub.{0, 0, 0} (RiffleUpperV2.Localization.meanExponent N cuts R v) q)
+              (HMul.hMul.{0, 0, 0} 2 (RiffleUpperV2.Localization.boundaryFluctuation N cuts R v)) →
+            (∀ (w : RiffleUpperV2.Prefix k d),
+                RiffleUpperV2.Anchor.Legal cuts R w →
+                  Eq.{1} (↑(Sigma.fst.{0, 0} w)) d →
+                    RiffleUpperV2.Anchor.IsPrefix v w →
+                      LE.le.{0} (RiffleUpperV2.Localization.meanExponent N cuts R w) (Neg.neg.{0} η)) →
+              LT.lt.{0} (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} q η) 2) δ →
+                ∀ {x : RiffleUpperV2.Prefix k d},
+                  RiffleUpperV2.Localization.Stable N cuts R v δ x →
+                    ¬RiffleUpperV2.Localization.TerminalFallback N cuts R v δ x
+'RiffleUpperV2.Localization.stable_no_fallback' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+BUILD_OK U04

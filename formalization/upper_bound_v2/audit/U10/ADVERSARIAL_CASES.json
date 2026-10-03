@@ -1,0 +1,53 @@
+{
+  "review_scope": "Boundary/hypothesis tests against the exact finite theorems and their proofs; no numerical test is presented as a proof.",
+  "cases": [
+    {
+      "case": "m=0",
+      "result": "No tail premise is required; stoppedProcess 0=0 and X0=0 give zero excess. C subset B0 remains explicit."
+    },
+    {
+      "case": "gamma=0 or t=0",
+      "result": "Allowed; qgamma=0 has denominator 1; all binomial moments and excess bounds have the correct zero endpoint."
+    },
+    {
+      "case": "zero-probability history",
+      "result": "Literal quotient conditional expectation is 0. masked_expect_zero is proved from pointwise zero PMF mass on the event."
+    },
+    {
+      "case": "current event not predictable",
+      "result": "For a one-step coin, B1 can depend on that coin while B0 is fixed; stopped increment is multiplied by B1. The only transported weight is shown measurable at history 1, never history 0."
+    },
+    {
+      "case": "initial remainder omitted",
+      "result": "Deterministic X1=1 with gamma=0 would contradict the excess bound; exact htail quantifies all i<m including i=0 and excludes this false use."
+    },
+    {
+      "case": "final C not intermediate-measurable",
+      "result": "The proof uses only pointwise stopped/original equality on C; C never appears in a conditioning event."
+    },
+    {
+      "case": "identical/dependent explorations",
+      "result": "Allowed by Jensen; no joint filtration or mutual independence appears in finiteExplorationExcess."
+    },
+    {
+      "case": "distinct exploration horizons/history types",
+      "result": "m and H depend on the exploration index. No common m or common history type is required."
+    },
+    {
+      "case": "N=0 or N=1",
+      "result": "Finite TV criterion remains a valid finite-model theorem. The quantitative component truncation corollary explicitly assumes N>=2."
+    },
+    {
+      "case": "negative overlap minus one pointwise",
+      "result": "Never assumed nonnegative. U01 proves the integrated product-single-matrix expression is a variance; U10 uses monotonicity of its expectation and sqrt."
+    },
+    {
+      "case": "arbitrary pair event instead of S1\u00d7S1",
+      "result": "The final finiteTV theorem uses the same one-matrix S1 in both factors. Only generic excess before TV permits arbitrary C."
+    },
+    {
+      "case": "qgamma near 1",
+      "result": "Strict qgamma<1 is explicit in finiteTV. The quantitative corollary requires qgamma<=1/2, and fixed polynomial envelopes yield that threshold before N."
+    }
+  ]
+}

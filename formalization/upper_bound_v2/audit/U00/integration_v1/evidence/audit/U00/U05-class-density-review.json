@@ -1,0 +1,33 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T20:10:40.995526+00:00",
+  "sources": {
+    "FirstMoment/ClassFibers.lean": "865452768020e1f5b04132efeeeefcf5f1a9cacdd7304131f8500527fedc11af",
+    "FirstMoment/ClassExponents.lean": "53a115d8f8f0c42e607bbe0db0394022e47d008c311b104a2f42056f7be8cf6a",
+    "FirstMoment/FirstPileReserve.lean": "2db61f79934d6f71c2f639e7e9facba63a78724f53f8077e48002010f9d61391",
+    "FirstMoment/DensityPowers.lean": "cff3894f2e994ef649d889ede525564b9c38e8be5871a2a58fcffc5a3901ce16",
+    "FirstMoment/ClassDensity.lean": "423b46c762c22642a0c38c1215c31f95735f25b5ca1b9d504a20209659d44a2a"
+  },
+  "mathematics": [
+    "A descriptor key fixes pile, boundary pair and length. Prefix equality then determines the full candidate; prefix image cardinality equals candidate fiber cardinality. Immediate and terminal fibers are exact singletons.",
+    "Immediate small exponent uses singleton entropy and the original terminal margin; terminal exponent follows actual first-pile maximal-word control.",
+    "Two distinct good piles leave g*n rows outside every pile and force n>=2. Reserve is derived from FirstColumnGood, not added as a new assumption.",
+    "Exact N-power identities for class cardinality, actual mean, tail collision mass and smoothing factor turn the already proved exponent bounds into literal class-cardinality times anchoredDensity bounds."
+  ],
+  "public_type_and_model": [
+    "The original logarithmic scale N and absolute shift a0+1 are preserved in every empirical B; no log n substitution.",
+    "ClassDensity supplies small-proper, small-immediate, terminal and large branches with actual class fibers and anchors.",
+    "The large finite bound keeps its explicit sqrt(varianceDenominator/g) prefactor and actual smoothing failure; uniform absorption and summing varying words remain required."
+  ],
+  "adversarial": [
+    "Nonempty fibers are witnessed by their own leaf, so logarithms/cardinality identities have positive arguments.",
+    "Tail horizon zero cannot enter a genuine nonterminal branch; terminal/singleton cases remain valid.",
+    "All branch and scalar gap hypotheses are explicit. No final F proof is asserted from these finite estimates."
+  ],
+  "root_build_receipt": "partial-global-check2-build.json",
+  "trust_inventory": "partial-global-check2-declarations.json",
+  "remaining": [
+    "Uniform parameter budget, class-wise sums, actual graph finite aggregation and endpoint F."
+  ]
+}

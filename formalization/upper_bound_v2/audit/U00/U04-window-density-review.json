@@ -1,0 +1,48 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:36:27.157962+00:00",
+  "sources": {
+    "Localization/SideBounds.lean": "1a1abdad9b97cf963a2ddcb4daeb00b42011e91f770ad1a862630f7756661597",
+    "Localization/EndpointDeviation.lean": "1a5cefefc37009e95e4241469ea27ee98d9fa5ca93d2cf7630df823752644c49",
+    "Localization/EndpointWindow.lean": "33c41738c7264ee18d33ea8b3e007527bc3fb82cbecb754e388df72fdc3b6992",
+    "Localization/Edges.lean": "ce9ba3ad364c60396725d00ea90d26ed63915bb5b17e4f4395df35b5b10c3675",
+    "Localization/EdgeMoments.lean": "1aaf51b74a66ede2fc1fa286364cc4d413e2e8b6bd688e23ae02844c5eb1445a",
+    "Localization/OffsetAtoms.lean": "2a76bbbf9cd3622b7a5134dc38b06e1be3204773b2dd3eda7997e961092f3d0d",
+    "Localization/SmoothingDensity.lean": "241ced7ff76b4251a294f793b925d3c99c14f402ffc00524e96f77abce0b2317",
+    "Localization/RelevantParents.lean": "0f3694cee89af55929dbc865b814e282ed4e7fd69daa0346fea6c6ba1e0ec885",
+    "Localization/IrrelevantLoss.lean": "4b5ff65b6003781a06126ed6c2cc6cd36fc9ef501b75ea1106e9a2e8477cb870",
+    "Localization/EdgeRelabel.lean": "675374020d854228279529a17bc7c68b37168da1daaa1837d135d5fc810f75cc"
+  },
+  "source_labels": [
+    "lem:ub-anchor-endpoint-window",
+    "eq:ub-anchor-finite-window",
+    "eq:ub-anchor-parent-window",
+    "lem:ub-edge-density-bounds"
+  ],
+  "mathematics": [
+    "Smaller-side sibling means and join occupancy are bounded by chi inverse times the actual side scale. Endpoint deviations are controlled by the finite sum of their deviations, and union bounding gives exactly 2(d+1) exp(-w\u00b2/[4(d+1)\u00b2(chi inverse omega+w)]).",
+    "Actual internal equal-word edge offsets are finite, fit in Fin n, and have cardinal bounded by anchored occupancy. Summing their probabilities gives the actual expected edge cardinal; terminal density is at most anchoredMean.",
+    "U03 jointInternalOffsetAtoms applies to each actual internal offset event. Summing offsets yields goodEdge_atom; the actual good/bad submeasures and expected counts discharge largeDensity_of_atoms premises. densityFromSmoothing holds before the remaining pair-collision substitution.",
+    "Relevant proper leaves force a realization inside the parent window. Ordered same-depth mean intervals and proper-parent minimum length bound relevant parents by two at each depth, then leaves by 2kd.",
+    "The omitted proper-leaf event is contained in a finite union over every Prefix. The full multiplier (d+1)k^d is retained.",
+    "Relabeling rows transports prefix sets and internal histories. Word and lower-word cardinalities, absolute lower endpoints, internal offsets and anchored rank edge sets are unchanged."
+  ],
+  "public_type_and_model": [
+    "All probabilities are actual fixedCountPMF; arbitrary fixed R and integer absolute c0 are retained. No independent-row assumption.",
+    "Finite relevantParents still takes explicit scalar window-error and window-gap comparisons; Shared.WindowRates proves the eventual error bound, with model substitution owned by U04.",
+    "Smoothing uses genuine boundary pairs and reserve hypothesis from the source. Immediate stop x=v is included. No good event is silently added to the conditioning."
+  ],
+  "adversarial": [
+    "Finite window allows side means below one and zero, arbitrary w>0, and d=0 where the source bound remains valid.",
+    "Empty/singleton word blocks contribute no internal edge; arbitrary slots may omit edges, hence only the correct inequality is used.",
+    "Proper-leaf condition rules out depth zero in the multiplicity bound; relevance strict comparison is explicit.",
+    "Relabeling preserves rank edges even though equal-word labeled tie order can change; no labeled permutation equality is asserted."
+  ],
+  "remaining": [
+    "Actual anchored two-row collision estimate and source polynomial-exponent density corollaries.",
+    "Uniform scalar specialization for relevantParents and loss; full shuffled rank-graph transport into first-moment assembly."
+  ],
+  "root_build_receipt": "concrete-bounds-check-build.json",
+  "trust_inventory": "concrete-bounds-declarations.json"
+}

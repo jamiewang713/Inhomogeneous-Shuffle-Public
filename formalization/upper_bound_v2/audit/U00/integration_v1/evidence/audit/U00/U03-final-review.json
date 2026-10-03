@@ -1,0 +1,43 @@
+{
+  "status": "PROVED_AND_INDEPENDENTLY_CHECKED_LANE",
+  "reviewer": "U00 independent of U03",
+  "recorded_at": "2026-10-02T10:32:18.226812+00:00",
+  "sources": {
+    "FineAtoms.lean": "9610978d32c6873793f4cc33bf5a50a6bbdaedcdc3edc55e42350274afe8a02a",
+    "ConditionalAtoms.lean": "4a292d4812ca9d5c7497db6a0690f980a1c5cff97d740ede1b05ada962fcc75b",
+    "JointAtoms.lean": "bc6d734fe5b2b5c8fdc06fd3215d25ac81b74952d8c80d896291eae63a5aa4fb"
+  },
+  "mathematics": [
+    "An arbitrary integer-shifted hypergeometric atom is either empty or one natural atom; U02 atomBound applies with actual positive variance.",
+    "Exact endpoint expectation laws imply both endpoint probabilities on each fine fiber. The upper endpoint retains the representative internal occupancy as its additional shift.",
+    "Good-event variance g*w/(16D) gives atom coefficient4/sqrt(g*w/(16D))=16sqrt(D/(g*w)). Good-event indicator remains inside the event.",
+    "Finite-history refinement and positivity-aware averaging descend to every positive full internal-history fiber. No conditioning on final good event is used.",
+    "An arbitrary internal-history-dependent integer offset is frozen on each fiber and subtracted from the rank. Exact weighted history-event averaging yields the joint bound times P(H(U))."
+  ],
+  "public_type_and_model": [
+    "Public conditionalEndpointAtoms and jointInternalOffsetAtoms invoke the actual endpointSmoothing constructor from Reserve, GenuineBoundaryPair and IsPrefix; no external reveal, law, variance, atom or density premise.",
+    "The fixed-count law on all n labels, arbitrary absolute integer offset, full internal history, every integer rank, and x=v are retained.",
+    "Source n>=2 and d>=1 guards are explicit in final public atom exports."
+  ],
+  "adversarial": [
+    "Unsupported negative/large integer atoms have zero mass.",
+    "Null coarse histories are excluded exactly where conditional statement needs it; joint averaging handles null atoms without assuming positive H probability.",
+    "The generic EndpointSmoothingData methods are helper projections; public model statements construct all fields and do not ask caller for a certificate.",
+    "Equal and both unequal orientations are independently checked upstream, including genuine positivity and retained sample complement."
+  ],
+  "remaining": [
+    "No U03 lane proof obligations remain. U04/U05 localization and F are separate unresolved lanes."
+  ],
+  "root_build_receipt": "anchor-final-check-build.json",
+  "trust_inventory": "anchor-final-declarations.json",
+  "declarations_checked": 579,
+  "final_own_lane_receipt": "../U03/fresh-check-build.json",
+  "final_own_lane_inventory": "../U03/declarations.json",
+  "final_integrated_root_receipt": "partial-integration-check-build.json",
+  "final_integrated_root_inventory": "partial-integration-declarations.json",
+  "final_anchor_declarations": 590,
+  "degenerate_review": "U03-degenerate-review.json",
+  "final_anchor_declarations_in_own_lane": 590,
+  "integrated_anchor_module_attributed_declarations": 588,
+  "integrated_fresh_declaration_coverage": "All 590 fresh Anchor declarations occur in integrated inventory; generated lowerEndpoint.eq_1 and upperEndpoint.eq_1 are attributed to their first downstream use modules Localization.RankGeometry and Shared.Anchored."
+}

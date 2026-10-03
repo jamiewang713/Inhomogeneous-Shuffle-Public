@@ -1,0 +1,36 @@
+{
+  "status": "PASS_NARROW_HELPERS_NOT_LANE_COMPLETION",
+  "reviewer": "U00 independent of U04/U07 authors",
+  "recorded_at": "2026-10-02T08:50:34.085649+00:00",
+  "files": {
+    "RiffleUpperV2/Localization/Counting.lean": "de2a3e22e0601065f001aa8f8433614514ede7991ef1136cad41947d2e774cb5",
+    "RiffleUpperV2/Localization/IntervalCounting.lean": "c383a4489133d623e95ff75717756a58f6d25783bb408d1f29df0a8e6c5741c7",
+    "RiffleUpperV2/Localization/DensityAlgebra.lean": "ea7ecab4397da3141cc30abeed971d4f8a2669cdf931e776d028bcdf457c93fe",
+    "RiffleUpperV2/Localization/CylinderAdapters.lean": "01b3c71b50b4153e8be78056730ac969e22696e7e9fbae5232cfb18f5bd3e44c",
+    "RiffleUpperV2/Exploration/PrefixConcentration.lean": "9aad9833d0364bc032bccb6a42f5e5544186e377e007d292c26cf0672f1bc758"
+  },
+  "perspectives": {
+    "mathematics": [
+      "Prefix count includes empty word and all depths; child bound uses injective final-digit map; 2kd result still has geometric two-parent premise.",
+      "Ordered interval midpoint-to-Bool injection yields two-parent bound if interval length exceeds twice enlargement.",
+      "largeDensity_of_atoms pays one atom factor via sum a^2\u2264(AE)sum a\u2264AE^2; bad submeasure contribution bounded by 2 sum b; no squaring localization window.",
+      "Actual anchored singleton cylinder map preserves mean M*product of counts/n and covers small means.",
+      "Prefix Bernstein denominator 4 yields explicit exp(-mu^(1/3)/8); finite sum includes all prefixes and original full population threshold."
+    ],
+    "statement_model": [
+      "Generic density helpers are conditional statements only; model-specific summation, endpoint decomposition and H estimates remain missing.",
+      "CylinderAdapters uses actual fixedCountPMF and deterministic anchor rowset; not an asserted conditional natural-history law."
+    ],
+    "adversarial": [
+      "prefix_card_bound requires k>0; exact mean/tail adapters require n>0 and t>0; empty anchor/zero mean allowed in adapters.",
+      "No stochastic bound inferred from per_edge_multiplicity alone.",
+      "No profile input or log(n) replacement added."
+    ]
+  },
+  "build_evidence": "Owner compiled receipts; U00 independent staging/recheck to follow",
+  "missing": [
+    "actual ordered mean interval construction and endpoint-window relevance",
+    "actual atom decomposition from U03 conditional smoothing",
+    "full exploration H conjunction and small-pile estimates"
+  ]
+}

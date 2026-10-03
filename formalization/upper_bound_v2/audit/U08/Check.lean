@@ -1,0 +1,286 @@
+import RiffleUpperV2.Reservoir.Module
+set_option pp.all true
+#check @RiffleUpperV2.Reservoir.backwardWords_eq_rev
+#print axioms RiffleUpperV2.Reservoir.backwardWords_eq_rev
+#check @RiffleUpperV2.Reservoir.backwardWords_antitone
+#print axioms RiffleUpperV2.Reservoir.backwardWords_antitone
+#check @RiffleUpperV2.Reservoir.backwardWords_first
+#print axioms RiffleUpperV2.Reservoir.backwardWords_first
+#check @RiffleUpperV2.Reservoir.backwardWords_count
+#print axioms RiffleUpperV2.Reservoir.backwardWords_count
+#check @RiffleUpperV2.Reservoir.historyAtom_backward
+#print axioms RiffleUpperV2.Reservoir.historyAtom_backward
+#check @RiffleUpperV2.Reservoir.selectedDigitCount_congr
+#print axioms RiffleUpperV2.Reservoir.selectedDigitCount_congr
+#check @RiffleUpperV2.Reservoir.selectedDigitCount_split
+#print axioms RiffleUpperV2.Reservoir.selectedDigitCount_split
+#check @RiffleUpperV2.Reservoir.falling_add
+#print axioms RiffleUpperV2.Reservoir.falling_add
+#check @RiffleUpperV2.Reservoir.tupleWeight_factor
+#print axioms RiffleUpperV2.Reservoir.tupleWeight_factor
+#check @RiffleUpperV2.Reservoir.selectedDigitCount_le_cut
+#print axioms RiffleUpperV2.Reservoir.selectedDigitCount_le_cut
+#check @RiffleUpperV2.Reservoir.exposedWeight_pos
+#print axioms RiffleUpperV2.Reservoir.exposedWeight_pos
+#check @RiffleUpperV2.Reservoir.weightedRatio_cancel_factor
+#print axioms RiffleUpperV2.Reservoir.weightedRatio_cancel_factor
+#check @RiffleUpperV2.Reservoir.exactResidualMarkedRowLaw
+#print axioms RiffleUpperV2.Reservoir.exactResidualMarkedRowLaw
+#check @RiffleUpperV2.Reservoir.outsideCount_le_population
+#print axioms RiffleUpperV2.Reservoir.outsideCount_le_population
+#check @RiffleUpperV2.Reservoir.remainingCount_le_population
+#print axioms RiffleUpperV2.Reservoir.remainingCount_le_population
+#check @RiffleUpperV2.Reservoir.remainingCount_le_cut
+#print axioms RiffleUpperV2.Reservoir.remainingCount_le_cut
+#check @RiffleUpperV2.Reservoir.markedWordEvent_fullTail_iff
+#print axioms RiffleUpperV2.Reservoir.markedWordEvent_fullTail_iff
+#check @RiffleUpperV2.Reservoir.natural_markedCollision_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.natural_markedCollision_upper_uniform
+#check @RiffleUpperV2.Reservoir.sum_markedWord_indicators
+#print axioms RiffleUpperV2.Reservoir.sum_markedWord_indicators
+#check @RiffleUpperV2.Reservoir.markedCollision_indicator_partition
+#print axioms RiffleUpperV2.Reservoir.markedCollision_indicator_partition
+#check @RiffleUpperV2.Reservoir.conditionalCollision_good_partition
+#print axioms RiffleUpperV2.Reservoir.conditionalCollision_good_partition
+#check @RiffleUpperV2.Reservoir.orderedCollision_count
+#print axioms RiffleUpperV2.Reservoir.orderedCollision_count
+#check @RiffleUpperV2.Reservoir.collision_expectation_sum_bound
+#print axioms RiffleUpperV2.Reservoir.collision_expectation_sum_bound
+#check @RiffleUpperV2.Reservoir.initialPile_collision_normalization
+#print axioms RiffleUpperV2.Reservoir.initialPile_collision_normalization
+#check @RiffleUpperV2.Reservoir.extensionPowerMass_eq
+#print axioms RiffleUpperV2.Reservoir.extensionPowerMass_eq
+#check @RiffleUpperV2.Reservoir.remainingCount_eq
+#print axioms RiffleUpperV2.Reservoir.remainingCount_eq
+#check @RiffleUpperV2.Reservoir.concentration_remainingCount
+#print axioms RiffleUpperV2.Reservoir.concentration_remainingCount
+#check @RiffleUpperV2.Reservoir.removableCopies
+#print axioms RiffleUpperV2.Reservoir.removableCopies
+#check @RiffleUpperV2.Reservoir.collision_bad_event_le
+#print axioms RiffleUpperV2.Reservoir.collision_bad_event_le
+#check @RiffleUpperV2.Reservoir.markedRefinement_current_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.markedRefinement_current_upper_uniform
+#check @RiffleUpperV2.Reservoir.tupleCount_split
+#print axioms RiffleUpperV2.Reservoir.tupleCount_split
+#check @RiffleUpperV2.Reservoir.selectedWordCount_of_constant
+#print axioms RiffleUpperV2.Reservoir.selectedWordCount_of_constant
+#check @RiffleUpperV2.Reservoir.unmarkedHistoryConstraint_of_current_removal
+#print axioms RiffleUpperV2.Reservoir.unmarkedHistoryConstraint_of_current_removal
+#check @RiffleUpperV2.Reservoir.history_deletionPrefix_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.history_deletionPrefix_upper_uniform
+#check @RiffleUpperV2.Reservoir.conditionalProbability_mono_on
+#print axioms RiffleUpperV2.Reservoir.conditionalProbability_mono_on
+#check @RiffleUpperV2.Reservoir.history_denominator_ge_reserveWeight
+#print axioms RiffleUpperV2.Reservoir.history_denominator_ge_reserveWeight
+#check @RiffleUpperV2.Reservoir.history_denominator_lower_finite
+#print axioms RiffleUpperV2.Reservoir.history_denominator_lower_finite
+#check @RiffleUpperV2.Reservoir.history_denominator_lower_uniform
+#print axioms RiffleUpperV2.Reservoir.history_denominator_lower_uniform
+#check @RiffleUpperV2.Reservoir.indexEmbedding_mem
+#print axioms RiffleUpperV2.Reservoir.indexEmbedding_mem
+#check @RiffleUpperV2.Reservoir.indexEmbedding_range
+#print axioms RiffleUpperV2.Reservoir.indexEmbedding_range
+#check @RiffleUpperV2.Reservoir.exposedPrescription_injective
+#print axioms RiffleUpperV2.Reservoir.exposedPrescription_injective
+#check @RiffleUpperV2.Reservoir.exposedPrescription_event
+#print axioms RiffleUpperV2.Reservoir.exposedPrescription_event
+#check @RiffleUpperV2.Reservoir.exposedPrescription_used
+#print axioms RiffleUpperV2.Reservoir.exposedPrescription_used
+#check @RiffleUpperV2.Reservoir.markedLabels_disjoint
+#print axioms RiffleUpperV2.Reservoir.markedLabels_disjoint
+#check @RiffleUpperV2.Reservoir.markedLabels_range
+#print axioms RiffleUpperV2.Reservoir.markedLabels_range
+#check @RiffleUpperV2.Reservoir.exposedPrescription_probability_pos
+#print axioms RiffleUpperV2.Reservoir.exposedPrescription_probability_pos
+#check @RiffleUpperV2.Reservoir.sum_markedCurrent_indicators
+#print axioms RiffleUpperV2.Reservoir.sum_markedCurrent_indicators
+#check @RiffleUpperV2.Reservoir.conditionalExpect_mono_on
+#print axioms RiffleUpperV2.Reservoir.conditionalExpect_mono_on
+#check @RiffleUpperV2.Reservoir.extraCurrentCopies_sum_bound
+#print axioms RiffleUpperV2.Reservoir.extraCurrentCopies_sum_bound
+#check @RiffleUpperV2.Reservoir.extraCurrentCopies
+#print axioms RiffleUpperV2.Reservoir.extraCurrentCopies
+#check @RiffleUpperV2.Reservoir.remainingPopulation_eq
+#print axioms RiffleUpperV2.Reservoir.remainingPopulation_eq
+#check @RiffleUpperV2.Reservoir.selectedDigitCount_first
+#print axioms RiffleUpperV2.Reservoir.selectedDigitCount_first
+#check @RiffleUpperV2.Reservoir.residualTupleWeight_firstColumn
+#print axioms RiffleUpperV2.Reservoir.residualTupleWeight_firstColumn
+#check @RiffleUpperV2.Reservoir.markedInitialWeight_pos
+#print axioms RiffleUpperV2.Reservoir.markedInitialWeight_pos
+#check @RiffleUpperV2.Reservoir.exactTailResidualMarkedRowLaw
+#print axioms RiffleUpperV2.Reservoir.exactTailResidualMarkedRowLaw
+#check @RiffleUpperV2.Reservoir.tailBinPrefix_full
+#print axioms RiffleUpperV2.Reservoir.tailBinPrefix_full
+#check @RiffleUpperV2.Reservoir.word_eq_of_head_tail_full
+#print axioms RiffleUpperV2.Reservoir.word_eq_of_head_tail_full
+#check @RiffleUpperV2.Reservoir.goodMarkedView_invariant
+#print axioms RiffleUpperV2.Reservoir.goodMarkedView_invariant
+#check @RiffleUpperV2.Reservoir.markedPileEvent_invariant
+#print axioms RiffleUpperV2.Reservoir.markedPileEvent_invariant
+#check @RiffleUpperV2.Reservoir.conditionalProbability_good_bad
+#print axioms RiffleUpperV2.Reservoir.conditionalProbability_good_bad
+#check @RiffleUpperV2.Reservoir.pileWords_monotone
+#print axioms RiffleUpperV2.Reservoir.pileWords_monotone
+#check @RiffleUpperV2.Reservoir.pileWords_first
+#print axioms RiffleUpperV2.Reservoir.pileWords_first
+#check @RiffleUpperV2.Reservoir.pilePosition_surjective_on_digit
+#print axioms RiffleUpperV2.Reservoir.pilePosition_surjective_on_digit
+#check @RiffleUpperV2.Reservoir.pileWords_count
+#print axioms RiffleUpperV2.Reservoir.pileWords_count
+#check @RiffleUpperV2.Reservoir.pileWords_count_zero
+#print axioms RiffleUpperV2.Reservoir.pileWords_count_zero
+#check @RiffleUpperV2.Reservoir.historyAtom
+#print axioms RiffleUpperV2.Reservoir.historyAtom
+#check @RiffleUpperV2.Reservoir.selectedWordCount_congr
+#print axioms RiffleUpperV2.Reservoir.selectedWordCount_congr
+#check @RiffleUpperV2.Reservoir.tupleCount_eq_selected_of_future
+#print axioms RiffleUpperV2.Reservoir.tupleCount_eq_selected_of_future
+#check @RiffleUpperV2.Reservoir.tupleHistoryConstraint_future_iff
+#print axioms RiffleUpperV2.Reservoir.tupleHistoryConstraint_future_iff
+#check @RiffleUpperV2.Reservoir.reserve_tuple_allowed
+#print axioms RiffleUpperV2.Reservoir.reserve_tuple_allowed
+#check @RiffleUpperV2.Reservoir.chosenReserve_tuple_allowed
+#print axioms RiffleUpperV2.Reservoir.chosenReserve_tuple_allowed
+#check @RiffleUpperV2.Reservoir.tupleWeight_zero_of_overflow
+#print axioms RiffleUpperV2.Reservoir.tupleWeight_zero_of_overflow
+#check @RiffleUpperV2.Reservoir.tupleWords_probability
+#print axioms RiffleUpperV2.Reservoir.tupleWords_probability
+#check @RiffleUpperV2.Reservoir.tupleWords_expect
+#print axioms RiffleUpperV2.Reservoir.tupleWords_expect
+#check @RiffleUpperV2.Reservoir.tupleWords_event
+#print axioms RiffleUpperV2.Reservoir.tupleWords_event
+#check @RiffleUpperV2.Reservoir.tupleWords_event_positive
+#print axioms RiffleUpperV2.Reservoir.tupleWords_event_positive
+#check @RiffleUpperV2.Reservoir.tuplePile_exhausts
+#print axioms RiffleUpperV2.Reservoir.tuplePile_exhausts
+#check @RiffleUpperV2.Reservoir.tuplePile_wordCount
+#print axioms RiffleUpperV2.Reservoir.tuplePile_wordCount
+#check @RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff
+#print axioms RiffleUpperV2.Reservoir.tupleHistoryConstraint_iff
+#check @RiffleUpperV2.Reservoir.exactMarkedRowLaw
+#print axioms RiffleUpperV2.Reservoir.exactMarkedRowLaw
+#check @RiffleUpperV2.Reservoir.existsMarkedComplement
+#print axioms RiffleUpperV2.Reservoir.existsMarkedComplement
+#check @RiffleUpperV2.Reservoir.residual_prefixWeight_marked
+#print axioms RiffleUpperV2.Reservoir.residual_prefixWeight_marked
+#check @RiffleUpperV2.Reservoir.residual_coordinatesWeight_marked
+#print axioms RiffleUpperV2.Reservoir.residual_coordinatesWeight_marked
+#check @RiffleUpperV2.Reservoir.residual_tailPrefixWeight_marked
+#print axioms RiffleUpperV2.Reservoir.residual_tailPrefixWeight_marked
+#check @RiffleUpperV2.Reservoir.goodMarkedView_of_H
+#print axioms RiffleUpperV2.Reservoir.goodMarkedView_of_H
+#check @RiffleUpperV2.Reservoir.markedRefinement_fiber
+#print axioms RiffleUpperV2.Reservoir.markedRefinement_fiber
+#check @RiffleUpperV2.Reservoir.markedRefinement_prefix_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.markedRefinement_prefix_upper_uniform
+#check @RiffleUpperV2.Reservoir.conditionalProbability_congr_on
+#print axioms RiffleUpperV2.Reservoir.conditionalProbability_congr_on
+#check @RiffleUpperV2.Reservoir.natural_marked_good_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.natural_marked_good_upper_uniform
+#check @RiffleUpperV2.Reservoir.natural_marked_probability_good_bad
+#print axioms RiffleUpperV2.Reservoir.natural_marked_probability_good_bad
+#check @RiffleUpperV2.Reservoir.initialPile_normalization
+#print axioms RiffleUpperV2.Reservoir.initialPile_normalization
+#check @RiffleUpperV2.Reservoir.pileBase_iff
+#print axioms RiffleUpperV2.Reservoir.pileBase_iff
+#check @RiffleUpperV2.Reservoir.markedTailPrefix_iff
+#print axioms RiffleUpperV2.Reservoir.markedTailPrefix_iff
+#check @RiffleUpperV2.Reservoir.pileBase_tailPrefix_probability
+#print axioms RiffleUpperV2.Reservoir.pileBase_tailPrefix_probability
+#check @RiffleUpperV2.Reservoir.residualCount_eq_remaining
+#print axioms RiffleUpperV2.Reservoir.residualCount_eq_remaining
+#check @RiffleUpperV2.Reservoir.commonDigits_insert_zero
+#print axioms RiffleUpperV2.Reservoir.commonDigits_insert_zero
+#check @RiffleUpperV2.Reservoir.commonDigits_firstColumn_joint
+#print axioms RiffleUpperV2.Reservoir.commonDigits_firstColumn_joint
+#check @RiffleUpperV2.Reservoir.commonDigits_firstColumn_probability
+#print axioms RiffleUpperV2.Reservoir.commonDigits_firstColumn_probability
+#check @RiffleUpperV2.Reservoir.commonDigits_given_firstColumn
+#print axioms RiffleUpperV2.Reservoir.commonDigits_given_firstColumn
+#check @RiffleUpperV2.Reservoir.conditionalProbability_refine
+#print axioms RiffleUpperV2.Reservoir.conditionalProbability_refine
+#check @RiffleUpperV2.Reservoir.residual_prefixWeight_given_pile
+#print axioms RiffleUpperV2.Reservoir.residual_prefixWeight_given_pile
+#check @RiffleUpperV2.Reservoir.pileTailMass_eq_prefixMass
+#print axioms RiffleUpperV2.Reservoir.pileTailMass_eq_prefixMass
+#check @RiffleUpperV2.Reservoir.natural_prefixFactorial_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.natural_prefixFactorial_upper_uniform
+#check @RiffleUpperV2.Reservoir.prefixCount
+#print axioms RiffleUpperV2.Reservoir.prefixCount
+#check @RiffleUpperV2.Reservoir.commonDigit_probability
+#print axioms RiffleUpperV2.Reservoir.commonDigit_probability
+#check @RiffleUpperV2.Reservoir.commonDigits_probability
+#print axioms RiffleUpperV2.Reservoir.commonDigits_probability
+#check @RiffleUpperV2.Reservoir.residual_commonDigits_probability
+#print axioms RiffleUpperV2.Reservoir.residual_commonDigits_probability
+#check @RiffleUpperV2.Reservoir.pileBase_tailPrefix_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.pileBase_tailPrefix_upper_uniform
+#check @RiffleUpperV2.Reservoir.regular_error_budget
+#print axioms RiffleUpperV2.Reservoir.regular_error_budget
+#check @RiffleUpperV2.Reservoir.residual_product_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.residual_product_upper_uniform
+#check @RiffleUpperV2.Reservoir.regular_coordinate_ratio
+#print axioms RiffleUpperV2.Reservoir.regular_coordinate_ratio
+#check @RiffleUpperV2.Reservoir.rare_coordinate_ratio
+#print axioms RiffleUpperV2.Reservoir.rare_coordinate_ratio
+#check @RiffleUpperV2.Reservoir.rareExponent_identity
+#print axioms RiffleUpperV2.Reservoir.rareExponent_identity
+#check @RiffleUpperV2.Reservoir.rareExponent_nonneg
+#print axioms RiffleUpperV2.Reservoir.rareExponent_nonneg
+#check @RiffleUpperV2.Reservoir.coordinate_power_envelope
+#print axioms RiffleUpperV2.Reservoir.coordinate_power_envelope
+#check @RiffleUpperV2.Reservoir.product_power_envelope
+#print axioms RiffleUpperV2.Reservoir.product_power_envelope
+#check @RiffleUpperV2.Reservoir.eventual_logarithmic_error
+#print axioms RiffleUpperV2.Reservoir.eventual_logarithmic_error
+#check @RiffleUpperV2.Reservoir.pileLabels_card
+#print axioms RiffleUpperV2.Reservoir.pileLabels_card
+#check @RiffleUpperV2.Reservoir.pileEnumeration_first
+#print axioms RiffleUpperV2.Reservoir.pileEnumeration_first
+#check @RiffleUpperV2.Reservoir.exposedPileView_eq_iff
+#print axioms RiffleUpperV2.Reservoir.exposedPileView_eq_iff
+#check @RiffleUpperV2.Reservoir.unmarkedIndices_card_compl
+#print axioms RiffleUpperV2.Reservoir.unmarkedIndices_card_compl
+#check @RiffleUpperV2.Reservoir.markedPrefix_reindex
+#print axioms RiffleUpperV2.Reservoir.markedPrefix_reindex
+#check @RiffleUpperV2.Reservoir.eventual_twoThirds_budget
+#print axioms RiffleUpperV2.Reservoir.eventual_twoThirds_budget
+#check @RiffleUpperV2.Reservoir.outsidePopulation_goodColumn
+#print axioms RiffleUpperV2.Reservoir.outsidePopulation_goodColumn
+#check @RiffleUpperV2.Reservoir.reserve_tailWeight_finite
+#print axioms RiffleUpperV2.Reservoir.reserve_tailWeight_finite
+#check @RiffleUpperV2.Reservoir.reserve_tailWeight_uniform
+#print axioms RiffleUpperV2.Reservoir.reserve_tailWeight_uniform
+#check @RiffleUpperV2.Reservoir.falling_ratio_lower_one_two
+#print axioms RiffleUpperV2.Reservoir.falling_ratio_lower_one_two
+#check @RiffleUpperV2.Reservoir.reserve_coordinate_lower
+#print axioms RiffleUpperV2.Reservoir.reserve_coordinate_lower
+#check @RiffleUpperV2.Reservoir.reserve_product_lower
+#print axioms RiffleUpperV2.Reservoir.reserve_product_lower
+#check @RiffleUpperV2.Reservoir.pileBase_probability_pos
+#print axioms RiffleUpperV2.Reservoir.pileBase_probability_pos
+#check @RiffleUpperV2.Reservoir.conditionalProbability_restrict_le
+#print axioms RiffleUpperV2.Reservoir.conditionalProbability_restrict_le
+#check @RiffleUpperV2.Reservoir.history_future_impossible
+#print axioms RiffleUpperV2.Reservoir.history_future_impossible
+#check @RiffleUpperV2.Reservoir.history_prefixProbability_upper_uniform
+#print axioms RiffleUpperV2.Reservoir.history_prefixProbability_upper_uniform
+#check @RiffleUpperV2.Reservoir.sorted_history_iff
+#print axioms RiffleUpperV2.Reservoir.sorted_history_iff
+#check @RiffleUpperV2.Reservoir.supportedMarked_good_le
+#print axioms RiffleUpperV2.Reservoir.supportedMarked_good_le
+#check @RiffleUpperV2.Reservoir.tailCollisions
+#print axioms RiffleUpperV2.Reservoir.tailCollisions
+#check @RiffleUpperV2.Reservoir.sum_marked_indicators
+#print axioms RiffleUpperV2.Reservoir.sum_marked_indicators
+#check @RiffleUpperV2.Reservoir.sum_markedPile_indicators
+#print axioms RiffleUpperV2.Reservoir.sum_markedPile_indicators
+#check @RiffleUpperV2.Reservoir.sum_markedTail_indicators
+#print axioms RiffleUpperV2.Reservoir.sum_markedTail_indicators
+#check @RiffleUpperV2.Reservoir.conditionalExpect_sum_marked
+#print axioms RiffleUpperV2.Reservoir.conditionalExpect_sum_marked
+#check @RiffleUpperV2.Reservoir.conditionalExpect_const_pos
+#print axioms RiffleUpperV2.Reservoir.conditionalExpect_const_pos
+#check @RiffleUpperV2.Reservoir.sum_markedPile_conditionalProbability
+#print axioms RiffleUpperV2.Reservoir.sum_markedPile_conditionalProbability

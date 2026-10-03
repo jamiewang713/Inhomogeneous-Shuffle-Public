@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:51:16.576548+00:00",
+  "sources": {
+    "Reservoir/HistoryExtension.lean": "61090e65ce4ed1eed0edcba7557c78f25b91ff733fa036637f9c93ee81370935"
+  },
+  "mathematics": [
+    "If every removed marked word is strictly after the current word, all counts of words at/before the current word are determined by unmarked rows.",
+    "The exact history multiplicity constraint is therefore equivalent to an unmarked constraint, preserving exact earlier counts and at-least current count.",
+    "Actual forward direction bounds current tail prefix by the middle reserve; the chosen right reserve is strictly larger, so every completion in that reserve is compatible."
+  ],
+  "public_type_and_model": [
+    "Uses literal tupleHistoryConstraint, observedCount and pileWords under actual chosenReserves.",
+    "No arbitrary lexical-conditioning erasure occurs."
+  ],
+  "adversarial": [
+    "The strict-future condition is derived for the chosen reserve, not assumed at the final chosenReserve_tuple_allowed helper.",
+    "Forward current-word ties remain in unmarked constraint; marked strict-future deletions cannot alter their observed requirement.",
+    "Backward analogue and conditional denominator conversion remain separate obligations."
+  ],
+  "remaining": [
+    "Reserve product must be identified with refined-law probability and lower-bound natural-history denominator."
+  ],
+  "root_build_receipt": "directional-final-check-build.json",
+  "trust_inventory": "directional-final-declarations.json"
+}

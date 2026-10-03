@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "recorded_at": "2026-10-02T20:27:23.315606+00:00",
+  "reviewer": "U00 independent of lane owner",
+  "sources": {
+    "FirstMoment/DensityAggregation.lean": "b56e873457d574176844ad13e1c0cf8907d296f9dfcccef486f86f7d3736876e",
+    "FirstMoment/ActiveClasses.lean": "b4f31584677a79cacdbcfc0e77a57a765413f519724eaffe7e0b72ec632f7a24"
+  },
+  "mathematics": [
+    "retainedDensity_sum_le uses exact classPrefixes_card and independently proved finite-fiber sum aggregation. No maximizer selection or constant-density assumption within a class.",
+    "The class count power multiplies the density power exactly, giving exponent epsilon-eta/2 once the actual per-class bound is supplied.",
+    "An actual terminal boundary forces leaf=join. Every nonroot retained block is therefore genuine and ProperStable, using the empirical terminal fallback exclusion.",
+    "Equal actual descriptor keys fix pile/boundaries/length; prefix injection bounds an active class fiber by the actual relevantLeaves count, with one immediate singleton contribution."
+  ],
+  "public_type_and_model": [
+    "DensityAggregation keeps its remaining class-count/density premises explicit; actual uniform estimates exist, but final global assembly must instantiate them.",
+    "ActiveClasses uses the literal relevance predicate and actual candidate type; immediate words are always active. No abstract localization certificate is presumed.",
+    "All offsets and original N normalization are retained."
+  ],
+  "adversarial": [
+    "Empty candidate type and empty active fibers are valid.",
+    "A nonroot representative cannot share a key with a root representative because key length is fixed; proof explicitly uses this.",
+    "No hidden boundary multiplicity remains in a fiber; the global number of fibers is counted separately."
+  ],
+  "root_build_receipt": "partial-global-check3-build.json",
+  "trust_inventory": "partial-global-check3-declarations.json",
+  "remaining": [
+    "Uniform global active cardinality, omitted error, complete graph probability-square bound, first-column averaging and final F."
+  ]
+}

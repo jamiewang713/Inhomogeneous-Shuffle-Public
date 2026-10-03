@@ -1,0 +1,38 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T19:36:27.157962+00:00",
+  "sources": {
+    "FirstMoment/Count.lean": "4ff343f45ed7d8de5f73a9d44d01b6d2ea962ed857e6924c687c1e7c14c10fbe",
+    "FirstMoment/Discard.lean": "56325a50dfba5e221d6df69f0560e65223923ab7123a0860f441445f657a39e2",
+    "FirstMoment/Partition.lean": "c87edd21b6648690073e018525a12b1832def66e0ab5b49fd75895bf62b4975c",
+    "FirstMoment/RetainedClasses.lean": "1bf5f9744be38990a0538c5d3f593b72aec58ca4cbfd72e5906712398c2cdcf4"
+  },
+  "source_labels": [
+    "prop:ub-empirical-first-moment"
+  ],
+  "mathematics": [
+    "Actual empirical key cardinal is k times finite bin count times the imported exact profile count. Fixed bin and pile factors are absorbed with the remaining epsilon/2 power.",
+    "Expectation of rows in a fixed full-word set equals |R| times its exact product mass, by fixed-count cylinder marginals and finite Fubini; no row independence is used.",
+    "Actual boundary and extension exception sets inject into full-word rare positions. Both boundary truncations are controlled by the same rare-count event, and the extension by a second event.",
+    "Source rare-tail estimates give expected discarded rows at most N^(-D), with C chosen before chi. Actual unique boundary/stable partition gives retained-or-discarded coverage.",
+    "Every actual retained block has a valid finite descriptor. Its good-cost bin bound follows from the original-N logarithmic horizon; the number of realized classes is bounded by the descriptor universe."
+  ],
+  "public_type_and_model": [
+    "N is the original scale throughout, even when current n is smaller. Discard theorem includes 0<n<=N; class count does not need n<=N and therefore proves a stronger uniform statement.",
+    "Discard threshold chi0 is independent of N,n,d,cuts,R,delta after fixing k,T,D,C. Count threshold N0 follows chi and width and precedes all arrays and anchor sets.",
+    "RetainedBlock is the literal three source truncations on actual valid boundary/stable blocks, rather than a supplied partition certificate."
+  ],
+  "adversarial": [
+    "Terminal boundary at the last future column yields a full singleton word, including genuine crossing there.",
+    "Zero columns and zero-probability digits are handled by Legal/full-cylinder premises and exact expectation identities; current n=0 is excluded where its profile is used.",
+    "Strict exceedance of floor budgets is converted to integer budget+1; no loss of one in the rare-event bound.",
+    "Descriptor collisions reduce image cardinal and do not affect the upper bound; a class-fiber entropy proof is still separately necessary."
+  ],
+  "remaining": [
+    "Actual class-fiber entropy and scalar exponent substitutions, physical graph assembly and concrete F.",
+    "New AnchoredCosts and FirstColumn source modules were announced after this receipt and are not included in this acceptance."
+  ],
+  "root_build_receipt": "concrete-bounds-check-build.json",
+  "trust_inventory": "concrete-bounds-declarations.json"
+}

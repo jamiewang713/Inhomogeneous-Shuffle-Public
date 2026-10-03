@@ -1,0 +1,20 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:43:42.578448+00:00",
+  "sources": {
+    "Anchor/Degenerate.lean": "d697ca2e72efc4d29fb32513f5eeec0294282bd6bf09fe3d100249639541441d"
+  },
+  "mathematics": [
+    "At zero local depth the lower endpoint is the deterministic offset and upper endpoint adds the fixed reserve cardinal.",
+    "Either strict crossing requires positive depth; a genuine join extends the crossing and hence has positive depth."
+  ],
+  "public_type_and_model": [
+    "Uses the frozen future-only anchor definitions without imposing stochastic variation at the fixed first-pile anchor."
+  ],
+  "adversarial": [
+    "No genuine boundary pair when no future column remains. Zero-width prefix deterministic counterexample is represented literally."
+  ],
+  "root_build_receipt": "partial-integration-check-build.json",
+  "trust_inventory": "partial-integration-declarations.json"
+}

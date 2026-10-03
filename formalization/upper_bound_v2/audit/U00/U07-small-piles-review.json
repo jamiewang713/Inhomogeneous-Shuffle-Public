@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_TYPE_TRUST",
+  "reviewer": "U00 independent of lane owner",
+  "recorded_at": "2026-10-02T10:40:02.678949+00:00",
+  "sources": {
+    "Exploration/SmallPiles.lean": "6f05052f46f41b4bc3950cd23566a8e921520effb5947f439776e7820b0724bd"
+  },
+  "mathematics": [
+    "An actual adjacent equal-word edge in a sorted pile gives two distinct labels with the same word.",
+    "First factorial moment and exact pile count give total full-word probability mass in pile p equal to np/n.",
+    "Second factorial moment plus restricted-word union bound gives small-pile failure at most (k/2)*n^xi*maximalMean.",
+    "The terminal maximal-mean bound yields (k/2)*n^(xi-eta) exactly."
+  ],
+  "public_type_and_model": [
+    "The event is the frozen pileEdgeFree failure on the actual fixed-count sample.",
+    "No independent-row or random-pile law is assumed. smallPileFailure_mean has no mean-bound premise; smallPileFailure is a helper with explicit hmean."
+  ],
+  "adversarial": [
+    "n>=2 is used for the second moment. Empty and singleton piles have no edge witness.",
+    "Zero word probabilities and impossible words are handled by nonnegative factorial moments.",
+    "The terminal margin must be supplied by the proved Margins adapter before final regularityFailure."
+  ],
+  "remaining": [
+    "UniformRegularity must discharge hmean from actual empirical terminal margin."
+  ],
+  "root_build_receipt": "quantitative-partial-check-build.json",
+  "trust_inventory": "quantitative-partial-declarations.json"
+}

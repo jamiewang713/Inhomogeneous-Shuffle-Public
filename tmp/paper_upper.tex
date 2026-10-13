@@ -1,0 +1,1159 @@
+% UPPER PRELIMINARIES BEGIN
+\subsection{The shuffle graph}
+Use the path graph and componentwise sorting representation of
+Lemma~\ref{lem:matrix-graph}. Its components are the nonempty
+equal-word intervals, including isolated vertices. For a fixed path
+graph $G$, denote the componentwise-sorted uniform law by $P_G$.
+Thus $P_N^K=\E P_G$.
+
+% Lean: GraphOverlap/Density.lean: graphLaw_density, overlapIdentity;
+% GraphOverlap/RunProduct.lean: boundedComponentOverlap_strong, boundedComponentOverlap.
+\begin{lemma}\label{lem:upper-overlap}
+The density of $P_G$ with respect to $\nuUnif$ is
+\[
+ f_G(\sigma)=\mathbf1_{\{\sigma\text{ is increasing on every component of }G\}}
+                   \prod_{I\in\operatorname{comp}(G)}|I|!.
+\]
+For any two path graphs $G,H$,
+\begin{equation}\label{eq:upper-overlap}
+ \E_{\nuUnif}f_G f_H
+ =\frac{\displaystyle\prod_{I\in\operatorname{comp}(G)}|I|!
+                    \prod_{J\in\operatorname{comp}(H)}|J|!}
+          {\displaystyle\prod_{I\in\operatorname{comp}(G\cup H)}|I|!}.
+\end{equation}
+If the components of $H$ have at most $B$ vertices, this is at most
+$B^{|G\cap H|}$. Consequently, for $B\ge2$, it is also at most
+$\binom B{\lfloor B/2\rfloor}^{|G\cap H|}$.
+\end{lemma}
+\begin{proof}
+A permutation increasing on every component has exactly
+$\prod_I|I|!$ preimages under componentwise sorting; a permutation
+which is not increasing has none. This proves the density formula.
+The simultaneous increasing condition for $G$ and $H$ is the increasing
+condition for $G\cup H$, whose uniform probability is
+$1/\prod_{I\in\operatorname{comp}(G\cup H)}|I|!$. This proves
+\eqref{eq:upper-overlap}.
+
+For a vertex $i$, let $r_G(i)$ be its position, counted from the left,
+in its component of $G$. Then $\prod_i r_G(i)=\prod_I|I|!$ and
+$r_G(i),r_H(i)\le r_{G\cup H}(i)$. Unless the edge immediately to
+the left of $i$ belongs to both graphs, at least one of $r_G(i)$ and
+$r_H(i)$ is one. At the other vertices, $r_H(i)\le B$. Thus
+\[
+ r_G(i)r_H(i)\le r_{G\cup H}(i)
+       B^{\mathbf1_{\{(i-1,i)\in G\cap H\}}}.
+\]
+Multiplying over the vertices proves the claimed bound. Finally
+$B=\binom B1\le\binom B{\lfloor B/2\rfloor}$.
+\end{proof}
+
+% Lean: GraphOverlap/Truncation.lean: truncatedTV, truncatedVariance_eq.
+\begin{lemma}\label{lem:upper-truncation}
+Let $S$ be any event determined by one word matrix, and let $G,G'$ be
+the graphs of two independent matrices with the same deterministic
+column counts. Then
+\begin{equation}\label{eq:upper-truncation}
+ \dTV(P_N^K,\nuUnif)
+ \le\frac12\sqrt{\E\left[
+   \bigl(\E_{\nuUnif}f_Gf_{G'}-1\bigr)
+                      \mathbf1_S\mathbf1_{S'}\right]}+\Pp(S^c).
+\end{equation}
+The expression under the square root is nonnegative.
+\end{lemma}
+\begin{proof}
+Write $h=\E[f_G\mathbf1_S]$ and $r=\E[f_G\mathbf1_{S^c}]$,
+so the shuffle density is $h+r$. Since $f_G$ has mean one,
+$\E_{\nuUnif}h=\Pp(S)$ and $\E_{\nuUnif}r=\Pp(S^c)$.
+The triangle inequality gives
+\[
+ \E_{\nuUnif}|h+r-1|
+ \le\E_{\nuUnif}|h-\Pp(S)|+2\Pp(S^c).
+\]
+Apply Cauchy--Schwarz to the first term. Independence and finite
+summation identify its squared upper bound as
+\[
+ \E_{\nuUnif}(h-\Pp(S))^2
+ =\E[(\E_{\nuUnif}f_Gf_{G'}-1)\mathbf1_S\mathbf1_{S'}].
+\]
+This also proves the nonnegativity assertion.
+\end{proof}
+
+% Lean: GraphOverlap/FactorialTail.lean; GraphOverlap/Corollaries.lean:
+% boundedComponentTail_factorial, exists_boundedComponentTail.
+\begin{lemma}\label{lem:upper-components}
+Put $\mu_*=N\prod_{j=1}^K\max_d p_d^{(j)}$.
+For every integer $B\ge1$,
+\begin{equation}\label{eq:upper-components}
+ \Pp(G\text{ has a component with more than }B\text{ vertices})
+       \le\frac{N\mu_*^B}{(B+1)!}.
+\end{equation}
+In particular, if $\mu_*\le N^{-\eta}$ and $\eta B\ge A+1$,
+the right side is at most $N^{-A}/(B+1)!$.
+\end{lemma}
+\begin{proof}
+A component with more than $B$ vertices supplies $B+1$ distinct rows
+having the same full word. The event is impossible if $B+1>N$,
+so suppose $B+1\le N$.
+For any specified set of $B+1$ rows, its probability
+of agreeing in column $j$ is
+\[
+ \sum_d\frac{(Np_d^{(j)})_{B+1}}{(N)_{B+1}}
+ \le\sum_d(p_d^{(j)})^{B+1}
+ \le(\max_d p_d^{(j)})^B.
+\]
+Here $(m)_r=m(m-1)\cdots(m-r+1)$, and the first inequality follows
+factor by factor; impossible samples have probability zero. Multiply
+over columns and sum over the $\binom N{B+1}$ sets of rows.
+Since $\binom N{B+1}\le N^{B+1}/(B+1)!$, this gives the result.
+\end{proof}
+% UPPER PRELIMINARIES END
+
+% UPPER MAIN BEGIN
+\section{Upper bound}\label{sec:upper-bound}\label{sec:upper}
+\subsection{Empirical costs and an initial good shuffle}
+We first give an upper bound requiring no limiting time profile.
+The original deck size remains the logarithmic scale when the argument
+is applied to a smaller population. Thus let $2\le n\le N$ and let
+the current columns be indexed by $a<j\le K$, with $a<K\le T\log N$.
+Their proportions, relative to $n$, are denoted by $p^{(j)}$. At integer
+endpoints set
+\begin{align*}
+ A^{(N)}\left(\frac{s}{\log N},\frac{u}{\log N}\right)
+       &=\frac1{\log N}\sum_{j=s+1}^u a_{p^{(j)}},\\
+ B^{(N)}_\theta\left(\frac{s}{\log N},\frac{u}{\log N}\right)
+       &=\frac1{\log N}\sum_{j=s+1}^u\psi_{p^{(j)}}(\theta),\\
+ \beta^{(N)}\left(\frac{s}{\log N}\right)
+ &=\frac{\log n}{\log N}
+       -A^{(N)}\left(\frac{a}{\log N},\frac{s}{\log N}\right).
+\end{align*}
+We say that the empirical margin is at least $\eta$ if the following
+inequalities hold for every integer pair $a\le s\le u\le K$:
+\begin{equation}\label{eq:upper-empirical-margin}
+ \begin{split}
+ \beta^{(N)}\left(\frac K{\log N}\right)&\le-\eta,\\
+ \inf_{3\le\theta\le4}\left\{
+       \frac{\theta+3}{2}\beta^{(N)}\left(\frac s{\log N}\right)
+       -B^{(N)}_\theta\left(\frac s{\log N},\frac u{\log N}\right)
+       -2B^{(N)}_2\left(\frac u{\log N},\frac K{\log N}\right)\right\}
+       &\le-\eta.
+ \end{split}
+\end{equation}
+Only grid endpoints are required in this condition; the interpolation
+between them is not an additional hypothesis. Zero pile proportions
+are allowed. A column is $g$-good if two distinct coordinates of its
+proportion vector are at least $g$.
+
+% Lean: EmpiricalUpper/Restart.lean: terminal_horizon, restartMargin,
+% restartHypotheses; Exploration/WindowClusters.lean: integerWindow_cluster.
+\begin{lemma}\label{lem:upper-restart}
+Fix $k\ge2$, $\eta_0,\eta,g,\gamma,\rho>0$, with
+$4\eta\le\eta_0$, $\gamma\le1$ and
+$\rho\log k\le\min\{\eta/7,1/4\}$.
+For all sufficiently large $N$, an array on $N$ labels satisfying
+\eqref{eq:upper-empirical-margin} with margin $\eta_0$ and the local
+$(g,\gamma,\rho)$-good condition on $[0,K/\log N]$ has a suffix
+with the following properties. Its first column is $g$-good; two more
+$g$-good columns occur within the next $\lceil6/\gamma\rceil$ columns;
+its empirical margin, after resetting its initial index to zero, is
+at least $2\eta$; and every consecutive window of
+$\lceil\rho\log N\rceil+1$ columns contains at least
+$\gamma\rho\log N-2$ good columns. Its maximal full-word mean is at
+most $N^{-2\eta}$. The total variation distance for the original array
+is no larger than that for this suffix.
+\end{lemma}
+\begin{proof}
+Since $a_p\le\log k$, the terminal margin implies
+$(1+\eta_0)\log N\le K\log k$. The initial window of
+$\lceil\rho\log N\rceil+1$ columns therefore fits for large $N$.
+Passing from a closed time window to the integer window loses at most
+two columns. Among at least $\gamma\rho\log N-2$ good indices in
+that window there are three columns, say $r+1<j+1<h+1$, with
+$h-r\le\lceil6/\gamma\rceil$. Indeed, otherwise every third good
+index would be separated by more than that amount, contradicting
+the number of good indices once $\gamma\rho\log N>8$.
+Delete the $r$ columns preceding column $r+1$.
+
+Deleting $r$ columns increases $\beta^{(N)}(s/\log N)$ at subsequent times
+by at most $r\log k/\log N$, and increases every expression in
+\eqref{eq:upper-empirical-margin} by at most
+$7r\log k/(2\log N)$. Here $r\le\rho\log N+2$; hence the total
+loss is at most $\eta/2+7\log k/\log N\le\eta$ for large $N$.
+The retained margin is thus at least $2\eta$. Every retained integer
+window is an original integer window, so its good-column bound is
+inherited. The identity
+$\mu_*=N^{\beta^{(N)}(K/\log N)}$ gives the asserted maximal mean.
+Finally, the deleted shuffles act by averaging translates of the
+retained permutation law. Uniform measure is invariant under these
+translations, and total variation contracts under averaging. This
+proves the last assertion.
+\end{proof}
+
+% Lean: Contracts/V1/Empirical.lean: E; EmpiricalUpper/Main.lean: empiricalUpper.
+
+\begin{proof}[Proof of Theorem~\ref{thm:upper-empirical}]
+Put $\eta=\min\{\eta_0/4,1\}$,
+$g=\min\{g_0,1/(2k)\}$ and $\gamma=\min\{\gamma_0,1\}$.
+The local condition remains true with these smaller parameters.
+Choose $\rho_0$ small enough for Proposition~\ref{prop:upper-conditional}
+and so that $\rho_0\log k\le\min\{\eta/7,3\eta/160,1/4\}$.
+Lemma~\ref{lem:upper-restart} gives a suffix with margin $2\eta$,
+the required good cluster and integer-window condition, and maximal
+mean at most $N^{-2\eta}$.
+
+Proposition~\ref{prop:upper-conditional} and the construction in
+Section~\ref{sec:upper-exponential} supply $2k$ adapted explorations,
+each with conditional expected remainder at most $CN^{-3\eta/80}$.
+The single-matrix regularity event used there satisfies
+\[
+ \Pp(\mathcal R^c)\le
+ AN^A e^{-c_H N^{\eta/30}}
+ +2N\sqrt{AN^A e^{-c_H N^{\eta/30}}}
+ +\frac{k}{2}N^{\eta/10-2\eta}.
+\]
+Choose an integer $B\ge2$ with $\eta B\ge2$ and intersect
+$\mathcal R$ with the event that all graph components have size at
+most $B$. Lemma~\ref{lem:upper-components} adds at most
+$N^{-1}/(B+1)!$ to the failure probability. Apply
+Proposition~\ref{prop:upper-exponential} with $d=2k$ and
+$b=\binom B{\lfloor B/2\rfloor}$. All its hypotheses concern the
+actual pair histories constructed below, and its denominator tends
+to one. The resulting bound is a fixed multiple of
+$N^{-3\eta/160}+N^{-19\eta/10}+N^{-1}$, plus stretched exponential
+terms. After decreasing the positive exponent and increasing $N_0$,
+this is at most $N^{-c}$. The contraction in
+Lemma~\ref{lem:upper-restart} completes the proof.
+\end{proof}
+
+\subsection{A limiting profile}
+% Lean: ProfileUpper/Buffered.lean: bufferedOfEmpirical;
+% ProfileUpper/Main.lean: bufferedUpper; Margins/ProfileMargin.lean.
+
+\begin{proof}[Proof of Theorem~\ref{thm:upper-profile}]
+Use Corollary~\ref{cor:fixed-partition-transfer} with accuracy
+$\eta/100$, first fixing $\chi$, then $\rho$, and finally $\varphi$.
+The comparison is uniform over $\theta\in[2,4]$ and over interval
+endpoints. Restricting to grid endpoints is exact; changing the
+horizon from $T$ to $\lfloor T\log N\rfloor/\log N$ costs at most
+$14\log k/\log N$. Consequently the two profile inequalities
+give \eqref{eq:upper-empirical-margin} with margin $\eta/2$ for large
+$N$. Choose the upper bound on $\rho$ also to satisfy
+Theorem~\ref{thm:upper-empirical} with this margin and the given
+$g,\gamma$. Since $K/\log N\le T$, the local condition on $[0,T]$
+implies the one on $[0,K/\log N]$. The empirical theorem gives
+$N^{-c}$, which is at most $\varepsilon$ for sufficiently large $N$.
+All thresholds are uniform over the arrays in the statement.
+\end{proof}
+
+% Lean: Shared/Profile.lean: ArbitrarilyFineApproximation, criticalTime;
+% ProfileUpper/Critical.lean: criticalOfBuffered, marginMonotonicity (Analytic.lean).
+
+\begin{proof}[Proof of Corollary~\ref{cor:upper-critical}]
+If $t$ exceeds the displayed infimum, its definition supplies $0<s<t$ at which
+the reduced margin is negative. The reduced margin is nonincreasing
+in the horizon, so it is negative at $t$ as well. Apply
+Theorem~\ref{thm:upper-profile}, selecting the partition beneath its
+mesh bound, then $\rho$ beneath both allowed bounds, and finally an
+allowed positive $\varphi$. Arbitrarily fine approximation supplies
+the eventual deterministic hypotheses, proving convergence.
+For every fixed $t$ exceeding the infimum, convergence implies eventually
+$t_{\rm mix}^{(N)}(\varepsilon)\le\lfloor t\log N\rfloor$.
+Divide by $\log N$, take the upper limit, and take the infimum over
+these $t$. If the infimum is $+\infty$, the upper-limit assertion
+holds in the extended order.
+\end{proof}
+
+\subsection{Random pile sizes}
+% Lean: Contracts/V1/Profile.lean: REmpiricalBound, REmpirical, RProfile;
+% ProfileUpper/Mixture.lean, ProfileUpper/Random.lean, ProfileUpper/Main.lean: randomUpper.
+\begin{corollary}\label{cor:upper-random}
+Under the parameter choices of Theorem~\ref{thm:upper-empirical}, let
+$Q_N$ be any law on deterministic arrays of length $K\le T\log N$.
+For all sufficiently large $N$,
+\[
+ \dTV\left(\int P_N^K(\mathbf n)\,Q_N(d\mathbf n),
+                         \nuUnif\right)
+ \le Q_N\{\text{the empirical margin or local-good condition fails}\}
+                        +N^{-c}.
+\]
+Thus the annealed distance tends to zero if these two conditions hold
+with probability tending to one, with one common deterministic $\rho$.
+The same conclusion holds under the parameter choices of
+Theorem~\ref{thm:upper-profile} if almost-likeness and local goodness
+each hold with probability tending to one.
+\end{corollary}
+\begin{proof}
+Convexity of total variation bounds the mixture distance by the
+$Q_N$-average of the conditional distances. On the good arrays use
+$N^{-c}$, and on the other arrays use the bound one. This proves the
+finite inequality and its empirical consequence. In the profile
+case, for any fixed positive error use
+Theorem~\ref{thm:upper-profile} on the intersection of the two good
+events. Its complement has probability tending to zero by the union
+bound. Letting the fixed error tend to zero proves the claim.
+\end{proof}
+% UPPER MAIN END
+
+% UPPER FIRST MOMENT BEGIN
+\section{The first moment}\label{sec:upper-first}
+We prove the uniform estimate used for the whole deck and, later, for
+the random populations left inside unexplored cylinders.
+
+% Lean: Contracts/V1/Empirical.lean: F; FirstMoment/Empirical.lean: empiricalFirstMoment;
+% FirstMoment/UniformGraph.lean: empiricalGraphDecay.
+\begin{proposition}\label{prop:upper-first}
+Fix $k\ge2$, $T,\eta,g>0$, with $g<1/k$. There is $N_0\ge2$ such
+that, for every $N\ge N_0$, $2\le n\le N$, and
+$a<K\le T\log N$, the following holds. Suppose that the first of
+the fixed-count columns on $n$ labels is $g$-good, and that
+\eqref{eq:upper-empirical-margin} holds. For independent shuffle
+graphs $G,G'$ of these columns,
+\begin{equation}\label{eq:upper-first}
+ \E|G\cap G'|\le N^{-\eta/8}.
+\end{equation}
+\end{proposition}
+
+\subsection{Interval fluctuations}
+Condition on the assignment of the first column. A nonempty pile
+$R$ has size $M\le(1-g)n$. The remaining columns are still uniform
+fixed-count columns on all $n$ labels. The labels outside $R$ will
+provide the unused population needed to smooth interval endpoints.
+Permutation invariance of the rows shows that the graph law within
+$R$ depends only on $M$ and its deterministic rank offset.
+
+For a legal prefix $x$ following this first digit, write $\mu_x$ for
+its mean count in $R$, $\ell_x=\log_N\mu_x$, and
+$e_x=-B^{(N)}_2(M_x/\log N,K/\log N)$, where $M_x$ is its absolute final column.
+Its descendants occupy an interval with endpoints $\iota_x,\tau_x$,
+and its internal equal-word edges form a graph $G_x$.
+All counts and fluctuations in this paragraph exclude the already
+fixed first-column assignment.
+
+Fix $0<\chi<1/k$, and in each subsequent column let $l_j,r_j$ be the
+smallest and largest digits of mass at least $\chi$. For a full word,
+its left boundary stops at its first digit strictly greater than $l_j$,
+and its right boundary at its first digit strictly less than $r_j$;
+if no crossing occurs, use the full word. Let $v$ be the longer
+boundary. If either boundary has full length, call the pair terminal;
+its block is the single full word. Otherwise the pair has two genuine
+crossings. For every column through $v$, consider the rows whose first
+difference from $v$ occurs there and is smaller, respectively larger.
+Let $L_v,R_v$ be the largest means of these pieces, and put
+\[
+ F_v=\tfrac12\log_N\min\{L_v,R_v\},\qquad V_v=\ell_v.
+\]
+Both side means are positive. Their elementary comparison is
+\begin{equation}\label{eq:upper-side-scale}
+ \min\{L_v,R_v\}\ge\chi\mu_v,\qquad
+ M\le(2|v|+\chi^{-1})\max\{L_v,R_v\}.
+\end{equation}
+Indeed, each genuine crossing contributes a side piece of mean at
+least $\chi\mu_v$. The at most $2|v|$ first-difference pieces together
+with the prefix cylinder partition $R$ in expectation, giving the
+second inequality. In particular,
+$2F_v\ge V_v-\log(1/\chi)/\log N$.
+
+% Lean: Hypergeometric/AntiConcentration.lean: pointMass_le_four_div_sqrt;
+% Hypergeometric/Cylinder.lean: anchorCylinderTail;
+% lower_bound_v2/Thinning/Tails.lean: bernstein_of_transform, half_mean_of_transform.
+\begin{lemma}\label{lem:upper-atoms}
+If $Y$ is hypergeometric with population $n$, marked count $r$, and
+sample size $m$, then
+\[
+ \E Y=\frac{rm}{n},\qquad
+ \Var(Y)=\frac{rm(n-r)(n-m)}{n^2(n-1)}\quad(n\ge2).
+\]
+If $\sigma^2=\Var(Y)>0$, then $\sup_z\Pp(Y=z)\le4/\sigma$.
+A prefix count in any deterministic set of rows, with mean $\mu$,
+satisfies, for $t>0$,
+\[
+ \Pp(|X-\mu|\ge t)\le2\exp\left\{-\frac{t^2}{4(\mu+t)}\right\},
+ \qquad
+\Pp(X\le\mu/2)\le\exp\left\{-\frac{1-\log2}{2}\mu\right\}.
+\]
+\end{lemma}
+\begin{proof}
+The moment formulas follow by expanding a sum of marked-position
+indicators and using the one- and two-position sampling probabilities.
+For the atom estimate let $p_q=\Pp(Y=q)$ and define, within this proof,
+$b(x)=(r-x)(m-x)/n$ and
+$d(x)=x(n-r-m+x)/n$. The binomial coefficient formula gives detailed
+balance $b(q)p_q=d(q+1)p_{q+1}$, while
+$d(x)-b(x)=x-\E Y$. Telescoping therefore yields
+\[
+ b(q)p_q=\sum_{j\le q}(\E Y-j)p_j
+       \le\E|Y-\E Y|\le\sigma.
+\]
+Choose a mode $q$. Comparing its mass with the preceding mass by
+detailed balance gives $q\le\E Y+2$. Since
+$0\le r+m-q-\E Y\le2n$, expanding the quadratic $b$ gives
+$b(q)\ge b(\E Y)-4$. Also
+$b(\E Y)=\sigma^2(n-1)/n\ge\sigma^2/2$ when $n\ge2$.
+If $\sigma^2\ge16$, then $b(q)\ge\sigma^2/4$, and the displayed
+inequality gives $p_q\le4/\sigma$. If $\sigma^2<16$, use
+$p_q\le1\le4/\sigma$.
+
+For the prefix bound, expose successive independent uniform subsets
+corresponding to its digits. The falling-factorial expansion of the
+exponential transform gives the sampling bound for a nonnegative
+exponent. Apply the same expansion to the complement sample for a
+negative exponent, and then iterate the hypergeometric thinning.
+This gives $\E e^{tX}\le\exp\{\mu(e^t-1)\}$ for every real $t$.
+The centered transform and $e^t-1-t\le t^2$ for $|t|\le1$,
+with $|t|$ chosen as the deviation divided by $2(\mu+\text{deviation})$,
+give the two-sided bound. For the lower half-mean bound use
+$t=-\log2$ in the uncentered transform. An arbitrary deterministic
+row set has the same count law as a uniform row set of that size by
+permutation invariance, so the argument applies to the anchor $R$.
+\end{proof}
+
+% Lean: Anchor/Smoothing.lean: endpointSmoothing, endpointShiftHypergeometric,
+% smoothingFailure, endpointVariance; Anchor/ConditionalAtoms.lean.
+\begin{lemma}\label{lem:upper-smoothing}
+For a genuine boundary pair with join $v$ and any legal continuation
+$x$, there is a finite reveal containing the labeled prefix-$x$ rows
+and all their continuations such that both interval endpoints are
+known translates of the same hypergeometric variable. There is a
+good event measurable in that reveal whose complement has probability
+at most
+\[
+ 3\exp\left\{-\frac{1-\log2}{2}g\min(L_v,R_v)\right\}.
+\]
+On this event the conditional variance is at least
+\[
+ \frac{g\min(L_v,R_v)}{16(2|v|+\chi^{-1})}.
+\]
+Thus every conditional endpoint atom has mass at most
+$16\sqrt{(2|v|+\chi^{-1})/(g\min(L_v,R_v))}$.
+\end{lemma}
+\begin{proof}
+Choose columns attaining $L_v$ and $R_v$. The same columns attain
+these side means for every continuation $x$, since their
+first-difference pieces are unchanged. It suffices to describe the
+case $L_v\le R_v$; reflection interchanges the two sides, and the
+complement of a hypergeometric sample has the same variance.
+
+Suppose the left maximizing column is later than the right maximizing
+column $j$. Expose every column except $j$. Let $T$ be the rows of
+$R$ matching $x$ before $j$, and let $B\subseteq T$ be the rows whose
+full suffix through the end of $x$ is lexicographically less than
+the corresponding suffix of $x$. Expose column $j$ on
+$A=T\setminus B$. Set $p=\sum_{d\le x_j}p_d^{(j)}$ and let $a$
+be the number of exposed digits in $A$ at most $x_j$. The number
+of such digits in $B$ is conditionally
+$\operatorname{Hyp}(np-a,n-|A|,|B|)$. All other contributions to the
+lower endpoint are known; the upper endpoint differs by the known
+prefix count. Every prefix-$x$ row lies in $A$, so its continuation
+is indeed known.
+
+The set $B$ contains the left maximizing cylinder with column $j$
+omitted; its mean is $L_v/p_{x_j}^{(j)}$. Require this count and
+the remaining marked and unmarked counts to be at least half their
+respective means. Lemma~\ref{lem:upper-atoms} bounds the union of
+their failures by the asserted three lower-tail terms: each relevant
+mean is at least $gL_v$. On this event, the marked and unmarked
+fractions are at least $p/2$ and $(1-p)/2$, and the sample-complement
+fraction is at least $g$, because $A\cup B\subseteq R$.
+The variance is consequently at least
+$g|B|p(1-p)/4\ge gL_vR_v/(8M)$.
+
+If the left maximizing column $j$ is earlier, take $B$ to consist of
+the rows with larger full suffix through the end of $x$,
+and put $p=\sum_{d<x_j}p_d^{(j)}$. The same reveal leaves a
+hypergeometric variable with marked count $np$ less the exposed
+marked count. Now $B$ contains the right maximizing cylinder with
+column $j$ omitted. The identical half-mean estimates again give
+variance at least $gL_vR_v/(8M)$ and the same failure bound.
+
+If the maximizing columns agree at $j$, expose all other columns and
+the entire global set with digit $x_j$ in column $j$. Write
+$p=\sum_{d<x_j}p_d^{(j)}$, $q=\sum_{d>x_j}p_d^{(j)}$, and let
+$T$ be the rows of $R$ matching before $j$. On the unrevealed
+$n(p+q)$ positions, exactly $np$ are marked. With $B$ the rows of
+$T$ outside the exposed equal-digit set, the remaining variable is
+$\operatorname{Hyp}(np,n(p+q),|B|)$.
+Put $a=M\prod_{i<j}p_{x_i}^{(i)}$, so $L_v=ap$ and $R_v=aq$.
+Require $|B|\ge a(p+q)/2$ and at least $(n-M)(p+q)/2$
+non-equal digits outside $R$. These are two unconditional cylinder
+counts with the indicated means. Each mean is at least $gL_v$,
+so their failure probability is at most
+$2\exp\{-(1-\log2)gL_v/2\}$. On this event the hypergeometric
+mean is at least $L_v/2$, its unmarked fraction is at least $1/2$,
+and its sample-complement fraction is at least $g/2$. Its variance
+is at least $gL_v/8$.
+In the unequal cases use \eqref{eq:upper-side-scale}; in the equal
+case use $2|v|+\chi^{-1}\ge1$. The claimed common variance bound
+follows. Applying the explicit atom estimate $4/\sigma$ proves the
+last assertion.
+\end{proof}
+
+\subsection{Digit costs and stable intervals}
+Fix $\delta>0$. Within each nonterminal boundary join, stop a branch
+at its first prefix $x$ for which $\ell_x-F_v<\delta$; an immediate
+stop is allowed. The terminal margin ensures that every branch stops:
+at full depth, $\ell_x\le-\eta$ and
+$\ell_x-F_v\le-\eta/2+\log(1/\chi)/(2\log N)<\delta$ for large $N$.
+A proper stop has a parent with exponent at least $F_v+\delta$.
+It also satisfies $F_v\ge\delta-\log(1/\chi)/\log N$.
+
+For an extension from $v$ to $x$, let $S_x$ and $Q_x$ be its
+normalized logarithmic costs on digits of mass at least $\chi$ and
+less than $\chi$, respectively. Then
+\begin{equation}\label{eq:upper-cost-split}
+ \ell_x=V_v-S_x-Q_x,\qquad S_x,Q_x\ge0.
+\end{equation}
+Retain boundary words with at most
+$(\eta+7)\log N/\log(1/\chi)$ exceptional positions before their
+crossings, and retain extensions with at most
+$(\log(1/\chi))^{-1/2}\log N$ exceptional positions.
+Group the retained prefixes by their first pile, boundary words,
+length, exceptional positions and digits, good-cost bin of width
+$\eta/256$, and immediate/proper and large/small status. Here large
+means $\ell_x\ge2\delta$. Terminal classes are singletons.
+
+% Lean: FirstMoment/Count.lean, RetainedClasses.lean, Discard.lean,
+% Entropy.lean, ClassExponents.lean, UniformClassDensity.lean.
+\begin{lemma}\label{lem:upper-classes}
+Take $\delta=\eta/256$. For sufficiently small fixed $\chi>0$ and
+all sufficiently large $N$, the number of retained classes is at most
+$N^{\eta/64}$ and the expected number of discarded rows in each
+first pile is at most $N^{-(\eta+4)}$.
+For a retained class $\mathcal C$, write
+$H_{\mathcal C}=\log_N|\mathcal C|$. Every nonterminal class obeys
+\begin{equation}\label{eq:upper-class-entropy}
+ H_{\mathcal C}\le\theta S_x-B^{(N)}_\theta(M_v/\log N,M_x/\log N)
+       +\frac{\eta}{64}
+       +\frac{4\log k}{\sqrt{\log(1/\chi)}}
+       \qquad(3\le\theta\le4).
+\end{equation}
+If $p_x(m)=\Pp((m,m+1)\in G_x)$, then every retained class satisfies
+\begin{equation}\label{eq:upper-class-density}
+ |\mathcal C|\sum_m p_x(m)^2\le N^{-\eta/2}
+                  \qquad(x\in\mathcal C).
+\end{equation}
+All these estimates are uniform in the original array, first-column
+assignment, and retained class.
+\end{lemma}
+\begin{proof}
+A boundary is specified by its crossing position and digit and its
+exceptional positions and digits; every other digit is the fixed
+left or right default. For a word of length at most $T\log N$,
+the number of ways to choose at most $q$ exceptional positions and
+digits is at most $\sum_{j\le q}\binom{\lfloor T\log N\rfloor}j k^j$.
+The bound $\binom mj\le(em/j)^j$ shows that the logarithm of this
+quantity, divided by $\log N$, tends uniformly to zero as the
+allowed exceptional fraction tends to zero. Lengths and crossing
+times cost only powers of $\log N$, and the number of cost bins
+is bounded for fixed $\chi$. Applying this to both boundaries and
+the extension gives the class bound after choosing $\chi$ small.
+
+For one row, independence of its digits gives probability at most
+$(k\chi)^j$ for exceptional digits at $j$ prescribed positions.
+A union bound, followed by the same binomial estimate, bounds the
+expected discarded-row count. The boundary threshold contributes
+logarithmic exponent at most $1-(\eta+7)+o_\chi(1)$; the extension
+threshold contributes at most
+$1-\sqrt{\log(1/\chi)}+o_\chi(1)$. Their sum is at most
+$N^{-(\eta+4)}$ for sufficiently small $\chi$ and large $N$.
+
+Within a class, the nonexceptional digits determine the word.
+Their product tilted law, with digit probabilities proportional to
+$(p_d^{(j)})^\theta$, assigns to $x$ the mass
+$N^{-\theta S_x+B^G_\theta}$, where $B^G_\theta$ sums only over
+nonexceptional positions. All good costs in the class lie in one
+bin. Summing these tilted masses, whose total is at most one, yields
+\eqref{eq:upper-class-entropy}: the bin costs at most $4(\eta/256)$,
+and each removed coordinate costs at most $4\log k/\log N$.
+
+Every internal edge can be charged to a distinct pair of equal rows.
+The fixed-count falling-factorial bound therefore gives
+\[
+ \sum_m p_x(m)\le\tfrac12\mu_x^2N^{e_x},\qquad
+ \sum_m p_x(m)^2\le\tfrac14 N^{4\ell_x+2e_x}.
+\]
+For a full word the latter sum is also at most $\mu_x$.
+For a nonterminal block, condition as in
+Lemma~\ref{lem:upper-smoothing}. Its internal edge offsets are known
+under that reveal. For each offset, putting an edge at $m$ fixes
+the lower endpoint. The atom bound thus bounds the maximal edge
+probability on the good event by
+$16\sqrt{(2|v|+\chi^{-1})/g}\,N^{-F_v}$ times the expected internal
+edge count. Multiplying by the sum of edge probabilities, and
+charging the bad event at most twice at each of the $n-1$ positions,
+gives
+\begin{align*}
+ \sum_m p_x(m)^2
+ &\le4\sqrt{(2|v|+\chi^{-1})/g}\,N^{4\ell_x-F_v+2e_x}\\
+ &\quad+6(n-1)\exp\left\{-\frac{1-\log2}{2}g\min(L_v,R_v)\right\}.
+\end{align*}
+
+Put $q=\log(1/\chi)/\log N$ within this proof.
+For every $\theta\in[3,4]$, the identity
+\[
+ 4\ell_x-F_v+\theta S_x
+ =\theta V_v+(4-\theta)(\ell_x-F_v)
+                         +(3-\theta)F_v-\theta Q_x
+\]
+and $2F_v\ge V_v-q$ bound the right side by
+$(\theta+3)\beta^{(N)}(M_v/\log N)/2+\delta+q/2$.
+Using \eqref{eq:upper-class-entropy} and then taking the infimum
+in \eqref{eq:upper-empirical-margin} bounds the large-block exponent
+$H_{\mathcal C}+4\ell_x-F_v+2e_x$ by
+\[
+ -\eta+\delta+q/2+\eta/64+4\log k/\sqrt{\log(1/\chi)}.
+\]
+For a proper small block the parent stopping condition instead gives
+$S_x\le V_v-F_v+q\le\beta^{(N)}(M_v/\log N)/2+3q/2$.
+Its nonnegativity implies $\beta^{(N)}(M_v/\log N)\ge-3q$, whence
+\[
+ \theta S_x\le\tfrac{\theta+3}{2}\beta^{(N)}(M_v/\log N)+21q/2.
+\]
+Since $4\ell_x\le8\delta$, the small-block exponent is at most
+$-\eta+8\delta+21q/2+\eta/64+4\log k/\sqrt{\log(1/\chi)}$.
+For an immediate small block the class is a singleton and
+$\ell_x+e_x\le\beta^{(N)}(K/\log N)\le-\eta$, because
+$\psi_p(2)\ge a_p$. Its exponent is at most $-2\eta+4\delta$.
+A terminal block contributes at most $N^{-\eta}$.
+
+Choose $\chi$ also so that
+$4\log k/\sqrt{\log(1/\chi)}\le\eta/256$, and then take $N$
+large enough that $q\le\delta$. The large and proper-small
+exponents above are at most $-3\eta/4$. The square-root prefactor
+is at most $N^{\eta/16}$ eventually. In the large case, stability
+and $\ell_x\ge2\delta$ imply $F_v>\delta$, so its failure term,
+even multiplied by the total number $(K+1)k^K$ of possible prefixes,
+is at most $N^{-\eta}$. Finally absorb the sum of the two terms
+using $2\le N^{3\eta/16}$. This proves
+\eqref{eq:upper-class-density} in all four cases.
+\end{proof}
+
+\subsection{Estimating the first moment}
+% Lean: Localization/EndpointWindow.lean; Localization/RelevantParents.lean; Localization/Eventual.lean;
+% FirstMoment/ActiveCount.lean, GraphAssembly.lean: actualGraphAssembly;
+% FirstMoment/UniformGraph.lean: empiricalGraphDecay.
+\begin{proof}[Proof of Proposition~\ref{prop:upper-first}]
+We explain the localization needed to sum the class estimates.
+Put $d=K-a-1$. Express the endpoints using the smaller side of a
+genuine join and its cylinder count. Every one of these at most
+$d+1$ terms has mean at most $\chi^{-1}N^{2F_v}$.
+Lemma~\ref{lem:upper-atoms} and the union bound show that the
+probability either endpoint differs from its mean by more than $w$
+is at most
+\[
+ 2(d+1)\exp\left\{-\frac{w^2}
+                {4(d+1)^2(\chi^{-1}N^{2F_v}+w)}\right\}.
+\]
+For a proper stop, take $w=N^{F_v+\delta/4}$ and choose $N$ so that
+$\log(1/\chi)/\log N\le\delta/2$. Then $F_v\ge\delta/2$,
+and the last bound is at most $\exp\{-N^{\delta/8}\}$ uniformly.
+Call a block relevant at $m$ when its interval contains $m$ with
+probability at least $\exp\{-N^{\delta/16}\}$. This probability
+exceeds the endpoint failure bound. Since the block lies in its
+parent, some realization simultaneously places $m$ in the parent
+and both parent endpoints within $w$ of their means. Thus $m$ lies
+in the parent's mean interval enlarged by $w$ on each side.
+
+The parent of a proper stop has mean length at least
+$N^{F_v+\delta}>2w$. At a fixed depth the mean intervals are
+ordered and have disjoint interiors. At most two such enlarged
+intervals can contain $m$: if three did, the entire middle interval
+would fit in an interval of length $2w$. Each parent has at most
+$k$ children. Summing over depths gives at most $2kd$ relevant
+proper blocks for each boundary descriptor, with at most one
+additional immediate or terminal block. Thus at any edge the number of relevant retained
+blocks is at most
+$N^{\eta/64}(2k(K-a-1)+1)\le N^{\eta/32}$.
+The union bound over all possible prefixes makes the total omitted
+nonrelevant marginal at most $N^{-(\eta+4)}$ for large $N$.
+
+For completeness, the finite summation behind this reduction is as
+follows. Let $q_x(m)$ be the retained-block edge marginals and let
+the remaining error marginal at $m$ be the discarded-row marginal
+plus the total omitted marginal. At most $L$ retained marginals are
+active at one edge. Cauchy--Schwarz and $(u+v)^2\le2u^2+2v^2$ give
+\[
+ \E|G\cap G'|
+ \le4k^2 B+4(n-1)z^2+2L\sum_x\sum_m q_x(m)^2,
+\]
+where $B$ bounds the expected discarded-row count in every first
+pile and $z$ bounds the omitted marginal. The factor $k^2$ follows
+by summing the pile errors before squaring. This calculation uses
+$\E|G\cap G'|=\sum_m\Pp(m\in G)^2$, which follows from independence.
+
+Take $B=z=N^{-(\eta+4)}$ and $L\le N^{\eta/32}$.
+Equation~\eqref{eq:upper-class-density}, summed over the at most
+$N^{\eta/64}$ classes, bounds the double sum by
+$N^{\eta/64-\eta/2}$. Hence, for sufficiently large $N$,
+\[
+ \E|G\cap G'|\le
+ N^{-\eta}+2N^{3\eta/64-\eta/2}\le N^{-\eta/8}.
+\]
+All choices were made before $n,a,K$ and the column counts. Averaging
+over the first-column assignments therefore preserves the estimate.
+\end{proof}
+% UPPER FIRST MOMENT END
+
+% UPPER EXPONENTIAL BEGIN
+\section{The exponential moment}\label{sec:upper-exponential}
+\subsection{Preparatory estimates}
+Fix $k\ge2$, $T>0$, $0<\eta\le1$, $0<g<1/k$ and
+$0<\gamma\le1$. We consider a retained array of length at most
+$T\log N$, with empirical margin at least $2\eta$. Its first column
+is $g$-good, two further good columns occur within the next
+$D=\lceil6/\gamma\rceil$ columns, and every consecutive window of
+$\lceil\rho\log N\rceil+1$ columns contains at least
+$\gamma\rho\log N-2$ good columns. All randomness below is in the
+uniform assignments of these fixed column counts.
+
+The short tail prefix has length $\min\{D,K-1\}$. The two good
+columns in this prefix provide three
+ordered short words $v_-<v_0<v_+$, each of tail mass at least
+$g^2k^{-D}$. To see this, choose two ordered digits of mass at least
+$g$ in each of these columns and a maximal-mass digit in every other
+coordinate. Three of the four resulting words are strictly ordered
+and have the required masses. Choose the lexicographically first
+admissible triple; it depends only on the counts. Assign a full word
+to the forward direction when its short tail prefix is at most $v_0$,
+and to the backward direction when it is at least $v_0$.
+
+In a first-column pile $p$ of size $n_p$, reveal the sorted words
+from the left for the forward direction and from the right for the
+backward direction. The natural history $h_i$ consists precisely of
+the first $i$ words so revealed. The chronological order of their
+coordinates is unchanged in the backward exploration. We never add
+a global concentration event to a natural history.
+
+Let $H$ be the following event on one matrix. For every pile and
+later column, each digit count outside the pile differs from its
+mean by at most $N^{2/3}$. For every prefix $x$ with
+$\mu_x\ge N^{\eta/10}$, its count differs from $\mu_x$ by at most
+$\mu_x^{2/3}$, and each later digit count within that prefix differs
+from its count times the original digit proportion by at most
+$\mu_x^{2/3}$. Finally, in every pile of size at least $N^{\eta/10}$,
+the numbers of words strictly before and at or before $v_0$ differ
+from their means by at most $g^2k^{-D}n_p/4$.
+
+% Lean: Exploration/UniformConcentration.lean: uniformConcentration;
+% Exploration/HistoryProbability.lean: historyGoodProbability;
+% Exploration/Regularity.lean: historyGood_unionBound.
+\begin{lemma}\label{lem:upper-history-good}
+There exist $A,c_H>0$ and $N_0$, depending only on the fixed
+parameters, such that for $N\ge N_0$,
+\begin{equation}\label{eq:upper-H}
+ \Pp(H^c)\le AN^A\exp\{-c_H N^{\eta/30}\}.
+\end{equation}
+For any fixed pile, direction and reveal time, the probability of
+histories $h_i$ for which
+\begin{equation}\label{eq:upper-history-good}
+ \Pp(H^c\mid h_i)\le
+          \sqrt{AN^A\exp\{-c_H N^{\eta/30}\}}
+\end{equation}
+fails is at most the right side of \eqref{eq:upper-history-good}.
+The probability that it fails at any nonterminal positive reveal
+time in any pile or direction is at most $2N$ times that bound.
+\end{lemma}
+\begin{proof}
+Use the stronger simultaneous event obtained by prescribing an
+arbitrary set of allowed digits in every column. If such a cylinder
+has mean $\mu$, require its count to lie within
+$\max\{\mu,N^{\eta/10}\}^{2/3}/2$ of its mean.
+The transform proof of Lemma~\ref{lem:upper-atoms} applies equally
+to allowed-digit sets. Substituting this tolerance in its tail
+bound shows that each test fails with probability at most
+$2\exp\{-N^{\eta/30}/24\}$.
+There are exactly $(2^k)^K$ tests. Their simultaneous failure
+probability is therefore at most
+$2(2^k)^K\exp\{-N^{\eta/30}/24\}$.
+
+This stronger event implies $H$ deterministically. Outside-pile
+digit counts are allowed-digit cylinders of mean at most $N$.
+For a prefix of mean $\mu_x\ge N^{\eta/10}$, both its count and
+the count obtained by prescribing one later digit have errors at
+most $\mu_x^{2/3}/2$. Subtract the original digit proportion times
+the first error from the second; their sum is at most
+$\mu_x^{2/3}$. Each guard is a sum of at most $k^D$ short-cylinder
+counts. In a pile with $n_p\ge N^{\eta/10}$, all their means are
+at most $n_p$, so its error is at most $k^D n_p^{2/3}/2$.
+For large $N$,
+$2k^D/(g^2k^{-D})\le N^{\eta/30}\le n_p^{1/3}$,
+which makes this at most the required $g^2k^{-D}n_p/4$.
+Finally $(2^k)^K\le N^{kT\log2}$. This proves
+\eqref{eq:upper-H}, with the permissible explicit choices
+$A=2+kT\log2$ and $c_H=1/24$.
+
+The expectation of $\Pp(H^c\mid h_i)$ is $\Pp(H^c)$, by summing
+over the finite history fibers. Markov's inequality proves the
+single-history assertion. There are $2\sum_p n_p=2N$ pile-direction
+reveal indices, so the final assertion follows by the union bound.
+\end{proof}
+
+Choose $0<\tau<g$ and write
+$\alpha=\log(1/g)/\log(1/\tau)$. We take $\tau$ so small that
+\begin{equation}\label{eq:upper-alpha}
+ \alpha<\tfrac12,\qquad
+ \alpha\le\frac{\eta/10}{4(1+\eta/10)},\qquad
+ \alpha\le\frac{\eta}{40(1+\eta)}.
+\end{equation}
+This choice precedes $\rho,N$, the array, and the history. Denote by
+$\lambda_x$ the product probability of a prefix $x$, so
+$\mu_x=N\lambda_x$.
+
+% Lean: Reservoir/PrefixCount.lean: prefixCount; Reservoir/ExtraCopies.lean: extraCurrentCopies;
+% Reservoir/TailCollisions.lean: tailCollisions; Reservoir/BackwardCounts.lean.
+\begin{lemma}\label{lem:upper-reservoir}
+There exist $C>0$ and $N_0$, depending only on the fixed parameters,
+with the following property for $N\ge N_0$.
+Fix a positive-probability natural history ending at word $s$ in its
+assigned direction, and suppose $\Pp(H^c\mid h_i)\le\varepsilon$,
+where $\varepsilon\ge0$. Every prefix cylinder $x$ strictly beyond $s$ in this
+direction and contained in its first pile satisfies
+\begin{align}
+ \E[C_x\mid h_i]&\le CN\lambda_x^{1-\alpha}+N\varepsilon,
+                                           \label{eq:upper-reservoir-count}\\
+ \E\left[\sum_{w\succeq x}\binom{C_w}{2}\,\middle|\,h_i\right]
+ &\le CN^2\lambda_x^{2(1-\alpha)}
+       \prod_{j>|x|}\sum_d(p_d^{(j)})^{2(1-\alpha)}
+                  +N^2\varepsilon.          \label{eq:upper-reservoir-pairs}
+\end{align}
+If $t$ copies of the current word $s$ have been observed, then also
+\begin{equation}\label{eq:upper-extra-copies}
+ \E[(C_s-t)_+\mid h_i]
+       \le CN\lambda_s^{1-\alpha}+N\varepsilon.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We give the forward proof. Mark one or two labeled rows of the
+initial pile and expose all other pile rows. Keep all outside-pile
+rows unexposed. In each later column, if $m\in\{1,2\}$ rows are
+marked, the remaining population has size $N-n_p+m$. Conditional
+on the exposed values, its assignments are uniform with the exact
+remaining counts and independent between columns. This follows
+by counting completions of each column; the number of completions
+is the corresponding multinomial coefficient.
+
+Deleting marked rows which lie strictly after the observed prefix
+leaves that prefix valid. Completing the marked rows inside the
+right reserve $v_+$ therefore preserves the history. On every
+exposed fiber meeting $H$, its residual reserve counts differ from
+their means by at most $N^{2/3}+m$. Since $N-n_p\ge gN$ and
+the reserve depth is fixed, the product of the relevant falling-
+factorial ratios is at least $(g^2k^{-D})^m/2$ for large $N$.
+This gives a positive, uniform lower bound for the history denominator
+on such a fiber.
+
+For the numerator, a prescribed digit of mass $p\ge\tau$ has
+residual proportion at most $p(1+CN^{-1/3})$, by the outside-pile
+concentration bound. A digit of mass $p<\tau$ has residual
+proportion at most $p/g$, because the remaining population has
+size at least $gN$. The identity $\tau^\alpha=g$ gives
+$p/g\le p^{1-\alpha}$ in the latter case; in the former,
+$p\le p^{1-\alpha}$. For $m=1,2$, the exact sampling factor is
+no larger than the $m$th power of that residual proportion.
+Multiplying over at most $T\log N$ columns costs at most $2^m$
+for large $N$. The numerator is consequently bounded by
+$2^m$ times the prescribed product mass to power $m(1-\alpha)$.
+
+Divide by the reserve lower bound and then average the exposed
+information back down to the natural history. Summing the one-row
+bound over labeled rows gives \eqref{eq:upper-reservoir-count}.
+Summing the two-row bound over pairs and their common full tail
+gives \eqref{eq:upper-reservoir-pairs}; the full-tail sum factorizes
+into the displayed product. The bad part is charged once, before
+this summation: a count is at most $N$ and the total number of
+pairs at most $N^2$, so its costs are $N\varepsilon$ and
+$N^2\varepsilon$, respectively. In particular there is no error
+factor counting terminal words.
+
+For the current word, mark only a removable copy: after deleting it,
+the $t$ observed copies must remain. The number of removable copies
+dominates $(C_s-t)_+$. Complete it in the right reserve as before,
+and apply the same one-row calculation. This proves
+\eqref{eq:upper-extra-copies}, including the possible edge from the
+last observed copy to the first unobserved copy. For the backward
+direction use the left reserve and the reversed spatial inequalities.
+The columns themselves retain their chronological order.
+\end{proof}
+
+% Lean: Reservoir/ConditionalFutureCylinderLaw.lean: conditionalFutureCylinderLaw,
+% conditionalFutureCylinderLaw_unlabeled; Conditional/Jensen.lean;
+% Conditional/GraphSquares.lean: fineBlockSquares_le_firstMoment.
+\begin{lemma}\label{lem:upper-induced-law}
+Let a finite family of disjoint prefix cylinders lie strictly beyond
+the last word of a natural history. Refine the history by revealing
+their labeled row sets, their rank intervals, and their counts of
+each digit in each later column, together with the matrix outside
+their interiors. Conditional on this information, the internal
+graph of any cylinder has the law obtained from independent uniform
+fixed-count tail columns with its induced counts, translated by its
+known lower rank. The same statement holds after averaging out the
+labeled row sets while retaining the induced counts and intervals.
+\end{lemma}
+\begin{proof}
+Inside one specified cylinder all its prefix coordinates are fixed.
+The natural history concerns words strictly outside it, so it places
+no further order condition on its interior. After the outside matrix
+and inside column counts are fixed, every compatible assignment of
+one tail column inside has the same number of full completions.
+Counting independently in each column therefore gives the uniform
+product of its fixed-count column laws. Sorting inside the cylinder
+sorts precisely these tail words; its lower rank supplies the
+deterministic translation. Permuting the labels within the fixed
+row set does not change that graph law. Hence every labeled atom
+with the same counts and interval has the same conditional graph
+law, and averaging these atoms proves the unlabeled assertion.
+\end{proof}
+
+\subsection{The exploration}
+For independent matrices, let $X_i^{p,\pm}$ count the common
+directional edges in pile $p$ with both endpoints among its first
+$i$ revealed vertices. Use the identically zero process if
+$n_p<N^{\eta/10}$. Each process starts at zero and has increments
+zero or one. Its pair history consists of the two natural histories
+in the same pile and direction. The remaining count is
+$X_{n_p}^{p,\pm}-X_i^{p,\pm}$; at time $i$ it includes the edge
+crossing from the last revealed vertex to the next vertex.
+A pair history is good if each of its two histories satisfies
+\eqref{eq:upper-history-good}; declare time zero and terminal time
+good without further restrictions.
+
+% Lean: Contracts/V1/Conditional.lean: C; Conditional/Main.lean: remainingCommonEdges;
+% Conditional/OneHistory.lean: oneHistory_uniform; Conditional/Parameters.lean.
+\begin{proposition}\label{prop:upper-conditional}
+Under the fixed parameters and retained-array hypotheses of this
+section, there is $\rho_0>0$ such that every fixed
+$0<\rho\le\rho_0$ admits $A,c_H,C>0$ and $N_0\ge2$ for which
+\eqref{eq:upper-H} holds and, on every positive-probability good
+pair-history fiber in a pile of size at least $N^{\eta/10}$,
+\begin{equation}\label{eq:upper-conditional}
+ \E[X_{n_p}^{p,\pm}-X_i^{p,\pm}\mid h_i,h'_i]
+                          \le CN^{-3\eta/80}
+                         \qquad(0\le i\le n_p).
+\end{equation}
+At $i=n_p$ the remaining count is identically zero. All constants
+are chosen before the array, pile, direction, and history.
+\end{proposition}
+\begin{proof}
+Choose $\tau$ according to \eqref{eq:upper-alpha}, and take
+$\rho\log k\le3\eta/160$. Fix one positive history with current
+word $s$. If $s$ is outside its assigned direction, no directional
+edge remains. Otherwise partition the strict future in that pile
+into prefix cylinders. Following the two boundary paths of the
+lexicographic interval gives at most $2kK$ disjoint cylinders.
+If at least $\lceil\rho\log N\rceil+1$ columns remain after a
+prefix, refine it to just before a good column in the next such
+window. The integer-window condition and the three-index argument
+used in Lemma~\ref{lem:upper-restart} provide that column. Each
+refinement adds at most $\lceil\rho\log N\rceil+1$ coordinates.
+The resulting disjoint family $\mathcal B$ therefore has size at
+most
+\begin{equation}\label{eq:upper-future-count}
+ 2k^3T(\log N)N^{\rho\log k}.
+\end{equation}
+Each member either has a good next column or has fewer than that
+many remaining columns. In the latter case its maximal tail mass
+is at least $k^{-\lceil\rho\log N\rceil-1}$, whereas its mean
+times that tail mass is at most $N^{-\eta}$. Its mean is thus
+less than $N^{-\eta/10}$ for large $N$.
+
+Let $q_e(h_i)$ be the conditional probability of a remaining
+directional edge at position $e$. Refine the history only for this
+estimate, using the family information in
+Lemma~\ref{lem:upper-induced-law}. Conditional Jensen gives
+\[
+ \sum_e q_e(h_i)^2
+ \le\E\left[\sum_e q_e(h_i,Z)^2\,\middle|\,h_i\right].
+\]
+The refined edge slots split into the remaining current-word run
+and the disjoint cylinder interiors. An equal-word edge cannot
+cross between two distinct cylinders. The current-run contribution
+is bounded by \eqref{eq:upper-extra-copies}. For the final cylinders,
+after refinement, use three regimes.
+
+If $\mu_x\le N^{-\eta/10}$, the sum of squared edge probabilities
+is at most the expected vertex count. By
+\eqref{eq:upper-reservoir-count} it is at most
+\[
+ CN^{-\eta/10+\alpha(1+\eta/10)}+N\varepsilon
+                   \le CN^{-3\eta/40}+N\varepsilon.
+\]
+If $N^{-\eta/10}<\mu_x\le N^{\eta/10}$, it is at most the
+expected number of equal-word pairs. Write
+$q_* =\prod_{j>|x|}\max_d p_d^{(j)}$.
+The terminal margin gives $\mu_xq_*\le N^{-\eta}$, hence
+$q_*\le N^{-\eta+\eta/10}$. Since $2(1-\alpha)>1$,
+\[
+ \prod_{j>|x|}\sum_d(p_d^{(j)})^{2(1-\alpha)}
+                         \le q_*^{1-2\alpha}.
+\]
+Equation~\eqref{eq:upper-reservoir-pairs} bounds this regime by
+\[
+ CN^{-\eta+3\eta/10+2\alpha(1+\eta-2\eta/10)}+N^2\varepsilon
+                         \le CN^{-3\eta/5}+N^2\varepsilon.
+\]
+
+Finally, suppose $\mu_x>N^{\eta/10}$. Such a cylinder has a good
+next column. On $H$, its size $m$ and later digit counts satisfy
+\[
+ \tfrac12\mu_x\le m\le2\mu_x,\qquad
+ \max_{j,d}|p_{d,\mathrm{ind}}^{(j)}-p_d^{(j)}|
+                            \le2N^{-\eta/30}.
+\]
+For two simplex vectors at sup-distance at most $z$, the scalar
+cost bounds are
+$|a_p-a_q|\le kz$ and
+$|\psi_p(\theta)-\psi_q(\theta)|\le4k^4z$ for $2\le\theta\le4$.
+Indeed, their maxima are at least $1/k$, their power sums are at
+least $k^{-3}$, the logarithm is Lipschitz above these lower bounds,
+and $|x^\theta-y^\theta|\le4|x-y|$ on $[0,1]$.
+Thus replacing the suffix population by the induced one loses at
+most
+\[
+ \frac72\left(\frac{\log2}{\log N}+2kT N^{-\eta/30}\right)
+                         +24k^4T N^{-\eta/30}
+\]
+in its empirical expression. The maximal-prefix inequality
+$\mu_x\le N\prod_{j\le|x|}\max_d p_d^{(j)}$ supplies the required
+bound on its initial population exponent. The original margin
+$2\eta$ therefore leaves margin $\eta$ in the induced array, and
+its first column is $g/2$-good, for large $N$.
+Lemma~\ref{lem:upper-induced-law} and
+Proposition~\ref{prop:upper-first} bound its conditional
+self-intersection by $N^{-\eta/8}$ on these good family atoms.
+Their complement has conditional probability at most $\varepsilon$,
+since the natural history is good and $H$ implies the needed
+conditions. Its contribution is at most $N\varepsilon$.
+
+The current word has mean at most $N^{-\eta}$, so
+\eqref{eq:upper-extra-copies} bounds its excess by
+$CN^{-\eta+\alpha(1+\eta)}+N\varepsilon$.
+Combining the regimes, using \eqref{eq:upper-future-count}, and
+taking $\varepsilon=\sqrt{AN^A e^{-c_HN^{\eta/30}}}$, gives
+\[
+ \sum_e q_e(h_i)^2\le
+ CN^{-3\eta/40}
+ +C(\log N)N^{\rho\log k}
+       \bigl(N^{-3\eta/40}+N^{-3\eta/5}+N^{-\eta/8}
+                                      +N^2\varepsilon\bigr)
+ \le CN^{-3\eta/80}.
+\]
+The last step uses $\rho\log k\le3\eta/160$ and
+$\log N\le N^{3\eta/160}$ eventually; the stretched exponential
+absorbs every polynomial factor.
+
+The two matrices remain independent when their separate histories
+are fixed. Thus the expected remaining common count is
+$\sum_e q_e(h_i)q_e(h'_i)$, bounded by half the sum of their two
+self-intersections. This proves \eqref{eq:upper-conditional} at
+positive nonterminal times. At time zero the remaining directional
+count is bounded by the total common-edge count, so
+Proposition~\ref{prop:upper-first} applies directly. The terminal
+count is zero by definition. The backward proof uses the same
+argument with the spatial order reversed.
+\end{proof}
+
+\subsection{Proof of the exponential estimate}
+% Lean: Exponential/Stopping.lean; Exponential/Moments.lean;
+% Exponential/Excess.lean: adaptedExcess.
+\begin{lemma}\label{lem:upper-adapted}
+On a finite probability space let $(\mathcal F_i)_{0\le i\le m}$
+be an increasing filtration, let $X_0=0$ be an adapted process with
+increments in $\{0,1\}$, and let $B_i\in\mathcal F_i$.
+Suppose that for every $i<m$, on every positive-probability
+$\mathcal F_i$-atom contained in $B_i$,
+\[
+ \E[X_m-X_i\mid\mathcal F_i]\le u,
+ \qquad u\ge0.
+\]
+For $t\ge0$ with $(e^t-1)u<1$ and any event
+$C\subseteq\bigcap_{i=0}^m B_i$,
+\begin{equation}\label{eq:upper-adapted}
+ \E[(e^{tX_m}-1)\mathbf1_C]
+                  \le\frac{(e^t-1)u}{1-(e^t-1)u}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Set $D_i=\bigcap_{h=0}^iB_h$ and
+$Z_i=\sum_{j=1}^i(X_j-X_{j-1})\mathbf1_{D_j}$.
+Then $Z$ is adapted, has unit increments, and
+$Z_m-Z_i\le\mathbf1_{D_i}(X_m-X_i)$. Therefore its conditional
+expected remainder is at most $u$ on every positive-probability
+history atom, without a good-event restriction.
+
+For every integer $r\ge0$ we claim
+$\E[\binom{Z_m-Z_i}{r}\mid\mathcal F_i]\le u^r$.
+The claim is immediate for $r=0$. For $r\ge1$, the pathwise identity
+\[
+ \binom{Z_m-Z_i}{r}=
+ \sum_{j=i+1}^m(Z_j-Z_{j-1})\binom{Z_m-Z_j}{r-1}
+\]
+counts an $r$-tuple of future successes by its first success.
+Condition each summand on $\mathcal F_j$, apply the induction
+hypothesis to the second factor, then condition on $\mathcal F_i$.
+The conditional first-moment bound proves the claim.
+The binomial theorem now gives
+\[
+ \E(e^{tZ_m}-1)
+ \le\sum_{r\ge1}((e^t-1)u)^r
+       =\frac{(e^t-1)u}{1-(e^t-1)u}.
+\]
+On $C$ no increment was discarded, so $Z_m=X_m$; outside $C$
+the exponential excess is nonnegative. This proves the result.
+\end{proof}
+
+% Lean: Exponential/FiniteTV.lean: finiteExplorationTV_of_majorization,
+% finiteExplorationTV; Exponential/Aggregation.lean: finiteExplorationExcess.
+\begin{proposition}\label{prop:upper-exponential}
+Let $S$ be an event on one matrix whose graph components have size
+at most $B\ge2$. Suppose $d\ge1$ separate explorations on the pair
+of matrices satisfy Lemma~\ref{lem:upper-adapted} with common bound
+$u$, and that on $S\times S$ all their good events hold and
+$|G\cap G'|\le\sum_{a=1}^d X_{m_a}^{(a)}$.
+Put $b=\binom B{\lfloor B/2\rfloor}$. If $(b^d-1)u<1$, then
+\[
+ \dTV(P_N^K,\nuUnif)
+ \le\frac12\sqrt{\frac{(b^d-1)u}{1-(b^d-1)u}}+\Pp(S^c).
+\]
+\end{proposition}
+\begin{proof}
+For nonnegative $x_1,\ldots,x_d$, convexity of the exponential gives
+$b^{\sum_a x_a}-1\le d^{-1}\sum_a(b^{d x_a}-1)$.
+Apply this on $S\times S$ and then apply
+Lemma~\ref{lem:upper-adapted} separately to each exploration with
+$t=d\log b$ and $C=S\times S$. It bounds the expected truncated
+excess $b^{|G\cap G'|}-1$ by $(b^d-1)u/(1-(b^d-1)u)$.
+Lemmas~\ref{lem:upper-overlap} and \ref{lem:upper-truncation}
+then give the asserted total variation bound. No common filtration
+for the separate explorations is required.
+\end{proof}
+
+% Lean: Exploration/UniformRegularity.lean, DirectionalCover.lean, SmallPiles.lean;
+% EmpiricalUpper/ExplorationTV.lean: concreteExplorationTV.
+We finish by checking the truncation used in the proof of
+Theorem~\ref{thm:upper-empirical}. Let $\mathcal R$ be the event
+that $H$ holds, every positive nonterminal history in every pile
+and direction satisfies \eqref{eq:upper-history-good}, and every
+pile smaller than $N^{\eta/10}$ is edge-free. The expected number
+of equal-word pairs in such a pile is at most
+$n_p\mu_*/2$. Summing over at most $k$ small piles gives
+\[
+ \Pp(\mathcal R^c)\le AN^A e^{-c_HN^{\eta/30}}
+      +2N\sqrt{AN^A e^{-c_HN^{\eta/30}}}
+      +\frac{k}{2}N^{\eta/10-2\eta}.
+\]
+The guard concentration ensures the directional cover for two
+matrices: their middle-cylinder rank intervals overlap, because
+their common expected gap is at least $g^2k^{-D}n_p$ whereas the
+two endpoint errors total at most $g^2k^{-D}n_p/2$.
+Thus an edge common to both matrices is assigned to a common
+direction in its pile. Small piles contribute no edges on
+$\mathcal R$. Hence
+$|G\cap G'|\le\sum_{p,\pm}X_{n_p}^{p,\pm}$ on
+$\mathcal R\times\mathcal R$.
+The natural pair histories refine with time, the edge processes
+are adapted and have unit increments, and their good events are
+history measurable. Proposition~\ref{prop:upper-conditional}
+provides every conditional remainder bound, including time zero.
+Intersecting $\mathcal R$ with the bounded-component event therefore
+verifies all hypotheses of Proposition~\ref{prop:upper-exponential}.
+This completes the upper-bound argument.
+% UPPER EXPONENTIAL END
+

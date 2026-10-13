@@ -1,0 +1,286 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\Unif}{\mathrm{Unif}}
+\newcommand{\dTV}{d_{\TV}}
+\newcommand{\nuUnif}{\nu_{\Unif}}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\Hh}{\mathsf H}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Cov}{Cov}
+\title{Time-Inhomogeneous Riffle Shuffling}
+\author{}
+\date{}
+\makeatletter
+\renewcommand{\maketitle}{\begin{center}{\LARGE\@title\par}\end{center}\vspace{1em}}
+\makeatother
+\begin{document}
+\maketitle
+\begin{abstract}
+We study riffle shuffles with deterministic pile sizes whose distribution may
+vary on the time scale $\log N$. We prove uniform upper and lower bounds in
+total variation in terms of two quantities: the size of the largest word
+class and a variational expression describing cold spots. A fixed negative
+margin gives mixing, whereas a fixed positive margin gives distance tending
+to one, under the stated local nondegeneracy conditions. The estimates are
+first obtained directly from the finite sequence of pile sizes. They then
+transfer to time-dependent profiles under scalar integrability and local
+empirical approximation. The upper bound also applies to random pile sizes
+by averaging. The proofs use exact sampling with prescribed column counts,
+conditional exploration of the shuffle graph, and an ascent test on
+localized collision sets.
+\end{abstract}
+
+\section{Introduction}
+
+A riffle shuffle cuts a deck into ordered piles and interleaves them
+uniformly, preserving the order within each pile. Its inverse has a useful
+description: assign each card a pile label, uniformly subject to the pile
+sizes, and sort by that label while preserving ties. Iterating this
+description encodes the shuffle by a matrix whose columns are independent
+and have prescribed counts. Equal row words record the part of the initial
+order which has survived the shuffles.
+
+The distribution of the pile sizes need not be constant in time. A deck may
+first undergo nearly balanced cuts, then strongly asymmetric cuts, or pass
+through intervals with different empirical distributions. In this setting,
+the time at which a group of cards is formed matters as well as its final
+size. The analysis therefore involves costs accumulated over subintervals
+of the shuffling history.
+
+\subsection{Main results}
+
+Fix $k\ge2$ and $N\ge2$. All logarithms are natural. A cut array
+consists of nonnegative integers $n_i^{(j)}$ with
+$\sum_{i=0}^{k-1}n_i^{(j)}=N$. Write
+$p^{(j)}=(n_0^{(j)},\ldots,n_{k-1}^{(j)})/N$ for its pile proportions.
+Let $P_N^K$ denote the law of the inverse of the chronological
+composition of the first $K$ shuffles, started from the identity deck,
+and let $\nuUnif$ be uniform on permutations of $N$ cards.
+Inversion preserves total variation, so every bound below also holds
+for the forward shuffle. We write $\dTV$ for total-variation distance.
+
+For $p\in D_k=\{p\in[0,1]^k:\sum_i p_i=1\}$, write
+\[
+ a_p=\log\frac1{\max_i p_i},\qquad
+ \psi_p(\theta)=-\log\sum_i p_i^\theta.
+\]
+A time profile $(\mu_t)$ is a family of probability measures on $D_k$.
+Let $A(r,s)=\int_r^s\E_{\mu_t}a_p\,dt$ and
+$B_\theta(r,s)=\int_r^s\E_{\mu_t}\psi_p(\theta)\,dt$.
+The two relevant margins are
+\begin{align*}
+ \Lambda_0(T)&=1-A(0,T),\\
+ \Lambda_1(T)&=\sup_{0\le s\le u\le T}\inf_{\theta\in[3,4]}
+ \left\{\frac{\theta+3}{2}\bigl(1-A(0,s)\bigr)
+       -B_\theta(s,u)-2B_2(u,T)\right\}.
+\end{align*}
+
+A column is $g$-good if two distinct piles each contain at least
+$gN$ cards. The local $(g,\gamma,\rho)$-good condition on $[r,T]$
+requires at least $\gamma\rho\log N$ good columns with
+$j/\log N\in[a,a+\rho]$, for every real $a$ with
+$[a,a+\rho]\subseteq[r,T]$.
+Regular partitions, scalar integrability, and almost-likeness mean
+\eqref{eq:partition-regularity}, \eqref{eq:scalar-integrability}, and
+\eqref{eq:almost-like}, respectively. The same selected partition is
+used in these conditions. Almost-likeness asks that its cell frequencies
+on each $\rho$-grid interval approximate the integrated profile masses,
+with error at most $\varphi$ times the interval length plus $1/\log N$.
+
+Our main upper and lower bounds apply on opposite sides of the zero
+margin. Their proofs are given in Sections~\ref{sec:upper-bound}
+and~\ref{sec:lower-bound}.
+
+\begin{theorem}[Buffered profile upper bound]\label{thm:upper-profile}
+Fix $k\ge2$, $T>0$ and $\eta>0$. There exists $\chi_0>0$ such that,
+for every $0<\chi\le\chi_0$ and every regular Borel partition $\mathcal P$ of
+mesh $\chi$ with regularity constant $1$, the following holds.
+For every $0<g<1/k$ and $\gamma>0$, there exists $\rho_0>0$ such
+that each $0<\rho\le\rho_0$ admits $\varphi_0>0$. Fix
+$0<\varphi\le\varphi_0$. Let $\mu$ satisfy the scalar-integrability
+condition for this partition on $[0,T]$, and suppose
+\[
+ \max\{\Lambda_0(T),\Lambda_1(T)\}\le-\eta.
+\]
+For every $\varepsilon>0$, all sufficiently large $N$ and every array
+with $K=\lfloor T\log N\rfloor$ which is
+$(\mathcal P,\rho,\varphi)$-almost like $\mu$ on $[0,T]$ and locally
+$(g,\gamma,\rho)$-good on $[0,T]$ satisfy
+\[
+ \dTV(P_N^K,\nuUnif)\le\varepsilon.
+\]
+The partition and all meshes are fixed before $\mu$ and $N$.
+\end{theorem}
+
+\begin{theorem}[Macroscopic lower bound]\label{thm:macroscopic-lower}
+Fix $k\ge2$, $T>0$ and $\eta>0$. There are $0<\chi<1/k$, a $\chi$-regular finite Borel
+partition $\mathcal R$ with regularity constant $1$, and $\rho_0>0$ such that
+\[
+ 2\rho_0\log k\le\frac1{100}\min\{\eta/200000,1/1000\}.
+\]
+For every $0<\rho\le\rho_0$ there exists $\varphi_0>0$ with the following
+property. Fix $0<\varphi\le\varphi_0$, $\chi_g,\gamma>0$, and a time
+profile $\mu$ satisfying the scalar integrability condition~\eqref{eq:scalar-integrability} on $[0,T]$ for $\mathcal R$. If
+\[
+ \max\{\Lambda_0(T),\Lambda_1(T)\}\ge\eta,
+\]
+then, for every $\varepsilon>0$, there is $N_0\ge2$ such that all
+$N\ge N_0$ and all cut arrays with $K=\lfloor T\log N\rfloor$ which are
+$(\mathcal R,\rho,\varphi)$-almost like $\mu$ on $[0,T]$ and satisfy the local
+good-column condition with parameters $\chi_g,\gamma,\rho$ on $[0,T]$
+have $\dTV(P_N^K,\nuUnif)\ge1-\varepsilon$. In particular the distance
+tends to one for every sequence of arrays eventually satisfying these
+fixed hypotheses, even if the applicable empirical alternative varies
+with $N$.
+\end{theorem}
+
+The finite-array versions of these results use the actual sequence of
+pile sizes. Put $S_N=K/\log N$ and let $p_N(t)=p^{(j)}$ on
+$((j-1)/\log N,j/\log N)$. Define
+\[
+ A^{(N)}(r,s)=\int_r^s a_{p_N(t)}\,dt,\qquad
+ B^{(N)}_\theta(r,s)=\int_r^s\psi_{p_N(t)}(\theta)\,dt
+ \quad(0\le r\le s\le S_N),
+\]
+and
+\begin{align*}
+ \beta^{(N)}(s)&=1-A^{(N)}(0,s),\\
+ \Lambda_1^{(N)}&=\sup_{0\le s\le u\le S_N}\inf_{\theta\in[3,4]}
+ \left\{\frac{\theta+3}{2}\beta^{(N)}(s)
+       -B^{(N)}_\theta(s,u)-2B^{(N)}_2(u,S_N)\right\}.
+\end{align*}
+For the upper bound, empirical margin at least $\eta$ means
+$\beta^{(N)}(S_N)\le-\eta$ and that the infimum in this display
+is at most $-\eta$ for every grid pair
+$s=i/\log N$, $u=j/\log N$, $0\le i\le j\le K$.
+The lower bound uses the displayed supremum over all real endpoints.
+
+\begin{theorem}[Empirical upper bound]\label{thm:upper-empirical}
+Fix $k\ge2$ and $T,\eta_0,g_0,\gamma_0>0$. There exists $\rho_0>0$
+such that, for every fixed $0<\rho\le\rho_0$, there exist $c>0$ and
+$N_0\ge2$ with the following property. For $N\ge N_0$ and
+$K\le T\log N$, suppose the deterministic array on $N$ labels has
+empirical margin at least $\eta_0$ and satisfies the local
+$(g_0,\gamma_0,\rho)$-good condition on $[0,K/\log N]$. Then
+\begin{equation}\label{eq:upper-empirical-tv}
+ \dTV(P_N^K,\nuUnif)\le N^{-c}.
+\end{equation}
+The choices of $c,N_0$ precede the cut array and the horizon $K$.
+\end{theorem}
+
+\begin{theorem}[Empirical lower bound]\label{thm:empirical-lower}
+Fix $k\ge2$, $T>0$, positive margins $\eta_0,\eta_1$ and arbitrary real parameters
+$\chi_g,\gamma,\rho$. For every $\varepsilon>0$, there is $N_0\ge2$ such
+that all $N\ge N_0$ and all deterministic cut arrays with $K=\lfloor T\log N\rfloor$ have
+$\dTV(P_N^K,\nuUnif)\ge1-\varepsilon$ whenever either
+\[
+ \beta^{(N)}(S_N)\ge\eta_0,
+\]
+or all of the following hold:
+\[
+ \chi_g,\gamma,\rho>0,\qquad
+ 2\rho\log k\le\frac1{100}\min\{\eta_1/100000,1/1000\},\qquad
+ \Lambda_1^{(N)}\ge\eta_1,
+\]
+and the cut array satisfies the local good-column condition with
+parameters $\chi_g,\gamma,\rho$ on $[0,T]$.
+\end{theorem}
+
+\subsection{Consequences and discussion}
+
+The macroscopic upper and lower bounds retain a fixed buffer away from
+zero. They do not require a measurable probability kernel in time. Instead,
+they require integrability of the scalar functions which enter the
+argument: the cell probabilities of the selected partition, the maximal
+cost, and the power-sum costs for $\theta\in[2,4]$.
+
+\begin{corollary}[Critical-time upper bound]\label{cor:upper-critical}
+Suppose a consistent infinite sequence of cuts is specified for each
+$N$, and these arrays admit arbitrarily fine approximations to $\mu$:
+for each $T>0$ and each mesh bound $\chi_*>0$ there are
+$0<\chi\le\chi_*$, a $\chi$-regular partition with constant $1$ satisfying
+scalar integrability, and $g,\gamma,\bar\rho>0$, with $g<1/k$,
+such that for every $0<\rho\le\bar\rho$ and every $\varphi>0$ the
+arrays at horizon $\lfloor T\log N\rfloor$ are eventually almost
+like $\mu$ and locally good with these parameters. For every $t\ge0$ with
+\[
+ t>\inf\{T>0:\max\{\Lambda_0(T),\Lambda_1(T)\}<0\},
+ \qquad \inf\varnothing=+\infty,
+\]
+we have $\dTV(P_N^{\lfloor t\log N\rfloor},\nuUnif)\to0$.
+Moreover, for every $0<\varepsilon<1$,
+\[
+ \limsup_{N\to\infty}\frac{t_{\rm mix}^{(N)}(\varepsilon)}{\log N}
+       \le\inf\{T>0:\max\{\Lambda_0(T),\Lambda_1(T)\}<0\}.
+\]
+Here $t_{\rm mix}^{(N)}(\varepsilon)$ is the infimum of the integers
+$m\ge0$ for which $\dTV(P_N^m,\nuUnif)\le\varepsilon$.
+Both infima are interpreted in $[0,+\infty]$, with empty infimum
+$+\infty$.
+\end{corollary}
+
+The lower bound applies at every time with a strictly positive margin
+and the specified approximation conditions.
+
+Uniformity in the cut array also gives the random-pile upper bound. After
+conditioning on the pile sizes, the empirical estimate applies on the
+admissible event. The total-variation distance of the mixture is at most
+the probability of its complement plus the deterministic error. No
+independence between the pile sizes at different times is needed for this
+averaging step.
+
+\subsection{Proof techniques and challenges}
+
+The organization follows the first-moment, exponential-moment, and
+cold-spot approach to riffle shuffling in~\cite{SSW}. The fixed-column model
+requires care with dependence between cards. Conditional on the cards
+already exposed, the remaining labels are sampled without replacement;
+one cannot replace them by independent draws with the original pile
+probabilities.
+
+For the upper bound, we represent the inverse shuffle by sorting an
+independent uniform permutation inside the components of its equality
+graph. A truncated second-moment estimate reduces mixing to control of
+common edges of two independent graphs. A good initial column supplies a
+reserve of labels. Endpoint fluctuation estimates and a classification by
+empirical digit costs then give a negative exponent for the first moment.
+The same argument is applied inside the actual reservoirs left by an
+exploration. Conditional moment estimates yield the exponential moment
+needed by the graph comparison.
+
+For the lower bound, successive hypergeometric thinning controls prefix
+counts. The cold margin produces a finite tilted type class and a
+deterministic union of short intervals. Collision estimates show that many
+equality edges lie in a translate of this set. Sorting inside graph
+components creates an excess of ascents there. A concentration estimate for
+component sorting and a uniform bound over translates distinguish the
+shuffle from a uniform permutation. The translate is selected from the
+graph, before the independent uniform permutation used in the comparison.
+
+We give the setup and finite probabilistic tools in Section~2, the upper
+bound and its consequences in Section~3, the first-moment estimate in
+Section~4, and the conditional exploration in Section~5. Section~6 proves
+the lower bound.

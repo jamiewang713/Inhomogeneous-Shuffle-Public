@@ -1,0 +1,187 @@
+\section{Introduction}
+
+Riffle shuffling randomizes a deck of cards by cutting it into ordered
+piles and combining them by a uniformly random interleaving. In~\cite{SSW},
+cutoff was established for general sequences of pile sizes whose empirical
+distribution converges to a fixed nondegenerate probability measure on
+every macroscopic time interval (of length $\Omega(\log N)$). The mixing
+time is then determined by this measure, allowing both deterministic cuts
+and random cuts with general distributions.
+
+It is natural to ask what happens when the distribution of the cuts
+changes on the mixing time scale. For example, a dealer may first make
+nearly balanced cuts and then switch to strongly asymmetric cuts, or use
+different distributions during successive intervals of length
+$\Theta(\log N)$. Such a process is no longer described by a single
+limiting distribution. We study this setting by allowing the distribution
+of pile proportions near time $t\log N$ to depend on $t$.
+
+We determine the mixing threshold for these time-inhomogeneous riffle
+shuffles under a local nondegeneracy condition. The threshold is described
+by an explicit variational expression involving the costs accumulated
+over different parts of the shuffling history. As in~\cite{SSW}, there
+are two obstructions to mixing: a large class of cards which have followed
+the same sequence of piles, and a collection of cold spots where the
+cards retain an excess of their initial order. Our result applies to
+random pile sizes with arbitrary dependence between different times.
+
+\subsection{Main results}
+
+We first define the shuffling process. Fix $k\ge2$ and consider a deck
+of $N$ cards. Given nonnegative integers $\vec n=(n_0,\ldots,n_{k-1})$
+with $\sum_i n_i=N$, take the top $n_0$ cards to form the first pile,
+the next $n_1$ cards to form the second pile, and so on. We then choose
+uniformly among the $\binom{N}{n_0,\ldots,n_{k-1}}$ possible interleavings,
+preserving the order within each pile. This defines a Markov transition
+matrix $\mathsf P(\vec n)$ on the permutation group $\mathfrak S_N$.
+For a deterministic sequence of pile sizes
+$\mathbf n=(\vec n^{(j)})_{j\ge1}$, the transition matrix after $K$
+shuffles is
+\[
+ \mathsf P(\mathbf n,K)
+ =\mathsf P(\vec n^{(K)})\cdots\mathsf P(\vec n^{(1)}).
+\]
+Write $P(\mathbf n,K)$ for the resulting distribution when the initial
+deck is the identity permutation.
+
+We also consider random sequences of pile sizes
+$X=X_N=(X_N^{(j)})_{j\ge1}$, where each $X_N^{(j)}$ is a vector of
+nonnegative integers summing to $N$. Conditional on the entire sequence
+$X$, the interleavings are chosen independently and uniformly as above.
+The distribution of the shuffled deck, averaged over both the pile sizes
+and the interleavings, is
+\begin{equation}\label{eq:random-shuffle-law}
+ P(X,K)=\E_{\mathbf n\sim X}P(\mathbf n,K).
+\end{equation}
+No independence between the vectors $X_N^{(j)}$ is assumed. Deterministic
+sequences are included by taking $X_N$ to be constant. The uniform
+distribution on $\mathfrak S_N$, denoted by $\nuUnif$, is stationary for
+each shuffle. We write $\dTV$ for total variation distance, and all
+logarithms are natural.
+
+To describe the distribution of the cuts, let
+\begin{equation}\label{eq:intro-simplex}
+ D_k=\left\{p=(p_0,\ldots,p_{k-1})\in[0,1]^k:\sum_i p_i=1\right\},
+ \qquad
+ V_k=\{p\in D_k:p_i=1\text{ for some }i\}.
+\end{equation}
+A time profile $\mu_\bullet=(\mu_t)_{t\ge0}$ is a measurable family of
+probability measures on $D_k$: for every Borel set $B\subseteq D_k$,
+the function $t\mapsto\mu_t(B)$ is measurable. We say that $X$ is
+\emph{randomized-$\mu_\bullet$-like} if, for every $T>0$,
+\begin{equation}\label{eq:randomized-profile-like}
+ \frac1{\log N}\sum_{j=1}^{\lfloor T\log N\rfloor}
+       \delta_{(X_N^{(j)}/N,\,j/\log N)}
+ \xrightarrow[N\to\infty]{\mathrm{weakly\ in\ probability}}
+       \mu_t(dp)\,dt
+ \quad\text{on }D_k\times[0,T].
+\end{equation}
+Here $\delta_x$ denotes a point mass at $x$, and convergence is in the
+space of finite measures. Equivalently, for every continuous
+$f:D_k\times[0,T]\to\mathbb R$, the corresponding empirical average
+converges in probability to $\int_0^T\int f(p,t)\,d\mu_t(p)\,dt$.
+When $\mu_t\equiv\mu$, rescaling the time coordinate to $[0,1]$ gives
+the randomized-$\mu$-like condition in~\cite{SSW}.
+
+To state the mixing threshold, define for $p\in D_k$ and $\theta\ge1$
+\begin{equation}\label{eq:intro-costs}
+ a_p=\log\frac1{\max_i p_i},\qquad
+ \psi_p(\theta)=-\log\sum_i p_i^\theta,
+ \qquad a(t)=\int a_p\,d\mu_t(p).
+\end{equation}
+We call the profile \emph{locally nondegenerate} if, for every $T>0$,
+\begin{equation}\label{eq:profile-nondegeneracy}
+ \operatorname*{ess\,inf}_{0\le t\le T}a(t)>0.
+\end{equation}
+For a constant profile this is exactly the condition $\mu(V_k)<1$.
+In general it ensures that, on every bounded time interval, a positive
+proportion of the cuts split off two piles of linear size.
+
+For $0\le r\le s$, put
+\begin{equation}\label{eq:intro-integrated-costs}
+ A(r,s)=\int_r^s a(t)\,dt,\qquad
+ B_\theta(r,s)=\int_r^s\int\psi_p(\theta)\,d\mu_t(p)\,dt.
+\end{equation}
+The two margins are
+\begin{align}
+ \Lambda_0(T)&=1-A(0,T),\label{eq:intro-largest-margin}\\
+ \Lambda_1(T)&=\sup_{0\le s\le u\le T}\inf_{\theta\in[3,4]}
+ \left\{\frac{\theta+3}{2}\bigl(1-A(0,s)\bigr)
+        -B_\theta(s,u)-2B_2(u,T)\right\}.
+ \label{eq:intro-cold-margin}
+\end{align}
+Here $\Lambda_0$ corresponds to the largest class of equal strings,
+while $\Lambda_1$ describes the cold spots. The supremum over $s,u$
+allows the latter obstruction to arise during any part of the shuffling
+history. Define the critical time
+\begin{equation}\label{eq:profile-critical-time}
+ C_{\mu_\bullet}
+ =\inf\{T>0:\max\{\Lambda_0(T),\Lambda_1(T)\}<0\},
+ \qquad \inf\varnothing=+\infty.
+\end{equation}
+
+We now state our main result. Randomized-$\mu_\bullet$-like shuffles
+have a transition from distance one to distance zero at
+$C_{\mu_\bullet}\log N$; in particular, they exhibit cutoff whenever
+this critical time is finite.
+
+\begin{theorem}\label{thm:main}
+Let $k\ge2$ and let $\mu_\bullet$ be a locally nondegenerate time
+profile on $D_k$. For every randomized-$\mu_\bullet$-like sequence
+of shuffles $X$ and every fixed $T>0$ with $T\ne C_{\mu_\bullet}$,
+\begin{equation}\label{eq:main-profile-limit}
+ \lim_{N\to\infty}
+ \dTV\bigl(P(X,\lfloor T\log N\rfloor),\nuUnif\bigr)
+ =\begin{cases}
+   1,&T<C_{\mu_\bullet},\\
+   0,&T>C_{\mu_\bullet}.
+  \end{cases}
+\end{equation}
+Consequently, if $C_{\mu_\bullet}<\infty$, then for every
+$\varepsilon\in(0,1)$,
+\begin{align}
+ \lim_{N\to\infty}
+ \dTV\bigl(P(X,\lfloor(1-\varepsilon)C_{\mu_\bullet}\log N\rfloor),
+                  \nuUnif\bigr)&=1,\label{eq:main-cutoff-lower}\\
+ \lim_{N\to\infty}
+ \dTV\bigl(P(X,\lfloor(1+\varepsilon)C_{\mu_\bullet}\log N\rfloor),
+                  \nuUnif\bigr)&=0.\label{eq:main-cutoff-upper}
+\end{align}
+If $C_{\mu_\bullet}=+\infty$, the distance tends to one after
+$\lfloor T\log N\rfloor$ shuffles for every fixed $T>0$.
+\end{theorem}
+
+\subsection{Consequences and Discussion}
+
+For a constant profile $\mu_t\equiv\mu$, the nondegeneracy assumption
+reduces to $\mu(V_k)<1$, and Theorem~\ref{thm:main} gives the cutoff
+result of~\cite{SSW}. The time-dependent setting also includes
+piecewise constant profiles: one may use cuts with empirical
+distribution $\mu^{(1)}$ up to time $t_1\log N$, then cuts with
+distribution $\mu^{(2)}$ until time $t_2\log N$, and so on. The
+functions $A$ and $B_\theta$ retain the costs from each of these
+periods in their original order.
+
+The condition~\eqref{eq:randomized-profile-like} only concerns empirical
+distributions on macroscopic intervals. It allows deterministic sequences,
+as well as random sequences with dependence between different cuts.
+For example, within each period of a piecewise constant profile one may
+use periodic deterministic cuts or independent random cuts whose
+normalized distributions converge to the prescribed measure.
+
+The critical time can be infinite even when the profile is locally
+nondegenerate, since the cuts may approach the vertices of $D_k$ as time
+increases. A sufficient condition for a finite critical time is
+$\int_0^\infty a(t)\,dt=\infty$. Indeed, choosing $\theta=3$ in
+\eqref{eq:intro-cold-margin} gives
+$\Lambda_1(T)\le3-2A(0,T)$. In particular the critical time is finite
+for every constant nondegenerate profile.
+
+The finite estimates underlying Theorem~\ref{thm:main} are uniform in
+the prescribed pile sizes. We state them in the upper- and lower-bound
+sections, together with profile versions under explicit finite
+approximation conditions. The passage from randomized profiles to
+these deterministic estimates is given in
+Lemma~\ref{lem:randomized-profile-inputs}. The proof of the main theorem
+is completed at the end of Section~\ref{sec:lower-bound}.
+

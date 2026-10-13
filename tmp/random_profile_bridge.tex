@@ -1,0 +1,145 @@
+\begin{lemma}[From weak profile convergence to empirical hypotheses]
+\label{lem:random-profile-bridge}
+Fix $T>0$, put $L=\log N$, $K=\lfloor TL\rfloor$, and
+$S_N=K/L$, and write $p^{(j)}=X_N^{(j)}/N$ for the random pile
+proportions. Suppose that the weak convergence in probability
+in~\eqref{eq:randomized-profile-like} holds at horizon $T$, namely
+\[
+ M_N^T=\frac1L\sum_{j=1}^K\delta_{(p^{(j)},j/L)}
+ \xrightarrow{\mathrm{weakly,\ probability}}
+ M^T(dp,dt)=\mu_t(dp)\,dt
+ \quad\text{on }D_k\times[0,T].
+\]
+Then the random error
+\begin{align*}
+ e_N=\max\bigg\{&
+ \sup_{0\le r\le s\le S_N}|A^{(N)}(r,s)-A(r,s)|,\\
+ &\sup_{\substack{0\le r\le s\le S_N\\2\le\theta\le4}}
+       |B_\theta^{(N)}(r,s)-B_\theta(r,s)|\bigg\}
+\end{align*}
+converges to zero in probability. In particular,
+\begin{equation}\label{eq:random-profile-margin-convergence}
+ \beta^{(N)}(S_N)\xrightarrow{\mathbb P}\Lambda_0(T),
+ \qquad
+ \Lambda_1^{(N)}\xrightarrow{\mathbb P}\Lambda_1(T).
+\end{equation}
+If, in addition, the nondegeneracy condition
+in~\eqref{eq:profile-nondegeneracy} holds on $[0,T]$, so that
+\[
+ a(t):=\int_{D_k}a_p\,d\mu_t(p)\ge a_T>0
+ \quad\text{for almost every }t\in[0,T],
+\]
+there are fixed $g\in(0,1/k)$ and $\gamma>0$, depending only on
+$k,a_T$, such that, for every fixed $\rho>0$,
+\begin{equation}\label{eq:random-profile-local-good}
+ \Pp\{\text{the array is locally }(g,\gamma,\rho)
+                  \text{-good on }[0,T]\}\longrightarrow1.
+\end{equation}
+The same $g,\gamma$ work for every $\rho$; the convergence is asserted
+separately for each fixed $\rho$.
+\end{lemma}
+
+\begin{proof}
+For a nonnegative continuous function $f$ on $D_k$, define
+\[
+ F_N^f(t)=\frac1L\sum_{\substack{1\le j\le K\\j/L\le t}}f(p^{(j)}),
+ \qquad
+ F^f(t)=\int_0^t\int_{D_k}f(p)\,d\mu_v(p)\,dv
+ \quad(0\le t\le T).
+\]
+The limiting measure $M^T$ gives zero mass to every fixed time slice.
+Consequently weak convergence in probability gives
+$F_N^f(t)\to F^f(t)$ in probability at every fixed $t$.
+For example, this follows by bounding the indicator of $[0,t]$
+above and below by continuous functions of time; the limiting error
+is bounded by $\|f\|_\infty$ times the lengths of their transition
+intervals.
+
+Both cumulative functions are nondecreasing, and $F^f$ is
+$\|f\|_\infty$-Lipschitz. For a deterministic mesh
+$0=t_0<\cdots<t_m=T$ with gaps at most $\delta$, monotonicity gives
+\[
+ \sup_{0\le t\le T}|F_N^f(t)-F^f(t)|
+ \le\max_{0\le i\le m}|F_N^f(t_i)-F^f(t_i)|
+                         +\|f\|_\infty\delta.
+\]
+First use convergence on this finite mesh and then let $\delta$
+decrease to zero. This proves uniform convergence in probability
+for each fixed $f$.
+
+Apply this argument to $a$ and to $\psi_\theta$, where
+$\psi_\theta(p)=\psi_p(\theta)$. Joint continuity on
+$D_k\times[2,4]$ makes the family $\{\psi_\theta:2\le\theta\le4\}$
+compact in the uniform norm. A finite net in this family suffices:
+if $\|f-f'\|_\infty\le\varepsilon$, then, since
+$M_N^T(D_k\times[0,T])=S_N\le T$,
+\[
+ \sup_{0\le t\le T}|F_N^f(t)-F_N^{f'}(t)|\le T\varepsilon,
+ \qquad
+ \sup_{0\le t\le T}|F^f(t)-F^{f'}(t)|\le T\varepsilon.
+\]
+It follows that
+\[
+ D_N:=\max\left\{
+ \sup_{0\le t\le T}|F_N^a(t)-F^a(t)|,
+ \sup_{\substack{0\le t\le T\\2\le\theta\le4}}
+       |F_N^{\psi_\theta}(t)-F^{\psi_\theta}(t)|
+                    \right\}\xrightarrow{\mathbb P}0.
+\]
+
+For $0\le t\le S_N$, the interpolated empirical integral of $f$
+over $[0,t]$ differs from $F_N^f(t)$ by at most
+$\|f\|_\infty/L$: only the column containing $t$ can contribute
+partially. Taking differences at two endpoints and using
+$\|a\|_\infty,\|\psi_\theta\|_\infty\le4\log k$ gives
+\[
+ e_N\le2D_N+\frac{8\log k}{L}
+          \xrightarrow{\mathbb P}0.
+\]
+The deterministic comparison~\eqref{eq:margin-transfer}, including
+the rounding error $0\le T-S_N<1/L$, now gives
+\[
+ |\beta^{(N)}(S_N)-\Lambda_0(T)|
+       \le e_N+\frac{\log k}{L},\qquad
+ |\Lambda_1^{(N)}-\Lambda_1(T)|
+       \le\frac{13}{2}e_N+\frac{14\log k}{L}.
+\]
+The measurability of the profile ensures the scalar integrability
+needed for that comparison, since all the scalar costs are bounded.
+This proves~\eqref{eq:random-profile-margin-convergence}.
+
+To prove local goodness, choose $g\in(0,1/k)$ sufficiently small
+that
+\[
+ -\log(1-(k-1)g)\le a_T/4,
+ \qquad \gamma=\frac{a_T}{8\log k}.
+\]
+If a column is not $g$-good, every coordinate except a maximizing
+one is less than $g$. Thus its maximal coordinate is greater than
+$1-(k-1)g$, and its cost $a_p$ is at most $a_T/4$.
+All columns, good or otherwise, have cost at most $\log k$.
+
+Fix $0<\rho\le T$. For any real $a$ with
+$[a,a+\rho]\subseteq[0,T]$, let $G_N(a)$ count the $g$-good
+columns whose times belong to this closed interval. The uniform
+cumulative estimate and nondegeneracy give
+\[
+ \frac1L\sum_{\substack{1\le j\le K\\a\le j/L\le a+\rho}}
+         a_{p^{(j)}}
+ \ge F_N^a(a+\rho)-F_N^a(a)
+ \ge a_T\rho-2D_N.
+\]
+There are at most $\rho L+1$ column times in the closed interval.
+The bounds on good and nongood costs therefore imply
+\[
+ \frac{G_N(a)}L
+ \ge\frac{3a_T\rho/4-2D_N-a_T/(4L)}{\log k}.
+\]
+This holds simultaneously for every real $a$ in the indicated range,
+including intervals meeting the final gap $(S_N,T]$. On the event
+$D_N\le a_T\rho/8$, and for $L^{-1}\le\rho$, its right side is
+at least $a_T\rho/(4\log k)\ge\gamma\rho$.
+The event has probability tending to one, proving
+\eqref{eq:random-profile-local-good}. For $\rho>T$ the local
+condition is vacuous.
+\end{proof}

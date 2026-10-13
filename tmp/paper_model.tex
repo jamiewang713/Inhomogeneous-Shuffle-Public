@@ -1,0 +1,82 @@
+\subsection{Shuffle matrices}
+For each column $j$, choose uniformly an assignment of the symbols
+$[k]_0$ to the $N$ row labels, with exactly $n_i^{(j)}$ occurrences of
+symbol $i$. Choose these assignments independently across columns.
+The resulting $N\times K$ matrix is uniform among all matrices with
+the prescribed column counts. Write its row words as $w_1,\ldots,w_N$.
+Stable sorting orders these words lexicographically and orders equal
+words by their original row labels. Its permutation maps sorted
+positions to original labels. Write $s_1\le_{\rm lex}\cdots\le_{\rm lex}s_N$
+for the sorted words, and join $i$ to $i+1$ when $s_i=s_{i+1}$.
+This defines the shuffle graph $G$.
+
+Let $P_N^K$ denote the law of the inverse of the chronological
+composition of the $K$ forward shuffles, started from the identity
+deck. Thus the one-step inverse operations are applied in reverse
+chronological order. Write $\nuUnif$ for uniform measure on
+$\mathfrak S_N$, and
+\[
+ \dTV(P,Q)=\frac12\sum_{\sigma\in\mathfrak S_N}|P(\sigma)-Q(\sigma)|.
+\]
+For $H\subseteq\mathbb Z$, let $E(H)$ be its internal edges in the
+integer path and let $\partial H$ consist of the edges with exactly
+one endpoint in $H$. The latter includes edges at the ends of the
+deck. For a graph $G$, $E(G)$ denotes its edge set; we also identify
+$G$ with this set when taking intersections. For a permutation $\pi$,
+write $\pi_G$ for the permutation obtained by sorting its values
+increasingly inside every component of $G$.
+
+\begin{lemma}[Matrix and graph representations]\label{lem:matrix-graph}
+Stable sorting the fixed-count matrix has law $P_N^K$. If $G$ is
+sampled from this matrix and $\pi$ is a uniform permutation independent
+of the matrix, then $\pi_G$ also has law $P_N^K$. More generally,
+for every real function $F$ of the sorted words and a permutation,
+\[
+ \E F\bigl((s_i)_{i=1}^N,\operatorname{sort}(w_1,\ldots,w_N)\bigr)
+ =\E\E_\pi F\bigl((s_i)_{i=1}^N,\pi_G\bigr).
+\]
+The total-variation distances of the forward and inverse shuffle
+laws from $\nuUnif$ are equal.
+\end{lemma}
+\begin{proof}
+A one-step interleaving is specified by the word recording which
+pile supplies each successive card. These words are uniform with
+their prescribed counts. Its inverse gathers equal symbols in
+increasing symbol order and preserves their previous order, which
+is exactly stable sorting by that symbol.
+
+For several steps, the symbols are initially assigned to the current
+positions at each inverse operation. Process the inverse operations
+from column $K$ back to column $1$, pulling each symbol assignment
+back to the original row labels by the permutation already determined
+by the later columns. This reindexes only that column and preserves
+its counts. The reindexing permutation depends only on later columns,
+so it is recovered when these later columns are known. The operation
+therefore defines a bijection of the finite product of column-assignment
+spaces, with inverse obtained by reversing each reindexing. It
+preserves the uniform law on that product.
+
+To identify the resulting permutation, use induction on the list of
+columns. Sorting by a leading symbol, while preserving the order
+already determined by the suffix, is the same as sorting by the
+whole word. When two whole words agree, both procedures preserve
+their original label order. The empty list gives the identity.
+Consequently the pullback bijection takes the physical inverse
+permutation to stable sorting of the full matrix. This proves the
+first assertion, including the chronological convention.
+
+Next relabel all rows by an independent uniform permutation. Every
+fixed relabeling preserves the column counts and the uniform matrix
+law, and it leaves the sorted words unchanged. Conditional on the
+matrix, the relabeled original labels appear in a uniform order in
+the sorted positions. Stable sorting restores increasing label
+order precisely inside the equal-word components of $G$. Thus the
+stable sort of the relabeled matrix is obtained by taking a uniform
+permutation and sorting it inside those components. Averaging first
+over the relabeling and then over the matrix proves the displayed
+identity and the graph-mixture assertion.
+
+Finally inversion is a bijection of $\mathfrak S_N$ preserving
+uniform measure. Reindexing the finite sum defining total variation
+by this bijection proves the last assertion.
+\end{proof}

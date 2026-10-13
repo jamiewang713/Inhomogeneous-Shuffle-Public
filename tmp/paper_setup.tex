@@ -1,0 +1,408 @@
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+\subsection{Pile sizes and logarithmic time}
+
+Write $[N]=\{1,\ldots,N\}$ and $[k]_0=\{0,\ldots,k-1\}$. Throughout,
+$k\ge2$, $N\ge2$, and all logarithms are natural. A cut array consists of
+nonnegative integers $n_i^{(j)}$, $1\le j\le K$, $i\in[k]_0$, satisfying
+$\sum_i n_i^{(j)}=N$. Put
+\[
+ D_k=\left\{p\in[0,1]^k:\sum_i p_i=1\right\},\qquad
+ p^{(j)}=\frac1N(n_0^{(j)},\ldots,n_{k-1}^{(j)}),\qquad
+ S_N=\frac K{\log N}.
+\]
+Column $j$ is placed at time $j/\log N$. Its contribution to an interval
+with arbitrary endpoints is defined by linear interpolation. More
+precisely, for a function $f$ on $D_k$, set
+\begin{equation}\label{eq:empirical-integral}
+ \int_r^s f(p_N(t))\,dt
+ =\frac1{\log N}\sum_{j=1}^K
+ \left[\bigl((s\log N-j+1)\vee0\bigr)\wedge1
+       -\bigl((r\log N-j+1)\vee0\bigr)\wedge1\right]f(p^{(j)}).
+\end{equation}
+Equivalently, $p_N(t)=p^{(j)}$ on
+$((j-1)/\log N,j/\log N)$; the integrand is extended by zero outside
+$[0,S_N]$. The explicit formula specifies the convention at every
+endpoint. In particular, on grid intervals this is exactly the normalized
+sum of the corresponding column costs.
+
+For $T\ge0$ we use $K=\lfloor T\log N\rfloor$. Then
+\begin{equation}\label{eq:horizon-rounding}
+ 0\le T-S_N<\frac1{\log N}.
+\end{equation}
+The distinction between $T$ and $S_N$ will be retained in the estimates.
+
+\subsection{Scalar costs and margins}
+\label{subsec:scalar-costs}
+
+For $p\in D_k$ and $\theta\ge1$, write
+\[
+ p_{\max}=\max_i p_i,\qquad a_p=\log\frac1{p_{\max}},\qquad
+ \phi_p(\theta)=\sum_i p_i^\theta,\qquad
+ \psi_p(\theta)=-\log\phi_p(\theta).
+\]
+Zero coordinates contribute zero to the power sum. The tilted
+probabilities, cost, and entropy are
+\begin{align}\label{eq:tilted-costs}
+ q_i(p,\theta)&=\frac{p_i^\theta}{\phi_p(\theta)},\qquad
+ \sum_i q_i(p,\theta)=1,\nonumber\\
+ j_p(\theta)&=\sum_{i:p_i>0}q_i(p,\theta)\log\frac1{p_i},\qquad
+ h_p(\theta)=-\sum_{i:q_i(p,\theta)>0}q_i(p,\theta)\log q_i(p,\theta).
+\end{align}
+Thus no logarithm of a zero coordinate is used in a nonzero summand.
+
+Define the empirical costs by
+\begin{align*}
+ A^{(N)}(r,s)&=\int_r^s a_{p_N(t)}\,dt,&
+ B^{(N)}_\theta(r,s)&=\int_r^s\psi_{p_N(t)}(\theta)\,dt,\\
+ J^{(N)}_\theta(r,s)&=\int_r^s j_{p_N(t)}(\theta)\,dt,&
+ H^{(N)}_\theta(r,s)&=\int_r^s h_{p_N(t)}(\theta)\,dt.
+\end{align*}
+The two empirical margins are
+\begin{align}\label{eq:empirical-margins}
+ \beta^{(N)}(s)&=1-A^{(N)}(0,s),\nonumber\\
+ \Lambda_1^{(N)}&=\sup_{0\le s\le u\le S_N}\inf_{\theta\in[3,4]}
+ \left\{\frac{\theta+3}{2}\beta^{(N)}(s)
+       -B^{(N)}_\theta(s,u)-2B^{(N)}_2(u,S_N)\right\}.
+\end{align}
+
+A time profile is a family $(\mu_t)_{t\in\mathbb R}$ of probability
+measures on $D_k$. No regularity in $t$ is implicit in this definition.
+Whenever the scalar functions concerned are integrable, write
+\[
+ A(r,s)=\int_r^s\int_{D_k}a_p\,d\mu_t(p)\,dt,\qquad
+ B_\theta(r,s)=\int_r^s\int_{D_k}\psi_p(\theta)\,d\mu_t(p)\,dt.
+\]
+Write $\beta(s)=1-A(0,s)$, so that $\Lambda_0(T)=\beta(T)$.
+Recall the margins $\Lambda_0(s)=\beta(s)$ and
+\begin{equation}\label{eq:macro-margin}
+ \Lambda_1(T)=\sup_{0\le s\le u\le T}\inf_{\theta\in[3,4]}
+ \left\{\frac{\theta+3}{2}\Lambda_0(s)
+             -B_\theta(s,u)-2B_2(u,T)\right\}.
+\end{equation}
+The smaller expressions arising in the first-moment argument are
+\begin{align}\label{eq:auxiliary-margins}
+ \Lambda_2(T)&=\sup_{0\le s\le u\le T}\inf_{\theta\in[3,4]}
+ \left\{\frac{\theta-1}{2}\Lambda_0(s)
+             -B_\theta(s,u)-2B_2(u,T)\right\},\nonumber\\
+ \Lambda_3(T)&=\sup_{0\le s\le T}\{\Lambda_0(s)-B_2(s,T)\}.
+\end{align}
+The supremum and infimum conventions in these definitions are literal;
+their boundedness follows from the next lemma.
+
+\begin{lemma}[One-column bounds]\label{lem:scalar-bounds}
+For $p\in D_k$ and $2\le\theta\le4$,
+\[
+ 0\le a_p\le\log k,\qquad
+ 0<\phi_p(\theta)\le1,\qquad
+ 0\le\psi_p(\theta)\le4\log k.
+\]
+Moreover, for every $\theta\ge1$,
+\begin{equation}\label{eq:one-column-dominance}
+ (\theta-1)a_p\le\psi_p(\theta).
+\end{equation}
+The function $a_p$ is continuous on $D_k$, and
+$(p,\theta)\mapsto\psi_p(\theta)$ is continuous on $D_k\times[2,4]$.
+\end{lemma}
+
+\begin{proof}
+We have $1/k\le p_{\max}\le1$, giving the bounds on $a_p$.
+At least one coordinate is positive, so $\phi_p(\theta)>0$.
+Since $p_i^\theta\le p_i$, the power sum is at most one. Choosing a
+coordinate with $p_i\ge1/k$ gives
+$\phi_p(\theta)\ge p_i^\theta\ge k^{-\theta}$ and hence the stated
+upper bound on $\psi_p(\theta)$. Also,
+\[
+ \phi_p(\theta)=\sum_i p_i^{\theta-1}p_i
+ \le p_{\max}^{\theta-1}\sum_i p_i=p_{\max}^{\theta-1}.
+\]
+Taking minus logarithms proves~\eqref{eq:one-column-dominance}; when
+$\theta=1$ both sides are zero. Continuity of the maximum gives
+continuity of $a_p$. Each summand $p_i^\theta$ is continuous on the
+displayed domain, including at $p_i=0$, and the sum stays positive.
+Composition with $-\log$ proves the last assertion.
+\end{proof}
+
+The same bounds hold after integration against $\mu_t$. In particular,
+all spatial integrals above exist. Temporal integrability remains an
+explicit hypothesis.
+
+\begin{lemma}[Reduction and monotonicity of the margins]
+\label{lem:margin-dominance}
+Suppose $T\ge0$ and the functions
+$t\mapsto\int a_p\,d\mu_t(p)$ and
+$t\mapsto\int\psi_p(\theta)\,d\mu_t(p)$, $\theta\in[2,4]$, are
+integrable on $[0,T]$. Then
+\begin{equation}\label{eq:dominance-reduction}
+ \Lambda_2(T)\le\Lambda_0(T),\qquad
+ \Lambda_3(T)=\Lambda_0(T),\qquad
+ \max_{0\le i\le3}\Lambda_i(T)=\max\{\Lambda_0(T),\Lambda_1(T)\}.
+\end{equation}
+Every $\Lambda_i$, $0\le i\le3$, is nonincreasing on $[0,T]$.
+For $0\le S\le T$,
+\begin{equation}\label{eq:lambda-horizon}
+ 0\le\Lambda_1(S)-\Lambda_1(T)\le8\log k\,(T-S).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Integrating~\eqref{eq:one-column-dominance} gives
+\[
+ (\theta-1)A(r,s)\le B_\theta(r,s),\qquad 0\le r\le s\le T.
+\]
+Thus $\Lambda_0(s)-B_2(s,T)\le\Lambda_0(T)$; equality is obtained at
+$s=T$, proving the assertion about $\Lambda_3$. In the infimum defining
+$\Lambda_2$, use $\theta=3$. Its value is at most
+\[
+ \Lambda_0(s)-B_3(s,u)-2B_2(u,T)
+ \le\Lambda_0(s)-2A(s,u)-2A(u,T)
+ \le\Lambda_0(T).
+\]
+Taking the supremum proves~\eqref{eq:dominance-reduction}.
+
+Nonnegativity of $a_p$ makes $\Lambda_0$ nonincreasing. To compare
+$\Lambda_1(T)$ with $\Lambda_1(S)$, take an admissible pair $(s,u)$ at
+time $T$ and replace it by $(s\wedge S,u\wedge S)$. All three intervals
+of integration are shortened. Since their integrands are nonnegative
+and $(\theta+3)/2\ge0$, the expression at time $T$ is no larger than
+the expression at time $S$ for this clipped pair. Infima and then
+suprema give $\Lambda_1(T)\le\Lambda_1(S)$. The same argument, with
+$(\theta-1)/2$ in place of $(\theta+3)/2$, proves monotonicity of
+$\Lambda_2$. The equality already proved handles $\Lambda_3$.
+
+For the other direction in~\eqref{eq:lambda-horizon}, a pair admissible
+at time $S$ is also admissible at time $T$, and the two corresponding
+expressions differ by exactly $2B_2(S,T)$, independently of $\theta$.
+Consequently
+\[
+ \Lambda_1(S)\le\Lambda_1(T)+2B_2(S,T)
+ \le\Lambda_1(T)+8\log k\,(T-S).
+\]
+All uses of infima and suprema are legitimate: the expressions have
+absolute value at most $4+20T\log k$ on the indicated domains, by
+Lemma~\ref{lem:scalar-bounds}.
+\end{proof}
+
+\subsection{Local approximation of a time profile}
+\label{subsec:profile-approximation}
+
+A finite Borel partition $\mathcal P=\{D_1,\ldots,D_m\}$ of $D_k$
+includes a representative $p^{[i]}\in D_i$ for every cell. We call it
+$\chi$-regular if, for all $p,p'\in D_i$ and $\theta\in[2,4]$,
+\begin{align}\label{eq:partition-regularity}
+ |a_p-a_{p'}|&\le\chi,&
+ |\psi_p(\theta)-\psi_{p'}(\theta)|&\le\chi,\nonumber\\
+ p^{[i]}_l>2\chi&\ \Longrightarrow\
+ p_l>\chi\ \text{ and }\left|\log\frac1{p_l}-\log\frac1{p^{[i]}_l}\right|\le\chi,
+ \nonumber\\
+ p^{[i]}_l\le2\chi&\ \Longrightarrow\ p_l\le3\chi.
+\end{align}
+
+\begin{lemma}[Regular partitions]\label{lem:regular-partition}
+For every $0<\chi<1/k$, there is a finite $\chi$-regular Borel
+partition of $D_k$.
+\end{lemma}
+
+\begin{proof}
+Besides the two continuous functions in Lemma~\ref{lem:scalar-bounds},
+consider the coordinate functions
+$p\mapsto\log(1/(p_l\vee\chi))$. Compactness gives a common spatial
+modulus of continuity, uniform in $\theta\in[2,4]$ and in the finitely
+many coordinates. Partition $[0,1]^k$ into half-open coordinate boxes
+of sufficiently small side length, and intersect with $D_k$, keeping
+the nonempty intersections. Choose a representative in each cell.
+The side length can be chosen below $\chi$, with oscillation of every
+displayed continuous function at most $\chi$ on a box. If
+$p^{[i]}_l>2\chi$, coordinate closeness gives $p_l>\chi$, so the
+truncated logarithms are the actual logarithms. If
+$p^{[i]}_l\le2\chi$, coordinate closeness gives $p_l\le3\chi$.
+These are precisely~\eqref{eq:partition-regularity}.
+\end{proof}
+
+For a chosen partition, the scalar integrability condition on $[0,T]$
+means that each of
+\begin{equation}\label{eq:scalar-integrability}
+ t\longmapsto\mu_t(D_i),\qquad
+ t\longmapsto\int a_p\,d\mu_t(p),\qquad
+ t\longmapsto\int\psi_p(\theta)\,d\mu_t(p)
+ \quad(1\le i\le m,\ 2\le\theta\le4)
+\end{equation}
+is Lebesgue integrable on $[0,T]$.
+
+For $\rho,\varphi>0$, an array with $K=\lfloor T\log N\rfloor$ is
+$(\mathcal P,\rho,\varphi)$-almost like $(\mu_t)$ if, for every
+$a\in\rho\mathbb Z$ with $0\le a<b=\min(a+\rho,T)$ and every cell,
+\begin{equation}\label{eq:almost-like}
+ \left|\frac{\#\{j:a\le j/\log N\le b,\ p^{(j)}\in D_i\}}{\log N}
+       -\int_a^b\mu_t(D_i)\,dt\right|
+ \le\varphi(b-a)+\frac1{\log N}.
+\end{equation}
+Closed endpoints in this counting condition are intentional. A column
+is $g$-good if two distinct piles each contain at least $gN$ cards.
+The local good-column condition on $[r,T]$, with parameters
+$g,\gamma,\rho>0$, is
+\begin{equation}\label{eq:local-good}
+ \#\{j:a\le j/\log N\le a+\rho,\ p^{(j)}\text{ is }g\text{-good}\}
+ \ge\gamma\rho\log N
+ \quad(r\le a,\ a+\rho\le T).
+\end{equation}
+Here $a$ ranges over all real numbers in the indicated range, not only
+the grid $\rho\mathbb Z$.
+
+\begin{lemma}[Uniform scalar approximation]\label{lem:scalar-quadrature}
+Let $T,\rho>0$, $\varphi,\omega,M\ge0$, and let
+$\mathcal P=\{D_1,\ldots,D_m\}$ be a finite Borel partition with
+representatives. Suppose $f:D_k\to[0,M]$ is continuous and has
+oscillation at most $\omega$ on each cell. Assume integrability of
+$t\mapsto\mu_t(D_i)$ and $t\mapsto\int f\,d\mu_t$ on $[0,T]$.
+If~\eqref{eq:almost-like} holds, then, uniformly for
+$0\le r\le s\le S_N$,
+\begin{align}\label{eq:quadrature-bound}
+ \left|\int_r^s f(p_N(t))\,dt-
+              \int_r^s\int f\,d\mu_t\,dt\right|
+ \le{}&2T\omega+Mm\varphi T+4M\rho\nonumber\\
+ &+\frac{4Mm(T/\rho+2)+6M}{\log N}.
+\end{align}
+\end{lemma}
+
+\begin{proof}
+We first use the samples with $r<j/\log N\le s$. Passing from the
+closed counting intervals in~\eqref{eq:almost-like} to these
+half-open intervals removes at most one column. The error for the
+count in each cell of a full time interval of length $\rho$ is
+therefore at most $\varphi\rho+2/\log N$. The total number of samples
+in an interval of length $\rho$, divided by $\log N$, differs from
+$\rho$ by at most $1/\log N$.
+
+Put $w=\min(\omega,M)$. On a full grid interval, replace both the
+spatial observable and the sampled observable by their cell
+representatives. The first replacement costs at most $w\rho$.
+The cell-count estimate contributes at most
+$M/\log N+Mm(\varphi\rho+2/\log N)$; the additional
+$M/\log N$ also bounds a possible discrepancy in the total cell
+mass. Replacing the representative samples back by actual samples
+costs at most $w(\rho+1/\log N)$. Hence the integral is bounded above
+by the sampled sum, normalized by $\log N$, plus
+\[
+ (2w+Mm\varphi)\rho+\frac{w+M+2Mm}{\log N}.
+\]
+Sum this inequality over the full grid intervals contained in
+$[r,s]$. There are at most $\lfloor T/\rho\rfloor+1$ of them.
+The two remaining portions have total length at most $2\rho$,
+and their integrals are at most $2M\rho$. By nonnegativity, any
+additional samples can be retained on the right. We obtain a
+one-sided error bounded by
+\[
+ 2wT+Mm\varphi T+2M\rho+
+ \frac{(w+M+2Mm)(\lfloor T/\rho\rfloor+1)}{\log N}.
+\]
+Apply the same argument to $M-f$. Subtracting its integral and sum
+from those of the constant $M$ gives the reverse inequality, with
+an additional error at most $M/\log N$. This subtraction is valid
+by the assumed temporal integrability.
+
+Finally, the interpolated integral~\eqref{eq:empirical-integral}
+differs from the sampled sum by at most $2M/\log N$: only the two
+endpoint columns can be partial. Thus the absolute error is at most
+the last display plus $3M/\log N$. Since $m\ge1$, $w\le M$,
+$w\le\omega$, and $\lfloor T/\rho\rfloor\le T/\rho$, this is
+bounded by~\eqref{eq:quadrature-bound}.
+\end{proof}
+
+\begin{lemma}[Transfer of the margins]\label{lem:margin-transfer}
+Let $T>0$, and assume~\eqref{eq:scalar-integrability} for a fixed
+partition. Suppose an array with $K=\lfloor T\log N\rfloor$ satisfies,
+for every $0\le r\le s\le S_N$ and $2\le\theta\le4$,
+\begin{equation}\label{eq:interval-transfer}
+ |A^{(N)}(r,s)-A(r,s)|\le e,\qquad
+ |B^{(N)}_\theta(r,s)-B_\theta(r,s)|\le e,
+ \qquad e\ge0.
+\end{equation}
+Then
+\begin{align}\label{eq:margin-transfer}
+ |\beta^{(N)}(S_N)-\Lambda_0(T)|&\le e+\frac{\log k}{\log N},\nonumber\\
+ |\Lambda_1^{(N)}-\Lambda_1(T)|&\le\frac{13}{2}e+
+                                          \frac{14\log k}{\log N}.
+\end{align}
+\end{lemma}
+
+\begin{proof}
+The first estimate follows by splitting $A(0,T)$ at $S_N$ and
+using~\eqref{eq:horizon-rounding} and
+$0\le A(S_N,T)\le(T-S_N)\log k$. For the second, first compare
+the variational expressions on the common triangle
+$0\le s\le u\le S_N$. The coefficient $(\theta+3)/2$ lies in
+$[3,7/2]$, so~\eqref{eq:interval-transfer} bounds their difference
+by $(7/2+1+2)e=13e/2$, uniformly in $s,u,\theta$. Taking an
+infimum and then a supremum preserves this absolute bound.
+Lemma~\ref{lem:margin-dominance} bounds the remaining change of
+horizon by $8\log k\,(T-S_N)\le8\log k/\log N$. Enlarging $8$
+to $14$ gives exactly~\eqref{eq:margin-transfer}.
+\end{proof}
+
+\begin{proposition}[Uniform profile transfer]\label{prop:profile-transfer}
+Fix $T,e>0$ and an arbitrary positive upper bound on $\rho$.
+There exist $0<\chi<1/k$, a finite $\chi$-regular partition
+$\mathcal P$, and $\rho_0>0$ below this upper bound such that, for
+every $0<\rho\le\rho_0$, there is $\varphi_0>0$ with the following
+property. For each $0<\varphi\le\varphi_0$ and each profile satisfying
+\eqref{eq:scalar-integrability} for this same partition, all
+sufficiently large $N$ and all arrays satisfying~\eqref{eq:almost-like}
+obey both~\eqref{eq:interval-transfer} and~\eqref{eq:margin-transfer}.
+The partition is chosen before the profile and before $N$; the
+large-$N$ threshold is uniform over the cut arrays.
+\end{proposition}
+
+\begin{proof}
+Choose
+\[
+ \chi=\min\left\{\frac1{2k},\frac e{8(T+1)}\right\}
+\]
+and a regular partition by Lemma~\ref{lem:regular-partition}. In
+Lemma~\ref{lem:scalar-quadrature}, apply the same bound $M=4\log k$
+to $a_p$ and to all $\psi_p(\theta)$, $2\le\theta\le4$, with
+$\omega=\chi$. Choose $\rho_0$ no larger than the prescribed upper
+bound and $e/(16(4\log k+1))$, and choose
+\[
+ \varphi_0=\frac e{4(4mT\log k+1)}.
+\]
+The first three terms on the right of~\eqref{eq:quadrature-bound}
+are each at most $e/4$. After these choices, increase $N$ until its
+last term is at most $e/4$. This proves the interval estimates
+simultaneously for every endpoint pair and every $\theta\in[2,4]$.
+Lemma~\ref{lem:margin-transfer} now applies. Every choice preceding
+$N$ is independent of the cut array, as required.
+\end{proof}
+
+\begin{corollary}[Transfer for a fixed partition]\label{cor:fixed-partition-transfer}
+Fix $T,e>0$. There is $\chi_0>0$ such that, for every
+$0<\chi\le\chi_0$ and every fixed $\chi$-regular partition, the
+conclusion of Proposition~\ref{prop:profile-transfer} holds with that
+partition. More precisely, after any positive upper bound on $\rho$
+is prescribed, one can choose $\rho_0$ below it, then $\varphi_0$
+for each $0<\rho\le\rho_0$, and finally a common large-$N$
+threshold for each $0<\varphi\le\varphi_0$. This threshold is
+uniform over both profiles satisfying~\eqref{eq:scalar-integrability}
+and cut arrays satisfying~\eqref{eq:almost-like}.
+\end{corollary}
+
+\begin{proof}
+Take $\chi_0$ to be half the value of $\chi$ chosen in the proof of
+Proposition~\ref{prop:profile-transfer}. The spatial contribution
+$2T\chi$ is then at most $e/4$ for any $\chi\le\chi_0$. For the
+given partition, repeat the choices of $\rho_0$, $\varphi_0$, and
+$N$ in that proof. Only the number of cells enters the remaining
+error terms; none involves the profile or the array.
+\end{proof}
+
+For the critical-time statement we use a consistent infinite array for
+each $N$, so that finite horizons are obtained by restriction. Such
+arrays admit arbitrarily fine approximation to $(\mu_t)$ if, for every
+$T>0$ and every $\chi_*>0$, there are $0<\chi\le\chi_*$, a
+$\chi$-regular partition satisfying~\eqref{eq:scalar-integrability},
+and $g\in(0,1/k)$, $\gamma>0$, $\bar\rho>0$ such that, for every
+fixed $0<\rho\le\bar\rho$ and $\varphi>0$, all sufficiently large
+$N$ satisfy both~\eqref{eq:almost-like} and~\eqref{eq:local-good}
+on $[0,T]$. This specifies the order of quantifiers used below.
+

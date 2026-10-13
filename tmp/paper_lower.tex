@@ -1,0 +1,1501 @@
+\section{Lower bound}\label{sec:lower-bound}\label{sec:lower}
+Throughout this section $k\ge2$, $T>0$, and $K=\lfloor T\log N\rfloor$, unless a statement allows arbitrary $K$. As above, $P_N^K$ denotes the law of the inverse shuffled permutation and $\nuUnif$ the uniform law on $\mathfrak S_N$. Inversion preserves total variation from uniform, so the same conclusions apply to the chronological forward shuffle. We construct events whose probabilities tend to one under $P_N^K$ and to zero under $\nuUnif$. Every assertion of uniform convergence below means that, after the displayed fixed parameters and an accuracy $\varepsilon>0$ are chosen, one threshold $N_0$ works for every admissible cut array and deterministic family in the statement.
+\subsection{Increasing sequences}\subsubsection{Prefix counts}
+
+For a word \(w=(w_1,\ldots,w_m)\) of length \(m\le K\), let
+\[
+ \lambda_w=\prod_{j=1}^m p^{(j)}_{w_j},\qquad
+ t_w=\sum_{\substack{v\in[k]_0^m\\v<_{\rm lex}w}}\lambda_v,
+ \qquad C(w)=\#\{i:s_i|_m=w\}.
+\]
+Here \(s_i|_m\) is the length-\(m\) prefix of the sorted row \(s_i\).
+Define the zero-based cuts
+\[
+ L_w=\#\{i:s_i|_m<_{\rm lex}w\},\qquad
+ U_w=\#\{i:s_i|_m\le_{\rm lex}w\}.
+\]
+Thus the actual ranks occupied by this prefix are
+\(I(B_w)=(L_w,U_w]\cap\mathbb Z\), and \(U_w-L_w=C(w)\).
+Its deterministic probability interval is
+\(J_w=[t_w,t_w+\lambda_w)\). These definitions also apply to the empty
+word, whose mass is one and whose count is \(N\).
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Thinning/Process.lean :: RiffleLowerV2.Thinning.successiveThinning; RiffleLowerV2.Thinning.thinningTails
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean :: RiffleLowerV2.Thinning.Compat.HypergeomParams.expect_pow_le_all
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Thinning/Main.lean :: RiffleLowerV2.Thinning.residualPrefixTransform; RiffleLowerV2.Thinning.residualPrefixTails
+\begin{lemma}[Successive thinning transforms and tails]
+\label{lem:successive-thinning-tail}
+Let \(M\ge1\) and let \(P_1,\ldots,P_m\) be independent uniform
+subsets of a fixed set of \(M\) labels, with deterministic sizes
+\(m_1,\ldots,m_m\). Put
+\[
+ X=|P_1\cap\cdots\cap P_m|,\qquad
+ q_j=m_j/M,\qquad Q=\prod_jq_j,\qquad \mu=MQ.
+\]
+For an empty intersection use \(X=M\) and \(Q=1\). For every \(s>0\),
+\begin{equation}
+\label{eq:thinning-transform}
+ \E s^X\le(1-Q+Qs)^M\le \exp(\mu(s-1)).
+\end{equation}
+Consequently, for \(t>0\),
+\begin{equation}
+\label{eq:thinning-bernstein}
+ \Pp(|X-\mu|\ge t)\le
+ 2\exp\left(-\frac{t^2}{4(\mu+t)}\right),
+\end{equation}
+and, since $(1-\log2)/2>0$,
+\begin{equation}
+\label{eq:thinning-lower-tail}
+ \Pp(X\le\mu/2)\le e^{-\frac{1-\log2}{2}\mu},
+ \qquad \Pp(X<2)\le2e^{-\mu/2}.
+\end{equation}
+These statements apply to the count of any prescribed word in the shuffle
+matrix. They also hold conditionally after any admissible fixed prescriptions
+on \(b<N\) labelled rows: delete those rows, replace \(M\) by \(N-b\),
+and subtract the prescribed occurrences of each digit from its column count.
+\end{lemma}
+
+\begin{proof}
+First let $V$ be the intersection of a fixed $x$-element set with a
+uniform $m$-element subset of an $M$-element population. Counting prescribed
+marked labels gives
+\[
+ \E\binom Vr=\binom xr\frac{(m)_r}{(M)_r}.
+\]
+For $s=1+u\ge1$, expand $(1+u)^V$ and use
+$(m)_r/(M)_r\le(m/M)^r$. All terms are nonnegative, and hence
+\begin{equation}\label{eq:one-step-thinning-transform}
+ \E s^V\le(1-m/M+(m/M)s)^x.
+\end{equation}
+For $0<s\le1$, interchange the roles of the marked set and the sample.
+The complement count $x-V$ is hypergeometric with sample size $x$ and
+$M-m$ marked positions. Apply the preceding bound to $s^{-1}\ge1$ and
+multiply by $s^x$. This gives exactly the right side of
+\eqref{eq:one-step-thinning-transform}. The cases $x=0$ and $m=0$ are
+included. Here $(n)_r=n(n-1)\cdots(n-r+1)$, with $(n)_0=1$.
+Let \(X_j=|P_1\cap\cdots\cap P_j|\), with \(X_0=M\).
+Conditionally on the first \(j-1\) subsets,
+\(X_j\sim\operatorname{Hyp}(M,X_{j-1},m_j)\).
+Starting from \(z_m=s\), set
+\(z_{j-1}=1-q_j+q_jz_j\). Every \(z_j\) is positive, and
+\(z_0=1-Q+Qs\). Iterating \eqref{eq:one-step-thinning-transform}
+gives \(\E s^X\le z_0^M\). The inequality \(1+v\le e^v\)
+gives the second bound in \eqref{eq:thinning-transform}.
+
+For \(0\le h\le1\), both
+\(e^h-1-h\le h^2\) and \(e^{-h}-1+h\le h^2\).
+Substitution of \(s=e^{\pm h}\) into
+\eqref{eq:thinning-transform} therefore yields
+\(\E e^{\pm h(X-\mu)}\le e^{\mu h^2}\).
+Markov's inequality with \(h=t/(2(\mu+t))\) bounds each tail by
+\(\exp[-t^2/(4(\mu+t))]\), proving
+\eqref{eq:thinning-bernstein}.
+Taking \(s=1/2\) in \eqref{eq:thinning-transform} and applying
+Markov's inequality at the thresholds \(2^{-\mu/2}\) and \(1/2\)
+proves the two bounds in \eqref{eq:thinning-lower-tail}.
+
+In the shuffle matrix each target-digit pile is a uniform fixed-size
+subset of the row labels, independently across columns. After prescribed
+symbols have been fixed on selected rows, exchangeability makes each
+residual column uniform with its residual counts. The conditioning event
+factors over columns, so these residual columns remain independent.
+The same argument therefore applies with exactly the residual parameters
+specified in the statement.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Thinning/Prefixes.lean :: RiffleLowerV2.Thinning.allPrefixConcentration
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Thinning/UniformError.lean :: RiffleLowerV2.Thinning.prefixFailureUniform
+\begin{lemma}[Uniform prefix-count concentration]
+\label{cor:iterated-hypergeom}
+For every fixed $\varepsilon>0$, the probability that the following inequality fails for any prefix is at most
+\[
+ 2(K+1)k^K\exp(-N^\varepsilon/8)=o(1).
+\]
+Thus, with probability $1-o(1)$,
+simultaneously for every word \(w\) of length at most \(K\),
+\begin{equation}
+\label{eq:all-prefix-counts}
+ |C(w)-N\lambda_w|\le
+ N^\varepsilon(\sqrt{N\lambda_w}+1).
+\end{equation}
+The convergence is uniform over all deterministic column counts.
+\end{lemma}
+
+\begin{proof}
+Set \(A=N^\varepsilon\), \(\mu=N\lambda_w\), and
+\(t=A(\sqrt\mu+1)\). For \(A\ge1\),
+\(t^2/(\mu+t)\ge A/2\).
+Lemma~\ref{lem:successive-thinning-tail} bounds the failure probability
+for this word by \(2e^{-N^\varepsilon/8}\).
+There are at most \((K+1)k^{K}\le (T\log N+1)N^{T\log k}\)
+words of the indicated lengths. A union bound proves
+\eqref{eq:all-prefix-counts}, including words of zero mass, whose counts
+are identically zero.
+\end{proof}
+
+\subsubsection{The largest word}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestFinite.lean :: RiffleLowerV2.EmpiricalLower.finiteLargestWordTV
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/LargestAsymptotic.lean :: RiffleLowerV2.EmpiricalLower.largestMean_uniform
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Thinning/MaximalWord.lean :: RiffleLowerV2.Thinning.maximalMean_eq_rpow_beta
+\begin{proposition}[Finite largest-word bound]
+\label{prop:largest-prefix}
+Let
+\(\mu_*=N\prod_{j=1}^{K}\max_\ell p^{(j)}_\ell\).
+For every integer \(2\le m\le N\) with \(m\le\mu_*/2\),
+\begin{equation}
+\label{eq:finite-largest-word-tv}
+ \dTV(P_N^{K},\nuUnif)
+ \ge1-e^{-\frac{1-\log2}{2}\mu_*}-\frac{N-m+1}{m!}.
+\end{equation}
+The exact identity $\mu_*=N^{\beta^{(N)}(S_N)}$ holds, where $S_N=K/\log N$. In particular, if \(\mu_*\ge N^b\) for a fixed \(b>0\), the
+total-variation distance tends to one, uniformly over these column counts.
+\end{proposition}
+
+\begin{proof}
+Choose a maximizing digit in every column, breaking ties by the smallest
+digit, and let \(w_*\) be the resulting full word. Its count has mean
+\(\mu_*\). By \eqref{eq:thinning-lower-tail} it is at least \(m\)
+with probability at least \(1-e^{-\frac{1-\log2}{2}\mu_*}\).
+Equal full words form one component of the shuffle graph. By
+the component-sorting representation, the inverse shuffled permutation
+therefore has an increasing run of length \(m\) with at least this
+probability. Under a uniform permutation each interval of \(m\) consecutive
+positions is increasing with probability \(1/m!\). A union bound over
+its \(N-m+1\) possible starting positions proves
+\eqref{eq:finite-largest-word-tv}. For the last assertion take
+\(m=\lfloor N^{b/2}\rfloor\); the hypotheses force \(b\le1\), and
+for all sufficiently large \(N\) this choice satisfies the required
+inequalities and \((N-m+1)/m!\to0\).
+\end{proof}
+\subsection{Cold spots}
+
+For $H\subseteq[N]$, let $E(H)$ be the path edges with both endpoints in $H$, and let $\partial H$ be its boundary in the infinite integer path, including the edges from $0$ to $1$ and from $N$ to $N+1$ when present. For a permutation \(\sigma\in\mathfrak S_N\) and a set \(H\subseteq[N]\),
+write
+\[
+  X_H(\sigma)=\sum_{(i,i+1)\in E(H)}
+                 \mathbf 1_{\{\sigma(i)<\sigma(i+1)\}}.
+\]
+If \(G\) is a subgraph of the path on \([N]\), list its nonempty
+components from left to right as \(C_1,\ldots,C_q\).  The permutation
+\(\pi_G\) is obtained by sorting the values of \(\pi\) increasingly
+on each \(C_j\), and we put \(X_{G,H}(\pi)=X_H(\pi_G)\).
+All probability and expectation statements with subscript \(\pi\) below
+refer to a uniform permutation, with \(G\) and \(H\) fixed.
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Law.lean :: RiffleLowerV2.Ascent.relativeOrderIndependence
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/RelativeOrder/Boundary.lean :: RiffleLowerV2.Ascent.boundaryAscentProbability
+\begin{lemma}[Independent relative orders]
+\label{lem:relative-order-independence}
+Let \(A_1,\ldots,A_m\) be pairwise disjoint sets of positions in
+\([N]\).  Under a uniform permutation \(\pi\), the relative orders of
+the values on these sets are mutually independent and uniform.  In
+particular, if \(A\) and \(B\) are disjoint nonempty sets of sizes
+\(a\) and \(b\), then
+\[
+  \Pp_\pi\{\max\pi(A)<\min\pi(B)\}
+  =\binom{a+b}{a}^{-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+Put \(d_j=|A_j|\) and \(d_0=N-\sum_{j=1}^m d_j\).  Fix one
+relative order on each \(A_j\), using increasing position order to
+enumerate its entries.  There are
+\(N!/(d_0!\prod_jd_j!)\) ways to assign disjoint value sets of the
+prescribed sizes to these position sets and their complement.  Each
+assignment admits exactly one ordering on each \(A_j\) with the
+prescribed relative order and \(d_0!\) orderings on the complement.
+Thus precisely \(N!/\prod_jd_j!\) permutations realize the prescribed
+orders.  Dividing by \(N!\) proves the product uniform law.  On
+\(A\cup B\), exactly \(a!b!\) of the \((a+b)!\) relative orders
+put all values on \(A\) before those on \(B\), proving the last claim.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/Concentration.lean :: RiffleLowerV2.Ascent.componentConcentration; RiffleLowerV2.Ascent.componentConcentrationTwoSided
+\begin{lemma}[Component-sorting concentration]
+\label{lem:permutation-bd}
+Let \(G\) be a deterministic path subgraph, let \(H\subseteq[N]\),
+and let \(M>0\) satisfy \(|H|\le M\).  For every \(t>0\),
+\begin{equation}
+\label{eq:component-ascent-one-sided}
+  \Pp_\pi\{X_{G,H}-\E_\pi X_{G,H}\ge t\},\quad
+  \Pp_\pi\{X_{G,H}-\E_\pi X_{G,H}\le-t\}
+  \le \exp(-t^2/M).
+\end{equation}
+Consequently,
+\[
+  \Pp_\pi\{|X_{G,H}-\E_\pi X_{G,H}|\ge t\}
+  \le 2\exp(-t^2/M).
+\]
+No condition on \(\partial H\) is needed for these estimates.
+\end{lemma}
+
+\begin{proof}
+Every edge of \(E(G)\cap E(H)\) is an ascent after component
+sorting.  Let \(J\subseteq\{1,\ldots,q-1\}\) consist of the
+indices for which the edge joining \(C_j\) to \(C_{j+1}\) belongs
+to \(E(H)\), and put \(B=|J|\).  Then
+\[
+  X_{G,H}=|E(G)\cap E(H)|+\sum_{j\in J}Y_j,
+  \qquad
+  Y_j=\mathbf 1_{\{\max\pi(C_j)<\min\pi(C_{j+1})\}}.
+\]
+If \(B=0\), this variable is constant and both probabilities in
+\eqref{eq:component-ascent-one-sided} vanish.  Assume \(B>0\).
+Separate \(J\) into its even and odd component indices.  Within
+either part, the sets \(C_j\cup C_{j+1}\) are disjoint, so
+Lemma~\ref{lem:relative-order-independence} makes the corresponding
+Bernoulli variables mutually independent.  Their means need not equal
+\(1/2\).
+
+For completeness, every Bernoulli variable \(Y\) satisfies
+\[
+  \E\exp\{\lambda(Y-\E Y)\}\le\exp(\lambda^2/8)
+  \qquad(\lambda\in\mathbb R).
+\]
+Indeed the logarithm of the left side has value and first derivative
+zero at the origin, and its second derivative is the variance of a
+Bernoulli variable under exponential tilting, hence is at most \(1/4\).
+Taylor's theorem gives the asserted bound, including the constant
+Bernoulli cases.  Let \(S_0,S_1\) be the centered sums over the two
+parity classes.  Cauchy--Schwarz and the independence within each class
+give
+\[
+  \E_\pi e^{\lambda(S_0+S_1)}
+  \le
+  \bigl(\E_\pi e^{2\lambda S_0}
+        \E_\pi e^{2\lambda S_1}\bigr)^{1/2}
+  \le \exp(\lambda^2B/4).
+\]
+Markov's inequality, with \(\lambda=2t/B\), bounds either one-sided
+tail by \(\exp(-t^2/B)\).  Finally,
+\(B\le|E(H)|\le|H|\le M\), which proves
+\eqref{eq:component-ascent-one-sided}.  Adding its two estimates proves
+the two-sided bound.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/Expectation.lean :: RiffleLowerV2.Ascent.componentExpectation
+\begin{lemma}[Finite component expectation comparison]
+\label{lem:component-ascent-expectation}
+For every deterministic path subgraph \(G\) and set \(H\subseteq[N]\),
+put \(e=|E(H)|\), \(r=|E(G)\cap E(H)|\), and
+\(d=|\partial H|\), with the boundary taken in the integer path.
+Then
+\begin{equation}
+\label{eq:component-ascent-expectation}
+  \E_\pi X_{G,H}\ge \frac e2+\frac r6-d.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Call a component \(C\) of \(G\) partial if it meets both \(H\)
+and its complement in \([N]\).  Every partial component contains an
+edge of \(\partial H\), and different components contain different
+such edges.  Thus there are at most \(d\) partial components.
+Call an edge of \(E(H)\setminus E(G)\) bad if at least one of its
+two incident components is partial.  A path component is incident to
+at most two intercomponent edges, so there are at most \(2d\) bad
+edges.  Each has ascent probability at least zero and therefore loses
+at most \(1/2\) against the baseline \(1/2\).
+
+The two components incident to any remaining intercomponent edge are
+wholly contained in \(H\).  If their sizes are \(a,b\ge1\), its
+ascent probability is \(\binom{a+b}{a}^{-1}\), by
+Lemma~\ref{lem:relative-order-independence}, and
+\begin{equation}
+\label{eq:component-boundary-deficit}
+  \frac12-\binom{a+b}{a}^{-1}
+  \le \frac{(a-1)+(b-1)}6.
+\end{equation}
+For \(a+b\ge5\), the right side is at least \(1/2\).
+For \(a+b=2\) both sides are zero; for \(a+b=3\) both sides are
+\(1/6\); and for \(a+b=4\) the left side is either \(1/4\)
+or \(1/3\), while the right side is \(1/3\).
+Each component wholly contained in \(H\) is charged at most twice
+in \eqref{eq:component-boundary-deficit}.  Its \(|C|-1\) internal
+edges belong to \(E(G)\cap E(H)\).  The total deficit from these
+remaining intercomponent edges is therefore at most \(r/3\).
+All \(r\) internal graph edges, including those in partial components,
+are retained and contribute excess \(r/2\).  Combining the internal
+excess, the deficit at most \(r/3\), and the bad-edge deficit at most
+\(d\), gives \eqref{eq:component-ascent-expectation}.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/Concentration.lean :: RiffleLowerV2.Ascent.uniformScan
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/Asymptotic.lean :: RiffleLowerV2.Ascent.uniform_null_scan_eventually
+\begin{lemma}[Uniform translate-scan ascent bound]
+\label{lem:uniform-ascent}
+Let \(H_0\subset\mathbb Z\) be finite with \(M=|H_0|>0\),
+and put \(H_q=(q+H_0)\cap[N]\) for \(0\le q\le N\).
+For every \(s>0\), the event
+\[
+  \mathcal A(s)=
+  \{\sigma:\exists q\in\{0,\ldots,N\},\
+          X_{H_q}(\sigma)>|E(H_q)|/2+s\}
+\]
+satisfies
+\begin{equation}
+\label{eq:uniform-ascent-scan-finite}
+  \nuUnif(\mathcal A(s))\le (N+1)\exp(-s^2/M).
+\end{equation}
+In particular, if \(M\ge N^a\) for a fixed \(a>0\), then for
+every fixed \(\delta>0\),
+\[
+  \nuUnif\bigl(\mathcal A(M^{1/2+\delta/2})\bigr)\longrightarrow0.
+\]
+\end{lemma}
+
+\begin{proof}
+A comparison between two distinct positions of a uniform permutation
+has mean \(1/2\), so \(\E_\pi X_{H_q}=|E(H_q)|/2\).
+Apply Lemma~\ref{lem:permutation-bd} to the edgeless graph and
+\(H_q\), for which \(|H_q|\le M\), and take a union bound over
+the \(N+1\) choices of \(q\).  This proves
+\eqref{eq:uniform-ascent-scan-finite}.  With
+\(s=M^{1/2+\delta/2}\), its right side is at most
+\((N+1)\exp(-N^{a\delta})\), which tends to zero.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/Test.lean :: RiffleLowerV2.Ascent.componentComparison
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/Quantitative.lean :: RiffleLowerV2.Ascent.quantitative_component_failure
+\begin{lemma}[Lalley component comparison]
+\label{lem:lalley-comparison}
+Let \(M>0\), \(|H|\le M\), and \(G\) be a deterministic
+path subgraph.  Write \(e=|E(H)|\),
+\(r=|E(G)\cap E(H)|\), and \(d=|\partial H|\).
+If \(s>0\) and \(\Delta=r/6-d-s>0\), then
+\begin{equation}
+\label{eq:lalley-comparison-finite}
+  \Pp_\pi\{X_{G,H}\le e/2+s\}
+  \le\exp(-\Delta^2/M).
+\end{equation}
+Consequently, for fixed \(D\ge0\), \(\delta>0\), and any such
+family with \(M\to\infty\), \(d\le D\sqrt M\), and
+\(r\ge M^{1/2+\delta}\),
+\[
+  \Pp_\pi\{X_{G,H}>e/2+M^{1/2+\delta/2}\}\longrightarrow1
+\]
+uniformly over \(N,G,H\).
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{lem:component-ascent-expectation} gives
+\(\E_\pi X_{G,H}-(e/2+s)\ge\Delta\).
+The event in \eqref{eq:lalley-comparison-finite} is therefore
+contained in the lower-tail event from
+\eqref{eq:component-ascent-one-sided}, with \(t=\Delta\).
+For the last assertion take \(s=M^{1/2+\delta/2}\).
+For all sufficiently large \(M\), depending only on \(D,\delta\),
+\[
+  D+M^{\delta/2}\le M^\delta/12,
+  \qquad
+  \Delta\ge M^{1/2+\delta}/12.
+\]
+Thus the failure probability is at most
+\(\exp(-M^{2\delta}/144)\), uniformly as claimed.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Ascent/Test.lean :: RiffleLowerV2.Ascent.conditionalLalleyTest; RiffleLowerV2.Ascent.conditionalLalleyTendsto
+\begin{lemma}[Lalley cold-spot test]
+\label{lem:lalley}
+Let \(H_0\subset\mathbb Z\) be deterministic and finite, put
+\(M=|H_0|\), and let \(H_q=(q+H_0)\cap[N]\).
+Suppose that, for constants \(a,\delta>0\) and \(D\ge0\)
+independent of \(N\),
+\[
+  M\ge N^a,\qquad |\partial H_q|\le D\sqrt M
+  \quad(0\le q\le N),
+\]
+and that the shuffle graph satisfies
+\[
+  \Pp\{\exists q\in\{0,\ldots,N\}:\
+         |E(G)\cap E(H_q)|\ge M^{1/2+\delta}\}\longrightarrow1.
+\]
+Then \(\dTV(P_N^{K},\nuUnif)\longrightarrow1\).
+\end{lemma}
+
+\begin{proof}
+Use the observable event
+\(\mathcal A=\mathcal A(M^{1/2+\delta/2})\) from
+Lemma~\ref{lem:uniform-ascent}.  That lemma gives
+\(\nuUnif(\mathcal A)\to0\).
+Use the representation in the component-sorting representation
+to sample the shuffle graph and an independent uniform permutation
+\(\pi\), and then form \(\pi_G\).
+On the event that a translate has at least
+\(M^{1/2+\delta}\) internal graph edges, choose its smallest index
+\(q\).  This choice depends only on \(G\).
+Conditional on \(G\), Lemma~\ref{lem:lalley-comparison} bounds the
+probability that this translate fails the ascent test by
+\(\exp(-M^{2\delta}/144)\), for all sufficiently large \(N\).
+The bound is uniform in \(G\) and the chosen translate.  Hence
+\[
+  P_N^K(\mathcal A)
+  \ge
+  \Pp\{\exists q:\ |E(G)\cap E(H_q)|\ge M^{1/2+\delta}\}
+     -\exp(-M^{2\delta}/144)
+  \longrightarrow1.
+\]
+Finally,
+\(\dTV(P_N^{K},\nuUnif)
+\ge P_N^K(\mathcal A)-\nuUnif(\mathcal A)\to1\).
+\end{proof}
+
+\subsection{Construction of the cold spots}
+\subsubsection{Empirical costs}
+
+Write $L=\log N$ and $S_N=K/L$.  On
+$((j-1)/L,j/L]$, $1\le j\le K$, use the actual profile $p^{(j)}$.
+For $0\le r\le s\le S_N$, define
+\[
+ (A^{(N)},B_\alpha^{(N)},J_\alpha^{(N)},H_\alpha^{(N)})(r,s)
+ =\int_r^s(a_{p_N(t)},\psi_{p_N(t)}(\alpha),
+                 I_{p_N(t)}(\alpha),H_{p_N(t)}(\alpha))\,dt,
+\]
+where $p_N(t)=p^{(j)}$ on the displayed column interval.
+Here
+\[
+ p^{[\alpha]}_\ell=\frac{p_\ell^\alpha}{\sum_a p_a^\alpha},\qquad
+ I_p(\alpha)=\sum_{\ell:p_\ell>0}p^{[\alpha]}_\ell\log(1/p_\ell),\qquad
+ H_p(\alpha)=-\sum_{\ell:p_\ell>0}p^{[\alpha]}_\ell\log p^{[\alpha]}_\ell.
+\]
+These are integrals of bounded step functions.  In particular, at grid
+endpoints they are the normalized finite sums of the actual column costs.
+Set
+\[
+ \beta^{(N)}(s)=1-A^{(N)}(0,s),\qquad
+ F_\alpha^{(N)}(s,u)=\frac{\alpha+3}{2}\beta^{(N)}(s)
+                 -B_\alpha^{(N)}(s,u)-2B_2^{(N)}(u,S_N).
+\]
+Set $\Lambda_1^{(N)}=\sup_{0\le s\le u\le S_N}
+\inf_{3\le\alpha\le4}F_\alpha^{(N)}(s,u)$.
+No distributional assumption on the order of the columns is made here.
+
+For $\alpha\in[2,4]$, the one-column functions satisfy
+\begin{equation}\label{eq:repair-global-one-column-bounds}
+ 0\le a_p\le\log k,\quad
+ 0\le I_p(\alpha)\le\log k,\quad
+ 0\le H_p(\alpha)\le I_p(\alpha),\quad
+ 0\le\psi_p(\alpha)\le(\alpha-1)\log k.
+\end{equation}
+To verify these assertions, apply the finite Gibbs inequality to
+$q=p^{[\alpha]}$ and the weights $p_\ell^\zeta$, restricting all sums to
+the positive coordinates. It gives
+\[
+ H_p(\alpha)\le\zeta I_p(\alpha)-\psi_p(\zeta),\qquad
+ H_p(\alpha)=\alpha I_p(\alpha)-\psi_p(\alpha).
+\]
+Apply the inequality twice, with $\alpha$ and $\zeta$ interchanged. For
+$1\le\alpha<\zeta$ their sum gives
+$(\zeta-\alpha)(I_p(\zeta)-I_p(\alpha))\le0$.
+Thus $I_p$ is decreasing, and $I_p(1)=H(p)\le\log k$; the latter
+entropy bound follows from the same Gibbs inequality with the uniform
+probability vector. Taking $\zeta=1$ gives $H_p(\alpha)\le I_p(\alpha)$.
+Taking $q=p$ in Gibbs gives
+$\psi_p(\alpha)\le(\alpha-1)H(p)\le(\alpha-1)\log k$.
+Nonnegativity follows from $p_\ell\le1$, and $a_p\le I_p(\alpha)$
+follows by averaging $\log(1/p_\ell)\ge-\log\max_a p_a$.
+All finite sums are continuous in $\alpha$ on $[2,4]$ and have positive
+power-sum denominators. Zero coordinates have zero tilted weight.
+Finally, $\sum p_\ell^2\ge(\max p_\ell)^2$ and
+$\sum p_\ell^4\le(\sum p_\ell^2)^2$ give
+\begin{equation}\label{eq:repair-two-comparisons}
+ \psi_p(2)\le2a_p\le2I_p(\alpha),\qquad
+ \psi_p(4)\ge2\psi_p(2).
+\end{equation}Thus every empirical endpoint displacement by $r$ changes an integrated
+$I$ or $H$ by at most $r\log k$, uniformly in the cuts and $N$.
+
+
+\subsubsection{A finite cold witness}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Witness/Main.lean :: RiffleLowerV2.Witness.coldWitness
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Witness/Continuous.lean :: RiffleLowerV2.Witness.continuousWitness
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Witness/Finite.lean :: RiffleLowerV2.Witness.roundWitness
+\begin{lemma}[Finite cold witness]\label{lem:cold-witness}
+Fix $\eta,\rho,\chi_g,\gamma>0$ and assume the local good-column condition on $[0,T]$ with these last three parameters.
+Suppose $\Lambda_1^{(N)}\ge\eta$ and
+$\beta^{(N)}(S_N)<\min\{\eta/100000,1/1000\}$.
+Choose a bridge length $2\rho$ with
+$2\rho\log k\le\eta/100000$, where the local good-column hypothesis holds
+on every interval of length $\rho$ contained in $[0,T]$. For all sufficiently large $N$ there
+are grid endpoints $s=m_s/L$, $u=m_u/L$, a tilt $\theta\in[3,4]$, and an
+integer bridge length $b_N=\lceil 2\rho L\rceil$ such that
+$0\le m_s\le m_u\le K-b_N$, the bridge columns
+$m_u<j\le m_u+b_N$ contain two good columns, and, writing
+$b=\beta^{(N)}(s)$, $J=J_\theta^{(N)}(s,u)$,
+$H=H_\theta^{(N)}(s,u)$, $J_t=J_2^{(N)}(u,S_N)$,
+$H_t=H_2^{(N)}(u,S_N)$,
+\begin{gather}
+ F_\theta^{(N)}(s,u)\ge\eta/2,\qquad
+ J\le b/2-3\eta/1000,\label{eq:repair-witness-upper}\\
+ \theta=3\quad\hbox{or}\quad J\ge b/2-\eta/200,
+ \label{eq:repair-witness-lower}\\
+ h:=b-J+H\ge\eta/1000,\qquad H\le b-J-\eta/1000,
+ \label{eq:repair-witness-geometry}\\
+ \Gamma:=2b-2J-2J_t+H+H_t,\qquad
+ \Gamma-h/2\ge\eta/1000,\label{eq:repair-witness-collision}\\
+ b-J-J_t\le\beta^{(N)}(S_N)<\min\{\eta/100000,1/1000\}.
+ \label{eq:repair-witness-mean}
+\end{gather}
+The constants are uniform in the finite cut sequence.
+\end{lemma}
+
+\begin{proof}
+Choose $s_0\le u_0$ with
+$F_\alpha^{(N)}(s_0,u_0)\ge7\eta/8$ for every $\alpha\in[3,4]$.
+Write $b_0=\beta^{(N)}(s_0)$.  Nonnegativity of the $B$ terms gives
+$b_0\ge\eta/4$, so $b_0/2-\eta/250>0$.
+If $J_3^{(N)}(s_0,u_0)\le b_0/2$, choose $\theta=3$.
+Otherwise, if $J_4^{(N)}(s_0,u_0)\ge b_0/2$, choose $\theta=4$.
+In the remaining case the continuity and monotonicity in $\alpha$ give
+$\theta\in(3,4)$ with $J_\theta^{(N)}(s_0,u_0)=b_0/2$.
+This selection does not interchange a supremum and an infimum.
+
+If $J_\theta^{(N)}(s_0,u_0)\le b_0/2-\eta/250$, leave $u_1=u_0$;
+this case can occur only for $\theta=3$.  Otherwise choose
+$u_1\in[s_0,u_0]$ with
+$J_\theta^{(N)}(s_0,u_1)=b_0/2-\eta/250$.
+Existence follows from continuity and the value zero at $s_0$.
+In the $\theta=3$ or interior cases the decrease of $J$ is at most
+$\eta/250$.  By \eqref{eq:repair-two-comparisons},
+\[
+ F_\theta^{(N)}(s_0,u_1)-F_\theta^{(N)}(s_0,u_0)
+ =B_\theta^{(N)}(u_1,u_0)-2B_2^{(N)}(u_1,u_0)
+ \ge-4J_\theta^{(N)}(u_1,u_0)\ge-2\eta/125.
+\]
+For $\theta=4$ the same difference is nonnegative, even if the
+backward displacement is large.  Hence in every case
+$F_\theta^{(N)}(s_0,u_1)\ge7\eta/8-2\eta/125$.
+
+Set
+\[
+ m_s=\lfloor s_0L\rfloor,\qquad
+ m_u=\min\{\lfloor u_1L\rfloor,K-b_N\}.
+\]
+These integers are ordered for large $N$.  To check the only nontrivial
+case, observe that
+\[
+ (S_N-s_0)\log k\ge A^{(N)}(s_0,S_N)
+ =b_0-\beta^{(N)}(S_N)>\eta/4-\min\{\eta/100000,1/1000\}.
+\]
+Consequently $s_0<S_N-2\rho-2/L$ for large $N$, and clipping $m_u$ to
+$K-b_N$ cannot move it below $m_s$.
+The endpoint errors satisfy $0\le s_0-s<1/L$ and
+$0\le u_1-u\le 2\rho+2/L$.
+Equation~\eqref{eq:repair-global-one-column-bounds} bounds the resulting
+change of $F$ by $10\rho\log k+20\log k/L$ and that of
+$J-b/2$ by $2\rho\log k+4\log k/L$.
+These errors are smaller than $\eta/10000$ for large $N$.
+The retained slack proves \eqref{eq:repair-witness-upper} and
+\eqref{eq:repair-witness-lower}.
+For the two good columns, use the interior interval
+$[u+\rho/2,u+3\rho/2]$. It lies within the bridge and within $[0,T]$.
+Every column time in this interval is strictly above $u$ and at most
+$u+b_N/L$, so it belongs to the bridge. The local good-column condition
+provides at least $\gamma\rho L>3$ good columns for large $N$; choose two
+of them in increasing order.
+The exact identities $H=\theta J-B_\theta^{(N)}(s,u)$ and
+$H_t=2J_t-B_2^{(N)}(u,S_N)$ imply
+\[
+ 2\Gamma-h=F_\theta^{(N)}(s,u)+(\theta-3)(J-b/2)
+ \ge\eta/2-\eta/200.
+\]
+This is greater than $\eta/500$.
+Also $H\le J$ and $J\le b/2-3\eta/1000$ give
+$H\le b-J-3\eta/500$ and $h\ge b-J\ge b/2+3\eta/1000$.
+Finally $J\ge A^{(N)}(s,u)$ and $J_t\ge A^{(N)}(u,S_N)$ give
+\eqref{eq:repair-witness-mean}.
+\end{proof}
+
+\subsubsection{Finite type classes}
+
+The construction below uses only the actual columns.  In particular it
+needs no temporal approximation for the tilted observables $I$ and $H$.
+Fix a $\xi$-regular simplex partition with regularity constant $C\ge0$ and representatives
+$p_R$, where $0<\xi<1/(4k)$.  There are $m=m(\xi)$ cells, independent of $N$.
+On a chosen set $I$ of column positions, let $I_R$ be the positions in cell
+$R$ and $n_R=|I_R|$.  The positions retain their chronological order.
+For $\alpha\in[2,4]$ put
+\[
+ G_R=\{\ell:p_R(\ell)>2\xi\},\qquad
+ q_R(\ell)=\frac{p_R(\ell)^\alpha\mathbf1_{G_R}(\ell)}
+                 {\sum_{a\in G_R}p_R(a)^\alpha}.
+\]
+Choose integers $m_{R,\ell}\ge0$ supported on $G_R$, with
+$\sum_\ell m_{R,\ell}=n_R$ and
+$|m_{R,\ell}-n_Rq_R(\ell)|\le1$; floor the counts and distribute the
+remaining units deterministically.  Let $\mathcal C^0_I$ be the words on
+$I$ with exactly these counts in each cell.  This class is nonempty.
+For every word write $\lambda_x=\prod_{j\in I}p^{(j)}(x_j)$.
+Partition $\mathcal C^0_I$ into the integer mass bins
+\[
+ \{x:j\le-\log\lambda_x<j+1\},\qquad j\in\mathbb Z_{\ge0}.
+\]
+Select a bin of maximal cardinality, breaking ties by the smallest index, and
+call it $\mathcal C_I$.  If its index is $j_I$, define
+\[
+ J_I^*=j_I/L,\qquad H_I^*=L^{-1}\log|\mathcal C_I|.
+\]
+These quantities may depend on $N$; that dependence is intentional.
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Types/Main.lean :: RiffleLowerV2.Types.roundedType
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Types/Truncation.lean :: RiffleLowerV2.Types.restrictedCost_truncation_error
+\begin{lemma}[Finite type estimates]\label{lem:type-estimates}
+For $|I|\le TL$ and $\alpha\in[2,4]$, uniformly over partitions with the same fixed number $m$ of cells, the cuts, the chosen
+position set, and the selected word,
+\begin{gather}
+ e^{-1}N^{-J_I^*}<\lambda_x\le N^{-J_I^*},\qquad
+ |\mathcal C_I|=N^{H_I^*},\label{eq:repair-bin-exact}\\
+ \left|J_I^*-L^{-1}\sum_{j\in I}I_{p^{(j)}}(\alpha)\right|
+ +\left|H_I^*-L^{-1}\sum_{j\in I}H_{p^{(j)}}(\alpha)\right|
+ \le O_{k,C}(T\xi\log(1/\xi))
+       +O_{k,m,\xi,T}\!\left(\frac{\log\log N+1}{\log N}\right).
+ \label{eq:repair-types-error}
+\end{gather}
+Every digit occurring in a selected word has actual column probability
+at least $\xi$.  Here the first implied constant depends only on $k,C$, and the second only on $k,m,\xi,T$; these constants and the threshold in $N$ precede the partition, cut array, position set, and tilt. The empty position set is allowed.
+\end{lemma}
+
+\begin{proof}
+Let $r=p_R$ and let $p$ belong to the same cell. On retained coordinates,
+$p_\ell\ge\xi$ and $|\log p_\ell-\log r_\ell|\le C\xi$; on omitted
+coordinates, $p_\ell\le3\xi$. The power-sum denominator is at least
+$k^{-4}$. The omitted power mass is at most $9k\xi^2$. Moreover,
+$p_\ell^\alpha\log(1/p_\ell)\le p_\ell$ for $\alpha\ge2$,
+by $\log x\le x-1$, so the omitted cost numerator is at most $3k\xi$.
+After division by the full power sum these bounds become $9k^5\xi^2$
+and $3k^5\xi$. The retained cost is at most $\log(1/\xi)$. Splitting
+the full cost into its retained and omitted parts therefore bounds the
+truncation error by $18k^5\xi\log(1/\xi)$.
+
+On retained coordinates, the normalized $\alpha$-power weights at $p$
+and $r$ have ratios between $e^{-8C\xi}$ and $e^{8C\xi}$. Comparing
+these weights and their digit costs gives
+\[
+ \left|\sum_\ell q_R(\ell)\log(1/r_\ell)-I_p(\alpha)\right|
+ \le O_{k,C}(\xi\log(1/\xi)).
+\]
+The identity expressing tilted entropy as tilt times cost plus the
+logarithm of the power sum, and the same retained/omitted decomposition,
+give the corresponding entropy estimate. These bounds are uniform on
+$0<\xi<1/(4k)$; this interval also ensures that the retained set is
+nonempty, since one coordinate of the representative is at least $1/k$.
+Put $\bar J=L^{-1}\sum_R n_R\sum_\ell q_R(\ell)\log(1/p_R(\ell))$
+and $\bar H=L^{-1}\sum_R n_RH(q_R)$.
+The rounding of counts changes the logarithmic product at representatives
+by at most $km\log(1/(2\xi))$.
+Replacing representative coordinates by actual coordinates changes it by
+at most $C\xi|I|$.  Consequently every $x\in\mathcal C^0_I$ satisfies
+\[
+ |{-L^{-1}\log\lambda_x}-\bar J|
+ \le CT\xi+km\log(1/(2\xi))/L.
+\]
+The multinomial formula gives
+$|\mathcal C^0_I|=\prod_Rn_R!/\prod_\ell m_{R,\ell}!$.
+The elementary factorial estimate
+$\log(n!)=n\log n-n+O(\log(n+1)+1)$ and the entropy continuity bound
+\[
+ |n_RH((m_{R,\ell}/n_R)_\ell)-n_RH(q_R)|
+ \le O_k(\log(n_R+1)+1)
+\]
+show the asserted cardinality estimate: if $f(t)=t\log t$, with $f(0)=0$,
+then $|f(x)-f(y)|\le\log(n+1)+2$ for $x,y\in[0,n]$ with
+$|x-y|\le1$. This follows by applying $\log t\le t-1$ to the ratio of the two positive arguments and using $|t\log t|\le1/e$ on $[0,1]$ when an argument is small. Apply it to
+$x=m_{R,\ell}$ and $y=n_Rq_R(\ell)$ and sum over the coordinates;
+the empty-cell contribution is zero. Consequently,
+$|L^{-1}\log|\mathcal C^0_I|-\bar H|
+ =O_{k,m,T}((\log\log N+1)/L)$.
+Since every allowed actual digit is at least $\xi$, there are at most
+$2+TL\log(1/\xi)$ nonempty integer mass bins.
+Keeping a largest bin therefore changes the logarithmic cardinality by
+$O_{\xi,T}(\log\log N+1)$ only.  Its index divided by $L$ lies within
+$1/L$ of the logarithmic mass of each selected word.
+Combining these estimates proves both assertions.
+\end{proof}
+
+\subsubsection{Cold sets and bridges}
+
+For a grid endpoint $s=m_s/\log N$, let $a_s$ be the length-$m_s$ word
+which uses a maximizing digit in every column, with ties broken by the
+smallest digit. For any word on a specified consecutive set of columns,
+$\lambda_x$ denotes its product probability on those columns.
+For $x$ on $(m_s,m_u]$, put
+\[
+ t_x^{\rm rel}=\sum_{\substack{x'\in[k]_0^{m_u-m_s}\\x'<_{\rm lex}x}}
+                \lambda_{x'},\qquad
+ J_x^{\rm rel}=[t_x^{\rm rel},t_x^{\rm rel}+\lambda_x).
+\]
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Localization/Geometry.lean :: RiffleLowerV2.Localization.deterministicColdGeometry
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Localization/ColdSet.lean :: RiffleLowerV2.Localization.coldRelativeSet_estimates
+\begin{lemma}[Finite cold geometry and mass bounds]
+\label{lem:cold-geometry}
+Fix $\eta,\rho,\chi_g>0$, subject to the
+bridge budget $2\rho\log k\le\min\{\eta/100000,1/1000\}/100$. There exist $0<\xi<1/(4k)$ and a $\xi$-regular finite partition with regularity constant $1$, fixed before $N$. For every sufficiently large $N$, every cut array, and every choice of $s,u,\theta,b_N$ satisfying all the conclusions of Lemma~\ref{lem:cold-witness}, there are deterministic prefix
+and tail families $\mathcal P_N,\mathcal T_N$, a bridge word $v_b$ with
+reserve words $v_b^-,v_b^+$, and a deterministic set $H_{{\rm rel},N}$,
+as constructed in the proof. The classes $\mathcal P_N,\mathcal T_N$
+are obtained from Lemma~\ref{lem:type-estimates} on the column sets
+$(m_s,m_u]$ with tilt $\theta$ and $(m_u+b_N,K]$ with tilt $2$,
+respectively; denote their mass-bin exponents by $J_p^*,H_p^*$ and
+$J_t^*,H_t^*$. Set
+\[
+ H_{{\rm rel},N}=\mathbb Z\cap
+    \bigcup_{x\in\mathcal P_N}N\lambda_{a_s}J_x^{\rm rel},\qquad
+ M_N=|H_{{\rm rel},N}|,\qquad H_q=(q+H_{{\rm rel},N})\cap[N].
+\]
+Define the real exponents
+\[
+ \ell_p=b-J_p^*,\quad h_N=\ell_p+H_p^*,\quad
+ \ell_b=-\log_N\lambda_{v_b},\quad
+ z_N=b-J_p^*-J_t^*-\ell_b,\quad
+ g_N=2z_N+H_p^*+H_t^*.
+\]
+For all sufficiently large $N$,
+\begin{gather}
+ \ell_p\ge b/2+\eta/500,\qquad H_p^*\le\ell_p-\eta/1000,\qquad
+ h_N\ge\eta/2000,\label{eq:cold-effective-geometry}\\
+ e^{-2}N^{h_N}\le M_N\le2N^{h_N},\qquad
+ N^{\eta/3000}\le M_N\le N,\qquad
+ |\partial H_q|\le4\sqrt{M_N}\quad(0\le q\le N),
+ \label{eq:cold-geometric-conclusions}\\
+ g_N-h_N/2\ge\eta/2000,\qquad z_N\le2\min\{\eta/100000,1/1000\},
+ \label{eq:cold-effective-collision}
+\end{gather}
+The full-word family $\mathcal Y_N=\{a_sxv_bz:x\in\mathcal P_N,z\in\mathcal T_N\}$
+satisfies, uniformly in its words,
+\begin{equation}
+\label{eq:cold-full-word-masses}
+ |\mathcal Y_N|=N^{H_p^*+H_t^*},\qquad
+ e^{-2}N^{z_N}<N\lambda_y\le N^{z_N}.
+\end{equation}
+The reserves satisfy $v_b^-<_{\rm lex}v_b<_{\rm lex}v_b^+$ and
+\begin{equation}
+\label{eq:cold-reserve-means}
+ \min_{x\in\mathcal P_N,\,\diamond\in\{-,+\}}
+       N\lambda_{a_sxv_b^\diamond}\ge N^{b/2+\eta/1000}.
+\end{equation}
+Every digit selected by a full word or a reserve has column probability
+at least $\min\{\xi,\chi_g,1/k\}>0$. Both type approximations have error at most $\min\{\eta/100000,1/1000\}/1000$. The bridge words differ only at their distinguished columns as described below, and each has mass at least $\chi_g^2k^{-b_N}$. Their central bridge exponent satisfies
+\[
+ 0\le\ell_b\le2\rho\log k+
+ \frac{\log k+2\log(1/\chi_g)}{\log N}.
+\]
+All constants and vanishing errors are uniform
+over the finite cut sequences under consideration.
+\end{lemma}
+
+\begin{proof}
+
+Use the finite witness, and apply Lemma~\ref{lem:type-estimates} to
+$I=(m_s,m_u]$ with $\alpha=\theta$.
+Call the resulting class $\mathcal P_N$, with exponents $J_p^*,H_p^*$.
+The ambient maximal prefix $a_s$ has exactly
+$N\lambda_{a_s}=N^b$ because $s$ is a grid endpoint.
+Set
+\[
+ \ell_p=b-J_p^*,\qquad h_N=\ell_p+H_p^*.
+\]
+Choose $\xi$, a regular partition with constant $1$, and then $N$ so that each type error in \eqref{eq:repair-types-error} is at most $\min\{\eta/100000,1/1000\}/1000$. The type estimates choose these parameters uniformly before the cut array and the two selected column intervals.
+Then
+\begin{equation}\label{eq:repair-finite-geometric-buffers}
+ \ell_p\ge b/2+\eta/500,\qquad
+ H_p^*\le\ell_p-\eta/1000,\qquad h_N\ge\eta/2000.
+\end{equation}
+For each $x\in\mathcal P_N$ use its exact relative probability interval
+$J_x^{\rm rel}$, and put
+\[
+ H_{{\rm rel},N}=\mathbb Z\cap\bigcup_{x\in\mathcal P_N}
+                         N\lambda_{a_s}J_x^{\rm rel}.
+\]
+The intervals are disjoint and each has length between
+$e^{-1}N^{\ell_p}$ and $N^{\ell_p}$.  Their integer counts differ from their
+lengths by at most one. Since $N^{\ell_p}\ge e^2$ for sufficiently large $N$, summing the interval counts gives exactly $e^{-2}N^{h_N}\le M_N\le2N^{h_N}$. Therefore, uniformly in $N$,
+\[
+ |H_{{\rm rel},N}|=N^{h_N+o(1)}\ge N^{\eta/3000},\qquad
+ |\partial H_{{\rm rel},N}|\le2N^{H_p^*}
+                         =o(|H_{{\rm rel},N}|^{1/2}).
+\]
+This does not assert that every probability interval is a distinct connected
+component: adjacent selected intervals may merge, which only reduces the
+boundary.  Translations clipped to $[N]$ have no larger cardinality and
+have at most two additional boundary edges. The gap $H_p^*\le\ell_p-\eta/1000$ gives $H_p^*\le h_N/2-\eta/2000$. Hence, for all sufficiently large $N$, $2N^{H_p^*}+2\le4e^{-1}N^{h_N/2}\le4\sqrt{M_N}$, proving the stated coefficient $4$.
+
+Choose two good bridge columns $g_L<g_R$ and define the word $v_b$ as follows.
+At $g_L$ use the larger of two good digits; at $g_R$ use the smaller.
+Use maximal digits at all other bridge positions.
+For the reserve words $v_b^-,v_b^+$, change respectively the digit at
+$g_L$ to the smaller and the digit at $g_R$ to the larger, keeping all
+other digits equal to the central bridge word.
+Then $v_b^-<_{\rm lex}v_b<v_b^+$, and each bridge word has probability at least
+$\chi_g^2k^{-b_N}$, where $\chi_g$ is the fixed good-column threshold.
+Writing $\ell_b=-L^{-1}\log\lambda_{v_b}$, we obtain
+\[
+ 0\le\ell_b\le 2\rho\log k+(\log k+2\log(1/\chi_g))/L.
+\]
+The same estimate applies to both reserve words.  In particular every
+reserve prefix $a_sxv_b^\pm$ has mean at least
+$N^{b/2+\eta/1000}$ for large $N$, after the bridge budget is imposed.
+This is the deterministic input for the later concentration/localization
+argument; it makes no assertion of independence between reserve counts.
+
+Let $\mathcal R=(m_u+b_N,K]$ and apply
+Lemma~\ref{lem:type-estimates} there with $\alpha=2$.
+Write $\mathcal T_N,J_t^*,H_t^*$ for the selected tail class and exponents.
+The bridge deletion changes the empirical $J_2,H_2$ by at most
+$(2\rho+1/L)\log k$ each.
+The full selected family is
+\[
+ \mathcal Y_N=\{a_sxv_bz:x\in\mathcal P_N, z\in\mathcal T_N\}.
+\]
+For $y\in\mathcal Y_N$ put $\mu_y=N\lambda_y$ and define
+\[
+ z_N=b-J_p^*-J_t^*-\ell_b,\qquad
+ g_N=2z_N+H_p^*+H_t^*.
+\]
+The mass bins give the exact uniform bounds
+\[
+ e^{-2}N^{z_N}<\mu_y\le N^{z_N},\qquad
+ |\mathcal Y_N|=N^{H_p^*+H_t^*},\qquad
+ \sum_{y\in\mathcal Y_N}\mu_y^2=N^{g_N+o(1)}.
+\]
+Write
+\[
+ \delta_{p,J}=J_p^*-J,\quad \delta_{p,H}=H_p^*-H,\quad
+ \delta_{t,J}=J_t^*-(J_t-d_J),\quad
+ \delta_{t,H}=H_t^*-(H_t-d_H),
+\]
+where $d_J=J_2^{(N)}(u,u+b_N/L)$ and
+$d_H=H_2^{(N)}(u,u+b_N/L)$ are the deleted bridge integrals.
+Each $\delta$ has absolute value at most $\min\{\eta/100000,1/1000\}/1000$ and
+$0\le d_J,d_H\le d:=(2\rho+1/L)\log k$.
+For all sufficiently large $N$, our budgets give
+$d,\ell_b\le\min\{\eta/100000,1/1000\}/50$. Direct subtraction now yields
+\begin{align*}
+ |h_N-h|&\le\frac1{500}\min\{\eta/100000,1/1000\},\\
+ g_N-h_N/2&\ge\Gamma-h/2
+   -\frac7{1000}\min\{\eta/100000,1/1000\}-d-2\ell_b
+   \ge\eta/2000.
+\end{align*}
+and
+\begin{align*}
+ z_N&\le b-J-J_t+\frac1{500}\min\{\eta/100000,1/1000\}+d\\
+    &<\frac{501}{500}\min\{\eta/100000,1/1000\}+d\\
+    &\le2\min\{\eta/100000,1/1000\}.
+\end{align*}
+These prove \eqref{eq:cold-effective-collision}. The reserve mass lower
+bound proved above gives \eqref{eq:cold-reserve-means}.
+All selected digits have probability at least
+$c=\min\{\xi,\chi_g,1/k\}>0$. Finally
+$H_{{\rm rel},N}\subset\mathbb Z\cap[0,N\lambda_{a_s})\subset[0,N)\cap\mathbb Z$,
+so $M_N\le N$. The bounds already established give
+\eqref{eq:cold-geometric-conclusions}, including its uniform clipped-boundary
+estimate, and complete the proof.
+\end{proof}
+
+\subsubsection{Localization}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Localization/Endpoints.lean :: RiffleLowerV2.Localization.relativeEndpoint
+\begin{lemma}[Finite relative endpoint estimate]
+\label{lem:finite-relative-endpoints}
+Let \(a\) be a deterministic prefix of length \(l\), let
+\(l\le m\le K\), and put \(\mu_a=N\lambda_a\).
+For a suffix \(x\) on columns \(l+1,\ldots,m\), let
+\(\lambda_x\) be its product mass and \(t_x\) the total product
+mass of the length-\((m-l)\) suffixes strictly smaller than \(x\).
+Define \(L_x^{\mathrm{rel}},U_x^{\mathrm{rel}}\) by counting rows
+with prefix \(a\) whose length-\((m-l)\) suffixes are respectively
+smaller than, or at most, \(x\).
+If \(A>0\) and
+\[
+ |C(v)-N\lambda_v|\le A(\sqrt{N\lambda_v}+1)
+ \quad\hbox{for every prefix \(v\) of length at most \(K\)},
+\]
+then simultaneously for all such \(a,x\),
+\begin{equation}
+\label{eq:relative-endpoint-finite-error}
+\begin{split}
+ &|L_x^{\mathrm{rel}}-\mu_at_x|
+  +|U_x^{\mathrm{rel}}-\mu_a(t_x+\lambda_x)|\\
+ &\hspace{6mm}\le
+ A\bigl[(2\sqrt{kK}+1)\sqrt{\mu_a}+2kK+1\bigr].
+\end{split}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Partition the preceding and following suffixes by the first column
+where they differ from \(x\).  The resulting exact identities are
+\begin{align}
+\label{eq:relative-left-side-exact}
+ L_x^{\mathrm{rel}}-\mu_at_x
+ &=\sum_{r=l+1}^m\sum_{d<x_r}
+   \bigl[C(ax_{l+1}\cdots x_{r-1}d)
+          -N\lambda_{ax_{l+1}\cdots x_{r-1}d}\bigr],\\
+\label{eq:relative-right-side-exact}
+ U_x^{\mathrm{rel}}-\mu_a(t_x+\lambda_x)
+ &=C(a)-\mu_a
+  -\sum_{r=l+1}^m\sum_{d>x_r}
+   \bigl[C(ax_{l+1}\cdots x_{r-1}d)
+          -N\lambda_{ax_{l+1}\cdots x_{r-1}d}\bigr].
+\end{align}
+Each side contains at most \(kK\) disjoint subcylinders of the
+ambient cylinder.  Their means \(\mu_j\) therefore have sum at
+most \(\mu_a\).  Cauchy--Schwarz bounds either side sum by
+\[
+ A\sum_j(\sqrt{\mu_j}+1)
+ \le A\bigl[\sqrt{kK\mu_a}+kK\bigr].
+\]
+The additional ambient fluctuation in
+\eqref{eq:relative-right-side-exact} is at most
+\(A(\sqrt{\mu_a}+1)\).  Adding these bounds proves
+\eqref{eq:relative-endpoint-finite-error}, including empty suffixes
+and zero or small means.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Localization/Events.lean :: RiffleLowerV2.Localization.localization; RiffleLowerV2.Localization.coldLocalization_of_prefix_event
+\begin{lemma}[Uniform cold-word localization]
+\label{lem:localization}
+Use the finite witness, the selected prefix family \(\mathcal P_N\),
+the full-word family \(\mathcal Y_N\), and the cold set
+\(H_{{\rm rel},N}\).  Put
+\[
+ H_q=(q+H_{{\rm rel},N})\cap[N],\qquad q_*=L_{a_s},\qquad
+ b=\beta^{(N)}(s),\qquad N\lambda_{a_s}=N^b.
+\]
+With probability \(1-o(1)\), simultaneously for every
+\(y\in\mathcal Y_N\), all rows carrying \(y\) have sorted
+positions in \(H_{q_*}\).  On this event each distinct full word
+that occurs at least twice supplies a distinct edge of
+\(E(G)\cap E(H_{q_*})\).  The probability bound is uniform over
+the permitted finite witnesses and cut arrays.
+\end{lemma}
+
+\begin{proof}
+Take \(\varepsilon=\eta/4000\) in
+Lemma~\ref{cor:iterated-hypergeom}.  On its simultaneous
+prefix-count event, Lemma~\ref{lem:finite-relative-endpoints} bounds
+both relative endpoint errors for every \(x\in\mathcal P_N\)
+by
+\[
+ e_N=N^{\eta/4000}
+       \bigl[(2\sqrt{kK}+1)N^{b/2}+2kK+1\bigr].
+\]
+Since \(J_p^*\ge0\), the inequality
+\(\ell_p=b-J_p^*\ge b/2+\eta/500\) in
+\eqref{eq:repair-finite-geometric-buffers} implies \(b\ge\eta/250\).
+As \(K\le T\log N\), uniformly for all these witnesses,
+\begin{equation}
+\label{eq:repair-endpoint-error-concrete}
+ e_N\le N^{b/2+\eta/2000}
+ \quad\hbox{for all sufficiently large \(N\)}.
+\end{equation}
+
+The reserve words \(v_b^-\) and \(v_b^+\) differ from the central
+bridge \(v_b\) at only the first and second distinguished good
+column, respectively.  At the distinguished columns their digit
+probabilities are at least \(\chi_g\), and all other bridge digits
+are maximal.  Hence their bridge products are at least
+\(\chi_g^2k^{-b_N}\), where
+\(b_N=\lceil 2\rho\log N\rceil\) is the bridge length.  By
+\eqref{eq:repair-bin-exact} and
+\eqref{eq:repair-finite-geometric-buffers}, every reserve prefix has
+mean at least
+\[
+ \mu_x^\pm:=\E C(a_sxv_b^\pm)
+ \ge e^{-1}\chi_g^2 k^{-1}
+       N^{\ell_p-2\rho\log k}
+ \ge N^{b/2+\eta/1000}
+\]
+for all sufficiently large \(N\), because
+\(2\rho\log k\le\eta/100000\).  The fixed factor involving
+\(\chi_g\) is absorbed by the remaining positive exponent gap.
+
+The same simultaneous prefix event already controls every reserve count.
+For a reserve mean $\mu\ge N^{b/2+\eta/1000}$, use $b\ge\eta/250$ and,
+for sufficiently large $N$, $16\le N^{\eta/400}$ to obtain
+\[
+ N^{\eta/4000}(\sqrt\mu+1)\le\mu/2.
+\]
+Indeed $\mu\ge16N^{\eta/2000}$, so $\sqrt\mu\ge4N^{\eta/4000}$;
+also $\sqrt\mu\ge1$. The prefix deviation bound gives $C(v)\ge\mu/2$.
+The further inequality $4\le N^{\eta/2000}$ and the bound on $e_N$ yield
+\begin{equation}\label{eq:repair-reserve-count-dominates}
+ C(a_sxv_b^-),\ C(a_sxv_b^+)\ge\tfrac12N^{b/2+\eta/1000}
+                           \ge e_N+2
+ \qquad(x\in\mathcal P_N).
+\end{equation}
+Thus one prefix-count event controls both endpoints and all reserves,
+with failure probability at most
+$2(K+1)k^K\exp(-N^{\eta/4000}/8)$. Its threshold depends only on the
+fixed parameters, since it is enough that
+$4kT\log N+4\le N^{\eta/4000}$, $4\le N^{\eta/2000}$, and
+$16\le N^{\eta/400}$.
+
+Work on this event.For a fixed \(x\), write
+\[
+ \ell=N\lambda_{a_s}t_x^{\rm rel},\qquad
+ r=N\lambda_{a_s}(t_x^{\rm rel}+\lambda_x).
+\]
+The relative endpoints differ from \(\ell,r\) by at most
+\(e_N\).  Every one-based sorted row rank \(i\) carrying a word
+\(a_sxv_bz\in\mathcal Y_N\) satisfies
+\[
+ q_*+L_x^{\mathrm{rel}}+C(a_sxv_b^-)+1
+ \le i\le
+ q_*+U_x^{\mathrm{rel}}-C(a_sxv_b^+),
+\]
+because \(v_b^-<_{\rm lex}v_b<_{\rm lex}v_b^+\).
+Equation~\eqref{eq:repair-reserve-count-dominates} therefore gives
+\(q_*+\ell<i<q_*+r\).  Thus
+\[
+ i\in q_*+(\mathbb Z\cap[\ell,r))\subseteq H_{q_*}.
+\]
+The two spare units in the reserve bound resolve the one-based-rank
+and half-open-interval conventions.  No union bound over tail words
+\(z\) and no estimate on the random translation \(q_*\) are needed.
+
+Copies of a complete word are consecutive after lexicographic sorting.
+If there are at least two, choose the edge between its first two copies.
+The localization places both ranks in \(H_{q_*}\), and this pair
+is an edge of \(G\).  Distinct words occupy disjoint constant-word
+blocks, so their chosen edges are distinct.
+\end{proof}
+\subsubsection{Collision counts}
+
+For a full word $w$, write $N_w=C(w)$ for its occupancy and
+$\mu_w=N\lambda_w$ for its mean.
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Factorial/Exact.lean :: RiffleLowerV2.Factorial.exactJointFactorial
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Factorial/RelativeTargets.lean :: RiffleLowerV2.Factorial.relativeJointFactorial
+\begin{lemma}[Fixed-column factorial moments]
+\label{lem:fixed-column-factorial}
+For arbitrary $K$, distinct full words $w_1,\ldots,w_q$, and nonnegative
+integers $r_i$ with $R=\sum_i r_i\le N$, let $m_{j,a}=\sum_{i:(w_i)_j=a}r_i$.
+Then the exact identity is
+\[
+ \E\prod_i(N_{w_i})_{r_i}
+   =(N)_R\prod_{j=1}^K\frac{\prod_a(n_a^{(j)})_{m_{j,a}}}{(N)_R}.
+\]
+In addition, suppose $K\le C\log N$ and every pile requested by the distinct full words
+$w_1,\ldots,w_q$ has size at least $cN$, for fixed $c,C>0$.
+For nonnegative integers $r_i$ with $R=\sum_i r_i\le N^{1/5}$,
+\begin{equation}
+\label{eq:exact-fixed-column-factorials}
+ \E\prod_{i=1}^q(N_{w_i})_{r_i}
+ =\prod_{i=1}^q\mu_{w_i}^{r_i}
+    \left(1+O_{c,C}\left(\frac{(K+1)R^2}{N}\right)\right).
+\end{equation}
+The bound is uniform in the words and the column counts.
+\end{lemma}
+
+\begin{proof}
+Expanding the falling factorials chooses ordered labelled rows for each
+word. As the words are distinct, only disjoint choices contribute. There
+are $(N)_R$ such choices. Let $m_{j,a}$ be the number of their requests for
+digit $a$ in column $j$; thus $\sum_a m_{j,a}=R$.
+Uniform sampling of each fixed-count column gives the exact formula
+\[
+ \E\prod_i(N_{w_i})_{r_i}
+ =(N)_R\prod_{j=1}^K
+                \frac{\prod_a(n_a^{(j)})_{m_{j,a}}}{(N)_R}.
+\]
+For $n\ge cN$ and $0\le v\le R\le N^{1/5}$,
+\[
+ \log\frac{(n)_v}{n^v}
+ =\sum_{h=0}^{v-1}\log(1-h/n)=O_c(v^2/N),
+\]
+uniformly for sufficiently large $N$. Apply this also with $n=N$,
+and compare the exact formula with
+\[
+ \prod_i\mu_{w_i}^{r_i}
+   =N^R\prod_{j,a}(n_a^{(j)}/N)^{m_{j,a}}.
+\]
+Since $\sum_a m_{j,a}^2\le R^2$, the logarithm of their ratio is
+$O_c((K+1)R^2/N)=o(1)$. Exponentiating proves
+\eqref{eq:exact-fixed-column-factorials}. The case $R=0$ is equality.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Factorial/Central.lean :: RiffleLowerV2.Factorial.centralComparison; RiffleLowerV2.Factorial.centralComparisonOne
+\begin{lemma}[Finite factorial comparison with a controlled remainder]
+\label{lem:central-window}
+Let $X,Y$ be nonnegative integer-valued random variables on a finite probability space, let $\mu,\nu>0$,
+and let $P_\mu,P_\nu$ be independent Poisson variables. Suppose that $m\ge2$
+is even and, for $r,s\ge0$ with $r+s\le2m$,
+\[
+ \left|\E(X)_r(Y)_s-\mu^r\nu^s\right|
+ \le\epsilon\mu^r\nu^s,\qquad 0\le\epsilon\le1.
+\]
+Set $f(t)=1-(1+t)e^{-t}$ and $d_m(t)=(m-1)t^m/m!$. Then
+\begin{align*}
+ \left|\Pp(X\ge2,Y\ge2)-f(\mu)f(\nu)\right|
+ &\le \epsilon(1+\mu)(1+\nu)e^{\mu+\nu}\\
+ &\quad+3\bigl(d_m(\mu)+d_m(\nu)+d_m(\mu)d_m(\nu)\bigr).
+\end{align*}
+If only the one-variable moments through order $m$ are assumed, then
+\[
+ \left|\Pp(X\ge2)-f(\mu)\right|
+ \le\epsilon(1+\mu)e^\mu+3d_m(\mu).
+\]
+\end{lemma}
+
+\begin{proof}
+Define the even Bonferroni polynomial and its last term by
+\[
+ U_m(n)=\sum_{r=2}^{m}(-1)^r(r-1)\binom nr,
+ \qquad D_m(n)=(m-1)\binom nm.
+\]
+The finite binomial identities give the pointwise inequalities
+\begin{equation}
+\label{eq:collision-bonferroni-sandwich}
+ 0\le U_m(n)-\mathbf 1_{\{n\ge2\}}\le D_m(n)
+ \qquad(n\ge0).
+\end{equation}
+For completeness, put $S_j(n)=\sum_{r=2}^{j}(-1)^r(r-1)\binom nr$.
+For $n>j\ge2$,
+\[
+ S_j(n)-1=(-1)^j
+ \left(n\binom{n-2}{j-1}-\binom{n-1}{j}\right),
+\]
+and the expression in parentheses equals
+$((j-1)n+1)\binom{n-2}{j-1}/j\ge0$.
+For $2\le n\le j$, $S_j(n)=1$; for $n=0,1$, it is zero.
+Thus $S_{m-1}(n)\le\mathbf 1_{\{n\ge2\}}\le S_m(n)$; the case $m=2$
+uses $S_1=0$. Their difference is $D_m(n)$, proving
+\eqref{eq:collision-bonferroni-sandwich}.
+
+Writing $I_X=\mathbf 1_{\{X\ge2\}}$ and similarly for $Y$, the same inequality gives
+\[
+ 0\le U_m(X)U_m(Y)-I_XI_Y
+ \le D_m(X)+D_m(Y)+D_m(X)D_m(Y).
+\]
+Consequently the expected error is at most
+$(1+\epsilon)(d_m(\mu)+d_m(\nu)+d_m(\mu)d_m(\nu))$.
+The independent Poisson pair has the same bound with $\epsilon=0$.
+The difference between the expectations of the two polynomial products is
+at most
+\[
+ \epsilon\left(\sum_{r=2}^{m}\frac{(r-1)\mu^r}{r!}\right)
+ \left(\sum_{s=2}^{m}\frac{(s-1)\nu^s}{s!}\right)
+ \le\epsilon(1+\mu)(1+\nu)e^{\mu+\nu}.
+\]
+Adding the three bounds proves the assertion. The one-variable assertion
+follows from the same sandwich. All expectations here are of polynomials of
+total degree at most $2m$: in particular their values on $\{X+Y>2m\}$ have
+been controlled, rather than discarded using only the probability of that event.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/Occupancy/Main.lean :: RiffleLowerV2.Occupancy.uniformOccupancy; RiffleLowerV2.Occupancy.collisionChebyshev
+\begin{lemma}[Uniform fixed-column collision probabilities]
+\label{lem:two-category-poisson}
+Fix $c>0$ and $C>0$. For each $N$, let $K\le C\log N$, and take $K$
+independent uniformly permuted fixed-count columns on the same $N$ labelled
+rows. Let $\mathcal W$ be any deterministic family of distinct full words
+such that every pile selected by any word in $\mathcal W$ has size at least
+$cN$. Put
+\[
+ \lambda_w=\prod_{t=1}^{K}\frac{n_{w_t}^{(t)}}N,
+ \quad \mu_w=N\lambda_w,
+ \quad A_w=\{N_w\ge2\},\quad p_w=\Pp(A_w),
+ \quad f(t)=1-(1+t)e^{-t}.
+\]
+Uniformly over all such data and words, as $N\to\infty$,
+\begin{align}
+ p_w&=f(\mu_w)\bigl(1+O_{c,C}(N^{-1/100})\bigr),
+ \label{eq:uniform-collision-marginal}\\
+ \Pp(A_w\cap A_{w'})
+ &=p_wp_{w'}\bigl(1+O_{c,C}(N^{-1/100})\bigr),\qquad w\ne w'.
+ \label{eq:uniform-collision-pair}
+\end{align}
+In particular $p_w\asymp\min\{\mu_w^2,1\}$. For
+$Z=\sum_{w\in\mathcal W}\mathbf 1_{A_w}$,
+\begin{equation}
+\label{eq:uniform-collision-variance}
+ \Var Z\le\E Z+O_{c,C}(N^{-1/100})(\E Z)^2.
+\end{equation}
+No upper or lower restriction on $\mu_w$ is required.
+\end{lemma}
+
+\begin{proof}
+All constants below depend only on $c,C$. The exact labelled-row calculation
+in Lemma~\ref{lem:fixed-column-factorial} gives, for distinct words $w,w'$
+and $r+s\le R\le N^{1/5}$,
+\begin{equation}
+\label{eq:collision-uniform-factorials}
+ \E(N_w)_r(N_{w'})_s
+ =\mu_w^r\mu_{w'}^s\left(1+O\left(\frac{(K+1)R^2}{N}\right)\right).
+\end{equation}
+The same one-variable estimate holds in every model obtained by forcing
+$b\le3$ labelled rows to carry a word in $\mathcal W$ and deleting these
+rows: the residual population is $N-b$, the columns remain independent
+uniform fixed-count columns, and every selected residual pile has size at
+least $(c/2)(N-b)$ for all sufficiently large $N$.
+
+For the occupancy $V$ of a fixed word in any of these original or residual
+models, let $v=\E V$. Equation~\eqref{eq:thinning-transform} gives
+\begin{equation}
+\label{eq:collision-empty-singleton-tail}
+ \E s^V\le e^{-(1-s)v}\quad(0<s\le1),\qquad
+ \Pp(V<2)\le2e^{-v/2}.
+\end{equation}
+The latter bound is also \eqref{eq:thinning-lower-tail}.
+
+Choose once and for all
+\[
+ \tau=N^{-1/100},\qquad B=\frac1{10}\log N,
+ \qquad R=\lfloor N^{1/25}\rfloor,
+ \qquad m=2\lfloor R/4\rfloor.
+\]
+For large $N$, $m\ge2$ is even and $2m\le R\le N^{1/5}$.
+The relative factorial error in \eqref{eq:collision-uniform-factorials}
+is bounded by
+\[
+ \epsilon=O_{c,C}((\log N)N^{-23/25}).
+\]
+If $0<\mu,\nu\le B$, Lemma~\ref{lem:central-window} therefore gives
+\begin{equation}
+\label{eq:collision-central-absolute}
+ \left|\Pp(N_w\ge2,N_{w'}\ge2)-f(\mu)f(\nu)\right|
+ =O_{c,C}(N^{-7/10}).
+\end{equation}
+Its one-variable version gives the same bound whenever $0<\mu\le2B$,
+including the residual models on $N-b$ rows, $b\le3$.
+To verify these errors explicitly, the moment-error term is at most
+$C(\log N)^3N^{-18/25}=O(N^{-7/10})$ in the two-variable range,
+and at most $C(\log N)^2N^{-18/25}$ in the one-variable range $\mu\le2B$.
+Moreover,
+\[
+ d_m(t)\le m\exp(2t-m\log2)\le N^{-1},\qquad 0<t\le2B,
+\]
+for all sufficiently large $N$. Indeed $m\le N$, $m\log2\ge3\log N$, and $2t\le(2/5)\log N$ suffice for this estimate. The product of two such terms is at most $N^{-2}$. Changing $N$ to $N-b$ changes only the constants.
+
+We first prove \eqref{eq:uniform-collision-marginal}.
+If $\mu\le\tau$, the order-two/order-three Bonferroni inequalities are
+\begin{equation}
+\label{eq:collision-rare-bonferroni}
+ \frac12\E(V)_2-\frac13\E(V)_3
+ \le\Pp(V\ge2)\le\frac12\E(V)_2.
+\end{equation}
+The coefficient of $(V)_3$ is $1/3$.
+Equation~\eqref{eq:collision-uniform-factorials} thus gives
+$p_w=\mu^2(1+O(\tau+(K+1)/N))/2$.
+Since $f(\mu)=\mu^2(1+O(\mu))/2$, the desired relative estimate follows,
+uniformly even when $\mu$ is arbitrarily small.
+If $\tau<\mu\le B$, then $f(\mu)\ge(e^{-1}/2)\min\{\mu^2,1\}\ge(e^{-1}/2)\tau^2$.
+The one-variable central bound has relative error
+$O(N^{-7/10}\tau^{-2})=O(N^{-17/25})$, again smaller than $O(\tau)$.
+If $\mu>B$, \eqref{eq:collision-empty-singleton-tail} gives
+$1-p_w\le2N^{-1/20}$, whereas
+$1-f(\mu)=(1+\mu)e^{-\mu}\le(1+B)e^{-B}=O((\log N)N^{-1/10})$.
+This proves \eqref{eq:uniform-collision-marginal} in all three regimes.
+The same conclusion holds uniformly in the residual models, by the verified
+population and pile-size bounds above.
+
+This marginal result also provides the conditional stability needed when
+one of the two categories is rare. Fix $b=2$ or $3$ distinct labelled rows
+and force them to carry $w$. For $w'\ne w$, none of the forced rows counts
+as a $w'$ row. The conditional mean of the remaining $w'$ count is
+\[
+ \nu_b=(N-b)\prod_{t=1}^{K}
+ \frac{n_{w'_t}^{(t)}-b\mathbf 1_{\{w'_t=w_t\}}}{N-b},
+ \qquad \frac{\nu_b}{\nu}=1+O((K+1)/N),\quad\nu=\mu_{w'}.
+\]
+All these conditioning events are positive for large $N$ because their
+requested piles have size at least $cN$. The function $f$ satisfies
+\[
+ 0\le\frac{tf'(t)}{f(t)}\le2\qquad(t>0),
+\]
+since $f(t)=\int_0^t u e^{-u}\,du\ge e^{-t}t^2/2$.
+Equivalently, $f$ is increasing and $f(t)/t^2$ is decreasing. Thus
+$0<x\le y$ implies $f(x)\le f(y)\le(y/x)^2f(x)$. Applying these two
+inequalities to the original and residual means gives
+$f(\nu_b)/f(\nu)=1+O((K+1)/N)$ uniformly for every $\nu>0$.Applying \eqref{eq:uniform-collision-marginal} to the original and residual
+models proves
+\begin{equation}
+\label{eq:collision-conditional-stability}
+ \Pp(A_{w'}\mid\text{the prescribed $b$ rows carry $w$})
+ =p_{w'}(1+O(\tau)),\qquad b=2,3.
+\end{equation}
+The constants are independent of the row labels and both words.
+
+To prove \eqref{eq:uniform-collision-pair}, first suppose
+$\mu=\mu_w\le\tau$; no restriction is imposed on $\nu=\mu_{w'}$.
+Summing \eqref{eq:collision-conditional-stability} over the ordered labelled
+$b$-tuples gives
+\[
+ \E[(N_w)_b\mathbf 1_{A_{w'}}]
+ =\mu^b p_{w'}(1+O(\tau)),\qquad b=2,3.
+\]
+Multiplying the pointwise Bonferroni sandwich
+\eqref{eq:collision-rare-bonferroni} by $\mathbf 1_{A_{w'}}$ therefore yields
+\[
+ \Pp(A_w\cap A_{w'})=\frac{\mu^2}2p_{w'}(1+O(\tau))
+ =p_wp_{w'}(1+O(\tau)).
+\]
+This includes the case where both means are arbitrarily small.
+
+It remains to consider $\mu,\nu>\tau$. If, say, $\nu>B$, then
+\eqref{eq:collision-empty-singleton-tail} implies
+\[
+ |\Pp(A_w\cap A_{w'})-p_wp_{w'}|
+ \le2\Pp(A_{w'}^c)\le4N^{-1/20}.
+\]
+Since $p_w\ge(e^{-1}/4)\tau^2$ and $p_{w'}\ge1/2$ for large $N$, its relative
+error is $O(N^{-3/100})=O(\tau)$.
+Finally, if $\tau<\mu,\nu\le B$, use
+\eqref{eq:collision-central-absolute} and the already proved marginal
+relative estimates. Here $f(\mu)f(\nu)\ge(e^{-2}/4)\tau^4$, so the additional
+central relative error is
+$O(N^{-7/10}\tau^{-4})=O(N^{-33/50})$.
+This proves the pair estimate uniformly in every case.
+
+It follows that
+\[
+ \sum_{w\ne w'}|\operatorname{Cov}(\mathbf 1_{A_w},\mathbf 1_{A_{w'}})|
+ \le C\tau\left(\sum_w p_w\right)^2.
+\]
+Adding $\sum_w\Var(\mathbf 1_{A_w})\le\E Z$ proves
+\eqref{eq:uniform-collision-variance}.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/ManyEdges.lean :: RiffleLowerV2.EmpiricalLower.manyEdges
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/CollisionMean.lean :: RiffleLowerV2.EmpiricalLower.cold_collision_mean_lower
+\begin{lemma}[Many localized collision edges]
+\label{lem:many-edges}
+For the finite witness and cold set of Lemma~\ref{lem:cold-geometry},
+the following estimate holds:
+\[
+ \Pp\{|E(G)\cap E(H_{L_{a_s}})|\ge M_N^{1/2+\eta/5000}\}
+ \longrightarrow1.
+\]
+The convergence is uniform over the permitted finite witnesses and cuts.
+\end{lemma}
+
+\begin{proof}
+Let $A_y=\{N_y\ge2\}$ and $Z=\sum_{y\in\mathcal Y_N}\mathbf 1_{A_y}$.
+Every selected pile has size at least $cN$ for a fixed $c>0$, by
+Lemma~\ref{lem:cold-geometry}. Hence
+Lemma~\ref{lem:two-category-poisson} applies to this whole deterministic
+family. Its marginal bound and \eqref{eq:cold-full-word-masses} give
+\[
+ \Pp(A_y)\ge \frac{e^{-1}}4\min\{\mu_y^2,1\}
+ \ge \frac{e^{-5}}4N^{2z_N-4\min\{\eta/100000,1/1000\}},\qquad
+ \E Z\ge \frac{e^{-5}}4N^{g_N-4\min\{\eta/100000,1/1000\}},
+\]
+Here we used the upper bound on $z_N$ in \eqref{eq:cold-effective-collision}.
+The other bound there gives
+\[
+ g_N-h_N/2-4\min\{\eta/100000,1/1000\}
+ \ge\eta/2000-\eta/25000>\eta/3000.
+\]
+Together with \eqref{eq:cold-geometric-conclusions} this yields, for all
+sufficiently large $N$,
+\[
+ \E Z\ge M_N^{1/2}N^{\eta/3000},\qquad \E Z\longrightarrow\infty.
+\]
+Equation~\eqref{eq:uniform-collision-variance} and Chebyshev's inequality
+now imply
+\[
+ \Pp(Z<\tfrac12\E Z)
+ \le\frac4{\E Z}+O(N^{-1/100})=o(1).
+\]
+In particular $Z\ge M_N^{1/2}N^{\eta/4000}$ with probability $1-o(1)$.
+Intersect this event with that of Lemma~\ref{lem:localization}. Its
+injective assignment of edges gives
+$|E(G)\cap E(H_{L_{a_s}})|\ge Z$. Since $M_N\le N$, any fixed
+$0<\delta<\eta/4000$, for example $\delta=\eta/5000$, proves the claim.
+\end{proof}
+
+
+
+
+
+
+\subsubsection{Completion of the empirical lower bound}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/Cold.lean :: RiffleLowerV2.EmpiricalLower.coldOnly
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/Cold.lean :: RiffleLowerV2.EmpiricalLower.coldOnly
+\begin{proposition}[Cold-spot lower bound]\label{prop:cold-lower}
+Fix $\eta,\chi_g,\gamma,\rho>0$ with
+\[
+ 2\rho\log k\le\frac1{100}\min\{\eta/100000,1/1000\}.
+\]
+For every $\varepsilon>0$, there exists $N_0\ge2$ such that, for every
+$N\ge N_0$ and every cut array satisfying the local good-column condition
+with parameters $\chi_g,\gamma,\rho$ on $[0,T]$, the inequalities
+\[
+ \Lambda_1^{(N)}\ge\eta,\qquad
+ \beta^{(N)}(S_N)<\min\{\eta/100000,1/1000\}
+\]
+imply $\dTV(P_N^K,\nuUnif)\ge1-\varepsilon$.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:cold-witness} supplies the finite witness, and
+Lemma~\ref{lem:cold-geometry} supplies its deterministic cold set. Its
+cardinality is at least $N^{\eta/3000}$, and every clipped translate has
+boundary at most four times the square root of that cardinality.
+Lemma~\ref{lem:many-edges} gives at least $M_N^{1/2+\eta/5000}$ internal
+graph edges on the translate indexed by $L_{a_s}$, with probability tending
+to one uniformly. Apply Lemma~\ref{lem:lalley} with $a=\eta/3000$,
+$\delta=\eta/5000$, and $D=4$. The thresholds for the geometry, collisions,
+localization, and ascent test are all fixed before the cut array. Taking
+their maximum gives the asserted $N_0$.
+\end{proof}
+
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/Main.lean :: RiffleLowerV2.EmpiricalLower.empiricalCombined
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/EmpiricalLower/Main.lean :: RiffleLowerV2.EmpiricalLower.empiricalCombined
+
+
+\begin{proof}[Proof of Theorem~\ref{thm:empirical-lower}]
+The first alternative follows from Proposition~\ref{prop:largest-prefix}
+and the exact maximal-word identity. In the second alternative, if
+$\beta^{(N)}(S_N)\ge\min\{\eta_1/100000,1/1000\}$, apply the same
+proposition with this fixed positive exponent. If the reverse strict
+inequality holds, apply Proposition~\ref{prop:cold-lower} with
+$\eta=\eta_1$. Take the maximum of the three thresholds. When the cold
+parameters are not positive or fail the displayed restriction, only the
+first alternative can occur, and its threshold alone suffices.
+\end{proof}
+
+\subsubsection{Passage to a macroscopic profile}
+
+We now apply the profile transfer proved in Proposition~\ref{prop:profile-transfer}.
+Its interval and margin bounds, \eqref{eq:interval-transfer} and
+\eqref{eq:margin-transfer}, use the same selected finite partition in the
+almost-profile condition and the scalar integrability hypotheses. In particular,
+\[
+ |\beta^{(N)}(S_N)-\Lambda_0(T)|\le e+\frac{\log k}{\log N},\qquad
+ |\Lambda_1^{(N)}-\Lambda_1(T)|\le\frac{13e}{2}+\frac{14\log k}{\log N}.
+\]
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/MacroscopicLower/Main.lean :: RiffleLowerV2.MacroscopicLower.macroscopicIntegrable
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/MacroscopicLower/Main.lean :: RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto
+% Lean source: formalization/lower_bound_v2/RiffleLowerV2/MacroscopicLower/Main.lean :: RiffleLowerV2.MacroscopicLower.macroscopicIntegrable; RiffleLowerV2.MacroscopicLower.macroscopicIntegrable_tendsto
+
+
+\begin{proof}[Proof of Theorem~\ref{thm:macroscopic-lower}]
+Choose
+\[
+ 0<e<\min\left\{\frac1{10}\min\{\eta/200000,1/1000\},
+                          \frac{\eta}{100}\right\}
+\]
+and apply Proposition~\ref{prop:profile-transfer} with a mesh upper bound
+small enough for the displayed restriction on $\rho_0$. All these choices
+precede the profile and the cut array. If
+$\beta^{(N)}(S_N)\ge\min\{\eta/200000,1/1000\}$, the largest-word
+proposition applies with this fixed positive exponent. Otherwise,
+\eqref{eq:margin-transfer} gives $\Lambda_0(T)<\eta$ for
+large $N$. The assumed maximum therefore implies $\Lambda_1(T)\ge\eta$.
+Equation~\eqref{eq:margin-transfer} then gives
+$\Lambda_1^{(N)}\ge\eta/2$ for large $N$. Proposition~\ref{prop:cold-lower}
+with margin $\eta/2$ applies in this second case. Take the maximum of the
+transfer and the two lower-bound thresholds. The inequalities
+$0\le\dTV\le1$ give the asserted convergence for eventually admissible
+sequences.
+\end{proof}
+
+
+
+
+

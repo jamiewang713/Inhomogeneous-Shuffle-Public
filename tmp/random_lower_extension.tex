@@ -1,0 +1,103 @@
+\subsubsection{Random pile sizes: the lower bound}
+
+\begin{corollary}[Random cut arrays: lower bound]
+\label{cor:lower-random}
+Fix the parameters of Theorem~\ref{thm:empirical-lower}, and let
+$\mathcal B_N$ be the set of deterministic cut arrays satisfying
+either of its two alternatives. For any probability law $Q_N$ on
+cut arrays of length $K=\lfloor T\log N\rfloor$, put
+\[
+ \overline P_N^K=\int P_N^K(\mathbf n)\,Q_N(d\mathbf n).
+\]
+Then, uniformly in $Q_N$,
+\[
+ \dTV(\overline P_N^K,\nuUnif)\ge Q_N(\mathcal B_N)-o(1).
+\]
+In particular, the annealed distance tends to one if
+$Q_N(\mathcal B_N)\to1$. The cut arrays may have arbitrary
+dependence between their columns; conditional on the entire array,
+the shuffle law in this statement uses independent uniform
+interleavings. The same conclusion holds for the corresponding
+chronological forward shuffle by inversion.
+\end{corollary}
+
+\begin{proof}
+Set
+\[
+ e=\min\{\eta_1/100000,1/1000\},\qquad
+ b=\min\{\eta_0,e\},\qquad
+ m_N=\lfloor N^{b/2}\rfloor.
+\]
+Let $\mathcal R_N$ be the event that the permutation has an
+increasing run of length $m_N$. For sufficiently large $N$,
+$2\le m_N\le N^b/2$. Proposition~\ref{prop:largest-prefix} and
+its proof therefore give, uniformly over arrays with
+$\beta^{(N)}(S_N)\ge b$,
+\[
+ P_N^K(\mathbf n)(\mathcal R_N)
+ \ge1-\exp\left(-\frac{1-\log2}{2}N^b\right),\qquad
+ \nuUnif(\mathcal R_N)\le\frac{N}{m_N!}=o(1).
+\]
+
+Let $\mathcal C_N$ consist of the arrays satisfying the second
+alternative of Theorem~\ref{thm:empirical-lower} and
+$\beta^{(N)}(S_N)<e$. If the cold parameters are nonpositive or
+violate the restriction in that theorem, this set is empty.
+For each $\mathbf n\in\mathcal C_N$, fix one cold set
+$H_{\mathrm{rel},\mathbf n}$ from
+Lemma~\ref{lem:cold-geometry}, and write
+\[
+ M_{\mathbf n}=|H_{\mathrm{rel},\mathbf n}|,\qquad
+ H_{q,\mathbf n}=(q+H_{\mathrm{rel},\mathbf n})\cap[N],\qquad
+ \delta=\eta_1/5000.
+\]
+Define the permutation event
+\[
+ \mathcal A_{\mathbf n}
+ =\left\{\sigma:\exists q\in\{0,\ldots,N\},\quad
+ X_{H_{q,\mathbf n}}(\sigma)>
+ \frac{|E(H_{q,\mathbf n})|}{2}
+       +M_{\mathbf n}^{1/2+\delta/2}\right\}.
+\]
+Lemma~\ref{lem:many-edges}, followed by the conditional comparison
+in the proof of Lemma~\ref{lem:lalley}, gives
+\[
+ P_N^K(\mathbf n)(\mathcal A_{\mathbf n})=1-o(1)
+\]
+uniformly over $\mathcal C_N$. Indeed, on the event supplied by
+Lemma~\ref{lem:many-edges}, the conditional failure probability
+is at most $\exp(-M_{\mathbf n}^{2\delta}/144)$.
+On the other hand, $M_{\mathbf n}\ge N^{\eta_1/3000}$, and
+Lemma~\ref{lem:uniform-ascent} gives
+\[
+ \nuUnif(\mathcal A_{\mathbf n})
+ \le (N+1)\exp(-M_{\mathbf n}^{\delta})
+ \le (N+1)\exp\left(-N^{\eta_1^2/15000000}\right).
+\]
+
+There are at most $(N+1)^{kK}$ possible cut arrays. Thus the
+single event
+\[
+ \mathcal E_N=\mathcal R_N\cup
+           \bigcup_{\mathbf n\in\mathcal C_N}\mathcal A_{\mathbf n}
+\]
+has uniform-law probability bounded by
+\[
+ \nuUnif(\mathcal E_N)
+ \le\frac{N}{m_N!}
+ +(N+1)^{kK+1}\exp\left(-N^{\eta_1^2/15000000}\right)
+ =o(1),
+\]
+since $K\le T\log N$.
+Every array in $\mathcal B_N$ either has
+$\beta^{(N)}(S_N)\ge b$ or belongs to $\mathcal C_N$.
+Consequently
+$P_N^K(\mathbf n)(\mathcal E_N)\ge1-o(1)$ uniformly on
+$\mathcal B_N$. Integrating this common-event bound gives
+\[
+ \overline P_N^K(\mathcal E_N)\ge Q_N(\mathcal B_N)-o(1).
+\]
+Subtracting $\nuUnif(\mathcal E_N)$ proves the asserted
+total-variation lower bound. All errors depend only on the fixed
+parameters, so the conclusion is uniform in $Q_N$.
+\end{proof}

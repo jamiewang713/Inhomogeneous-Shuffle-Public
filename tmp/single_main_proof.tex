@@ -1,0 +1,53 @@
+\subsubsection{Proof of the main theorem}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Write $\Lambda(T)=\max\{\Lambda_0(T),\Lambda_1(T)\}$.
+Lemma~\ref{lem:margin-dominance} shows that $\Lambda$ is continuous and
+that, for $0\le S<T$,
+\[
+ \Lambda(T)\le\Lambda(S)-A(S,T)<\Lambda(S),
+\]
+where the strict inequality follows from
+\eqref{eq:profile-nondegeneracy}. Since $\Lambda(0)=3$, the critical
+time $C_{\mu_\bullet}$ is positive. If it is finite, it is the unique
+zero of $\Lambda$. Thus $\Lambda(T)>0$ for $T<C_{\mu_\bullet}$ and
+$\Lambda(T)<0$ for $T>C_{\mu_\bullet}$. If the critical time is
+infinite, $\Lambda(T)>0$ for every finite $T$.
+
+Fix $T>0$ away from the critical time and choose $\eta>0$ with
+$4\eta\le|\Lambda(T)|$. By
+Lemma~\ref{lem:randomized-profile-inputs}, the empirical margins
+converge to the profile margins in probability. The same lemma supplies
+fixed $g,\gamma>0$ such that, for each fixed $\rho>0$, the local
+$(g,\gamma,\rho)$-good condition holds with probability tending to one.
+
+If $T>C_{\mu_\bullet}$, choose $\rho$ small enough for
+Theorem~\ref{thm:upper-empirical} with margin $\eta$ and these
+$g,\gamma$. With probability tending to one, the array has empirical
+margin at least $\eta$ and is locally good. Conditional on this array,
+Theorem~\ref{thm:upper-empirical} bounds the distance of the inverse
+shuffle law from uniform by $N^{-c}$, for one $c>0$. Inversion preserves
+the distance, so convexity gives the same upper bound for the averaged
+forward law, up to the probability of the exceptional arrays. This
+proves the upper limit in~\eqref{eq:main-profile-limit}.
+
+If $T<C_{\mu_\bullet}$, choose $\rho>0$ so small that
+\[
+ 2\rho\log k\le\frac1{100}\min\{\eta/100000,1/1000\}.
+\]
+With probability tending to one, the array is locally good and
+\[
+ \max\{\beta^{(N)}(S_N),\Lambda_1^{(N)}\}\ge\eta.
+\]
+It therefore satisfies one of the alternatives in
+Theorem~\ref{thm:empirical-lower}, with both margins equal to $\eta$.
+Corollary~\ref{cor:lower-random} gives distance tending to one for
+the averaged inverse law. Apply inversion once more to obtain the
+lower limit for $P(X,\lfloor T\log N\rfloor)$.
+
+Finally, if $C_{\mu_\bullet}<\infty$, apply these limits at
+$T=(1-\varepsilon)C_{\mu_\bullet}$ and
+$T=(1+\varepsilon)C_{\mu_\bullet}$. If it is infinite, every fixed
+$T>0$ is in the lower regime. This proves all assertions.
+\end{proof}
+

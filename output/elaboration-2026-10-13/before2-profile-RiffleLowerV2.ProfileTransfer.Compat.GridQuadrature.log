@@ -1,0 +1,40 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 169ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 200ms
+import took 7.95s
+ring took 139ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_linarith_1._boxed took 298ms
+interpretation of Mathlib.Meta.Positivity.evalAdd._lam_0._boxed took 152ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 879ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 1.47s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 4.09s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 4.8s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_linarith_1._boxed took 139ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 873ms
+interpretation of Mathlib.Tactic.RingNF._aux_Mathlib_Tactic_Ring_RingNF___elabRules_Mathlib_Tactic_RingNF_ringNF_1._boxed took 112ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 159ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 163ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_linarith_1._boxed took 132ms
+cumulative profiling times:
+	attribute application 0.156ms
+	congr simp thm 15.5ms
+	dsimp 5.76ms
+	elaboration 140ms
+	fix level params 4.98ms
+	import 7.95s
+	initialization 57.6ms
+	instantiate metavars 21.3ms
+	interpretation 24.1s
+	let-to-have transformation 0.259ms
+	linting 122ms
+	module linting 0.0139ms
+	norm_num 717ms
+	overlappingInstancesLinter 19.1ms
+	parsing 32.9ms
+	process pre-definitions 45.8ms
+	ring 551ms
+	share common exprs 134ms
+	simp 251ms
+	tactic execution 1.04s
+	tacticAnalysis 110ms
+	type checking 202ms
+	typeclass inference 3.04s

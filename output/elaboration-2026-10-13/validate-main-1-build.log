@@ -1,0 +1,80 @@
+CHECK RiffleUpperV2.Conditional.FutureCylinders
+CHECK RiffleUpperV2.Conditional.PastCylinders
+CHECK RiffleUpperV2.Conditional.Jensen
+CHECK RiffleUpperV2.Conditional.PairReduction
+CHECK RiffleUpperV2.Conditional.DirectionalGeometry
+CHECK RiffleUpperV2.Conditional.CurrentRunGeometry
+CHECK RiffleUpperV2.Conditional.PileFutureCylinders
+CHECK RiffleUpperV2.Conditional.BlockGeometry
+CHECK RiffleUpperV2.Conditional.BlockEdges
+CHECK RiffleUpperV2.Conditional.RemainingCover
+CHECK RiffleUpperV2.Conditional.DisjointSquares
+CHECK RiffleUpperV2.Conditional.FinePartition
+CHECK RiffleUpperV2.Conditional.GraphSquares
+CHECK RiffleUpperV2.Conditional.BlockCounts
+CHECK RiffleUpperV2.Conditional.ConditionalAveraging
+CHECK RiffleUpperV2.Conditional.FineMoments
+CHECK RiffleUpperV2.Conditional.HistoryAdapters
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Conditional\HistoryAdapters.lean:58:8: warning: This simp argument is unused:
+  probability
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [RiffleLowerV2.probability, RiffleLowerV2.expect]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Conditional.LinearAveraging
+CHECK RiffleUpperV2.Conditional.HistoryAveraging
+CHECK RiffleUpperV2.Conditional.RegimeAveraging
+CHECK RiffleUpperV2.Conditional.PreparedFamily
+CHECK RiffleUpperV2.Conditional.CurrentRunBound
+CHECK RiffleUpperV2.Conditional.ConditionalScale
+CHECK RiffleUpperV2.Conditional.OneHistory
+CHECK RiffleUpperV2.Conditional.Main
+CHECK RiffleUpperV2.EmpiricalUpper.Main
+CHECK RiffleUpperV2.ProfileUpper.Main
+CHECK RiffleMain.RandomLower.Largest
+CHECK RiffleMain.RandomLower.Cold
+CHECK RiffleMain.RandomLower.CommonEvent
+CHECK RiffleMain.RandomLower.Finite
+CHECK RiffleMain.RandomLower.Numerical
+CHECK RiffleMain.RandomLower.Main
+CHECK RiffleMain.RandomLower.Forward
+CHECK RiffleMain.Limits
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\main_theorem\RiffleMain\Limits.lean:70:53: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleMain.Critical.Decay
+CHECK RiffleMain.Critical.Signs
+CHECK RiffleMain.Critical.Continuity
+CHECK RiffleMain.Critical.Nondegenerate
+CHECK RiffleMain.Critical.Main
+CHECK RiffleMain.Profile.TimeCut
+CHECK RiffleMain.Profile.ProfileTimeCut
+CHECK RiffleMain.Profile.Cumulative
+CHECK RiffleMain.Profile.FiniteGrid
+CHECK RiffleMain.Profile.UniformCumulative
+CHECK RiffleMain.Profile.SpatialContinuity
+CHECK RiffleMain.Profile.WeakToIntervals
+CHECK RiffleMain.Profile.GoodColumns
+CHECK RiffleMain.Profile.LocalGoodBounds
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\main_theorem\RiffleMain\Profile\LocalGoodBounds.lean:113:17: warning: This simp argument is unused:
+  Finset.sum_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [d, J', Finset.filter_filter, and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleMain.Profile.WeakToLocalGood
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\main_theorem\RiffleMain\Profile\WeakToLocalGood.lean:48:54: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\main_theorem\RiffleMain\Profile\WeakToLocalGood.lean:48:54: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleMain.Profile.NonnegativeTime
+CHECK RiffleMain.Profile.Main
+CHECK RiffleMain.Main
+CHECK RiffleMain.ProcessModel
+CHECK RiffleMain.Process
+CHECK RiffleMain
+BUILD_OK RiffleMain

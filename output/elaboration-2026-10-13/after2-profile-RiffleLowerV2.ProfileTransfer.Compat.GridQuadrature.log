@@ -1,0 +1,39 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 153ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 181ms
+import took 6.04s
+ring took 125ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_linarith_1._boxed took 238ms
+interpretation of Mathlib.Meta.Positivity.evalAdd._lam_0._boxed took 132ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 788ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 1.29s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 3.52s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 4.24s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_linarith_1._boxed took 121ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 787ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 144ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 142ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_linarith_1._boxed took 118ms
+cumulative profiling times:
+	attribute application 0.113ms
+	congr simp thm 13.3ms
+	dsimp 4.82ms
+	elaboration 117ms
+	fix level params 4.34ms
+	import 6.04s
+	initialization 48.5ms
+	instantiate metavars 18.6ms
+	interpretation 20.4s
+	let-to-have transformation 0.218ms
+	linting 115ms
+	module linting 0.0084ms
+	norm_num 610ms
+	overlappingInstancesLinter 17.9ms
+	parsing 28.3ms
+	process pre-definitions 38.4ms
+	ring 480ms
+	share common exprs 102ms
+	simp 216ms
+	tactic execution 841ms
+	tacticAnalysis 101ms
+	type checking 172ms
+	typeclass inference 2.54s

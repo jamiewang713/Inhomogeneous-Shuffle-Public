@@ -1,0 +1,206 @@
+[
+  {
+    "module": "FirstMoment.Counting",
+    "path": "formalization/first_moment/FirstMoment/Counting.lean",
+    "imports": [
+      "Mathlib.Data.Finset.Powerset",
+      "Mathlib.Data.Fintype.Card",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "omega": 1,
+      "nlinarith": 1,
+      "ring": 7,
+      "norm_num": 1,
+      "positivity": 6,
+      "exact_mod_cast": 2,
+      "push_cast": 2,
+      "gcongr": 4,
+      "filter_upwards": 2,
+      "rfl": 5
+    }
+  },
+  {
+    "module": "FirstMoment.Entropy",
+    "path": "formalization/first_moment/FirstMoment/Entropy.lean",
+    "imports": [
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "ring": 1,
+      "rfl": 6
+    }
+  },
+  {
+    "module": "RiffleLowerV2.Ascent.FiniteProbability",
+    "path": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/FiniteProbability.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Adapters",
+      "Contracts.v1",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "ring": 2,
+      "norm_num": 2,
+      "positivity": 2,
+      "simp_all": 1,
+      "rfl": 2
+    }
+  },
+  {
+    "module": "RiffleLowerV2.Ascent.Selection",
+    "path": "formalization/lower_bound_v2/RiffleLowerV2/Ascent/Selection.lean",
+    "imports": [
+      "Contracts.v1.AdditionalFinite",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {}
+  },
+  {
+    "module": "RiffleLowerV2.Factorial.Basic",
+    "path": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Basic.lean",
+    "imports": [
+      "Contracts.v1.TransferFinite",
+      "Mathlib.Data.Nat.Factorial.Cast",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "omega": 1,
+      "nlinarith": 2,
+      "ring": 4,
+      "norm_num": 5,
+      "positivity": 3,
+      "push_cast": 2,
+      "rfl": 1
+    }
+  },
+  {
+    "module": "RiffleLowerV2.Factorial.Bonferroni",
+    "path": "formalization/lower_bound_v2/RiffleLowerV2/Factorial/Bonferroni.lean",
+    "imports": [
+      "Contracts.v1.FactorialOccupancy",
+      "Mathlib.Data.Nat.Choose.Sum",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "omega": 13,
+      "linarith": 1,
+      "nlinarith": 2,
+      "ring": 2,
+      "norm_num": 5,
+      "positivity": 3,
+      "push_cast": 2,
+      "rfl": 2
+    }
+  },
+  {
+    "module": "RiffleLowerV2.Thinning.Compat.FiniteLaw",
+    "path": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/FiniteLaw.lean",
+    "imports": [
+      "Mathlib.Tactic",
+      "Mathlib.Probability.ProbabilityMassFunction.Integrals"
+    ],
+    "tactics": {
+      "nlinarith": 1,
+      "ring": 3,
+      "tauto": 1,
+      "rfl": 2
+    }
+  },
+  {
+    "module": "RiffleLowerV2.Thinning.Compat.HypergeometricConcentration",
+    "path": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/Compat/HypergeometricConcentration.lean",
+    "imports": [
+      "RiffleLowerV2.Thinning.Compat.HypergeometricMoments",
+      "Mathlib.Data.Nat.Choose.Sum",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Data.Fin.Rev",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "omega": 8,
+      "nlinarith": 1,
+      "ring": 7,
+      "positivity": 3,
+      "exact_mod_cast": 5,
+      "field_simp": 3,
+      "rfl": 5
+    }
+  },
+  {
+    "module": "RiffleLowerV2.Thinning.PMFTools",
+    "path": "formalization/lower_bound_v2/RiffleLowerV2/Thinning/PMFTools.lean",
+    "imports": [
+      "RiffleLowerV2.Shared.Adapters",
+      "Mathlib.Tactic",
+      "Mathlib.Logic.Equiv.Fintype"
+    ],
+    "tactics": {
+      "ring": 2,
+      "norm_num": 1,
+      "positivity": 2,
+      "exact_mod_cast": 1,
+      "field_simp": 1,
+      "simp_all": 1,
+      "rfl": 2
+    }
+  },
+  {
+    "module": "RiffleShuffle.Basic",
+    "path": "formalization/foundations/RiffleShuffle/Basic.lean",
+    "imports": [
+      "Mathlib.Data.Vector.Basic",
+      "Mathlib.Data.Fintype.Vector",
+      "Mathlib.Data.List.Lex",
+      "Mathlib.Data.Real.Basic",
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {}
+  },
+  {
+    "module": "RiffleTimeProfile.Ambient",
+    "path": "formalization/time_profile/RiffleTimeProfile/Ambient.lean",
+    "imports": [
+      "RiffleTimeProfile.Base",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset",
+      "Mathlib.Order.WithBot",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "omega": 6,
+      "nlinarith": 1,
+      "ring": 3,
+      "exact_mod_cast": 1
+    }
+  },
+  {
+    "module": "RiffleTimeProfile.Base",
+    "path": "formalization/time_profile/RiffleTimeProfile/Base.lean",
+    "imports": [
+      "Mathlib.Analysis.Convex.StdSimplex",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+      "Mathlib.Order.Interval.Set.Union",
+      "Mathlib.Tactic"
+    ],
+    "tactics": {
+      "omega": 5,
+      "linarith": 4,
+      "positivity": 1,
+      "exact_mod_cast": 7,
+      "by_contra": 2,
+      "by_contra!": 1,
+      "rfl": 8
+    }
+  }
+]

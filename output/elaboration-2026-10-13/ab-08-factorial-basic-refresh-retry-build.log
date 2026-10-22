@@ -1,0 +1,16 @@
+CHECK RiffleShuffle.Words
+CHECK RiffleShuffle.Matrices
+CHECK RiffleShuffle.Graphs
+CHECK RiffleLowerV2.Shared.Smoke
+CHECK RiffleLowerV2.Shared.Model
+CHECK RiffleLowerV2.Shared.Empirical
+CHECK RiffleLowerV2.Shared.Path
+CHECK RiffleLowerV2.Shared.Statistics
+CHECK Contracts.v1.ModelThinning
+CHECK Contracts.v1.FactorialOccupancy
+CHECK Contracts.v1.Ascent
+CHECK Contracts.v1.Endpoints
+CHECK Contracts.v1.AdditionalFinite
+CHECK Contracts.v1.TransferFinite
+CHECK RiffleLowerV2.Factorial.Basic
+BUILD_OK RiffleLowerV2.Factorial.Basic

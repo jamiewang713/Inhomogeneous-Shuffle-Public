@@ -2,7 +2,11 @@ import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Fintype.Card
 import Mathlib.Data.Fintype.BigOperators
 import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.GCongr
 
 noncomputable section
 

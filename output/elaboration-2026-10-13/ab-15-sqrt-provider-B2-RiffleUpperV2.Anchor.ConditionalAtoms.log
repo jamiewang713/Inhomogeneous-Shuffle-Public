@@ -1,0 +1,37 @@
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 178ms
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 148ms
+import took 6.23s
+interpretation of Mathlib.Tactic.FieldSimp._aux_Mathlib_Tactic_FieldSimp___elabRules_Mathlib_Tactic_FieldSimp_fieldSimp_1._boxed took 198ms
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Anchor\ConditionalAtoms.lean:16:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Anchor\ConditionalAtoms.lean:32:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+cumulative profiling times:
+	attribute application 0.43ms
+	congr simp thm 0.472ms
+	elaboration 32.1ms
+	fix level params 0.232ms
+	import 6.23s
+	initialization 48.1ms
+	instantiate metavars 0.35ms
+	interpretation 7.57s
+	let-to-have transformation 1.5ms
+	linting 8.2ms
+	module linting 0.0096ms
+	norm_num 97.9ms
+	overlappingInstancesLinter 13.6ms
+	parsing 4.81ms
+	process pre-definitions 2.9ms
+	share common exprs 1.99ms
+	simp 0.529ms
+	tactic execution 54.4ms
+	tacticAnalysis 36.3ms
+	type checking 18ms
+	typeclass inference 88.7ms

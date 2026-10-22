@@ -1,0 +1,9 @@
+D:\princeton\Research\Lean\Lean_Shuffle\elaboration-bench\probes\IntegralTypeCompatibility.lean:106:2: error: Type mismatch
+  addDecl
+    (Declaration.thmDecl
+      { name := `ElaborationAudit.integral_toPMF_original_type, levelParams := current.levelParams, type := oldType,
+        value := mkConst current.name (List.map Level.param current.levelParams) })
+has type
+  CoreM Unit
+but is expected to have type
+  CommandElabM Unit

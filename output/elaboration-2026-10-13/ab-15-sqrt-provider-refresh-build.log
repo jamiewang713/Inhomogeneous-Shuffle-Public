@@ -1,0 +1,13 @@
+CHECK RiffleUpperV2.Anchor.ConditionalAtoms
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Anchor\ConditionalAtoms.lean:16:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Anchor\ConditionalAtoms.lean:32:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+BUILD_OK RiffleUpperV2.Anchor.ConditionalAtoms

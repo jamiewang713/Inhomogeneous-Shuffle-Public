@@ -1,0 +1,142 @@
+CHECK RiffleLowerV2
+CHECK RiffleLowerV2.Thinning.Sampling
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\lower_bound_v2\RiffleLowerV2\Thinning\Sampling.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleLowerV2.Thinning.Process
+CHECK RiffleLowerV2.Thinning.Residual
+CHECK RiffleLowerV2.Thinning.Residual.Prefix
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\lower_bound_v2\RiffleLowerV2\Thinning\Residual\Prefix.lean:83:83: warning: This simp argument is unused:
+  sampleRow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [prefixCount, prescribedPrefixCount, rowArrayPrefixCount, rowWord]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleLowerV2.Thinning.Residual.Independence
+CHECK RiffleLowerV2.Thinning.UniformError
+CHECK RiffleLowerV2.Thinning.Main
+CHECK RiffleLowerV2.Factorial.PolynomialMoments
+CHECK RiffleLowerV2.Factorial.Bonferroni
+CHECK RiffleLowerV2.Factorial.PoissonPolynomial
+CHECK RiffleLowerV2.Factorial.Central
+CHECK RiffleLowerV2.Factorial.Ratios
+CHECK RiffleLowerV2.Factorial.ResidualEstimates
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\lower_bound_v2\RiffleLowerV2\Factorial\ResidualEstimates.lean:104:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CHECK RiffleLowerV2.Factorial.Relative
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\lower_bound_v2\RiffleLowerV2\Factorial\Relative.lean:152:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleLowerV2.Factorial.MomentScales
+CHECK RiffleLowerV2.Factorial.RelativeFromExact
+CHECK RiffleLowerV2.Factorial.Residual
+CHECK RiffleLowerV2.Factorial.RelativeTargets
+CHECK RiffleLowerV2.Factorial.Main
+CHECK RiffleLowerV2.Ascent.RelativeOrder.Basic
+CHECK RiffleLowerV2.Ascent.RelativeOrder.Law
+CHECK RiffleLowerV2.Ascent.RelativeOrder.Weighted
+CHECK RiffleLowerV2.Ascent.RelativeOrder.Boundary
+CHECK RiffleLowerV2.Ascent.RelativeOrder
+CHECK RiffleLowerV2.Ascent.Components
+CHECK RiffleLowerV2.Ascent.MGF
+CHECK RiffleLowerV2.Ascent.UniformBaseline
+CHECK RiffleLowerV2.Ascent.Selection
+CHECK RiffleLowerV2.Ascent.FiniteConsequences
+CHECK RiffleLowerV2.Ascent.Concentration
+CHECK RiffleLowerV2.Ascent.Components.Clipping
+CHECK RiffleLowerV2.Ascent.Components.Charging
+CHECK RiffleLowerV2.Ascent.Expectation
+CHECK RiffleLowerV2.Ascent.Quantitative
+CHECK RiffleLowerV2.Ascent.Asymptotic
+CHECK RiffleLowerV2.Ascent.Test
+CHECK RiffleLowerV2.Ascent.Main
+CHECK RiffleLowerV2.Witness.OneColumnBasic
+CHECK RiffleLowerV2.Witness.OneColumn
+CHECK RiffleLowerV2.Witness.Empirical
+CHECK RiffleLowerV2.Witness.Selection
+CHECK RiffleLowerV2.Witness.Continuous
+CHECK RiffleLowerV2.Witness.Rounding
+CHECK RiffleLowerV2.Witness.Finite
+CHECK RiffleLowerV2.Witness.EmpiricalTilt
+CHECK RiffleLowerV2.Witness.Main
+CHECK RiffleLowerV2.Types.Rounding
+CHECK RiffleLowerV2.Types.Counting
+CHECK RiffleLowerV2.Types.Truncation
+CHECK RiffleLowerV2.Types.MassBins
+CHECK RiffleLowerV2.Types.Construction
+CHECK RiffleLowerV2.Types.WordEstimates
+CHECK RiffleLowerV2.Types.EntropyBounds
+CHECK RiffleLowerV2.Types.ClassEntropy
+CHECK RiffleLowerV2.Types.Rates
+CHECK RiffleLowerV2.Types.Approximation
+CHECK RiffleLowerV2.Types.Empty
+CHECK RiffleLowerV2.Types.Partition
+CHECK RiffleLowerV2.Types.Main
+CHECK RiffleLowerV2.ProfileTransfer.Main
+CHECK RiffleLowerV2.Occupancy.ModelInputs
+CHECK RiffleLowerV2.Occupancy.ConditionalInputs
+CHECK RiffleLowerV2.Occupancy.Forcing
+CHECK RiffleLowerV2.Occupancy.Numerical
+CHECK RiffleLowerV2.Occupancy.Scales
+CHECK RiffleLowerV2.Occupancy.Poisson
+CHECK RiffleLowerV2.Occupancy.MarginalNumerical
+CHECK RiffleLowerV2.Occupancy.CentralScales
+CHECK RiffleLowerV2.Occupancy.CentralModel
+CHECK RiffleLowerV2.Occupancy.RegimeAlgebra
+CHECK RiffleLowerV2.Occupancy.Marginal
+CHECK RiffleLowerV2.Occupancy.Conditional
+CHECK RiffleLowerV2.Occupancy.RarePair
+CHECK RiffleLowerV2.Occupancy.Nonrare
+CHECK RiffleLowerV2.Occupancy.Covariance
+CHECK RiffleLowerV2.Occupancy.Main
+CHECK RiffleLowerV2.Localization.Geometry.Algebra
+CHECK RiffleLowerV2.Localization.Geometry.Empirical
+CHECK RiffleLowerV2.Localization.Geometry.Bounds
+CHECK RiffleLowerV2.Localization.Geometry.Rates
+CHECK RiffleLowerV2.Localization.WordOrder
+CHECK RiffleLowerV2.Localization.Words
+CHECK RiffleLowerV2.Localization.Bridge
+CHECK RiffleLowerV2.Localization.Geometry.Consequences
+CHECK RiffleLowerV2.Localization.Intervals
+CHECK RiffleLowerV2.Localization.ProbabilityIntervals
+CHECK RiffleLowerV2.Localization.ColdSet
+CHECK RiffleLowerV2.Localization.Geometry
+CHECK RiffleLowerV2.Localization.Endpoints.Partitions
+CHECK RiffleLowerV2.Localization.Endpoints.ProductWeights
+CHECK RiffleLowerV2.Localization.Endpoints.Means
+CHECK RiffleLowerV2.Localization.Endpoints.Coordinates
+CHECK RiffleLowerV2.Localization.Endpoints.Counts
+CHECK RiffleLowerV2.Localization.Endpoints.Error
+CHECK RiffleLowerV2.Localization.Endpoints
+CHECK RiffleLowerV2.Localization.Concentration
+CHECK RiffleLowerV2.Localization.EventBounds
+CHECK RiffleLowerV2.Localization.RankBarriers
+CHECK RiffleLowerV2.Localization.Edges
+CHECK RiffleLowerV2.Localization.Probability
+CHECK RiffleLowerV2.Localization.Events
+CHECK RiffleLowerV2.Localization.Main
+CHECK RiffleLowerV2.EmpiricalLower.LargestFinite
+CHECK RiffleLowerV2.EmpiricalLower.LargestAsymptotic.Numerical
+CHECK RiffleLowerV2.EmpiricalLower.LargestAsymptotic
+CHECK RiffleLowerV2.EmpiricalLower.Scan
+CHECK RiffleLowerV2.EmpiricalLower.CollisionMean
+CHECK RiffleLowerV2.EmpiricalLower.ManyEdges
+CHECK RiffleLowerV2.EmpiricalLower.Cold
+CHECK RiffleLowerV2.EmpiricalLower.Main
+CHECK RiffleLowerV2.MacroscopicLower.Parameters
+CHECK RiffleLowerV2.MacroscopicLower.Main
+CHECK RiffleLowerV2.Completed
+BUILD_OK RiffleLowerV2.Completed

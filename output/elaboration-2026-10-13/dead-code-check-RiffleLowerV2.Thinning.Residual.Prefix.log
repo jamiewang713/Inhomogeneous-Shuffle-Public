@@ -1,0 +1,44 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 290ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 365ms
+import took 252s
+tacticAnalysis took 102ms
+tacticAnalysis took 211ms
+tacticAnalysis took 160ms
+tacticAnalysis took 101ms
+interpretation of _private.Mathlib.Tactic.Linter.AuxLemma.0.Mathlib.Linter.AuxLemma.auxLemmaLinter._lam_1._boxed took 105ms
+interpretation of _private.Mathlib.Tactic.Linter.DocString.0.Mathlib.Linter.Style.docStringLinter._lam_0._boxed took 114ms
+interpretation of BigOperators._aux_Mathlib_Algebra_BigOperators_Group_Finset_Defs___macroRules_BigOperators_bigprod_1._boxed took 106ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Convert___elabRules_Mathlib_Tactic_convert_1._boxed took 516ms
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\lower_bound_v2\RiffleLowerV2\Thinning\Residual\Prefix.lean:83:83: warning: This simp argument is unused:
+  sampleRow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [prefixCount, prescribedPrefixCount, rowArrayPrefixCount, rowWord]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	attribute application 11.2ms
+	blocked (unaccounted) 0.243ms
+	compilation (IR) 4.95ms
+	compilation (LCNF base) 36ms
+	compilation (LCNF impure) 13.4ms
+	compilation (LCNF mono) 19.6ms
+	congr simp thm 12.4ms
+	elaboration 418ms
+	fix level params 2.51ms
+	import 252s
+	initialization 217ms
+	instantiate metavars 6.75ms
+	interpretation 20.2s
+	let-to-have transformation 1.55ms
+	linting 86.6ms
+	module linting 0.0144ms
+	overlappingInstancesLinter 192ms
+	parsing 58.7ms
+	process pre-definitions 50.6ms
+	share common exprs 15.7ms
+	simp 225ms
+	tactic execution 563ms
+	tacticAnalysis 793ms
+	type checking 112ms
+	typeclass inference 265ms

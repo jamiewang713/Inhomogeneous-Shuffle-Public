@@ -1,0 +1,44 @@
+{
+  "phase": "Complete: dead-code sweep, baseline test, measured cleanup, final fresh test, profiles, audits and detailed reports",
+  "exec_session": null,
+  "source_scope_modules": 548,
+  "dead_code_removed": [
+    "rowPrefixCount_sample",
+    "mean_le_marked",
+    "fix_iff"
+  ],
+  "active_baseline": "before2",
+  "partial_discarded_run": "calibration-default and interrupted before (176 completed jobs)",
+  "fixed_lean_threads": 1,
+  "warning": "before2 is a segmented 537+11 module measurement after user interruption. Source, dependency and receipt guards passed. Calendar elapsed is not comparable; use successful compiler CPU totals and paired warm A/B profiles.",
+  "next": [],
+  "user_scope": "Active main theorem plus both Completed libraries only; historical independent packages excluded.",
+  "last_completed_jobs": 548,
+  "last_completed_module": "RiffleLowerV2.Completed",
+  "cpu_seconds_completed": 8563.09375,
+  "profile_control_candidate": "RiffleProfiles.Counting (no project prerequisites; direct imports recorded in before manifest)",
+  "freeze_review": "Foundations freeze permits proof/local changes with math statements/definitions fixed; contract hash is CONTRACT.md, not import list. Time-profile and first-moment manifests freeze mathematical contracts and paper sources, not current Lean import lists. Preserve all contracts and historical receipts.",
+  "validation_sessions": {
+    "lower": null,
+    "upper": null,
+    "main": null
+  },
+  "reports": [
+    "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\ELABORATION_REPORT_2026-10-16.md",
+    "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\ELABORATION_REPORT_2026-10-16_BEFORE.md",
+    "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\ELABORATION_REPORT_2026-10-16_AFTER.md"
+  ],
+  "final_results": {
+    "before_cpu_s": 11269.28125,
+    "after_cpu_s": 8563.09375,
+    "observed_cpu_reduction_percent": 24.013842941403208,
+    "errors": 0,
+    "sorry_warnings": 0,
+    "warnings": 157,
+    "serial_after_profiles": 13,
+    "axiom_audit_endpoints": 17,
+    "unchanged_type_fingerprints": 7475,
+    "kernel_checked_definitionally_equivalent_type_differences": 1,
+    "report_local_links_checked": 41
+  }
+}

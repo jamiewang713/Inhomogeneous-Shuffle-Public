@@ -1,0 +1,16 @@
+CHECK RiffleTimeProfile.FixedCountModel
+CHECK RiffleShuffle.Profiles
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\foundations\RiffleShuffle\Profiles.lean:26:6: error(lean.unknownIdentifier): Unknown constant `Finset.single_le_sum`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\foundations\RiffleShuffle\Profiles.lean:48:46: error(lean.unknownIdentifier): Unknown constant `Finset.sum_div`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\foundations\RiffleShuffle\Profiles.lean:49:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x ∈ ?s, ↑(?f x)
+in the target expression
+  ∑ a, ↑(P.count ⟨j, h⟩ a) / ↑N = 1
+
+N k K : ℕ
+P : PileProfile N k K
+j : ℕ
+h : j < K
+hN : ↑N ≠ 0
+⊢ ∑ a, ↑(P.count ⟨j, h⟩ a) / ↑N = 1
+CalledProcessError(1, ['C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe', '-j1', '-R', 'D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\foundations', '-o', 'D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleShuffle\\Profiles.olean', 'D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\foundations\\RiffleShuffle\\Profiles.lean'])

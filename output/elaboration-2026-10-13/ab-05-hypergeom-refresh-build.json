@@ -1,0 +1,36 @@
+{
+  "label": "ab-05-hypergeom-refresh",
+  "started_utc": "2026-10-16T19:50:34.539329+00:00",
+  "finished_utc": "2026-10-16T19:51:26.346690+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "compiler_threads": 1,
+  "timer": "Python perf_counter; Win32 GetProcessTimes/GetProcessMemoryInfo (compiler children)",
+  "targets": [
+    "RiffleLowerV2.Thinning.Compat.HypergeometricConcentration"
+  ],
+  "wall_s": 50.585472899999786,
+  "exit_code": 0,
+  "error": null,
+  "segmented": false,
+  "resumed_segment_wall_s": null,
+  "wall_kind": "continuous timed build",
+  "user_s": 31.3125,
+  "system_s": 18.09375,
+  "logged_wall_sum_s": 49.830867500000295,
+  "peak_compiler_working_set_bytes": 1722454016,
+  "jobs": 3,
+  "source_stable": true,
+  "dependency_artifacts_unchanged": true,
+  "dependency_olean_counts": {
+    "aesop": 132,
+    "batteries": 192,
+    "Cli": 0,
+    "importGraph": 10,
+    "LeanSearchClient": 4,
+    "mathlib": 8322,
+    "plausible": 13,
+    "proofwidgets": 13,
+    "Qq": 14
+  }
+}

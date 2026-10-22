@@ -1,0 +1,28 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 160ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 181ms
+import took 6.15s
+D:\princeton\Research\Lean\Lean_Shuffle\elaboration-bench\probes\EmpiricalTiltSorry.lean:116:8: warning: declaration uses `sorry`
+D:\princeton\Research\Lean\Lean_Shuffle\elaboration-bench\probes\EmpiricalTiltSorry.lean:120:8: warning: declaration uses `sorry`
+D:\princeton\Research\Lean\Lean_Shuffle\elaboration-bench\probes\EmpiricalTiltSorry.lean:124:8: warning: declaration uses `sorry`
+cumulative profiling times:
+	attribute application 0.213ms
+	congr simp thm 1.93ms
+	elaboration 114ms
+	fix level params 0.684ms
+	import 6.15s
+	initialization 47.5ms
+	instantiate metavars 0.802ms
+	interpretation 7.55s
+	let-to-have transformation 0.375ms
+	linting 27.2ms
+	module linting 0.0134ms
+	norm_num 25.4ms
+	overlappingInstancesLinter 17.9ms
+	parsing 13.7ms
+	process pre-definitions 4.81ms
+	share common exprs 4.07ms
+	simp 23ms
+	tactic execution 61.5ms
+	tacticAnalysis 61.8ms
+	type checking 24ms
+	typeclass inference 78.5ms

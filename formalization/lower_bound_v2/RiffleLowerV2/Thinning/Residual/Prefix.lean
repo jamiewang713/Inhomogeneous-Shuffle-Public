@@ -33,9 +33,6 @@ def rowArrayPrefixCount {n k K : ℕ} (w : Prefix k K)
     (rows : Fin n → Fin K → Fin k) : ℕ :=
   (Finset.univ.filter fun q => (List.Vector.ofFn (rows q)).toList.take w.1.val = w.2.toList).card
 
-private theorem rowPrefixCount_sample {N k K : ℕ} {cuts : Cuts k N K}
-    (w : Prefix k K) (ω : Sample cuts) : rowArrayPrefixCount w (sampleRow ω) = prefixCount w ω := rfl
-
 private theorem predicate_count_split {N k K b : ℕ} (r : RowPrescription N k K b)
     (hr : Function.Injective r.row) (e : Fin (N-b) → Fin N)
     (he : Function.Injective e)

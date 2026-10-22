@@ -1,0 +1,81 @@
+{
+  "modules_checked": 548,
+  "before": {
+    "placeholders": [],
+    "diagnostic_commands": [],
+    "heartbeat_settings": [
+      [
+        "RiffleLowerV2.Factorial.Exact",
+        "set_option maxHeartbeats 400000"
+      ],
+      [
+        "RiffleLowerV2.Factorial.PoissonPolynomial",
+        "set_option maxHeartbeats 1000000"
+      ],
+      [
+        "RiffleLowerV2.Factorial.Requests",
+        "set_option maxHeartbeats 400000"
+      ],
+      [
+        "RiffleLowerV2.Model.FiniteLaws",
+        "set_option maxHeartbeats 1000000"
+      ],
+      [
+        "RiffleLowerV2.Thinning.Residual.Independence",
+        "set_option maxHeartbeats 1000000 in"
+      ],
+      [
+        "RiffleUpperV2.Anchor.FineAtoms",
+        "set_option maxHeartbeats 500000"
+      ],
+      [
+        "RiffleUpperV2.Anchor.PartialColumn",
+        "set_option maxHeartbeats 300000"
+      ],
+      [
+        "RiffleUpperV2.Hypergeometric.Cylinder",
+        "set_option maxHeartbeats 1000000"
+      ]
+    ]
+  },
+  "after": {
+    "placeholders": [],
+    "diagnostic_commands": [],
+    "heartbeat_settings": [
+      [
+        "RiffleLowerV2.Factorial.Exact",
+        "set_option maxHeartbeats 400000"
+      ],
+      [
+        "RiffleLowerV2.Factorial.PoissonPolynomial",
+        "set_option maxHeartbeats 1000000"
+      ],
+      [
+        "RiffleLowerV2.Factorial.Requests",
+        "set_option maxHeartbeats 400000"
+      ],
+      [
+        "RiffleLowerV2.Model.FiniteLaws",
+        "set_option maxHeartbeats 1000000"
+      ],
+      [
+        "RiffleLowerV2.Thinning.Residual.Independence",
+        "set_option maxHeartbeats 1000000 in"
+      ],
+      [
+        "RiffleUpperV2.Anchor.FineAtoms",
+        "set_option maxHeartbeats 500000"
+      ],
+      [
+        "RiffleUpperV2.Anchor.PartialColumn",
+        "set_option maxHeartbeats 300000"
+      ],
+      [
+        "RiffleUpperV2.Hypergeometric.Cylinder",
+        "set_option maxHeartbeats 1000000"
+      ]
+    ]
+  },
+  "heartbeat_settings_unchanged": true,
+  "method": "Conservative raw-source token scan; any match requires review, even in comments."
+}

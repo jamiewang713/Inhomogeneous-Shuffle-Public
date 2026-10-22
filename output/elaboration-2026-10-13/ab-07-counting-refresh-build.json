@@ -1,0 +1,36 @@
+{
+  "label": "ab-07-counting-refresh",
+  "started_utc": "2026-10-16T19:58:33.524579+00:00",
+  "finished_utc": "2026-10-16T19:58:50.846453+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "compiler_threads": 1,
+  "timer": "Python perf_counter; Win32 GetProcessTimes/GetProcessMemoryInfo (compiler children)",
+  "targets": [
+    "FirstMoment.Counting"
+  ],
+  "wall_s": 16.132104400000117,
+  "exit_code": 0,
+  "error": null,
+  "segmented": false,
+  "resumed_segment_wall_s": null,
+  "wall_kind": "continuous timed build",
+  "user_s": 10.40625,
+  "system_s": 5.328125,
+  "logged_wall_sum_s": 15.817952700000205,
+  "peak_compiler_working_set_bytes": 1492783104,
+  "jobs": 1,
+  "source_stable": true,
+  "dependency_artifacts_unchanged": true,
+  "dependency_olean_counts": {
+    "aesop": 132,
+    "batteries": 192,
+    "Cli": 0,
+    "importGraph": 10,
+    "LeanSearchClient": 4,
+    "mathlib": 8322,
+    "plausible": 13,
+    "proofwidgets": 13,
+    "Qq": 14
+  }
+}

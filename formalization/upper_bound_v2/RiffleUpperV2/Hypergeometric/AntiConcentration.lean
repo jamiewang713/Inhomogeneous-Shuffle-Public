@@ -153,12 +153,6 @@ private theorem exists_positive_mode (p : HypergeomParams) :
   simp at hs
   linarith
 
-private theorem mean_le_marked (p : HypergeomParams) (hN : 0 < (p.population : ℝ)) :
-    p.mean ≤ (p.marked : ℝ) := by
-  unfold mean
-  apply (div_le_iff₀ hN).2
-  exact mul_le_mul_of_nonneg_left (by exact_mod_cast p.draws_le) (Nat.cast_nonneg _)
-
 private theorem mean_le_draws (p : HypergeomParams) (hN : 0 < (p.population : ℝ)) :
     p.mean ≤ (p.draws : ℝ) := by
   unfold mean

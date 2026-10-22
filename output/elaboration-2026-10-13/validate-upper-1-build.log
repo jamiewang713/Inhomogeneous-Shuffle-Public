@@ -1,0 +1,374 @@
+CHECK RiffleUpperV2.Contracts.V1.Conditional
+CHECK RiffleUpperV2.Contracts.V1.Main
+CHECK RiffleUpperV2.Shared.Anchored
+CHECK RiffleUpperV2.Shared.FirstMomentAPI
+CHECK RiffleUpperV2.Margins.Main
+CHECK RiffleUpperV2.Localization.IntervalCounting
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\IntervalCounting.lean:7:37: warning: Variable name `l₁` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _l₁
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\IntervalCounting.lean:7:52: warning: Variable name `r₃` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r₃
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Localization.Counting
+CHECK RiffleUpperV2.Localization.DensityAlgebra
+CHECK RiffleUpperV2.Localization.StableScales
+CHECK RiffleUpperV2.Localization.RankGeometry
+CHECK RiffleUpperV2.Localization.Main
+CHECK RiffleUpperV2.Exploration.Module
+CHECK RiffleUpperV2.Shared.HistoryEventBound
+CHECK RiffleUpperV2.Anchor.JointAtoms
+CHECK RiffleUpperV2.Anchor.Degenerate
+CHECK RiffleUpperV2.Anchor.Main
+CHECK RiffleUpperV2.Localization.Edges
+CHECK RiffleUpperV2.Localization.EdgeMoments
+CHECK RiffleUpperV2.Localization.RestrictedMoments
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\RestrictedMoments.lean:43:42: warning: This simp argument is unused:
+  Fintype.card_subtype
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab', Nat.card_eq_fintype_card, RiffleLowerV2.falling]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Localization.CollisionMass
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\CollisionMass.lean:175:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Localization.IntervalInclusion
+CHECK RiffleUpperV2.Localization.EdgeRanks
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\EdgeRanks.lean:79:2: warning: Unused tactic linter: `push_cast at hc ⊢` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CHECK RiffleUpperV2.Localization.EdgeCover
+CHECK RiffleUpperV2.Localization.EdgeGeometry
+CHECK RiffleUpperV2.Localization.DiscardedEdges
+CHECK RiffleUpperV2.Localization.GlobalRanks
+CHECK RiffleUpperV2.Localization.EdgeRelabel
+CHECK RiffleUpperV2.FirstMoment.FirstColumn
+CHECK RiffleUpperV2.Localization.FirstPileTransport
+CHECK RiffleUpperV2.FirstMoment.RetainedGraphCover
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\RetainedGraphCover.lean:95:15: warning: This simp argument is unused:
+  probability
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, ht, RiffleLowerV2.probability, RiffleLowerV2.expect]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.AnchoredCosts
+CHECK RiffleUpperV2.FirstMoment.ClassFibers
+CHECK RiffleUpperV2.FirstMoment.StoppingCosts
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\StoppingCosts.lean:57:35: warning: This simp argument is unused:
+  ← Finset.sum_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [f, Finset.sum_add_distrib]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.MaximalCosts
+CHECK RiffleUpperV2.FirstMoment.TailGrid
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\TailGrid.lean:53:60: warning: This simp argument is unused:
+  Nat.add_sub_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [empiricalB, RiffleLowerV2.gridSum, empiricalPositions]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.TailCosts
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\TailCosts.lean:22:77: warning: This simp argument is unused:
+  Real.rpow_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, show x.1.val ≤ j.val by omega, j.isLt, powerSum, Cuts.profile_prob]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.FirstMoment.ClassExponents
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\ClassExponents.lean:90:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\ClassExponents.lean:116:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\ClassExponents.lean:138:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Localization.SidePieces
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\SidePieces.lean:95:37: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\SidePieces.lean:95:59: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\SidePieces.lean:113:26: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\SidePieces.lean:113:59: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\SidePieces.lean:79:26: warning: This simp argument is unused:
+  Nat.min_eq_left i.isLt.le
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.take_take]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Localization.SideBounds
+CHECK RiffleUpperV2.Localization.EndpointDeviation
+CHECK RiffleUpperV2.Localization.EndpointWindow
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\EndpointWindow.lean:46:8: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\EndpointWindow.lean:46:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleUpperV2.Localization.RelevantParents
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\RelevantParents.lean:70:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Localization.IrrelevantLoss
+CHECK RiffleUpperV2.Localization.OffsetAtoms
+CHECK RiffleUpperV2.Localization.SmoothingDensity
+CHECK RiffleUpperV2.Localization.Density
+CHECK RiffleUpperV2.Shared.WindowRates
+CHECK RiffleUpperV2.Localization.Eventual
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\Eventual.lean:41:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\Eventual.lean:62:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Shared.FiniteFibers
+CHECK RiffleUpperV2.Shared.FiniteFiberCounts
+CHECK RiffleUpperV2.FirstMoment.ActiveClasses
+CHECK RiffleUpperV2.FirstMoment.GraphMarginals
+CHECK RiffleUpperV2.FirstMoment.EdgeSlots
+CHECK RiffleUpperV2.FirstMoment.ErrorDensity
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\ErrorDensity.lean:74:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.FirstMoment.DensityPowers
+CHECK RiffleUpperV2.FirstMoment.FirstPileReserve
+CHECK RiffleUpperV2.FirstMoment.ClassDensity
+CHECK RiffleUpperV2.Localization.FailureRate
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Localization\FailureRate.lean:12:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.FirstMoment.DensityRates
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\FirstMoment\DensityRates.lean:59:29: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.FirstMoment.UniformClassDensity
+CHECK RiffleUpperV2.FirstMoment.DensityAggregation
+CHECK RiffleUpperV2.FirstMoment.GraphAssembly
+CHECK RiffleUpperV2.FirstMoment.CandidateCount
+CHECK RiffleUpperV2.FirstMoment.ActiveCount
+CHECK RiffleUpperV2.Shared.CountedRates
+CHECK RiffleUpperV2.FirstMoment.PowerAggregation
+CHECK RiffleUpperV2.FirstMoment.UniformGraph
+CHECK RiffleUpperV2.FirstMoment.Empirical
+CHECK RiffleUpperV2.FirstMoment.Main
+CHECK RiffleUpperV2.Reservoir.SortedHistory
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\SortedHistory.lean:87:19: warning: This simp argument is unused:
+  Nat.lt_succ_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Reservoir.History
+CHECK RiffleUpperV2.Reservoir.BackwardHistory
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\BackwardHistory.lean:40:13: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\BackwardHistory.lean:40:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2.Reservoir.MarkedLaw
+CHECK RiffleUpperV2.Reservoir.Cancellation
+CHECK RiffleUpperV2.Reservoir.PrefixWeight
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\PrefixWeight.lean:66:31: warning: Unused tactic linter: `split_ifs` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\PrefixWeight.lean:66:45: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\PrefixWeight.lean:66:31: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\PrefixWeight.lean:66:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CHECK RiffleUpperV2.Reservoir.PrefixConditional
+CHECK RiffleUpperV2.Reservoir.MarkedPrefix
+CHECK RiffleUpperV2.Reservoir.FirstColumn
+CHECK RiffleUpperV2.Reservoir.HistoryExtension
+CHECK RiffleUpperV2.Reservoir.ExposedRows
+CHECK RiffleUpperV2.Reservoir.Counts
+CHECK RiffleUpperV2.Reservoir.PilePrefix
+CHECK RiffleUpperV2.Reservoir.ReserveWeight
+CHECK RiffleUpperV2.Reservoir.ReserveUniform
+CHECK RiffleUpperV2.Reservoir.Denominator
+CHECK RiffleUpperV2.Reservoir.ProductUpper
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\ProductUpper.lean:11:28: warning: Variable name `hτ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\ProductUpper.lean:51:29: warning: Variable name `hτ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\ProductUpper.lean:107:57: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK RiffleUpperV2.Reservoir.Capacity
+CHECK RiffleUpperV2.Reservoir.ProductUniform
+CHECK RiffleUpperV2.Reservoir.ProductConditional
+CHECK RiffleUpperV2.Reservoir.RestrictedPrefix
+CHECK RiffleUpperV2.Reservoir.CurrentRemoval
+CHECK RiffleUpperV2.Reservoir.DeletionPrefix
+CHECK RiffleUpperV2.Reservoir.Refinement
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\Refinement.lean:56:46: warning: This simp argument is unused:
+  and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [exposedPileView, hp, hmem, hnot, if_true] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\Refinement.lean:56:55: warning: This simp argument is unused:
+  if_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [exposedPileView, hp, hmem, hnot, and_self] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleUpperV2.Reservoir.MarkedRefinement
+CHECK RiffleUpperV2.Reservoir.GoodView
+CHECK RiffleUpperV2.Shared.SupportedAveraging
+CHECK RiffleUpperV2.Reservoir.NaturalAveraging
+CHECK RiffleUpperV2.Reservoir.TupleCounting
+CHECK RiffleUpperV2.Reservoir.Normalization
+CHECK RiffleUpperV2.Reservoir.PrefixCount
+CHECK RiffleUpperV2.Reservoir.FullTail
+CHECK RiffleUpperV2.Reservoir.SupportBridge
+CHECK RiffleUpperV2.Reservoir.CurrentMarked
+CHECK RiffleUpperV2.Reservoir.ExtraCopies
+CHECK RiffleUpperV2.Reservoir.CollisionPower
+CHECK RiffleUpperV2.Reservoir.CollisionEvents
+CHECK RiffleUpperV2.Reservoir.CollisionNormalization
+CHECK RiffleUpperV2.Reservoir.CollisionConditional
+CHECK RiffleUpperV2.Reservoir.TailCollisions
+CHECK RiffleUpperV2.Reservoir.BackwardConstraint
+CHECK RiffleUpperV2.Reservoir.BackwardDenominator
+CHECK RiffleUpperV2.Reservoir.BackwardRestricted
+CHECK RiffleUpperV2.Reservoir.BackwardRefinement
+CHECK RiffleUpperV2.Reservoir.BackwardCounts
+CHECK RiffleUpperV2.Shared.UniformProjection
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Shared\UniformProjection.lean:21:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Reservoir.InteriorColumn
+CHECK RiffleUpperV2.Reservoir.InteriorMatrix
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\InteriorMatrix.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Reservoir.InteriorHistory
+CHECK RiffleUpperV2.Reservoir.InteriorProjection
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\InteriorProjection.lean:116:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK RiffleUpperV2.Reservoir.InteriorCounts
+CHECK RiffleUpperV2.Reservoir.SingleCylinderLaw
+CHECK RiffleUpperV2.Reservoir.SeparatedCylinders
+CHECK RiffleUpperV2.Reservoir.OtherCylinder
+CHECK RiffleUpperV2.Reservoir.FutureCylinderLaw
+CHECK RiffleUpperV2.Reservoir.InducedMatrix
+CHECK RiffleUpperV2.Reservoir.TailWords
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Reservoir\TailWords.lean:43:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CHECK RiffleUpperV2.Reservoir.FutureGraphLaw
+CHECK RiffleUpperV2.Reservoir.ErasedLabels
+CHECK RiffleUpperV2.Shared.ExpectationAveraging
+CHECK RiffleUpperV2.Reservoir.LabelAveraging
+CHECK RiffleUpperV2.Reservoir.ConditionalFutureCylinderLaw
+CHECK RiffleUpperV2.Reservoir.Module
+CHECK RiffleUpperV2.GraphOverlap.Disjoint
+CHECK RiffleUpperV2.GraphOverlap.Corollaries
+CHECK RiffleUpperV2.GraphOverlap.Main
+CHECK RiffleUpperV2.Shared.PairConditioning
+CHECK RiffleUpperV2.Localization.Stochastic
+CHECK RiffleUpperV2.Conditional.RefinementCount
+CHECK RiffleUpperV2.Conditional.RefinedCylinders
+CHECK RiffleUpperV2.Conditional.GoodRefinement
+CHECK RiffleUpperV2.Conditional.TailMass
+CHECK RiffleUpperV2.Conditional.LateTail
+CHECK RiffleUpperV2.Conditional.AuxiliaryJensen
+CHECK RiffleUpperV2.Conditional.TailPower
+CHECK RiffleUpperV2.Conditional.Parameters
+CHECK RiffleUpperV2.Conditional.RegimePowers
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+CHECK RiffleUpperV2.Conditional.LargeConcentration
+CHECK RiffleUpperV2.Conditional.LargeMargin
+CHECK RiffleUpperV2.Conditional.LargeFirstMoment
+CHECK RiffleUpperV2.Conditional.PrefixAdapters
+CHECK RiffleUpperV2.Conditional.SmallCylinderBounds
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Conditional\SmallCylinderBounds.lean:149:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Conditional\SmallCylinderBounds.lean:149:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECK RiffleUpperV2
+CHECK RiffleUpperV2.Completed
+BUILD_OK RiffleUpperV2.Completed

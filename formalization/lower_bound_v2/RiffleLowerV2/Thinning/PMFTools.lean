@@ -1,5 +1,8 @@
 import RiffleLowerV2.Shared.Adapters
-import Mathlib.Tactic
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.FieldSimp
 import Mathlib.Logic.Equiv.Fintype
 
 noncomputable section

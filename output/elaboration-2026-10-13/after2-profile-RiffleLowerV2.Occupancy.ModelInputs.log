@@ -1,0 +1,54 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 152ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 172ms
+import took 6.81s
+typeclass inference of Nonempty took 147ms
+typeclass inference of Nonempty took 191ms
+typeclass inference of Nonempty took 154ms
+typeclass inference of Nonempty took 150ms
+typeclass inference of Nonempty took 152ms
+typeclass inference of Nonempty took 150ms
+simp took 1.58s
+typeclass inference of Nonempty took 148ms
+typeclass inference of Nonempty took 148ms
+typeclass inference of Nonempty took 152ms
+typeclass inference of Nonempty took 160ms
+typeclass inference of Nonempty took 149ms
+typeclass inference of Nonempty took 151ms
+simp took 1.54s
+typeclass inference of Nonempty took 152ms
+typeclass inference of Nonempty took 148ms
+typeclass inference of Nonempty took 151ms
+typeclass inference of Nonempty took 155ms
+typeclass inference of Nonempty took 153ms
+typeclass inference of Nonempty took 152ms
+simp took 1.54s
+typeclass inference of Nonempty took 142ms
+simp took 147ms
+typeclass inference of Nonempty took 147ms
+typeclass inference of Nonempty took 149ms
+typeclass inference of Nonempty took 147ms
+typeclass inference of Nonempty took 148ms
+typeclass inference of Nonempty took 149ms
+typeclass inference of Nonempty took 147ms
+simp took 1.55s
+cumulative profiling times:
+	attribute application 0.468ms
+	congr simp thm 77.2ms
+	elaboration 44.8ms
+	fix level params 0.413ms
+	import 6.81s
+	initialization 47.4ms
+	instantiate metavars 4.58ms
+	interpretation 7.52s
+	let-to-have transformation 0.127ms
+	linting 9.18ms
+	module linting 0.0079ms
+	overlappingInstancesLinter 13.8ms
+	parsing 6.45ms
+	process pre-definitions 4.67ms
+	share common exprs 3.6ms
+	simp 6.68s
+	tactic execution 77.6ms
+	tacticAnalysis 39.7ms
+	type checking 19.4ms
+	typeclass inference 11.6s

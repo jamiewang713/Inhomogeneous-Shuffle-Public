@@ -1,0 +1,58 @@
+diff --git a/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean b/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean
+index a6aa78c..0aca17f 100644
+--- a/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean
++++ b/formalization/lower_bound_v2/RiffleLowerV2/Thinning/Residual/Prefix.lean
+@@ -33,9 +33,6 @@ def rowArrayPrefixCount {n k K : ℕ} (w : Prefix k K)
+     (rows : Fin n → Fin K → Fin k) : ℕ :=
+   (Finset.univ.filter fun q => (List.Vector.ofFn (rows q)).toList.take w.1.val = w.2.toList).card
+ 
+-private theorem rowPrefixCount_sample {N k K : ℕ} {cuts : Cuts k N K}
+-    (w : Prefix k K) (ω : Sample cuts) : rowArrayPrefixCount w (sampleRow ω) = prefixCount w ω := rfl
+-
+ private theorem predicate_count_split {N k K b : ℕ} (r : RowPrescription N k K b)
+     (hr : Function.Injective r.row) (e : Fin (N-b) → Fin N)
+     (he : Function.Injective e)
+diff --git a/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean b/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean
+index 6db20b4..2e40eb7 100644
+--- a/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean
++++ b/formalization/upper_bound_v2/RiffleUpperV2/Anchor/PartialColumn.lean
+@@ -85,22 +85,6 @@ theorem residualMarked_le {k n d : ℕ} {cuts : Cuts k n d} {j : Fin d}
+   rw [← residualAllowed_card A D c₀ c₀ (fun _ _ => rfl)]
+   exact Finset.card_le_card (residualAllowed_subset A D c₀)
+ 
+-private theorem fix_iff {α : Type*} [DecidableEq α] (A : Finset α)
+-    (σ : Equiv.Perm α) (hσ : ∀ a ∈ A, σ a = a) (r : α) :
+-    σ.symm r ∈ A ↔ r ∈ A := by
+-  constructor
+-  · intro h
+-    have hh := hσ (σ.symm r) h
+-    rw [σ.apply_symm_apply] at hh
+-    exact hh.symm ▸ h
+-  · intro h
+-    have hh := hσ r h
+-    have hs : σ.symm r = r := by
+-      calc
+-        σ.symm r = σ.symm (σ r) := congrArg σ.symm hh.symm
+-        _ = r := σ.symm_apply_apply r
+-    simpa only [hs] using h
+-
+ private theorem columnFiber_relabel {k n d : ℕ} {cuts : Cuts k n d} {j : Fin d}
+     (A : Finset (Fin n)) (c₀ c : ColumnAssignments cuts j)
+     (σ : Equiv.Perm (Fin n)) (hσ : ∀ a ∈ A, σ a = a) :
+diff --git a/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/AntiConcentration.lean b/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/AntiConcentration.lean
+index 331f227..0271bd9 100644
+--- a/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/AntiConcentration.lean
++++ b/formalization/upper_bound_v2/RiffleUpperV2/Hypergeometric/AntiConcentration.lean
+@@ -153,12 +153,6 @@ private theorem exists_positive_mode (p : HypergeomParams) :
+   simp at hs
+   linarith
+ 
+-private theorem mean_le_marked (p : HypergeomParams) (hN : 0 < (p.population : ℝ)) :
+-    p.mean ≤ (p.marked : ℝ) := by
+-  unfold mean
+-  apply (div_le_iff₀ hN).2
+-  exact mul_le_mul_of_nonneg_left (by exact_mod_cast p.draws_le) (Nat.cast_nonneg _)
+-
+ private theorem mean_le_draws (p : HypergeomParams) (hN : 0 < (p.population : ℝ)) :
+     p.mean ≤ (p.draws : ℝ) := by
+   unfold mean

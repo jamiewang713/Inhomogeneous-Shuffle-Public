@@ -1,0 +1,13 @@
+{
+  "declarations_compared": 7476,
+  "identical_structural_fingerprints": 7475,
+  "changed_fingerprint_declaration": "RiffleLowerV2.Thinning.Compat.FiniteLaw.integral_toPMF",
+  "original_and_final_hashes_reproduced_from_source": true,
+  "kernel_accepts_final_theorem_at_original_elaborated_type": true,
+  "diagnosis": "Real NormedSpace instance: InnerProductSpace.toNormedSpace/RCLike.toInnerProductSpaceReal versus NormedField.toNormedSpace; definitionally equivalent.",
+  "added": [],
+  "removed": [],
+  "proof_probe_sha256": "1692ce045a51a014cce08cb74bcc9ea9f29bba8e70d2d2dd7b2f9da2bdf7af90",
+  "proof_probe_log": "integral-compatibility-3-IntegralTypeCompatibility.log",
+  "method": "Reconstruct original Expr from immutable source; verify both recorded hashes; synchronous Lean.addDecl kernel check using final theorem as the proof of the original type. Diagnostic only, no project artifact emitted."
+}

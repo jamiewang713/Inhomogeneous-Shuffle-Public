@@ -1,0 +1,27 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 153ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 181ms
+import took 6.18s
+interpretation of Mathlib.Tactic.FieldSimp._aux_Mathlib_Tactic_FieldSimp___elabRules_Mathlib_Tactic_FieldSimp_fieldSimp_1._boxed took 207ms
+cumulative profiling times:
+	attribute application 0.522ms
+	congr simp thm 3.95ms
+	elaboration 46.2ms
+	fix level params 1.12ms
+	import 6.18s
+	initialization 48.6ms
+	instantiate metavars 1.27ms
+	interpretation 7.77s
+	let-to-have transformation 0.152ms
+	linting 13.4ms
+	module linting 0.0073ms
+	norm_num 27.2ms
+	overlappingInstancesLinter 36.2ms
+	parsing 7.81ms
+	process pre-definitions 6.53ms
+	ring 117ms
+	share common exprs 4.9ms
+	simp 198ms
+	tactic execution 90.5ms
+	tacticAnalysis 47.4ms
+	type checking 40.5ms
+	typeclass inference 411ms

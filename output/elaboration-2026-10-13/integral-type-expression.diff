@@ -1,0 +1,56 @@
+--- before
+
++++ after
+
+@@ -2,7 +2,7 @@
+
+   `Ω
+   (Lean.Expr.sort (Lean.Level.succ (Lean.Level.param `u_1)))
+   (Lean.Expr.forallE
+-    (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.«_@».FiniteLawTypeBefore 2572071053) "_hygCtx") "_hyg") 3)
++    (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.«_@».FiniteLawTypeAfter 2572071053) "_hygCtx") "_hyg") 3)
+     (Lean.Expr.app (Lean.Expr.const `Fintype [Lean.Level.param `u_1]) (Lean.Expr.bvar 0))
+     (Lean.Expr.forallE
+       `p
+@@ -12,10 +12,10 @@
+
+           (Lean.Expr.bvar 1))
+         (Lean.Expr.bvar 0))
+       (Lean.Expr.forallE
+-        (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.«_@».FiniteLawTypeBefore 2572071053) "_hygCtx") "_hyg") 8)
++        (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.«_@».FiniteLawTypeAfter 2572071053) "_hygCtx") "_hyg") 8)
+         (Lean.Expr.app (Lean.Expr.const `MeasurableSpace [Lean.Level.param `u_1]) (Lean.Expr.bvar 2))
+         (Lean.Expr.forallE
+-          (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.«_@».FiniteLawTypeBefore 2572071053) "_hygCtx") "_hyg") 11)
++          (Lean.Name.mkNum (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkNum `inst.«_@».FiniteLawTypeAfter 2572071053) "_hygCtx") "_hyg") 11)
+           (Lean.Expr.app
+             (Lean.Expr.app (Lean.Expr.const `MeasurableSingletonClass [Lean.Level.param `u_1]) (Lean.Expr.bvar 3))
+             (Lean.Expr.bvar 0))
+@@ -42,23 +42,9 @@
+
+                           (Lean.Expr.const `Real.normedAddCommGroup []))
+                         (Lean.Expr.app
+                           (Lean.Expr.app
+-                            (Lean.Expr.app
+-                              (Lean.Expr.app
+-                                (Lean.Expr.app
+-                                  (Lean.Expr.const `InnerProductSpace.toNormedSpace [Lean.Level.zero, Lean.Level.zero])
+-                                  (Lean.Expr.const `Real []))
+-                                (Lean.Expr.const `Real []))
+-                              (Lean.Expr.const `Real.instRCLike []))
+-                            (Lean.Expr.app
+-                              (Lean.Expr.app
+-                                (Lean.Expr.const `NormedAddCommGroup.toSeminormedAddCommGroup [Lean.Level.zero])
+-                                (Lean.Expr.const `Real []))
+-                              (Lean.Expr.const `Real.normedAddCommGroup [])))
+-                          (Lean.Expr.app
+-                            (Lean.Expr.app
+-                              (Lean.Expr.const `RCLike.toInnerProductSpaceReal [Lean.Level.zero])
+-                              (Lean.Expr.const `Real []))
+-                            (Lean.Expr.const `Real.instRCLike []))))
++                            (Lean.Expr.const `NormedField.toNormedSpace [Lean.Level.zero])
++                            (Lean.Expr.const `Real []))
++                          (Lean.Expr.const `Real.normedField [])))
+                       (Lean.Expr.bvar 2))
+                     (Lean.Expr.app
+                       (Lean.Expr.app

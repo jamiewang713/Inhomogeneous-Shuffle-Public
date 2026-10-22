@@ -1,0 +1,57 @@
+{
+  "module": "FirstMoment.Entropy",
+  "source": "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\first_moment\\FirstMoment\\Entropy.lean",
+  "providers": [
+    "Mathlib.Tactic.Ring"
+  ],
+  "kind": "imports",
+  "status": "failed-restored",
+  "samples": [
+    {
+      "user_s": 9.921875,
+      "system_s": 6.78125,
+      "peak_working_set_bytes": 1818181632,
+      "wall_s": 16.730071599999974,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "--profile",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\first_moment",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\first_moment\\FirstMoment\\Entropy.lean"
+      ],
+      "module": "FirstMoment.Entropy",
+      "source_sha256": "9e8d58c643498e1bbc00d5c99155babd1010a62a8c66b824c5a938ebba19473a",
+      "log": "ab-06-entropy-A1-FirstMoment.Entropy.log",
+      "side": "A",
+      "sample": 1,
+      "phases_s": {
+        "attribute application": 0.000456,
+        "congr simp thm": 0.0024500000000000004,
+        "dsimp": 0.00515,
+        "elaboration": 0.0307,
+        "fix level params": 0.000447,
+        "import": 7.08,
+        "initialization": 0.049,
+        "instantiate metavars": 0.00118,
+        "interpretation": 8.13,
+        "let-to-have transformation": 8.640000000000001e-05,
+        "linting": 0.0152,
+        "module linting": 1.3100000000000002e-05,
+        "norm_num": 0.007240000000000001,
+        "overlappingInstancesLinter": 0.032799999999999996,
+        "parsing": 0.009720000000000001,
+        "process pre-definitions": 0.00597,
+        "ring": 0.123,
+        "share common exprs": 0.00348,
+        "simp": 0.0965,
+        "tactic execution": 0.178,
+        "tacticAnalysis": 0.049100000000000005,
+        "type checking": 0.0211,
+        "typeclass inference": 0.442
+      }
+    }
+  ],
+  "error": "SystemExit(1)"
+}

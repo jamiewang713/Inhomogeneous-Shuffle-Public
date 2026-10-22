@@ -1,0 +1,36 @@
+{
+  "label": "validate-main-1",
+  "started_utc": "2026-10-16T22:05:27.660837+00:00",
+  "finished_utc": "2026-10-16T22:20:19.028888+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "compiler_threads": 1,
+  "timer": "Python perf_counter; Win32 GetProcessTimes/GetProcessMemoryInfo (compiler children)",
+  "targets": [
+    "RiffleMain"
+  ],
+  "wall_s": 890.1918485000006,
+  "exit_code": 0,
+  "error": null,
+  "segmented": false,
+  "resumed_segment_wall_s": null,
+  "wall_kind": "continuous timed build",
+  "user_s": 522.34375,
+  "system_s": 351.46875,
+  "logged_wall_sum_s": 877.7985009999993,
+  "peak_compiler_working_set_bytes": 1973964800,
+  "jobs": 56,
+  "source_stable": true,
+  "dependency_artifacts_unchanged": true,
+  "dependency_olean_counts": {
+    "aesop": 132,
+    "batteries": 192,
+    "Cli": 0,
+    "importGraph": 10,
+    "LeanSearchClient": 4,
+    "mathlib": 8322,
+    "plausible": 13,
+    "proofwidgets": 13,
+    "Qq": 14
+  }
+}

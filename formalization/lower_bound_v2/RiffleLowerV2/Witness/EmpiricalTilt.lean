@@ -115,14 +115,17 @@ theorem antitoneOn_J_alpha (hc : Targets.OneColumnTiltTarget) {k N K : ℕ}
 
 theorem continuous_J_time {k N K : ℕ} (cuts : Cuts k N K) (hpos : 0 < N)
     (a r : ℝ) : Continuous (J cuts hpos a r) := by
+  unfold J
   exact (continuous_empiricalIntegral _).comp (continuous_const.prodMk continuous_id)
 
 theorem continuous_B_time {k N K : ℕ} (cuts : Cuts k N K) (hpos : 0 < N)
     (a r : ℝ) : Continuous (B cuts hpos a r) := by
+  unfold B
   exact (continuous_empiricalIntegral _).comp (continuous_const.prodMk continuous_id)
 
 theorem continuous_H_time {k N K : ℕ} (cuts : Cuts k N K) (hpos : 0 < N)
     (a r : ℝ) : Continuous (H cuts hpos a r) := by
+  unfold H
   exact (continuous_empiricalIntegral _).comp (continuous_const.prodMk continuous_id)
 
 theorem A_endpoint_bound {k N K : ℕ} (hk : 2 ≤ k) (hN : 2 ≤ N)

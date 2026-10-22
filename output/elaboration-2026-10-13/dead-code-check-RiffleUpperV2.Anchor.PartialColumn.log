@@ -1,0 +1,51 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 180ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 207ms
+import took 25.8s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Convert___elabRules_Mathlib_Tactic_convert_1._boxed took 272ms
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Anchor\PartialColumn.lean:132:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Anchor\PartialColumn.lean:134:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ring took 130ms
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\upper_bound_v2\RiffleUpperV2\Anchor\PartialColumn.lean:155:4: warning: Unused tactic linter: `change residualSubset A D c₀ v = b ↔ residualSubset A D c₀ (e v) = c` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+cumulative profiling times:
+	attribute application 0.66ms
+	compilation (IR) 2.2ms
+	compilation (LCNF base) 19.8ms
+	compilation (LCNF impure) 4.37ms
+	compilation (LCNF mono) 7.98ms
+	congr simp thm 3.41ms
+	elaboration 135ms
+	fix level params 1.01ms
+	import 25.8s
+	initialization 54.3ms
+	instantiate metavars 3.01ms
+	interpretation 12.3s
+	let-to-have transformation 0.231ms
+	linting 41.4ms
+	module linting 0.0239ms
+	norm_num 5.48ms
+	overlappingInstancesLinter 162ms
+	parsing 26.6ms
+	process pre-definitions 12ms
+	ring 130ms
+	share common exprs 6.05ms
+	simp 56.3ms
+	tactic execution 397ms
+	tacticAnalysis 449ms
+	type checking 76.8ms
+	typeclass inference 142ms

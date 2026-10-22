@@ -1,7 +1,10 @@
 import Contracts.v1.FactorialOccupancy
 import Mathlib.Data.Nat.Choose.Sum
 import Mathlib.Data.Nat.Choose.Cast
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
 
 noncomputable section
 open scoped BigOperators

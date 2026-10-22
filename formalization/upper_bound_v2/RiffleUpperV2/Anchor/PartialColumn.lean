@@ -85,22 +85,6 @@ theorem residualMarked_le {k n d : ℕ} {cuts : Cuts k n d} {j : Fin d}
   rw [← residualAllowed_card A D c₀ c₀ (fun _ _ => rfl)]
   exact Finset.card_le_card (residualAllowed_subset A D c₀)
 
-private theorem fix_iff {α : Type*} [DecidableEq α] (A : Finset α)
-    (σ : Equiv.Perm α) (hσ : ∀ a ∈ A, σ a = a) (r : α) :
-    σ.symm r ∈ A ↔ r ∈ A := by
-  constructor
-  · intro h
-    have hh := hσ (σ.symm r) h
-    rw [σ.apply_symm_apply] at hh
-    exact hh.symm ▸ h
-  · intro h
-    have hh := hσ r h
-    have hs : σ.symm r = r := by
-      calc
-        σ.symm r = σ.symm (σ r) := congrArg σ.symm hh.symm
-        _ = r := σ.symm_apply_apply r
-    simpa only [hs] using h
-
 private theorem columnFiber_relabel {k n d : ℕ} {cuts : Cuts k n d} {j : Fin d}
     (A : Finset (Fin n)) (c₀ c : ColumnAssignments cuts j)
     (σ : Equiv.Perm (Fin n)) (hσ : ∀ a ∈ A, σ a = a) :

@@ -1,0 +1,11 @@
+CHECK RiffleLowerV2.Thinning.Compat.Hypergeometric
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\lower_bound_v2\RiffleLowerV2\Thinning\Compat\Hypergeometric.lean:74:8: warning: This simp argument is unused:
+  mul_pos_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.pos_iff_ne_zero, Nat.choose_eq_zero_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK RiffleLowerV2.Thinning.Compat.HypergeometricMoments
+CHECK RiffleLowerV2.Thinning.Compat.HypergeometricConcentration
+BUILD_OK RiffleLowerV2.Thinning.Compat.HypergeometricConcentration

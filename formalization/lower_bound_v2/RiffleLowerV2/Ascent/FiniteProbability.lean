@@ -1,6 +1,8 @@
 import RiffleLowerV2.Shared.Adapters
 import Contracts.v1
-import Mathlib.Tactic
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
 
 /-! Elementary finite PMF identities on the frozen shared definitions.
 The finite-sum arguments adapt the legacy RiffleLower/FiniteProbability.lean

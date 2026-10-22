@@ -1,0 +1,34 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 155ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 177ms
+import took 7.09s
+ring took 131ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_linarith_1._boxed took 232ms
+interpretation of Mathlib.Meta.Positivity.evalAdd._lam_0._boxed took 135ms
+interpretation of Mathlib.Meta.Positivity.evalAdd._lam_0._boxed took 105ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 834ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 844ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 213ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 227ms
+cumulative profiling times:
+	attribute application 0.0776ms
+	congr simp thm 5.52ms
+	elaboration 27.6ms
+	fix level params 0.718ms
+	import 7.09s
+	initialization 46ms
+	instantiate metavars 4.93ms
+	interpretation 11.3s
+	let-to-have transformation 0.0841ms
+	linting 14.7ms
+	module linting 0.0091ms
+	norm_num 33.5ms
+	overlappingInstancesLinter 14.5ms
+	parsing 6.84ms
+	process pre-definitions 9.03ms
+	ring 231ms
+	share common exprs 13ms
+	simp 310ms
+	tactic execution 193ms
+	tacticAnalysis 46ms
+	type checking 107ms
+	typeclass inference 996ms

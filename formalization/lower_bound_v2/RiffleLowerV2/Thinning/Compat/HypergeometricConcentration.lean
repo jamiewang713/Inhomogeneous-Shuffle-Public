@@ -6,7 +6,10 @@ import RiffleLowerV2.Thinning.Compat.HypergeometricMoments
 import Mathlib.Data.Nat.Choose.Sum
 import Mathlib.Data.Nat.Choose.Cast
 import Mathlib.Data.Fin.Rev
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.FieldSimp
 
 /-!
 Finite hypergeometric exponential transforms and concentration.

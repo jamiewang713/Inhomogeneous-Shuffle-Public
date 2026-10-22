@@ -1,3 +1,4 @@
+import Mathlib.Tactic.NormNum.RealSqrt
 import RiffleUpperV2.Anchor.FineAtoms
 import RiffleUpperV2.Shared.GoodEventTransfer
 

@@ -1,0 +1,12 @@
+test_compiler_failure_invalidates_old_success_receipt (test_build.BuildTrustTests.test_compiler_failure_invalidates_old_success_receipt) ... ok
+test_late_change_to_visited_dependency_blocks_overall_success (test_build.BuildTrustTests.test_late_change_to_visited_dependency_blocks_overall_success) ... ok
+test_late_receipt_change_blocks_overall_success (test_build.BuildTrustTests.test_late_receipt_change_blocks_overall_success) ... ok
+test_receipt_compiler_and_mathlib_must_match (test_build.BuildTrustTests.test_receipt_compiler_and_mathlib_must_match) ... ok
+test_source_change_while_waiting_rejects_cache_hit (test_build.BuildTrustTests.test_source_change_while_waiting_rejects_cache_hit) ... ok
+test_source_restored_during_rebuild_cannot_reuse_old_receipt (test_build.BuildTrustTests.test_source_restored_during_rebuild_cannot_reuse_old_receipt) ... ok
+test_unchanged_dependency_cache_is_reused (test_build.BuildTrustTests.test_unchanged_dependency_cache_is_reused) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.163s
+
+OK

@@ -1,0 +1,36 @@
+{
+  "label": "ab-12-selection-refresh",
+  "started_utc": "2026-10-16T20:17:53.125671+00:00",
+  "finished_utc": "2026-10-16T20:18:08.673716+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "compiler_threads": 1,
+  "timer": "Python perf_counter; Win32 GetProcessTimes/GetProcessMemoryInfo (compiler children)",
+  "targets": [
+    "RiffleLowerV2.Ascent.Selection"
+  ],
+  "wall_s": 14.398049400000673,
+  "exit_code": 0,
+  "error": null,
+  "segmented": false,
+  "resumed_segment_wall_s": null,
+  "wall_kind": "continuous timed build",
+  "user_s": 7.453125,
+  "system_s": 6.515625,
+  "logged_wall_sum_s": 14.069195900000523,
+  "peak_compiler_working_set_bytes": 1769521152,
+  "jobs": 1,
+  "source_stable": true,
+  "dependency_artifacts_unchanged": true,
+  "dependency_olean_counts": {
+    "aesop": 132,
+    "batteries": 192,
+    "Cli": 0,
+    "importGraph": 10,
+    "LeanSearchClient": 4,
+    "mathlib": 8322,
+    "plausible": 13,
+    "proofwidgets": 13,
+    "Qq": 14
+  }
+}

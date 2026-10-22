@@ -1,0 +1,1852 @@
+{
+  "label": "before2",
+  "started_utc": "2026-10-14T00:52:56.233990+00:00",
+  "finished_utc": "2026-10-16T19:27:50.918718+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "compiler_threads": 1,
+  "timer": "Python perf_counter; Win32 GetProcessTimes/GetProcessMemoryInfo (compiler children)",
+  "targets": [
+    "RiffleMain",
+    "RiffleUpperV2.Completed",
+    "RiffleLowerV2.Completed"
+  ],
+  "wall_s": 239694.684728,
+  "exit_code": 0,
+  "error": null,
+  "segmented": true,
+  "resumed_segment_wall_s": 598.726948,
+  "wall_kind": "calendar span including interruption",
+  "user_s": 6809.609375,
+  "system_s": 4459.671875,
+  "logged_wall_sum_s": 12060.660074100288,
+  "peak_compiler_working_set_bytes": 2196713472,
+  "jobs": 548,
+  "source_stable": true,
+  "dependency_artifacts_unchanged": true,
+  "dependency_olean_counts": {
+    "aesop": 132,
+    "batteries": 192,
+    "Cli": 0,
+    "importGraph": 10,
+    "LeanSearchClient": 4,
+    "mathlib": 8322,
+    "plausible": 13,
+    "proofwidgets": 13,
+    "Qq": 14
+  },
+  "files": 548,
+  "lines": 58100,
+  "code_lines": 50992,
+  "snapshot_commit": "d57198e34cdcadfb012ae693e511036b3e43564c",
+  "cpu_s": 11269.28125,
+  "implied_job_parallelism": 0.050316760623150436,
+  "cpu_percent": 4.701514872049883,
+  "cpu_ms_per_code_line": 221.00096583777847,
+  "logged_wall_ms_per_code_line": 236.52063214034138,
+  "warnings": 157,
+  "warning_types": {
+    "unused variable": 30,
+    "Unused tactic linter: `change (sortedWord \u03c9 (edgeLeft e) = sortedWord \u03c9 (edgeRight e)) \u2194 _` does nothing": 1,
+    "try 'simp' instead of 'simpa'": 10,
+    "Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice": 21,
+    "`Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead": 1,
+    "unused simp argument": 50,
+    "unused section variable": 3,
+    "Try this: ": 21,
+    "Unused tactic linter: `ring` does nothing": 5,
+    "this tactic is never executed": 8,
+    "Unused tactic linter: `change residualSubset A D c\u2080 v = b \u2194 residualSubset A D c\u2080 (e v) = c` does nothing": 1,
+    "Unused tactic linter: `omega` does nothing": 1,
+    "Unused tactic linter: `change (r \u2208 R.filter (fun r => _)) \u2194 _` does nothing": 1,
+    "Unused tactic linter: `change": 1,
+    "Unused tactic linter: `push_cast at hc \u22a2` does nothing": 1,
+    "Unused tactic linter: `split_ifs` does nothing": 1,
+    "Unused tactic linter: `rfl` does nothing": 1
+  },
+  "errors": 0,
+  "sorry_warnings": 0,
+  "heavy_tail": {
+    "10": 548,
+    "20": 237,
+    "30": 34,
+    "40": 10
+  },
+  "cpu_heavy_tail": {
+    "10": 548,
+    "20": 202,
+    "30": 24,
+    "40": 6
+  },
+  "critical_chain_wall_s": 1672.3746187002107,
+  "critical_chain": [
+    "RiffleTimeProfile.Base",
+    "RiffleTimeProfile.Ambient",
+    "RiffleTimeProfile.FixedCountModel",
+    "RiffleLowerV2.Shared.Smoke",
+    "RiffleLowerV2.Shared.Model",
+    "RiffleLowerV2.Shared.Empirical",
+    "RiffleLowerV2.Shared.Statistics",
+    "Contracts.v1.ModelThinning",
+    "Contracts.v1.FactorialOccupancy",
+    "Contracts.v1.Ascent",
+    "Contracts.v1.AdditionalFinite",
+    "RiffleLowerV2.Model.FiniteLaws",
+    "RiffleLowerV2.Model.GraphSorting",
+    "RiffleLowerV2.Model.GraphLaw",
+    "RiffleLowerV2.Model.Main",
+    "RiffleUpperV2.Shared.Model",
+    "RiffleUpperV2.Anchor.Definitions",
+    "RiffleUpperV2.Anchor.PartialColumn",
+    "RiffleUpperV2.Anchor.ConditionalColumn",
+    "RiffleUpperV2.Anchor.PartialReveal",
+    "RiffleUpperV2.Anchor.SourceSampling",
+    "RiffleUpperV2.Anchor.EqualReveal",
+    "RiffleUpperV2.Anchor.EqualHistory",
+    "RiffleUpperV2.Anchor.RowSlices",
+    "RiffleUpperV2.Anchor.EqualEndpoint",
+    "RiffleUpperV2.Anchor.EqualMeasurability",
+    "RiffleUpperV2.Anchor.EqualLaw",
+    "RiffleUpperV2.Anchor.UnequalDefinitions",
+    "RiffleUpperV2.Anchor.UnequalHistory",
+    "RiffleUpperV2.Anchor.UnequalEndpoint",
+    "RiffleUpperV2.Anchor.UnequalMeasurability",
+    "RiffleUpperV2.Anchor.UnequalLaw",
+    "RiffleUpperV2.Anchor.ResidualOtherLaw",
+    "RiffleUpperV2.Anchor.ResidualOtherTail",
+    "RiffleUpperV2.Anchor.UnequalGood",
+    "RiffleUpperV2.Anchor.UnequalParameters",
+    "RiffleUpperV2.Anchor.UnequalSideBounds",
+    "RiffleUpperV2.Anchor.UnequalQuantitative",
+    "RiffleUpperV2.Anchor.JoinMaximizers",
+    "RiffleUpperV2.Anchor.SmoothingData",
+    "RiffleUpperV2.Anchor.Smoothing",
+    "RiffleUpperV2.Anchor.FineAtoms",
+    "RiffleUpperV2.Anchor.ConditionalAtoms",
+    "RiffleUpperV2.Anchor.JointAtoms",
+    "RiffleUpperV2.Anchor.Main",
+    "RiffleUpperV2.Localization.Edges",
+    "RiffleUpperV2.Localization.EdgeMoments",
+    "RiffleUpperV2.Localization.RestrictedMoments",
+    "RiffleUpperV2.Localization.CollisionMass",
+    "RiffleUpperV2.Reservoir.InteriorHistory",
+    "RiffleUpperV2.Reservoir.InteriorCounts",
+    "RiffleUpperV2.Reservoir.SeparatedCylinders",
+    "RiffleUpperV2.Reservoir.OtherCylinder",
+    "RiffleUpperV2.Reservoir.FutureCylinderLaw",
+    "RiffleUpperV2.Reservoir.InducedMatrix",
+    "RiffleUpperV2.Reservoir.TailWords",
+    "RiffleUpperV2.Reservoir.FutureGraphLaw",
+    "RiffleUpperV2.Conditional.BlockGeometry",
+    "RiffleUpperV2.Conditional.BlockEdges",
+    "RiffleUpperV2.Conditional.RemainingCover",
+    "RiffleUpperV2.Conditional.FinePartition",
+    "RiffleUpperV2.Conditional.GraphSquares",
+    "RiffleUpperV2.Conditional.FineMoments",
+    "RiffleUpperV2.Conditional.HistoryAdapters",
+    "RiffleUpperV2.Conditional.HistoryAveraging",
+    "RiffleUpperV2.Conditional.RegimeAveraging",
+    "RiffleUpperV2.Conditional.OneHistory",
+    "RiffleUpperV2.Conditional.Main",
+    "RiffleUpperV2.EmpiricalUpper.Main",
+    "RiffleUpperV2.ProfileUpper.Main",
+    "RiffleMain.Limits",
+    "RiffleMain.Main",
+    "RiffleMain.Process",
+    "RiffleMain"
+  ],
+  "critical_chain_cpu_s": 1556.484375,
+  "critical_chain_cpu": [
+    "RiffleShuffle.Basic",
+    "RiffleShuffle.Profiles",
+    "RiffleShuffle.Words",
+    "RiffleShuffle.Matrices",
+    "RiffleShuffle.Graphs",
+    "RiffleLowerV2.Shared.Smoke",
+    "RiffleLowerV2.Shared.Model",
+    "RiffleLowerV2.Shared.Empirical",
+    "RiffleLowerV2.Shared.Statistics",
+    "Contracts.v1.ModelThinning",
+    "Contracts.v1.FactorialOccupancy",
+    "Contracts.v1.Ascent",
+    "Contracts.v1.AdditionalFinite",
+    "RiffleLowerV2.Model.FiniteLaws",
+    "RiffleLowerV2.Model.GraphSorting",
+    "RiffleLowerV2.Model.GraphLaw",
+    "RiffleLowerV2.Model.Main",
+    "RiffleUpperV2.Shared.Model",
+    "RiffleUpperV2.Anchor.Definitions",
+    "RiffleUpperV2.Anchor.PartialColumn",
+    "RiffleUpperV2.Anchor.ConditionalColumn",
+    "RiffleUpperV2.Anchor.PartialReveal",
+    "RiffleUpperV2.Anchor.SourceSampling",
+    "RiffleUpperV2.Anchor.EqualReveal",
+    "RiffleUpperV2.Anchor.EqualHistory",
+    "RiffleUpperV2.Anchor.RowSlices",
+    "RiffleUpperV2.Anchor.EqualEndpoint",
+    "RiffleUpperV2.Anchor.EqualMeasurability",
+    "RiffleUpperV2.Anchor.EqualLaw",
+    "RiffleUpperV2.Anchor.UnequalDefinitions",
+    "RiffleUpperV2.Anchor.UnequalHistory",
+    "RiffleUpperV2.Anchor.UnequalEndpoint",
+    "RiffleUpperV2.Anchor.UnequalMeasurability",
+    "RiffleUpperV2.Anchor.UnequalLaw",
+    "RiffleUpperV2.Anchor.ResidualOtherLaw",
+    "RiffleUpperV2.Anchor.ResidualOtherTail",
+    "RiffleUpperV2.Anchor.UnequalGood",
+    "RiffleUpperV2.Anchor.UnequalParameters",
+    "RiffleUpperV2.Anchor.UnequalSideBounds",
+    "RiffleUpperV2.Anchor.UnequalQuantitative",
+    "RiffleUpperV2.Anchor.JoinMaximizers",
+    "RiffleUpperV2.Anchor.SmoothingData",
+    "RiffleUpperV2.Anchor.Smoothing",
+    "RiffleUpperV2.Anchor.FineAtoms",
+    "RiffleUpperV2.Anchor.ConditionalAtoms",
+    "RiffleUpperV2.Anchor.JointAtoms",
+    "RiffleUpperV2.Anchor.Main",
+    "RiffleUpperV2.Localization.Edges",
+    "RiffleUpperV2.Localization.EdgeMoments",
+    "RiffleUpperV2.Localization.RestrictedMoments",
+    "RiffleUpperV2.Localization.CollisionMass",
+    "RiffleUpperV2.Reservoir.InteriorHistory",
+    "RiffleUpperV2.Reservoir.InteriorCounts",
+    "RiffleUpperV2.Reservoir.SeparatedCylinders",
+    "RiffleUpperV2.Reservoir.OtherCylinder",
+    "RiffleUpperV2.Reservoir.FutureCylinderLaw",
+    "RiffleUpperV2.Reservoir.InducedMatrix",
+    "RiffleUpperV2.Reservoir.TailWords",
+    "RiffleUpperV2.Reservoir.FutureGraphLaw",
+    "RiffleUpperV2.Conditional.BlockGeometry",
+    "RiffleUpperV2.Conditional.BlockEdges",
+    "RiffleUpperV2.Conditional.RemainingCover",
+    "RiffleUpperV2.Conditional.FinePartition",
+    "RiffleUpperV2.Conditional.GraphSquares",
+    "RiffleUpperV2.Conditional.FineMoments",
+    "RiffleUpperV2.Conditional.HistoryAdapters",
+    "RiffleUpperV2.Conditional.HistoryAveraging",
+    "RiffleUpperV2.Conditional.RegimeAveraging",
+    "RiffleUpperV2.Conditional.OneHistory",
+    "RiffleUpperV2.Conditional.Main",
+    "RiffleUpperV2.EmpiricalUpper.Main",
+    "RiffleUpperV2.ProfileUpper.Main",
+    "RiffleMain.Limits",
+    "RiffleMain.Main",
+    "RiffleMain.Process",
+    "RiffleMain"
+  ],
+  "ideal_cpu_work_floor_s": 704.330078125,
+  "namespaces": {
+    "RiffleTimeProfile.Base": {
+      "files": 1,
+      "wall_sum_s": 137.5767842999776,
+      "cpu_s": 35.0625,
+      "code_lines": 285
+    },
+    "RiffleTimeProfile.Ambient": {
+      "files": 1,
+      "wall_sum_s": 25.200341200019466,
+      "cpu_s": 22.5625,
+      "code_lines": 158
+    },
+    "RiffleTimeProfile.FixedCountModel": {
+      "files": 1,
+      "wall_sum_s": 23.52990530000534,
+      "cpu_s": 22.1875,
+      "code_lines": 152
+    },
+    "RiffleShuffle.Basic": {
+      "files": 1,
+      "wall_sum_s": 19.687930999993114,
+      "cpu_s": 19.5625,
+      "code_lines": 55
+    },
+    "RiffleShuffle.Profiles": {
+      "files": 1,
+      "wall_sum_s": 19.88775419999729,
+      "cpu_s": 19.78125,
+      "code_lines": 100
+    },
+    "RiffleShuffle.Words": {
+      "files": 1,
+      "wall_sum_s": 16.779166899999836,
+      "cpu_s": 16.59375,
+      "code_lines": 117
+    },
+    "RiffleShuffle.Matrices": {
+      "files": 1,
+      "wall_sum_s": 21.444506600004388,
+      "cpu_s": 21.203125,
+      "code_lines": 150
+    },
+    "RiffleShuffle.Graphs": {
+      "files": 1,
+      "wall_sum_s": 18.578001499990933,
+      "cpu_s": 17.40625,
+      "code_lines": 80
+    },
+    "RiffleLowerV2.Shared": {
+      "files": 8,
+      "wall_sum_s": 152.02406969998265,
+      "cpu_s": 149.78125,
+      "code_lines": 544
+    },
+    "Contracts.v1": {
+      "files": 9,
+      "wall_sum_s": 165.0321592000255,
+      "cpu_s": 163.40625,
+      "code_lines": 528
+    },
+    "RiffleLowerV2.Model": {
+      "files": 8,
+      "wall_sum_s": 164.10604329998023,
+      "cpu_s": 159.125,
+      "code_lines": 968
+    },
+    "RiffleUpperV2.Shared": {
+      "files": 22,
+      "wall_sum_s": 437.9708864999702,
+      "cpu_s": 432.5,
+      "code_lines": 1178
+    },
+    "RiffleTimeProfile.Analysis": {
+      "files": 1,
+      "wall_sum_s": 21.71353619999718,
+      "cpu_s": 21.3125,
+      "code_lines": 280
+    },
+    "RiffleMain.Profile": {
+      "files": 15,
+      "wall_sum_s": 309.9240815001249,
+      "cpu_s": 302.328125,
+      "code_lines": 1158
+    },
+    "RiffleLowerV2.Factorial": {
+      "files": 15,
+      "wall_sum_s": 324.3627822000417,
+      "cpu_s": 316.03125,
+      "code_lines": 1762
+    },
+    "RiffleLowerV2.Occupancy": {
+      "files": 17,
+      "wall_sum_s": 438.9382209001342,
+      "cpu_s": 433.546875,
+      "code_lines": 1911
+    },
+    "RiffleLowerV2.ProfileTransfer": {
+      "files": 12,
+      "wall_sum_s": 296.238487299986,
+      "cpu_s": 291.59375,
+      "code_lines": 1595
+    },
+    "RiffleLowerV2.Ascent": {
+      "files": 20,
+      "wall_sum_s": 385.46546840001247,
+      "cpu_s": 373.328125,
+      "code_lines": 2002
+    },
+    "RiffleMain.RandomLower": {
+      "files": 8,
+      "wall_sum_s": 158.49119909998262,
+      "cpu_s": 156.59375,
+      "code_lines": 473
+    },
+    "RiffleUpperV2.Margins": {
+      "files": 6,
+      "wall_sum_s": 121.47886639999342,
+      "cpu_s": 117.890625,
+      "code_lines": 548
+    },
+    "RiffleLowerV2.Thinning": {
+      "files": 23,
+      "wall_sum_s": 499.27457470001536,
+      "cpu_s": 479.34375,
+      "code_lines": 3165
+    },
+    "RiffleMain.MarginEvents": {
+      "files": 1,
+      "wall_sum_s": 19.002585600013845,
+      "cpu_s": 18.75,
+      "code_lines": 71
+    },
+    "RiffleUpperV2.ProfileUpper": {
+      "files": 9,
+      "wall_sum_s": 173.89606069991714,
+      "cpu_s": 172.046875,
+      "code_lines": 749
+    },
+    "RiffleUpperV2.EmpiricalUpper": {
+      "files": 7,
+      "wall_sum_s": 147.99020709993783,
+      "cpu_s": 145.96875,
+      "code_lines": 702
+    },
+    "RiffleUpperV2.GraphOverlap": {
+      "files": 13,
+      "wall_sum_s": 494.6460080000353,
+      "cpu_s": 279.296875,
+      "code_lines": 1049
+    },
+    "RiffleUpperV2.Contracts": {
+      "files": 4,
+      "wall_sum_s": 70.25254859999404,
+      "cpu_s": 69.34375,
+      "code_lines": 125
+    },
+    "RiffleUpperV2.Exploration": {
+      "files": 25,
+      "wall_sum_s": 499.0938842999458,
+      "cpu_s": 492.546875,
+      "code_lines": 2042
+    },
+    "RiffleUpperV2.Exponential": {
+      "files": 11,
+      "wall_sum_s": 216.13384580001002,
+      "cpu_s": 213.875,
+      "code_lines": 802
+    },
+    "RiffleUpperV2.Hypergeometric": {
+      "files": 7,
+      "wall_sum_s": 139.577535099932,
+      "cpu_s": 138.71875,
+      "code_lines": 779
+    },
+    "RiffleUpperV2.Anchor": {
+      "files": 44,
+      "wall_sum_s": 886.4329972002015,
+      "cpu_s": 877.3125,
+      "code_lines": 3161
+    },
+    "RiffleUpperV2.Localization": {
+      "files": 36,
+      "wall_sum_s": 672.6976606999463,
+      "cpu_s": 662.0625,
+      "code_lines": 2692
+    },
+    "FirstMoment.Entropy": {
+      "files": 1,
+      "wall_sum_s": 16.86762110001291,
+      "cpu_s": 16.703125,
+      "code_lines": 137
+    },
+    "RiffleUpperV2.FirstMoment": {
+      "files": 36,
+      "wall_sum_s": 777.3534947998996,
+      "cpu_s": 765.46875,
+      "code_lines": 3106
+    },
+    "FirstMoment.Counting": {
+      "files": 1,
+      "wall_sum_s": 21.583890400012024,
+      "cpu_s": 21.546875,
+      "code_lines": 235
+    },
+    "RiffleTimeProfile.Numerical": {
+      "files": 1,
+      "wall_sum_s": 14.97180080000544,
+      "cpu_s": 14.75,
+      "code_lines": 273
+    },
+    "RiffleTimeProfile.Source": {
+      "files": 1,
+      "wall_sum_s": 16.58889100002125,
+      "cpu_s": 16.453125,
+      "code_lines": 47
+    },
+    "RiffleTimeProfile.AnalyticParameters": {
+      "files": 1,
+      "wall_sum_s": 29.47935249999864,
+      "cpu_s": 29.234375,
+      "code_lines": 242
+    },
+    "RiffleUpperV2.Compat": {
+      "files": 4,
+      "wall_sum_s": 88.07467860000907,
+      "cpu_s": 86.5625,
+      "code_lines": 615
+    },
+    "RiffleProfiles.Counting": {
+      "files": 1,
+      "wall_sum_s": 13.254800399998203,
+      "cpu_s": 13.09375,
+      "code_lines": 156
+    },
+    "RiffleProfiles.AsymptoticFinite": {
+      "files": 1,
+      "wall_sum_s": 19.47272989997873,
+      "cpu_s": 19.234375,
+      "code_lines": 97
+    },
+    "FirstMoment.Assembly": {
+      "files": 1,
+      "wall_sum_s": 15.747790900000837,
+      "cpu_s": 15.484375,
+      "code_lines": 222
+    },
+    "RiffleUpperV2.Conditional": {
+      "files": 39,
+      "wall_sum_s": 852.085487400007,
+      "cpu_s": 817.015625,
+      "code_lines": 3032
+    },
+    "RiffleUpperV2.Reservoir": {
+      "files": 60,
+      "wall_sum_s": 1623.2047865000204,
+      "cpu_s": 1352.953125,
+      "code_lines": 5390
+    },
+    "RiffleLowerV2.EmpiricalLower": {
+      "files": 8,
+      "wall_sum_s": 173.73974960002784,
+      "cpu_s": 158.796875,
+      "code_lines": 810
+    },
+    "RiffleLowerV2.Localization": {
+      "files": 26,
+      "wall_sum_s": 511.30923040019115,
+      "cpu_s": 503.40625,
+      "code_lines": 2870
+    },
+    "RiffleLowerV2.Witness": {
+      "files": 9,
+      "wall_sum_s": 218.8972761000041,
+      "cpu_s": 217.359375,
+      "code_lines": 1305
+    },
+    "RiffleLowerV2.Types": {
+      "files": 13,
+      "wall_sum_s": 277.24801440001465,
+      "cpu_s": 274.703125,
+      "code_lines": 2190
+    },
+    "RiffleMain.Limits": {
+      "files": 1,
+      "wall_sum_s": 18.858381600002758,
+      "cpu_s": 18.640625,
+      "code_lines": 67
+    },
+    "RiffleMain.Critical": {
+      "files": 5,
+      "wall_sum_s": 89.5324240999762,
+      "cpu_s": 89.09375,
+      "code_lines": 317
+    },
+    "RiffleMain.Main": {
+      "files": 1,
+      "wall_sum_s": 21.20406749995891,
+      "cpu_s": 20.5,
+      "code_lines": 95
+    },
+    "RiffleMain.ProcessModel": {
+      "files": 1,
+      "wall_sum_s": 19.92801520001376,
+      "cpu_s": 19.203125,
+      "code_lines": 54
+    },
+    "RiffleMain.Process": {
+      "files": 1,
+      "wall_sum_s": 20.982653699989896,
+      "cpu_s": 20.5625,
+      "code_lines": 97
+    },
+    "RiffleMain": {
+      "files": 1,
+      "wall_sum_s": 20.48056529997848,
+      "cpu_s": 20.015625,
+      "code_lines": 2
+    },
+    "RiffleUpperV2": {
+      "files": 1,
+      "wall_sum_s": 22.60774790000005,
+      "cpu_s": 19.046875,
+      "code_lines": 88
+    },
+    "RiffleUpperV2.Completed": {
+      "files": 1,
+      "wall_sum_s": 19.564854100000048,
+      "cpu_s": 19.265625,
+      "code_lines": 9
+    },
+    "RiffleLowerV2": {
+      "files": 1,
+      "wall_sum_s": 16.612016799999992,
+      "cpu_s": 16.515625,
+      "code_lines": 2
+    },
+    "RiffleLowerV2.MacroscopicLower": {
+      "files": 2,
+      "wall_sum_s": 39.170449899999994,
+      "cpu_s": 38.90625,
+      "code_lines": 141
+    },
+    "RiffleLowerV2.Completed": {
+      "files": 1,
+      "wall_sum_s": 24.411203699999987,
+      "cpu_s": 23.703125,
+      "code_lines": 12
+    }
+  },
+  "top30": [
+    {
+      "user_s": 19.1875,
+      "system_s": 18.328125,
+      "peak_working_set_bytes": 2054123520,
+      "wall_s": 246.49407999997493,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\InteriorColumn.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\InteriorColumn.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.InteriorColumn",
+      "cpu_s": 37.515625,
+      "code_lines": 92,
+      "lines": 110,
+      "cpu_ms_per_code_line": 407.7785326086956
+    },
+    {
+      "user_s": 18.4375,
+      "system_s": 22.734375,
+      "peak_working_set_bytes": 2043162624,
+      "wall_s": 241.52766570000006,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\GraphOverlap\\Corollaries.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\GraphOverlap\\Corollaries.lean"
+      ],
+      "module": "RiffleUpperV2.GraphOverlap.Corollaries",
+      "cpu_s": 41.171875,
+      "code_lines": 33,
+      "lines": 38,
+      "cpu_ms_per_code_line": 1247.6325757575758
+    },
+    {
+      "user_s": 16.15625,
+      "system_s": 18.90625,
+      "peak_working_set_bytes": 2029035520,
+      "wall_s": 137.5767842999776,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\time_profile",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleTimeProfile\\Base.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\time_profile\\RiffleTimeProfile\\Base.lean"
+      ],
+      "module": "RiffleTimeProfile.Base",
+      "cpu_s": 35.0625,
+      "code_lines": 285,
+      "lines": 355,
+      "cpu_ms_per_code_line": 123.02631578947368
+    },
+    {
+      "user_s": 63.484375,
+      "system_s": 14.9375,
+      "peak_working_set_bytes": 2061631488,
+      "wall_s": 81.01065050001489,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\FutureGraphLaw.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\FutureGraphLaw.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.FutureGraphLaw",
+      "cpu_s": 78.421875,
+      "code_lines": 66,
+      "lines": 76,
+      "cpu_ms_per_code_line": 1188.2102272727273
+    },
+    {
+      "user_s": 40.5,
+      "system_s": 7.1875,
+      "peak_working_set_bytes": 2047500288,
+      "wall_s": 47.88937290001195,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Witness\\EmpiricalTilt.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Witness\\EmpiricalTilt.lean"
+      ],
+      "module": "RiffleLowerV2.Witness.EmpiricalTilt",
+      "cpu_s": 47.6875,
+      "code_lines": 149,
+      "lines": 174,
+      "cpu_ms_per_code_line": 320.0503355704698
+    },
+    {
+      "user_s": 35.9375,
+      "system_s": 8.203125,
+      "peak_working_set_bytes": 2063216640,
+      "wall_s": 44.5314456000051,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\ProfileTransfer\\Compat\\GridQuadrature.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\ProfileTransfer\\Compat\\GridQuadrature.lean"
+      ],
+      "module": "RiffleLowerV2.ProfileTransfer.Compat.GridQuadrature",
+      "cpu_s": 44.140625,
+      "code_lines": 383,
+      "lines": 398,
+      "cpu_ms_per_code_line": 115.24967362924282
+    },
+    {
+      "user_s": 13.46875,
+      "system_s": 11.21875,
+      "peak_working_set_bytes": 2050621440,
+      "wall_s": 43.17855439998675,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\RefinedCylinders.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\RefinedCylinders.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.RefinedCylinders",
+      "cpu_s": 24.6875,
+      "code_lines": 88,
+      "lines": 106,
+      "cpu_ms_per_code_line": 280.53977272727275
+    },
+    {
+      "user_s": 32.609375,
+      "system_s": 8.140625,
+      "peak_working_set_bytes": 2126811136,
+      "wall_s": 41.23134719999507,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\ModelInputs.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\ModelInputs.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.ModelInputs",
+      "cpu_s": 40.75,
+      "code_lines": 76,
+      "lines": 87,
+      "cpu_ms_per_code_line": 536.1842105263158
+    },
+    {
+      "user_s": 32.09375,
+      "system_s": 8.046875,
+      "peak_working_set_bytes": 2078101504,
+      "wall_s": 40.568214200029615,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Localization\\ColdSet.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Localization\\ColdSet.lean"
+      ],
+      "module": "RiffleLowerV2.Localization.ColdSet",
+      "cpu_s": 40.140625,
+      "code_lines": 129,
+      "lines": 133,
+      "cpu_ms_per_code_line": 311.1676356589147
+    },
+    {
+      "user_s": 14.734375,
+      "system_s": 10.75,
+      "peak_working_set_bytes": 2056409088,
+      "wall_s": 40.16218360001221,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\RestrictedPrefix.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\RestrictedPrefix.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.RestrictedPrefix",
+      "cpu_s": 25.484375,
+      "code_lines": 90,
+      "lines": 101,
+      "cpu_ms_per_code_line": 283.15972222222223
+    },
+    {
+      "user_s": 18.3125,
+      "system_s": 15.75,
+      "peak_working_set_bytes": 2051477504,
+      "wall_s": 37.942977200000314,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Thinning\\Recursion.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Thinning\\Recursion.lean"
+      ],
+      "module": "RiffleLowerV2.Thinning.Recursion",
+      "cpu_s": 34.0625,
+      "code_lines": 74,
+      "lines": 83,
+      "cpu_ms_per_code_line": 460.30405405405406
+    },
+    {
+      "user_s": 29.109375,
+      "system_s": 7.890625,
+      "peak_working_set_bytes": 2153918464,
+      "wall_s": 37.245746100030374,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Types\\Truncation.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Types\\Truncation.lean"
+      ],
+      "module": "RiffleLowerV2.Types.Truncation",
+      "cpu_s": 37.0,
+      "code_lines": 787,
+      "lines": 847,
+      "cpu_ms_per_code_line": 47.01397712833545
+    },
+    {
+      "user_s": 27.234375,
+      "system_s": 9.375,
+      "peak_working_set_bytes": 2159525888,
+      "wall_s": 37.11954440001864,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\Marginal.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\Marginal.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.Marginal",
+      "cpu_s": 36.609375,
+      "code_lines": 102,
+      "lines": 107,
+      "cpu_ms_per_code_line": 358.9154411764706
+    },
+    {
+      "user_s": 24.5625,
+      "system_s": 11.1875,
+      "peak_working_set_bytes": 2066915328,
+      "wall_s": 36.319946000003256,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Anchor\\EqualVarianceAlgebra.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Anchor\\EqualVarianceAlgebra.lean"
+      ],
+      "module": "RiffleUpperV2.Anchor.EqualVarianceAlgebra",
+      "cpu_s": 35.75,
+      "code_lines": 59,
+      "lines": 66,
+      "cpu_ms_per_code_line": 605.9322033898305
+    },
+    {
+      "user_s": 16.765625,
+      "system_s": 14.234375,
+      "peak_working_set_bytes": 2047885312,
+      "wall_s": 35.510772500012536,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Factorial\\MomentScales.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Factorial\\MomentScales.lean"
+      ],
+      "module": "RiffleLowerV2.Factorial.MomentScales",
+      "cpu_s": 31.0,
+      "code_lines": 55,
+      "lines": 61,
+      "cpu_ms_per_code_line": 563.6363636363636
+    },
+    {
+      "user_s": 27.6875,
+      "system_s": 7.53125,
+      "peak_working_set_bytes": 2170540032,
+      "wall_s": 35.485927899950184,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\Conditional.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\Conditional.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.Conditional",
+      "cpu_s": 35.21875,
+      "code_lines": 160,
+      "lines": 170,
+      "cpu_ms_per_code_line": 220.1171875
+    },
+    {
+      "user_s": 14.625,
+      "system_s": 11.296875,
+      "peak_working_set_bytes": 2069069824,
+      "wall_s": 34.94042689999333,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Thinning\\Residual.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Thinning\\Residual.lean"
+      ],
+      "module": "RiffleLowerV2.Thinning.Residual",
+      "cpu_s": 25.921875,
+      "code_lines": 309,
+      "lines": 342,
+      "cpu_ms_per_code_line": 83.88956310679612
+    },
+    {
+      "user_s": 22.234375,
+      "system_s": 11.515625,
+      "peak_working_set_bytes": 2110304256,
+      "wall_s": 34.47235679998994,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\FirstMoment\\UniformGraph.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\FirstMoment\\UniformGraph.lean"
+      ],
+      "module": "RiffleUpperV2.FirstMoment.UniformGraph",
+      "cpu_s": 33.75,
+      "code_lines": 113,
+      "lines": 119,
+      "cpu_ms_per_code_line": 298.6725663716814
+    },
+    {
+      "user_s": 15.859375,
+      "system_s": 10.203125,
+      "peak_working_set_bytes": 2063187968,
+      "wall_s": 33.86666959995637,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\MarkedLaw.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\MarkedLaw.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.MarkedLaw",
+      "cpu_s": 26.0625,
+      "code_lines": 210,
+      "lines": 236,
+      "cpu_ms_per_code_line": 124.10714285714286
+    },
+    {
+      "user_s": 10.5,
+      "system_s": 9.546875,
+      "peak_working_set_bytes": 2147905536,
+      "wall_s": 33.27669859999992,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\EmpiricalLower\\Main.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\EmpiricalLower\\Main.lean"
+      ],
+      "module": "RiffleLowerV2.EmpiricalLower.Main",
+      "cpu_s": 20.046875,
+      "code_lines": 28,
+      "lines": 33,
+      "cpu_ms_per_code_line": 715.9598214285714
+    },
+    {
+      "user_s": 19.4375,
+      "system_s": 12.0625,
+      "peak_working_set_bytes": 2015911936,
+      "wall_s": 31.82651149999583,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\ProfileTransfer\\Compat\\LatticeCounts.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\ProfileTransfer\\Compat\\LatticeCounts.lean"
+      ],
+      "module": "RiffleLowerV2.ProfileTransfer.Compat.LatticeCounts",
+      "cpu_s": 31.5,
+      "code_lines": 183,
+      "lines": 204,
+      "cpu_ms_per_code_line": 172.13114754098362
+    },
+    {
+      "user_s": 18.859375,
+      "system_s": 12.25,
+      "peak_working_set_bytes": 2054311936,
+      "wall_s": 31.78037970000878,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\PastCylinders.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\PastCylinders.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.PastCylinders",
+      "cpu_s": 31.109375,
+      "code_lines": 143,
+      "lines": 164,
+      "cpu_ms_per_code_line": 217.54807692307693
+    },
+    {
+      "user_s": 23.46875,
+      "system_s": 7.953125,
+      "peak_working_set_bytes": 2155671552,
+      "wall_s": 31.66851480002515,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\Nonrare.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\Nonrare.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.Nonrare",
+      "cpu_s": 31.421875,
+      "code_lines": 146,
+      "lines": 153,
+      "cpu_ms_per_code_line": 215.21832191780823
+    },
+    {
+      "user_s": 10.75,
+      "system_s": 9.140625,
+      "peak_working_set_bytes": 1940324352,
+      "wall_s": 31.574226100000033,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\GraphOverlap\\Main.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\GraphOverlap\\Main.lean"
+      ],
+      "module": "RiffleUpperV2.GraphOverlap.Main",
+      "cpu_s": 19.890625,
+      "code_lines": 1,
+      "lines": 4,
+      "cpu_ms_per_code_line": 19890.625
+    },
+    {
+      "user_s": 23.1875,
+      "system_s": 8.0,
+      "peak_working_set_bytes": 2161954816,
+      "wall_s": 31.404262299998663,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\RarePair.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\RarePair.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.RarePair",
+      "cpu_s": 31.1875,
+      "code_lines": 199,
+      "lines": 211,
+      "cpu_ms_per_code_line": 156.7211055276382
+    },
+    {
+      "user_s": 15.890625,
+      "system_s": 13.71875,
+      "peak_working_set_bytes": 2053189632,
+      "wall_s": 31.32037390000187,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\ProductConditional.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\ProductConditional.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.ProductConditional",
+      "cpu_s": 29.609375,
+      "code_lines": 63,
+      "lines": 68,
+      "cpu_ms_per_code_line": 469.99007936507934
+    },
+    {
+      "user_s": 18.578125,
+      "system_s": 11.625,
+      "peak_working_set_bytes": 2061729792,
+      "wall_s": 31.282876199984457,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\FutureCylinders.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\FutureCylinders.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.FutureCylinders",
+      "cpu_s": 30.203125,
+      "code_lines": 168,
+      "lines": 197,
+      "cpu_ms_per_code_line": 179.78050595238096
+    },
+    {
+      "user_s": 19.1875,
+      "system_s": 11.15625,
+      "peak_working_set_bytes": 2042159104,
+      "wall_s": 31.0043955000001,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Shared\\PairConditioning.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Shared\\PairConditioning.lean"
+      ],
+      "module": "RiffleUpperV2.Shared.PairConditioning",
+      "cpu_s": 30.34375,
+      "code_lines": 78,
+      "lines": 89,
+      "cpu_ms_per_code_line": 389.0224358974359
+    },
+    {
+      "user_s": 16.90625,
+      "system_s": 12.703125,
+      "peak_working_set_bytes": 2049679360,
+      "wall_s": 30.805823700036854,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\Jensen.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\Jensen.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.Jensen",
+      "cpu_s": 29.609375,
+      "code_lines": 51,
+      "lines": 62,
+      "cpu_ms_per_code_line": 580.5759803921569
+    },
+    {
+      "user_s": 18.265625,
+      "system_s": 11.828125,
+      "peak_working_set_bytes": 2046443520,
+      "wall_s": 30.791255499992985,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\PairReduction.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\PairReduction.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.PairReduction",
+      "cpu_s": 30.09375,
+      "code_lines": 88,
+      "lines": 104,
+      "cpu_ms_per_code_line": 341.9744318181818
+    }
+  ],
+  "top30_cpu": [
+    {
+      "user_s": 63.484375,
+      "system_s": 14.9375,
+      "peak_working_set_bytes": 2061631488,
+      "wall_s": 81.01065050001489,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\FutureGraphLaw.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\FutureGraphLaw.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.FutureGraphLaw",
+      "cpu_s": 78.421875,
+      "code_lines": 66,
+      "lines": 76,
+      "cpu_ms_per_code_line": 1188.2102272727273
+    },
+    {
+      "user_s": 40.5,
+      "system_s": 7.1875,
+      "peak_working_set_bytes": 2047500288,
+      "wall_s": 47.88937290001195,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Witness\\EmpiricalTilt.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Witness\\EmpiricalTilt.lean"
+      ],
+      "module": "RiffleLowerV2.Witness.EmpiricalTilt",
+      "cpu_s": 47.6875,
+      "code_lines": 149,
+      "lines": 174,
+      "cpu_ms_per_code_line": 320.0503355704698
+    },
+    {
+      "user_s": 35.9375,
+      "system_s": 8.203125,
+      "peak_working_set_bytes": 2063216640,
+      "wall_s": 44.5314456000051,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\ProfileTransfer\\Compat\\GridQuadrature.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\ProfileTransfer\\Compat\\GridQuadrature.lean"
+      ],
+      "module": "RiffleLowerV2.ProfileTransfer.Compat.GridQuadrature",
+      "cpu_s": 44.140625,
+      "code_lines": 383,
+      "lines": 398,
+      "cpu_ms_per_code_line": 115.24967362924282
+    },
+    {
+      "user_s": 18.4375,
+      "system_s": 22.734375,
+      "peak_working_set_bytes": 2043162624,
+      "wall_s": 241.52766570000006,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\GraphOverlap\\Corollaries.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\GraphOverlap\\Corollaries.lean"
+      ],
+      "module": "RiffleUpperV2.GraphOverlap.Corollaries",
+      "cpu_s": 41.171875,
+      "code_lines": 33,
+      "lines": 38,
+      "cpu_ms_per_code_line": 1247.6325757575758
+    },
+    {
+      "user_s": 32.609375,
+      "system_s": 8.140625,
+      "peak_working_set_bytes": 2126811136,
+      "wall_s": 41.23134719999507,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\ModelInputs.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\ModelInputs.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.ModelInputs",
+      "cpu_s": 40.75,
+      "code_lines": 76,
+      "lines": 87,
+      "cpu_ms_per_code_line": 536.1842105263158
+    },
+    {
+      "user_s": 32.09375,
+      "system_s": 8.046875,
+      "peak_working_set_bytes": 2078101504,
+      "wall_s": 40.568214200029615,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Localization\\ColdSet.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Localization\\ColdSet.lean"
+      ],
+      "module": "RiffleLowerV2.Localization.ColdSet",
+      "cpu_s": 40.140625,
+      "code_lines": 129,
+      "lines": 133,
+      "cpu_ms_per_code_line": 311.1676356589147
+    },
+    {
+      "user_s": 19.1875,
+      "system_s": 18.328125,
+      "peak_working_set_bytes": 2054123520,
+      "wall_s": 246.49407999997493,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\InteriorColumn.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\InteriorColumn.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.InteriorColumn",
+      "cpu_s": 37.515625,
+      "code_lines": 92,
+      "lines": 110,
+      "cpu_ms_per_code_line": 407.7785326086956
+    },
+    {
+      "user_s": 29.109375,
+      "system_s": 7.890625,
+      "peak_working_set_bytes": 2153918464,
+      "wall_s": 37.245746100030374,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Types\\Truncation.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Types\\Truncation.lean"
+      ],
+      "module": "RiffleLowerV2.Types.Truncation",
+      "cpu_s": 37.0,
+      "code_lines": 787,
+      "lines": 847,
+      "cpu_ms_per_code_line": 47.01397712833545
+    },
+    {
+      "user_s": 27.234375,
+      "system_s": 9.375,
+      "peak_working_set_bytes": 2159525888,
+      "wall_s": 37.11954440001864,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\Marginal.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\Marginal.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.Marginal",
+      "cpu_s": 36.609375,
+      "code_lines": 102,
+      "lines": 107,
+      "cpu_ms_per_code_line": 358.9154411764706
+    },
+    {
+      "user_s": 24.5625,
+      "system_s": 11.1875,
+      "peak_working_set_bytes": 2066915328,
+      "wall_s": 36.319946000003256,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Anchor\\EqualVarianceAlgebra.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Anchor\\EqualVarianceAlgebra.lean"
+      ],
+      "module": "RiffleUpperV2.Anchor.EqualVarianceAlgebra",
+      "cpu_s": 35.75,
+      "code_lines": 59,
+      "lines": 66,
+      "cpu_ms_per_code_line": 605.9322033898305
+    },
+    {
+      "user_s": 27.6875,
+      "system_s": 7.53125,
+      "peak_working_set_bytes": 2170540032,
+      "wall_s": 35.485927899950184,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\Conditional.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\Conditional.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.Conditional",
+      "cpu_s": 35.21875,
+      "code_lines": 160,
+      "lines": 170,
+      "cpu_ms_per_code_line": 220.1171875
+    },
+    {
+      "user_s": 16.15625,
+      "system_s": 18.90625,
+      "peak_working_set_bytes": 2029035520,
+      "wall_s": 137.5767842999776,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\time_profile",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleTimeProfile\\Base.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\time_profile\\RiffleTimeProfile\\Base.lean"
+      ],
+      "module": "RiffleTimeProfile.Base",
+      "cpu_s": 35.0625,
+      "code_lines": 285,
+      "lines": 355,
+      "cpu_ms_per_code_line": 123.02631578947368
+    },
+    {
+      "user_s": 18.3125,
+      "system_s": 15.75,
+      "peak_working_set_bytes": 2051477504,
+      "wall_s": 37.942977200000314,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Thinning\\Recursion.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Thinning\\Recursion.lean"
+      ],
+      "module": "RiffleLowerV2.Thinning.Recursion",
+      "cpu_s": 34.0625,
+      "code_lines": 74,
+      "lines": 83,
+      "cpu_ms_per_code_line": 460.30405405405406
+    },
+    {
+      "user_s": 22.234375,
+      "system_s": 11.515625,
+      "peak_working_set_bytes": 2110304256,
+      "wall_s": 34.47235679998994,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\FirstMoment\\UniformGraph.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\FirstMoment\\UniformGraph.lean"
+      ],
+      "module": "RiffleUpperV2.FirstMoment.UniformGraph",
+      "cpu_s": 33.75,
+      "code_lines": 113,
+      "lines": 119,
+      "cpu_ms_per_code_line": 298.6725663716814
+    },
+    {
+      "user_s": 19.4375,
+      "system_s": 12.0625,
+      "peak_working_set_bytes": 2015911936,
+      "wall_s": 31.82651149999583,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\ProfileTransfer\\Compat\\LatticeCounts.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\ProfileTransfer\\Compat\\LatticeCounts.lean"
+      ],
+      "module": "RiffleLowerV2.ProfileTransfer.Compat.LatticeCounts",
+      "cpu_s": 31.5,
+      "code_lines": 183,
+      "lines": 204,
+      "cpu_ms_per_code_line": 172.13114754098362
+    },
+    {
+      "user_s": 23.46875,
+      "system_s": 7.953125,
+      "peak_working_set_bytes": 2155671552,
+      "wall_s": 31.66851480002515,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\Nonrare.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\Nonrare.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.Nonrare",
+      "cpu_s": 31.421875,
+      "code_lines": 146,
+      "lines": 153,
+      "cpu_ms_per_code_line": 215.21832191780823
+    },
+    {
+      "user_s": 23.1875,
+      "system_s": 8.0,
+      "peak_working_set_bytes": 2161954816,
+      "wall_s": 31.404262299998663,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\RarePair.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\RarePair.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.RarePair",
+      "cpu_s": 31.1875,
+      "code_lines": 199,
+      "lines": 211,
+      "cpu_ms_per_code_line": 156.7211055276382
+    },
+    {
+      "user_s": 18.859375,
+      "system_s": 12.25,
+      "peak_working_set_bytes": 2054311936,
+      "wall_s": 31.78037970000878,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\PastCylinders.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\PastCylinders.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.PastCylinders",
+      "cpu_s": 31.109375,
+      "code_lines": 143,
+      "lines": 164,
+      "cpu_ms_per_code_line": 217.54807692307693
+    },
+    {
+      "user_s": 16.765625,
+      "system_s": 14.234375,
+      "peak_working_set_bytes": 2047885312,
+      "wall_s": 35.510772500012536,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Factorial\\MomentScales.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Factorial\\MomentScales.lean"
+      ],
+      "module": "RiffleLowerV2.Factorial.MomentScales",
+      "cpu_s": 31.0,
+      "code_lines": 55,
+      "lines": 61,
+      "cpu_ms_per_code_line": 563.6363636363636
+    },
+    {
+      "user_s": 22.75,
+      "system_s": 7.734375,
+      "peak_working_set_bytes": 2150846464,
+      "wall_s": 30.608533199992962,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Occupancy\\RegimeAlgebra.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Occupancy\\RegimeAlgebra.lean"
+      ],
+      "module": "RiffleLowerV2.Occupancy.RegimeAlgebra",
+      "cpu_s": 30.484375,
+      "code_lines": 137,
+      "lines": 152,
+      "cpu_ms_per_code_line": 222.51368613138686
+    },
+    {
+      "user_s": 19.1875,
+      "system_s": 11.15625,
+      "peak_working_set_bytes": 2042159104,
+      "wall_s": 31.0043955000001,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Shared\\PairConditioning.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Shared\\PairConditioning.lean"
+      ],
+      "module": "RiffleUpperV2.Shared.PairConditioning",
+      "cpu_s": 30.34375,
+      "code_lines": 78,
+      "lines": 89,
+      "cpu_ms_per_code_line": 389.0224358974359
+    },
+    {
+      "user_s": 22.671875,
+      "system_s": 7.65625,
+      "peak_working_set_bytes": 2035986432,
+      "wall_s": 30.4619679999887,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Compat\\EmpiricalCountLimits.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Compat\\EmpiricalCountLimits.lean"
+      ],
+      "module": "RiffleUpperV2.Compat.EmpiricalCountLimits",
+      "cpu_s": 30.328125,
+      "code_lines": 168,
+      "lines": 173,
+      "cpu_ms_per_code_line": 180.52455357142858
+    },
+    {
+      "user_s": 18.578125,
+      "system_s": 11.625,
+      "peak_working_set_bytes": 2061729792,
+      "wall_s": 31.282876199984457,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\FutureCylinders.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\FutureCylinders.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.FutureCylinders",
+      "cpu_s": 30.203125,
+      "code_lines": 168,
+      "lines": 197,
+      "cpu_ms_per_code_line": 179.78050595238096
+    },
+    {
+      "user_s": 18.265625,
+      "system_s": 11.828125,
+      "peak_working_set_bytes": 2046443520,
+      "wall_s": 30.791255499992985,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\PairReduction.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\PairReduction.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.PairReduction",
+      "cpu_s": 30.09375,
+      "code_lines": 88,
+      "lines": 104,
+      "cpu_ms_per_code_line": 341.9744318181818
+    },
+    {
+      "user_s": 17.375,
+      "system_s": 12.25,
+      "peak_working_set_bytes": 2052677632,
+      "wall_s": 30.09970920003252,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\SortedHistory.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\SortedHistory.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.SortedHistory",
+      "cpu_s": 29.625,
+      "code_lines": 133,
+      "lines": 145,
+      "cpu_ms_per_code_line": 222.74436090225564
+    },
+    {
+      "user_s": 16.90625,
+      "system_s": 12.703125,
+      "peak_working_set_bytes": 2049679360,
+      "wall_s": 30.805823700036854,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Conditional\\Jensen.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Conditional\\Jensen.lean"
+      ],
+      "module": "RiffleUpperV2.Conditional.Jensen",
+      "cpu_s": 29.609375,
+      "code_lines": 51,
+      "lines": 62,
+      "cpu_ms_per_code_line": 580.5759803921569
+    },
+    {
+      "user_s": 15.890625,
+      "system_s": 13.71875,
+      "peak_working_set_bytes": 2053189632,
+      "wall_s": 31.32037390000187,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\ProductConditional.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\ProductConditional.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.ProductConditional",
+      "cpu_s": 29.609375,
+      "code_lines": 63,
+      "lines": 68,
+      "cpu_ms_per_code_line": 469.99007936507934
+    },
+    {
+      "user_s": 21.015625,
+      "system_s": 8.21875,
+      "peak_working_set_bytes": 2045927424,
+      "wall_s": 29.47935249999864,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\time_profile",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleTimeProfile\\AnalyticParameters.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\time_profile\\RiffleTimeProfile\\AnalyticParameters.lean"
+      ],
+      "module": "RiffleTimeProfile.AnalyticParameters",
+      "cpu_s": 29.234375,
+      "code_lines": 242,
+      "lines": 259,
+      "cpu_ms_per_code_line": 120.80320247933884
+    },
+    {
+      "user_s": 16.171875,
+      "system_s": 12.171875,
+      "peak_working_set_bytes": 2054348800,
+      "wall_s": 30.464789199992083,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\InteriorHistory.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\InteriorHistory.lean"
+      ],
+      "module": "RiffleUpperV2.Reservoir.InteriorHistory",
+      "cpu_s": 28.34375,
+      "code_lines": 92,
+      "lines": 108,
+      "cpu_ms_per_code_line": 308.0842391304348
+    },
+    {
+      "user_s": 20.8125,
+      "system_s": 7.53125,
+      "peak_working_set_bytes": 2071523328,
+      "wall_s": 28.60267399996519,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe",
+        "-j1",
+        "-R",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2",
+        "-o",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleLowerV2\\Factorial\\RelativeFromExact.olean",
+        "D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\lower_bound_v2\\RiffleLowerV2\\Factorial\\RelativeFromExact.lean"
+      ],
+      "module": "RiffleLowerV2.Factorial.RelativeFromExact",
+      "cpu_s": 28.34375,
+      "code_lines": 101,
+      "lines": 105,
+      "cpu_ms_per_code_line": 280.6311881188119
+    }
+  ]
+}

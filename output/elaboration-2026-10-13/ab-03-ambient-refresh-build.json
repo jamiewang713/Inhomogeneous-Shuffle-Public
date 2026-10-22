@@ -1,0 +1,36 @@
+{
+  "label": "ab-03-ambient-refresh",
+  "started_utc": "2026-10-16T19:45:31.313087+00:00",
+  "finished_utc": "2026-10-16T19:45:48.247205+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "compiler_threads": 1,
+  "timer": "Python perf_counter; Win32 GetProcessTimes/GetProcessMemoryInfo (compiler children)",
+  "targets": [
+    "RiffleTimeProfile.Ambient"
+  ],
+  "wall_s": 15.743069200000264,
+  "exit_code": 0,
+  "error": null,
+  "segmented": false,
+  "resumed_segment_wall_s": null,
+  "wall_kind": "continuous timed build",
+  "user_s": 9.203125,
+  "system_s": 6.0625,
+  "logged_wall_sum_s": 15.394132100000206,
+  "peak_compiler_working_set_bytes": 1770594304,
+  "jobs": 1,
+  "source_stable": true,
+  "dependency_artifacts_unchanged": true,
+  "dependency_olean_counts": {
+    "aesop": 132,
+    "batteries": 192,
+    "Cli": 0,
+    "importGraph": 10,
+    "LeanSearchClient": 4,
+    "mathlib": 8322,
+    "plausible": 13,
+    "proofwidgets": 13,
+    "Qq": 14
+  }
+}

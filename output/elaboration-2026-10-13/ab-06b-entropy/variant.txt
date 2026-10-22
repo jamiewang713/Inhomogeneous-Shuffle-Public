@@ -1,0 +1,154 @@
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Algebra.BigOperators.Field
+import Mathlib.Tactic.Ring
+
+/-!
+Finite word masses and exact type-class entropy bounds. The interfaces are those
+frozen in `FROZEN_CONTRACT.md`; in particular no compatibility of the requested
+counts is assumed.
+-/
+
+namespace InhomogeneousShuffle.FirstMoment
+
+open scoped BigOperators
+noncomputable section
+attribute [local instance] Classical.propDecidable
+
+theorem word_mass_sum {J D : Type*} [Fintype J] [Fintype D]
+    (p : J → D → ℝ) (_hp : ∀ j l, 0 ≤ p j l)
+    (hnorm : ∀ j, ∑ l, p j l = 1) :
+    ∑ w : J → D, ∏ j, p j (w j) = 1 := by
+  classical
+  rw [← Fintype.prod_sum]
+  simp [hnorm]
+
+theorem card_mul_mass_le_one {J D : Type*} [Fintype J] [Fintype D]
+    (p : J → D → ℝ) (hp : ∀ j l, 0 ≤ p j l)
+    (hnorm : ∀ j, ∑ l, p j l = 1) (W : Finset (J → D))
+    (m : ℝ) (hmass : ∀ w ∈ W, ∏ j, p j (w j) = m) :
+    (W.card : ℝ) * m ≤ 1 := by
+  classical
+  calc
+    (W.card : ℝ) * m = ∑ _w ∈ W, m := by simp
+    _ = ∑ w ∈ W, ∏ j, p j (w j) :=
+      Finset.sum_congr rfl (fun w hw ↦ (hmass w hw).symm)
+    _ ≤ ∑ w : J → D, ∏ j, p j (w j) := by
+      exact Finset.sum_le_sum_of_subset_of_nonneg (Finset.subset_univ W)
+        (fun w _ _ ↦ Finset.prod_nonneg (fun j _ ↦ hp j (w j)))
+    _ = 1 := word_mass_sum p hp hnorm
+
+theorem card_le_exp_of_mass {J D : Type*} [Fintype J] [Fintype D]
+    (p : J → D → ℝ) (hp : ∀ j l, 0 ≤ p j l)
+    (hnorm : ∀ j, ∑ l, p j l = 1) (W : Finset (J → D))
+    (H : ℝ) (hmass : ∀ w ∈ W, ∏ j, p j (w j) = Real.exp (-H)) :
+    (W.card : ℝ) ≤ Real.exp H := by
+  have h := card_mul_mass_le_one p hp hnorm W (Real.exp (-H)) hmass
+  have hmul := mul_le_mul_of_nonneg_right h (le_of_lt (Real.exp_pos H))
+  simpa [mul_assoc, ← Real.exp_add] using hmul
+
+noncomputable def typeClass {K k d : ℕ} (cell : Fin K → Fin d)
+    (n : Fin d → Fin k → ℕ) : Finset (Fin K → Fin k) := by
+  classical
+  exact Finset.univ.filter fun w ↦ ∀ a l,
+    (Finset.univ.filter fun j ↦ cell j = a ∧ w j = l).card = n a l
+
+noncomputable def typeEntropy {k d : ℕ} (n : Fin d → Fin k → ℕ) : ℝ :=
+  ∑ a, (((∑ l, n a l : ℕ) : ℝ) * Real.log ((∑ l, n a l : ℕ) : ℝ) -
+    ∑ l, (n a l : ℝ) * Real.log (n a l : ℝ))
+
+theorem type_class_card_le_exp_entropy {K k d : ℕ} (_hk : 0 < k)
+    (cell : Fin K → Fin d) (n : Fin d → Fin k → ℕ) :
+    ((typeClass cell n).card : ℝ) ≤ Real.exp (typeEntropy n) := by
+  classical
+  by_cases hW : (typeClass cell n).Nonempty
+  · obtain ⟨w₀, hw₀⟩ := hW
+    have hcount : ∀ w ∈ typeClass cell n, ∀ a l,
+        (Finset.univ.filter fun j ↦ cell j = a ∧ w j = l).card = n a l := by
+      intro w hw
+      exact (Finset.mem_filter.mp hw).2
+    let nTot : Fin d → ℕ := fun a ↦ ∑ l, n a l
+    have htotal : ∀ a, nTot a =
+        (Finset.univ.filter fun j ↦ cell j = a).card := by
+      intro a
+      calc
+        nTot a = ∑ l, (Finset.univ.filter fun j ↦
+            cell j = a ∧ w₀ j = l).card := by
+          exact Finset.sum_congr rfl (fun l _ ↦ (hcount w₀ hw₀ a l).symm)
+        _ = (Finset.univ.filter fun j ↦ cell j = a).card := by
+          simpa [Finset.filter_filter] using
+            (Finset.sum_card_fiberwise_eq_card_filter
+              (Finset.univ.filter fun j ↦ cell j = a) Finset.univ w₀)
+    have htotal_pos : ∀ j, 0 < nTot (cell j) := by
+      intro j
+      rw [htotal]
+      exact Finset.card_pos.mpr ⟨j, by simp⟩
+    let p : Fin K → Fin k → ℝ := fun j l ↦ (n (cell j) l : ℝ) / nTot (cell j)
+    have hp : ∀ j l, 0 ≤ p j l := by
+      intro j l
+      exact div_nonneg (Nat.cast_nonneg _) (Nat.cast_nonneg _)
+    have hnorm : ∀ j, ∑ l, p j l = 1 := by
+      intro j
+      dsimp [p]
+      rw [← Finset.sum_div, ← Nat.cast_sum]
+      exact div_self (Nat.cast_ne_zero.mpr (Nat.ne_of_gt (htotal_pos j)))
+    apply card_le_exp_of_mass p hp hnorm (typeClass cell n) (typeEntropy n)
+    intro w hw
+    have hentry_pos : ∀ j, 0 < n (cell j) (w j) := by
+      intro j
+      rw [← hcount w hw (cell j) (w j)]
+      exact Finset.card_pos.mpr ⟨j, by simp⟩
+    have hp_pos : ∀ j, 0 < p j (w j) := by
+      intro j
+      exact div_pos (Nat.cast_pos.mpr (hentry_pos j))
+        (Nat.cast_pos.mpr (htotal_pos j))
+    have hgroup : ∀ f : Fin d → Fin k → ℝ,
+        (∑ j, f (cell j) (w j)) = ∑ a, ∑ l, (n a l : ℝ) * f a l := by
+      intro f
+      calc
+        (∑ j, f (cell j) (w j)) =
+            ∑ al : Fin d × Fin k,
+              ∑ j ∈ Finset.univ.filter (fun j ↦ (cell j, w j) = al),
+                f al.1 al.2 := by
+          symm
+          exact Finset.sum_fiberwise' Finset.univ (fun j ↦ (cell j, w j))
+            (fun al ↦ f al.1 al.2)
+        _ = ∑ a, ∑ l, (n a l : ℝ) * f a l := by
+          rw [Fintype.sum_prod_type]
+          apply Finset.sum_congr rfl
+          intro a _
+          apply Finset.sum_congr rfl
+          intro l _
+          simp only [Prod.mk.injEq, Finset.sum_const, nsmul_eq_mul, hcount w hw a l]
+    have hlog : Real.log (∏ j, p j (w j)) = -typeEntropy n := by
+      rw [Real.log_prod (s := Finset.univ) (f := fun j ↦ p j (w j))
+        (fun j _ ↦ ne_of_gt (hp_pos j))]
+      calc
+        (∑ j, Real.log (p j (w j))) =
+            ∑ j, (Real.log (n (cell j) (w j) : ℝ) -
+              Real.log (nTot (cell j) : ℝ)) := by
+          apply Finset.sum_congr rfl
+          intro j _
+          exact Real.log_div (Nat.cast_ne_zero.mpr (Nat.ne_of_gt (hentry_pos j)))
+            (Nat.cast_ne_zero.mpr (Nat.ne_of_gt (htotal_pos j)))
+        _ = ∑ a, ∑ l, (n a l : ℝ) *
+            (Real.log (n a l : ℝ) - Real.log (nTot a : ℝ)) :=
+          hgroup (fun a l ↦ Real.log (n a l : ℝ) - Real.log (nTot a : ℝ))
+        _ = -typeEntropy n := by
+          rw [typeEntropy, ← Finset.sum_neg_distrib]
+          apply Finset.sum_congr rfl
+          intro a _
+          simp_rw [mul_sub]
+          rw [Finset.sum_sub_distrib, ← Finset.sum_mul, ← Nat.cast_sum]
+          dsimp [nTot]
+          ring
+    calc
+      (∏ j, p j (w j)) = Real.exp (Real.log (∏ j, p j (w j))) :=
+        (Real.exp_log (Finset.prod_pos (fun j _ ↦ hp_pos j))).symm
+      _ = Real.exp (-typeEntropy n) := congrArg Real.exp hlog
+  · rw [Finset.not_nonempty_iff_eq_empty.mp hW]
+    simpa using (le_of_lt (Real.exp_pos (typeEntropy n)))
+
+end
+
+end InhomogeneousShuffle.FirstMoment

@@ -3,7 +3,9 @@ import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 import Mathlib.Order.Interval.Set.Union
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.ByContra
 
 /-!
 Finite foundations and literal source definitions for the frozen time-profile contract.

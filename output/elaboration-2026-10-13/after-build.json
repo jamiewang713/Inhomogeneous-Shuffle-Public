@@ -1,0 +1,38 @@
+{
+  "label": "after",
+  "started_utc": "2026-10-16T20:30:18.799729+00:00",
+  "finished_utc": "2026-10-16T21:27:36.387728+00:00",
+  "host": "Windows-10-10.0.26200-SP0",
+  "logical_cpus": 16,
+  "compiler_threads": 1,
+  "timer": "Python perf_counter; Win32 GetProcessTimes/GetProcessMemoryInfo (compiler children)",
+  "targets": [
+    "RiffleMain",
+    "RiffleUpperV2.Completed",
+    "RiffleLowerV2.Completed"
+  ],
+  "wall_s": 3436.3964521999997,
+  "exit_code": 1,
+  "error": "CalledProcessError(1, ['C:\\\\Users\\\\JiaminWang\\\\.elan\\\\toolchains\\\\leanprover--lean4---v4.33.1\\\\bin\\\\lean.exe', '-j1', '-R', 'D:\\\\princeton\\\\Research\\\\Lean\\\\Lean_Shuffle\\\\Inhomogeneous-shuffle\\\\formalization\\\\upper_bound_v2', '-o', 'D:\\\\princeton\\\\Research\\\\Lean\\\\Lean_Shuffle\\\\Inhomogeneous-shuffle\\\\formalization\\\\main_theorem\\\\.build\\\\lean\\\\RiffleUpperV2\\\\Anchor\\\\ConditionalAtoms.olean', 'D:\\\\princeton\\\\Research\\\\Lean\\\\Lean_Shuffle\\\\Inhomogeneous-shuffle\\\\formalization\\\\upper_bound_v2\\\\RiffleUpperV2\\\\Anchor\\\\ConditionalAtoms.lean'])",
+  "segmented": false,
+  "resumed_segment_wall_s": null,
+  "wall_kind": "continuous timed build",
+  "user_s": 2045.359375,
+  "system_s": 1335.953125,
+  "logged_wall_sum_s": 3399.0550577000095,
+  "peak_compiler_working_set_bytes": 1834557440,
+  "jobs": 224,
+  "source_stable": true,
+  "dependency_artifacts_unchanged": true,
+  "dependency_olean_counts": {
+    "aesop": 132,
+    "batteries": 192,
+    "Cli": 0,
+    "importGraph": 10,
+    "LeanSearchClient": 4,
+    "mathlib": 8322,
+    "plausible": 13,
+    "proofwidgets": 13,
+    "Qq": 14
+  }
+}

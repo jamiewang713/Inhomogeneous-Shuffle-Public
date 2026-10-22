@@ -1,0 +1,117 @@
+RiffleMain.main {k : ℕ} (hk : 2 ≤ k) (μ : RiffleMain.Profile.NonnegativeTimeLaw k)
+  (hμ : RiffleMain.Profile.NonnegativeMeasurableProfile μ)
+  (hnd : RiffleMain.Profile.LocallyNondegenerate (RiffleMain.Profile.extendNonnegativeProfile μ))
+  (Q : (N K : ℕ) → PMF (TimeProfile.Cuts k N K)) (hQ : RiffleMain.RandomizedProfileLike μ Q) (T : ℝ) (hT : 0 < T)
+  (hne : ENNReal.ofReal T ≠ RiffleMain.criticalTime μ) :
+  Filter.Tendsto
+    (fun N =>
+      RiffleLowerV2.tv (RiffleMain.RandomLower.randomForwardLaw (Q N (TimeProfile.horizonDepth N T)))
+        (RiffleLowerV2.uniformPermutation N))
+    Filter.atTop (nhds (if ENNReal.ofReal T < RiffleMain.criticalTime μ then 1 else 0))
+RiffleMain.cutoff {k : ℕ} (hk : 2 ≤ k) (μ : RiffleMain.Profile.NonnegativeTimeLaw k)
+  (hμ : RiffleMain.Profile.NonnegativeMeasurableProfile μ)
+  (hnd : RiffleMain.Profile.LocallyNondegenerate (RiffleMain.Profile.extendNonnegativeProfile μ))
+  (Q : (N K : ℕ) → PMF (TimeProfile.Cuts k N K)) (hQ : RiffleMain.RandomizedProfileLike μ Q)
+  (hfinite : RiffleMain.criticalTime μ ≠ ⊤) {ε : ℝ} (hε : 0 < ε) (hε1 : ε < 1) :
+  Filter.Tendsto
+      (fun N =>
+        RiffleLowerV2.tv
+          (RiffleMain.RandomLower.randomForwardLaw
+            (Q N (TimeProfile.horizonDepth N ((1 - ε) * (RiffleMain.criticalTime μ).toReal))))
+          (RiffleLowerV2.uniformPermutation N))
+      Filter.atTop (nhds 1) ∧
+    Filter.Tendsto
+      (fun N =>
+        RiffleLowerV2.tv
+          (RiffleMain.RandomLower.randomForwardLaw
+            (Q N (TimeProfile.horizonDepth N ((1 + ε) * (RiffleMain.criticalTime μ).toReal))))
+          (RiffleLowerV2.uniformPermutation N))
+      Filter.atTop (nhds 0)
+RiffleMain.infinite_critical {k : ℕ} (hk : 2 ≤ k) (μ : RiffleMain.Profile.NonnegativeTimeLaw k)
+  (hμ : RiffleMain.Profile.NonnegativeMeasurableProfile μ)
+  (hnd : RiffleMain.Profile.LocallyNondegenerate (RiffleMain.Profile.extendNonnegativeProfile μ))
+  (Q : (N K : ℕ) → PMF (TimeProfile.Cuts k N K)) (hQ : RiffleMain.RandomizedProfileLike μ Q)
+  (hinfinite : RiffleMain.criticalTime μ = ⊤) (T : ℝ) (hT : 0 < T) :
+  Filter.Tendsto
+    (fun N =>
+      RiffleLowerV2.tv (RiffleMain.RandomLower.randomForwardLaw (Q N (TimeProfile.horizonDepth N T)))
+        (RiffleLowerV2.uniformPermutation N))
+    Filter.atTop (nhds 1)
+RiffleMain.main_random_sequence.{u_1} {k : ℕ} (hk : 2 ≤ k) (μ : RiffleMain.Profile.NonnegativeTimeLaw k)
+  (hμ : RiffleMain.Profile.NonnegativeMeasurableProfile μ)
+  (hnd : RiffleMain.Profile.LocallyNondegenerate (RiffleMain.Profile.extendNonnegativeProfile μ)) {Ω : ℕ → Type u_1}
+  [(N : ℕ) → MeasurableSpace (Ω N)] (ν : (N : ℕ) → MeasureTheory.Measure (Ω N))
+  [∀ (N : ℕ), MeasureTheory.IsProbabilityMeasure (ν N)] (X : (N : ℕ) → Ω N → RiffleUpperV2.InfiniteCuts k N)
+  (hX : ∀ (N K : ℕ), Measurable fun ω => (X N ω).take K) (hweak : RiffleMain.RandomizedSequenceLike μ ν X) (T : ℝ)
+  (hT : 0 < T) (hne : ENNReal.ofReal T ≠ RiffleMain.criticalTime μ) :
+  Filter.Tendsto
+    (fun N =>
+      RiffleLowerV2.tv
+        (RiffleMain.RandomLower.randomForwardLaw (RiffleMain.finiteCutLaw (ν N) (X N) (TimeProfile.horizonDepth N T) ⋯))
+        (RiffleLowerV2.uniformPermutation N))
+    Filter.atTop (nhds (if ENNReal.ofReal T < RiffleMain.criticalTime μ then 1 else 0))
+RiffleMain.cutoff_random_sequence.{u_1} {k : ℕ} (hk : 2 ≤ k) (μ : RiffleMain.Profile.NonnegativeTimeLaw k)
+  (hμ : RiffleMain.Profile.NonnegativeMeasurableProfile μ)
+  (hnd : RiffleMain.Profile.LocallyNondegenerate (RiffleMain.Profile.extendNonnegativeProfile μ)) {Ω : ℕ → Type u_1}
+  [(N : ℕ) → MeasurableSpace (Ω N)] (ν : (N : ℕ) → MeasureTheory.Measure (Ω N))
+  [∀ (N : ℕ), MeasureTheory.IsProbabilityMeasure (ν N)] (X : (N : ℕ) → Ω N → RiffleUpperV2.InfiniteCuts k N)
+  (hX : ∀ (N K : ℕ), Measurable fun ω => (X N ω).take K) (hweak : RiffleMain.RandomizedSequenceLike μ ν X)
+  (hfinite : RiffleMain.criticalTime μ ≠ ⊤) {ε : ℝ} (hε : 0 < ε) (hε1 : ε < 1) :
+  Filter.Tendsto
+      (fun N =>
+        RiffleLowerV2.tv
+          (RiffleMain.RandomLower.randomForwardLaw
+            (RiffleMain.finiteCutLaw (ν N) (X N)
+              (TimeProfile.horizonDepth N ((1 - ε) * (RiffleMain.criticalTime μ).toReal)) ⋯))
+          (RiffleLowerV2.uniformPermutation N))
+      Filter.atTop (nhds 1) ∧
+    Filter.Tendsto
+      (fun N =>
+        RiffleLowerV2.tv
+          (RiffleMain.RandomLower.randomForwardLaw
+            (RiffleMain.finiteCutLaw (ν N) (X N)
+              (TimeProfile.horizonDepth N ((1 + ε) * (RiffleMain.criticalTime μ).toReal)) ⋯))
+          (RiffleLowerV2.uniformPermutation N))
+      Filter.atTop (nhds 0)
+RiffleMain.infinite_critical_random_sequence.{u_1} {k : ℕ} (hk : 2 ≤ k) (μ : RiffleMain.Profile.NonnegativeTimeLaw k)
+  (hμ : RiffleMain.Profile.NonnegativeMeasurableProfile μ)
+  (hnd : RiffleMain.Profile.LocallyNondegenerate (RiffleMain.Profile.extendNonnegativeProfile μ)) {Ω : ℕ → Type u_1}
+  [(N : ℕ) → MeasurableSpace (Ω N)] (ν : (N : ℕ) → MeasureTheory.Measure (Ω N))
+  [∀ (N : ℕ), MeasureTheory.IsProbabilityMeasure (ν N)] (X : (N : ℕ) → Ω N → RiffleUpperV2.InfiniteCuts k N)
+  (hX : ∀ (N K : ℕ), Measurable fun ω => (X N ω).take K) (hweak : RiffleMain.RandomizedSequenceLike μ ν X)
+  (hinfinite : RiffleMain.criticalTime μ = ⊤) (T : ℝ) (hT : 0 < T) :
+  Filter.Tendsto
+    (fun N =>
+      RiffleLowerV2.tv
+        (RiffleMain.RandomLower.randomForwardLaw (RiffleMain.finiteCutLaw (ν N) (X N) (TimeProfile.horizonDepth N T) ⋯))
+        (RiffleLowerV2.uniformPermutation N))
+    Filter.atTop (nhds 1)
+RiffleMain.theorem_1_1.{u_1} {k : ℕ} (hk : 2 ≤ k) (μ : RiffleMain.Profile.NonnegativeTimeLaw k)
+  (hμ : RiffleMain.Profile.NonnegativeMeasurableProfile μ)
+  (hnd : RiffleMain.Profile.LocallyNondegenerate (RiffleMain.Profile.extendNonnegativeProfile μ)) {Ω : ℕ → Type u_1}
+  [(N : ℕ) → MeasurableSpace (Ω N)] (ν : (N : ℕ) → MeasureTheory.Measure (Ω N))
+  [∀ (N : ℕ), MeasureTheory.IsProbabilityMeasure (ν N)] (X : (N : ℕ) → Ω N → RiffleUpperV2.InfiniteCuts k N)
+  (hX : ∀ (N K : ℕ), Measurable fun ω => (X N ω).take K) (hweak : RiffleMain.RandomizedSequenceLike μ ν X) :
+  (∀ (T : ℝ),
+      0 < T →
+        ENNReal.ofReal T ≠ RiffleMain.criticalTime μ →
+          Filter.Tendsto (fun N => RiffleMain.sequenceTV ν X hX N T) Filter.atTop
+            (nhds (if ENNReal.ofReal T < RiffleMain.criticalTime μ then 1 else 0))) ∧
+    (RiffleMain.criticalTime μ ≠ ⊤ →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ε < 1 →
+              Filter.Tendsto (fun N => RiffleMain.sequenceTV ν X hX N ((1 - ε) * (RiffleMain.criticalTime μ).toReal))
+                  Filter.atTop (nhds 1) ∧
+                Filter.Tendsto (fun N => RiffleMain.sequenceTV ν X hX N ((1 + ε) * (RiffleMain.criticalTime μ).toReal))
+                  Filter.atTop (nhds 0)) ∧
+      (RiffleMain.criticalTime μ = ⊤ →
+        ∀ (T : ℝ), 0 < T → Filter.Tendsto (fun N => RiffleMain.sequenceTV ν X hX N T) Filter.atTop (nhds 1))
+'RiffleMain.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleMain.cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleMain.infinite_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleMain.main_random_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleMain.cutoff_random_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleMain.infinite_critical_random_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RiffleMain.theorem_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+MAIN_THEOREM_TRUST_OK

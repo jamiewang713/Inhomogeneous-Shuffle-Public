@@ -2,7 +2,9 @@
 Original SHA-256: f5dcbcfa6908503696d6edaa363a8a0919a22aabd8e01e9819e6f13d20baff17.
 Original files and freeze records are unchanged. -/
 
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Tauto
 import Mathlib.Probability.ProbabilityMassFunction.Integrals
 
 /-! Finite probability, with the mathematical contract frozen before implementation. -/

@@ -1,0 +1,24 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 156ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 183ms
+import took 6.46s
+D:\princeton\Research\Lean\Lean_Shuffle\elaboration-bench\probes\FutureGraphSorry.lean:20:8: warning: declaration uses `sorry`
+D:\princeton\Research\Lean\Lean_Shuffle\elaboration-bench\probes\FutureGraphSorry.lean:48:8: warning: declaration uses `sorry`
+cumulative profiling times:
+	attribute application 0.758ms
+	elaboration 34.1ms
+	fix level params 0.318ms
+	import 6.46s
+	initialization 47.3ms
+	instantiate metavars 0.602ms
+	interpretation 7.3s
+	let-to-have transformation 0.106ms
+	linting 8.14ms
+	module linting 0.0095ms
+	overlappingInstancesLinter 14.6ms
+	parsing 5.89ms
+	process pre-definitions 3.46ms
+	share common exprs 1.73ms
+	tactic execution 48.7ms
+	tacticAnalysis 40.8ms
+	type checking 27.5ms
+	typeclass inference 28.1ms

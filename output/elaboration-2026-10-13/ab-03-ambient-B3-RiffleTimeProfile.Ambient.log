@@ -1,0 +1,68 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 155ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 172ms
+import took 6.64s
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\time_profile\RiffleTimeProfile\Ambient.lean:92:13: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\time_profile\RiffleTimeProfile\Ambient.lean:96:29: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ring took 151ms
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\time_profile\RiffleTimeProfile\Ambient.lean:111:53: warning: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\time_profile\RiffleTimeProfile\Ambient.lean:129:19: warning: Variable name `hlegal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlegal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\time_profile\RiffleTimeProfile\Ambient.lean:139:50: warning: Variable name `hMK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+tactic execution of Mathlib.Tactic.nlinarith took 284ms
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\time_profile\RiffleTimeProfile\Ambient.lean:169:5: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+cumulative profiling times:
+	attribute application 0.279ms
+	compilation (IR) 0.76ms
+	compilation (LCNF base) 10.6ms
+	compilation (LCNF impure) 3.48ms
+	compilation (LCNF mono) 6.26ms
+	congr simp thm 2.63ms
+	elaboration 74.5ms
+	fix level params 0.695ms
+	import 6.64s
+	initialization 46.2ms
+	instantiate metavars 1.64ms
+	interpretation 7.45s
+	let-to-have transformation 0.197ms
+	linting 28.9ms
+	module linting 0.016ms
+	norm_num 7.03ms
+	overlappingInstancesLinter 19.2ms
+	parsing 12.7ms
+	process pre-definitions 11ms
+	ring 216ms
+	share common exprs 6.31ms
+	simp 62.2ms
+	tactic execution 416ms
+	tacticAnalysis 61ms
+	type checking 113ms
+	typeclass inference 229ms

@@ -1,3 +1,5 @@
+import Mathlib.Algebra.BigOperators.Field
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import RiffleShuffle.Basic
 import Mathlib.Algebra.BigOperators.Fin
 import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset

@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-14T02:42:37.3310982Z",
+  "memory": {
+    "TotalVisibleMemorySize": 16119108,
+    "FreePhysicalMemory": 1232960
+  },
+  "compilers": [
+    {
+      "ProcessId": 23276,
+      "ParentProcessId": 20624,
+      "CommandLine": "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe -j1 -R D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2 -o D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\InteriorColumn.olean D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\InteriorColumn.lean"
+    },
+    {
+      "ProcessId": 32520,
+      "ParentProcessId": 27540,
+      "CommandLine": "\"C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe\" --root=D:/princeton/Research/Lean/Lean_Riffle_Shuffle_Book -o D:/princeton/Research/Lean/Lean_Riffle_Shuffle_Book/.lake/build/lib/lean/Riffle/FixedCut/TupleProportionalConditions.olean D:/princeton/Research/Lean/Lean_Riffle_Shuffle_Book/Riffle/FixedCut/TupleProportionalConditions.lean"
+    },
+    {
+      "ProcessId": 14524,
+      "ParentProcessId": 31108,
+      "CommandLine": "\"C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe\" --root=D:/princeton/Research/Lean/Lean_Riffle_Shuffle_Book -o D:/princeton/Research/Lean/Lean_Riffle_Shuffle_Book/.lake/build/lib/lean/Riffle/FixedCut/TupleSmoothingAsymptotics.olean D:/princeton/Research/Lean/Lean_Riffle_Shuffle_Book/Riffle/FixedCut/TupleSmoothingAsymptotics.lean"
+    }
+  ],
+  "counters": [
+    {
+      "Id": 14524,
+      "CPU": 41.96875,
+      "WorkingSet64": 1767698432,
+      "StartTime": "2026-10-13T22:41:30.1254316-04:00"
+    },
+    {
+      "Id": 23276,
+      "CPU": 24.6875,
+      "WorkingSet64": 1742655488,
+      "StartTime": "2026-10-13T22:38:50.4936978-04:00"
+    },
+    {
+      "Id": 32520,
+      "CPU": 45.484375,
+      "WorkingSet64": 1768849408,
+      "StartTime": "2026-10-13T22:39:38.5952999-04:00"
+    }
+  ]
+}

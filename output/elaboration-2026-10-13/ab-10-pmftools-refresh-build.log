@@ -1,0 +1,6 @@
+CHECK RiffleLowerV2.Shared.Adapters
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\lower_bound_v2\RiffleLowerV2\Shared\Adapters.lean:59:2: warning: Unused tactic linter: `change (sortedWord ω (edgeLeft e) = sortedWord ω (edgeRight e)) ↔ _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CHECK RiffleLowerV2.Thinning.PMFTools
+BUILD_OK RiffleLowerV2.Thinning.PMFTools

@@ -1,0 +1,31 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 176ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 212ms
+interpretation of _private.Batteries.Tactic.Trans.0.Batteries.Tactic.initFn._lam_1._@.Batteries.Tactic.Trans.3788219280._hygCtx._hyg.2 took 157ms
+import took 11.2s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 231ms
+tactic execution of Lean.Parser.Tactic.exact took 12.9s
+tactic execution of Lean.Parser.Tactic.exact took 13.9s
+tactic execution of Lean.Parser.Tactic.exact took 11.8s
+interpretation of _aux_Mathlib_Algebra_Order_Group_Unbundled_Abs___macroRules_term|___|_1._boxed took 132ms
+cumulative profiling times:
+	attribute application 0.393ms
+	congr simp thm 7.77ms
+	elaboration 225ms
+	fix level params 0.822ms
+	import 11.2s
+	initialization 77.3ms
+	instantiate metavars 1.14ms
+	interpretation 11.2s
+	let-to-have transformation 0.53ms
+	linting 29.5ms
+	module linting 0.0125ms
+	norm_num 45.7ms
+	overlappingInstancesLinter 21ms
+	parsing 19.2ms
+	process pre-definitions 7.71ms
+	share common exprs 5.6ms
+	simp 93ms
+	tactic execution 38.7s
+	tacticAnalysis 66ms
+	type checking 27.9ms
+	typeclass inference 198ms

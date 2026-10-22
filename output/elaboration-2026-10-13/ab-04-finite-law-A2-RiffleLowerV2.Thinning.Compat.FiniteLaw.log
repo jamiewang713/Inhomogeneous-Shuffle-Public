@@ -1,0 +1,32 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 153ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 180ms
+import took 7.22s
+tactic execution of Mathlib.Tactic.nlinarith took 400ms
+cumulative profiling times:
+	attribute application 1.61ms
+	blocked (unaccounted) 123ms
+	compilation (IR) 0.217ms
+	compilation (LCNF base) 2.49ms
+	compilation (LCNF impure) 0.87ms
+	compilation (LCNF mono) 1.73ms
+	congr simp thm 3.1ms
+	elaboration 73.6ms
+	fix level params 1.25ms
+	import 7.22s
+	initialization 48.9ms
+	instantiate metavars 1.2ms
+	interpretation 8.49s
+	let-to-have transformation 0.213ms
+	linting 15.6ms
+	module linting 0.01ms
+	norm_num 17.6ms
+	overlappingInstancesLinter 37.5ms
+	parsing 9.26ms
+	process pre-definitions 8.05ms
+	ring 177ms
+	share common exprs 6.32ms
+	simp 104ms
+	tactic execution 500ms
+	tacticAnalysis 50.6ms
+	type checking 55.7ms
+	typeclass inference 328ms

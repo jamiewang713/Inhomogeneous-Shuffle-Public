@@ -1,0 +1,29 @@
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 174ms
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 163ms
+import took 5.41s
+D:\princeton\Research\Lean\Lean_Shuffle\Inhomogeneous-shuffle\formalization\first_moment\FirstMoment\Entropy.lean:92:12: error(lean.unknownIdentifier): Unknown constant `Finset.sum_div`
+ring took 117ms
+cumulative profiling times:
+	attribute application 0.471ms
+	congr simp thm 2.23ms
+	dsimp 4.62ms
+	elaboration 27.2ms
+	fix level params 0.503ms
+	import 5.41s
+	initialization 48.8ms
+	instantiate metavars 0.97ms
+	interpretation 6.46s
+	let-to-have transformation 0.082ms
+	linting 16.6ms
+	module linting 0.0114ms
+	norm_num 6.44ms
+	overlappingInstancesLinter 33.5ms
+	parsing 8.73ms
+	process pre-definitions 5.43ms
+	ring 117ms
+	share common exprs 2.7ms
+	simp 93.4ms
+	tactic execution 154ms
+	tacticAnalysis 35.9ms
+	type checking 24.5ms
+	typeclass inference 381ms

@@ -3,7 +3,6 @@ import Mathlib.Data.Fintype.Vector
 import Mathlib.Data.List.Lex
 import Mathlib.Data.Real.Basic
 import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Tactic
 
 /-! Frozen finite data and definitions. See ../CONTRACT.md and ../FREEZE.md. -/
 

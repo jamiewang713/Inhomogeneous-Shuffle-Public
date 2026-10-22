@@ -3,7 +3,8 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Analysis.SpecialFunctions.Sqrt
 import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
 import Mathlib.Order.WithBot
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
 
 set_option autoImplicit false
 

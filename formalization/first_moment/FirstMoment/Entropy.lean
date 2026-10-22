@@ -1,6 +1,7 @@
 import Mathlib.Algebra.BigOperators.Ring.Finset
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Tactic
+import Mathlib.Algebra.BigOperators.Field
+import Mathlib.Tactic.Ring
 
 /-!
 Finite word masses and exact type-class entropy bounds. The interfaces are those

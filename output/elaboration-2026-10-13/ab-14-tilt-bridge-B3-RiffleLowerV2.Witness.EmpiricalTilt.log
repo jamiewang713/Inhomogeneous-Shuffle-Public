@@ -1,0 +1,28 @@
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 152ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 181ms
+import took 6.08s
+tactic execution of Lean.Parser.Tactic.exact took 8.87s
+tactic execution of Lean.Parser.Tactic.exact took 8.89s
+tactic execution of Lean.Parser.Tactic.exact took 8.86s
+cumulative profiling times:
+	attribute application 0.211ms
+	congr simp thm 1.99ms
+	elaboration 115ms
+	fix level params 0.653ms
+	import 6.08s
+	initialization 49.4ms
+	instantiate metavars 0.856ms
+	interpretation 7.32s
+	let-to-have transformation 0.368ms
+	linting 26.5ms
+	module linting 0.0071ms
+	norm_num 24.8ms
+	overlappingInstancesLinter 17.9ms
+	parsing 13.8ms
+	process pre-definitions 5.13ms
+	share common exprs 4.16ms
+	simp 20.8ms
+	tactic execution 26.7s
+	tacticAnalysis 62ms
+	type checking 23.3ms
+	typeclass inference 82ms

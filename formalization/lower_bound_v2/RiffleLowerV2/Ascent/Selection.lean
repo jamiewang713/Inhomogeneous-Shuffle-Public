@@ -1,5 +1,4 @@
 import Contracts.v1.AdditionalFinite
-import Mathlib.Tactic
 
 noncomputable section
 attribute [local instance] Classical.propDecidable

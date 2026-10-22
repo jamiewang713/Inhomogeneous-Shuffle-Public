@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-14T02:36:46.6551316Z",
+  "memory": {
+    "TotalVisibleMemorySize": 16119108,
+    "FreePhysicalMemory": 5608220
+  },
+  "compilers": [
+    {
+      "ProcessId": 20624,
+      "ParentProcessId": 28132,
+      "Name": "python.exe",
+      "CommandLine": "\"C:\\Users\\JiaminWang\\AppData\\Local\\Programs\\Python\\Python311\\python.exe\" -X utf8 output/elaboration-2026-10-13/measure.py build before2"
+    },
+    {
+      "ProcessId": 8624,
+      "ParentProcessId": 20624,
+      "Name": "lean.exe",
+      "CommandLine": "C:\\Users\\JiaminWang\\.elan\\toolchains\\leanprover--lean4---v4.33.1\\bin\\lean.exe -j1 -R D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2 -o D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\main_theorem\\.build\\lean\\RiffleUpperV2\\Reservoir\\History.olean D:\\princeton\\Research\\Lean\\Lean_Shuffle\\Inhomogeneous-shuffle\\formalization\\upper_bound_v2\\RiffleUpperV2\\Reservoir\\History.lean"
+    }
+  ],
+  "recent": [
+    {
+      "module": "RiffleUpperV2.Shared.PairConditioning",
+      "wall_s": 31.0043955000001,
+      "user_s": 19.1875,
+      "system_s": 11.15625,
+      "peak_working_set_bytes": 2042159104
+    },
+    {
+      "module": "RiffleUpperV2.Conditional.PairReduction",
+      "wall_s": 30.791255499992985,
+      "user_s": 18.265625,
+      "system_s": 11.828125,
+      "peak_working_set_bytes": 2046443520
+    },
+    {
+      "module": "RiffleUpperV2.Conditional.DirectionalGeometry",
+      "wall_s": 28.149220899969805,
+      "user_s": 17.046875,
+      "system_s": 10.46875,
+      "peak_working_set_bytes": 2052681728
+    },
+    {
+      "module": "RiffleUpperV2.Reservoir.SortedHistory",
+      "wall_s": 30.09970920003252,
+      "user_s": 17.375,
+      "system_s": 12.25,
+      "peak_working_set_bytes": 2052677632
+    }
+  ]
+}

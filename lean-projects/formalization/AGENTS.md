@@ -1,7 +1,7 @@
 # Active Lean libraries: measured elaboration conventions
 
-The 2026-10-16 cleanup evidence is in `../ELABORATION_REPORT_2026-10-16.md`
-and `../output/elaboration-2026-10-13/`. These notes concern the active
+The 2026-10-16 cleanup evidence is in `../../ELABORATION_REPORT_2026-10-16.md`
+and `../../output/elaboration-2026-10-13/`. These notes concern the active
 `RiffleMain`, `RiffleUpperV2.Completed`, and `RiffleLowerV2.Completed` closures.
 
 - Use `main_theorem/build.py` and the repository-pinned Lean compiler. For a

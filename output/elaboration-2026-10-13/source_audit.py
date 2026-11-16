@@ -4,8 +4,7 @@ from pathlib import Path
 import re
 import sys
 
-HERE = Path(__file__).resolve().parent
-REPO = HERE.parents[1]
+from layout import EVIDENCE as HERE, PROJECTS
 before = json.loads((HERE / 'before-sources.json').read_text())
 label = sys.argv[1] if len(sys.argv) > 1 else 'after2'
 after = json.loads((HERE / f'{label}-sources.json').read_text())
@@ -25,7 +24,7 @@ def inspect(root, manifest):
     return result
 
 a = inspect(Path(before['snapshot_path']), before)
-b = inspect(REPO, after)
+b = inspect(PROJECTS, after)
 assert not a['placeholders'] and not b['placeholders'], 'Inspect possible placeholder tokens'
 assert not a['diagnostic_commands'] and not b['diagnostic_commands']
 assert a['heartbeat_settings'] == b['heartbeat_settings']

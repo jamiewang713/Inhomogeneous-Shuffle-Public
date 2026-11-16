@@ -1,11 +1,12 @@
 """Run an audit/probe outside the measured library roots, without emitting oleans."""
 import sys
 import measure as m
+from layout import PROBES
 
 label, filename, *extra = sys.argv[1:]
 _, env = m.preflight()
 env['RIFFLE_TYPE_DUMP'] = str(m.HERE / f'{label}-declaration-types.json')
-source = m.HERE / filename
+source = PROBES / filename
 base = m.REPO if source.is_relative_to(m.REPO) else source.parent
 logfile = m.HERE / f'{label}-{source.stem}.log'
 with logfile.open('wb') as log:

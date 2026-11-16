@@ -1,5 +1,7 @@
 # Elaboration evidence, 2026-10-13
 
+The [Lean audit probes](../../lean-projects/audits/elaboration-2026-10-13/) are now grouped with the other Lean sources. Relative project-source paths in the archived measurements use [`lean-projects/`](../../lean-projects/) as their base. The reports and raw measurements remain here or at the repository root.
+
 Scope: the dependency closure of `RiffleMain`, `RiffleUpperV2.Completed`, and
 `RiffleLowerV2.Completed`, as confirmed by the user. Historical independent
 packages and archived audit source copies are outside the measured scope.

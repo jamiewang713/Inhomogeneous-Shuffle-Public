@@ -237,7 +237,7 @@ lines += [table(['Module', 'Before CPU s', 'After CPU s', 'Change', 'Import s', 
     'A separate synchronous kernel check accepted the final theorem directly as a proof '
     'of the reconstructed original type, confirming definitional compatibility. '
     '[Compatibility evidence](output/elaboration-2026-10-13/declaration-type-compatibility.json), '
-    '[kernel-check source](output/elaboration-2026-10-13/IntegralTypeCompatibility.lean), '
+    '[kernel-check source](lean-projects/audits/elaboration-2026-10-13/IntegralTypeCompatibility.lean), '
     '[successful log](output/elaboration-2026-10-13/integral-compatibility-3-IntegralTypeCompatibility.log). '
     'All active source hashes and dependency artifacts were rechecked afterward.',
     '- Seven main-theorem entry points passed the repository axiom audit (`MAIN_THEOREM_TRUST_OK`). '

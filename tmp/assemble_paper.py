@@ -53,7 +53,7 @@ out.write_text(text, encoding='utf-8')
 with (root / 'time_inhomogeneous_riffle_shuffle_lean_sources.tsv').open('w', encoding='utf-8', newline='') as f:
     writer = csv.writer(f, delimiter='\t')
     writer.writerow(['paper_label', 'Lean_source', 'Lean_declarations'])
-    writer.writerows(mapping)
+    writer.writerows((label, 'lean-projects/' + path, decl) for label, path, decl in mapping)
 
 labels = re.findall(r'\\label\{([^}]+)\}', text)
 refs = re.findall(r'\\(?:eqref|ref|[cC]ref)\{([^}]+)\}', text)
@@ -65,7 +65,7 @@ for match in re.finditer(r'\\begin\{(theorem|lemma|proposition|corollary)\}(.*?)
     found = re.findall(r'\\label\{([^}]+)\}', match.group(2))
     statements.append({'kind':match.group(1),'labels':found,
                        'mapped':any(label in by_label for label in found)})
-source_files_missing = sorted({path for _, path, _ in mapping if not (root / path).exists()})
+source_files_missing = sorted({path for _, path, _ in mapping if not (root / 'lean-projects' / path).exists()})
 report = {'file':str(out),'characters':len(text),'statements':statements,
           'missing_map_files':missing_maps,
           'duplicate_labels':duplicates,'missing_references':missing,

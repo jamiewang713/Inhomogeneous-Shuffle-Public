@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import shutil
 import measure as m
+from layout import PROBES
 
 HERE = Path(__file__).resolve().parent
 def load(name):
@@ -21,7 +22,7 @@ assert probe['exit_code'] == 0
 assert 'INTEGRAL_ORIGINAL_TYPE_KERNEL_CHECK_OK' in (
     HERE / 'integral-compatibility-3-IntegralTypeCompatibility.log').read_text()
 source = m.WORKSPACE / 'elaboration-bench/probes/IntegralTypeCompatibility.lean'
-shutil.copyfile(source, HERE / 'IntegralTypeCompatibility.lean')
+shutil.copyfile(source, PROBES / 'IntegralTypeCompatibility.lean')
 m.write_json(HERE / 'declaration-type-compatibility.json', {
     'declarations_compared': 7476, 'identical_structural_fingerprints': 7475,
     'changed_fingerprint_declaration': name,
@@ -35,7 +36,7 @@ m.write_json(HERE / 'declaration-type-compatibility.json', {
 })
 snapshot = load('after2-sources.json')
 for module, info in snapshot['modules'].items():
-    assert m.sha(m.REPO / info['path']) == info['sha256'], module
+    assert m.sha(m.PROJECTS / info['path']) == info['sha256'], module
 assert m.dependencies() == load('after2-start.json')['dependency_state']
 m.write_json(HERE / 'final-integrity.json', {
     'active_sources_unchanged_after_compatibility_audit': True,

@@ -21,9 +21,8 @@ import subprocess
 import sys
 import time
 
-HERE = Path(__file__).resolve().parent
-REPO = HERE.parents[1]
-ROOT = REPO / 'formalization/main_theorem'
+from layout import EVIDENCE as HERE, PROJECTS, REPOSITORY as REPO
+ROOT = PROJECTS / 'formalization/main_theorem'
 WORKSPACE = REPO.parent
 SKILLS = WORKSPACE / 'elaboration-skills/skills'
 COMPILER = Path.home() / '.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean.exe'
@@ -136,7 +135,7 @@ def snapshot(label):
     sources = {}
     total = code = nonmodule = 0
     for name, path in modules.items():
-        rel = path.relative_to(REPO)
+        rel = path.relative_to(PROJECTS)
         target = dest / rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(path, target)

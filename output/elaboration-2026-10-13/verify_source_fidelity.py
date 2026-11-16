@@ -4,8 +4,7 @@ import json
 from pathlib import Path
 import re
 
-HERE = Path(__file__).resolve().parent
-REPO = HERE.parents[1]
+from layout import EVIDENCE as HERE, PROJECTS
 before = json.loads((HERE / 'before-sources.json').read_text())
 snapshot = Path(before['snapshot_path'])
 strip_imports = lambda s: '\n'.join(line for line in s.splitlines()
@@ -19,7 +18,7 @@ for file in HERE.glob('ab-*/result.json'):
         proof_cases.setdefault(case['module'], []).append(file.parent)
 for name, info in before['modules'].items():
     prior = (snapshot / info['path']).read_text(encoding='utf-8')
-    current = (REPO / info['path']).read_text(encoding='utf-8')
+    current = (PROJECTS / info['path']).read_text(encoding='utf-8')
     if prior == current:
         continue
     if strip_imports(prior) != strip_imports(current):

@@ -6,8 +6,7 @@ import subprocess
 import sys
 import measure as m
 
-HERE = Path(__file__).resolve().parent
-REPO = HERE.parents[1]
+from layout import EVIDENCE as HERE, PROJECTS
 
 def run(script, *args):
     subprocess.run([sys.executable, '-X', 'utf8', str(HERE / script), *map(str, args)], check=True)
@@ -33,10 +32,10 @@ for module in selected:
     run('measure.py', 'profile', f'{label}-profile', module)
 run('run_probe.py', 'after-types', 'DeclarationTypes.lean')
 run('compare_types.py', 'before-types', 'after-types')
-run('run_probe.py', 'after-main-audit', REPO / 'formalization/main_theorem/Audit.lean')
+run('run_probe.py', 'after-main-audit', PROJECTS / 'formalization/main_theorem/Audit.lean')
 run('run_probe.py', 'after-bounds-audit', 'BoundsAudit.lean')
 for module, info in sources['modules'].items():
-    assert hashlib.sha256((REPO / info['path']).read_bytes()).hexdigest() == info['sha256'], module
+    assert hashlib.sha256((PROJECTS / info['path']).read_bytes()).hexdigest() == info['sha256'], module
 for module in selected:
     metadata = json.loads((HERE / f'{label}-profile-{module}.json').read_text())
     assert metadata['exit_code'] == 0
